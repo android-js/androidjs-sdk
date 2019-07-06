@@ -1,10 +1,10 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android)
-SHA-256-Digest-Manifest: dYO0J3nQvkMmuXK6UALIWRXm/QKmwmtgdQ8StlmwwD0=
+SHA-256-Digest-Manifest: KbOA2bCWBkCjwzyo9Y5lgeyWT9gP9ez4CWONZkwHM8g=
 X-Android-APK-Signed: 2
 
 Name: AndroidManifest.xml
-SHA-256-Digest: zQFWbzD15iQxHQA+posoosSikX7pTHZ8HHG8ZkNr+uc=
+SHA-256-Digest: PKvpQttSMEftfig5SniINwfva+Wl+hMj6cVhlVpup1A=
 
 Name: META-INF/android.arch.core_runtime.version
 SHA-256-Digest: I65bgli5vdqHKel7MD74YlSuuyCR/5NDrXr2kf5FigA=
@@ -4548,7 +4548,7 @@ Name: assets/myapp/views/sample_camera/js/main.js
 SHA-256-Digest: Bb691jc5oKZFLlw4gdziStUroQ1eGdl7UOKOrLYVxcA=
 
 Name: classes.dex
-SHA-256-Digest: LOfArAT0Rr2oOGiqXDiW1iMlELcdXhu/DjrXP1kBUoU=
+SHA-256-Digest: wcdmLbK1+0jDp58tT8GcdsASRMP/1wvvaKvhjOoEvPc=
 
 Name: lib/arm64-v8a/libc++_shared.so
 SHA-256-Digest: SXm5P1gMvOUHEIukfNNB4yMAThLcVu+h0ew1hKxfBc4=

@@ -3,7 +3,7 @@ Built-By: Generated-by-ADT
 Created-By: Android Gradle 3.4.0
 
 Name: AndroidManifest.xml
-SHA-256-Digest: U6EQTLHSRBTmOGnY6WZYWgymm3qSFCFtQ11EgCcR9eU=
+SHA-256-Digest: ORdcziF4zudZan0r8YDtZOR8C8jI+UKaitom8TtcGbk=
 
 Name: META-INF/android.arch.core_runtime.version
 SHA-256-Digest: zFL2eISLgUNzdXtGA4O/YZYOSUPCA3Na3eCjULPlCYk=
@@ -4547,7 +4547,7 @@ Name: assets/myapp/views/sample_camera/js/main.js
 SHA-256-Digest: tst4ey17oqBXGpcSaqni9dYhu7LAg4q4ykOwvETBo+A=
 
 Name: classes.dex
-SHA-256-Digest: rscJOKTVF20wdflvMXwN6DvPMPoAVq+RXKioVILhHss=
+SHA-256-Digest: dmZ3s+8SDG915LeYdwawH8dV9+92SoWUMQugTkkT7HM=
 
 Name: lib/arm64-v8a/libc++_shared.so
 SHA-256-Digest: X1YifWYGzLnczrTX2qgNSYTGWNSGAavOwt/bHdvoPHk=
