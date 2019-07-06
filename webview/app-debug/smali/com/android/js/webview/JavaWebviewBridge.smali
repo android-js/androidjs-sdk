@@ -12,6 +12,8 @@
 
 .field private contact:Lcom/android/js/api/Contact;
 
+.field private deepLink:Lcom/android/js/api/DeepLink;
+
 .field private hotspot:Lcom/android/js/api/Hotspot;
 
 .field private iconId:I
@@ -38,71 +40,78 @@
     .param p3, "myWebView"    # Landroid/webkit/WebView;
     .param p4, "iconId"    # I
 
-    .line 33
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
+    .line 35
     iput-object p1, p0, Lcom/android/js/webview/JavaWebviewBridge;->activity:Lcom/android/js/webview/AndroidJSActivity;
 
-    .line 35
+    .line 36
     iput-object p3, p0, Lcom/android/js/webview/JavaWebviewBridge;->myWebView:Landroid/webkit/WebView;
 
-    .line 36
+    .line 37
     new-instance v0, Lcom/android/js/api/Notification;
 
     invoke-direct {v0, p1, p2, p4}, Lcom/android/js/api/Notification;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;I)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->notification:Lcom/android/js/api/Notification;
 
-    .line 37
+    .line 38
     new-instance v0, Lcom/android/js/api/Call;
 
     invoke-direct {v0, p1, p2}, Lcom/android/js/api/Call;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->call:Lcom/android/js/api/Call;
 
-    .line 38
+    .line 39
     new-instance v0, Lcom/android/js/api/Wifi;
 
     invoke-direct {v0, p1, p2}, Lcom/android/js/api/Wifi;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
-    .line 39
+    .line 40
     new-instance v0, Lcom/android/js/api/Hotspot;
 
     invoke-direct {v0, p1, p2}, Lcom/android/js/api/Hotspot;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->hotspot:Lcom/android/js/api/Hotspot;
 
-    .line 40
+    .line 41
     new-instance v0, Lcom/android/js/api/Toast;
 
     invoke-direct {v0, p1, p2}, Lcom/android/js/api/Toast;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->toast:Lcom/android/js/api/Toast;
 
-    .line 41
+    .line 42
     new-instance v0, Lcom/android/js/api/App;
 
     invoke-direct {v0, p1, p2}, Lcom/android/js/api/App;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->app:Lcom/android/js/api/App;
 
-    .line 42
+    .line 43
     new-instance v0, Lcom/android/js/api/Contact;
 
     invoke-direct {v0, p1, p2}, Lcom/android/js/api/Contact;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
 
-    .line 43
-    iput p4, p0, Lcom/android/js/webview/JavaWebviewBridge;->iconId:I
-
     .line 44
-    iput-object p2, p0, Lcom/android/js/webview/JavaWebviewBridge;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    new-instance v0, Lcom/android/js/api/DeepLink;
+
+    invoke-direct {v0, p1, p2}, Lcom/android/js/api/DeepLink;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+
+    iput-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->deepLink:Lcom/android/js/api/DeepLink;
 
     .line 45
+    iput p4, p0, Lcom/android/js/webview/JavaWebviewBridge;->iconId:I
+
+    .line 46
+    iput-object p2, p0, Lcom/android/js/webview/JavaWebviewBridge;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+
+    .line 47
     return-void
 .end method
 
@@ -116,7 +125,7 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 154
+    .line 156
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/js/api/Contact;->addContact(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -133,12 +142,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 114
+    .line 116
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Wifi;->connectWifi(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 115
+    .line 117
     return-void
 .end method
 
@@ -147,7 +156,7 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 129
+    .line 131
     :try_start_0
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->hotspot:Lcom/android/js/api/Hotspot;
 
@@ -155,18 +164,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 132
+    .line 134
     goto :goto_0
 
-    .line 130
+    .line 132
     :catch_0
     move-exception v0
 
-    .line 131
+    .line 133
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 133
+    .line 135
     .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
@@ -177,12 +186,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 89
+    .line 91
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->disableWifi()V
 
-    .line 90
+    .line 92
     return-void
 .end method
 
@@ -191,12 +200,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 94
+    .line 96
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->disconnectWifi()V
 
-    .line 95
+    .line 97
     return-void
 .end method
 
@@ -206,7 +215,7 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 120
+    .line 122
     :try_start_0
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->hotspot:Lcom/android/js/api/Hotspot;
 
@@ -214,18 +223,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 123
+    .line 125
     goto :goto_0
 
-    .line 121
+    .line 123
     :catch_0
     move-exception v0
 
-    .line 122
+    .line 124
     .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 124
+    .line 126
     .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
@@ -236,12 +245,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 84
+    .line 86
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->enableWifi()V
 
-    .line 85
+    .line 87
     return-void
 .end method
 
@@ -256,7 +265,7 @@
         }
     .end annotation
 
-    .line 142
+    .line 144
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
 
     const/4 v1, 0x0
@@ -284,7 +293,7 @@
         }
     .end annotation
 
-    .line 146
+    .line 148
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Contact;->getContactByName(Ljava/lang/String;)Ljava/lang/String;
@@ -305,7 +314,7 @@
         }
     .end annotation
 
-    .line 150
+    .line 152
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
 
     invoke-virtual {v0}, Lcom/android/js/api/Contact;->getContactsCount()I
@@ -315,13 +324,28 @@
     return v0
 .end method
 
+.method public getDeepLink()Ljava/lang/String;
+    .locals 1
+    .annotation runtime Landroid/webkit/JavascriptInterface;
+    .end annotation
+
+    .line 161
+    iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->deepLink:Lcom/android/js/api/DeepLink;
+
+    invoke-virtual {v0}, Lcom/android/js/api/DeepLink;->getLink()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getPath(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
     .param p1, "name"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->app:Lcom/android/js/api/App;
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/App;->getPath(Ljava/lang/String;)Ljava/lang/String;
@@ -342,7 +366,7 @@
         }
     .end annotation
 
-    .line 109
+    .line 111
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->getWifiScanResults()Ljava/lang/String;
@@ -357,7 +381,7 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 99
+    .line 101
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->getWifiState()I
@@ -372,14 +396,14 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 49
+    .line 51
     sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string v1, "Java IPC Works"
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    .line 50
+    .line 52
     const-string v0, "Hello World"
 
     return-object v0
@@ -392,12 +416,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 69
+    .line 71
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->notification:Lcom/android/js/api/Notification;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Notification;->initBigNotification(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 70
+    .line 72
     return-void
 .end method
 
@@ -408,12 +432,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 59
+    .line 61
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->notification:Lcom/android/js/api/Notification;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Notification;->initNotification(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 60
+    .line 62
     return-void
 .end method
 
@@ -422,7 +446,7 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 137
+    .line 139
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->hotspot:Lcom/android/js/api/Hotspot;
 
     invoke-virtual {v0}, Lcom/android/js/api/Hotspot;->isHotspotEnabled()Z
@@ -437,7 +461,7 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 104
+    .line 106
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->isWifiEnabled()Z
@@ -453,12 +477,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 79
+    .line 81
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->call:Lcom/android/js/api/Call;
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Call;->makeCall(Ljava/lang/String;)V
 
-    .line 80
+    .line 82
     return-void
 .end method
 
@@ -468,12 +492,12 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 64
+    .line 66
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->notification:Lcom/android/js/api/Notification;
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Notification;->showNotification(I)V
 
-    .line 65
+    .line 67
     return-void
 .end method
 
@@ -484,11 +508,11 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 74
+    .line 76
     iget-object v0, p0, Lcom/android/js/webview/JavaWebviewBridge;->toast:Lcom/android/js/api/Toast;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Toast;->showToast(Ljava/lang/String;I)V
 
-    .line 75
+    .line 77
     return-void
 .end method

@@ -3,7 +3,7 @@ Built-By: Generated-by-ADT
 Created-By: Android Gradle 3.4.0
 
 Name: AndroidManifest.xml
-SHA-256-Digest: ORdcziF4zudZan0r8YDtZOR8C8jI+UKaitom8TtcGbk=
+SHA-256-Digest: U6EQTLHSRBTmOGnY6WZYWgymm3qSFCFtQ11EgCcR9eU=
 
 Name: META-INF/android.arch.core_runtime.version
 SHA-256-Digest: zFL2eISLgUNzdXtGA4O/YZYOSUPCA3Na3eCjULPlCYk=
@@ -99,7 +99,7 @@ Name: assets/myapp/README.md
 SHA-256-Digest: FPVfmzh1UTjpY1kKR2Lt8+YFg6Pfm230j/F7zU3nS5Y=
 
 Name: assets/myapp/assets/ipc/androidjs.js
-SHA-256-Digest: sSWR6kh8paFqtqeDBAMZOpED45ieUOfCGevEmmDL3/Q=
+SHA-256-Digest: 0PK2bCbJTS/lhTCLI0+XNAUtbEH9VsSFED6KkTKz9cg=
 
 Name: assets/myapp/assets/ipc/back.js
 SHA-256-Digest: ZX5YAq8QLA02GlNZqDpy9aP14q3Xv8FD5L0h3a/oMGc=
@@ -4535,7 +4535,7 @@ Name: assets/myapp/views/dist/js/phonon.min.js
 SHA-256-Digest: kbHVKG0e2QgrrTu/gAxETo6Caz3i0WAxhLMR3Iu0o6g=
 
 Name: assets/myapp/views/index.html
-SHA-256-Digest: ux1tQBMUOGFPAsmEigDvEjfImT0qRp7mfGq3XE5TOfs=
+SHA-256-Digest: NPeY93qlvYQYK08u0BmR2pA9+74b8zuOddL0mUuGZK0=
 
 Name: assets/myapp/views/sample_camera/css/main.css
 SHA-256-Digest: 6PS0AvLcmmmy8Os0gClxgE0MiMnfBleBDhOn4ax8m+U=
@@ -4547,7 +4547,7 @@ Name: assets/myapp/views/sample_camera/js/main.js
 SHA-256-Digest: tst4ey17oqBXGpcSaqni9dYhu7LAg4q4ykOwvETBo+A=
 
 Name: classes.dex
-SHA-256-Digest: CmGXej81fNIa4wcEfTcrG7ZHQgAdpsq/dxDhAeEOSn0=
+SHA-256-Digest: rscJOKTVF20wdflvMXwN6DvPMPoAVq+RXKioVILhHss=
 
 Name: lib/arm64-v8a/libc++_shared.so
 SHA-256-Digest: X1YifWYGzLnczrTX2qgNSYTGWNSGAavOwt/bHdvoPHk=
