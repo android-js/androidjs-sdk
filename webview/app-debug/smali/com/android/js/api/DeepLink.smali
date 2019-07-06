@@ -75,9 +75,18 @@
 
     .line 28
     .local v2, "data":Landroid/net/Uri;
+    if-eqz v2, :cond_0
+
+    .line 29
     invoke-virtual {v2}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v3
+
+    return-object v3
+
+    .line 30
+    :cond_0
+    const-string v3, "-1"
 
     return-object v3
 .end method
@@ -85,7 +94,7 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 33
+    .line 35
     const-string v0, "DeepLink"
 
     return-object v0
