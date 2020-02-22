@@ -262,7 +262,7 @@
     invoke-virtual {p0, v1}, Lcom/android/js/api/Contact;->getAllContacts(Ljava/lang/Boolean;)Ljava/lang/String;
 
     .line 95
-    const-string v1, "{error:false, msg:\'contact added\'}"
+    const-string v1, "{\"error\": false, \"msg\": \"contact added\"}"
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -281,7 +281,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "{error:true, err: \'"
+    const-string v3, "{\"error\": true, \"err\": \""
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -291,7 +291,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\'}"
+    const-string v3, "\"}"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -584,7 +584,7 @@
     .line 108
     .end local v0    # "i":I
     :cond_2
-    const-string v0, "{error:false, msg: \'record not found\'}"
+    const-string v0, "{\"error\": false, \"msg\": \"record not found\"}"
 
     return-object v0
 .end method
