@@ -3,7 +3,7 @@ Built-By: Generated-by-ADT
 Created-By: Android Gradle 3.4.0
 
 Name: AndroidManifest.xml
-SHA-256-Digest: SJAfjGzvEYc1cMOkwzgbUwXFTB02FRayvoBcU3isEU0=
+SHA-256-Digest: QOTXNQTMT1UCuCdRZtV89kE5kAHCyAHuE1Bte060c7M=
 
 Name: META-INF/android.arch.core_runtime.version
 SHA-256-Digest: zFL2eISLgUNzdXtGA4O/YZYOSUPCA3Na3eCjULPlCYk=
