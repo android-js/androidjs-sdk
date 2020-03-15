@@ -44,6 +44,12 @@ doNotCompress:
 - assets/myapp/node_modules/localtunnel/node_modules/debug/node.js
 - assets/myapp/node_modules/parseqs/Makefile
 - assets/myapp/node_modules/parseuri/Makefile
+- assets/myapp/node_modules/readable-stream/duplex-browser.js
+- assets/myapp/node_modules/readable-stream/duplex.js
+- assets/myapp/node_modules/readable-stream/passthrough.js
+- assets/myapp/node_modules/readable-stream/transform.js
+- assets/myapp/node_modules/readable-stream/writable-browser.js
+- assets/myapp/node_modules/readable-stream/lib/internal/streams/stream.js
 - assets/myapp/node_modules/resolve/test/dotdot/index.js
 - assets/myapp/node_modules/resolve/test/dotdot/abc/index.js
 - assets/myapp/node_modules/resolve/test/module_dir/xmodules/aaa/index.js
