@@ -99,7 +99,7 @@ Name: assets/myapp/README.md
 SHA-256-Digest: FPVfmzh1UTjpY1kKR2Lt8+YFg6Pfm230j/F7zU3nS5Y=
 
 Name: assets/myapp/assets/ipc/androidjs.js
-SHA-256-Digest: B/vecBXlcrl4n0oRNZJIXjvWbNeUV4Mq6plzMcGAeHY=
+SHA-256-Digest: difoUGVwuLAE1xobwtHrs36mRSBFHAIoQ7+pGNh49Ko=
 
 Name: assets/myapp/assets/ipc/back.js
 SHA-256-Digest: ZX5YAq8QLA02GlNZqDpy9aP14q3Xv8FD5L0h3a/oMGc=
@@ -4154,7 +4154,7 @@ Name: assets/myapp/views/dist/js/phonon.min.js
 SHA-256-Digest: kbHVKG0e2QgrrTu/gAxETo6Caz3i0WAxhLMR3Iu0o6g=
 
 Name: assets/myapp/views/index.html
-SHA-256-Digest: /qzGnVZv/lBHiu+rmlwnTTCAMEojQo/Qenr3CeS5B38=
+SHA-256-Digest: OMW/yVqMZaPIhXXGsr4QBvqi9ssM9hR2O/Hq4cP3Rfk=
 
 Name: assets/myapp/views/sample_camera/css/main.css
 SHA-256-Digest: 6PS0AvLcmmmy8Os0gClxgE0MiMnfBleBDhOn4ax8m+U=
@@ -4166,7 +4166,7 @@ Name: assets/myapp/views/sample_camera/js/main.js
 SHA-256-Digest: tst4ey17oqBXGpcSaqni9dYhu7LAg4q4ykOwvETBo+A=
 
 Name: classes.dex
-SHA-256-Digest: cZWW0H8PCpQNaEmY+pTZqvEvmTfREO6IZpxCVdnzNIc=
+SHA-256-Digest: SrNUUgME/C/c80WV6pvGqAMxXNUzyuF99dNZe5Q+oIE=
 
 Name: lib/arm64-v8a/libc++_shared.so
 SHA-256-Digest: wdFEsQPmhrp68u9ZC2Dk62TyaxCnc5WhD99DPG48MnA=

@@ -1,6 +1,6 @@
 Signature-Version: 1.0
 Created-By: 1.0 (Android)
-SHA-256-Digest-Manifest: nvR+jShU6PuyEc3I6rRUKvKDZKV5uco2TuQvh4a+Ric=
+SHA-256-Digest-Manifest: QgOkrxeqIaBENmGHKaGy7AS8ClBVgLqGyhj5Nw2E4QY=
 X-Android-APK-Signed: 2
 
 Name: AndroidManifest.xml
@@ -100,7 +100,7 @@ Name: assets/myapp/README.md
 SHA-256-Digest: EMQfYinm8HCoFF+lVoodWW3Zq5VCqWS+3spnT5iFR1o=
 
 Name: assets/myapp/assets/ipc/androidjs.js
-SHA-256-Digest: AyB+zyddxs0JgSNNRmeuS/Eq5A8ky3B8N6aSWS1HnWQ=
+SHA-256-Digest: p9un+Xb8z+uTKwQfnhD1EPKFLKOuUmJmZjDFkp2ZgHM=
 
 Name: assets/myapp/assets/ipc/back.js
 SHA-256-Digest: hgg+lDSABgPqyXCHAVUOthwhZRhJLZk13ZglOGs98sA=
@@ -4155,7 +4155,7 @@ Name: assets/myapp/views/dist/js/phonon.min.js
 SHA-256-Digest: jBgntY0HUxYppfwYDaDfFvEKtRBIPi9BEpgcYnuTRNA=
 
 Name: assets/myapp/views/index.html
-SHA-256-Digest: ip0J59saQyy2qR6FMetbMWMNDwTSqHN4X/zzst0OD6Q=
+SHA-256-Digest: uH9DCO7+31aFgEpTRIf/iqpUFI7dyXkR7HH/Ysf67PA=
 
 Name: assets/myapp/views/sample_camera/css/main.css
 SHA-256-Digest: A1dgMuBKUfXAcdSrB5nVM6a5kV+Y/LvcRyTddkoLvMk=
@@ -4167,7 +4167,7 @@ Name: assets/myapp/views/sample_camera/js/main.js
 SHA-256-Digest: Bb691jc5oKZFLlw4gdziStUroQ1eGdl7UOKOrLYVxcA=
 
 Name: classes.dex
-SHA-256-Digest: 44KhSl+0MvjcIaVjjMqWxPx8nsToEfNourYwgB9X+v4=
+SHA-256-Digest: 24meB2jCajUFXPEZ3ToOudSTyJqVa4w534t81Q/453U=
 
 Name: lib/arm64-v8a/libc++_shared.so
 SHA-256-Digest: kqgH700TySQCLGmyuIVQKKGqMyjYLLPlVVTS9Whi220=
