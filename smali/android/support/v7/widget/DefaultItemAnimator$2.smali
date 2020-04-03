@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/DefaultItemAnimator;Ljava/util/ArrayList;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/DefaultItemAnimator;
 
     .line 145
     iput-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$2;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
@@ -64,13 +63,10 @@
     check-cast v1, Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;
 
     .line 149
-    .local v1, "change":Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;
     iget-object v2, p0, Landroid/support/v7/widget/DefaultItemAnimator$2;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
     invoke-virtual {v2, v1}, Landroid/support/v7/widget/DefaultItemAnimator;->animateChangeImpl(Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;)V
 
-    .line 150
-    .end local v1    # "change":Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;
     goto :goto_0
 
     .line 151
@@ -88,6 +84,5 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 153
     return-void
 .end method

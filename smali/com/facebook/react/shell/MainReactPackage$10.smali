@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/shell/MainReactPackage;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/shell/MainReactPackage;
 
     .line 195
     iput-object p1, p0, Lcom/facebook/react/shell/MainReactPackage$10;->this$0:Lcom/facebook/react/shell/MainReactPackage;
@@ -86,7 +85,6 @@
 
     invoke-direct {v0, v1, v3, v2}, Lcom/facebook/react/modules/fresco/FrescoModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;ZLcom/facebook/imagepipeline/core/ImagePipelineConfig;)V
 
-    .line 198
     return-object v0
 .end method
 

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
 
     .line 160
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$2;->this$1:Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
@@ -53,7 +52,6 @@
     move-result-object v1
 
     .line 168
-    .local v1, "closeableImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     iget-object v2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$2;->this$1:Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
 
     invoke-static {v2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->access$400(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)I
@@ -61,7 +59,6 @@
     move-result v2
 
     .line 169
-    .local v2, "status":I
     iget-object v3, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$2;->this$1:Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
 
     const/4 v4, 0x0
@@ -98,10 +95,8 @@
     .line 177
     invoke-static {v1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 178
     goto :goto_0
 
-    .line 177
     :catchall_0
     move-exception v0
 
@@ -117,15 +112,12 @@
 
     invoke-static {v0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->access$700(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)V
 
-    .line 181
     return-void
 
-    .line 171
-    .end local v1    # "closeableImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .end local v2    # "status":I
     :catchall_1
     move-exception v1
 
+    .line 171
     :try_start_2
     monitor-exit v0
     :try_end_2

@@ -25,8 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Pipe;)V
-    .locals 1
-    .param p1, "this$0"    # Lokio/Pipe;
+    .locals 0
 
     .line 104
     iput-object p1, p0, Lokio/Pipe$PipeSource;->this$0:Lokio/Pipe;
@@ -34,11 +33,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 105
-    new-instance v0, Lokio/Timeout;
+    new-instance p1, Lokio/Timeout;
 
-    invoke-direct {v0}, Lokio/Timeout;-><init>()V
+    invoke-direct {p1}, Lokio/Timeout;-><init>()V
 
-    iput-object v0, p0, Lokio/Pipe$PipeSource;->timeout:Lokio/Timeout;
+    iput-object p1, p0, Lokio/Pipe$PipeSource;->timeout:Lokio/Timeout;
 
     return-void
 .end method
@@ -78,10 +77,8 @@
     .line 126
     monitor-exit v0
 
-    .line 127
     return-void
 
-    .line 126
     :catchall_0
     move-exception v1
 
@@ -94,8 +91,6 @@
 
 .method public read(Lokio/Buffer;J)J
     .locals 6
-    .param p1, "sink"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -140,11 +135,11 @@
 
     if-eqz v1, :cond_0
 
-    const-wide/16 v1, -0x1
+    const-wide/16 p1, -0x1
 
     monitor-exit v0
 
-    return-wide v1
+    return-wide p1
 
     .line 113
     :cond_0
@@ -166,45 +161,39 @@
 
     invoke-virtual {v1, p1, p2, p3}, Lokio/Buffer;->read(Lokio/Buffer;J)J
 
-    move-result-wide v1
+    move-result-wide p1
 
     .line 117
-    .local v1, "result":J
-    iget-object v3, p0, Lokio/Pipe$PipeSource;->this$0:Lokio/Pipe;
+    iget-object p3, p0, Lokio/Pipe$PipeSource;->this$0:Lokio/Pipe;
 
-    iget-object v3, v3, Lokio/Pipe;->buffer:Lokio/Buffer;
+    iget-object p3, p3, Lokio/Pipe;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v3}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p3}, Ljava/lang/Object;->notifyAll()V
 
     .line 118
     monitor-exit v0
 
-    return-wide v1
+    return-wide p1
 
     .line 109
-    .end local v1    # "result":J
     :cond_2
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "sink":Lokio/Buffer;
-    .end local p2    # "byteCount":J
-    throw v1
+    throw p1
+
+    :catchall_0
+    move-exception p1
 
     .line 119
-    .restart local p1    # "sink":Lokio/Buffer;
-    .restart local p2    # "byteCount":J
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     return-void
 .end method

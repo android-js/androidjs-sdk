@@ -95,9 +95,9 @@
 .method public reset()V
     .locals 2
 
-    .line 91
     const-wide/16 v0, 0x0
 
+    .line 91
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->measures:J
 
     .line 92
@@ -189,7 +189,6 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    .line 121
     return-void
 .end method
 

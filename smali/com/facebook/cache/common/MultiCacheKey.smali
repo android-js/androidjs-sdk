@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -31,86 +31,75 @@
     .end annotation
 
     .line 29
-    .local p1, "cacheKeys":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/cache/common/CacheKey;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 30
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
-    iput-object v0, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
+    iput-object p1, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
 
-    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method public containsUri(Landroid/net/Uri;)Z
-    .locals 2
-    .param p1, "uri"    # Landroid/net/Uri;
+    .locals 3
 
-    .line 61
     const/4 v0, 0x0
 
-    .local v0, "i":I
-    :goto_0
-    iget-object v1, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    .line 62
-    iget-object v1, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/facebook/cache/common/CacheKey;
-
-    invoke-interface {v1, p1}, Lcom/facebook/cache/common/CacheKey;->containsUri(Landroid/net/Uri;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 63
-    const/4 v1, 0x1
-
-    return v1
+    const/4 v1, 0x0
 
     .line 61
+    :goto_0
+    iget-object v2, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_1
+
+    .line 62
+    iget-object v2, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
+
+    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/facebook/cache/common/CacheKey;
+
+    invoke-interface {v2, p1}, Lcom/facebook/cache/common/CacheKey;->containsUri(Landroid/net/Uri;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 p1, 0x1
+
+    return p1
+
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 66
-    .end local v0    # "i":I
     :cond_1
-    const/4 v0, 0x0
-
     return v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 44
     if-ne p1, p0, :cond_0
 
-    .line 45
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 47
     :cond_0
@@ -119,28 +108,23 @@
     if-eqz v0, :cond_1
 
     .line 48
-    move-object v0, p1
-
-    check-cast v0, Lcom/facebook/cache/common/MultiCacheKey;
+    check-cast p1, Lcom/facebook/cache/common/MultiCacheKey;
 
     .line 49
-    .local v0, "otherKey":Lcom/facebook/cache/common/MultiCacheKey;
-    iget-object v1, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
+    iget-object v0, p0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
 
-    iget-object v2, v0, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
+    iget-object p1, p1, Lcom/facebook/cache/common/MultiCacheKey;->mCacheKeys:Ljava/util/List;
 
-    invoke-interface {v1, v2}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 51
-    .end local v0    # "otherKey":Lcom/facebook/cache/common/MultiCacheKey;
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public getCacheKeys()Ljava/util/List;

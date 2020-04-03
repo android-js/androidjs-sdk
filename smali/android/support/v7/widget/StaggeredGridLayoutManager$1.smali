@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/StaggeredGridLayoutManager;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/StaggeredGridLayoutManager;
 
     .line 216
     iput-object p1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$1;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/StaggeredGridLayoutManager;->checkForGaps()Z
 
-    .line 220
     return-void
 .end method

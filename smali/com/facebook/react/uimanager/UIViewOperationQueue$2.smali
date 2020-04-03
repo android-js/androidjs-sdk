@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 980
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$2;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -42,6 +40,5 @@
 
     invoke-static {v0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2600(Lcom/facebook/react/uimanager/UIViewOperationQueue;)V
 
-    .line 984
     return-void
 .end method

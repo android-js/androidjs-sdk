@@ -18,6 +18,5 @@
 .method protected onCleared()V
     .locals 0
 
-    .line 105
     return-void
 .end method

@@ -40,14 +40,11 @@
     .end annotation
 
     .line 16
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/DelegatingConsumer;, "Lcom/facebook/imagepipeline/producers/DelegatingConsumer<TI;TO;>;"
-    .local p1, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<TO;>;"
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/BaseConsumer;-><init>()V
 
     .line 17
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;->mConsumer:Lcom/facebook/imagepipeline/producers/Consumer;
 
-    .line 18
     return-void
 .end method
 
@@ -64,7 +61,6 @@
     .end annotation
 
     .line 21
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/DelegatingConsumer;, "Lcom/facebook/imagepipeline/producers/DelegatingConsumer<TI;TO;>;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;->mConsumer:Lcom/facebook/imagepipeline/producers/Consumer;
 
     return-object v0
@@ -74,39 +70,31 @@
     .locals 1
 
     .line 31
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/DelegatingConsumer;, "Lcom/facebook/imagepipeline/producers/DelegatingConsumer<TI;TO;>;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;->mConsumer:Lcom/facebook/imagepipeline/producers/Consumer;
 
     invoke-interface {v0}, Lcom/facebook/imagepipeline/producers/Consumer;->onCancellation()V
 
-    .line 32
     return-void
 .end method
 
 .method protected onFailureImpl(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 26
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/DelegatingConsumer;, "Lcom/facebook/imagepipeline/producers/DelegatingConsumer<TI;TO;>;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;->mConsumer:Lcom/facebook/imagepipeline/producers/Consumer;
 
     invoke-interface {v0, p1}, Lcom/facebook/imagepipeline/producers/Consumer;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 27
     return-void
 .end method
 
 .method protected onProgressUpdateImpl(F)V
     .locals 1
-    .param p1, "progress"    # F
 
     .line 36
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/DelegatingConsumer;, "Lcom/facebook/imagepipeline/producers/DelegatingConsumer<TI;TO;>;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;->mConsumer:Lcom/facebook/imagepipeline/producers/Consumer;
 
     invoke-interface {v0, p1}, Lcom/facebook/imagepipeline/producers/Consumer;->onProgressUpdate(F)V
 
-    .line 37
     return-void
 .end method

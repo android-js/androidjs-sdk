@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIManagerModule;Lcom/facebook/react/bridge/ReactApplicationContext;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/UIManagerModule;
 
     .line 405
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIManagerModule$2;->this$0:Lcom/facebook/react/uimanager/UIManagerModule;
@@ -45,21 +44,16 @@
 
 # virtual methods
 .method public onSizeChanged(IIII)V
-    .locals 2
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "oldW"    # I
-    .param p4, "oldH"    # I
+    .locals 0
 
     .line 408
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIManagerModule$2;->val$reactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    iget-object p3, p0, Lcom/facebook/react/uimanager/UIManagerModule$2;->val$reactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    new-instance v1, Lcom/facebook/react/uimanager/UIManagerModule$2$1;
+    new-instance p4, Lcom/facebook/react/uimanager/UIManagerModule$2$1;
 
-    invoke-direct {v1, p0, v0, p1, p2}, Lcom/facebook/react/uimanager/UIManagerModule$2$1;-><init>(Lcom/facebook/react/uimanager/UIManagerModule$2;Lcom/facebook/react/bridge/ReactContext;II)V
+    invoke-direct {p4, p0, p3, p1, p2}, Lcom/facebook/react/uimanager/UIManagerModule$2$1;-><init>(Lcom/facebook/react/uimanager/UIManagerModule$2;Lcom/facebook/react/bridge/ReactContext;II)V
 
-    invoke-virtual {v0, v1}, Lcom/facebook/react/bridge/ReactApplicationContext;->runOnNativeModulesQueueThread(Ljava/lang/Runnable;)V
+    invoke-virtual {p3, p4}, Lcom/facebook/react/bridge/ReactApplicationContext;->runOnNativeModulesQueueThread(Ljava/lang/Runnable;)V
 
-    .line 415
     return-void
 .end method

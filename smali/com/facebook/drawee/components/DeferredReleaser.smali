@@ -33,12 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 33
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/facebook/drawee/components/DeferredReleaser;->sInstance:Lcom/facebook/drawee/components/DeferredReleaser;
+    .locals 0
 
     return-void
 .end method
@@ -74,7 +69,6 @@
 
     iput-object v0, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mUiHandler:Landroid/os/Handler;
 
-    .line 52
     return-void
 .end method
 
@@ -88,13 +82,12 @@
 .end method
 
 .method static synthetic access$100(Lcom/facebook/drawee/components/DeferredReleaser;)Ljava/util/Set;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/drawee/components/DeferredReleaser;
+    .locals 0
 
     .line 31
-    iget-object v0, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mPendingReleasables:Ljava/util/Set;
+    iget-object p0, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mPendingReleasables:Ljava/util/Set;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static ensureOnUiThread()V
@@ -125,7 +118,6 @@
     :goto_0
     invoke-static {v0}, Lcom/facebook/common/internal/Preconditions;->checkState(Z)V
 
-    .line 100
     return-void
 .end method
 
@@ -159,7 +151,6 @@
 
     return-object v1
 
-    .line 35
     :catchall_0
     move-exception v1
 
@@ -172,7 +163,6 @@
 # virtual methods
 .method public cancelDeferredRelease(Lcom/facebook/drawee/components/DeferredReleaser$Releasable;)V
     .locals 1
-    .param p1, "releasable"    # Lcom/facebook/drawee/components/DeferredReleaser$Releasable;
 
     .line 94
     invoke-static {}, Lcom/facebook/drawee/components/DeferredReleaser;->ensureOnUiThread()V
@@ -182,13 +172,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 96
     return-void
 .end method
 
 .method public scheduleDeferredRelease(Lcom/facebook/drawee/components/DeferredReleaser$Releasable;)V
-    .locals 2
-    .param p1, "releasable"    # Lcom/facebook/drawee/components/DeferredReleaser$Releasable;
+    .locals 1
 
     .line 77
     invoke-static {}, Lcom/facebook/drawee/components/DeferredReleaser;->ensureOnUiThread()V
@@ -198,33 +186,31 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 80
     return-void
 
     .line 84
     :cond_0
-    iget-object v0, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mPendingReleasables:Ljava/util/Set;
+    iget-object p1, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mPendingReleasables:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->size()I
+    invoke-interface {p1}, Ljava/util/Set;->size()I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne p1, v0, :cond_1
 
     .line 85
-    iget-object v0, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mUiHandler:Landroid/os/Handler;
+    iget-object p1, p0, Lcom/facebook/drawee/components/DeferredReleaser;->mUiHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/facebook/drawee/components/DeferredReleaser;->releaseRunnable:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/facebook/drawee/components/DeferredReleaser;->releaseRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 87
     :cond_1
     return-void
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/toolbar/ReactToolbarManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/toolbar/ReactToolbar;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/toolbar/ReactToolbarManager;
 
     .line 133
     iput-object p1, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$2;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbarManager;
@@ -45,8 +44,7 @@
 
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
-    .locals 4
-    .param p1, "menuItem"    # Landroid/view/MenuItem;
+    .locals 3
 
     .line 136
     iget-object v0, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$2;->val$mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
@@ -63,15 +61,14 @@
     .line 139
     invoke-interface {p1}, Landroid/view/MenuItem;->getOrder()I
 
-    move-result v3
+    move-result p1
 
-    invoke-direct {v1, v2, v3}, Lcom/facebook/react/views/toolbar/events/ToolbarClickEvent;-><init>(II)V
+    invoke-direct {v1, v2, p1}, Lcom/facebook/react/views/toolbar/events/ToolbarClickEvent;-><init>(II)V
 
     .line 136
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 140
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

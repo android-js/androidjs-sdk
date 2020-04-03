@@ -50,9 +50,9 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/Cache;->solverVariablePool:Landroid/support/constraint/solver/Pools$Pool;
 
-    .line 24
     const/16 v0, 0x20
 
+    .line 24
     new-array v0, v0, [Landroid/support/constraint/solver/SolverVariable;
 
     iput-object v0, p0, Landroid/support/constraint/solver/Cache;->mIndexedVariables:[Landroid/support/constraint/solver/SolverVariable;

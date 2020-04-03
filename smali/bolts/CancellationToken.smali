@@ -10,7 +10,6 @@
 # direct methods
 .method constructor <init>(Lbolts/CancellationTokenSource;)V
     .locals 0
-    .param p1, "tokenSource"    # Lbolts/CancellationTokenSource;
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +17,6 @@
     .line 37
     iput-object p1, p0, Lbolts/CancellationToken;->tokenSource:Lbolts/CancellationTokenSource;
 
-    .line 38
     return-void
 .end method
 
@@ -39,16 +37,15 @@
 
 .method public register(Ljava/lang/Runnable;)Lbolts/CancellationTokenRegistration;
     .locals 1
-    .param p1, "action"    # Ljava/lang/Runnable;
 
     .line 55
     iget-object v0, p0, Lbolts/CancellationToken;->tokenSource:Lbolts/CancellationTokenSource;
 
     invoke-virtual {v0, p1}, Lbolts/CancellationTokenSource;->register(Ljava/lang/Runnable;)Lbolts/CancellationTokenRegistration;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public throwIfCancellationRequested()V
@@ -64,7 +61,6 @@
 
     invoke-virtual {v0}, Lbolts/CancellationTokenSource;->throwIfCancellationRequested()V
 
-    .line 64
     return-void
 .end method
 

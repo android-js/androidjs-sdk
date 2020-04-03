@@ -47,28 +47,19 @@
 
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/bridge/ReactContext;Ljava/lang/String;IIIILcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
-    .locals 4
-    .param p1, "context"    # Lcom/facebook/react/bridge/ReactContext;
-    .param p2, "uri"    # Ljava/lang/String;
-    .param p3, "x"    # I
-    .param p4, "y"    # I
-    .param p5, "width"    # I
-    .param p6, "height"    # I
-    .param p7, "success"    # Lcom/facebook/react/bridge/Callback;
-    .param p8, "error"    # Lcom/facebook/react/bridge/Callback;
+    .locals 1
 
     .line 224
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/GuardedAsyncTask;-><init>(Lcom/facebook/react/bridge/ReactContext;)V
 
-    .line 210
     const/4 v0, 0x0
 
+    .line 210
     iput v0, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetWidth:I
 
     .line 211
     iput v0, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetHeight:I
 
-    .line 225
     if-ltz p3, :cond_0
 
     if-ltz p4, :cond_0
@@ -101,71 +92,61 @@
     .line 236
     iput-object p8, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mError:Lcom/facebook/react/bridge/Callback;
 
-    .line 237
     return-void
 
     .line 226
     :cond_0
-    new-instance v1, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
+    new-instance p1, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
 
-    const/4 v2, 0x4
+    const/4 p2, 0x4
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array p2, p2, [Ljava/lang/Object;
 
     .line 227
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p3
 
-    aput-object v3, v2, v0
+    aput-object p3, p2, v0
 
-    const/4 v0, 0x1
+    const/4 p3, 0x1
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v2, v0
+    aput-object p4, p2, p3
 
-    const/4 v0, 0x2
+    const/4 p3, 0x2
 
     invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v2, v0
+    aput-object p4, p2, p3
 
-    const/4 v0, 0x3
+    const/4 p3, 0x3
 
     invoke-static {p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p4
 
-    aput-object v3, v2, v0
+    aput-object p4, p2, p3
+
+    const-string p3, "Invalid crop rectangle: [%d, %d, %d, %d]"
 
     .line 226
-    const-string v0, "Invalid crop rectangle: [%d, %d, %d, %d]"
+    invoke-static {p3, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object v0
+    invoke-direct {p1, p2}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v0}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v1
+    throw p1
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/bridge/ReactContext;Ljava/lang/String;IIIILcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/modules/camera/ImageEditingManager$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/bridge/ReactContext;
-    .param p2, "x1"    # Ljava/lang/String;
-    .param p3, "x2"    # I
-    .param p4, "x3"    # I
-    .param p5, "x4"    # I
-    .param p6, "x5"    # I
-    .param p7, "x6"    # Lcom/facebook/react/bridge/Callback;
-    .param p8, "x7"    # Lcom/facebook/react/bridge/Callback;
-    .param p9, "x8"    # Lcom/facebook/react/modules/camera/ImageEditingManager$1;
 
     .line 203
     invoke-direct/range {p0 .. p8}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;-><init>(Lcom/facebook/react/bridge/ReactContext;Ljava/lang/String;IIIILcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
@@ -175,7 +156,6 @@
 
 .method private crop(Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     .locals 8
-    .param p1, "outOptions"    # Landroid/graphics/BitmapFactory$Options;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -187,16 +167,14 @@
 
     move-result-object v0
 
-    .line 303
-    .local v0, "inputStream":Ljava/io/InputStream;
     const/4 v1, 0x0
 
+    .line 303
     invoke-static {v0, v1}, Landroid/graphics/BitmapRegionDecoder;->newInstance(Ljava/io/InputStream;Z)Landroid/graphics/BitmapRegionDecoder;
 
     move-result-object v1
 
     .line 305
-    .local v1, "decoder":Landroid/graphics/BitmapRegionDecoder;
     :try_start_0
     new-instance v2, Landroid/graphics/Rect;
 
@@ -219,14 +197,12 @@
     invoke-direct {v2, v3, v4, v5, v6}, Landroid/graphics/Rect;-><init>(IIII)V
 
     .line 306
-    .local v2, "rect":Landroid/graphics/Rect;
     invoke-virtual {v1, v2, p1}, Landroid/graphics/BitmapRegionDecoder;->decodeRegion(Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v3
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 308
     if-eqz v0, :cond_0
 
     .line 309
@@ -236,13 +212,10 @@
     :cond_0
     invoke-virtual {v1}, Landroid/graphics/BitmapRegionDecoder;->recycle()V
 
-    .line 306
-    return-object v3
+    return-object p1
 
-    .line 308
-    .end local v2    # "rect":Landroid/graphics/Rect;
     :catchall_0
-    move-exception v2
+    move-exception p1
 
     if-eqz v0, :cond_1
 
@@ -254,460 +227,319 @@
     invoke-virtual {v1}, Landroid/graphics/BitmapRegionDecoder;->recycle()V
 
     .line 312
-    throw v2
+    throw p1
 .end method
 
 .method private cropAndResize(IILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .locals 26
-    .param p1, "targetWidth"    # I
-    .param p2, "targetHeight"    # I
-    .param p3, "outOptions"    # Landroid/graphics/BitmapFactory$Options;
+    .locals 19
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 325
     move-object/from16 v1, p0
 
-    move/from16 v2, p1
+    move/from16 v0, p1
 
-    move/from16 v3, p2
+    move/from16 v2, p2
 
-    move-object/from16 v4, p3
+    move-object/from16 v3, p3
 
+    .line 325
     invoke-static/range {p3 .. p3}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 331
-    new-instance v0, Landroid/graphics/BitmapFactory$Options;
+    new-instance v4, Landroid/graphics/BitmapFactory$Options;
 
-    invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+    invoke-direct {v4}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
-    move-object v5, v0
+    const/4 v5, 0x1
 
     .line 332
-    .local v5, "options":Landroid/graphics/BitmapFactory$Options;
-    const/4 v0, 0x1
-
-    iput-boolean v0, v5, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+    iput-boolean v5, v4, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
     .line 333
     invoke-direct/range {p0 .. p0}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->openBitmapInputStream()Ljava/io/InputStream;
 
-    move-result-object v6
+    move-result-object v5
+
+    const/4 v6, 0x0
 
     .line 335
-    .local v6, "inputStream":Ljava/io/InputStream;
-    const/4 v0, 0x0
-
     :try_start_0
-    invoke-static {v6, v0, v5}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    invoke-static {v5, v6, v4}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 337
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     .line 338
-    invoke-virtual {v6}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
 
     .line 346
     :cond_0
-    iget v7, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mWidth:I
+    iget v5, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mWidth:I
 
-    int-to-float v8, v7
+    int-to-float v7, v5
 
-    iget v9, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mHeight:I
+    iget v8, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mHeight:I
 
-    int-to-float v10, v9
+    int-to-float v9, v8
 
-    div-float/2addr v8, v10
+    div-float/2addr v7, v9
 
-    .line 347
-    .local v8, "cropRectRatio":F
+    int-to-float v9, v0
+
     int-to-float v10, v2
 
-    int-to-float v11, v3
+    div-float v11, v9, v10
+
+    const/high16 v12, 0x40000000    # 2.0f
+
+    cmpl-float v7, v7, v11
+
+    if-lez v7, :cond_1
+
+    int-to-float v7, v8
+
+    mul-float v7, v7, v11
+
+    int-to-float v9, v8
+
+    .line 352
+    iget v11, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mX:I
+
+    int-to-float v11, v11
+
+    int-to-float v5, v5
+
+    sub-float/2addr v5, v7
+
+    div-float/2addr v5, v12
+
+    add-float/2addr v11, v5
+
+    .line 353
+    iget v5, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mY:I
+
+    int-to-float v5, v5
+
+    int-to-float v8, v8
+
+    div-float/2addr v10, v8
+
+    goto :goto_0
+
+    :cond_1
+    int-to-float v7, v5
+
+    int-to-float v10, v5
 
     div-float/2addr v10, v11
 
-    .line 348
-    .local v10, "targetRatio":F
-    const/high16 v11, 0x40000000    # 2.0f
-
-    cmpl-float v12, v8, v10
-
-    if-lez v12, :cond_1
-
-    .line 350
-    int-to-float v12, v9
-
-    mul-float v12, v12, v10
-
-    .line 351
-    .local v12, "newWidth":F
-    int-to-float v13, v9
-
-    .line 352
-    .local v13, "newHeight":F
-    iget v14, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mX:I
-
-    int-to-float v14, v14
-
-    int-to-float v7, v7
-
-    sub-float/2addr v7, v12
-
-    div-float/2addr v7, v11
-
-    add-float/2addr v14, v7
-
-    .line 353
-    .local v14, "newX":F
-    iget v7, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mY:I
-
-    int-to-float v7, v7
-
-    .line 354
-    .local v7, "newY":F
-    int-to-float v11, v3
-
-    int-to-float v9, v9
-
-    div-float/2addr v11, v9
-
-    .local v11, "scale":F
-    goto :goto_0
-
-    .line 357
-    .end local v7    # "newY":F
-    .end local v11    # "scale":F
-    .end local v12    # "newWidth":F
-    .end local v13    # "newHeight":F
-    .end local v14    # "newX":F
-    :cond_1
-    int-to-float v12, v7
-
-    .line 358
-    .restart local v12    # "newWidth":F
-    int-to-float v13, v7
-
-    div-float/2addr v13, v10
-
     .line 359
-    .restart local v13    # "newHeight":F
-    iget v14, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mX:I
+    iget v11, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mX:I
 
-    int-to-float v14, v14
+    int-to-float v11, v11
 
     .line 360
-    .restart local v14    # "newX":F
-    iget v15, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mY:I
+    iget v13, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mY:I
 
-    int-to-float v15, v15
+    int-to-float v13, v13
 
-    int-to-float v9, v9
+    int-to-float v8, v8
 
-    sub-float/2addr v9, v13
+    sub-float/2addr v8, v10
 
-    div-float/2addr v9, v11
+    div-float/2addr v8, v12
 
-    add-float/2addr v9, v15
+    add-float/2addr v8, v13
 
-    .line 361
-    .local v9, "newY":F
-    int-to-float v11, v2
+    int-to-float v5, v5
 
-    int-to-float v7, v7
+    div-float v5, v9, v5
 
-    div-float/2addr v11, v7
+    move v9, v10
 
-    move v7, v9
+    move v10, v5
+
+    move v5, v8
 
     .line 366
-    .end local v9    # "newY":F
-    .restart local v7    # "newY":F
-    .restart local v11    # "scale":F
     :goto_0
-    iget v9, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mWidth:I
+    iget v8, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mWidth:I
 
-    iget v15, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mHeight:I
+    iget v12, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mHeight:I
 
-    invoke-static {v9, v15, v2, v3}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$600(IIII)I
+    invoke-static {v8, v12, v0, v2}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$600(IIII)I
 
-    move-result v9
+    move-result v0
 
-    iput v9, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    iput v0, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+
+    const/4 v0, 0x0
 
     .line 367
-    const/4 v9, 0x0
-
-    iput-boolean v9, v5, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
+    iput-boolean v0, v4, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
     .line 368
     invoke-direct/range {p0 .. p0}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->openBitmapInputStream()Ljava/io/InputStream;
 
-    move-result-object v6
+    move-result-object v2
 
     .line 373
     :try_start_1
-    invoke-static {v6, v0, v4}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    invoke-static {v2, v6, v3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object v12
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 374
-    .local v0, "bitmap":Landroid/graphics/Bitmap;
-    if-eqz v0, :cond_3
+    if-eqz v12, :cond_3
 
-    .line 378
-    if-eqz v6, :cond_2
+    if-eqz v2, :cond_2
 
     .line 379
-    invoke-virtual {v6}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
 
     .line 383
     :cond_2
-    iget v9, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    iget v0, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    int-to-float v9, v9
+    int-to-float v0, v0
 
-    div-float v9, v14, v9
+    div-float/2addr v11, v0
 
-    float-to-double v2, v9
+    float-to-double v13, v11
 
-    invoke-static {v2, v3}, Ljava/lang/Math;->floor(D)D
+    invoke-static {v13, v14}, Ljava/lang/Math;->floor(D)D
 
-    move-result-wide v2
+    move-result-wide v13
 
-    double-to-int v2, v2
+    double-to-int v13, v13
 
     .line 384
-    .local v2, "cropX":I
-    iget v3, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    iget v0, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    int-to-float v3, v3
+    int-to-float v0, v0
 
-    div-float v3, v7, v3
+    div-float/2addr v5, v0
 
-    move/from16 v22, v7
+    float-to-double v4, v5
 
-    move v9, v8
+    invoke-static {v4, v5}, Ljava/lang/Math;->floor(D)D
 
-    .end local v7    # "newY":F
-    .end local v8    # "cropRectRatio":F
-    .local v9, "cropRectRatio":F
-    .local v22, "newY":F
-    float-to-double v7, v3
+    move-result-wide v4
 
-    invoke-static {v7, v8}, Ljava/lang/Math;->floor(D)D
-
-    move-result-wide v7
-
-    double-to-int v3, v7
+    double-to-int v14, v4
 
     .line 385
-    .local v3, "cropY":I
-    iget v7, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    iget v0, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    int-to-float v7, v7
+    int-to-float v0, v0
 
-    div-float v7, v12, v7
+    div-float/2addr v7, v0
 
-    float-to-double v7, v7
+    float-to-double v4, v7
 
-    invoke-static {v7, v8}, Ljava/lang/Math;->floor(D)D
+    invoke-static {v4, v5}, Ljava/lang/Math;->floor(D)D
 
-    move-result-wide v7
+    move-result-wide v4
 
-    double-to-int v7, v7
+    double-to-int v15, v4
 
     .line 386
-    .local v7, "cropWidth":I
-    iget v8, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    iget v0, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    int-to-float v8, v8
+    int-to-float v0, v0
 
-    div-float v8, v13, v8
+    div-float/2addr v9, v0
 
-    move/from16 v23, v9
+    float-to-double v4, v9
 
-    .end local v9    # "cropRectRatio":F
-    .local v23, "cropRectRatio":F
-    float-to-double v8, v8
+    invoke-static {v4, v5}, Ljava/lang/Math;->floor(D)D
 
-    invoke-static {v8, v9}, Ljava/lang/Math;->floor(D)D
+    move-result-wide v4
 
-    move-result-wide v8
-
-    double-to-int v8, v8
+    double-to-int v0, v4
 
     .line 387
-    .local v8, "cropHeight":I
-    iget v9, v4, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+    iget v2, v3, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
 
-    int-to-float v9, v9
+    int-to-float v2, v2
 
-    mul-float v9, v9, v11
+    mul-float v10, v10, v2
 
     .line 389
-    .local v9, "cropScale":F
-    new-instance v15, Landroid/graphics/Matrix;
+    new-instance v2, Landroid/graphics/Matrix;
 
-    invoke-direct {v15}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v2}, Landroid/graphics/Matrix;-><init>()V
 
     .line 390
-    .local v15, "scaleMatrix":Landroid/graphics/Matrix;
-    invoke-virtual {v15, v9, v9}, Landroid/graphics/Matrix;->setScale(FF)V
+    invoke-virtual {v2, v10, v10}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    .line 391
-    const/16 v24, 0x1
+    const/16 v18, 0x1
+
+    move/from16 v16, v0
+
+    move-object/from16 v17, v2
 
     .line 393
-    .local v24, "filter":Z
-    move-object/from16 v25, v15
+    invoke-static/range {v12 .. v18}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
 
-    .end local v15    # "scaleMatrix":Landroid/graphics/Matrix;
-    .local v25, "scaleMatrix":Landroid/graphics/Matrix;
-    move-object v15, v0
+    move-result-object v0
 
-    move/from16 v16, v2
-
-    move/from16 v17, v3
-
-    move/from16 v18, v7
-
-    move/from16 v19, v8
-
-    move-object/from16 v20, v25
-
-    move/from16 v21, v24
-
-    invoke-static/range {v15 .. v21}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v15
-
-    return-object v15
+    return-object v0
 
     .line 375
-    .end local v2    # "cropX":I
-    .end local v3    # "cropY":I
-    .end local v9    # "cropScale":F
-    .end local v22    # "newY":F
-    .end local v23    # "cropRectRatio":F
-    .end local v24    # "filter":Z
-    .end local v25    # "scaleMatrix":Landroid/graphics/Matrix;
-    .local v7, "newY":F
-    .local v8, "cropRectRatio":F
     :cond_3
-    move/from16 v22, v7
-
-    move/from16 v23, v8
-
-    .end local v7    # "newY":F
-    .end local v8    # "cropRectRatio":F
-    .restart local v22    # "newY":F
-    .restart local v23    # "cropRectRatio":F
     :try_start_2
-    new-instance v2, Ljava/io/IOException;
+    new-instance v0, Ljava/io/IOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Cannot decode bitmap: "
+    const-string v4, "Cannot decode bitmap: "
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v7, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mUri:Ljava/lang/String;
+    iget-object v4, v1, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mUri:Ljava/lang/String;
 
-    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .end local v5    # "options":Landroid/graphics/BitmapFactory$Options;
-    .end local v6    # "inputStream":Ljava/io/InputStream;
-    .end local v10    # "targetRatio":F
-    .end local v11    # "scale":F
-    .end local v12    # "newWidth":F
-    .end local v13    # "newHeight":F
-    .end local v14    # "newX":F
-    .end local v22    # "newY":F
-    .end local v23    # "cropRectRatio":F
-    .end local p1    # "targetWidth":I
-    .end local p2    # "targetHeight":I
-    .end local p3    # "outOptions":Landroid/graphics/BitmapFactory$Options;
-    throw v2
+    throw v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 378
-    .end local v0    # "bitmap":Landroid/graphics/Bitmap;
-    .restart local v5    # "options":Landroid/graphics/BitmapFactory$Options;
-    .restart local v6    # "inputStream":Ljava/io/InputStream;
-    .restart local v10    # "targetRatio":F
-    .restart local v11    # "scale":F
-    .restart local v12    # "newWidth":F
-    .restart local v13    # "newHeight":F
-    .restart local v14    # "newX":F
-    .restart local v22    # "newY":F
-    .restart local v23    # "cropRectRatio":F
-    .restart local p1    # "targetWidth":I
-    .restart local p2    # "targetHeight":I
-    .restart local p3    # "outOptions":Landroid/graphics/BitmapFactory$Options;
     :catchall_0
     move-exception v0
 
-    goto :goto_1
-
-    .end local v22    # "newY":F
-    .end local v23    # "cropRectRatio":F
-    .restart local v7    # "newY":F
-    .restart local v8    # "cropRectRatio":F
-    :catchall_1
-    move-exception v0
-
-    move/from16 v22, v7
-
-    move/from16 v23, v8
-
-    .end local v7    # "newY":F
-    .end local v8    # "cropRectRatio":F
-    .restart local v22    # "newY":F
-    .restart local v23    # "cropRectRatio":F
-    :goto_1
-    if-eqz v6, :cond_4
+    if-eqz v2, :cond_4
 
     .line 379
-    invoke-virtual {v6}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
 
     .line 381
     :cond_4
     throw v0
 
-    .line 337
-    .end local v10    # "targetRatio":F
-    .end local v11    # "scale":F
-    .end local v12    # "newWidth":F
-    .end local v13    # "newHeight":F
-    .end local v14    # "newX":F
-    .end local v22    # "newY":F
-    .end local v23    # "cropRectRatio":F
-    :catchall_2
+    :catchall_1
     move-exception v0
 
     move-object v2, v0
 
-    if-eqz v6, :cond_5
+    if-eqz v5, :cond_5
 
     .line 338
-    invoke-virtual {v6}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
 
     .line 340
     :cond_5
@@ -715,7 +547,7 @@
 .end method
 
 .method private openBitmapInputStream()Ljava/io/InputStream;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -748,11 +580,9 @@
 
     move-result-object v0
 
-    .local v0, "stream":Ljava/io/InputStream;
     goto :goto_0
 
     .line 253
-    .end local v0    # "stream":Ljava/io/InputStream;
     :cond_0
     new-instance v0, Ljava/net/URL;
 
@@ -765,42 +595,38 @@
     move-result-object v0
 
     .line 254
-    .local v0, "connection":Ljava/net/URLConnection;
     invoke-virtual {v0}, Ljava/net/URLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v0
 
-    .line 256
-    .local v0, "stream":Ljava/io/InputStream;
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 259
     return-object v0
 
     .line 257
     :cond_1
-    new-instance v1, Ljava/io/IOException;
+    new-instance v0, Ljava/io/IOException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Cannot open bitmap: "
+    const-string v2, "Cannot open bitmap: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mUri:Ljava/lang/String;
+    iget-object v2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mUri:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method
 
 
@@ -817,184 +643,152 @@
 .end method
 
 .method protected varargs doInBackgroundGuarded([Ljava/lang/Void;)V
-    .locals 10
-    .param p1, "params"    # [Ljava/lang/Void;
+    .locals 4
+
+    const/4 p1, 0x0
+
+    const/4 v0, 0x1
 
     .line 265
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
     :try_start_0
-    new-instance v2, Landroid/graphics/BitmapFactory$Options;
+    new-instance v1, Landroid/graphics/BitmapFactory$Options;
 
-    invoke-direct {v2}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
     .line 268
-    .local v2, "outOptions":Landroid/graphics/BitmapFactory$Options;
-    iget v3, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetWidth:I
+    iget v2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetWidth:I
 
-    if-lez v3, :cond_0
+    if-lez v2, :cond_0
 
-    iget v3, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetHeight:I
+    iget v2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetHeight:I
 
-    if-lez v3, :cond_0
+    if-lez v2, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 271
-    .local v3, "hasTargetSize":Z
     :goto_0
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 272
-    iget v4, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetWidth:I
+    iget v2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetWidth:I
 
-    iget v5, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetHeight:I
+    iget v3, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetHeight:I
 
-    invoke-direct {p0, v4, v5, v2}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->cropAndResize(IILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    invoke-direct {p0, v2, v3, v1}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->cropAndResize(IILandroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v4
+    move-result-object v2
 
-    .local v4, "cropped":Landroid/graphics/Bitmap;
     goto :goto_1
 
     .line 274
-    .end local v4    # "cropped":Landroid/graphics/Bitmap;
     :cond_1
-    invoke-direct {p0, v2}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->crop(Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    invoke-direct {p0, v1}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->crop(Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
-    move-result-object v4
+    move-result-object v2
 
     .line 277
-    .restart local v4    # "cropped":Landroid/graphics/Bitmap;
     :goto_1
-    iget-object v5, v2, Landroid/graphics/BitmapFactory$Options;->outMimeType:Ljava/lang/String;
+    iget-object v1, v1, Landroid/graphics/BitmapFactory$Options;->outMimeType:Ljava/lang/String;
+
+    if-eqz v1, :cond_3
 
     .line 278
-    .local v5, "mimeType":Ljava/lang/String;
-    if-eqz v5, :cond_3
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-virtual {v5}, Ljava/lang/String;->isEmpty()Z
+    move-result v3
 
-    move-result v6
-
-    if-nez v6, :cond_3
+    if-nez v3, :cond_3
 
     .line 282
-    iget-object v6, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mContext:Landroid/content/Context;
 
-    invoke-static {v6, v5}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$300(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v3, v1}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$300(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v6
+    move-result-object v3
 
     .line 283
-    .local v6, "tempFile":Ljava/io/File;
-    invoke-static {v4, v5, v6}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$400(Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/io/File;)V
+    invoke-static {v2, v1, v3}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$400(Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/io/File;)V
+
+    const-string v2, "image/jpeg"
 
     .line 285
-    const-string v7, "image/jpeg"
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v7
-
-    if-eqz v7, :cond_2
+    if-eqz v1, :cond_2
 
     .line 286
-    iget-object v7, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mContext:Landroid/content/Context;
 
-    iget-object v8, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mUri:Ljava/lang/String;
+    iget-object v2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mUri:Ljava/lang/String;
 
-    invoke-static {v8}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-static {v7, v8, v6}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$500(Landroid/content/Context;Landroid/net/Uri;Ljava/io/File;)V
+    invoke-static {v1, v2, v3}, Lcom/facebook/react/modules/camera/ImageEditingManager;->access$500(Landroid/content/Context;Landroid/net/Uri;Ljava/io/File;)V
 
     .line 289
     :cond_2
-    iget-object v7, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mSuccess:Lcom/facebook/react/bridge/Callback;
+    iget-object v1, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mSuccess:Lcom/facebook/react/bridge/Callback;
 
-    new-array v8, v1, [Ljava/lang/Object;
+    new-array v2, v0, [Ljava/lang/Object;
 
-    invoke-static {v6}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
+    invoke-static {v3}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
-    move-result-object v9
+    move-result-object v3
 
-    invoke-virtual {v9}, Landroid/net/Uri;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v3
 
-    aput-object v9, v8, v0
+    aput-object v3, v2, p1
 
-    invoke-interface {v7, v8}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
+    invoke-interface {v1, v2}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 292
-    .end local v2    # "outOptions":Landroid/graphics/BitmapFactory$Options;
-    .end local v3    # "hasTargetSize":Z
-    .end local v4    # "cropped":Landroid/graphics/Bitmap;
-    .end local v5    # "mimeType":Ljava/lang/String;
-    .end local v6    # "tempFile":Ljava/io/File;
     goto :goto_2
 
     .line 279
-    .restart local v2    # "outOptions":Landroid/graphics/BitmapFactory$Options;
-    .restart local v3    # "hasTargetSize":Z
-    .restart local v4    # "cropped":Landroid/graphics/Bitmap;
-    .restart local v5    # "mimeType":Ljava/lang/String;
     :cond_3
-    new-instance v6, Ljava/io/IOException;
+    new-instance v1, Ljava/io/IOException;
 
-    const-string v7, "Could not determine MIME type"
+    const-string v2, "Could not determine MIME type"
 
-    invoke-direct {v6, v7}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "params":[Ljava/lang/Void;
-    throw v6
+    throw v1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 290
-    .end local v2    # "outOptions":Landroid/graphics/BitmapFactory$Options;
-    .end local v3    # "hasTargetSize":Z
-    .end local v4    # "cropped":Landroid/graphics/Bitmap;
-    .end local v5    # "mimeType":Ljava/lang/String;
-    .restart local p1    # "params":[Ljava/lang/Void;
     :catch_0
-    move-exception v2
+    move-exception v1
 
     .line 291
-    .local v2, "e":Ljava/lang/Exception;
-    iget-object v3, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mError:Lcom/facebook/react/bridge/Callback;
+    iget-object v2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mError:Lcom/facebook/react/bridge/Callback;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    aput-object v4, v1, v0
+    aput-object v1, v0, p1
 
-    invoke-interface {v3, v1}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
+    invoke-interface {v2, v0}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 293
-    .end local v2    # "e":Ljava/lang/Exception;
     :goto_2
     return-void
 .end method
 
 .method public setTargetSize(II)V
-    .locals 4
-    .param p1, "width"    # I
-    .param p2, "height"    # I
+    .locals 3
 
-    .line 240
     if-lez p1, :cond_0
 
     if-lez p2, :cond_0
@@ -1005,7 +799,6 @@
     .line 245
     iput p2, p0, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->mTargetHeight:I
 
-    .line 246
     return-void
 
     .line 241
@@ -1021,26 +814,26 @@
     .line 242
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p1
 
-    aput-object v3, v1, v2
+    aput-object p1, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object p2
 
-    aput-object v3, v1, v2
+    aput-object p2, v1, p1
+
+    const-string p1, "Invalid target size: [%d, %d]"
 
     .line 241
-    const-string v2, "Invalid target size: [%d, %d]"
+    invoke-static {p1, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

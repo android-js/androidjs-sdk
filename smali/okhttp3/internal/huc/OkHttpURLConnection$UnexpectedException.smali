@@ -34,11 +34,9 @@
 
 .method constructor <init>(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 608
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/Throwable;)V
 
-    .line 609
     return-void
 .end method

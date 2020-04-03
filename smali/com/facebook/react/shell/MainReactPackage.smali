@@ -14,13 +14,11 @@
     .line 108
     invoke-direct {p0}, Lcom/facebook/react/LazyReactPackage;-><init>()V
 
-    .line 109
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/shell/MainPackageConfig;)V
     .locals 0
-    .param p1, "config"    # Lcom/facebook/react/shell/MainPackageConfig;
 
     .line 114
     invoke-direct {p0}, Lcom/facebook/react/LazyReactPackage;-><init>()V
@@ -28,25 +26,22 @@
     .line 115
     iput-object p1, p0, Lcom/facebook/react/shell/MainReactPackage;->mConfig:Lcom/facebook/react/shell/MainPackageConfig;
 
-    .line 116
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/shell/MainReactPackage;)Lcom/facebook/react/shell/MainPackageConfig;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/shell/MainReactPackage;
+    .locals 0
 
     .line 104
-    iget-object v0, p0, Lcom/facebook/react/shell/MainReactPackage;->mConfig:Lcom/facebook/react/shell/MainPackageConfig;
+    iget-object p0, p0, Lcom/facebook/react/shell/MainReactPackage;->mConfig:Lcom/facebook/react/shell/MainPackageConfig;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public createViewManagers(Lcom/facebook/react/bridge/ReactApplicationContext;)Ljava/util/List;
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,200 +54,197 @@
     .end annotation
 
     .line 334
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     .line 336
-    .local v0, "viewManagers":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/react/uimanager/ViewManager;>;"
     invoke-static {}, Lcom/facebook/react/views/art/ARTRenderableViewManager;->createARTGroupViewManager()Lcom/facebook/react/views/art/ARTRenderableViewManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 337
     invoke-static {}, Lcom/facebook/react/views/art/ARTRenderableViewManager;->createARTShapeViewManager()Lcom/facebook/react/views/art/ARTRenderableViewManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 338
     invoke-static {}, Lcom/facebook/react/views/art/ARTRenderableViewManager;->createARTTextViewManager()Lcom/facebook/react/views/art/ARTRenderableViewManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 339
-    new-instance v1, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;
+    new-instance v0, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 340
-    new-instance v1, Lcom/facebook/react/views/picker/ReactDialogPickerManager;
+    new-instance v0, Lcom/facebook/react/views/picker/ReactDialogPickerManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/picker/ReactDialogPickerManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/picker/ReactDialogPickerManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 341
-    new-instance v1, Lcom/facebook/react/views/drawer/ReactDrawerLayoutManager;
+    new-instance v0, Lcom/facebook/react/views/drawer/ReactDrawerLayoutManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/drawer/ReactDrawerLayoutManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/drawer/ReactDrawerLayoutManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 342
-    new-instance v1, Lcom/facebook/react/views/picker/ReactDropdownPickerManager;
+    new-instance v0, Lcom/facebook/react/views/picker/ReactDropdownPickerManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/picker/ReactDropdownPickerManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/picker/ReactDropdownPickerManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 343
-    new-instance v1, Lcom/facebook/react/views/scroll/ReactHorizontalScrollViewManager;
+    new-instance v0, Lcom/facebook/react/views/scroll/ReactHorizontalScrollViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/scroll/ReactHorizontalScrollViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/scroll/ReactHorizontalScrollViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 344
-    new-instance v1, Lcom/facebook/react/views/scroll/ReactHorizontalScrollContainerViewManager;
+    new-instance v0, Lcom/facebook/react/views/scroll/ReactHorizontalScrollContainerViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/scroll/ReactHorizontalScrollContainerViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/scroll/ReactHorizontalScrollContainerViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 345
-    new-instance v1, Lcom/facebook/react/views/progressbar/ReactProgressBarViewManager;
+    new-instance v0, Lcom/facebook/react/views/progressbar/ReactProgressBarViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/progressbar/ReactProgressBarViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/progressbar/ReactProgressBarViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 346
-    new-instance v1, Lcom/facebook/react/views/scroll/ReactScrollViewManager;
+    new-instance v0, Lcom/facebook/react/views/scroll/ReactScrollViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/scroll/ReactScrollViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/scroll/ReactScrollViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 347
-    new-instance v1, Lcom/facebook/react/views/slider/ReactSliderManager;
+    new-instance v0, Lcom/facebook/react/views/slider/ReactSliderManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/slider/ReactSliderManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/slider/ReactSliderManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 348
-    new-instance v1, Lcom/facebook/react/views/switchview/ReactSwitchManager;
+    new-instance v0, Lcom/facebook/react/views/switchview/ReactSwitchManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/switchview/ReactSwitchManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/switchview/ReactSwitchManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 349
-    new-instance v1, Lcom/facebook/react/views/toolbar/ReactToolbarManager;
+    new-instance v0, Lcom/facebook/react/views/toolbar/ReactToolbarManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/toolbar/ReactToolbarManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/toolbar/ReactToolbarManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 350
-    new-instance v1, Lcom/facebook/react/views/webview/ReactWebViewManager;
+    new-instance v0, Lcom/facebook/react/views/webview/ReactWebViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/webview/ReactWebViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/webview/ReactWebViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 351
-    new-instance v1, Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;
+    new-instance v0, Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 354
-    new-instance v1, Lcom/facebook/react/views/art/ARTSurfaceViewManager;
+    new-instance v0, Lcom/facebook/react/views/art/ARTSurfaceViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/art/ARTSurfaceViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/art/ARTSurfaceViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 355
-    new-instance v1, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageViewManager;
+    new-instance v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 356
-    new-instance v1, Lcom/facebook/react/views/image/ReactImageManager;
+    new-instance v0, Lcom/facebook/react/views/image/ReactImageManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/image/ReactImageManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/image/ReactImageManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 357
-    new-instance v1, Lcom/facebook/react/views/modal/ReactModalHostManager;
+    new-instance v0, Lcom/facebook/react/views/modal/ReactModalHostManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/modal/ReactModalHostManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/modal/ReactModalHostManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 358
-    new-instance v1, Lcom/facebook/react/views/text/ReactRawTextManager;
+    new-instance v0, Lcom/facebook/react/views/text/ReactRawTextManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/text/ReactRawTextManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/text/ReactRawTextManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 359
-    new-instance v1, Lcom/facebook/react/views/textinput/ReactTextInputManager;
+    new-instance v0, Lcom/facebook/react/views/textinput/ReactTextInputManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/textinput/ReactTextInputManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/textinput/ReactTextInputManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 360
-    new-instance v1, Lcom/facebook/react/views/text/ReactTextViewManager;
+    new-instance v0, Lcom/facebook/react/views/text/ReactTextViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/text/ReactTextViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/text/ReactTextViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 361
-    new-instance v1, Lcom/facebook/react/views/view/ReactViewManager;
+    new-instance v0, Lcom/facebook/react/views/view/ReactViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/view/ReactViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/view/ReactViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 362
-    new-instance v1, Lcom/facebook/react/views/viewpager/ReactViewPagerManager;
+    new-instance v0, Lcom/facebook/react/views/viewpager/ReactViewPagerManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/viewpager/ReactViewPagerManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/viewpager/ReactViewPagerManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 363
-    new-instance v1, Lcom/facebook/react/views/text/ReactVirtualTextViewManager;
+    new-instance v0, Lcom/facebook/react/views/text/ReactVirtualTextViewManager;
 
-    invoke-direct {v1}, Lcom/facebook/react/views/text/ReactVirtualTextViewManager;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/views/text/ReactVirtualTextViewManager;-><init>()V
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 365
-    return-object v0
+    return-object p1
 .end method
 
 .method public getNativeModules(Lcom/facebook/react/bridge/ReactApplicationContext;)Ljava/util/List;
     .locals 3
-    .param p1, "context"    # Lcom/facebook/react/bridge/ReactApplicationContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -264,9 +256,9 @@
         }
     .end annotation
 
-    .line 120
     const/16 v0, 0x1a
 
+    .line 120
     new-array v0, v0, [Lcom/facebook/react/bridge/ModuleSpec;
 
     const-class v1, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;
@@ -653,18 +645,18 @@
     .line 322
     invoke-static {v1, v2}, Lcom/facebook/react/bridge/ModuleSpec;->nativeModuleSpec(Ljava/lang/Class;Ljavax/inject/Provider;)Lcom/facebook/react/bridge/ModuleSpec;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/16 v2, 0x19
+    const/16 v1, 0x19
 
-    aput-object v1, v0, v2
+    aput-object p1, v0, v1
 
     .line 120
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getReactModuleInfoProvider()Lcom/facebook/react/module/model/ReactModuleInfoProvider;

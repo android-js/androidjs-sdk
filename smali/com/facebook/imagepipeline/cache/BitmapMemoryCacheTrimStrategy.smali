@@ -24,7 +24,6 @@
 # virtual methods
 .method public getTrimRatio(Lcom/facebook/common/memory/MemoryTrimType;)D
     .locals 5
-    .param p1, "trimType"    # Lcom/facebook/common/memory/MemoryTrimType;
 
     .line 27
     sget-object v0, Lcom/facebook/imagepipeline/cache/BitmapMemoryCacheTrimStrategy$1;->$SwitchMap$com$facebook$common$memory$MemoryTrimType:[I
@@ -60,16 +59,14 @@
 
     aput-object p1, v0, v3
 
-    const-string v3, "BitmapMemoryCacheTrimStrategy"
+    const-string p1, "BitmapMemoryCacheTrimStrategy"
 
-    const-string v4, "unknown trim type: %s"
+    const-string v3, "unknown trim type: %s"
 
-    invoke-static {v3, v4, v0}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v3, v0}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 42
     return-wide v1
 
-    .line 39
     :cond_0
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
@@ -77,22 +74,21 @@
 
     .line 29
     :cond_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v3, 0x15
+    const/16 v0, 0x15
 
-    if-lt v0, v3, :cond_2
+    if-lt p1, v0, :cond_2
 
     .line 30
-    sget-object v0, Lcom/facebook/common/memory/MemoryTrimType;->OnCloseToDalvikHeapLimit:Lcom/facebook/common/memory/MemoryTrimType;
+    sget-object p1, Lcom/facebook/common/memory/MemoryTrimType;->OnCloseToDalvikHeapLimit:Lcom/facebook/common/memory/MemoryTrimType;
 
-    invoke-virtual {v0}, Lcom/facebook/common/memory/MemoryTrimType;->getSuggestedTrimRatio()D
+    invoke-virtual {p1}, Lcom/facebook/common/memory/MemoryTrimType;->getSuggestedTrimRatio()D
 
     move-result-wide v0
 
     return-wide v0
 
-    .line 34
     :cond_2
     return-wide v1
 .end method

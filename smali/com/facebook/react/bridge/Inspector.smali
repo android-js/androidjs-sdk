@@ -27,13 +27,11 @@
     .line 20
     invoke-static {}, Lcom/facebook/react/bridge/ReactBridge;->staticInit()V
 
-    .line 21
     return-void
 .end method
 
 .method private constructor <init>(Lcom/facebook/jni/HybridData;)V
     .locals 0
-    .param p1, "hybridData"    # Lcom/facebook/jni/HybridData;
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +39,11 @@
     .line 50
     iput-object p1, p0, Lcom/facebook/react/bridge/Inspector;->mHybridData:Lcom/facebook/jni/HybridData;
 
-    .line 51
     return-void
 .end method
 
 .method public static connect(ILcom/facebook/react/bridge/Inspector$RemoteConnection;)Lcom/facebook/react/bridge/Inspector$LocalConnection;
-    .locals 3
-    .param p0, "pageId"    # I
-    .param p1, "remote"    # Lcom/facebook/react/bridge/Inspector$RemoteConnection;
+    .locals 1
 
     .line 36
     :try_start_0
@@ -58,30 +53,28 @@
 
     invoke-direct {v0, p0, p1}, Lcom/facebook/react/bridge/Inspector;->connectNative(ILcom/facebook/react/bridge/Inspector$RemoteConnection;)Lcom/facebook/react/bridge/Inspector$LocalConnection;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 37
     :catch_0
-    move-exception v0
+    move-exception p0
+
+    const-string p1, "ReactNative"
+
+    const-string v0, "Inspector doesn\'t work in open source yet"
 
     .line 38
-    .local v0, "e":Ljava/lang/UnsatisfiedLinkError;
-    const-string v1, "ReactNative"
-
-    const-string v2, "Inspector doesn\'t work in open source yet"
-
-    invoke-static {v1, v2, v0}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {p1, v0, p0}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 39
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method private native connectNative(ILcom/facebook/react/bridge/Inspector$RemoteConnection;)Lcom/facebook/react/bridge/Inspector$LocalConnection;
@@ -116,24 +109,22 @@
 
     return-object v0
 
-    .line 28
     :catch_0
     move-exception v0
 
-    .line 29
-    .local v0, "e":Ljava/lang/UnsatisfiedLinkError;
     const-string v1, "ReactNative"
 
     const-string v2, "Inspector doesn\'t work in open source yet"
 
+    .line 29
     invoke-static {v1, v2, v0}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 30
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method private native getPagesNative()[Lcom/facebook/react/bridge/Inspector$Page;

@@ -66,7 +66,6 @@
 
     invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
 
-    .line 868
     return-void
 
     .line 872
@@ -81,7 +80,6 @@
     move-result-object v0
 
     .line 873
-    .local v0, "result":Ljava/lang/Object;, "TTContinuationResult;"
     iget-object v1, p0, Lbolts/Task$14;->val$tcs:Lbolts/TaskCompletionSource;
 
     invoke-virtual {v1, v0}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
@@ -89,38 +87,24 @@
     .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v0    # "result":Ljava/lang/Object;, "TTContinuationResult;"
     goto :goto_0
 
-    .line 876
     :catch_0
     move-exception v0
 
     .line 877
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lbolts/Task$14;->val$tcs:Lbolts/TaskCompletionSource;
 
     invoke-virtual {v1, v0}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
 
-    goto :goto_1
-
-    .line 874
-    .end local v0    # "e":Ljava/lang/Exception;
-    :catch_1
-    move-exception v0
+    goto :goto_0
 
     .line 875
-    .local v0, "e":Ljava/util/concurrent/CancellationException;
-    iget-object v1, p0, Lbolts/Task$14;->val$tcs:Lbolts/TaskCompletionSource;
+    :catch_1
+    iget-object v0, p0, Lbolts/Task$14;->val$tcs:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v1}, Lbolts/TaskCompletionSource;->setCancelled()V
+    invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
 
-    .line 878
-    .end local v0    # "e":Ljava/util/concurrent/CancellationException;
     :goto_0
-    nop
-
-    .line 879
-    :goto_1
     return-void
 .end method

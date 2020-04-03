@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevServerHelper;
 
     .line 611
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$11;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
@@ -38,23 +37,17 @@
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
     .locals 0
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "e"    # Ljava/io/IOException;
 
-    .line 616
     return-void
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
     .locals 0
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 621
     return-void
 .end method

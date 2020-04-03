@@ -14,7 +14,6 @@
     .line 16
     invoke-static {}, Lcom/facebook/react/bridge/ReactBridge;->staticInit()V
 
-    .line 17
     return-void
 .end method
 

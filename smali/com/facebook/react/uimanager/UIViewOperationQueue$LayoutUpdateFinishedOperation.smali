@@ -28,8 +28,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/uimanager/ReactShadowNode;Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;)V
     .locals 0
-    .param p2, "node"    # Lcom/facebook/react/uimanager/ReactShadowNode;
-    .param p3, "listener"    # Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;
 
     .line 564
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$LayoutUpdateFinishedOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -42,16 +40,11 @@
     .line 566
     iput-object p3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$LayoutUpdateFinishedOperation;->mListener:Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;
 
-    .line 567
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/uimanager/ReactShadowNode;Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "x1"    # Lcom/facebook/react/uimanager/ReactShadowNode;
-    .param p3, "x2"    # Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;
-    .param p4, "x3"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
 
     .line 559
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/react/uimanager/UIViewOperationQueue$LayoutUpdateFinishedOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/uimanager/ReactShadowNode;Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;)V
@@ -71,6 +64,5 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;->onLayoutUpdated(Lcom/facebook/react/uimanager/ReactShadowNode;)V
 
-    .line 572
     return-void
 .end method

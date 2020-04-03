@@ -15,11 +15,11 @@
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
     .locals 2
-    .param p0, "view"    # Landroid/view/View;
+    .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "tooltipText"    # Ljava/lang/CharSequence;
+    .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -40,7 +40,6 @@
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v7/widget/TooltipCompatHandler;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    .line 46
     :goto_0
     return-void
 .end method

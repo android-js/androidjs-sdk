@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/Cache;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/Cache;
 
     .line 143
     iput-object p1, p0, Lokhttp3/Cache$1;->this$0:Lokhttp3/Cache;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public get(Lokhttp3/Request;)Lokhttp3/Response;
     .locals 1
-    .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,14 +48,13 @@
 
     invoke-virtual {v0, p1}, Lokhttp3/Cache;->get(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public put(Lokhttp3/Response;)Lokhttp3/internal/cache/CacheRequest;
     .locals 1
-    .param p1, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,14 +66,13 @@
 
     invoke-virtual {v0, p1}, Lokhttp3/Cache;->put(Lokhttp3/Response;)Lokhttp3/internal/cache/CacheRequest;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public remove(Lokhttp3/Request;)V
     .locals 1
-    .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -88,7 +84,6 @@
 
     invoke-virtual {v0, p1}, Lokhttp3/Cache;->remove(Lokhttp3/Request;)V
 
-    .line 154
     return-void
 .end method
 
@@ -100,33 +95,27 @@
 
     invoke-virtual {v0}, Lokhttp3/Cache;->trackConditionalCacheHit()V
 
-    .line 162
     return-void
 .end method
 
 .method public trackResponse(Lokhttp3/internal/cache/CacheStrategy;)V
     .locals 1
-    .param p1, "cacheStrategy"    # Lokhttp3/internal/cache/CacheStrategy;
 
     .line 165
     iget-object v0, p0, Lokhttp3/Cache$1;->this$0:Lokhttp3/Cache;
 
     invoke-virtual {v0, p1}, Lokhttp3/Cache;->trackResponse(Lokhttp3/internal/cache/CacheStrategy;)V
 
-    .line 166
     return-void
 .end method
 
 .method public update(Lokhttp3/Response;Lokhttp3/Response;)V
     .locals 1
-    .param p1, "cached"    # Lokhttp3/Response;
-    .param p2, "network"    # Lokhttp3/Response;
 
     .line 157
     iget-object v0, p0, Lokhttp3/Cache$1;->this$0:Lokhttp3/Cache;
 
     invoke-virtual {v0, p1, p2}, Lokhttp3/Cache;->update(Lokhttp3/Response;Lokhttp3/Response;)V
 
-    .line 158
     return-void
 .end method

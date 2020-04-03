@@ -16,8 +16,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 1
 
     .line 24
     invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
@@ -25,25 +24,24 @@
     .line 25
     invoke-virtual {p0}, Lcom/facebook/react/devsupport/DevSettingsActivity;->getApplication()Landroid/app/Application;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p1}, Landroid/app/Application;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget v1, Lcom/facebook/react/R$string;->catalyst_settings_title:I
+    sget v0, Lcom/facebook/react/R$string;->catalyst_settings_title:I
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/facebook/react/devsupport/DevSettingsActivity;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, p1}, Lcom/facebook/react/devsupport/DevSettingsActivity;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 26
-    sget v0, Lcom/facebook/react/R$xml;->rn_dev_preferences:I
+    sget p1, Lcom/facebook/react/R$xml;->rn_dev_preferences:I
 
-    invoke-virtual {p0, v0}, Lcom/facebook/react/devsupport/DevSettingsActivity;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, p1}, Lcom/facebook/react/devsupport/DevSettingsActivity;->addPreferencesFromResource(I)V
 
-    .line 27
     return-void
 .end method

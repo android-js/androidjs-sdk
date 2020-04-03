@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/animated/NativeAnimatedModule;Ljava/util/ArrayList;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/animated/NativeAnimatedModule;
 
     .line 145
     iput-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$3;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
@@ -41,46 +40,40 @@
 
 # virtual methods
 .method public execute(Lcom/facebook/react/uimanager/NativeViewHierarchyManager;)V
-    .locals 3
-    .param p1, "nativeViewHierarchyManager"    # Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
+    .locals 2
 
     .line 148
-    iget-object v0, p0, Lcom/facebook/react/animated/NativeAnimatedModule$3;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
+    iget-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$3;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
 
-    invoke-static {v0}, Lcom/facebook/react/animated/NativeAnimatedModule;->access$000(Lcom/facebook/react/animated/NativeAnimatedModule;)Lcom/facebook/react/animated/NativeAnimatedNodesManager;
+    invoke-static {p1}, Lcom/facebook/react/animated/NativeAnimatedModule;->access$000(Lcom/facebook/react/animated/NativeAnimatedModule;)Lcom/facebook/react/animated/NativeAnimatedNodesManager;
+
+    move-result-object p1
+
+    .line 149
+    iget-object v0, p0, Lcom/facebook/react/animated/NativeAnimatedModule$3;->val$operations:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    .line 149
-    .local v0, "nodesManager":Lcom/facebook/react/animated/NativeAnimatedNodesManager;
-    iget-object v1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$3;->val$operations:Ljava/util/ArrayList;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/facebook/react/animated/NativeAnimatedModule$UIThreadOperation;
+    check-cast v1, Lcom/facebook/react/animated/NativeAnimatedModule$UIThreadOperation;
 
     .line 150
-    .local v2, "operation":Lcom/facebook/react/animated/NativeAnimatedModule$UIThreadOperation;
-    invoke-interface {v2, v0}, Lcom/facebook/react/animated/NativeAnimatedModule$UIThreadOperation;->execute(Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
+    invoke-interface {v1, p1}, Lcom/facebook/react/animated/NativeAnimatedModule$UIThreadOperation;->execute(Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
 
-    .line 151
-    .end local v2    # "operation":Lcom/facebook/react/animated/NativeAnimatedModule$UIThreadOperation;
     goto :goto_0
 
-    .line 152
     :cond_0
     return-void
 .end method

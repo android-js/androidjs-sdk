@@ -37,7 +37,6 @@
     .locals 0
 
     .line 300
-    .local p0, "this":Lbolts/Task$3;, "Lbolts/Task.3;"
     iput-object p1, p0, Lbolts/Task$3;->this$0:Lbolts/Task;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,8 +66,6 @@
     .end annotation
 
     .line 303
-    .local p0, "this":Lbolts/Task$3;, "Lbolts/Task.3;"
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<TTResult;>;"
     invoke-virtual {p1}, Lbolts/Task;->isCancelled()Z
 
     move-result v0
@@ -78,9 +75,9 @@
     .line 304
     invoke-static {}, Lbolts/Task;->cancelled()Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 306
     :cond_0
@@ -93,28 +90,27 @@
     .line 307
     invoke-virtual {p1}, Lbolts/Task;->getError()Ljava/lang/Exception;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lbolts/Task;->forError(Ljava/lang/Exception;)Lbolts/Task;
+    invoke-static {p1}, Lbolts/Task;->forError(Ljava/lang/Exception;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
+
+    :cond_1
+    const/4 p1, 0x0
 
     .line 309
-    :cond_1
-    const/4 v0, 0x0
+    invoke-static {p1}, Lbolts/Task;->forResult(Ljava/lang/Object;)Lbolts/Task;
 
-    invoke-static {v0}, Lbolts/Task;->forResult(Ljava/lang/Object;)Lbolts/Task;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic then(Lbolts/Task;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Lbolts/Task;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -122,10 +118,9 @@
     .end annotation
 
     .line 300
-    .local p0, "this":Lbolts/Task$3;, "Lbolts/Task.3;"
     invoke-virtual {p0, p1}, Lbolts/Task$3;->then(Lbolts/Task;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -59,8 +59,6 @@
 
 .method public static createProgressBar(Landroid/content/Context;I)Landroid/widget/ProgressBar;
     .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "style"    # I
 
     .line 49
     sget-object v0, Lcom/facebook/react/views/progressbar/ReactProgressBarViewManager;->sProgressBarCtorLock:Ljava/lang/Object;
@@ -79,130 +77,122 @@
 
     return-object v1
 
-    .line 51
     :catchall_0
-    move-exception v1
+    move-exception p0
 
+    .line 51
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method static getStyleFromString(Ljava/lang/String;)I
     .locals 3
-    .param p0, "styleStr"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 110
     if-eqz p0, :cond_7
 
-    .line 113
     const-string v0, "Horizontal"
 
+    .line 113
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 114
-    const v0, 0x1010078
+    const p0, 0x1010078
 
-    return v0
+    return p0
 
-    .line 115
     :cond_0
     const-string v0, "Small"
 
+    .line 115
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 116
-    const v0, 0x1010079
+    const p0, 0x1010079
 
-    return v0
+    return p0
 
-    .line 117
     :cond_1
     const-string v0, "Large"
 
+    .line 117
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 118
-    const v0, 0x101007a
+    const p0, 0x101007a
 
-    return v0
+    return p0
 
-    .line 119
     :cond_2
     const-string v0, "Inverse"
 
+    .line 119
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    .line 120
-    const v0, 0x1010287
+    const p0, 0x1010287
 
-    return v0
+    return p0
 
-    .line 121
     :cond_3
     const-string v0, "SmallInverse"
 
+    .line 121
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    .line 122
-    const v0, 0x1010288
+    const p0, 0x1010288
 
-    return v0
+    return p0
 
-    .line 123
     :cond_4
     const-string v0, "LargeInverse"
 
+    .line 123
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_5
 
-    .line 124
-    const v0, 0x1010289
+    const p0, 0x1010289
 
-    return v0
+    return p0
 
-    .line 125
     :cond_5
     const-string v0, "Normal"
 
+    .line 125
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_6
 
-    .line 126
-    const v0, 0x1010077
+    const p0, 0x1010077
 
-    return v0
+    return p0
 
     .line 128
     :cond_6
@@ -220,21 +210,21 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 111
     :cond_7
-    new-instance v0, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
+    new-instance p0, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
 
-    const-string v1, "ProgressBar needs to have a style, null received"
+    const-string v0, "ProgressBar needs to have a style, null received"
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 
@@ -274,7 +264,6 @@
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
     .locals 1
-    .param p1, "context"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 61
     new-instance v0, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
@@ -287,7 +276,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 56
     const-string v0, "AndroidProgressBar"
 
     return-object v0
@@ -323,19 +311,15 @@
 
 .method protected onAfterUpdateTransaction(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
 
     .line 106
     invoke-virtual {p1}, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;->apply()V
 
-    .line 107
     return-void
 .end method
 
 .method public setAnimating(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
-    .param p2, "animating"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "animating"
     .end annotation
@@ -343,14 +327,12 @@
     .line 86
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;->setAnimating(Z)V
 
-    .line 87
     return-void
 .end method
 
 .method public setColor(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
-    .param p2, "color"    # Ljava/lang/Integer;
+    .param p2    # Ljava/lang/Integer;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -362,14 +344,11 @@
     .line 71
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;->setColor(Ljava/lang/Integer;)V
 
-    .line 72
     return-void
 .end method
 
 .method public setIndeterminate(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
-    .param p2, "indeterminate"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "indeterminate"
     .end annotation
@@ -377,14 +356,11 @@
     .line 76
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;->setIndeterminate(Z)V
 
-    .line 77
     return-void
 .end method
 
 .method public setProgress(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;D)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
-    .param p2, "progress"    # D
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "progress"
     .end annotation
@@ -392,14 +368,12 @@
     .line 81
     invoke-virtual {p1, p2, p3}, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;->setProgress(D)V
 
-    .line 82
     return-void
 .end method
 
 .method public setStyle(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
-    .param p2, "styleName"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -410,7 +384,6 @@
     .line 66
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/progressbar/ProgressBarContainerView;->setStyle(Ljava/lang/String;)V
 
-    .line 67
     return-void
 .end method
 
@@ -427,9 +400,6 @@
 
 .method public updateExtraData(Lcom/facebook/react/views/progressbar/ProgressBarContainerView;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "root"    # Lcom/facebook/react/views/progressbar/ProgressBarContainerView;
-    .param p2, "extraData"    # Ljava/lang/Object;
 
-    .line 102
     return-void
 .end method

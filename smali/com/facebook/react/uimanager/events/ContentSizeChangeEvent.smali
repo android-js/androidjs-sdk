@@ -26,9 +26,6 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 0
-    .param p1, "viewTag"    # I
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
     .line 23
     invoke-direct {p0, p1}, Lcom/facebook/react/uimanager/events/Event;-><init>(I)V
@@ -39,7 +36,6 @@
     .line 25
     iput p3, p0, Lcom/facebook/react/uimanager/events/ContentSizeChangeEvent;->mHeight:I
 
-    .line 26
     return-void
 .end method
 
@@ -47,7 +43,6 @@
 # virtual methods
 .method public dispatch(Lcom/facebook/react/uimanager/events/RCTEventEmitter;)V
     .locals 4
-    .param p1, "rctEventEmitter"    # Lcom/facebook/react/uimanager/events/RCTEventEmitter;
 
     .line 35
     invoke-static {}, Lcom/facebook/react/bridge/Arguments;->createMap()Lcom/facebook/react/bridge/WritableMap;
@@ -55,7 +50,6 @@
     move-result-object v0
 
     .line 36
-    .local v0, "data":Lcom/facebook/react/bridge/WritableMap;
     iget v1, p0, Lcom/facebook/react/uimanager/events/ContentSizeChangeEvent;->mWidth:I
 
     int-to-float v1, v1
@@ -94,14 +88,12 @@
 
     invoke-interface {p1, v1, v2, v0}, Lcom/facebook/react/uimanager/events/RCTEventEmitter;->receiveEvent(ILjava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
 
-    .line 39
     return-void
 .end method
 
 .method public getEventName()Ljava/lang/String;
     .locals 1
 
-    .line 30
     const-string v0, "topContentSizeChange"
 
     return-object v0

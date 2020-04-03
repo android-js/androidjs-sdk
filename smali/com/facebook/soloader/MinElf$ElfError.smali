@@ -17,11 +17,9 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "why"    # Ljava/lang/String;
 
     .line 294
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 295
     return-void
 .end method

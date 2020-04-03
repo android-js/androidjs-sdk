@@ -9,12 +9,12 @@
 
 
 # static fields
-.field private static sScrollerField:Ljava/lang/reflect/Field;
+.field private static sScrollerField:Ljava/lang/reflect/Field; = null
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 .end field
 
-.field private static sTriedToGetScrollerField:Z
+.field private static sTriedToGetScrollerField:Z = false
 
 
 # instance fields
@@ -101,33 +101,25 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 47
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/facebook/react/views/scroll/ReactScrollView;->sTriedToGetScrollerField:Z
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactContext;)V
     .locals 1
-    .param p1, "context"    # Lcom/facebook/react/bridge/ReactContext;
 
-    .line 76
     const/4 v0, 0x0
 
+    .line 76
     invoke-direct {p0, p1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;-><init>(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/views/scroll/FpsListener;)V
 
-    .line 77
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/views/scroll/FpsListener;)V
-    .locals 3
-    .param p1, "context"    # Lcom/facebook/react/bridge/ReactContext;
-    .param p2, "fpsListener"    # Lcom/facebook/react/views/scroll/FpsListener;
+    .locals 2
+    .param p2    # Lcom/facebook/react/views/scroll/FpsListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -136,106 +128,102 @@
     invoke-direct {p0, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
     .line 49
-    new-instance v0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+    new-instance p1, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
 
-    invoke-direct {v0}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;-><init>()V
+    invoke-direct {p1}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
 
     .line 51
-    new-instance v0, Lcom/facebook/react/views/scroll/VelocityHelper;
+    new-instance p1, Lcom/facebook/react/views/scroll/VelocityHelper;
 
-    invoke-direct {v0}, Lcom/facebook/react/views/scroll/VelocityHelper;-><init>()V
+    invoke-direct {p1}, Lcom/facebook/react/views/scroll/VelocityHelper;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mVelocityHelper:Lcom/facebook/react/views/scroll/VelocityHelper;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mVelocityHelper:Lcom/facebook/react/views/scroll/VelocityHelper;
 
     .line 52
-    new-instance v0, Landroid/graphics/Rect;
+    new-instance p1, Landroid/graphics/Rect;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRect:Landroid/graphics/Rect;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRect:Landroid/graphics/Rect;
+
+    const-string p1, "hidden"
 
     .line 56
-    const-string v0, "hidden"
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOverflow:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOverflow:Ljava/lang/String;
+    const/4 p1, 0x0
 
     .line 58
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
 
-    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
+    const/4 v0, 0x1
 
     .line 61
-    const/4 v1, 0x1
+    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScrollEnabled:Z
 
-    iput-boolean v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScrollEnabled:Z
+    const/4 v1, 0x0
 
     .line 63
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mFpsListener:Lcom/facebook/react/views/scroll/FpsListener;
+    iput-object v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mFpsListener:Lcom/facebook/react/views/scroll/FpsListener;
 
     .line 66
-    iput v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
+    iput p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
 
     .line 67
-    iput v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapInterval:I
+    iput p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapInterval:I
+
+    const p1, 0x3f7c28f6    # 0.985f
 
     .line 68
-    const v0, 0x3f7c28f6    # 0.985f
-
-    iput v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
+    iput p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
 
     .line 70
-    iput-boolean v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToStart:Z
+    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToStart:Z
 
     .line 71
-    iput-boolean v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToEnd:Z
+    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToEnd:Z
 
     .line 81
     iput-object p2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mFpsListener:Lcom/facebook/react/views/scroll/FpsListener;
 
     .line 82
-    new-instance v0, Lcom/facebook/react/views/view/ReactViewBackgroundManager;
+    new-instance p1, Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
-    invoke-direct {v0, p0}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;-><init>(Landroid/view/View;)V
+    invoke-direct {p1, p0}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;-><init>(Landroid/view/View;)V
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
     .line 84
     invoke-direct {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getOverScrollerFromParent()Landroid/widget/OverScroller;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
 
     .line 85
     invoke-virtual {p0, p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
 
+    const/high16 p1, 0x2000000
+
     .line 86
-    const/high16 v0, 0x2000000
+    invoke-virtual {p0, p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->setScrollBarStyle(I)V
 
-    invoke-virtual {p0, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setScrollBarStyle(I)V
-
-    .line 87
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/views/scroll/ReactScrollView;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
+    .locals 0
 
     .line 44
-    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
+    iget-boolean p0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$002(Lcom/facebook/react/views/scroll/ReactScrollView;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p1, "x1"    # Z
 
     .line 44
     iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
@@ -244,19 +232,16 @@
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/views/scroll/ReactScrollView;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
+    .locals 0
 
     .line 44
-    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
+    iget-boolean p0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$200(Lcom/facebook/react/views/scroll/ReactScrollView;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p1, "x1"    # I
 
     .line 44
     invoke-direct {p0, p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->flingAndSnap(I)V
@@ -265,19 +250,16 @@
 .end method
 
 .method static synthetic access$300(Lcom/facebook/react/views/scroll/ReactScrollView;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
+    .locals 0
 
     .line 44
-    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSendMomentumEvents:Z
+    iget-boolean p0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSendMomentumEvents:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$402(Lcom/facebook/react/views/scroll/ReactScrollView;Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p1, "x1"    # Ljava/lang/Runnable;
 
     .line 44
     iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPostTouchRunnable:Ljava/lang/Runnable;
@@ -287,7 +269,6 @@
 
 .method static synthetic access$500(Lcom/facebook/react/views/scroll/ReactScrollView;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/views/scroll/ReactScrollView;
 
     .line 44
     invoke-direct {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->disableFpsListener()V
@@ -322,7 +303,6 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/react/views/scroll/FpsListener;->disable(Ljava/lang/String;)V
 
-    .line 369
     :cond_0
     return-void
 .end method
@@ -354,25 +334,22 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/react/views/scroll/FpsListener;->enable(Ljava/lang/String;)V
 
-    .line 361
     :cond_0
     return-void
 .end method
 
 .method private flingAndSnap(I)V
-    .locals 24
-    .param p1, "velocityY"    # I
+    .locals 19
 
-    .line 538
     move-object/from16 v0, p0
 
+    .line 538
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getChildCount()I
 
     move-result v1
 
     if-gtz v1, :cond_0
 
-    .line 539
     return-void
 
     .line 543
@@ -388,7 +365,6 @@
     .line 544
     invoke-direct/range {p0 .. p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollAndSnap(I)V
 
-    .line 545
     return-void
 
     .line 548
@@ -398,89 +374,73 @@
     move-result v1
 
     .line 549
-    .local v1, "maximumOffset":I
     invoke-direct/range {p0 .. p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->predictFinalScrollPosition(I)I
 
     move-result v2
 
-    .line 550
-    .local v2, "targetOffset":I
-    const/4 v3, 0x0
-
-    .line 551
-    .local v3, "smallerOffset":I
-    move v4, v1
-
-    .line 552
-    .local v4, "largerOffset":I
-    const/4 v5, 0x0
-
-    .line 553
-    .local v5, "firstOffset":I
-    move v6, v1
-
     .line 554
-    .local v6, "lastOffset":I
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getHeight()I
 
-    move-result v7
+    move-result v3
 
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getPaddingBottom()I
 
-    move-result v8
+    move-result v4
 
-    sub-int/2addr v7, v8
+    sub-int/2addr v3, v4
 
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getPaddingTop()I
 
-    move-result v8
+    move-result v4
 
-    sub-int/2addr v7, v8
+    sub-int/2addr v3, v4
 
     .line 557
-    .local v7, "height":I
-    iget-object v8, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapOffsets:Ljava/util/List;
+    iget-object v4, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapOffsets:Ljava/util/List;
 
-    const/4 v9, 0x1
+    const/4 v5, 0x1
 
-    const/4 v10, 0x0
+    const/4 v6, 0x0
 
-    if-eqz v8, :cond_5
+    if-eqz v4, :cond_5
 
     .line 558
-    invoke-interface {v8, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v4
 
-    check-cast v8, Ljava/lang/Integer;
+    check-cast v4, Ljava/lang/Integer;
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
 
-    move-result v5
+    move-result v4
 
     .line 559
-    iget-object v8, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapOffsets:Ljava/util/List;
+    iget-object v7, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapOffsets:Ljava/util/List;
 
-    invoke-interface {v8}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v11
+    move-result v8
 
-    sub-int/2addr v11, v9
+    sub-int/2addr v8, v5
 
-    invoke-interface {v8, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v7, v8}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v7
 
-    check-cast v8, Ljava/lang/Integer;
+    check-cast v7, Ljava/lang/Integer;
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v6
+    move-result v7
 
-    .line 561
+    move v10, v1
+
     const/4 v8, 0x0
 
-    .local v8, "i":I
+    const/4 v9, 0x0
+
+    .line 561
     :goto_0
     iget-object v11, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapOffsets:Ljava/util/List;
 
@@ -503,264 +463,237 @@
 
     move-result v11
 
-    .line 564
-    .local v11, "offset":I
     if-gt v11, v2, :cond_2
 
-    .line 565
     sub-int v12, v2, v11
 
-    sub-int v13, v2, v3
+    sub-int v13, v2, v9
 
     if-ge v12, v13, :cond_2
 
-    .line 566
-    move v3, v11
+    move v9, v11
 
-    .line 570
     :cond_2
     if-lt v11, v2, :cond_3
 
-    .line 571
     sub-int v12, v11, v2
 
-    sub-int v13, v4, v2
+    sub-int v13, v10, v2
 
     if-ge v12, v13, :cond_3
 
-    .line 572
-    move v4, v11
+    move v10, v11
 
-    .line 561
-    .end local v11    # "offset":I
     :cond_3
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_0
 
-    .end local v8    # "i":I
     :cond_4
+    move v8, v7
+
+    move v7, v10
+
+    move/from16 v18, v9
+
+    move v9, v4
+
+    move/from16 v4, v18
+
     goto :goto_1
 
     .line 577
     :cond_5
     invoke-direct/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getSnapInterval()I
 
-    move-result v8
+    move-result v4
 
-    int-to-double v11, v8
+    int-to-double v7, v4
+
+    int-to-double v9, v2
 
     .line 578
-    .local v11, "interval":D
-    int-to-double v13, v2
+    invoke-static {v9, v10}, Ljava/lang/Double;->isNaN(D)Z
 
-    invoke-static {v13, v14}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    invoke-static {v11, v12}, Ljava/lang/Double;->isNaN(D)Z
-
-    div-double/2addr v13, v11
+    div-double/2addr v9, v7
 
     .line 579
-    .local v13, "ratio":D
-    invoke-static {v13, v14}, Ljava/lang/Math;->floor(D)D
+    invoke-static {v9, v10}, Ljava/lang/Math;->floor(D)D
 
-    move-result-wide v15
+    move-result-wide v11
 
-    invoke-static {v11, v12}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v9, v15, v11
+    mul-double v11, v11, v7
 
-    double-to-int v3, v9
+    double-to-int v4, v11
 
     .line 580
-    invoke-static {v13, v14}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v9, v10}, Ljava/lang/Math;->ceil(D)D
 
     move-result-wide v9
 
-    invoke-static {v11, v12}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v9, v9, v11
+    mul-double v9, v9, v7
 
-    double-to-int v9, v9
+    double-to-int v7, v9
 
-    invoke-static {v9, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v7, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result v4
+    move-result v7
 
-    .line 584
-    .end local v11    # "interval":D
-    .end local v13    # "ratio":D
+    move v8, v1
+
+    const/4 v9, 0x0
+
     :goto_1
-    sub-int v9, v2, v3
+    sub-int v10, v2, v4
 
-    sub-int v10, v4, v2
+    sub-int v11, v7, v2
 
-    if-ge v9, v10, :cond_6
+    if-ge v10, v11, :cond_6
 
-    move v9, v3
+    move v12, v4
 
     goto :goto_2
 
     :cond_6
-    move v9, v4
+    move v12, v7
 
     .line 590
-    .local v9, "nearestOffset":I
     :goto_2
-    iget-boolean v10, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToEnd:Z
+    iget-boolean v13, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToEnd:Z
 
-    if-nez v10, :cond_8
+    if-nez v13, :cond_8
 
-    if-lt v2, v6, :cond_8
+    if-lt v2, v8, :cond_8
 
     .line 591
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v10
+    move-result v4
 
-    if-lt v10, v6, :cond_7
+    if-lt v4, v8, :cond_7
 
     goto :goto_3
 
-    .line 595
     :cond_7
-    move v2, v6
+    move/from16 v4, p1
 
-    move/from16 v10, p1
+    move v2, v8
 
     goto :goto_4
 
     .line 597
     :cond_8
-    iget-boolean v10, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToStart:Z
+    iget-boolean v8, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToStart:Z
 
-    if-nez v10, :cond_a
+    if-nez v8, :cond_a
 
-    if-gt v2, v5, :cond_a
+    if-gt v2, v9, :cond_a
 
     .line 598
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v10
+    move-result v4
 
-    if-gt v10, v5, :cond_9
+    if-gt v4, v9, :cond_9
 
-    .line 619
     :goto_3
-    move/from16 v10, p1
+    move/from16 v4, p1
 
     goto :goto_4
 
-    .line 602
     :cond_9
-    move v2, v5
+    move/from16 v4, p1
 
-    move/from16 v10, p1
+    move v2, v9
 
     goto :goto_4
 
-    .line 604
     :cond_a
-    const-wide/high16 v10, 0x4024000000000000L    # 10.0
+    const-wide/high16 v8, 0x4024000000000000L    # 10.0
 
     if-lez p1, :cond_b
 
+    int-to-double v10, v11
+
     .line 606
-    sub-int v12, v4, v2
+    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
 
-    int-to-double v12, v12
+    mul-double v10, v10, v8
 
-    invoke-static {v12, v13}, Ljava/lang/Double;->isNaN(D)Z
+    double-to-int v2, v10
 
-    mul-double v12, v12, v10
+    add-int v2, p1, v2
 
-    double-to-int v10, v12
+    move v4, v2
 
-    add-int v10, p1, v10
-
-    .line 608
-    .end local p1    # "velocityY":I
-    .local v10, "velocityY":I
-    move v2, v4
+    move v2, v7
 
     goto :goto_4
 
-    .line 609
-    .end local v10    # "velocityY":I
-    .restart local p1    # "velocityY":I
     :cond_b
     if-gez p1, :cond_c
 
+    int-to-double v10, v10
+
     .line 611
-    sub-int v12, v2, v3
+    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
 
-    int-to-double v12, v12
+    mul-double v10, v10, v8
 
-    invoke-static {v12, v13}, Ljava/lang/Double;->isNaN(D)Z
+    double-to-int v2, v10
 
-    mul-double v12, v12, v10
+    sub-int v2, p1, v2
 
-    double-to-int v10, v12
+    move/from16 v18, v4
 
-    sub-int v10, p1, v10
+    move v4, v2
 
-    .line 613
-    .end local p1    # "velocityY":I
-    .restart local v10    # "velocityY":I
-    move v2, v3
+    move/from16 v2, v18
 
     goto :goto_4
 
-    .line 615
-    .end local v10    # "velocityY":I
-    .restart local p1    # "velocityY":I
     :cond_c
-    move v2, v9
+    move/from16 v4, p1
 
-    move/from16 v10, p1
+    move v2, v12
 
     .line 619
-    .end local p1    # "velocityY":I
-    .restart local v10    # "velocityY":I
     :goto_4
-    const/4 v11, 0x0
-
-    invoke-static {v11, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v12
-
-    invoke-static {v12, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {v6, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v2
 
-    .line 625
-    iget-object v13, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
+    invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
 
-    if-eqz v13, :cond_10
+    move-result v15
+
+    .line 625
+    iget-object v7, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
+
+    if-eqz v7, :cond_10
 
     .line 626
-    const/4 v8, 0x1
-
-    iput-boolean v8, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
-
-    .line 628
-    nop
+    iput-boolean v5, v0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
 
     .line 629
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v14
+    move-result v8
 
     .line 630
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v15
+    move-result v9
 
-    const/16 v16, 0x0
+    const/4 v10, 0x0
 
-    if-eqz v10, :cond_d
-
-    move/from16 v17, v10
+    if-eqz v4, :cond_d
 
     goto :goto_5
 
@@ -768,43 +701,41 @@
     :cond_d
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v8
+    move-result v2
 
-    sub-int v8, v2, v8
-
-    move/from16 v17, v8
+    sub-int v4, v15, v2
 
     :goto_5
-    const/16 v18, 0x0
+    move v11, v4
 
-    const/16 v19, 0x0
+    const/4 v12, 0x0
 
-    const/16 v22, 0x0
+    const/4 v13, 0x0
 
-    if-eqz v2, :cond_f
+    const/16 v16, 0x0
 
-    if-ne v2, v1, :cond_e
+    if-eqz v15, :cond_f
+
+    if-ne v15, v1, :cond_e
 
     goto :goto_6
 
     :cond_e
-    const/16 v23, 0x0
+    const/16 v17, 0x0
 
     goto :goto_7
 
     :cond_f
     :goto_6
-    div-int/lit8 v8, v7, 0x2
+    div-int/lit8 v6, v3, 0x2
 
-    move/from16 v23, v8
+    move/from16 v17, v6
+
+    :goto_7
+    move v14, v15
 
     .line 628
-    :goto_7
-    move/from16 v20, v2
-
-    move/from16 v21, v2
-
-    invoke-virtual/range {v13 .. v23}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
+    invoke-virtual/range {v7 .. v17}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
 
     .line 646
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->postInvalidateOnAnimation()V
@@ -815,17 +746,16 @@
     :cond_10
     invoke-virtual/range {p0 .. p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v8
+    move-result v1
 
-    invoke-virtual {v0, v8, v2}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
+    invoke-virtual {v0, v1, v15}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
 
-    .line 650
     :goto_8
     return-void
 .end method
 
 .method private getMaxScrollY()I
-    .locals 4
+    .locals 3
 
     .line 376
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
@@ -835,7 +765,6 @@
     move-result v0
 
     .line 377
-    .local v0, "contentHeight":I
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getHeight()I
 
     move-result v1
@@ -852,17 +781,16 @@
 
     sub-int/2addr v1, v2
 
+    sub-int/2addr v0, v1
+
+    const/4 v1, 0x0
+
     .line 378
-    .local v1, "viewportHeight":I
-    sub-int v2, v0, v1
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
-    const/4 v3, 0x0
+    move-result v0
 
-    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v2
-
-    return v2
+    return v0
 .end method
 
 .method private getOverScrollerFromParent()Landroid/widget/OverScroller;
@@ -877,9 +805,9 @@
 
     if-nez v0, :cond_0
 
-    .line 94
     const/4 v0, 0x1
 
+    .line 94
     sput-boolean v0, Lcom/facebook/react/views/scroll/ReactScrollView;->sTriedToGetScrollerField:Z
 
     .line 96
@@ -901,24 +829,20 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 103
     goto :goto_0
 
-    .line 98
     :catch_0
-    move-exception v0
+    const-string v0, "Failed to get mScroller field for ScrollView! This app will exhibit the bounce-back scrolling bug :("
 
     .line 99
-    .local v0, "e":Ljava/lang/NoSuchFieldException;
-    const-string v2, "Failed to get mScroller field for ScrollView! This app will exhibit the bounce-back scrolling bug :("
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 106
-    .end local v0    # "e":Ljava/lang/NoSuchFieldException;
     :cond_0
     :goto_0
     sget-object v0, Lcom/facebook/react/views/scroll/ReactScrollView;->sScrollerField:Ljava/lang/reflect/Field;
+
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_2
 
@@ -929,44 +853,31 @@
     move-result-object v0
 
     .line 109
-    .local v0, "scrollerValue":Ljava/lang/Object;
-    instance-of v2, v0, Landroid/widget/OverScroller;
+    instance-of v3, v0, Landroid/widget/OverScroller;
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
     .line 110
-    move-object v1, v0
+    check-cast v0, Landroid/widget/OverScroller;
 
-    check-cast v1, Landroid/widget/OverScroller;
+    move-object v2, v0
 
-    .local v1, "scroller":Landroid/widget/OverScroller;
     goto :goto_1
 
-    .line 112
-    .end local v1    # "scroller":Landroid/widget/OverScroller;
     :cond_1
-    const-string v2, "Failed to cast mScroller field in ScrollView (probably due to OEM changes to AOSP)! This app will exhibit the bounce-back scrolling bug :("
+    const-string v0, "Failed to cast mScroller field in ScrollView (probably due to OEM changes to AOSP)! This app will exhibit the bounce-back scrolling bug :("
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 112
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 116
-    const/4 v1, 0x0
+    goto :goto_1
 
-    .line 120
-    .end local v0    # "scrollerValue":Ljava/lang/Object;
-    .restart local v1    # "scroller":Landroid/widget/OverScroller;
-    :goto_1
-    goto :goto_2
-
-    .line 118
-    .end local v1    # "scroller":Landroid/widget/OverScroller;
     :catch_1
     move-exception v0
 
     .line 119
-    .local v0, "e":Ljava/lang/IllegalAccessException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Failed to get mScroller from ScrollView!"
@@ -975,15 +886,9 @@
 
     throw v1
 
-    .line 122
-    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :cond_2
-    const/4 v1, 0x0
-
-    .line 125
-    .restart local v1    # "scroller":Landroid/widget/OverScroller;
-    :goto_2
-    return-object v1
+    :goto_1
+    return-object v2
 .end method
 
 .method private getSnapInterval()I
@@ -994,7 +899,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 654
     return v0
 
     .line 656
@@ -1007,9 +911,7 @@
 .end method
 
 .method private handlePostTouchScrolling(II)V
-    .locals 3
-    .param p1, "velocityX"    # I
-    .param p2, "velocityY"    # I
+    .locals 2
 
     .line 411
     iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSendMomentumEvents:Z
@@ -1026,7 +928,6 @@
 
     if-nez v0, :cond_0
 
-    .line 412
     return-void
 
     .line 417
@@ -1035,7 +936,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 418
     return-void
 
     .line 421
@@ -1050,27 +950,26 @@
     .line 423
     invoke-static {p0, p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->emitScrollMomentumBeginEvent(Landroid/view/ViewGroup;II)V
 
-    .line 426
     :cond_2
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
+    .line 426
+    iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
 
     .line 427
-    new-instance v0, Lcom/facebook/react/views/scroll/ReactScrollView$1;
+    new-instance p1, Lcom/facebook/react/views/scroll/ReactScrollView$1;
 
-    invoke-direct {v0, p0}, Lcom/facebook/react/views/scroll/ReactScrollView$1;-><init>(Lcom/facebook/react/views/scroll/ReactScrollView;)V
+    invoke-direct {p1, p0}, Lcom/facebook/react/views/scroll/ReactScrollView$1;-><init>(Lcom/facebook/react/views/scroll/ReactScrollView;)V
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPostTouchRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPostTouchRunnable:Ljava/lang/Runnable;
 
     .line 458
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPostTouchRunnable:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPostTouchRunnable:Ljava/lang/Runnable;
 
-    const-wide/16 v1, 0x14
+    const-wide/16 v0, 0x14
 
-    invoke-static {p0, v0, v1, v2}, Landroid/support/v4/view/ViewCompat;->postOnAnimationDelayed(Landroid/view/View;Ljava/lang/Runnable;J)V
+    invoke-static {p0, p1, v0, v1}, Landroid/support/v4/view/ViewCompat;->postOnAnimationDelayed(Landroid/view/View;Ljava/lang/Runnable;J)V
 
-    .line 461
     return-void
 .end method
 
@@ -1104,97 +1003,87 @@
 .end method
 
 .method private predictFinalScrollPosition(I)I
-    .locals 14
-    .param p1, "velocityY"    # I
+    .locals 12
 
     .line 467
-    new-instance v0, Landroid/widget/OverScroller;
+    new-instance v11, Landroid/widget/OverScroller;
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;)V
+    invoke-direct {v11, v0}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;)V
 
     .line 468
-    .local v0, "scroller":Landroid/widget/OverScroller;
-    iget v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
+    iget v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    sub-float/2addr v2, v1
+    sub-float/2addr v1, v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/OverScroller;->setFriction(F)V
+    invoke-virtual {v11, v1}, Landroid/widget/OverScroller;->setFriction(F)V
 
     .line 471
     invoke-direct {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getMaxScrollY()I
 
-    move-result v1
+    move-result v8
 
     .line 472
-    .local v1, "maximumOffset":I
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getHeight()I
 
-    move-result v2
+    move-result v0
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getPaddingBottom()I
 
-    move-result v3
+    move-result v1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v0, v1
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getPaddingTop()I
 
-    move-result v3
+    move-result v1
 
-    sub-int v13, v2, v3
-
-    .line 473
-    .local v13, "height":I
-    nop
+    sub-int/2addr v0, v1
 
     .line 474
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v3
+    move-result v1
 
     .line 475
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v4
+    move-result v2
 
-    div-int/lit8 v12, v13, 0x2
+    div-int/lit8 v10, v0, 0x2
 
-    .line 473
+    const/4 v3, 0x0
+
     const/4 v5, 0x0
+
+    const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
-
     const/4 v9, 0x0
 
-    const/4 v11, 0x0
+    move-object v0, v11
 
-    move-object v2, v0
+    move v4, p1
 
-    move v6, p1
-
-    move v10, v1
-
-    invoke-virtual/range {v2 .. v12}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
+    .line 473
+    invoke-virtual/range {v0 .. v10}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
 
     .line 485
-    invoke-virtual {v0}, Landroid/widget/OverScroller;->getFinalY()I
+    invoke-virtual {v11}, Landroid/widget/OverScroller;->getFinalY()I
 
-    move-result v2
+    move-result p1
 
-    return v2
+    return p1
 .end method
 
 .method private smoothScrollAndSnap(I)V
-    .locals 12
-    .param p1, "velocity"    # I
+    .locals 11
 
     .line 494
     invoke-direct {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getSnapInterval()I
@@ -1204,7 +1093,6 @@
     int-to-double v0, v0
 
     .line 495
-    .local v0, "interval":D
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
     move-result v2
@@ -1212,7 +1100,6 @@
     int-to-double v2, v2
 
     .line 496
-    .local v2, "currentOffset":D
     invoke-direct {p0, p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->predictFinalScrollPosition(I)I
 
     move-result v4
@@ -1220,7 +1107,6 @@
     int-to-double v4, v4
 
     .line 498
-    .local v4, "targetOffset":D
     invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
 
     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
@@ -1229,130 +1115,102 @@
 
     invoke-static {v6, v7}, Ljava/lang/Math;->floor(D)D
 
-    move-result-wide v6
-
-    double-to-int v6, v6
-
-    .line 499
-    .local v6, "previousPage":I
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
-    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
-
-    div-double v7, v2, v0
-
-    invoke-static {v7, v8}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v7
-
-    double-to-int v7, v7
-
-    .line 500
-    .local v7, "nextPage":I
-    invoke-static {v2, v3}, Ljava/lang/Double;->isNaN(D)Z
-
-    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
-
-    div-double v8, v2, v0
-
-    invoke-static {v8, v9}, Ljava/lang/Math;->round(D)J
-
     move-result-wide v8
 
-    long-to-int v9, v8
+    double-to-int v8, v8
+
+    .line 499
+    invoke-static {v6, v7}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v9
+
+    double-to-int v9, v9
+
+    .line 500
+    invoke-static {v6, v7}, Ljava/lang/Math;->round(D)J
+
+    move-result-wide v6
+
+    long-to-int v7, v6
 
     .line 501
-    .local v9, "currentPage":I
     invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
-    div-double v10, v4, v0
+    div-double/2addr v4, v0
 
-    invoke-static {v10, v11}, Ljava/lang/Math;->round(D)J
+    invoke-static {v4, v5}, Ljava/lang/Math;->round(D)J
 
-    move-result-wide v10
+    move-result-wide v4
 
-    long-to-int v8, v10
+    long-to-int v5, v4
 
-    .line 503
-    .local v8, "targetPage":I
     if-lez p1, :cond_0
 
-    if-ne v7, v6, :cond_0
+    if-ne v9, v8, :cond_0
 
-    .line 504
-    add-int/lit8 v7, v7, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     goto :goto_0
 
-    .line 505
     :cond_0
     if-gez p1, :cond_1
 
-    if-ne v6, v7, :cond_1
+    if-ne v8, v9, :cond_1
 
-    .line 506
-    add-int/lit8 v6, v6, -0x1
+    add-int/lit8 v8, v8, -0x1
 
-    .line 509
     :cond_1
     :goto_0
     if-lez p1, :cond_2
 
-    if-ge v9, v7, :cond_2
+    if-ge v7, v9, :cond_2
 
-    if-le v8, v6, :cond_2
+    if-le v5, v8, :cond_2
 
-    .line 517
-    move v9, v7
+    move v7, v9
 
     goto :goto_1
 
-    .line 519
     :cond_2
     if-gez p1, :cond_3
 
-    if-le v9, v6, :cond_3
+    if-le v7, v8, :cond_3
 
-    if-ge v8, v7, :cond_3
+    if-ge v5, v9, :cond_3
 
-    .line 527
-    move v9, v6
+    move v7, v8
 
-    .line 530
     :cond_3
     :goto_1
-    int-to-double v10, v9
+    int-to-double v4, v7
 
-    invoke-static {v10, v11}, Ljava/lang/Double;->isNaN(D)Z
+    .line 530
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v10, v10, v0
+    mul-double v4, v4, v0
 
-    .line 531
-    .end local v4    # "targetOffset":D
-    .local v10, "targetOffset":D
-    cmpl-double v4, v10, v2
+    cmpl-double p1, v4, v2
 
-    if-eqz v4, :cond_4
+    if-eqz p1, :cond_4
+
+    const/4 p1, 0x1
 
     .line 532
-    const/4 v4, 0x1
-
-    iput-boolean v4, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
+    iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
 
     .line 533
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v4
+    move-result p1
 
-    double-to-int v5, v10
+    double-to-int v0, v4
 
-    invoke-virtual {p0, v4, v5}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
 
-    .line 535
     :cond_4
     return-void
 .end method
@@ -1360,8 +1218,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 6
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
+    .locals 5
 
     .line 383
     iget v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
@@ -1376,7 +1233,6 @@
     move-result-object v0
 
     .line 385
-    .local v0, "content":Landroid/view/View;
     iget-object v2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndBackground:Landroid/graphics/drawable/Drawable;
 
     if-eqz v2, :cond_0
@@ -1398,25 +1254,24 @@
 
     invoke-virtual {v0}, Landroid/view/View;->getBottom()I
 
-    move-result v3
+    move-result v0
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getWidth()I
 
-    move-result v4
+    move-result v3
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getHeight()I
 
-    move-result v5
+    move-result v4
 
-    invoke-virtual {v2, v1, v3, v4, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {v2, v1, v0, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 387
-    iget-object v2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndBackground:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndBackground:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v2, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 390
-    .end local v0    # "content":Landroid/view/View;
     :cond_0
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRect:Landroid/graphics/Rect;
 
@@ -1433,22 +1288,22 @@
 
     const v4, 0x1bd1f072
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_1
 
-    :cond_1
     goto :goto_0
 
-    :cond_2
+    :cond_1
     const-string v3, "visible"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     goto :goto_1
 
+    :cond_2
     :goto_0
     const/4 v1, -0x1
 
@@ -1460,17 +1315,10 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/Rect;)Z
 
-    goto :goto_2
-
-    .line 394
-    :cond_3
-    nop
-
     .line 400
-    :goto_2
+    :cond_3
     invoke-super {p0, p1}, Landroid/widget/ScrollView;->draw(Landroid/graphics/Canvas;)V
 
-    .line 401
     return-void
 .end method
 
@@ -1480,71 +1328,67 @@
     .line 169
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->awakenScrollBars()Z
 
-    .line 170
     return-void
 .end method
 
 .method public fling(I)V
-    .locals 13
-    .param p1, "velocityY"    # I
+    .locals 11
 
     .line 317
     invoke-static {p1}, Ljava/lang/Math;->abs(I)I
 
+    move-result p1
+
+    int-to-float p1, p1
+
+    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+
+    invoke-virtual {v0}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->getYFlingVelocity()F
+
     move-result v0
 
-    int-to-float v0, v0
+    invoke-static {v0}, Ljava/lang/Math;->signum(F)F
 
-    iget-object v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+    move-result v0
 
-    invoke-virtual {v1}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->getYFlingVelocity()F
+    mul-float p1, p1, v0
 
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Math;->signum(F)F
-
-    move-result v1
-
-    mul-float v0, v0, v1
-
-    float-to-int v0, v0
+    float-to-int p1, p1
 
     .line 320
-    .local v0, "correctedVelocityY":I
-    iget-boolean v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
+    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 321
-    invoke-direct {p0, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->flingAndSnap(I)V
+    invoke-direct {p0, p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->flingAndSnap(I)V
 
     goto :goto_0
 
     .line 322
     :cond_0
-    iget-object v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
+    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 331
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getHeight()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getPaddingBottom()I
 
-    move-result v2
+    move-result v1
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, v1
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getPaddingTop()I
 
-    move-result v2
+    move-result v1
 
-    sub-int v12, v1, v2
+    sub-int/2addr v0, v1
 
     .line 333
-    .local v12, "scrollWindowHeight":I
     iget-object v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
 
     .line 334
@@ -1559,47 +1403,51 @@
 
     const/4 v4, 0x0
 
+    const/4 v5, 0x0
+
     const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const v8, 0x7fffffff
 
-    const v9, 0x7fffffff
+    const/4 v9, 0x0
 
-    const/4 v10, 0x0
+    div-int/lit8 v10, v0, 0x2
 
-    div-int/lit8 v11, v12, 0x2
+    move-object v0, v1
+
+    move v1, v2
+
+    move v2, v3
+
+    move v3, v4
+
+    move v4, p1
 
     .line 333
-    move v5, v0
-
-    invoke-virtual/range {v1 .. v11}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
+    invoke-virtual/range {v0 .. v10}, Landroid/widget/OverScroller;->fling(IIIIIIIIII)V
 
     .line 346
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
 
-    .line 349
-    .end local v12    # "scrollWindowHeight":I
     goto :goto_0
 
     .line 350
     :cond_1
-    invoke-super {p0, v0}, Landroid/widget/ScrollView;->fling(I)V
+    invoke-super {p0, p1}, Landroid/widget/ScrollView;->fling(I)V
+
+    :goto_0
+    const/4 v0, 0x0
 
     .line 352
-    :goto_0
-    const/4 v1, 0x0
+    invoke-direct {p0, v0, p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->handlePostTouchScrolling(II)V
 
-    invoke-direct {p0, v1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->handlePostTouchScrolling(II)V
-
-    .line 353
     return-void
 .end method
 
 .method public getClippingRect(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1, "outClippingRect"    # Landroid/graphics/Rect;
 
     .line 305
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mClippingRect:Landroid/graphics/Rect;
@@ -1612,7 +1460,6 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 306
     return-void
 .end method
 
@@ -1639,50 +1486,42 @@
     .line 204
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->updateClippingRect()V
 
-    .line 206
     :cond_0
     return-void
 .end method
 
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
-    .locals 1
-    .param p1, "parent"    # Landroid/view/View;
-    .param p2, "child"    # Landroid/view/View;
+    .locals 0
 
     .line 690
     iput-object p2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
 
     .line 691
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
+    iget-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {p1, p0}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
-    .line 692
     return-void
 .end method
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
-    .locals 1
-    .param p1, "parent"    # Landroid/view/View;
-    .param p2, "child"    # Landroid/view/View;
+    .locals 0
 
     .line 696
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
+    iget-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {p1, p0}, Landroid/view/View;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    const/4 p1, 0x0
 
     .line 697
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
-
-    .line 698
     return-void
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
-    .param p1, "ev"    # Landroid/view/MotionEvent;
+    .locals 3
 
     .line 228
     iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScrollEnabled:Z
@@ -1691,7 +1530,6 @@
 
     if-nez v0, :cond_0
 
-    .line 229
     return v1
 
     .line 233
@@ -1709,146 +1547,107 @@
     .line 235
     invoke-static {p0}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->emitScrollBeginDragEvent(Landroid/view/ViewGroup;)V
 
-    .line 236
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDragging:Z
+    .line 236
+    iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDragging:Z
 
     .line 237
     invoke-direct {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->enableFpsListener()V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 238
-    return v0
+    return p1
 
-    .line 245
-    :cond_1
-    goto :goto_0
-
-    .line 240
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "ReactNative"
+
+    const-string v2, "Error intercepting touch event."
 
     .line 244
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    const-string v2, "ReactNative"
+    invoke-static {v0, v2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const-string v3, "Error intercepting touch event."
-
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 247
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :cond_1
     return v1
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 2
-    .param p1, "changed"    # Z
-    .param p2, "l"    # I
-    .param p3, "t"    # I
-    .param p4, "r"    # I
-    .param p5, "b"    # I
+    .locals 0
 
     .line 189
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {p0, v0, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
 
-    .line 190
     return-void
 .end method
 
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "left"    # I
-    .param p3, "top"    # I
-    .param p4, "right"    # I
-    .param p5, "bottom"    # I
-    .param p6, "oldLeft"    # I
-    .param p7, "oldTop"    # I
-    .param p8, "oldRight"    # I
-    .param p9, "oldBottom"    # I
+    .locals 0
 
     .line 707
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
+    iget-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mContentView:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 708
     return-void
 
     .line 711
     :cond_0
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollY()I
 
-    move-result v0
+    move-result p1
 
     .line 712
-    .local v0, "currentScrollY":I
     invoke-direct {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getMaxScrollY()I
 
-    move-result v1
+    move-result p2
 
-    .line 713
-    .local v1, "maxScrollY":I
-    if-le v0, v1, :cond_1
+    if-le p1, p2, :cond_1
 
     .line 714
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {p0, v2, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
 
-    .line 716
     :cond_1
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 2
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
+    .locals 0
 
     .line 179
     invoke-static {p1, p2}, Lcom/facebook/react/uimanager/MeasureSpecAssertions;->assertExplicitMeasureSpec(II)V
 
-    .line 181
-    nop
-
     .line 182
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v0
+    move-result p1
 
     .line 183
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v1
+    move-result p2
 
     .line 181
-    invoke-virtual {p0, v0, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->setMeasuredDimension(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setMeasuredDimension(II)V
 
-    .line 184
     return-void
 .end method
 
 .method protected onOverScrolled(IIZZ)V
     .locals 2
-    .param p1, "scrollX"    # I
-    .param p2, "scrollY"    # I
-    .param p3, "clampedX"    # Z
-    .param p4, "clampedY"    # Z
 
     .line 668
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
@@ -1881,109 +1680,93 @@
 
     move-result v0
 
-    .line 676
-    .local v0, "scrollRange":I
     if-lt p2, v0, :cond_0
 
     .line 677
-    iget-object v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
+    iget-object p2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    invoke-virtual {v1}, Landroid/widget/OverScroller;->abortAnimation()V
+    invoke-virtual {p2}, Landroid/widget/OverScroller;->abortAnimation()V
 
-    .line 678
     move p2, v0
 
     .line 685
-    .end local v0    # "scrollRange":I
     :cond_0
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ScrollView;->onOverScrolled(IIZZ)V
 
-    .line 686
     return-void
 .end method
 
 .method protected onScrollChanged(IIII)V
-    .locals 2
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "oldX"    # I
-    .param p4, "oldY"    # I
+    .locals 0
 
     .line 210
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ScrollView;->onScrollChanged(IIII)V
 
-    .line 212
-    const/4 v0, 0x1
+    const/4 p3, 0x1
 
-    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
+    .line 212
+    iput-boolean p3, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mActivelyScrolling:Z
 
     .line 214
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+    iget-object p3, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
 
-    invoke-virtual {v0, p1, p2}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->onScrollChanged(II)Z
+    invoke-virtual {p3, p1, p2}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->onScrollChanged(II)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 215
-    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRemoveClippedSubviews:Z
+    iget-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRemoveClippedSubviews:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 216
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->updateClippingRect()V
 
     .line 219
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+    iget-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
 
     .line 221
-    invoke-virtual {v0}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->getXFlingVelocity()F
+    invoke-virtual {p1}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->getXFlingVelocity()F
 
-    move-result v0
+    move-result p1
 
-    iget-object v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
+    iget-object p2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOnScrollDispatchHelper:Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;
 
     .line 222
-    invoke-virtual {v1}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->getYFlingVelocity()F
+    invoke-virtual {p2}, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->getYFlingVelocity()F
 
-    move-result v1
+    move-result p2
 
     .line 219
-    invoke-static {p0, v0, v1}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->emitScrollEvent(Landroid/view/ViewGroup;FF)V
+    invoke-static {p0, p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->emitScrollEvent(Landroid/view/ViewGroup;FF)V
 
-    .line 224
     :cond_1
     return-void
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 1
-    .param p1, "w"    # I
-    .param p2, "h"    # I
-    .param p3, "oldw"    # I
-    .param p4, "oldh"    # I
+    .locals 0
 
     .line 194
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ScrollView;->onSizeChanged(IIII)V
 
     .line 195
-    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRemoveClippedSubviews:Z
+    iget-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mRemoveClippedSubviews:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 196
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->updateClippingRect()V
 
-    .line 198
     :cond_0
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
-    .param p1, "ev"    # Landroid/view/MotionEvent;
+    .locals 3
 
     .line 252
     iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScrollEnabled:Z
@@ -1992,7 +1775,6 @@
 
     if-nez v0, :cond_0
 
-    .line 253
     return v1
 
     .line 256
@@ -2008,118 +1790,102 @@
 
     and-int/lit16 v0, v0, 0xff
 
-    .line 258
-    .local v0, "action":I
     const/4 v2, 0x1
 
     if-ne v0, v2, :cond_1
 
-    iget-boolean v2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDragging:Z
+    .line 258
+    iget-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDragging:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     .line 259
+    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mVelocityHelper:Lcom/facebook/react/views/scroll/VelocityHelper;
+
+    invoke-virtual {v0}, Lcom/facebook/react/views/scroll/VelocityHelper;->getXVelocity()F
+
+    move-result v0
+
+    .line 260
     iget-object v2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mVelocityHelper:Lcom/facebook/react/views/scroll/VelocityHelper;
 
-    invoke-virtual {v2}, Lcom/facebook/react/views/scroll/VelocityHelper;->getXVelocity()F
+    invoke-virtual {v2}, Lcom/facebook/react/views/scroll/VelocityHelper;->getYVelocity()F
 
     move-result v2
 
-    .line 260
-    .local v2, "velocityX":F
-    iget-object v3, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mVelocityHelper:Lcom/facebook/react/views/scroll/VelocityHelper;
-
-    invoke-virtual {v3}, Lcom/facebook/react/views/scroll/VelocityHelper;->getYVelocity()F
-
-    move-result v3
-
     .line 261
-    .local v3, "velocityY":F
-    invoke-static {p0, v2, v3}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->emitScrollEndDragEvent(Landroid/view/ViewGroup;FF)V
+    invoke-static {p0, v0, v2}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->emitScrollEndDragEvent(Landroid/view/ViewGroup;FF)V
 
     .line 265
     iput-boolean v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDragging:Z
 
     .line 268
+    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
     invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
     move-result v1
 
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v4
-
-    invoke-direct {p0, v1, v4}, Lcom/facebook/react/views/scroll/ReactScrollView;->handlePostTouchScrolling(II)V
+    invoke-direct {p0, v0, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->handlePostTouchScrolling(II)V
 
     .line 271
-    .end local v2    # "velocityX":F
-    .end local v3    # "velocityY":F
     :cond_1
     invoke-super {p0, p1}, Landroid/widget/ScrollView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public setBackgroundColor(I)V
     .locals 1
-    .param p1, "color"    # I
 
     .line 720
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;->setBackgroundColor(I)V
 
-    .line 721
     return-void
 .end method
 
 .method public setBorderColor(IFF)V
     .locals 1
-    .param p1, "position"    # I
-    .param p2, "color"    # F
-    .param p3, "alpha"    # F
 
     .line 728
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;->setBorderColor(IFF)V
 
-    .line 729
     return-void
 .end method
 
 .method public setBorderRadius(F)V
     .locals 1
-    .param p1, "borderRadius"    # F
 
     .line 732
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;->setBorderRadius(F)V
 
-    .line 733
     return-void
 .end method
 
 .method public setBorderRadius(FI)V
     .locals 1
-    .param p1, "borderRadius"    # F
-    .param p2, "position"    # I
 
     .line 736
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
     invoke-virtual {v0, p1, p2}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;->setBorderRadius(FI)V
 
-    .line 737
     return-void
 .end method
 
 .method public setBorderStyle(Ljava/lang/String;)V
     .locals 1
-    .param p1, "style"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -2129,53 +1895,46 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;->setBorderStyle(Ljava/lang/String;)V
 
-    .line 741
     return-void
 .end method
 
 .method public setBorderWidth(IF)V
     .locals 1
-    .param p1, "position"    # I
-    .param p2, "width"    # F
 
     .line 724
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mReactBackgroundManager:Lcom/facebook/react/views/view/ReactViewBackgroundManager;
 
     invoke-virtual {v0, p1, p2}, Lcom/facebook/react/views/view/ReactViewBackgroundManager;->setBorderWidth(IF)V
 
-    .line 725
     return-void
 .end method
 
 .method public setDecelerationRate(F)V
-    .locals 3
-    .param p1, "decelerationRate"    # F
+    .locals 2
 
     .line 145
     iput p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
 
     .line 147
-    iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
+    iget-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScroller:Landroid/widget/OverScroller;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const/high16 v0, 0x3f800000    # 1.0f
 
     .line 148
-    const/high16 v1, 0x3f800000    # 1.0f
+    iget v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
 
-    iget v2, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mDecelerationRate:F
+    sub-float/2addr v0, v1
 
-    sub-float/2addr v1, v2
+    invoke-virtual {p1, v0}, Landroid/widget/OverScroller;->setFriction(F)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/OverScroller;->setFriction(F)V
-
-    .line 150
     :cond_0
     return-void
 .end method
 
 .method public setEndFillColor(I)V
-    .locals 2
-    .param p1, "color"    # I
+    .locals 1
 
     .line 660
     iget v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
@@ -2186,22 +1945,20 @@
     iput p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
 
     .line 662
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
+    new-instance p1, Landroid/graphics/drawable/ColorDrawable;
 
-    iget v1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
+    iget v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndFillColor:I
 
-    invoke-direct {v0, v1}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+    invoke-direct {p1, v0}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
 
-    iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndBackground:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mEndBackground:Landroid/graphics/drawable/Drawable;
 
-    .line 664
     :cond_0
     return-void
 .end method
 
 .method public setOverflow(Ljava/lang/String;)V
     .locals 0
-    .param p1, "overflow"    # Ljava/lang/String;
 
     .line 173
     iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mOverflow:Ljava/lang/String;
@@ -2209,28 +1966,24 @@
     .line 174
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->invalidate()V
 
-    .line 175
     return-void
 .end method
 
 .method public setPagingEnabled(Z)V
     .locals 0
-    .param p1, "pagingEnabled"    # Z
 
     .line 141
     iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mPagingEnabled:Z
 
-    .line 142
     return-void
 .end method
 
 .method public setRemoveClippedSubviews(Z)V
     .locals 1
-    .param p1, "removeClippedSubviews"    # Z
 
-    .line 276
     if-eqz p1, :cond_0
 
+    .line 276
     iget-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mClippingRect:Landroid/graphics/Rect;
 
     if-nez v0, :cond_0
@@ -2249,24 +2002,21 @@
     .line 280
     invoke-virtual {p0}, Lcom/facebook/react/views/scroll/ReactScrollView;->updateClippingRect()V
 
-    .line 281
     return-void
 .end method
 
 .method public setScrollEnabled(Z)V
     .locals 0
-    .param p1, "scrollEnabled"    # Z
 
     .line 137
     iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScrollEnabled:Z
 
-    .line 138
     return-void
 .end method
 
 .method public setScrollPerfTag(Ljava/lang/String;)V
     .locals 0
-    .param p1, "scrollPerfTag"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -2274,29 +2024,24 @@
     .line 133
     iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mScrollPerfTag:Ljava/lang/String;
 
-    .line 134
     return-void
 .end method
 
 .method public setSendMomentumEvents(Z)V
     .locals 0
-    .param p1, "sendMomentumEvents"    # Z
 
     .line 129
     iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSendMomentumEvents:Z
 
-    .line 130
     return-void
 .end method
 
 .method public setSnapInterval(I)V
     .locals 0
-    .param p1, "snapInterval"    # I
 
     .line 153
     iput p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapInterval:I
 
-    .line 154
     return-void
 .end method
 
@@ -2312,32 +2057,26 @@
     .end annotation
 
     .line 157
-    .local p1, "snapOffsets":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapOffsets:Ljava/util/List;
 
-    .line 158
     return-void
 .end method
 
 .method public setSnapToEnd(Z)V
     .locals 0
-    .param p1, "snapToEnd"    # Z
 
     .line 165
     iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToEnd:Z
 
-    .line 166
     return-void
 .end method
 
 .method public setSnapToStart(Z)V
     .locals 0
-    .param p1, "snapToStart"    # Z
 
     .line 161
     iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactScrollView;->mSnapToStart:Z
 
-    .line 162
     return-void
 .end method
 
@@ -2349,7 +2088,6 @@
 
     if-nez v0, :cond_0
 
-    .line 291
     return-void
 
     .line 294
@@ -2363,27 +2101,23 @@
 
     invoke-static {p0, v0}, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->calculateClippingRect(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    .line 297
     const/4 v0, 0x0
 
+    .line 297
     invoke-virtual {p0, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
     .line 298
-    .local v0, "contentView":Landroid/view/View;
     instance-of v1, v0, Lcom/facebook/react/uimanager/ReactClippingViewGroup;
 
     if-eqz v1, :cond_1
 
     .line 299
-    move-object v1, v0
+    check-cast v0, Lcom/facebook/react/uimanager/ReactClippingViewGroup;
 
-    check-cast v1, Lcom/facebook/react/uimanager/ReactClippingViewGroup;
+    invoke-interface {v0}, Lcom/facebook/react/uimanager/ReactClippingViewGroup;->updateClippingRect()V
 
-    invoke-interface {v1}, Lcom/facebook/react/uimanager/ReactClippingViewGroup;->updateClippingRect()V
-
-    .line 301
     :cond_1
     return-void
 .end method

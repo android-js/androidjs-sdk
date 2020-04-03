@@ -73,22 +73,22 @@
     .line 12106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12121
     const/4 v0, -0x1
 
+    .line 12121
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
 
-    .line 12132
     const/4 v0, 0x0
 
+    .line 12132
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mPreviousLayoutItemCount:I
 
     .line 12138
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mDeletedInvisibleItemCountSincePreviousLayout:I
 
-    .line 12150
     const/4 v1, 0x1
 
+    .line 12150
     iput v1, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
 
     .line 12156
@@ -119,7 +119,6 @@
 # virtual methods
 .method assertLayoutStep(I)V
     .locals 3
-    .param p1, "accepted"    # I
 
     .line 12112
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
@@ -128,7 +127,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 12117
     return-void
 
     .line 12113
@@ -146,28 +144,28 @@
     .line 12114
     invoke-static {p1}, Ljava/lang/Integer;->toBinaryString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " but it is "
+    const-string p1, " but it is "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
+    iget p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
 
     .line 12115
-    invoke-static {v2}, Ljava/lang/Integer;->toBinaryString(I)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/Integer;->toBinaryString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -183,7 +181,6 @@
 
 .method public get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "resourceId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -197,18 +194,17 @@
 
     if-nez v0, :cond_0
 
-    .line 12293
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 12295
     :cond_0
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getItemCount()I
@@ -302,39 +298,35 @@
 
 .method prepareForNestedPrefetch(Landroid/support/v7/widget/RecyclerView$Adapter;)V
     .locals 1
-    .param p1, "adapter"    # Landroid/support/v7/widget/RecyclerView$Adapter;
 
-    .line 12214
     const/4 v0, 0x1
 
+    .line 12214
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mLayoutStep:I
 
     .line 12215
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$Adapter;->getItemCount()I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
+    iput p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
+
+    const/4 p1, 0x0
 
     .line 12216
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
+    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mInPreLayout:Z
 
     .line 12217
-    iput-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
+    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mTrackOldChangeHolders:Z
 
     .line 12218
-    iput-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mIsMeasuring:Z
+    iput-boolean p1, p0, Landroid/support/v7/widget/RecyclerView$State;->mIsMeasuring:Z
 
-    .line 12219
     return-void
 .end method
 
 .method public put(ILjava/lang/Object;)V
     .locals 1
-    .param p1, "resourceId"    # I
-    .param p2, "data"    # Ljava/lang/Object;
 
     .line 12307
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
@@ -354,36 +346,32 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 12311
     return-void
 .end method
 
 .method public remove(I)V
     .locals 1
-    .param p1, "resourceId"    # I
 
     .line 12276
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mData:Landroid/util/SparseArray;
 
     if-nez v0, :cond_0
 
-    .line 12277
     return-void
 
     .line 12279
     :cond_0
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    .line 12280
     return-void
 .end method
 
 .method reset()Landroid/support/v7/widget/RecyclerView$State;
     .locals 1
 
-    .line 12196
     const/4 v0, -0x1
 
+    .line 12196
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mTargetPosition:I
 
     .line 12197
@@ -394,10 +382,10 @@
     .line 12198
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
-    .line 12200
     :cond_0
     const/4 v0, 0x0
 
+    .line 12200
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mItemCount:I
 
     .line 12201
@@ -406,7 +394,6 @@
     .line 12202
     iput-boolean v0, p0, Landroid/support/v7/widget/RecyclerView$State;->mIsMeasuring:Z
 
-    .line 12203
     return-object p0
 .end method
 

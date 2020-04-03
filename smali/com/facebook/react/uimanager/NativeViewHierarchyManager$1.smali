@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/NativeViewHierarchyManager;Lcom/facebook/react/uimanager/ViewGroupManager;Landroid/view/ViewGroup;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
 
     .line 460
     iput-object p1, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$1;->this$0:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
@@ -67,6 +66,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->dropView(Landroid/view/View;)V
 
-    .line 465
     return-void
 .end method

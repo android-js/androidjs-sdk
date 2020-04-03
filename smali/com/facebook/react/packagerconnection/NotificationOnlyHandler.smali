@@ -45,23 +45,21 @@
 .end method
 
 .method public final onRequest(Ljava/lang/Object;Lcom/facebook/react/packagerconnection/Responder;)V
-    .locals 2
-    .param p1, "params"    # Ljava/lang/Object;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "responder"    # Lcom/facebook/react/packagerconnection/Responder;
+
+    const-string p1, "Request is not supported"
 
     .line 18
-    const-string v0, "Request is not supported"
-
-    invoke-interface {p2, v0}, Lcom/facebook/react/packagerconnection/Responder;->error(Ljava/lang/Object;)V
+    invoke-interface {p2, p1}, Lcom/facebook/react/packagerconnection/Responder;->error(Ljava/lang/Object;)V
 
     .line 19
-    sget-object v1, Lcom/facebook/react/packagerconnection/NotificationOnlyHandler;->TAG:Ljava/lang/String;
+    sget-object p2, Lcom/facebook/react/packagerconnection/NotificationOnlyHandler;->TAG:Ljava/lang/String;
 
-    invoke-static {v1, v0}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 20
     return-void
 .end method

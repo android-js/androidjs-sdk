@@ -1062,18 +1062,18 @@
 .method static constructor <clinit>()V
     .locals 10
 
-    .line 1297
     const/16 v0, 0x1d
 
+    .line 1297
     new-array v1, v0, [I
 
     fill-array-data v1, :array_0
 
     sput-object v1, Lcom/facebook/react/R$styleable;->ActionBar:[I
 
-    .line 1327
     const/4 v1, 0x1
 
+    .line 1327
     new-array v2, v1, [I
 
     const/4 v3, 0x0
@@ -1098,27 +1098,27 @@
 
     sput-object v2, Lcom/facebook/react/R$styleable;->ActionMenuView:[I
 
-    .line 1332
     const/4 v2, 0x6
 
+    .line 1332
     new-array v4, v2, [I
 
     fill-array-data v4, :array_1
 
     sput-object v4, Lcom/facebook/react/R$styleable;->ActionMode:[I
 
-    .line 1339
     const/4 v4, 0x2
 
+    .line 1339
     new-array v5, v4, [I
 
     fill-array-data v5, :array_2
 
     sput-object v5, Lcom/facebook/react/R$styleable;->ActivityChooserView:[I
 
-    .line 1342
     const/16 v5, 0x8
 
+    .line 1342
     new-array v6, v5, [I
 
     fill-array-data v6, :array_3
@@ -1139,9 +1139,9 @@
 
     sput-object v6, Lcom/facebook/react/R$styleable;->AnimatedStateListDrawableItem:[I
 
-    .line 1361
     const/4 v6, 0x4
 
+    .line 1361
     new-array v7, v6, [I
 
     fill-array-data v7, :array_6
@@ -1162,27 +1162,27 @@
 
     sput-object v7, Lcom/facebook/react/R$styleable;->AppCompatSeekBar:[I
 
-    .line 1376
     const/4 v7, 0x7
 
+    .line 1376
     new-array v8, v7, [I
 
     fill-array-data v8, :array_9
 
     sput-object v8, Lcom/facebook/react/R$styleable;->AppCompatTextHelper:[I
 
-    .line 1384
     const/16 v8, 0xb
 
+    .line 1384
     new-array v8, v8, [I
 
     fill-array-data v8, :array_a
 
     sput-object v8, Lcom/facebook/react/R$styleable;->AppCompatTextView:[I
 
-    .line 1396
     const/16 v8, 0x79
 
+    .line 1396
     new-array v8, v8, [I
 
     fill-array-data v8, :array_b
@@ -1198,9 +1198,9 @@
 
     sput-object v8, Lcom/facebook/react/R$styleable;->ButtonBarLayout:[I
 
-    .line 1520
     const/4 v8, 0x3
 
+    .line 1520
     new-array v9, v8, [I
 
     fill-array-data v9, :array_c
@@ -1242,9 +1242,9 @@
 
     sput-object v5, Lcom/facebook/react/R$styleable;->FontFamily:[I
 
-    .line 1555
     const/16 v5, 0xa
 
+    .line 1555
     new-array v5, v5, [I
 
     fill-array-data v5, :array_12
@@ -1258,9 +1258,9 @@
 
     sput-object v5, Lcom/facebook/react/R$styleable;->GenericDraweeHierarchy:[I
 
-    .line 1596
     const/16 v5, 0xc
 
+    .line 1596
     new-array v5, v5, [I
 
     fill-array-data v5, :array_14
@@ -1274,9 +1274,9 @@
 
     sput-object v5, Lcom/facebook/react/R$styleable;->GradientColorItem:[I
 
-    .line 1612
     const/16 v5, 0x9
 
+    .line 1612
     new-array v7, v5, [I
 
     fill-array-data v7, :array_16
@@ -1304,9 +1304,9 @@
 
     sput-object v6, Lcom/facebook/react/R$styleable;->MenuGroup:[I
 
-    .line 1637
     const/16 v6, 0x17
 
+    .line 1637
     new-array v6, v6, [I
 
     fill-array-data v6, :array_1a
@@ -1343,27 +1343,27 @@
 
     sput-object v4, Lcom/facebook/react/R$styleable;->RecycleListView:[I
 
-    .line 1680
     const/16 v4, 0x11
 
+    .line 1680
     new-array v4, v4, [I
 
     fill-array-data v4, :array_1e
 
     sput-object v4, Lcom/facebook/react/R$styleable;->SearchView:[I
 
-    .line 1698
     const/16 v4, 0x1f
 
+    .line 1698
     new-array v4, v4, [I
 
     fill-array-data v4, :array_1f
 
     sput-object v4, Lcom/facebook/react/R$styleable;->SimpleDraweeView:[I
 
-    .line 1730
     const/4 v4, 0x5
 
+    .line 1730
     new-array v5, v4, [I
 
     fill-array-data v5, :array_20
@@ -1386,18 +1386,18 @@
 
     sput-object v1, Lcom/facebook/react/R$styleable;->StateListDrawableItem:[I
 
-    .line 1745
     const/16 v1, 0xe
 
+    .line 1745
     new-array v1, v1, [I
 
     fill-array-data v1, :array_22
 
     sput-object v1, Lcom/facebook/react/R$styleable;->SwitchCompat:[I
 
-    .line 1760
     const/16 v1, 0xd
 
+    .line 1760
     new-array v1, v1, [I
 
     fill-array-data v1, :array_23

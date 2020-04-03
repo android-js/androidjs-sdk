@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/PartialDiskCacheProducer;Ljava/util/concurrent/atomic/AtomicBoolean;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/PartialDiskCacheProducer;
 
     .line 210
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/PartialDiskCacheProducer$2;->this$0:Lcom/facebook/imagepipeline/producers/PartialDiskCacheProducer;
@@ -47,6 +46,5 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 214
     return-void
 .end method

@@ -26,10 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;I)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "cn"    # Landroid/content/ComponentName;
-    .param p3, "jobId"    # I
+    .locals 2
 
     .line 332
     invoke-direct {p0, p1, p2}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
@@ -38,42 +35,40 @@
     invoke-virtual {p0, p3}, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->ensureJobId(I)V
 
     .line 334
-    new-instance v0, Landroid/app/job/JobInfo$Builder;
+    new-instance p2, Landroid/app/job/JobInfo$Builder;
 
-    iget-object v1, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mComponentName:Landroid/content/ComponentName;
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mComponentName:Landroid/content/ComponentName;
 
-    invoke-direct {v0, p3, v1}, Landroid/app/job/JobInfo$Builder;-><init>(ILandroid/content/ComponentName;)V
+    invoke-direct {p2, p3, v0}, Landroid/app/job/JobInfo$Builder;-><init>(ILandroid/content/ComponentName;)V
+
+    const-wide/16 v0, 0x0
 
     .line 335
-    .local v0, "b":Landroid/app/job/JobInfo$Builder;
-    const-wide/16 v1, 0x0
+    invoke-virtual {p2, v0, v1}, Landroid/app/job/JobInfo$Builder;->setOverrideDeadline(J)Landroid/app/job/JobInfo$Builder;
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/job/JobInfo$Builder;->setOverrideDeadline(J)Landroid/app/job/JobInfo$Builder;
+    move-result-object p2
 
-    move-result-object v1
+    invoke-virtual {p2}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
 
-    invoke-virtual {v1}, Landroid/app/job/JobInfo$Builder;->build()Landroid/app/job/JobInfo;
+    move-result-object p2
 
-    move-result-object v1
-
-    iput-object v1, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mJobInfo:Landroid/app/job/JobInfo;
+    iput-object p2, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mJobInfo:Landroid/app/job/JobInfo;
 
     .line 336
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "jobscheduler"
+    const-string p2, "jobscheduler"
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Landroid/app/job/JobScheduler;
+    check-cast p1, Landroid/app/job/JobScheduler;
 
-    iput-object v1, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mJobScheduler:Landroid/app/job/JobScheduler;
+    iput-object p1, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mJobScheduler:Landroid/app/job/JobScheduler;
 
-    .line 338
     return-void
 .end method
 
@@ -81,7 +76,6 @@
 # virtual methods
 .method enqueueWork(Landroid/content/Intent;)V
     .locals 3
-    .param p1, "work"    # Landroid/content/Intent;
 
     .line 343
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mJobScheduler:Landroid/app/job/JobScheduler;
@@ -94,6 +88,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/job/JobScheduler;->enqueue(Landroid/app/job/JobInfo;Landroid/app/job/JobWorkItem;)I
 
-    .line 344
     return-void
 .end method

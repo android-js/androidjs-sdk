@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/textinput/ReactTextInputManager;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/textinput/ReactTextInputManager;
 
     .line 427
     iput-object p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$1;->this$0:Lcom/facebook/react/views/textinput/ReactTextInputManager;
@@ -41,11 +40,10 @@
 
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 429
-    iget-boolean v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$1;->val$_contextMenuHidden:Z
+    iget-boolean p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$1;->val$_contextMenuHidden:Z
 
-    return v0
+    return p1
 .end method

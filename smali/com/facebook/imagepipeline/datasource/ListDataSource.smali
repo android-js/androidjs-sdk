@@ -44,7 +44,7 @@
 
 # direct methods
 .method protected constructor <init>([Lcom/facebook/datasource/DataSource;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -55,26 +55,21 @@
     .end annotation
 
     .line 36
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
-    .local p1, "dataSources":[Lcom/facebook/datasource/DataSource;, "[Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;-><init>()V
 
     .line 37
     iput-object p1, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mDataSources:[Lcom/facebook/datasource/DataSource;
 
+    const/4 p1, 0x0
+
     .line 38
-    const/4 v0, 0x0
+    iput p1, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mFinishedDataSources:I
 
-    iput v0, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mFinishedDataSources:I
-
-    .line 39
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/facebook/imagepipeline/datasource/ListDataSource;Lcom/facebook/datasource/DataSource;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/datasource/ListDataSource;
-    .param p1, "x1"    # Lcom/facebook/datasource/DataSource;
 
     .line 31
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->onDataSourceFailed(Lcom/facebook/datasource/DataSource;)V
@@ -84,7 +79,6 @@
 
 .method static synthetic access$200(Lcom/facebook/imagepipeline/datasource/ListDataSource;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/datasource/ListDataSource;
 
     .line 31
     invoke-direct {p0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->onDataSourceCancelled()V
@@ -94,7 +88,6 @@
 
 .method static synthetic access$300(Lcom/facebook/imagepipeline/datasource/ListDataSource;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/datasource/ListDataSource;
 
     .line 31
     invoke-direct {p0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->onDataSourceFinished()V
@@ -104,7 +97,6 @@
 
 .method static synthetic access$400(Lcom/facebook/imagepipeline/datasource/ListDataSource;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/datasource/ListDataSource;
 
     .line 31
     invoke-direct {p0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->onDataSourceProgress()V
@@ -128,7 +120,6 @@
     .end annotation
 
     .line 43
-    .local p0, "dataSources":[Lcom/facebook/datasource/DataSource;, "[Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     invoke-static {p0}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 44
@@ -154,7 +145,6 @@
     invoke-direct {v0, p0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;-><init>([Lcom/facebook/datasource/DataSource;)V
 
     .line 46
-    .local v0, "listDataSource":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     array-length v2, p0
 
     :goto_1
@@ -162,8 +152,6 @@
 
     aget-object v3, p0, v1
 
-    .line 47
-    .local v3, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     if-eqz v3, :cond_1
 
     .line 48
@@ -183,14 +171,11 @@
     .line 48
     invoke-interface {v3, v4, v5}, Lcom/facebook/datasource/DataSource;->subscribe(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;)V
 
-    .line 46
-    .end local v3    # "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    .line 53
     :cond_2
     return-object v0
 .end method
@@ -198,7 +183,6 @@
 .method private declared-synchronized increaseAndCheckIfLast()Z
     .locals 3
 
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     monitor-enter p0
 
     .line 92
@@ -229,7 +213,6 @@
 
     return v1
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -242,19 +225,17 @@
     .locals 1
 
     .line 100
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     new-instance v0, Ljava/util/concurrent/CancellationException;
 
     invoke-direct {v0}, Ljava/util/concurrent/CancellationException;-><init>()V
 
     invoke-virtual {p0, v0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->setFailure(Ljava/lang/Throwable;)Z
 
-    .line 101
     return-void
 .end method
 
 .method private onDataSourceFailed(Lcom/facebook/datasource/DataSource;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -265,15 +246,12 @@
     .end annotation
 
     .line 96
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->getFailureCause()Ljava/lang/Throwable;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->setFailure(Ljava/lang/Throwable;)Z
+    invoke-virtual {p0, p1}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->setFailure(Ljava/lang/Throwable;)Z
 
-    .line 97
     return-void
 .end method
 
@@ -281,72 +259,63 @@
     .locals 2
 
     .line 86
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     invoke-direct {p0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->increaseAndCheckIfLast()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 87
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
+    .line 87
     invoke-virtual {p0, v0, v1}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->setResult(Ljava/lang/Object;Z)Z
 
-    .line 89
     :cond_0
     return-void
 .end method
 
 .method private onDataSourceProgress()V
-    .locals 6
-
-    .line 104
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
-    const/4 v0, 0x0
+    .locals 5
 
     .line 105
-    .local v0, "progress":F
-    iget-object v1, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mDataSources:[Lcom/facebook/datasource/DataSource;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mDataSources:[Lcom/facebook/datasource/DataSource;
 
-    array-length v2, v1
+    array-length v1, v0
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v3, v1, :cond_0
 
-    aget-object v4, v1, v3
+    aget-object v4, v0, v3
 
     .line 106
-    .local v4, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<*>;"
     invoke-interface {v4}, Lcom/facebook/datasource/DataSource;->getProgress()F
 
-    move-result v5
+    move-result v4
 
-    add-float/2addr v0, v5
+    add-float/2addr v2, v4
 
-    .line 105
-    .end local v4    # "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<*>;"
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 108
     :cond_0
-    iget-object v1, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mDataSources:[Lcom/facebook/datasource/DataSource;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mDataSources:[Lcom/facebook/datasource/DataSource;
 
-    array-length v1, v1
+    array-length v0, v0
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    div-float v1, v0, v1
+    div-float/2addr v2, v0
 
-    invoke-virtual {p0, v1}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->setProgress(F)Z
+    invoke-virtual {p0, v2}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->setProgress(F)Z
 
-    .line 109
     return-void
 .end method
 
@@ -356,7 +325,6 @@
     .locals 4
 
     .line 76
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     invoke-super {p0}, Lcom/facebook/datasource/AbstractDataSource;->close()Z
 
     move-result v0
@@ -365,7 +333,6 @@
 
     if-nez v0, :cond_0
 
-    .line 77
     return v1
 
     .line 79
@@ -380,16 +347,12 @@
     aget-object v3, v0, v1
 
     .line 80
-    .local v3, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<*>;"
     invoke-interface {v3}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 79
-    .end local v3    # "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<*>;"
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 82
     :cond_1
     const/4 v0, 0x1
 
@@ -402,7 +365,6 @@
     .end annotation
 
     .line 31
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/datasource/ListDataSource;->getResult()Ljava/util/List;
 
     move-result-object v0
@@ -411,7 +373,7 @@
 .end method
 
 .method public declared-synchronized getResult()Ljava/util/List;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -424,7 +386,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     monitor-enter p0
 
     .line 59
@@ -437,9 +398,9 @@
 
     if-nez v0, :cond_0
 
-    .line 60
     const/4 v0, 0x0
 
+    .line 60
     monitor-exit p0
 
     return-object v0
@@ -456,7 +417,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 63
-    .local v0, "results":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     iget-object v1, p0, Lcom/facebook/imagepipeline/datasource/ListDataSource;->mDataSources:[Lcom/facebook/datasource/DataSource;
 
     array-length v2, v1
@@ -469,32 +429,24 @@
     aget-object v4, v1, v3
 
     .line 64
-    .local v4, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     invoke-interface {v4}, Lcom/facebook/datasource/DataSource;->getResult()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 63
-    nop
-
-    .end local v4    # "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 66
-    .end local p0    # "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     :cond_1
     monitor-exit p0
 
     return-object v0
 
-    .line 58
-    .end local v0    # "results":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     :catchall_0
     move-exception v0
 
@@ -508,7 +460,6 @@
 .method public declared-synchronized hasResult()Z
     .locals 2
 
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     monitor-enter p0
 
     .line 71
@@ -533,7 +484,6 @@
 
     goto :goto_0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/datasource/ListDataSource;, "Lcom/facebook/imagepipeline/datasource/ListDataSource<TT;>;"
     :cond_0
     const/4 v0, 0x0
 

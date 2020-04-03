@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "hash"    # Ljava/lang/String;
 
     .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +33,5 @@
     .line 95
     iput-object p2, p0, Lcom/facebook/soloader/UnpackingSoSource$Dso;->hash:Ljava/lang/String;
 
-    .line 96
     return-void
 .end method

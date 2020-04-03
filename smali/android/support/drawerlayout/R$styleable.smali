@@ -96,45 +96,45 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 144
     const/4 v0, 0x3
 
+    .line 144
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/drawerlayout/R$styleable;->ColorStateListItem:[I
 
-    .line 148
     const/4 v0, 0x6
 
+    .line 148
     new-array v0, v0, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Landroid/support/drawerlayout/R$styleable;->FontFamily:[I
 
-    .line 155
     const/16 v0, 0xa
 
+    .line 155
     new-array v0, v0, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Landroid/support/drawerlayout/R$styleable;->FontFamilyFont:[I
 
-    .line 166
     const/16 v0, 0xc
 
+    .line 166
     new-array v0, v0, [I
 
     fill-array-data v0, :array_3
 
     sput-object v0, Landroid/support/drawerlayout/R$styleable;->GradientColor:[I
 
-    .line 179
     const/4 v0, 0x2
 
+    .line 179
     new-array v0, v0, [I
 
     fill-array-data v0, :array_4

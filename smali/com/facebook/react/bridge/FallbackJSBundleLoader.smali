@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,7 +44,6 @@
     .end annotation
 
     .line 39
-    .local p1, "loaders":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/react/bridge/JSBundleLoader;>;"
     invoke-direct {p0}, Lcom/facebook/react/bridge/JSBundleLoader;-><init>()V
 
     .line 33
@@ -68,35 +67,33 @@
 
     invoke-interface {p1, v0}, Ljava/util/List;->listIterator(I)Ljava/util/ListIterator;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 42
-    .local v0, "it":Ljava/util/ListIterator;, "Ljava/util/ListIterator<Lcom/facebook/react/bridge/JSBundleLoader;>;"
     :goto_0
-    invoke-interface {v0}, Ljava/util/ListIterator;->hasPrevious()Z
+    invoke-interface {p1}, Ljava/util/ListIterator;->hasPrevious()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 43
-    iget-object v1, p0, Lcom/facebook/react/bridge/FallbackJSBundleLoader;->mLoaders:Ljava/util/Stack;
+    iget-object v0, p0, Lcom/facebook/react/bridge/FallbackJSBundleLoader;->mLoaders:Ljava/util/Stack;
 
-    invoke-interface {v0}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/ListIterator;->previous()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 45
     :cond_0
     return-void
 .end method
 
 .method private getDelegateLoader()Lcom/facebook/react/bridge/JSBundleLoader;
-    .locals 5
+    .locals 4
 
     .line 70
     iget-object v0, p0, Lcom/facebook/react/bridge/FallbackJSBundleLoader;->mLoaders:Ljava/util/Stack;
@@ -126,53 +123,44 @@
 
     invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 78
-    .local v0, "fallbackException":Ljava/lang/RuntimeException;
-    move-object v1, v0
-
     .line 79
-    .local v1, "tail":Ljava/lang/Throwable;
-    iget-object v2, p0, Lcom/facebook/react/bridge/FallbackJSBundleLoader;->mRecoveredErrors:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/facebook/react/bridge/FallbackJSBundleLoader;->mRecoveredErrors:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    move-object v2, v0
+
+    :cond_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/Exception;
 
     .line 80
-    .local v3, "e":Ljava/lang/Exception;
-    invoke-virtual {v1, v3}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 81
-    :goto_1
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+    :goto_0
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
     .line 82
-    invoke-virtual {v1}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
-    move-result-object v1
+    move-result-object v2
 
-    goto :goto_1
-
-    .line 84
-    .end local v3    # "e":Ljava/lang/Exception;
-    :cond_1
     goto :goto_0
 
     .line 86
@@ -186,7 +174,6 @@
 # virtual methods
 .method public loadScript(Lcom/facebook/react/bridge/JSBundleLoaderDelegate;)Ljava/lang/String;
     .locals 3
-    .param p1, "delegate"    # Lcom/facebook/react/bridge/JSBundleLoaderDelegate;
 
     .line 56
     :goto_0
@@ -197,18 +184,16 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/bridge/JSBundleLoader;->loadScript(Lcom/facebook/react/bridge/JSBundleLoaderDelegate;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 57
     :catch_0
     move-exception v0
 
     .line 58
-    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v1
@@ -237,19 +222,16 @@
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 64
     const-string v1, "FallbackJSBundleLoader"
 
     const-string v2, "Falling back from recoverable error"
 
+    .line 64
     invoke-static {v1, v2, v0}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 65
-    .end local v0    # "e":Ljava/lang/Exception;
     goto :goto_0
 
     .line 59
-    .restart local v0    # "e":Ljava/lang/Exception;
     :cond_0
     throw v0
 

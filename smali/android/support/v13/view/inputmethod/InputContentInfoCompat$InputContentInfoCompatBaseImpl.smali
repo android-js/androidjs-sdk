@@ -37,15 +37,15 @@
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "contentUri"    # Landroid/net/Uri;
+    .param p1    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "description"    # Landroid/content/ClipDescription;
+    .param p2    # Landroid/content/ClipDescription;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "linkUri"    # Landroid/net/Uri;
+    .param p3    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -62,7 +62,6 @@
     .line 65
     iput-object p3, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;->mLinkUri:Landroid/net/Uri;
 
-    .line 66
     return-void
 .end method
 
@@ -95,7 +94,6 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    .line 89
     const/4 v0, 0x0
 
     return-object v0
@@ -115,13 +113,11 @@
 .method public releasePermission()V
     .locals 0
 
-    .line 99
     return-void
 .end method
 
 .method public requestPermission()V
     .locals 0
 
-    .line 94
     return-void
 .end method

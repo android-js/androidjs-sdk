@@ -69,12 +69,10 @@
     invoke-direct {v0}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;-><init>()V
 
     .line 47
-    .local v0, "node":Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;
     sget-object v1, Lcom/facebook/react/views/art/ARTSurfaceViewManager;->MEASURE_FUNCTION:Lcom/facebook/yoga/YogaMeasureFunction;
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->setMeasureFunction(Lcom/facebook/yoga/YogaMeasureFunction;)V
 
-    .line 48
     return-object v0
 .end method
 
@@ -91,7 +89,6 @@
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/art/ARTSurfaceView;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 58
     new-instance v0, Lcom/facebook/react/views/art/ARTSurfaceView;
@@ -104,7 +101,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 41
     const-string v0, "ARTSurfaceView"
 
     return-object v0
@@ -140,10 +136,7 @@
 
 .method public setBackgroundColor(Lcom/facebook/react/views/art/ARTSurfaceView;I)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/art/ARTSurfaceView;
-    .param p2, "backgroundColor"    # I
 
-    .line 72
     return-void
 .end method
 
@@ -159,17 +152,12 @@
 .end method
 
 .method public updateExtraData(Lcom/facebook/react/views/art/ARTSurfaceView;Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "root"    # Lcom/facebook/react/views/art/ARTSurfaceView;
-    .param p2, "extraData"    # Ljava/lang/Object;
+    .locals 0
 
     .line 63
-    move-object v0, p2
+    check-cast p2, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;
 
-    check-cast v0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/art/ARTSurfaceView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/art/ARTSurfaceView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
-
-    .line 64
     return-void
 .end method

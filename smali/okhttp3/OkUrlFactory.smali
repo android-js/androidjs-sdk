@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lokhttp3/OkHttpClient;)V
     .locals 0
-    .param p1, "client"    # Lokhttp3/OkHttpClient;
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +28,6 @@
     .line 40
     iput-object p1, p0, Lokhttp3/OkUrlFactory;->client:Lokhttp3/OkHttpClient;
 
-    .line 41
     return-void
 .end method
 
@@ -75,11 +73,10 @@
 
 .method public createURLStreamHandler(Ljava/lang/String;)Ljava/net/URLStreamHandler;
     .locals 1
-    .param p1, "protocol"    # Ljava/lang/String;
 
-    .line 90
     const-string v0, "http"
 
+    .line 90
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -94,9 +91,9 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 92
     :cond_0
@@ -109,7 +106,6 @@
 
 .method public open(Ljava/net/URL;)Ljava/net/HttpURLConnection;
     .locals 1
-    .param p1, "url"    # Ljava/net/URL;
 
     .line 65
     iget-object v0, p0, Lokhttp3/OkUrlFactory;->client:Lokhttp3/OkHttpClient;
@@ -120,15 +116,13 @@
 
     invoke-virtual {p0, p1, v0}, Lokhttp3/OkUrlFactory;->open(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method open(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;
-    .locals 5
-    .param p1, "url"    # Ljava/net/URL;
-    .param p2, "proxy"    # Ljava/net/Proxy;
+    .locals 2
 
     .line 69
     invoke-virtual {p1}, Ljava/net/URL;->getProtocol()Ljava/lang/String;
@@ -136,7 +130,6 @@
     move-result-object v0
 
     .line 70
-    .local v0, "protocol":Ljava/lang/String;
     iget-object v1, p0, Lokhttp3/OkUrlFactory;->client:Lokhttp3/OkHttpClient;
 
     invoke-virtual {v1}, Lokhttp3/OkHttpClient;->newBuilder()Lokhttp3/OkHttpClient$Builder;
@@ -146,90 +139,85 @@
     .line 71
     invoke-virtual {v1, p2}, Lokhttp3/OkHttpClient$Builder;->proxy(Ljava/net/Proxy;)Lokhttp3/OkHttpClient$Builder;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 72
-    invoke-virtual {v1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+    invoke-virtual {p2}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
-    move-result-object v1
+    move-result-object p2
+
+    const-string v1, "http"
 
     .line 74
-    .local v1, "copy":Lokhttp3/OkHttpClient;
-    const-string v2, "http"
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_0
 
-    if-eqz v2, :cond_0
+    new-instance v0, Lokhttp3/internal/huc/OkHttpURLConnection;
 
-    new-instance v2, Lokhttp3/internal/huc/OkHttpURLConnection;
+    iget-object v1, p0, Lokhttp3/OkUrlFactory;->urlFilter:Lokhttp3/internal/URLFilter;
 
-    iget-object v3, p0, Lokhttp3/OkUrlFactory;->urlFilter:Lokhttp3/internal/URLFilter;
+    invoke-direct {v0, p1, p2, v1}, Lokhttp3/internal/huc/OkHttpURLConnection;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;Lokhttp3/internal/URLFilter;)V
 
-    invoke-direct {v2, p1, v1, v3}, Lokhttp3/internal/huc/OkHttpURLConnection;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;Lokhttp3/internal/URLFilter;)V
+    return-object v0
 
-    return-object v2
+    :cond_0
+    const-string v1, "https"
 
     .line 75
-    :cond_0
-    const-string v2, "https"
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v1
 
-    move-result v2
+    if-eqz v1, :cond_1
 
-    if-eqz v2, :cond_1
+    new-instance v0, Lokhttp3/internal/huc/OkHttpsURLConnection;
 
-    new-instance v2, Lokhttp3/internal/huc/OkHttpsURLConnection;
+    iget-object v1, p0, Lokhttp3/OkUrlFactory;->urlFilter:Lokhttp3/internal/URLFilter;
 
-    iget-object v3, p0, Lokhttp3/OkUrlFactory;->urlFilter:Lokhttp3/internal/URLFilter;
+    invoke-direct {v0, p1, p2, v1}, Lokhttp3/internal/huc/OkHttpsURLConnection;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;Lokhttp3/internal/URLFilter;)V
 
-    invoke-direct {v2, p1, v1, v3}, Lokhttp3/internal/huc/OkHttpsURLConnection;-><init>(Ljava/net/URL;Lokhttp3/OkHttpClient;Lokhttp3/internal/URLFilter;)V
-
-    return-object v2
+    return-object v0
 
     .line 76
     :cond_1
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unexpected protocol: "
+    const-string v1, "Unexpected protocol: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p1
 .end method
 
 .method public setClient(Lokhttp3/OkHttpClient;)Lokhttp3/OkUrlFactory;
     .locals 0
-    .param p1, "client"    # Lokhttp3/OkHttpClient;
 
     .line 48
     iput-object p1, p0, Lokhttp3/OkUrlFactory;->client:Lokhttp3/OkHttpClient;
 
-    .line 49
     return-object p0
 .end method
 
 .method setUrlFilter(Lokhttp3/internal/URLFilter;)V
     .locals 0
-    .param p1, "filter"    # Lokhttp3/internal/URLFilter;
 
     .line 53
     iput-object p1, p0, Lokhttp3/OkUrlFactory;->urlFilter:Lokhttp3/internal/URLFilter;
 
-    .line 54
     return-void
 .end method

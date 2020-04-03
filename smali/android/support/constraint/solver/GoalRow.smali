@@ -6,12 +6,10 @@
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/Cache;)V
     .locals 0
-    .param p1, "cache"    # Landroid/support/constraint/solver/Cache;
 
     .line 22
     invoke-direct {p0, p1}, Landroid/support/constraint/solver/ArrayRow;-><init>(Landroid/support/constraint/solver/Cache;)V
 
-    .line 23
     return-void
 .end method
 
@@ -19,7 +17,6 @@
 # virtual methods
 .method public addError(Landroid/support/constraint/solver/SolverVariable;)V
     .locals 1
-    .param p1, "error"    # Landroid/support/constraint/solver/SolverVariable;
 
     .line 27
     invoke-super {p0, p1}, Landroid/support/constraint/solver/ArrayRow;->addError(Landroid/support/constraint/solver/SolverVariable;)V
@@ -31,6 +28,5 @@
 
     iput v0, p1, Landroid/support/constraint/solver/SolverVariable;->usageInRowCount:I
 
-    .line 31
     return-void
 .end method

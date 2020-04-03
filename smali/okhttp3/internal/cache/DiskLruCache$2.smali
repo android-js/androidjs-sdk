@@ -26,14 +26,11 @@
 .method static constructor <clinit>()V
     .locals 0
 
-    .line 316
     return-void
 .end method
 
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Lokio/Sink;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/cache/DiskLruCache;
-    .param p2, "delegate"    # Lokio/Sink;
 
     .line 316
     iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$2;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -46,19 +43,14 @@
 
 # virtual methods
 .method protected onException(Ljava/io/IOException;)V
-    .locals 2
-    .param p1, "e"    # Ljava/io/IOException;
-
-    .line 318
-    nop
+    .locals 1
 
     .line 319
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$2;->this$0:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$2;->this$0:Lokhttp3/internal/cache/DiskLruCache;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, v0, Lokhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
+    iput-boolean v0, p1, Lokhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
 
-    .line 320
     return-void
 .end method

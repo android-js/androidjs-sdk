@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/bridge/CatalystInstanceImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/bridge/CatalystInstanceImpl;
 
     .line 529
     iput-object p1, p0, Lcom/facebook/react/bridge/CatalystInstanceImpl$4;->this$0:Lcom/facebook/react/bridge/CatalystInstanceImpl;
@@ -64,14 +63,10 @@
     check-cast v1, Lcom/facebook/react/bridge/NotThreadSafeBridgeIdleDebugListener;
 
     .line 533
-    .local v1, "listener":Lcom/facebook/react/bridge/NotThreadSafeBridgeIdleDebugListener;
     invoke-interface {v1}, Lcom/facebook/react/bridge/NotThreadSafeBridgeIdleDebugListener;->onTransitionToBridgeIdle()V
 
-    .line 534
-    .end local v1    # "listener":Lcom/facebook/react/bridge/NotThreadSafeBridgeIdleDebugListener;
     goto :goto_0
 
-    .line 535
     :cond_0
     return-void
 .end method

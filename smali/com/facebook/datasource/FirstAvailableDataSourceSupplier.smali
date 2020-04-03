@@ -56,8 +56,6 @@
     .end annotation
 
     .line 30
-    .local p0, "this":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;, "Lcom/facebook/datasource/FirstAvailableDataSourceSupplier<TT;>;"
-    .local p1, "dataSourceSuppliers":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/common/internal/Supplier<Lcom/facebook/datasource/DataSource<TT;>;>;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 31
@@ -74,18 +72,16 @@
     .line 32
     iput-object p1, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
 
-    .line 33
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;)Ljava/util/List;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;
+    .locals 0
 
     .line 26
-    iget-object v0, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
+    iget-object p0, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static create(Ljava/util/List;)Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;
@@ -105,7 +101,6 @@
     .end annotation
 
     .line 37
-    .local p0, "dataSourceSuppliers":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/common/internal/Supplier<Lcom/facebook/datasource/DataSource<TT;>;>;>;"
     new-instance v0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;
 
     invoke-direct {v0, p0}, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;-><init>(Ljava/util/List;)V
@@ -116,17 +111,13 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 52
-    .local p0, "this":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;, "Lcom/facebook/datasource/FirstAvailableDataSourceSupplier<TT;>;"
     if-ne p1, p0, :cond_0
 
-    .line 53
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 55
     :cond_0
@@ -134,28 +125,24 @@
 
     if-nez v0, :cond_1
 
-    .line 56
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 58
     :cond_1
-    move-object v0, p1
-
-    check-cast v0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;
+    check-cast p1, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;
 
     .line 59
-    .local v0, "that":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;
-    iget-object v1, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
+    iget-object v0, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
 
-    iget-object v2, v0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
+    iget-object p1, p1, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
 
-    invoke-static {v1, v2}, Lcom/facebook/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/facebook/common/internal/Objects;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 .end method
 
 .method public get()Lcom/facebook/datasource/DataSource;
@@ -169,7 +156,6 @@
     .end annotation
 
     .line 42
-    .local p0, "this":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;, "Lcom/facebook/datasource/FirstAvailableDataSourceSupplier<TT;>;"
     new-instance v0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier$FirstAvailableDataSource;
 
     invoke-direct {v0, p0}, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier$FirstAvailableDataSource;-><init>(Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;)V
@@ -181,7 +167,6 @@
     .locals 1
 
     .line 25
-    .local p0, "this":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;, "Lcom/facebook/datasource/FirstAvailableDataSourceSupplier<TT;>;"
     invoke-virtual {p0}, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->get()Lcom/facebook/datasource/DataSource;
 
     move-result-object v0
@@ -193,7 +178,6 @@
     .locals 1
 
     .line 47
-    .local p0, "this":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;, "Lcom/facebook/datasource/FirstAvailableDataSourceSupplier<TT;>;"
     iget-object v0, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->hashCode()I
@@ -207,16 +191,15 @@
     .locals 3
 
     .line 64
-    .local p0, "this":Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;, "Lcom/facebook/datasource/FirstAvailableDataSourceSupplier<TT;>;"
     invoke-static {p0}, Lcom/facebook/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/facebook/datasource/FirstAvailableDataSourceSupplier;->mDataSourceSuppliers:Ljava/util/List;
 
-    .line 65
     const-string v2, "list"
 
+    .line 65
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
@@ -226,6 +209,5 @@
 
     move-result-object v0
 
-    .line 64
     return-object v0
 .end method

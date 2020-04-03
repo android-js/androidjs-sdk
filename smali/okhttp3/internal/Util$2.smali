@@ -41,7 +41,6 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 242
     new-instance v0, Ljava/lang/Thread;
@@ -51,11 +50,9 @@
     invoke-direct {v0, p1, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     .line 243
-    .local v0, "result":Ljava/lang/Thread;
-    iget-boolean v1, p0, Lokhttp3/internal/Util$2;->val$daemon:Z
+    iget-boolean p1, p0, Lokhttp3/internal/Util$2;->val$daemon:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    .line 244
     return-object v0
 .end method

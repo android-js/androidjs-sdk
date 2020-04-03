@@ -78,14 +78,11 @@
     .end annotation
 
     .line 239
-    .local p0, "this":Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;, "Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver<TD;>;"
-    .local p1, "loader":Landroid/support/v4/content/Loader;, "Landroid/support/v4/content/Loader<TD;>;"
-    .local p2, "callback":Landroid/support/v4/app/LoaderManager$LoaderCallbacks;, "Landroid/support/v4/app/LoaderManager$LoaderCallbacks<TD;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 237
     const/4 v0, 0x0
 
+    .line 237
     iput-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
 
     .line 240
@@ -94,30 +91,25 @@
     .line 241
     iput-object p2, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mCallback:Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
 
-    .line 242
     return-void
 .end method
 
 
 # virtual methods
 .method public dump(Ljava/lang/String;Ljava/io/PrintWriter;)V
-    .locals 1
-    .param p1, "prefix"    # Ljava/lang/String;
-    .param p2, "writer"    # Ljava/io/PrintWriter;
+    .locals 0
 
     .line 272
-    .local p0, "this":Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;, "Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver<TD;>;"
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "mDeliveredData="
+    const-string p1, "mDeliveredData="
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
+    iget-boolean p1, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 274
     return-void
 .end method
 
@@ -125,7 +117,6 @@
     .locals 1
 
     .line 255
-    .local p0, "this":Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;, "Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver<TD;>;"
     iget-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
 
     return v0
@@ -144,8 +135,6 @@
     .end annotation
 
     .line 246
-    .local p0, "this":Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;, "Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver<TD;>;"
-    .local p1, "data":Ljava/lang/Object;, "TD;"
     sget-boolean v0, Landroid/support/v4/app/LoaderManagerImpl;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -180,9 +169,9 @@
 
     move-result-object v0
 
-    .line 247
     const-string v1, "LoaderManager"
 
+    .line 247
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 250
@@ -193,12 +182,11 @@
 
     invoke-interface {v0, v1, p1}, Landroid/support/v4/app/LoaderManager$LoaderCallbacks;->onLoadFinished(Landroid/support/v4/content/Loader;Ljava/lang/Object;)V
 
+    const/4 p1, 0x1
+
     .line 251
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
 
-    iput-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
-
-    .line 252
     return-void
 .end method
 
@@ -208,7 +196,6 @@
     .end annotation
 
     .line 260
-    .local p0, "this":Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;, "Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver<TD;>;"
     iget-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z
 
     if-eqz v0, :cond_1
@@ -246,7 +233,6 @@
 
     invoke-interface {v0, v1}, Landroid/support/v4/app/LoaderManager$LoaderCallbacks;->onLoaderReset(Landroid/support/v4/content/Loader;)V
 
-    .line 264
     :cond_1
     return-void
 .end method
@@ -255,7 +241,6 @@
     .locals 1
 
     .line 268
-    .local p0, "this":Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;, "Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver<TD;>;"
     iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mCallback:Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;

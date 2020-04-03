@@ -10,17 +10,15 @@
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
     .locals 2
-    .param p1, "out"    # Ljava/io/OutputStream;
 
     .line 40
     invoke-direct {p0, p1}, Ljava/io/FilterOutputStream;-><init>(Ljava/io/OutputStream;)V
 
-    .line 41
     const-wide/16 v0, 0x0
 
+    .line 41
     iput-wide v0, p0, Lcom/facebook/common/internal/CountingOutputStream;->mCount:J
 
-    .line 42
     return-void
 .end method
 
@@ -39,7 +37,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 69
     return-void
 .end method
 
@@ -54,7 +51,6 @@
 
 .method public write(I)V
     .locals 4
-    .param p1, "b"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -75,15 +71,11 @@
 
     iput-wide v0, p0, Lcom/facebook/common/internal/CountingOutputStream;->mCount:J
 
-    .line 61
     return-void
 .end method
 
 .method public write([BII)V
-    .locals 4
-    .param p1, "b"    # [B
-    .param p2, "off"    # I
-    .param p3, "len"    # I
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -96,14 +88,13 @@
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
 
     .line 54
-    iget-wide v0, p0, Lcom/facebook/common/internal/CountingOutputStream;->mCount:J
+    iget-wide p1, p0, Lcom/facebook/common/internal/CountingOutputStream;->mCount:J
 
-    int-to-long v2, p3
+    int-to-long v0, p3
 
-    add-long/2addr v0, v2
+    add-long/2addr p1, v0
 
-    iput-wide v0, p0, Lcom/facebook/common/internal/CountingOutputStream;->mCount:J
+    iput-wide p1, p0, Lcom/facebook/common/internal/CountingOutputStream;->mCount:J
 
-    .line 55
     return-void
 .end method

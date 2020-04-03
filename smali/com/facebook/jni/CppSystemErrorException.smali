@@ -15,8 +15,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .param p1, "message"    # Ljava/lang/String;
-    .param p2, "errorCode"    # I
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -26,7 +24,6 @@
     .line 19
     iput p2, p0, Lcom/facebook/jni/CppSystemErrorException;->errorCode:I
 
-    .line 20
     return-void
 .end method
 

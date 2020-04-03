@@ -24,7 +24,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/views/view/ReactViewGroup;)V
     .locals 0
-    .param p1, "parent"    # Lcom/facebook/react/views/view/ReactViewGroup;
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +31,11 @@
     .line 78
     iput-object p1, p0, Lcom/facebook/react/views/view/ReactViewGroup$ChildrenLayoutChangeListener;->mParent:Lcom/facebook/react/views/view/ReactViewGroup;
 
-    .line 79
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/views/view/ReactViewGroup;Lcom/facebook/react/views/view/ReactViewGroup$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/views/view/ReactViewGroup;
-    .param p2, "x1"    # Lcom/facebook/react/views/view/ReactViewGroup$1;
 
     .line 73
     invoke-direct {p0, p1}, Lcom/facebook/react/views/view/ReactViewGroup$ChildrenLayoutChangeListener;-><init>(Lcom/facebook/react/views/view/ReactViewGroup;)V
@@ -50,32 +46,22 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "left"    # I
-    .param p3, "top"    # I
-    .param p4, "right"    # I
-    .param p5, "bottom"    # I
-    .param p6, "oldLeft"    # I
-    .param p7, "oldTop"    # I
-    .param p8, "oldRight"    # I
-    .param p9, "oldBottom"    # I
+    .locals 0
 
     .line 92
-    iget-object v0, p0, Lcom/facebook/react/views/view/ReactViewGroup$ChildrenLayoutChangeListener;->mParent:Lcom/facebook/react/views/view/ReactViewGroup;
+    iget-object p2, p0, Lcom/facebook/react/views/view/ReactViewGroup$ChildrenLayoutChangeListener;->mParent:Lcom/facebook/react/views/view/ReactViewGroup;
 
-    invoke-virtual {v0}, Lcom/facebook/react/views/view/ReactViewGroup;->getRemoveClippedSubviews()Z
+    invoke-virtual {p2}, Lcom/facebook/react/views/view/ReactViewGroup;->getRemoveClippedSubviews()Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 93
-    iget-object v0, p0, Lcom/facebook/react/views/view/ReactViewGroup$ChildrenLayoutChangeListener;->mParent:Lcom/facebook/react/views/view/ReactViewGroup;
+    iget-object p2, p0, Lcom/facebook/react/views/view/ReactViewGroup$ChildrenLayoutChangeListener;->mParent:Lcom/facebook/react/views/view/ReactViewGroup;
 
-    invoke-static {v0, p1}, Lcom/facebook/react/views/view/ReactViewGroup;->access$000(Lcom/facebook/react/views/view/ReactViewGroup;Landroid/view/View;)V
+    invoke-static {p2, p1}, Lcom/facebook/react/views/view/ReactViewGroup;->access$000(Lcom/facebook/react/views/view/ReactViewGroup;Landroid/view/View;)V
 
-    .line 95
     :cond_0
     return-void
 .end method

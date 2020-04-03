@@ -29,7 +29,6 @@
 
 .method synthetic constructor <init>(Lbolts/AndroidExecutors$1;)V
     .locals 0
-    .param p1, "x0"    # Lbolts/AndroidExecutors$1;
 
     .line 135
     invoke-direct {p0}, Lbolts/AndroidExecutors$UIThreadExecutor;-><init>()V
@@ -41,7 +40,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 138
     new-instance v0, Landroid/os/Handler;
@@ -54,6 +52,5 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 139
     return-void
 .end method

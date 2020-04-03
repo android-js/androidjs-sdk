@@ -41,18 +41,16 @@
     .end annotation
 
     .line 222
-    .local p1, "routes":Ljava/util/List;, "Ljava/util/List<Lokhttp3/Route;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 220
     const/4 v0, 0x0
 
+    .line 220
     iput v0, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->nextRouteIndex:I
 
     .line 223
     iput-object p1, p0, Lokhttp3/internal/connection/RouteSelector$Selection;->routes:Ljava/util/List;
 
-    .line 224
     return-void
 .end method
 

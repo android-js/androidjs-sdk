@@ -52,7 +52,6 @@
 
 .method constructor <init>(Landroid/support/v4/app/Person;)V
     .locals 1
-    .param p1, "person"    # Landroid/support/v4/app/Person;
 
     .line 215
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,11 +82,10 @@
     iput-boolean v0, p0, Landroid/support/v4/app/Person$Builder;->mIsBot:Z
 
     .line 221
-    iget-boolean v0, p1, Landroid/support/v4/app/Person;->mIsImportant:Z
+    iget-boolean p1, p1, Landroid/support/v4/app/Person;->mIsImportant:Z
 
-    iput-boolean v0, p0, Landroid/support/v4/app/Person$Builder;->mIsImportant:Z
+    iput-boolean p1, p0, Landroid/support/v4/app/Person$Builder;->mIsImportant:Z
 
-    .line 222
     return-void
 .end method
 
@@ -108,20 +106,18 @@
 
 .method public setBot(Z)Landroid/support/v4/app/Person$Builder;
     .locals 0
-    .param p1, "bot"    # Z
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
     .line 281
     iput-boolean p1, p0, Landroid/support/v4/app/Person$Builder;->mIsBot:Z
 
-    .line 282
     return-object p0
 .end method
 
 .method public setIcon(Landroid/support/v4/graphics/drawable/IconCompat;)Landroid/support/v4/app/Person$Builder;
     .locals 0
-    .param p1, "icon"    # Landroid/support/v4/graphics/drawable/IconCompat;
+    .param p1    # Landroid/support/v4/graphics/drawable/IconCompat;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -131,26 +127,23 @@
     .line 242
     iput-object p1, p0, Landroid/support/v4/app/Person$Builder;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    .line 243
     return-object p0
 .end method
 
 .method public setImportant(Z)Landroid/support/v4/app/Person$Builder;
     .locals 0
-    .param p1, "important"    # Z
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
     .line 293
     iput-boolean p1, p0, Landroid/support/v4/app/Person$Builder;->mIsImportant:Z
 
-    .line 294
     return-object p0
 .end method
 
 .method public setKey(Ljava/lang/String;)Landroid/support/v4/app/Person$Builder;
     .locals 0
-    .param p1, "key"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -160,13 +153,12 @@
     .line 271
     iput-object p1, p0, Landroid/support/v4/app/Person$Builder;->mKey:Ljava/lang/String;
 
-    .line 272
     return-object p0
 .end method
 
 .method public setName(Ljava/lang/CharSequence;)Landroid/support/v4/app/Person$Builder;
     .locals 0
-    .param p1, "name"    # Ljava/lang/CharSequence;
+    .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -176,13 +168,12 @@
     .line 230
     iput-object p1, p0, Landroid/support/v4/app/Person$Builder;->mName:Ljava/lang/CharSequence;
 
-    .line 231
     return-object p0
 .end method
 
 .method public setUri(Ljava/lang/String;)Landroid/support/v4/app/Person$Builder;
     .locals 0
-    .param p1, "uri"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -192,6 +183,5 @@
     .line 260
     iput-object p1, p0, Landroid/support/v4/app/Person$Builder;->mUri:Ljava/lang/String;
 
-    .line 261
     return-object p0
 .end method

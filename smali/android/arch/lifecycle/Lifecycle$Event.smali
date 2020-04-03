@@ -121,9 +121,9 @@
 
     sput-object v0, Landroid/arch/lifecycle/Lifecycle$Event;->ON_ANY:Landroid/arch/lifecycle/Lifecycle$Event;
 
-    .line 114
     const/4 v0, 0x7
 
+    .line 114
     new-array v0, v0, [Landroid/arch/lifecycle/Lifecycle$Event;
 
     sget-object v8, Landroid/arch/lifecycle/Lifecycle$Event;->ON_CREATE:Landroid/arch/lifecycle/Lifecycle$Event;
@@ -175,18 +175,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/arch/lifecycle/Lifecycle$Event;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 114
     const-class v0, Landroid/arch/lifecycle/Lifecycle$Event;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/arch/lifecycle/Lifecycle$Event;
+    check-cast p0, Landroid/arch/lifecycle/Lifecycle$Event;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/arch/lifecycle/Lifecycle$Event;

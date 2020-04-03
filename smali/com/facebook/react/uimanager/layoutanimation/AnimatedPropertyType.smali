@@ -73,9 +73,9 @@
 
     sput-object v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_XY:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    .line 12
     const/4 v0, 0x4
 
+    .line 12
     new-array v0, v0, [Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
     sget-object v5, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->OPACITY:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
@@ -115,7 +115,6 @@
 
 .method public static fromString(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
     .locals 4
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 19
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -130,7 +129,6 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    :cond_0
     goto :goto_0
 
     :sswitch_0
@@ -185,6 +183,7 @@
 
     goto :goto_1
 
+    :cond_0
     :goto_0
     const/4 v0, -0x1
 
@@ -198,9 +197,9 @@
     if-ne v0, v1, :cond_1
 
     .line 27
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_XY:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_XY:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    return-object v0
+    return-object p0
 
     .line 29
     :cond_1
@@ -218,29 +217,29 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 25
     :cond_2
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_Y:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_Y:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    return-object v0
+    return-object p0
 
     .line 23
     :cond_3
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_X:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->SCALE_X:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    return-object v0
+    return-object p0
 
     .line 21
     :cond_4
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->OPACITY:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;->OPACITY:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -255,18 +254,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 12
     const-class v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
+    check-cast p0, Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;

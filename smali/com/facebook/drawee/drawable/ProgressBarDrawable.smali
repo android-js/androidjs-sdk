@@ -60,29 +60,29 @@
 
     iput-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
 
-    .line 26
     const/high16 v0, -0x80000000
 
+    .line 26
     iput v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBackgroundColor:I
 
-    .line 27
     const v0, -0x7fff7f01
 
+    .line 27
     iput v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mColor:I
 
-    .line 28
     const/16 v0, 0xa
 
+    .line 28
     iput v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
 
-    .line 29
     const/16 v0, 0x14
 
+    .line 29
     iput v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
 
-    .line 30
     const/4 v0, 0x0
 
+    .line 30
     iput v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mLevel:I
 
     .line 31
@@ -98,9 +98,7 @@
 .end method
 
 .method private drawBar(Landroid/graphics/Canvas;I)V
-    .locals 5
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "color"    # I
+    .locals 4
 
     .line 194
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
@@ -108,28 +106,41 @@
     invoke-virtual {v0, p2}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 195
-    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object p2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
 
-    sget-object v1, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL_AND_STROKE:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     .line 196
-    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
+    iget-object p2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
 
-    invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
+    invoke-virtual {p2}, Landroid/graphics/Path;->reset()V
 
     .line 197
-    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
+    iget-object p2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
 
-    sget-object v1, Landroid/graphics/Path$FillType;->EVEN_ODD:Landroid/graphics/Path$FillType;
+    sget-object v0, Landroid/graphics/Path$FillType;->EVEN_ODD:Landroid/graphics/Path$FillType;
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Path;->setFillType(Landroid/graphics/Path$FillType;)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Path;->setFillType(Landroid/graphics/Path$FillType;)V
 
     .line 198
-    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
+    iget-object p2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
 
-    iget-object v1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
+
+    iget v1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRadius:I
+
+    iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
+
+    div-int/lit8 v2, v2, 0x2
+
+    .line 200
+    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    int-to-float v1, v1
 
     iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRadius:I
 
@@ -137,47 +148,30 @@
 
     div-int/lit8 v3, v3, 0x2
 
-    .line 200
+    .line 201
     invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
 
     move-result v2
 
     int-to-float v2, v2
 
-    iget v3, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRadius:I
-
-    iget v4, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
-
-    div-int/lit8 v4, v4, 0x2
-
-    .line 201
-    invoke-static {v3, v4}, Ljava/lang/Math;->min(II)I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    sget-object v4, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+    sget-object v3, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
     .line 198
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+    invoke-virtual {p2, v0, v1, v2, v3}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
 
     .line 203
-    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
+    iget-object p2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPath:Landroid/graphics/Path;
 
-    iget-object v1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
+    iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, p2, v0}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 204
     return-void
 .end method
 
 .method private drawHorizontalBar(Landroid/graphics/Canvas;II)V
-    .locals 9
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "level"    # I
-    .param p3, "color"    # I
+    .locals 6
 
     .line 176
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->getBounds()Landroid/graphics/Rect;
@@ -185,7 +179,6 @@
     move-result-object v0
 
     .line 177
-    .local v0, "bounds":Landroid/graphics/Rect;
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
     move-result v1
@@ -201,55 +194,48 @@
     div-int/lit16 v1, v1, 0x2710
 
     .line 178
-    .local v1, "length":I
-    iget v2, v0, Landroid/graphics/Rect;->left:I
+    iget p2, v0, Landroid/graphics/Rect;->left:I
 
-    iget v3, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
+    iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
 
-    add-int/2addr v2, v3
+    add-int/2addr p2, v2
 
     .line 179
-    .local v2, "xpos":I
-    iget v3, v0, Landroid/graphics/Rect;->bottom:I
+    iget v0, v0, Landroid/graphics/Rect;->bottom:I
 
-    iget v4, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
+    iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
 
-    sub-int/2addr v3, v4
+    sub-int/2addr v0, v2
 
-    iget v4, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
+    iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
 
-    sub-int/2addr v3, v4
+    sub-int/2addr v0, v2
 
     .line 180
-    .local v3, "ypos":I
-    iget-object v5, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
+    iget-object v3, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
 
-    int-to-float v6, v2
+    int-to-float v4, p2
 
-    int-to-float v7, v3
+    int-to-float v5, v0
 
-    add-int v8, v2, v1
+    add-int/2addr p2, v1
 
-    int-to-float v8, v8
+    int-to-float p2, p2
 
-    add-int/2addr v4, v3
+    add-int/2addr v0, v2
 
-    int-to-float v4, v4
+    int-to-float v0, v0
 
-    invoke-virtual {v5, v6, v7, v8, v4}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v3, v4, v5, p2, v0}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 181
     invoke-direct {p0, p1, p3}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->drawBar(Landroid/graphics/Canvas;I)V
 
-    .line 182
     return-void
 .end method
 
 .method private drawVerticalBar(Landroid/graphics/Canvas;II)V
-    .locals 9
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "level"    # I
-    .param p3, "color"    # I
+    .locals 6
 
     .line 185
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->getBounds()Landroid/graphics/Rect;
@@ -257,7 +243,6 @@
     move-result-object v0
 
     .line 186
-    .local v0, "bounds":Landroid/graphics/Rect;
     invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
 
     move-result v1
@@ -273,45 +258,41 @@
     div-int/lit16 v1, v1, 0x2710
 
     .line 187
-    .local v1, "length":I
-    iget v2, v0, Landroid/graphics/Rect;->left:I
+    iget p2, v0, Landroid/graphics/Rect;->left:I
 
-    iget v3, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
+    iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
 
-    add-int/2addr v2, v3
+    add-int/2addr p2, v2
 
     .line 188
-    .local v2, "xpos":I
-    iget v3, v0, Landroid/graphics/Rect;->top:I
+    iget v0, v0, Landroid/graphics/Rect;->top:I
 
-    iget v4, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
+    iget v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
 
-    add-int/2addr v3, v4
+    add-int/2addr v0, v2
 
     .line 189
-    .local v3, "ypos":I
-    iget-object v4, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
+    iget-object v2, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRect:Landroid/graphics/RectF;
 
-    int-to-float v5, v2
+    int-to-float v3, p2
 
-    int-to-float v6, v3
+    int-to-float v4, v0
 
-    iget v7, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
+    iget v5, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
 
-    add-int/2addr v7, v2
+    add-int/2addr p2, v5
 
-    int-to-float v7, v7
+    int-to-float p2, p2
 
-    add-int v8, v3, v1
+    add-int/2addr v0, v1
 
-    int-to-float v8, v8
+    int-to-float v0, v0
 
-    invoke-virtual {v4, v5, v6, v7, v8}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v2, v3, v4, p2, v0}, Landroid/graphics/RectF;->set(FFFF)V
 
     .line 190
     invoke-direct {p0, p1, p3}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->drawBar(Landroid/graphics/Canvas;I)V
 
-    .line 191
     return-void
 .end method
 
@@ -326,7 +307,6 @@
     invoke-direct {v0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;-><init>()V
 
     .line 164
-    .local v0, "copy":Lcom/facebook/drawee/drawable/ProgressBarDrawable;
     iget v1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBackgroundColor:I
 
     iput v1, v0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBackgroundColor:I
@@ -366,13 +346,11 @@
 
     iput-boolean v1, v0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mIsVertical:Z
 
-    .line 172
     return-object v0
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 149
     iget-boolean v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mHideWhenZero:Z
@@ -383,7 +361,6 @@
 
     if-nez v0, :cond_0
 
-    .line 150
     return-void
 
     .line 152
@@ -421,7 +398,6 @@
 
     invoke-direct {p0, p1, v0, v1}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->drawHorizontalBar(Landroid/graphics/Canvas;II)V
 
-    .line 159
     :goto_0
     return-void
 .end method
@@ -490,7 +466,6 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 1
-    .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 72
     iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
@@ -498,19 +473,19 @@
     invoke-virtual {p1, v0, v0, v0, v0}, Landroid/graphics/Rect;->set(IIII)V
 
     .line 73
-    iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
+    iget p1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public getRadius()I
@@ -523,8 +498,7 @@
 .end method
 
 .method protected onLevelChange(I)Z
-    .locals 1
-    .param p1, "level"    # I
+    .locals 0
 
     .line 127
     iput p1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mLevel:I
@@ -532,28 +506,24 @@
     .line 128
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 129
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public setAlpha(I)V
     .locals 1
-    .param p1, "alpha"    # I
 
     .line 134
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 135
     return-void
 .end method
 
 .method public setBackgroundColor(I)V
     .locals 1
-    .param p1, "backgroundColor"    # I
 
     .line 50
     iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBackgroundColor:I
@@ -566,14 +536,12 @@
     .line 52
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 54
     :cond_0
     return-void
 .end method
 
 .method public setBarWidth(I)V
     .locals 1
-    .param p1, "barWidth"    # I
 
     .line 78
     iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mBarWidth:I
@@ -586,14 +554,12 @@
     .line 80
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 82
     :cond_0
     return-void
 .end method
 
 .method public setColor(I)V
     .locals 1
-    .param p1, "color"    # I
 
     .line 37
     iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mColor:I
@@ -606,38 +572,32 @@
     .line 39
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 41
     :cond_0
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .line 139
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    .line 140
     return-void
 .end method
 
 .method public setHideWhenZero(Z)V
     .locals 0
-    .param p1, "hideWhenZero"    # Z
 
     .line 91
     iput-boolean p1, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mHideWhenZero:Z
 
-    .line 92
     return-void
 .end method
 
 .method public setIsVertical(Z)V
     .locals 1
-    .param p1, "isVertical"    # Z
 
     .line 114
     iget-boolean v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mIsVertical:Z
@@ -650,14 +610,12 @@
     .line 116
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 118
     :cond_0
     return-void
 .end method
 
 .method public setPadding(I)V
     .locals 1
-    .param p1, "padding"    # I
 
     .line 63
     iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mPadding:I
@@ -670,14 +628,12 @@
     .line 65
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 67
     :cond_0
     return-void
 .end method
 
 .method public setRadius(I)V
     .locals 1
-    .param p1, "radius"    # I
 
     .line 101
     iget v0, p0, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->mRadius:I
@@ -690,7 +646,6 @@
     .line 103
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ProgressBarDrawable;->invalidateSelf()V
 
-    .line 105
     :cond_0
     return-void
 .end method

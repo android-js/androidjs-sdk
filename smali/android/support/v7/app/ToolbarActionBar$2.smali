@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/ToolbarActionBar;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/app/ToolbarActionBar;
 
     .line 61
     iput-object p1, p0, Landroid/support/v7/app/ToolbarActionBar$2;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 2
-    .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 64
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$2;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -49,7 +47,7 @@
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

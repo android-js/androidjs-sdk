@@ -36,17 +36,13 @@
     .end annotation
 
     .line 34
-    .local p1, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;)V
 
-    .line 35
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/AddImageTransformMetaDataProducer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/producers/Consumer;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/producers/AddImageTransformMetaDataProducer$1;
 
     .line 30
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/AddImageTransformMetaDataProducer$AddImageTransformMetaDataConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;)V
@@ -57,23 +53,19 @@
 
 # virtual methods
 .method protected onNewResultImpl(Lcom/facebook/imagepipeline/image/EncodedImage;I)V
-    .locals 2
-    .param p1, "newResult"    # Lcom/facebook/imagepipeline/image/EncodedImage;
-    .param p2, "status"    # I
+    .locals 1
 
-    .line 39
     if-nez p1, :cond_0
 
     .line 40
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/AddImageTransformMetaDataProducer$AddImageTransformMetaDataConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-interface {v0, v1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
+    invoke-interface {p1, v0, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 41
     return-void
 
     .line 43
@@ -95,7 +87,6 @@
 
     invoke-interface {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 47
     return-void
 .end method
 

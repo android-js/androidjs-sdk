@@ -36,23 +36,20 @@
 # virtual methods
 .method public onFinalImageSet(Ljava/lang/String;Ljava/lang/Object;Landroid/graphics/drawable/Animatable;)V
     .locals 0
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "info"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "anim"    # Landroid/graphics/drawable/Animatable;
+    .param p3    # Landroid/graphics/drawable/Animatable;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 43
     if-eqz p3, :cond_0
 
     .line 44
     invoke-interface {p3}, Landroid/graphics/drawable/Animatable;->start()V
 
-    .line 46
     :cond_0
     return-void
 .end method

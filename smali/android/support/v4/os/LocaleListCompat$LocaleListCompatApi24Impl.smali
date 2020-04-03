@@ -49,44 +49,39 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 1
 
     .line 141
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    move-object v1, p1
+    check-cast p1, Landroid/support/v4/os/LocaleListCompat;
 
-    check-cast v1, Landroid/support/v4/os/LocaleListCompat;
+    invoke-virtual {p1}, Landroid/support/v4/os/LocaleListCompat;->unwrap()Ljava/lang/Object;
 
-    invoke-virtual {v1}, Landroid/support/v4/os/LocaleListCompat;->unwrap()Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-virtual {v0, p1}, Landroid/os/LocaleList;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Landroid/os/LocaleList;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public get(I)Ljava/util/Locale;
     .locals 1
-    .param p1, "index"    # I
 
     .line 119
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
     invoke-virtual {v0, p1}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
     .locals 1
-    .param p1, "supportedLocales"    # [Ljava/lang/String;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -98,15 +93,14 @@
     .line 163
     invoke-virtual {v0, p1}, Landroid/os/LocaleList;->getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
-    .line 165
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getLocaleList()Ljava/lang/Object;
@@ -133,7 +127,6 @@
 
 .method public indexOf(Ljava/util/Locale;)I
     .locals 1
-    .param p1, "locale"    # Ljava/util/Locale;
     .annotation build Landroid/support/annotation/IntRange;
         from = -0x1L
     .end annotation
@@ -143,9 +136,9 @@
 
     invoke-virtual {v0, p1}, Landroid/os/LocaleList;->indexOf(Ljava/util/Locale;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isEmpty()Z
@@ -163,7 +156,7 @@
 
 .method public varargs setLocaleList([Ljava/util/Locale;)V
     .locals 1
-    .param p1, "list"    # [Ljava/util/Locale;
+    .param p1    # [Ljava/util/Locale;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -175,7 +168,6 @@
 
     iput-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatApi24Impl;->mLocaleList:Landroid/os/LocaleList;
 
-    .line 110
     return-void
 .end method
 

@@ -69,23 +69,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/facebook/common/memory/ByteArrayPool;Lcom/facebook/imagepipeline/decoder/ImageDecoder;Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;ZZZLcom/facebook/imagepipeline/core/ExecutorSupplier;Lcom/facebook/common/memory/PooledByteBufferFactory;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;IIZ)V
-    .locals 16
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "byteArrayPool"    # Lcom/facebook/common/memory/ByteArrayPool;
-    .param p3, "imageDecoder"    # Lcom/facebook/imagepipeline/decoder/ImageDecoder;
-    .param p4, "progressiveJpegConfig"    # Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;
-    .param p5, "downsampleEnabled"    # Z
-    .param p6, "resizeAndRotateEnabledForNetwork"    # Z
-    .param p7, "decodeCancellationEnabled"    # Z
-    .param p8, "executorSupplier"    # Lcom/facebook/imagepipeline/core/ExecutorSupplier;
-    .param p9, "pooledByteBufferFactory"    # Lcom/facebook/common/memory/PooledByteBufferFactory;
-    .param p12, "defaultBufferedDiskCache"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p13, "smallImageBufferedDiskCache"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p14, "cacheKeyFactory"    # Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
-    .param p15, "platformBitmapFactory"    # Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;
-    .param p16, "bitmapPrepareToDrawMinSizeBytes"    # I
-    .param p17, "bitmapPrepareToDrawMaxSizeBytes"    # I
-    .param p18, "bitmapPrepareToDrawForPrefetch"    # Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,15 +96,13 @@
         }
     .end annotation
 
-    .line 117
-    .local p10, "bitmapMemoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .local p11, "encodedMemoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/common/memory/PooledByteBuffer;>;"
-    move-object/from16 v0, p0
+    move-object v0, p0
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    .line 117
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 118
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -131,7 +113,7 @@
     iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mContentResolver:Landroid/content/ContentResolver;
 
     .line 119
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -142,7 +124,7 @@
     iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mResources:Landroid/content/res/Resources;
 
     .line 120
-    invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -152,92 +134,91 @@
 
     iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mAssetManager:Landroid/content/res/AssetManager;
 
-    .line 122
-    move-object/from16 v1, p2
+    move-object v1, p2
 
+    .line 122
     iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mByteArrayPool:Lcom/facebook/common/memory/ByteArrayPool;
 
-    .line 123
-    move-object/from16 v2, p3
+    move-object v1, p3
 
-    iput-object v2, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mImageDecoder:Lcom/facebook/imagepipeline/decoder/ImageDecoder;
+    .line 123
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mImageDecoder:Lcom/facebook/imagepipeline/decoder/ImageDecoder;
+
+    move-object v1, p4
 
     .line 124
-    move-object/from16 v3, p4
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mProgressiveJpegConfig:Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;
 
-    iput-object v3, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mProgressiveJpegConfig:Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;
+    move v1, p5
 
     .line 125
-    move/from16 v4, p5
+    iput-boolean v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDownsampleEnabled:Z
 
-    iput-boolean v4, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDownsampleEnabled:Z
+    move v1, p6
 
     .line 126
-    move/from16 v5, p6
+    iput-boolean v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mResizeAndRotateEnabledForNetwork:Z
 
-    iput-boolean v5, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mResizeAndRotateEnabledForNetwork:Z
+    move v1, p7
 
     .line 127
-    move/from16 v6, p7
+    iput-boolean v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDecodeCancellationEnabled:Z
 
-    iput-boolean v6, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDecodeCancellationEnabled:Z
+    move-object v1, p8
 
     .line 129
-    move-object/from16 v7, p8
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mExecutorSupplier:Lcom/facebook/imagepipeline/core/ExecutorSupplier;
 
-    iput-object v7, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mExecutorSupplier:Lcom/facebook/imagepipeline/core/ExecutorSupplier;
+    move-object v1, p9
 
     .line 130
-    move-object/from16 v8, p9
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mPooledByteBufferFactory:Lcom/facebook/common/memory/PooledByteBufferFactory;
 
-    iput-object v8, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mPooledByteBufferFactory:Lcom/facebook/common/memory/PooledByteBufferFactory;
+    move-object v1, p10
 
     .line 132
-    move-object/from16 v9, p10
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
 
-    iput-object v9, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
+    move-object v1, p11
 
     .line 133
-    move-object/from16 v10, p11
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mEncodedMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
 
-    iput-object v10, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mEncodedMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
+    move-object v1, p12
 
     .line 134
-    move-object/from16 v11, p12
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
-    iput-object v11, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
+    move-object v1, p13
 
     .line 135
-    move-object/from16 v12, p13
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mSmallImageBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
-    iput-object v12, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mSmallImageBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
+    move-object/from16 v1, p14
 
     .line 136
-    move-object/from16 v13, p14
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mCacheKeyFactory:Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
 
-    iput-object v13, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mCacheKeyFactory:Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
+    move-object/from16 v1, p15
 
     .line 137
-    move-object/from16 v14, p15
+    iput-object v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mPlatformBitmapFactory:Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;
 
-    iput-object v14, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mPlatformBitmapFactory:Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;
+    move/from16 v1, p16
 
     .line 139
-    move/from16 v15, p16
+    iput v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapPrepareToDrawMinSizeBytes:I
 
-    iput v15, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapPrepareToDrawMinSizeBytes:I
-
-    .line 140
     move/from16 v1, p17
 
+    .line 140
     iput v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapPrepareToDrawMaxSizeBytes:I
 
-    .line 141
     move/from16 v1, p18
 
+    .line 141
     iput-boolean v1, v0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapPrepareToDrawForPrefetch:Z
 
-    .line 142
     return-void
 .end method
 
@@ -254,7 +235,6 @@
     .end annotation
 
     .line 146
-    .local p0, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/AddImageTransformMetaDataProducer;
 
     invoke-direct {v0, p0}, Lcom/facebook/imagepipeline/producers/AddImageTransformMetaDataProducer;-><init>(Lcom/facebook/imagepipeline/producers/Producer;)V
@@ -278,8 +258,6 @@
     .end annotation
 
     .line 167
-    .local p0, "inputProducer1":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
-    .local p1, "inputProducer2":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/BranchOnSeparateImagesProducer;
 
     invoke-direct {v0, p0, p1}, Lcom/facebook/imagepipeline/producers/BranchOnSeparateImagesProducer;-><init>(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/Producer;)V
@@ -322,7 +300,6 @@
     .end annotation
 
     .line 326
-    .local p0, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<TT;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/SwallowResultProducer;
 
     invoke-direct {v0, p0}, Lcom/facebook/imagepipeline/producers/SwallowResultProducer;-><init>(Lcom/facebook/imagepipeline/producers/Producer;)V
@@ -334,7 +311,6 @@
 # virtual methods
 .method public newBackgroundThreadHandoffProducer(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;)Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
     .locals 1
-    .param p2, "inputThreadHandoffProducerQueue"    # Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -350,7 +326,6 @@
     .end annotation
 
     .line 331
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<TT;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
 
     invoke-direct {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;-><init>(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;)V
@@ -372,7 +347,6 @@
     .end annotation
 
     .line 151
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/BitmapMemoryCacheGetProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
@@ -398,7 +372,6 @@
     .end annotation
 
     .line 156
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/BitmapMemoryCacheKeyMultiplexProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mCacheKeyFactory:Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
@@ -422,7 +395,6 @@
     .end annotation
 
     .line 161
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/BitmapMemoryCacheProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
@@ -448,7 +420,6 @@
     .end annotation
 
     .line 354
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/BitmapPrepareProducer;
 
     iget v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapPrepareToDrawMinSizeBytes:I
@@ -488,7 +459,6 @@
     .end annotation
 
     .line 175
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v9, Lcom/facebook/imagepipeline/producers/DecodeProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mByteArrayPool:Lcom/facebook/common/memory/ByteArrayPool;
@@ -516,7 +486,6 @@
 
     invoke-direct/range {v0 .. v8}, Lcom/facebook/imagepipeline/producers/DecodeProducer;-><init>(Lcom/facebook/common/memory/ByteArrayPool;Ljava/util/concurrent/Executor;Lcom/facebook/imagepipeline/decoder/ImageDecoder;Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;ZZZLcom/facebook/imagepipeline/producers/Producer;)V
 
-    .line 175
     return-object v9
 .end method
 
@@ -533,7 +502,6 @@
     .end annotation
 
     .line 188
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/DiskCacheReadProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
@@ -560,7 +528,6 @@
     .end annotation
 
     .line 198
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
@@ -587,7 +554,6 @@
     .end annotation
 
     .line 218
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/EncodedCacheKeyMultiplexProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mCacheKeyFactory:Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
@@ -610,7 +576,6 @@
     .end annotation
 
     .line 225
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/EncodedMemoryCacheProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mEncodedMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
@@ -641,7 +606,6 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/LocalAssetFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/res/AssetManager;)V
 
-    .line 232
     return-object v0
 .end method
 
@@ -664,7 +628,6 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/LocalContentUriFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/ContentResolver;)V
 
-    .line 239
     return-object v0
 .end method
 
@@ -687,7 +650,6 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/ContentResolver;)V
 
-    .line 246
     return-object v0
 .end method
 
@@ -710,7 +672,6 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/LocalExifThumbnailProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/ContentResolver;)V
 
-    .line 253
     return-object v0
 .end method
 
@@ -731,7 +692,6 @@
 
     invoke-direct {v0, v1, v2}, Lcom/facebook/imagepipeline/producers/LocalFileFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;)V
 
-    .line 265
     return-object v0
 .end method
 
@@ -754,7 +714,6 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/res/Resources;)V
 
-    .line 278
     return-object v0
 .end method
 
@@ -775,13 +734,11 @@
 
     invoke-direct {v0, v1, v2}, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer;-><init>(Ljava/util/concurrent/Executor;Landroid/content/ContentResolver;)V
 
-    .line 285
     return-object v0
 .end method
 
 .method public newNetworkFetchProducer(Lcom/facebook/imagepipeline/producers/NetworkFetcher;)Lcom/facebook/imagepipeline/producers/NetworkFetchProducer;
     .locals 3
-    .param p1, "networkFetcher"    # Lcom/facebook/imagepipeline/producers/NetworkFetcher;
 
     .line 291
     new-instance v0, Lcom/facebook/imagepipeline/producers/NetworkFetchProducer;
@@ -808,7 +765,6 @@
     .end annotation
 
     .line 208
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v6, Lcom/facebook/imagepipeline/producers/PartialDiskCacheProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
@@ -842,7 +798,6 @@
     .end annotation
 
     .line 303
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/PostprocessedBitmapMemoryCacheProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mBitmapMemoryCache:Lcom/facebook/imagepipeline/cache/MemoryCache;
@@ -868,7 +823,6 @@
     .end annotation
 
     .line 309
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mPlatformBitmapFactory:Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;
@@ -882,7 +836,6 @@
 
     invoke-direct {v0, p1, v1, v2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer;-><init>(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;Ljava/util/concurrent/Executor;)V
 
-    .line 309
     return-object v0
 .end method
 
@@ -905,14 +858,11 @@
 
     invoke-direct {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/QualifiedResourceFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/ContentResolver;)V
 
-    .line 271
     return-object v0
 .end method
 
 .method public newResizeAndRotateProducer(Lcom/facebook/imagepipeline/producers/Producer;ZZ)Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer;
     .locals 7
-    .param p2, "resizingEnabledIfNotDownsampling"    # Z
-    .param p3, "useDownsamplingRatio"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -924,7 +874,6 @@
     .end annotation
 
     .line 317
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v6, Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer;
 
     iget-object v0, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mExecutorSupplier:Lcom/facebook/imagepipeline/core/ExecutorSupplier;
@@ -938,18 +887,18 @@
 
     if-eqz p2, :cond_0
 
-    iget-boolean v0, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDownsampleEnabled:Z
+    iget-boolean p2, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mDownsampleEnabled:Z
 
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
     const/4 v3, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
     const/4 v3, 0x0
 
@@ -962,7 +911,6 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;ZLcom/facebook/imagepipeline/producers/Producer;Z)V
 
-    .line 317
     return-object v6
 .end method
 
@@ -981,7 +929,6 @@
     .end annotation
 
     .line 338
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<TT;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/ThrottlingProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mExecutorSupplier:Lcom/facebook/imagepipeline/core/ExecutorSupplier;
@@ -995,7 +942,6 @@
 
     invoke-direct {v0, v2, v1, p1}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer;-><init>(ILjava/util/concurrent/Executor;Lcom/facebook/imagepipeline/producers/Producer;)V
 
-    .line 338
     return-object v0
 .end method
 
@@ -1012,7 +958,6 @@
     .end annotation
 
     .line 261
-    .local p1, "thumbnailProducers":[Lcom/facebook/imagepipeline/producers/ThumbnailProducer;, "[Lcom/facebook/imagepipeline/producers/ThumbnailProducer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;
 
     invoke-direct {v0, p1}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;-><init>([Lcom/facebook/imagepipeline/producers/ThumbnailProducer;)V
@@ -1033,7 +978,6 @@
     .end annotation
 
     .line 346
-    .local p1, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/producers/WebpTranscodeProducer;
 
     iget-object v1, p0, Lcom/facebook/imagepipeline/core/ProducerFactory;->mExecutorSupplier:Lcom/facebook/imagepipeline/core/ExecutorSupplier;
@@ -1047,6 +991,5 @@
 
     invoke-direct {v0, v1, v2, p1}, Lcom/facebook/imagepipeline/producers/WebpTranscodeProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Lcom/facebook/imagepipeline/producers/Producer;)V
 
-    .line 346
     return-object v0
 .end method

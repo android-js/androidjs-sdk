@@ -16,7 +16,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Application;)V
     .locals 0
-    .param p1, "application"    # Landroid/app/Application;
+    .param p1    # Landroid/app/Application;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -27,7 +27,6 @@
     .line 34
     iput-object p1, p0, Landroid/arch/lifecycle/AndroidViewModel;->mApplication:Landroid/app/Application;
 
-    .line 35
     return-void
 .end method
 

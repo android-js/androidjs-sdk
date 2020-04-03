@@ -33,8 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 6
-    .param p1, "widget"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    .locals 5
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,47 +76,38 @@
     .line 96
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchors()Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 97
-    .local v0, "anchors":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/constraint/solver/widgets/ConstraintAnchor;>;"
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
     const/4 v1, 0x0
 
-    .local v1, "i":I
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    .local v2, "anchorsSize":I
     :goto_0
-    if-ge v1, v2, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 98
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    check-cast v2, Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     .line 99
-    .local v3, "a":Landroid/support/constraint/solver/widgets/ConstraintAnchor;
-    iget-object v4, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
+    iget-object v3, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
 
-    new-instance v5, Landroid/support/constraint/solver/widgets/Snapshot$Connection;
+    new-instance v4, Landroid/support/constraint/solver/widgets/Snapshot$Connection;
 
-    invoke-direct {v5, v3}, Landroid/support/constraint/solver/widgets/Snapshot$Connection;-><init>(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/solver/widgets/Snapshot$Connection;-><init>(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
 
-    invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 97
-    .end local v3    # "a":Landroid/support/constraint/solver/widgets/ConstraintAnchor;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 101
-    .end local v1    # "i":I
-    .end local v2    # "anchorsSize":I
     :cond_0
     return-void
 .end method
@@ -126,7 +116,6 @@
 # virtual methods
 .method public applyTo(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
     .locals 3
-    .param p1, "widget"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 126
     iget v0, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mX:I
@@ -149,48 +138,39 @@
     invoke-virtual {p1, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHeight(I)V
 
     .line 130
-    const/4 v0, 0x0
+    iget-object v0, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
 
-    .local v0, "i":I
-    iget-object v1, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    move-result v0
 
-    move-result v1
+    const/4 v1, 0x0
 
-    .local v1, "mConnectionsSize":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
     .line 131
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/support/constraint/solver/widgets/Snapshot$Connection;
 
     .line 132
-    .local v2, "connection":Landroid/support/constraint/solver/widgets/Snapshot$Connection;
     invoke-virtual {v2, p1}, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->applyTo(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
 
-    .line 130
-    .end local v2    # "connection":Landroid/support/constraint/solver/widgets/Snapshot$Connection;
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 134
-    .end local v0    # "i":I
-    .end local v1    # "mConnectionsSize":I
     :cond_0
     return-void
 .end method
 
 .method public updateFrom(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
     .locals 3
-    .param p1, "widget"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 109
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getX()I
@@ -227,11 +207,8 @@
 
     move-result v0
 
-    .line 114
-    .local v0, "connections":I
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -245,17 +222,12 @@
     check-cast v2, Landroid/support/constraint/solver/widgets/Snapshot$Connection;
 
     .line 116
-    .local v2, "connection":Landroid/support/constraint/solver/widgets/Snapshot$Connection;
     invoke-virtual {v2, p1}, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->updateFrom(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
 
-    .line 114
-    .end local v2    # "connection":Landroid/support/constraint/solver/widgets/Snapshot$Connection;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 118
-    .end local v1    # "i":I
     :cond_0
     return-void
 .end method

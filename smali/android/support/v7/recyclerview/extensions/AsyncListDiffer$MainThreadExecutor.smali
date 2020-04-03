@@ -39,7 +39,6 @@
 
     iput-object v0, p0, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer$MainThreadExecutor;->mHandler:Landroid/os/Handler;
 
-    .line 123
     return-void
 .end method
 
@@ -47,7 +46,7 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
+    .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -57,6 +56,5 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 127
     return-void
 .end method

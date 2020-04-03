@@ -15,7 +15,7 @@
 
 .method public static getAllocationByteCount(Landroid/graphics/Bitmap;)I
     .locals 2
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p0    # Landroid/graphics/Bitmap;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -30,22 +30,22 @@
     .line 49
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 51
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getByteCount()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static hasMipMap(Landroid/graphics/Bitmap;)Z
     .locals 2
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p0    # Landroid/graphics/Bitmap;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -60,24 +60,22 @@
     .line 29
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->hasMipMap()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
-    .line 31
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public static setHasMipMap(Landroid/graphics/Bitmap;Z)V
     .locals 2
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
+    .param p0    # Landroid/graphics/Bitmap;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "hasMipMap"    # Z
 
     .line 35
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -89,7 +87,6 @@
     .line 36
     invoke-virtual {p0, p1}, Landroid/graphics/Bitmap;->setHasMipMap(Z)V
 
-    .line 38
     :cond_0
     return-void
 .end method

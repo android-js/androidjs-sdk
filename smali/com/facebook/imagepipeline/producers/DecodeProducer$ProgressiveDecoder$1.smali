@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;Lcom/facebook/imagepipeline/producers/DecodeProducer;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;
 
     .line 134
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder$1;->this$1:Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;
@@ -46,10 +45,7 @@
 # virtual methods
 .method public run(Lcom/facebook/imagepipeline/image/EncodedImage;I)V
     .locals 2
-    .param p1, "encodedImage"    # Lcom/facebook/imagepipeline/image/EncodedImage;
-    .param p2, "status"    # I
 
-    .line 137
     if-eqz p1, :cond_3
 
     .line 138
@@ -80,7 +76,6 @@
     move-result-object v0
 
     .line 140
-    .local v0, "request":Lcom/facebook/imagepipeline/request/ImageRequest;
     iget-object v1, p0, Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder$1;->this$1:Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;
 
     iget-object v1, v1, Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;->this$0:Lcom/facebook/imagepipeline/producers/DecodeProducer;
@@ -102,26 +97,21 @@
 
     if-nez v1, :cond_2
 
-    .line 142
-    :cond_1
-    nop
-
     .line 143
+    :cond_1
     invoke-static {v0, p1}, Lcom/facebook/imagepipeline/producers/DownsampleUtil;->determineSampleSize(Lcom/facebook/imagepipeline/request/ImageRequest;Lcom/facebook/imagepipeline/image/EncodedImage;)I
 
-    move-result v1
+    move-result v0
 
     .line 142
-    invoke-virtual {p1, v1}, Lcom/facebook/imagepipeline/image/EncodedImage;->setSampleSize(I)V
+    invoke-virtual {p1, v0}, Lcom/facebook/imagepipeline/image/EncodedImage;->setSampleSize(I)V
 
     .line 146
-    .end local v0    # "request":Lcom/facebook/imagepipeline/request/ImageRequest;
     :cond_2
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder$1;->this$1:Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;
 
     invoke-static {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;->access$200(Lcom/facebook/imagepipeline/producers/DecodeProducer$ProgressiveDecoder;Lcom/facebook/imagepipeline/image/EncodedImage;I)V
 
-    .line 148
     :cond_3
     return-void
 .end method

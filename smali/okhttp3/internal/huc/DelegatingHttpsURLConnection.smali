@@ -10,7 +10,6 @@
 # direct methods
 .method constructor <init>(Ljava/net/HttpURLConnection;)V
     .locals 1
-    .param p1, "delegate"    # Ljava/net/HttpURLConnection;
 
     .line 45
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->getURL()Ljava/net/URL;
@@ -22,7 +21,6 @@
     .line 46
     iput-object p1, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
-    .line 47
     return-void
 .end method
 
@@ -30,15 +28,12 @@
 # virtual methods
 .method public addRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "field"    # Ljava/lang/String;
-    .param p2, "newValue"    # Ljava/lang/String;
 
     .line 192
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->addRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 193
     return-void
 .end method
 
@@ -50,9 +45,9 @@
         }
     .end annotation
 
-    .line 89
     const/4 v0, 0x1
 
+    .line 89
     iput-boolean v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->connected:Z
 
     .line 90
@@ -60,7 +55,6 @@
 
     invoke-virtual {v0}, Ljava/net/HttpURLConnection;->connect()V
 
-    .line 91
     return-void
 .end method
 
@@ -72,7 +66,6 @@
 
     invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    .line 95
     return-void
 .end method
 
@@ -90,32 +83,31 @@
 .end method
 
 .method public getCipherSuite()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     .line 60
     invoke-virtual {p0}, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->handshake()Lokhttp3/Handshake;
 
     move-result-object v0
 
-    .line 61
-    .local v0, "handshake":Lokhttp3/Handshake;
     if-eqz v0, :cond_0
 
+    .line 61
     invoke-virtual {v0}, Lokhttp3/Handshake;->cipherSuite()Lokhttp3/CipherSuite;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lokhttp3/CipherSuite;->javaName()Ljava/lang/String;
+    invoke-virtual {v0}, Lokhttp3/CipherSuite;->javaName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getConnectTimeout()I
@@ -151,7 +143,6 @@
 
 .method public getContent([Ljava/lang/Class;)Ljava/lang/Object;
     .locals 1
-    .param p1, "types"    # [Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -163,9 +154,9 @@
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->getContent([Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getContentEncoding()Ljava/lang/String;
@@ -302,80 +293,71 @@
 
 .method public getHeaderField(I)Ljava/lang/String;
     .locals 1
-    .param p1, "pos"    # I
 
     .line 180
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->getHeaderField(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getHeaderField(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
 
     .line 196
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->getHeaderField(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getHeaderFieldDate(Ljava/lang/String;J)J
-    .locals 2
-    .param p1, "field"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # J
+    .locals 1
 
     .line 205
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/net/HttpURLConnection;->getHeaderFieldDate(Ljava/lang/String;J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public getHeaderFieldInt(Ljava/lang/String;I)I
     .locals 1
-    .param p1, "field"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # I
 
     .line 209
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->getHeaderFieldInt(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getHeaderFieldKey(I)Ljava/lang/String;
     .locals 1
-    .param p1, "position"    # I
 
     .line 213
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->getHeaderFieldKey(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getHeaderFieldLong(Ljava/lang/String;J)J
-    .locals 2
-    .param p1, "field"    # Ljava/lang/String;
-    .param p2, "defaultValue"    # J
+    .locals 1
     .annotation build Lorg/codehaus/mojo/animal_sniffer/IgnoreJRERequirement;
     .end annotation
 
@@ -384,9 +366,9 @@
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/net/HttpURLConnection;->getHeaderFieldLong(Ljava/lang/String;J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method public getHeaderFields()Ljava/util/Map;
@@ -473,15 +455,13 @@
 .end method
 
 .method public getLocalCertificates()[Ljava/security/cert/Certificate;
-    .locals 4
+    .locals 3
 
     .line 65
     invoke-virtual {p0}, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->handshake()Lokhttp3/Handshake;
 
     move-result-object v0
 
-    .line 66
-    .local v0, "handshake":Lokhttp3/Handshake;
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
@@ -492,25 +472,26 @@
     :cond_0
     invoke-virtual {v0}, Lokhttp3/Handshake;->localCertificates()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 68
-    .local v2, "result":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/Certificate;>;"
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
     new-array v1, v1, [Ljava/security/cert/Certificate;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
+
+    move-object v1, v0
 
     check-cast v1, [Ljava/security/cert/Certificate;
 
@@ -519,28 +500,27 @@
 .end method
 
 .method public getLocalPrincipal()Ljava/security/Principal;
-    .locals 2
+    .locals 1
 
     .line 84
     invoke-virtual {p0}, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->handshake()Lokhttp3/Handshake;
 
     move-result-object v0
 
-    .line 85
-    .local v0, "handshake":Lokhttp3/Handshake;
     if-eqz v0, :cond_0
 
+    .line 85
     invoke-virtual {v0}, Lokhttp3/Handshake;->localPrincipal()Ljava/security/Principal;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getOutputStream()Ljava/io/OutputStream;
@@ -562,7 +542,7 @@
 .end method
 
 .method public getPeerPrincipal()Ljava/security/Principal;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/net/ssl/SSLPeerUnverifiedException;
@@ -574,21 +554,20 @@
 
     move-result-object v0
 
-    .line 80
-    .local v0, "handshake":Lokhttp3/Handshake;
     if-eqz v0, :cond_0
 
+    .line 80
     invoke-virtual {v0}, Lokhttp3/Handshake;->peerPrincipal()Ljava/security/Principal;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public getPermission()Ljava/security/Permission;
@@ -660,16 +639,15 @@
 
 .method public getRequestProperty(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "field"    # Ljava/lang/String;
 
     .line 237
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->getRequestProperty(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getResponseCode()I
@@ -712,7 +690,7 @@
 .end method
 
 .method public getServerCertificates()[Ljava/security/cert/Certificate;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljavax/net/ssl/SSLPeerUnverifiedException;
@@ -724,8 +702,6 @@
 
     move-result-object v0
 
-    .line 73
-    .local v0, "handshake":Lokhttp3/Handshake;
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
@@ -736,25 +712,26 @@
     :cond_0
     invoke-virtual {v0}, Lokhttp3/Handshake;->peerCertificates()Ljava/util/List;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 75
-    .local v2, "result":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/Certificate;>;"
-    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
     new-array v1, v1, [Ljava/security/cert/Certificate;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
+
+    move-object v1, v0
 
     check-cast v1, [Ljava/security/cert/Certificate;
 
@@ -793,98 +770,83 @@
 
 .method public setAllowUserInteraction(Z)V
     .locals 1
-    .param p1, "newValue"    # Z
 
     .line 249
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setAllowUserInteraction(Z)V
 
-    .line 250
     return-void
 .end method
 
 .method public setChunkedStreamingMode(I)V
     .locals 1
-    .param p1, "chunkLength"    # I
 
     .line 306
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setChunkedStreamingMode(I)V
 
-    .line 307
     return-void
 .end method
 
 .method public setConnectTimeout(I)V
     .locals 1
-    .param p1, "timeoutMillis"    # I
 
     .line 282
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
 
-    .line 283
     return-void
 .end method
 
 .method public setDefaultUseCaches(Z)V
     .locals 1
-    .param p1, "newValue"    # Z
 
     .line 253
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setDefaultUseCaches(Z)V
 
-    .line 254
     return-void
 .end method
 
 .method public setDoInput(Z)V
     .locals 1
-    .param p1, "newValue"    # Z
 
     .line 257
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setDoInput(Z)V
 
-    .line 258
     return-void
 .end method
 
 .method public setDoOutput(Z)V
     .locals 1
-    .param p1, "newValue"    # Z
 
     .line 261
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setDoOutput(Z)V
 
-    .line 262
     return-void
 .end method
 
 .method public setFixedLengthStreamingMode(I)V
     .locals 1
-    .param p1, "contentLength"    # I
 
     .line 302
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setFixedLengthStreamingMode(I)V
 
-    .line 303
     return-void
 .end method
 
 .method public setFixedLengthStreamingMode(J)V
     .locals 1
-    .param p1, "contentLength"    # J
     .annotation build Lorg/codehaus/mojo/animal_sniffer/IgnoreJRERequirement;
     .end annotation
 
@@ -893,7 +855,6 @@
 
     invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->setFixedLengthStreamingMode(J)V
 
-    .line 267
     return-void
 .end method
 
@@ -902,46 +863,39 @@
 
 .method public setIfModifiedSince(J)V
     .locals 1
-    .param p1, "newValue"    # J
 
     .line 270
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->setIfModifiedSince(J)V
 
-    .line 271
     return-void
 .end method
 
 .method public setInstanceFollowRedirects(Z)V
     .locals 1
-    .param p1, "followRedirects"    # Z
 
     .line 126
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setInstanceFollowRedirects(Z)V
 
-    .line 127
     return-void
 .end method
 
 .method public setReadTimeout(I)V
     .locals 1
-    .param p1, "timeoutMillis"    # I
 
     .line 290
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setReadTimeout(I)V
 
-    .line 291
     return-void
 .end method
 
 .method public setRequestMethod(Ljava/lang/String;)V
     .locals 1
-    .param p1, "method"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/ProtocolException;
@@ -953,21 +907,17 @@
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
 
-    .line 115
     return-void
 .end method
 
 .method public setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p1, "field"    # Ljava/lang/String;
-    .param p2, "newValue"    # Ljava/lang/String;
 
     .line 274
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1, p2}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 275
     return-void
 .end method
 
@@ -976,14 +926,12 @@
 
 .method public setUseCaches(Z)V
     .locals 1
-    .param p1, "newValue"    # Z
 
     .line 278
     iget-object v0, p0, Lokhttp3/internal/huc/DelegatingHttpsURLConnection;->delegate:Ljava/net/HttpURLConnection;
 
     invoke-virtual {v0, p1}, Ljava/net/HttpURLConnection;->setUseCaches(Z)V
 
-    .line 279
     return-void
 .end method
 

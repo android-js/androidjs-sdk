@@ -14,7 +14,7 @@
 # static fields
 .field public static final MAX_SDK_WHERE_REQUIRED:I = 0x14
 
-.field private static sCompatVectorFromResourcesEnabled:Z
+.field private static sCompatVectorFromResourcesEnabled:Z = false
 
 
 # instance fields
@@ -31,23 +31,18 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 39
-    const/4 v0, 0x0
-
-    sput-boolean v0, Landroid/support/v7/widget/VectorEnabledTintResources;->sCompatVectorFromResourcesEnabled:Z
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/res/Resources;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 2
+    .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "res"    # Landroid/content/res/Resources;
+    .param p2    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -63,18 +58,17 @@
 
     invoke-virtual {p2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {p0, v0, v1, v2}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
+    invoke-direct {p0, v0, v1, p2}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
 
     .line 56
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p2, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Landroid/support/v7/widget/VectorEnabledTintResources;->mContextRef:Ljava/lang/ref/WeakReference;
+    iput-object p2, p0, Landroid/support/v7/widget/VectorEnabledTintResources;->mContextRef:Ljava/lang/ref/WeakReference;
 
-    .line 57
     return-void
 .end method
 
@@ -89,12 +83,10 @@
 
 .method public static setCompatVectorFromResourcesEnabled(Z)V
     .locals 0
-    .param p0, "enabled"    # Z
 
     .line 83
     sput-boolean p0, Landroid/support/v7/widget/VectorEnabledTintResources;->sCompatVectorFromResourcesEnabled:Z
 
-    .line 84
     return-void
 .end method
 
@@ -129,7 +121,6 @@
 # virtual methods
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -145,8 +136,6 @@
 
     check-cast v0, Landroid/content/Context;
 
-    .line 67
-    .local v0, "context":Landroid/content/Context;
     if-eqz v0, :cond_0
 
     .line 68
@@ -156,27 +145,26 @@
 
     invoke-virtual {v1, v0, p0, p1}, Landroid/support/v7/widget/AppCompatDrawableManager;->onDrawableLoadedFromResources(Landroid/content/Context;Landroid/support/v7/widget/VectorEnabledTintResources;I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 70
     :cond_0
     invoke-super {p0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method final superGetDrawable(I)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p1, "id"    # I
+    .locals 0
 
     .line 75
     invoke-super {p0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

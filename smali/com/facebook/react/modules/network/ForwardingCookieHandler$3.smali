@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/network/ForwardingCookieHandler;Ljava/util/List;Landroid/webkit/CookieManager;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/network/ForwardingCookieHandler;
 
     .line 134
     iput-object p1, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$3;->this$0:Lcom/facebook/react/modules/network/ForwardingCookieHandler;
@@ -72,15 +71,12 @@
     check-cast v1, Ljava/lang/String;
 
     .line 138
-    .local v1, "cookie":Ljava/lang/String;
     iget-object v2, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$3;->val$cookieManager:Landroid/webkit/CookieManager;
 
     iget-object v3, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$3;->val$url:Ljava/lang/String;
 
     invoke-virtual {v2, v3, v1}, Landroid/webkit/CookieManager;->setCookie(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 139
-    .end local v1    # "cookie":Ljava/lang/String;
     goto :goto_0
 
     .line 140
@@ -93,6 +89,5 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;->onCookiesModified()V
 
-    .line 141
     return-void
 .end method

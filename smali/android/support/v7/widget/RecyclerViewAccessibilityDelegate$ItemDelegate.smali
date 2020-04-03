@@ -21,7 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;)V
     .locals 0
-    .param p1, "recyclerViewDelegate"    # Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
+    .param p1    # Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -32,7 +32,6 @@
     .line 106
     iput-object p1, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
 
-    .line 107
     return-void
 .end method
 
@@ -40,8 +39,6 @@
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "info"    # Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     .line 111
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -78,16 +75,12 @@
     .line 115
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onInitializeAccessibilityNodeInfoForItem(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    .line 117
     :cond_0
     return-void
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
     .locals 1
-    .param p1, "host"    # Landroid/view/View;
-    .param p2, "action"    # I
-    .param p3, "args"    # Landroid/os/Bundle;
 
     .line 121
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
@@ -96,10 +89,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 122
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 124
     :cond_0
@@ -134,13 +126,12 @@
     .line 127
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->performAccessibilityActionForItem(Landroid/view/View;ILandroid/os/Bundle;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 129
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

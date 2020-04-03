@@ -17,13 +17,10 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/support/v4/internal/view/SupportSubMenu;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "subMenu"    # Landroid/support/v4/internal/view/SupportSubMenu;
 
     .line 38
     invoke-direct {p0, p1, p2}, Landroid/support/v7/view/menu/MenuWrapperICS;-><init>(Landroid/content/Context;Landroid/support/v4/internal/view/SupportMenu;)V
 
-    .line 39
     return-void
 .end method
 
@@ -39,7 +36,6 @@
 
     invoke-interface {v0}, Landroid/support/v4/internal/view/SupportSubMenu;->clearHeader()V
 
-    .line 79
     return-void
 .end method
 
@@ -86,7 +82,6 @@
 
 .method public setHeaderIcon(I)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "iconRes"    # I
 
     .line 60
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -95,13 +90,11 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setHeaderIcon(I)Landroid/view/SubMenu;
 
-    .line 61
     return-object p0
 .end method
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 66
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -110,13 +103,11 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
 
-    .line 67
     return-object p0
 .end method
 
 .method public setHeaderTitle(I)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "titleRes"    # I
 
     .line 48
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -125,13 +116,11 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setHeaderTitle(I)Landroid/view/SubMenu;
 
-    .line 49
     return-object p0
 .end method
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 54
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -140,13 +129,11 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
 
-    .line 55
     return-object p0
 .end method
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "view"    # Landroid/view/View;
 
     .line 72
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -155,13 +142,11 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
 
-    .line 73
     return-object p0
 .end method
 
 .method public setIcon(I)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "iconRes"    # I
 
     .line 83
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -170,13 +155,11 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setIcon(I)Landroid/view/SubMenu;
 
-    .line 84
     return-object p0
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 89
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -185,6 +168,5 @@
 
     invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportSubMenu;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
 
-    .line 90
     return-object p0
 .end method

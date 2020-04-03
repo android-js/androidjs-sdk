@@ -25,18 +25,16 @@
     .line 337
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 335
     const/4 v0, 0x0
 
+    .line 335
     iput-boolean v0, p0, Lcom/facebook/imagepipeline/core/ImagePipelineConfig$DefaultImageRequestConfig;->mProgressiveRenderingEnabled:Z
 
-    .line 338
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/core/ImagePipelineConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig$1;
 
     .line 333
     invoke-direct {p0}, Lcom/facebook/imagepipeline/core/ImagePipelineConfig$DefaultImageRequestConfig;-><init>()V
@@ -57,11 +55,9 @@
 
 .method public setProgressiveRenderingEnabled(Z)V
     .locals 0
-    .param p1, "progressiveRenderingEnabled"    # Z
 
     .line 341
     iput-boolean p1, p0, Lcom/facebook/imagepipeline/core/ImagePipelineConfig$DefaultImageRequestConfig;->mProgressiveRenderingEnabled:Z
 
-    .line 342
     return-void
 .end method

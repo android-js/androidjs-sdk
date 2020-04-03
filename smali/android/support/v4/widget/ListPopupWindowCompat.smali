@@ -10,17 +10,16 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
     return-void
 .end method
 
 .method public static createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
     .locals 2
-    .param p0, "listPopupWindow"    # Landroid/widget/ListPopupWindow;
+    .param p0    # Landroid/widget/ListPopupWindow;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "src"    # Landroid/view/View;
+    .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -37,32 +36,27 @@
     .line 98
     invoke-virtual {p0, p1}, Landroid/widget/ListPopupWindow;->createDragToOpenListener(Landroid/view/View;)Landroid/view/View$OnTouchListener;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
-    .line 100
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static createDragToOpenListener(Ljava/lang/Object;Landroid/view/View;)Landroid/view/View$OnTouchListener;
-    .locals 1
-    .param p0, "listPopupWindow"    # Ljava/lang/Object;
-    .param p1, "src"    # Landroid/view/View;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 65
-    move-object v0, p0
+    check-cast p0, Landroid/widget/ListPopupWindow;
 
-    check-cast v0, Landroid/widget/ListPopupWindow;
+    invoke-static {p0, p1}, Landroid/support/v4/widget/ListPopupWindowCompat;->createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
 
-    invoke-static {v0, p1}, Landroid/support/v4/widget/ListPopupWindowCompat;->createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method

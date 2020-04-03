@@ -43,9 +43,6 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
     .locals 9
-    .param p1, "icon"    # I
-    .param p2, "title"    # Ljava/lang/CharSequence;
-    .param p3, "intent"    # Landroid/app/PendingIntent;
 
     .line 3264
     new-instance v4, Landroid/os/Bundle;
@@ -70,27 +67,18 @@
 
     invoke-direct/range {v0 .. v8}, Landroid/support/v4/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    .line 3265
     return-void
 .end method
 
 .method private constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;ZIZ)V
-    .locals 2
-    .param p1, "icon"    # I
-    .param p2, "title"    # Ljava/lang/CharSequence;
-    .param p3, "intent"    # Landroid/app/PendingIntent;
-    .param p4, "extras"    # Landroid/os/Bundle;
-    .param p5, "remoteInputs"    # [Landroid/support/v4/app/RemoteInput;
-    .param p6, "allowGeneratedReplies"    # Z
-    .param p7, "semanticAction"    # I
-    .param p8, "showsUserInterface"    # Z
+    .locals 1
 
     .line 3280
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3251
     const/4 v0, 0x1
 
+    .line 3251
     iput-boolean v0, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mAllowGeneratedReplies:Z
 
     .line 3255
@@ -102,9 +90,9 @@
     .line 3282
     invoke-static {p2}, Landroid/support/v4/app/NotificationCompat$Builder;->limitCharSequenceLength(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mTitle:Ljava/lang/CharSequence;
+    iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mTitle:Ljava/lang/CharSequence;
 
     .line 3283
     iput-object p3, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mIntent:Landroid/app/PendingIntent;
@@ -112,25 +100,25 @@
     .line 3284
     iput-object p4, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mExtras:Landroid/os/Bundle;
 
-    .line 3285
     if-nez p5, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
+    .line 3285
     :cond_0
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
     .line 3286
     invoke-static {p5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     :goto_0
-    iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mRemoteInputs:Ljava/util/ArrayList;
+    iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mRemoteInputs:Ljava/util/ArrayList;
 
     .line 3287
     iput-boolean p6, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mAllowGeneratedReplies:Z
@@ -141,13 +129,11 @@
     .line 3289
     iput-boolean p8, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mShowsUserInterface:Z
 
-    .line 3290
     return-void
 .end method
 
 .method public constructor <init>(Landroid/support/v4/app/NotificationCompat$Action;)V
     .locals 9
-    .param p1, "action"    # Landroid/support/v4/app/NotificationCompat$Action;
 
     .line 3273
     iget v1, p1, Landroid/support/v4/app/NotificationCompat$Action;->icon:I
@@ -178,12 +164,11 @@
 
     iget-boolean v8, p1, Landroid/support/v4/app/NotificationCompat$Action;->mShowsUserInterface:Z
 
-    .line 3273
     move-object v0, p0
 
+    .line 3273
     invoke-direct/range {v0 .. v8}, Landroid/support/v4/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    .line 3276
     return-void
 .end method
 
@@ -191,9 +176,7 @@
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action$Builder;
     .locals 1
-    .param p1, "extras"    # Landroid/os/Bundle;
 
-    .line 3300
     if-eqz p1, :cond_0
 
     .line 3301
@@ -201,14 +184,12 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 3303
     :cond_0
     return-object p0
 .end method
 
 .method public addRemoteInput(Landroid/support/v4/app/RemoteInput;)Landroid/support/v4/app/NotificationCompat$Action$Builder;
     .locals 1
-    .param p1, "remoteInput"    # Landroid/support/v4/app/RemoteInput;
 
     .line 3323
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mRemoteInputs:Ljava/util/ArrayList;
@@ -228,7 +209,6 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 3327
     return-object p0
 .end method
 
@@ -241,13 +221,11 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 3386
-    .local v0, "dataOnlyInputs":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/RemoteInput;>;"
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 3387
-    .local v1, "textInputs":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/RemoteInput;>;"
     iget-object v2, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mRemoteInputs:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_1
@@ -271,7 +249,6 @@
     check-cast v3, Landroid/support/v4/app/RemoteInput;
 
     .line 3389
-    .local v3, "input":Landroid/support/v4/app/RemoteInput;
     invoke-virtual {v3}, Landroid/support/v4/app/RemoteInput;->isDataOnly()Z
 
     move-result v4
@@ -281,15 +258,12 @@
     .line 3390
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_0
 
     .line 3392
     :cond_0
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 3394
-    .end local v3    # "input":Landroid/support/v4/app/RemoteInput;
-    :goto_1
     goto :goto_0
 
     .line 3396
@@ -304,7 +278,7 @@
 
     move-object v10, v3
 
-    goto :goto_2
+    goto :goto_1
 
     .line 3397
     :cond_2
@@ -316,51 +290,43 @@
 
     invoke-interface {v0, v2}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, [Landroid/support/v4/app/RemoteInput;
+    check-cast v0, [Landroid/support/v4/app/RemoteInput;
 
-    move-object v10, v2
-
-    :goto_2
-    nop
+    move-object v10, v0
 
     .line 3398
-    .local v10, "dataOnlyInputsArr":[Landroid/support/v4/app/RemoteInput;
+    :goto_1
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_3
+    if-eqz v0, :cond_3
 
-    move-object v9, v3
-
-    goto :goto_3
+    goto :goto_2
 
     .line 3399
     :cond_3
     invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    new-array v2, v2, [Landroid/support/v4/app/RemoteInput;
+    new-array v0, v0, [Landroid/support/v4/app/RemoteInput;
 
-    invoke-interface {v1, v2}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    move-object v3, v2
+    move-object v3, v0
 
     check-cast v3, [Landroid/support/v4/app/RemoteInput;
 
+    :goto_2
     move-object v9, v3
 
-    :goto_3
-    nop
-
     .line 3400
-    .local v9, "textInputsArr":[Landroid/support/v4/app/RemoteInput;
-    new-instance v2, Landroid/support/v4/app/NotificationCompat$Action;
+    new-instance v0, Landroid/support/v4/app/NotificationCompat$Action;
 
     iget v5, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mIcon:I
 
@@ -376,21 +342,19 @@
 
     iget-boolean v13, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mShowsUserInterface:Z
 
-    move-object v4, v2
+    move-object v4, v0
 
     invoke-direct/range {v4 .. v13}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public extend(Landroid/support/v4/app/NotificationCompat$Action$Extender;)Landroid/support/v4/app/NotificationCompat$Action$Builder;
     .locals 0
-    .param p1, "extender"    # Landroid/support/v4/app/NotificationCompat$Action$Extender;
 
     .line 3375
     invoke-interface {p1, p0}, Landroid/support/v4/app/NotificationCompat$Action$Extender;->extend(Landroid/support/v4/app/NotificationCompat$Action$Builder;)Landroid/support/v4/app/NotificationCompat$Action$Builder;
 
-    .line 3376
     return-object p0
 .end method
 
@@ -405,33 +369,27 @@
 
 .method public setAllowGeneratedReplies(Z)Landroid/support/v4/app/NotificationCompat$Action$Builder;
     .locals 0
-    .param p1, "allowGeneratedReplies"    # Z
 
     .line 3340
     iput-boolean p1, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mAllowGeneratedReplies:Z
 
-    .line 3341
     return-object p0
 .end method
 
 .method public setSemanticAction(I)Landroid/support/v4/app/NotificationCompat$Action$Builder;
     .locals 0
-    .param p1, "semanticAction"    # I
 
     .line 3353
     iput p1, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mSemanticAction:I
 
-    .line 3354
     return-object p0
 .end method
 
 .method public setShowsUserInterface(Z)Landroid/support/v4/app/NotificationCompat$Action$Builder;
     .locals 0
-    .param p1, "showsUserInterface"    # Z
 
     .line 3366
     iput-boolean p1, p0, Landroid/support/v4/app/NotificationCompat$Action$Builder;->mShowsUserInterface:Z
 
-    .line 3367
     return-object p0
 .end method

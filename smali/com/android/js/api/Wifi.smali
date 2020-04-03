@@ -13,12 +13,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 2
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 0
+    .param p1    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -32,51 +32,48 @@
     .line 31
     iput-object p2, p0, Lcom/android/js/api/Wifi;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 32
     if-nez p1, :cond_0
 
+    .line 32
     invoke-virtual {p0}, Lcom/android/js/api/Wifi;->getCurrentActivity()Landroid/app/Activity;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/js/api/Wifi;->activity:Landroid/app/Activity;
+    iput-object p1, p0, Lcom/android/js/api/Wifi;->activity:Landroid/app/Activity;
 
     .line 33
     :cond_0
-    iget-object v0, p0, Lcom/android/js/api/Wifi;->activity:Landroid/app/Activity;
+    iget-object p1, p0, Lcom/android/js/api/Wifi;->activity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/js/api/Wifi;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    iget-object p1, p0, Lcom/android/js/api/Wifi;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
     :goto_0
-    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "wifi"
+    const-string p2, "wifi"
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/net/wifi/WifiManager;
+    check-cast p1, Landroid/net/wifi/WifiManager;
 
-    iput-object v0, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
+    iput-object p1, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
 
-    .line 34
     return-void
 .end method
 
 
 # virtual methods
 .method public connectWifi(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
-    .param p1, "ssid"    # Ljava/lang/String;
-    .param p2, "password"    # Ljava/lang/String;
+    .locals 4
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -104,27 +101,26 @@
 
     invoke-direct {v0}, Landroid/net/wifi/WifiConfiguration;-><init>()V
 
-    .line 91
-    .local v0, "conf":Landroid/net/wifi/WifiConfiguration;
     const/4 v1, 0x1
 
+    .line 91
     new-array v2, v1, [Ljava/lang/Object;
 
     const/4 v3, 0x0
 
     aput-object p1, v2, v3
 
-    const-string v4, "\"%s\""
+    const-string p1, "\"%s\""
 
-    invoke-static {v4, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
     iput-object v2, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
-    .line 92
     const-string v2, ""
 
+    .line 92
     invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
@@ -132,9 +128,9 @@
     if-eqz v2, :cond_0
 
     .line 93
-    iget-object v2, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
+    iget-object p1, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
-    invoke-virtual {v2, v3}, Ljava/util/BitSet;->set(I)V
+    invoke-virtual {p1, v3}, Ljava/util/BitSet;->set(I)V
 
     goto :goto_0
 
@@ -144,37 +140,35 @@
 
     aput-object p2, v2, v3
 
-    invoke-static {v4, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    iput-object v2, v0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
+    iput-object p1, v0, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
     .line 96
     :goto_0
-    iget-object v2, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
+    iget-object p1, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v2, v0}, Landroid/net/wifi/WifiManager;->addNetwork(Landroid/net/wifi/WifiConfiguration;)I
+    invoke-virtual {p1, v0}, Landroid/net/wifi/WifiManager;->addNetwork(Landroid/net/wifi/WifiConfiguration;)I
 
-    move-result v2
+    move-result p1
 
     .line 97
-    .local v2, "netId":I
-    iget-object v3, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
+    iget-object p2, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->disconnect()Z
+    invoke-virtual {p2}, Landroid/net/wifi/WifiManager;->disconnect()Z
 
     .line 98
-    iget-object v3, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
+    iget-object p2, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v3, v2, v1}, Landroid/net/wifi/WifiManager;->enableNetwork(IZ)Z
+    invoke-virtual {p2, p1, v1}, Landroid/net/wifi/WifiManager;->enableNetwork(IZ)Z
 
     .line 99
-    iget-object v1, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
+    iget-object p1, p0, Lcom/android/js/api/Wifi;->main_wifi:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->reconnect()Z
+    invoke-virtual {p1}, Landroid/net/wifi/WifiManager;->reconnect()Z
 
-    .line 100
     return-void
 .end method
 
@@ -199,7 +193,6 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 46
     :cond_0
     return-void
 .end method
@@ -214,7 +207,6 @@
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->disconnect()Z
 
-    .line 51
     return-void
 .end method
 
@@ -239,7 +231,6 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 40
     :cond_0
     return-void
 .end method
@@ -247,7 +238,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 104
     const-string v0, "Wifi"
 
     return-object v0
@@ -273,16 +263,13 @@
     move-result-object v0
 
     .line 67
-    .local v0, "res":Ljava/util/List;, "Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     new-instance v1, Lorg/json/JSONArray;
 
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
-    .line 68
-    .local v1, "final_res":Lorg/json/JSONArray;
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 68
     :goto_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -296,7 +283,6 @@
     invoke-direct {v3}, Lorg/json/JSONObject;-><init>()V
 
     .line 70
-    .local v3, "item":Lorg/json/JSONObject;
     invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v4
@@ -377,20 +363,17 @@
     .line 82
     invoke-virtual {v1, v3}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 68
-    .end local v3    # "item":Lorg/json/JSONObject;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 84
-    .end local v2    # "i":I
     :cond_0
     invoke-virtual {v1}, Lorg/json/JSONArray;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public getWifiState()I

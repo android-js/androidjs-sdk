@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/common/futures/SimpleSettableFuture;Ljava/util/concurrent/Callable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
     .line 78
     iput-object p1, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl$1;->this$0:Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
@@ -61,21 +60,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 85
     goto :goto_0
 
-    .line 83
     :catch_0
     move-exception v0
 
     .line 84
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl$1;->val$future:Lcom/facebook/react/common/futures/SimpleSettableFuture;
 
     invoke-virtual {v1, v0}, Lcom/facebook/react/common/futures/SimpleSettableFuture;->setException(Ljava/lang/Exception;)V
 
-    .line 86
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

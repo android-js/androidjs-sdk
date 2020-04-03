@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;I)V
     .locals 0
-    .param p2, "tag"    # I
 
     .line 74
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$RemoveRootViewOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -29,7 +28,6 @@
     .line 75
     invoke-direct {p0, p1, p2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$ViewOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;I)V
 
-    .line 76
     return-void
 .end method
 
@@ -49,6 +47,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->removeRootView(I)V
 
-    .line 81
     return-void
 .end method

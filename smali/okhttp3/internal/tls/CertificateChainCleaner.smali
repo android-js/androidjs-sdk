@@ -15,7 +15,6 @@
 
 .method public static get(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
     .locals 1
-    .param p0, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     .line 41
     invoke-static {}, Lokhttp3/internal/platform/Platform;->get()Lokhttp3/internal/platform/Platform;
@@ -24,14 +23,13 @@
 
     invoke-virtual {v0, p0}, Lokhttp3/internal/platform/Platform;->buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lokhttp3/internal/tls/CertificateChainCleaner;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs get([Ljava/security/cert/X509Certificate;)Lokhttp3/internal/tls/CertificateChainCleaner;
     .locals 2
-    .param p0, "caCerts"    # [Ljava/security/cert/X509Certificate;
 
     .line 45
     new-instance v0, Lokhttp3/internal/tls/BasicCertificateChainCleaner;

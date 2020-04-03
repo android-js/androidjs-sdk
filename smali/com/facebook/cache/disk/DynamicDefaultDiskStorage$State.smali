@@ -32,11 +32,11 @@
 # direct methods
 .method constructor <init>(Ljava/io/File;Lcom/facebook/cache/disk/DiskStorage;)V
     .locals 0
-    .param p1, "rootDirectory"    # Ljava/io/File;
+    .param p1    # Ljava/io/File;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "delegate"    # Lcom/facebook/cache/disk/DiskStorage;
+    .param p2    # Lcom/facebook/cache/disk/DiskStorage;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -52,6 +52,5 @@
     .line 46
     iput-object p1, p0, Lcom/facebook/cache/disk/DynamicDefaultDiskStorage$State;->rootDirectory:Ljava/io/File;
 
-    .line 47
     return-void
 .end method

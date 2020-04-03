@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/graphics/TypefaceCompatBaseImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/graphics/TypefaceCompatBaseImpl;
 
     .line 124
     iput-object p1, p0, Landroid/support/v4/graphics/TypefaceCompatBaseImpl$2;->this$0:Landroid/support/v4/graphics/TypefaceCompatBaseImpl;
@@ -46,15 +45,14 @@
 
 # virtual methods
 .method public getWeight(Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;)I
-    .locals 1
-    .param p1, "entry"    # Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
+    .locals 0
 
     .line 127
     invoke-virtual {p1}, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->getWeight()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic getWeight(Ljava/lang/Object;)I
@@ -71,15 +69,14 @@
 .end method
 
 .method public isItalic(Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;)Z
-    .locals 1
-    .param p1, "entry"    # Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
+    .locals 0
 
     .line 132
     invoke-virtual {p1}, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->isItalic()Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic isItalic(Ljava/lang/Object;)Z

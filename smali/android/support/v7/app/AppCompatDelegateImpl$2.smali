@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDelegateImpl;
 
     .line 223
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$2;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -81,6 +80,5 @@
     .line 233
     iput v1, v0, Landroid/support/v7/app/AppCompatDelegateImpl;->mInvalidatePanelMenuFeatures:I
 
-    .line 234
     return-void
 .end method

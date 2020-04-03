@@ -17,9 +17,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 71
     const/4 v0, 0x0
 
+    .line 71
     new-array v0, v0, [Ljava/lang/String;
 
     sput-object v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
@@ -35,13 +35,11 @@
     .line 126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 127
     return-void
 .end method
 
 .method public static getContentMimeTypes(Landroid/view/inputmethod/EditorInfo;)[Ljava/lang/String;
     .locals 2
-    .param p0, "editorInfo"    # Landroid/view/inputmethod/EditorInfo;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -53,66 +51,59 @@
     if-lt v0, v1, :cond_1
 
     .line 112
-    iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->contentMimeTypes:[Ljava/lang/String;
+    iget-object p0, p0, Landroid/view/inputmethod/EditorInfo;->contentMimeTypes:[Ljava/lang/String;
 
-    .line 113
-    .local v0, "result":[Ljava/lang/String;
-    if-eqz v0, :cond_0
-
-    move-object v1, v0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
+    .line 113
     :cond_0
-    sget-object v1, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
+    sget-object p0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
     :goto_0
-    return-object v1
+    return-object p0
 
     .line 115
-    .end local v0    # "result":[Ljava/lang/String;
     :cond_1
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
     if-nez v0, :cond_2
 
     .line 116
-    sget-object v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
+    sget-object p0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 
     .line 118
     :cond_2
-    iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
+    iget-object p0, p0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
-    const-string v1, "android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES"
+    const-string v0, "android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES"
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 119
-    .restart local v0    # "result":[Ljava/lang/String;
-    if-eqz v0, :cond_3
-
-    move-object v1, v0
+    if-eqz p0, :cond_3
 
     goto :goto_1
 
+    .line 119
     :cond_3
-    sget-object v1, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
+    sget-object p0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
     :goto_1
-    return-object v1
+    return-object p0
 .end method
 
 .method public static setContentMimeTypes(Landroid/view/inputmethod/EditorInfo;[Ljava/lang/String;)V
     .locals 2
-    .param p0, "editorInfo"    # Landroid/view/inputmethod/EditorInfo;
+    .param p0    # Landroid/view/inputmethod/EditorInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "contentMimeTypes"    # [Ljava/lang/String;
+    .param p1    # [Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -144,13 +135,12 @@
 
     .line 95
     :cond_1
-    iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
+    iget-object p0, p0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
-    const-string v1, "android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES"
+    const-string v0, "android.support.v13.view.inputmethod.EditorInfoCompat.CONTENT_MIME_TYPES"
 
-    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 97
     :goto_0
     return-void
 .end method

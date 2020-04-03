@@ -15,7 +15,7 @@
 
 .method public static findContextOfType(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
+    .param p0    # Landroid/content/Context;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -34,7 +34,6 @@
     .end annotation
 
     .line 29
-    .local p1, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<+TT;>;"
     :goto_0
     invoke-virtual {p1, p0}, Ljava/lang/Class;->isInstance(Ljava/lang/Object;)Z
 
@@ -58,26 +57,18 @@
 
     move-result-object v0
 
-    .line 32
-    .local v0, "baseContext":Landroid/content/Context;
     if-ne p0, v0, :cond_0
 
-    .line 33
     return-object v1
 
-    .line 35
     :cond_0
     move-object p0, v0
 
-    .line 37
-    .end local v0    # "baseContext":Landroid/content/Context;
     goto :goto_0
 
-    .line 38
     :cond_1
     return-object v1
 
-    .line 41
     :cond_2
     return-object p0
 .end method

@@ -14,17 +14,14 @@
 .end method
 
 .method public static notifyNativeGestureStarted(Landroid/view/View;Landroid/view/MotionEvent;)V
-    .locals 1
-    .param p0, "view"    # Landroid/view/View;
-    .param p1, "event"    # Landroid/view/MotionEvent;
+    .locals 0
 
     .line 29
     invoke-static {p0}, Lcom/facebook/react/uimanager/RootViewUtil;->getRootView(Landroid/view/View;)Lcom/facebook/react/uimanager/RootView;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0, p1}, Lcom/facebook/react/uimanager/RootView;->onChildStartedNativeGesture(Landroid/view/MotionEvent;)V
+    invoke-interface {p0, p1}, Lcom/facebook/react/uimanager/RootView;->onChildStartedNativeGesture(Landroid/view/MotionEvent;)V
 
-    .line 30
     return-void
 .end method

@@ -33,9 +33,9 @@
     .line 395
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 401
     const-wide/16 v0, 0x0
 
+    .line 401
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
     return-void
@@ -56,7 +56,6 @@
 
     iput-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    .line 418
     :cond_0
     return-void
 .end method
@@ -65,22 +64,20 @@
 # virtual methods
 .method clear(I)V
     .locals 6
-    .param p1, "index"    # I
 
-    .line 421
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
 
     .line 422
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
+
+    sub-int/2addr p1, v0
 
     .line 423
-    add-int/lit8 v1, p1, -0x40
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ChildHelper$Bucket;->clear(I)V
+    invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->clear(I)V
 
     goto :goto_0
 
@@ -100,7 +97,6 @@
 
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    .line 429
     :cond_1
     :goto_0
     return-void
@@ -108,7 +104,6 @@
 
 .method countOnesBefore(I)I
     .locals 6
-    .param p1, "index"    # I
 
     .line 493
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -119,7 +114,6 @@
 
     if-nez v0, :cond_1
 
-    .line 494
     if-lt p1, v1, :cond_0
 
     .line 495
@@ -127,9 +121,9 @@
 
     invoke-static {v0, v1}, Ljava/lang/Long;->bitCount(J)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 497
     :cond_0
@@ -143,11 +137,10 @@
 
     invoke-static {v0, v1}, Ljava/lang/Long;->bitCount(J)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 499
     :cond_1
     if-ge p1, v1, :cond_2
 
@@ -162,34 +155,32 @@
 
     invoke-static {v0, v1}, Ljava/lang/Long;->bitCount(J)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
+
+    :cond_2
+    sub-int/2addr p1, v1
 
     .line 502
-    :cond_2
-    add-int/lit8 v1, p1, -0x40
+    invoke-virtual {v0, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->countOnesBefore(I)I
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ChildHelper$Bucket;->countOnesBefore(I)I
+    move-result p1
+
+    iget-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->bitCount(J)I
 
     move-result v0
 
-    iget-wide v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
+    add-int/2addr p1, v0
 
-    invoke-static {v1, v2}, Ljava/lang/Long;->bitCount(J)I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    return v0
+    return p1
 .end method
 
 .method get(I)Z
-    .locals 5
-    .param p1, "index"    # I
+    .locals 4
 
-    .line 432
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
@@ -198,15 +189,15 @@
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
     .line 434
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    add-int/lit8 v1, p1, -0x40
+    sub-int/2addr p1, v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
+    invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 436
     :cond_0
@@ -220,27 +211,24 @@
 
     const-wide/16 v2, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long p1, v0, v2
 
-    if-eqz v4, :cond_1
+    if-eqz p1, :cond_1
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method insert(IZ)V
     .locals 12
-    .param p1, "index"    # I
-    .param p2, "value"    # Z
 
-    .line 448
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
@@ -249,11 +237,11 @@
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
     .line 450
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    add-int/lit8 v1, p1, -0x40
+    sub-int/2addr p1, v0
 
-    invoke-virtual {v0, v1, p2}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
+    invoke-virtual {v1, p1, p2}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
 
     goto :goto_2
 
@@ -282,8 +270,6 @@
     :cond_1
     const/4 v0, 0x0
 
-    .line 453
-    .local v0, "lastBit":Z
     :goto_0
     const-wide/16 v1, 0x1
 
@@ -292,28 +278,23 @@
     sub-long/2addr v6, v1
 
     .line 454
-    .local v6, "mask":J
     iget-wide v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
     and-long v8, v1, v6
 
-    .line 455
-    .local v8, "before":J
     const-wide/16 v10, -0x1
 
-    xor-long/2addr v10, v6
+    xor-long/2addr v6, v10
 
-    and-long/2addr v1, v10
+    and-long/2addr v1, v6
 
     shl-long/2addr v1, v4
 
+    or-long/2addr v1, v8
+
     .line 456
-    .local v1, "after":J
-    or-long v3, v8, v1
+    iput-wide v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    iput-wide v3, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
-
-    .line 457
     if-eqz p2, :cond_2
 
     .line 458
@@ -325,38 +306,31 @@
     :cond_2
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->clear(I)V
 
-    .line 462
     :goto_1
     if-nez v0, :cond_3
 
-    iget-object v3, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    .line 462
+    iget-object p1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    if-eqz v3, :cond_4
+    if-eqz p1, :cond_4
 
     .line 463
     :cond_3
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
     .line 464
-    iget-object v3, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object p1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    invoke-virtual {v3, v5, v0}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
+    invoke-virtual {p1, v5, v0}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
 
-    .line 467
-    .end local v0    # "lastBit":Z
-    .end local v1    # "after":J
-    .end local v6    # "mask":J
-    .end local v8    # "before":J
     :cond_4
     :goto_2
     return-void
 .end method
 
 .method remove(I)Z
-    .locals 14
-    .param p1, "index"    # I
+    .locals 13
 
-    .line 470
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
@@ -365,37 +339,35 @@
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
     .line 472
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    add-int/lit8 v1, p1, -0x40
+    sub-int/2addr p1, v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ChildHelper$Bucket;->remove(I)Z
+    invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->remove(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 474
     :cond_0
     const-wide/16 v0, 0x1
 
     shl-long v2, v0, p1
 
     .line 475
-    .local v2, "mask":J
     iget-wide v4, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
     and-long/2addr v4, v2
 
     const-wide/16 v6, 0x0
 
-    const/4 v8, 0x1
+    const/4 p1, 0x1
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    cmp-long v10, v4, v6
+    cmp-long v9, v4, v6
 
-    if-eqz v10, :cond_1
+    if-eqz v9, :cond_1
 
     const/4 v4, 0x1
 
@@ -405,19 +377,17 @@
     const/4 v4, 0x0
 
     .line 476
-    .local v4, "value":Z
     :goto_0
     iget-wide v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    const-wide/16 v10, -0x1
+    const-wide/16 v9, -0x1
 
-    xor-long v12, v2, v10
+    xor-long v11, v2, v9
 
-    and-long/2addr v5, v12
+    and-long/2addr v5, v11
 
     iput-wide v5, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    .line 477
     sub-long/2addr v2, v0
 
     .line 478
@@ -425,46 +395,43 @@
 
     and-long v5, v0, v2
 
+    xor-long/2addr v2, v9
+
+    and-long/2addr v0, v2
+
     .line 480
-    .local v5, "before":J
-    xor-long/2addr v10, v2
-
-    and-long/2addr v0, v10
-
-    invoke-static {v0, v1, v8}, Ljava/lang/Long;->rotateRight(JI)J
+    invoke-static {v0, v1, p1}, Ljava/lang/Long;->rotateRight(JI)J
 
     move-result-wide v0
 
-    .line 481
-    .local v0, "after":J
-    or-long v7, v5, v0
+    or-long/2addr v0, v5
 
-    iput-wide v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
+    .line 481
+    iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
     .line 482
-    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object p1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    if-eqz v7, :cond_3
+    if-eqz p1, :cond_3
 
     .line 483
-    invoke-virtual {v7, v9}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
+    invoke-virtual {p1, v8}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
 
-    move-result v7
+    move-result p1
 
-    if-eqz v7, :cond_2
+    if-eqz p1, :cond_2
+
+    const/16 p1, 0x3f
 
     .line 484
-    const/16 v7, 0x3f
-
-    invoke-virtual {p0, v7}, Landroid/support/v7/widget/ChildHelper$Bucket;->set(I)V
+    invoke-virtual {p0, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->set(I)V
 
     .line 486
     :cond_2
-    iget-object v7, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object p1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    invoke-virtual {v7, v9}, Landroid/support/v7/widget/ChildHelper$Bucket;->remove(I)Z
+    invoke-virtual {p1, v8}, Landroid/support/v7/widget/ChildHelper$Bucket;->remove(I)Z
 
-    .line 488
     :cond_3
     return v4
 .end method
@@ -472,9 +439,9 @@
 .method reset()V
     .locals 2
 
-    .line 441
     const-wide/16 v0, 0x0
 
+    .line 441
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
     .line 442
@@ -485,16 +452,13 @@
     .line 443
     invoke-virtual {v0}, Landroid/support/v7/widget/ChildHelper$Bucket;->reset()V
 
-    .line 445
     :cond_0
     return-void
 .end method
 
 .method set(I)V
     .locals 4
-    .param p1, "index"    # I
 
-    .line 406
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
@@ -503,11 +467,11 @@
     invoke-direct {p0}, Landroid/support/v7/widget/ChildHelper$Bucket;->ensureNext()V
 
     .line 408
-    iget-object v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
+    iget-object v1, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mNext:Landroid/support/v7/widget/ChildHelper$Bucket;
 
-    add-int/lit8 v1, p1, -0x40
+    sub-int/2addr p1, v0
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ChildHelper$Bucket;->set(I)V
+    invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->set(I)V
 
     goto :goto_0
 
@@ -523,7 +487,6 @@
 
     iput-wide v0, p0, Landroid/support/v7/widget/ChildHelper$Bucket;->mData:J
 
-    .line 412
     :goto_0
     return-void
 .end method

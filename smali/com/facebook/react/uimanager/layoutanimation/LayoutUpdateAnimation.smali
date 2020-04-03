@@ -20,12 +20,7 @@
 
 # virtual methods
 .method createAnimationImpl(Landroid/view/View;IIII)Landroid/view/animation/Animation;
-    .locals 9
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "x"    # I
-    .param p3, "y"    # I
-    .param p4, "width"    # I
-    .param p5, "height"    # I
+    .locals 7
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -66,7 +61,6 @@
     const/4 v0, 0x1
 
     .line 32
-    .local v0, "animateLocation":Z
     :goto_1
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
@@ -84,41 +78,33 @@
     const/4 v2, 0x1
 
     :cond_3
-    move v1, v2
-
-    .line 33
-    .local v1, "animateSize":Z
     if-nez v0, :cond_4
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
-    .line 34
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return-object v2
-
-    .line 35
-    :cond_4
-    nop
+    return-object p1
 
     .line 42
-    new-instance v2, Lcom/facebook/react/uimanager/layoutanimation/PositionAndSizeAnimation;
+    :cond_4
+    new-instance v6, Lcom/facebook/react/uimanager/layoutanimation/PositionAndSizeAnimation;
 
-    move-object v3, v2
+    move-object v0, v6
 
-    move-object v4, p1
+    move-object v1, p1
 
-    move v5, p2
+    move v2, p2
 
-    move v6, p3
+    move v3, p3
 
-    move v7, p4
+    move v4, p4
 
-    move v8, p5
+    move v5, p5
 
-    invoke-direct/range {v3 .. v8}, Lcom/facebook/react/uimanager/layoutanimation/PositionAndSizeAnimation;-><init>(Landroid/view/View;IIII)V
+    invoke-direct/range {v0 .. v5}, Lcom/facebook/react/uimanager/layoutanimation/PositionAndSizeAnimation;-><init>(Landroid/view/View;IIII)V
 
-    return-object v2
+    return-object v6
 .end method
 
 .method isValid()Z

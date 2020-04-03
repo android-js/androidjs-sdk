@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/FragmentManagerImpl$2;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/support/v4/app/FragmentManagerImpl$2;
 
     .line 1647
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$2$1;->this$1:Landroid/support/v4/app/FragmentManagerImpl$2;
@@ -84,7 +83,6 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/support/v4/app/FragmentManagerImpl;->moveToState(Landroid/support/v4/app/Fragment;IIIZ)V
 
-    .line 1655
     :cond_0
     return-void
 .end method

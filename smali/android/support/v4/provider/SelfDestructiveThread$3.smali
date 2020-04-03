@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/SelfDestructiveThread;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/Callable;Ljava/util/concurrent/locks/ReentrantLock;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/locks/Condition;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/provider/SelfDestructiveThread;
 
     .line 171
     iput-object p1, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->this$0:Landroid/support/v4/provider/SelfDestructiveThread;
@@ -73,15 +72,8 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 178
-    goto :goto_0
-
-    .line 176
-    :catch_0
-    move-exception v0
-
     .line 179
-    :goto_0
+    :catch_0
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
@@ -106,13 +98,8 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
-    .line 185
-    nop
-
-    .line 186
     return-void
 
-    .line 184
     :catchall_0
     move-exception v0
 

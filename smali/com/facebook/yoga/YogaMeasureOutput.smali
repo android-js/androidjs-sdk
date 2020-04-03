@@ -15,88 +15,79 @@
 
 .method public static getHeight(J)F
     .locals 2
-    .param p0, "measureOutput"    # J
 
-    .line 30
     const-wide/16 v0, -0x1
 
-    and-long/2addr v0, p0
+    and-long/2addr p0, v0
 
-    long-to-int v1, v0
+    long-to-int p1, p0
 
-    invoke-static {v1}, Ljava/lang/Float;->intBitsToFloat(I)F
+    .line 30
+    invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getWidth(J)F
-    .locals 4
-    .param p0, "measureOutput"    # J
+    .locals 2
 
-    .line 26
     const/16 v0, 0x20
 
-    shr-long v0, p0, v0
+    shr-long/2addr p0, v0
 
-    const-wide/16 v2, -0x1
+    const-wide/16 v0, -0x1
 
-    and-long/2addr v0, v2
+    and-long/2addr p0, v0
 
-    long-to-int v1, v0
+    long-to-int p1, p0
 
-    invoke-static {v1}, Ljava/lang/Float;->intBitsToFloat(I)F
+    .line 26
+    invoke-static {p1}, Ljava/lang/Float;->intBitsToFloat(I)F
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static make(FF)J
-    .locals 6
-    .param p0, "width"    # F
-    .param p1, "height"    # F
+    .locals 2
 
     .line 16
     invoke-static {p0}, Ljava/lang/Float;->floatToRawIntBits(F)I
 
-    move-result v0
+    move-result p0
 
     .line 17
-    .local v0, "wBits":I
     invoke-static {p1}, Ljava/lang/Float;->floatToRawIntBits(F)I
 
-    move-result v1
+    move-result p1
 
-    .line 18
-    .local v1, "hBits":I
-    int-to-long v2, v0
+    int-to-long v0, p0
 
-    const/16 v4, 0x20
+    const/16 p0, 0x20
 
-    shl-long/2addr v2, v4
+    shl-long/2addr v0, p0
 
-    int-to-long v4, v1
+    int-to-long p0, p1
 
-    or-long/2addr v2, v4
+    or-long/2addr p0, v0
 
-    return-wide v2
+    return-wide p0
 .end method
 
 .method public static make(II)J
-    .locals 2
-    .param p0, "width"    # I
-    .param p1, "height"    # I
+    .locals 0
+
+    int-to-float p0, p0
+
+    int-to-float p1, p1
 
     .line 22
-    int-to-float v0, p0
+    invoke-static {p0, p1}, Lcom/facebook/yoga/YogaMeasureOutput;->make(FF)J
 
-    int-to-float v1, p1
+    move-result-wide p0
 
-    invoke-static {v0, v1}, Lcom/facebook/yoga/YogaMeasureOutput;->make(FF)J
-
-    move-result-wide v0
-
-    return-wide v0
+    return-wide p0
 .end method

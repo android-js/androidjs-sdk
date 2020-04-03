@@ -41,13 +41,11 @@
 
     invoke-direct {p0, v1, v0}, Ljava/lang/ref/PhantomReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
-    .line 41
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/jni/DestructorThread$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/jni/DestructorThread$1;
 
     .line 29
     invoke-direct {p0}, Lcom/facebook/jni/DestructorThread$Destructor;-><init>()V
@@ -57,7 +55,6 @@
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 1
-    .param p1, "referent"    # Ljava/lang/Object;
 
     .line 35
     invoke-static {}, Lcom/facebook/jni/DestructorThread;->access$000()Ljava/lang/ref/ReferenceQueue;
@@ -69,28 +66,24 @@
     .line 36
     invoke-static {}, Lcom/facebook/jni/DestructorThread;->access$100()Lcom/facebook/jni/DestructorThread$DestructorStack;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p0}, Lcom/facebook/jni/DestructorThread$DestructorStack;->push(Lcom/facebook/jni/DestructorThread$Destructor;)V
+    invoke-virtual {p1, p0}, Lcom/facebook/jni/DestructorThread$DestructorStack;->push(Lcom/facebook/jni/DestructorThread$Destructor;)V
 
-    .line 37
     return-void
 .end method
 
 .method static synthetic access$300(Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/jni/DestructorThread$Destructor;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/facebook/jni/DestructorThread$Destructor;->previous:Lcom/facebook/jni/DestructorThread$Destructor;
+    iget-object p0, p0, Lcom/facebook/jni/DestructorThread$Destructor;->previous:Lcom/facebook/jni/DestructorThread$Destructor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$302(Lcom/facebook/jni/DestructorThread$Destructor;Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/jni/DestructorThread$Destructor;
-    .param p1, "x1"    # Lcom/facebook/jni/DestructorThread$Destructor;
 
     .line 29
     iput-object p1, p0, Lcom/facebook/jni/DestructorThread$Destructor;->previous:Lcom/facebook/jni/DestructorThread$Destructor;
@@ -99,19 +92,16 @@
 .end method
 
 .method static synthetic access$600(Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/jni/DestructorThread$Destructor;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/facebook/jni/DestructorThread$Destructor;->next:Lcom/facebook/jni/DestructorThread$Destructor;
+    iget-object p0, p0, Lcom/facebook/jni/DestructorThread$Destructor;->next:Lcom/facebook/jni/DestructorThread$Destructor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$602(Lcom/facebook/jni/DestructorThread$Destructor;Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/jni/DestructorThread$Destructor;
-    .param p1, "x1"    # Lcom/facebook/jni/DestructorThread$Destructor;
 
     .line 29
     iput-object p1, p0, Lcom/facebook/jni/DestructorThread$Destructor;->next:Lcom/facebook/jni/DestructorThread$Destructor;

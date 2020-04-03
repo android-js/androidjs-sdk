@@ -56,9 +56,9 @@
 
     sput-object v0, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;->DEFAULT:Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
 
-    .line 264
     const/4 v0, 0x2
 
+    .line 264
     new-array v0, v0, [Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
 
     sget-object v3, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;->SMALL:Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
@@ -90,18 +90,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 264
     const-class v0, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
+    check-cast p0, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;

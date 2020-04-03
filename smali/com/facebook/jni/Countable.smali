@@ -19,12 +19,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 25
     const-string v0, "fb"
 
+    .line 25
     invoke-static {v0}, Lcom/facebook/soloader/SoLoader;->loadLibrary(Ljava/lang/String;)Z
 
-    .line 26
     return-void
 .end method
 
@@ -34,9 +33,9 @@
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     const-wide/16 v0, 0x0
 
+    .line 29
     iput-wide v0, p0, Lcom/facebook/jni/Countable;->mInstance:J
 
     return-void
@@ -61,6 +60,5 @@
     .line 36
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 37
     return-void
 .end method

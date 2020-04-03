@@ -35,13 +35,9 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 33
-    nop
 
     .line 34
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$000(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolParams;
@@ -66,9 +62,6 @@
     :goto_0
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mBitmapPoolParams:Lcom/facebook/imagepipeline/memory/PoolParams;
 
-    .line 37
-    nop
-
     .line 38
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$100(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
 
@@ -91,9 +84,6 @@
 
     :goto_1
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mBitmapPoolStatsTracker:Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
-
-    .line 41
-    nop
 
     .line 42
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$200(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolParams;
@@ -118,9 +108,6 @@
     :goto_2
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mFlexByteArrayPoolParams:Lcom/facebook/imagepipeline/memory/PoolParams;
 
-    .line 45
-    nop
-
     .line 46
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$300(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/common/memory/MemoryTrimmableRegistry;
 
@@ -143,9 +130,6 @@
 
     :goto_3
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mMemoryTrimmableRegistry:Lcom/facebook/common/memory/MemoryTrimmableRegistry;
-
-    .line 49
-    nop
 
     .line 50
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$400(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolParams;
@@ -170,9 +154,6 @@
     :goto_4
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mNativeMemoryChunkPoolParams:Lcom/facebook/imagepipeline/memory/PoolParams;
 
-    .line 53
-    nop
-
     .line 54
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$500(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
 
@@ -195,9 +176,6 @@
 
     :goto_5
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mNativeMemoryChunkPoolStatsTracker:Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
-
-    .line 57
-    nop
 
     .line 58
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$600(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolParams;
@@ -222,9 +200,6 @@
     :goto_6
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mSmallByteArrayPoolParams:Lcom/facebook/imagepipeline/memory/PoolParams;
 
-    .line 61
-    nop
-
     .line 62
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$700(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
 
@@ -235,7 +210,7 @@
     .line 63
     invoke-static {}, Lcom/facebook/imagepipeline/memory/NoOpPoolStatsTracker;->getInstance()Lcom/facebook/imagepipeline/memory/NoOpPoolStatsTracker;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_7
 
@@ -243,19 +218,16 @@
     :cond_7
     invoke-static {p1}, Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;->access$700(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_7
-    iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mSmallByteArrayPoolStatsTracker:Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/memory/PoolConfig;->mSmallByteArrayPoolStatsTracker:Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
 
-    .line 65
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;Lcom/facebook/imagepipeline/memory/PoolConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/memory/PoolConfig$1;
 
     .line 19
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/memory/PoolConfig;-><init>(Lcom/facebook/imagepipeline/memory/PoolConfig$Builder;)V

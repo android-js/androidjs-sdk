@@ -26,13 +26,11 @@
     .end annotation
 
     .line 11
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<*>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 12
     iput-object p1, p0, Lbolts/UnobservedErrorNotifier;->task:Lbolts/Task;
 
-    .line 13
     return-void
 .end method
 
@@ -50,8 +48,6 @@
     :try_start_0
     iget-object v0, p0, Lbolts/UnobservedErrorNotifier;->task:Lbolts/Task;
 
-    .line 19
-    .local v0, "faultedTask":Lbolts/Task;
     if-eqz v0, :cond_0
 
     .line 20
@@ -59,8 +55,6 @@
 
     move-result-object v1
 
-    .line 21
-    .local v1, "ueh":Lbolts/Task$UnobservedExceptionHandler;
     if-eqz v1, :cond_0
 
     .line 22
@@ -77,18 +71,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 26
-    .end local v0    # "faultedTask":Lbolts/Task;
-    .end local v1    # "ueh":Lbolts/Task$UnobservedExceptionHandler;
     :cond_0
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 27
-    nop
-
-    .line 28
     return-void
 
-    .line 26
     :catchall_0
     move-exception v0
 
@@ -100,11 +87,10 @@
 .method public setObserved()V
     .locals 1
 
-    .line 31
     const/4 v0, 0x0
 
+    .line 31
     iput-object v0, p0, Lbolts/UnobservedErrorNotifier;->task:Lbolts/Task;
 
-    .line 32
     return-void
 .end method

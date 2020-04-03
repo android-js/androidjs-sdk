@@ -18,9 +18,7 @@
 .end method
 
 .method public static floatsEqual(FF)Z
-    .locals 4
-    .param p0, "f1"    # F
-    .param p1, "f2"    # F
+    .locals 3
 
     .line 15
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
@@ -41,19 +39,19 @@
 
     goto :goto_1
 
-    .line 18
     :cond_0
-    sub-float v0, p1, p0
+    sub-float/2addr p1, p0
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+    .line 18
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
-    move-result v0
+    move-result p0
 
-    const v3, 0x3727c5ac    # 1.0E-5f
+    const p1, 0x3727c5ac    # 1.0E-5f
 
-    cmpg-float v0, v0, v3
+    cmpg-float p0, p0, p1
 
-    if-gez v0, :cond_1
+    if-gez p0, :cond_1
 
     goto :goto_0
 
@@ -68,15 +66,15 @@
     :goto_1
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_3
+    if-eqz p0, :cond_3
 
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_3
+    if-eqz p0, :cond_3
 
     goto :goto_2
 

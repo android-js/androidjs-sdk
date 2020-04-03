@@ -25,9 +25,6 @@
 # direct methods
 .method public constructor <init>(JJJ)V
     .locals 0
-    .param p1, "cacheSizeLimitMinimum"    # J
-    .param p3, "lowDiskSpaceCacheSizeLimit"    # J
-    .param p5, "defaultCacheSizeLimit"    # J
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 143
     iput-wide p5, p0, Lcom/facebook/cache/disk/DiskStorageCache$Params;->mDefaultCacheSizeLimit:J
 
-    .line 144
     return-void
 .end method

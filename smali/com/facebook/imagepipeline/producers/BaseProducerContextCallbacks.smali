@@ -21,27 +21,23 @@
 .method public onCancellationRequested()V
     .locals 0
 
-    .line 17
     return-void
 .end method
 
 .method public onIsIntermediateResultExpectedChanged()V
     .locals 0
 
-    .line 25
     return-void
 .end method
 
 .method public onIsPrefetchChanged()V
     .locals 0
 
-    .line 21
     return-void
 .end method
 
 .method public onPriorityChanged()V
     .locals 0
 
-    .line 29
     return-void
 .end method

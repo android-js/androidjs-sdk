@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v4/media/MediaDescriptionCompat;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 422
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -60,13 +59,13 @@
     :cond_0
     invoke-static {p1}, Landroid/support/v4/media/MediaDescriptionCompatApi21;->fromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/support/v4/media/MediaDescriptionCompat;->fromMediaDescription(Ljava/lang/Object;)Landroid/support/v4/media/MediaDescriptionCompat;
+    invoke-static {p1}, Landroid/support/v4/media/MediaDescriptionCompat;->fromMediaDescription(Ljava/lang/Object;)Landroid/support/v4/media/MediaDescriptionCompat;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -81,13 +80,12 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v4/media/MediaDescriptionCompat;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 431
-    new-array v0, p1, [Landroid/support/v4/media/MediaDescriptionCompat;
+    new-array p1, p1, [Landroid/support/v4/media/MediaDescriptionCompat;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

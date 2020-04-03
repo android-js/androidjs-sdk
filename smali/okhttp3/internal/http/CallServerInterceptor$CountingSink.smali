@@ -21,12 +21,10 @@
 # direct methods
 .method constructor <init>(Lokio/Sink;)V
     .locals 0
-    .param p1, "delegate"    # Lokio/Sink;
 
     .line 145
     invoke-direct {p0, p1}, Lokio/ForwardingSink;-><init>(Lokio/Sink;)V
 
-    .line 146
     return-void
 .end method
 
@@ -34,8 +32,6 @@
 # virtual methods
 .method public write(Lokio/Buffer;J)V
     .locals 2
-    .param p1, "source"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -52,6 +48,5 @@
 
     iput-wide v0, p0, Lokhttp3/internal/http/CallServerInterceptor$CountingSink;->successfulCount:J
 
-    .line 151
     return-void
 .end method

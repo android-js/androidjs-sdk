@@ -37,17 +37,17 @@
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
     const/4 v0, 0x0
 
+    .line 27
     iput v0, p0, Lcom/facebook/react/animated/AnimatedNode;->mActiveIncomingNodes:I
 
     .line 28
     iput v0, p0, Lcom/facebook/react/animated/AnimatedNode;->mBFSColor:I
 
-    .line 29
     const/4 v0, -0x1
 
+    .line 29
     iput v0, p0, Lcom/facebook/react/animated/AnimatedNode;->mTag:I
 
     return-void
@@ -57,7 +57,6 @@
 # virtual methods
 .method public final addChild(Lcom/facebook/react/animated/AnimatedNode;)V
     .locals 2
-    .param p1, "child"    # Lcom/facebook/react/animated/AnimatedNode;
 
     .line 32
     iget-object v0, p0, Lcom/facebook/react/animated/AnimatedNode;->mChildren:Ljava/util/List;
@@ -88,36 +87,29 @@
     .line 36
     invoke-virtual {p1, p0}, Lcom/facebook/react/animated/AnimatedNode;->onAttachedToNode(Lcom/facebook/react/animated/AnimatedNode;)V
 
-    .line 37
     return-void
 .end method
 
 .method public onAttachedToNode(Lcom/facebook/react/animated/AnimatedNode;)V
     .locals 0
-    .param p1, "parent"    # Lcom/facebook/react/animated/AnimatedNode;
 
-    .line 54
     return-void
 .end method
 
 .method public onDetachedFromNode(Lcom/facebook/react/animated/AnimatedNode;)V
     .locals 0
-    .param p1, "parent"    # Lcom/facebook/react/animated/AnimatedNode;
 
-    .line 60
     return-void
 .end method
 
 .method public final removeChild(Lcom/facebook/react/animated/AnimatedNode;)V
     .locals 1
-    .param p1, "child"    # Lcom/facebook/react/animated/AnimatedNode;
 
     .line 40
     iget-object v0, p0, Lcom/facebook/react/animated/AnimatedNode;->mChildren:Ljava/util/List;
 
     if-nez v0, :cond_0
 
-    .line 41
     return-void
 
     .line 43
@@ -129,13 +121,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 45
     return-void
 .end method
 
 .method public update()V
     .locals 0
 
-    .line 68
     return-void
 .end method

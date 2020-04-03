@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/EncodedImage;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
     .line 235
     iput-object p1, p0, Lcom/facebook/imagepipeline/cache/BufferedDiskCache$3;->this$0:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
@@ -77,16 +76,12 @@
 
     invoke-static {v0}, Lcom/facebook/imagepipeline/image/EncodedImage;->closeSafely(Lcom/facebook/imagepipeline/image/EncodedImage;)V
 
-    .line 243
-    nop
-
-    .line 244
     return-void
 
-    .line 241
     :catchall_0
     move-exception v0
 
+    .line 241
     iget-object v1, p0, Lcom/facebook/imagepipeline/cache/BufferedDiskCache$3;->this$0:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
     invoke-static {v1}, Lcom/facebook/imagepipeline/cache/BufferedDiskCache;->access$100(Lcom/facebook/imagepipeline/cache/BufferedDiskCache;)Lcom/facebook/imagepipeline/cache/StagingArea;

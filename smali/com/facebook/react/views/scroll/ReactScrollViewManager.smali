@@ -40,9 +40,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 46
     const/4 v0, 0x5
 
+    .line 46
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
@@ -66,18 +66,17 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 53
     const/4 v0, 0x0
 
+    .line 53
     invoke-direct {p0, v0}, Lcom/facebook/react/views/scroll/ReactScrollViewManager;-><init>(Lcom/facebook/react/views/scroll/FpsListener;)V
 
-    .line 54
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/views/scroll/FpsListener;)V
     .locals 1
-    .param p1, "fpsListener"    # Lcom/facebook/react/views/scroll/FpsListener;
+    .param p1    # Lcom/facebook/react/views/scroll/FpsListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -85,15 +84,14 @@
     .line 56
     invoke-direct {p0}, Lcom/facebook/react/uimanager/ViewGroupManager;-><init>()V
 
-    .line 50
     const/4 v0, 0x0
 
+    .line 50
     iput-object v0, p0, Lcom/facebook/react/views/scroll/ReactScrollViewManager;->mFpsListener:Lcom/facebook/react/views/scroll/FpsListener;
 
     .line 57
     iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactScrollViewManager;->mFpsListener:Lcom/facebook/react/views/scroll/FpsListener;
 
-    .line 58
     return-void
 .end method
 
@@ -206,7 +204,6 @@
 
     move-result-object v0
 
-    .line 276
     return-object v0
 .end method
 
@@ -225,7 +222,6 @@
 
 .method public createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/scroll/ReactScrollView;
     .locals 2
-    .param p1, "context"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 67
     new-instance v0, Lcom/facebook/react/views/scroll/ReactScrollView;
@@ -239,12 +235,10 @@
 
 .method public flashScrollIndicators(Lcom/facebook/react/views/scroll/ReactScrollView;)V
     .locals 0
-    .param p1, "scrollView"    # Lcom/facebook/react/views/scroll/ReactScrollView;
 
     .line 186
     invoke-virtual {p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->flashScrollIndicators()V
 
-    .line 187
     return-void
 .end method
 
@@ -308,7 +302,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 62
     const-string v0, "RCTScrollView"
 
     return-object v0
@@ -331,9 +324,7 @@
 
 .method public receiveCommand(Lcom/facebook/react/views/scroll/ReactScrollView;ILcom/facebook/react/bridge/ReadableArray;)V
     .locals 0
-    .param p1, "scrollView"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "commandId"    # I
-    .param p3, "args"    # Lcom/facebook/react/bridge/ReadableArray;
+    .param p3    # Lcom/facebook/react/bridge/ReadableArray;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -341,14 +332,11 @@
     .line 181
     invoke-static {p0, p1, p2, p3}, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper;->receiveCommand(Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollCommandHandler;Ljava/lang/Object;ILcom/facebook/react/bridge/ReadableArray;)V
 
-    .line 182
     return-void
 .end method
 
 .method public scrollTo(Lcom/facebook/react/views/scroll/ReactScrollView;Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;)V
-    .locals 2
-    .param p1, "scrollView"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "data"    # Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;
+    .locals 1
 
     .line 192
     iget-boolean v0, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mAnimated:Z
@@ -358,9 +346,9 @@
     .line 193
     iget v0, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mDestX:I
 
-    iget v1, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mDestY:I
+    iget p2, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mDestY:I
 
-    invoke-virtual {p1, v0, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
+    invoke-virtual {p1, v0, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
 
     goto :goto_0
 
@@ -368,11 +356,10 @@
     :cond_0
     iget v0, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mDestX:I
 
-    iget v1, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mDestY:I
+    iget p2, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mDestY:I
 
-    invoke-virtual {p1, v0, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
+    invoke-virtual {p1, v0, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
 
-    .line 197
     :goto_0
     return-void
 .end method
@@ -390,15 +377,10 @@
 
 .method public scrollToEnd(Lcom/facebook/react/views/scroll/ReactScrollView;Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToEndCommandData;)V
     .locals 2
-    .param p1, "scrollView"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "data"    # Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToEndCommandData;
 
-    .line 256
-    nop
-
-    .line 257
     const/4 v0, 0x0
 
+    .line 257
     invoke-virtual {p1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
@@ -414,17 +396,16 @@
     add-int/2addr v0, v1
 
     .line 258
-    .local v0, "bottom":I
-    iget-boolean v1, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToEndCommandData;->mAnimated:Z
+    iget-boolean p2, p2, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToEndCommandData;->mAnimated:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_0
 
     .line 259
     invoke-virtual {p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {p1, v1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
+    invoke-virtual {p1, p2, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->smoothScrollTo(II)V
 
     goto :goto_0
 
@@ -432,11 +413,10 @@
     :cond_0
     invoke-virtual {p1}, Lcom/facebook/react/views/scroll/ReactScrollView;->getScrollX()I
 
-    move-result v1
+    move-result p2
 
-    invoke-virtual {p1, v1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
+    invoke-virtual {p1, p2, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->scrollTo(II)V
 
-    .line 263
     :goto_0
     return-void
 .end method
@@ -454,9 +434,6 @@
 
 .method public setBorderColor(Lcom/facebook/react/views/scroll/ReactScrollView;ILjava/lang/Integer;)V
     .locals 3
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "index"    # I
-    .param p3, "color"    # Ljava/lang/Integer;
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactPropGroup;
         customType = "Color"
         names = {
@@ -468,7 +445,6 @@
         }
     .end annotation
 
-    .line 240
     const/high16 v0, 0x7fc00000    # Float.NaN
 
     if-nez p3, :cond_0
@@ -490,41 +466,33 @@
     int-to-float v1, v1
 
     :goto_0
-    nop
-
-    .line 242
-    .local v1, "rgbComponent":F
     if-nez p3, :cond_1
 
     goto :goto_1
 
+    .line 242
     :cond_1
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result p3
 
-    ushr-int/lit8 v0, v0, 0x18
+    ushr-int/lit8 p3, p3, 0x18
 
-    int-to-float v0, v0
+    int-to-float v0, p3
 
     .line 243
-    .local v0, "alphaComponent":F
     :goto_1
-    sget-object v2, Lcom/facebook/react/views/scroll/ReactScrollViewManager;->SPACING_TYPES:[I
+    sget-object p3, Lcom/facebook/react/views/scroll/ReactScrollViewManager;->SPACING_TYPES:[I
 
-    aget v2, v2, p2
+    aget p2, p3, p2
 
-    invoke-virtual {p1, v2, v1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderColor(IFF)V
+    invoke-virtual {p1, p2, v1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderColor(IFF)V
 
-    .line 244
     return-void
 .end method
 
 .method public setBorderRadius(Lcom/facebook/react/views/scroll/ReactScrollView;IF)V
     .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "index"    # I
-    .param p3, "borderRadius"    # F
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactPropGroup;
         defaultFloat = NaNf
         names = {
@@ -548,7 +516,6 @@
 
     move-result p3
 
-    .line 210
     :cond_0
     if-nez p2, :cond_1
 
@@ -557,21 +524,19 @@
 
     goto :goto_0
 
-    .line 213
     :cond_1
-    add-int/lit8 v0, p2, -0x1
+    add-int/lit8 p2, p2, -0x1
 
-    invoke-virtual {p1, p3, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderRadius(FI)V
+    .line 213
+    invoke-virtual {p1, p3, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderRadius(FI)V
 
-    .line 215
     :goto_0
     return-void
 .end method
 
 .method public setBorderStyle(Lcom/facebook/react/views/scroll/ReactScrollView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "borderStyle"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -582,15 +547,11 @@
     .line 219
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderStyle(Ljava/lang/String;)V
 
-    .line 220
     return-void
 .end method
 
 .method public setBorderWidth(Lcom/facebook/react/views/scroll/ReactScrollView;IF)V
     .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "index"    # I
-    .param p3, "width"    # F
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactPropGroup;
         defaultFloat = NaNf
         names = {
@@ -618,18 +579,15 @@
     :cond_0
     sget-object v0, Lcom/facebook/react/views/scroll/ReactScrollViewManager;->SPACING_TYPES:[I
 
-    aget v0, v0, p2
+    aget p2, v0, p2
 
-    invoke-virtual {p1, v0, p3}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderWidth(IF)V
+    invoke-virtual {p1, p2, p3}, Lcom/facebook/react/views/scroll/ReactScrollView;->setBorderWidth(IF)V
 
-    .line 234
     return-void
 .end method
 
 .method public setBottomFillColor(Lcom/facebook/react/views/scroll/ReactScrollView;I)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "color"    # I
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         customType = "Color"
         defaultInt = 0x0
@@ -639,14 +597,11 @@
     .line 155
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setEndFillColor(I)V
 
-    .line 156
     return-void
 .end method
 
 .method public setDecelerationRate(Lcom/facebook/react/views/scroll/ReactScrollView;F)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "decelerationRate"    # F
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "decelerationRate"
     .end annotation
@@ -654,14 +609,11 @@
     .line 82
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setDecelerationRate(F)V
 
-    .line 83
     return-void
 .end method
 
 .method public setNestedScrollEnabled(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "value"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "nestedScrollEnabled"
     .end annotation
@@ -669,14 +621,11 @@
     .line 168
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompat;->setNestedScrollingEnabled(Landroid/view/View;Z)V
 
-    .line 169
     return-void
 .end method
 
 .method public setOverScrollMode(Lcom/facebook/react/views/scroll/ReactScrollView;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "overScrollMode"
     .end annotation
@@ -684,18 +633,16 @@
     .line 163
     invoke-static {p2}, Lcom/facebook/react/views/scroll/ReactScrollViewHelper;->parseOverScrollMode(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setOverScrollMode(I)V
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setOverScrollMode(I)V
 
-    .line 164
     return-void
 .end method
 
 .method public setOverflow(Lcom/facebook/react/views/scroll/ReactScrollView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "overflow"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -706,14 +653,11 @@
     .line 248
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setOverflow(Ljava/lang/String;)V
 
-    .line 249
     return-void
 .end method
 
 .method public setPagingEnabled(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "pagingEnabled"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "pagingEnabled"
     .end annotation
@@ -721,31 +665,25 @@
     .line 144
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setPagingEnabled(Z)V
 
-    .line 145
     return-void
 .end method
 
 .method public setPersistentScrollbar(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
-    .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "value"    # Z
+    .locals 0
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "persistentScrollbar"
     .end annotation
 
+    xor-int/lit8 p2, p2, 0x1
+
     .line 267
-    xor-int/lit8 v0, p2, 0x1
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setScrollbarFadingEnabled(Z)V
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/scroll/ReactScrollView;->setScrollbarFadingEnabled(Z)V
-
-    .line 268
     return-void
 .end method
 
 .method public setRemoveClippedSubviews(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "removeClippedSubviews"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "removeClippedSubviews"
     .end annotation
@@ -753,14 +691,11 @@
     .line 114
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setRemoveClippedSubviews(Z)V
 
-    .line 115
     return-void
 .end method
 
 .method public setScrollEnabled(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "value"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultBoolean = true
         name = "scrollEnabled"
@@ -769,14 +704,12 @@
     .line 72
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setScrollEnabled(Z)V
 
-    .line 73
     return-void
 .end method
 
 .method public setScrollPerfTag(Lcom/facebook/react/views/scroll/ReactScrollView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "scrollPerfTag"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -787,14 +720,11 @@
     .line 139
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setScrollPerfTag(Ljava/lang/String;)V
 
-    .line 140
     return-void
 .end method
 
 .method public setSendMomentumEvents(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "sendMomentumEvents"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "sendMomentumEvents"
     .end annotation
@@ -802,14 +732,11 @@
     .line 127
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setSendMomentumEvents(Z)V
 
-    .line 128
     return-void
 .end method
 
 .method public setShowsVerticalScrollIndicator(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "value"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "showsVerticalScrollIndicator"
     .end annotation
@@ -817,14 +744,11 @@
     .line 77
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setVerticalScrollBarEnabled(Z)V
 
-    .line 78
     return-void
 .end method
 
 .method public setSnapToEnd(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "snapToEnd"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "snapToEnd"
     .end annotation
@@ -832,14 +756,11 @@
     .line 109
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setSnapToEnd(Z)V
 
-    .line 110
     return-void
 .end method
 
 .method public setSnapToInterval(Lcom/facebook/react/views/scroll/ReactScrollView;F)V
-    .locals 2
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "snapToInterval"    # F
+    .locals 1
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "snapToInterval"
     .end annotation
@@ -850,23 +771,20 @@
     move-result-object v0
 
     .line 89
-    .local v0, "screenDisplayMetrics":Landroid/util/DisplayMetrics;
-    iget v1, v0, Landroid/util/DisplayMetrics;->density:F
+    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    mul-float v1, v1, p2
+    mul-float p2, p2, v0
 
-    float-to-int v1, v1
+    float-to-int p2, p2
 
-    invoke-virtual {p1, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->setSnapInterval(I)V
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setSnapInterval(I)V
 
-    .line 90
     return-void
 .end method
 
 .method public setSnapToOffsets(Lcom/facebook/react/views/scroll/ReactScrollView;Lcom/facebook/react/bridge/ReadableArray;)V
     .locals 7
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "snapToOffsets"    # Lcom/facebook/react/bridge/ReadableArray;
+    .param p2    # Lcom/facebook/react/bridge/ReadableArray;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -880,16 +798,13 @@
     move-result-object v0
 
     .line 95
-    .local v0, "screenDisplayMetrics":Landroid/util/DisplayMetrics;
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 96
-    .local v1, "offsets":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     const/4 v2, 0x0
 
-    .local v2, "i":I
+    .line 96
     :goto_0
     invoke-interface {p2}, Lcom/facebook/react/bridge/ReadableArray;->size()I
 
@@ -918,24 +833,19 @@
 
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 96
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 99
-    .end local v2    # "i":I
     :cond_0
     invoke-virtual {p1, v1}, Lcom/facebook/react/views/scroll/ReactScrollView;->setSnapOffsets(Ljava/util/List;)V
 
-    .line 100
     return-void
 .end method
 
 .method public setSnapToStart(Lcom/facebook/react/views/scroll/ReactScrollView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/scroll/ReactScrollView;
-    .param p2, "snapToStart"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "snapToStart"
     .end annotation
@@ -943,6 +853,5 @@
     .line 104
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/scroll/ReactScrollView;->setSnapToStart(Z)V
 
-    .line 105
     return-void
 .end method

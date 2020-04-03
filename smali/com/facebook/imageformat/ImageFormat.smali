@@ -41,8 +41,7 @@
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "fileExtension"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -56,7 +55,6 @@
     .line 44
     iput-object p2, p0, Lcom/facebook/imageformat/ImageFormat;->mFileExtension:Ljava/lang/String;
 
-    .line 45
     return-void
 .end method
 

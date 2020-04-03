@@ -26,9 +26,9 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 33
     const/4 v0, 0x0
 
+    .line 33
     invoke-direct {p0, v0}, Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor;-><init>(Lcom/facebook/react/bridge/JavaMethodWrapper$1;)V
 
     return-void
@@ -37,21 +37,18 @@
 
 # virtual methods
 .method public extractArgument(Lcom/facebook/react/bridge/JSInstance;Lcom/facebook/react/bridge/ReadableArray;I)Ljava/lang/Boolean;
-    .locals 1
-    .param p1, "jsInstance"    # Lcom/facebook/react/bridge/JSInstance;
-    .param p2, "jsArguments"    # Lcom/facebook/react/bridge/ReadableArray;
-    .param p3, "atIndex"    # I
+    .locals 0
 
     .line 37
     invoke-interface {p2, p3}, Lcom/facebook/react/bridge/ReadableArray;->getBoolean(I)Z
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic extractArgument(Lcom/facebook/react/bridge/JSInstance;Lcom/facebook/react/bridge/ReadableArray;I)Ljava/lang/Object;

@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v4/view/WindowInsetsCompat;)V
     .locals 3
-    .param p1, "src"    # Landroid/support/v4/view/WindowInsetsCompat;
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,19 +23,19 @@
 
     if-lt v0, v2, :cond_1
 
-    .line 46
     if-nez p1, :cond_0
 
     goto :goto_0
 
+    .line 46
     :cond_0
     new-instance v1, Landroid/view/WindowInsets;
 
-    iget-object v0, p1, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
-    check-cast v0, Landroid/view/WindowInsets;
+    check-cast p1, Landroid/view/WindowInsets;
 
-    invoke-direct {v1, v0}, Landroid/view/WindowInsets;-><init>(Landroid/view/WindowInsets;)V
+    invoke-direct {v1, p1}, Landroid/view/WindowInsets;-><init>(Landroid/view/WindowInsets;)V
 
     :goto_0
     iput-object v1, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
@@ -47,14 +46,12 @@
     :cond_1
     iput-object v1, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
-    .line 50
     :goto_1
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "insets"    # Ljava/lang/Object;
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,46 +59,45 @@
     .line 36
     iput-object p1, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
-    .line 37
     return-void
 .end method
 
 .method static unwrap(Landroid/support/v4/view/WindowInsetsCompat;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "insets"    # Landroid/support/v4/view/WindowInsetsCompat;
+    .locals 0
 
-    .line 397
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
+    .line 397
     :cond_0
-    iget-object v0, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
+    iget-object p0, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method static wrap(Ljava/lang/Object;)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 1
-    .param p0, "insets"    # Ljava/lang/Object;
 
-    .line 393
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
+    .line 393
     :cond_0
     new-instance v0, Landroid/support/v4/view/WindowInsetsCompat;
 
     invoke-direct {v0, p0}, Landroid/support/v4/view/WindowInsetsCompat;-><init>(Ljava/lang/Object;)V
 
+    move-object p0, v0
+
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -131,7 +127,6 @@
 
     return-object v0
 
-    .line 371
     :cond_0
     return-object p0
 .end method
@@ -161,7 +156,6 @@
 
     return-object v0
 
-    .line 343
     :cond_0
     const/4 v0, 0x0
 
@@ -193,7 +187,6 @@
 
     return-object v0
 
-    .line 198
     :cond_0
     const/4 v0, 0x0
 
@@ -202,22 +195,19 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
 
-    .line 377
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 378
     return v0
 
-    .line 380
     :cond_0
     const/4 v1, 0x0
 
     if-eqz p1, :cond_4
 
+    .line 380
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -232,19 +222,16 @@
 
     .line 383
     :cond_1
-    move-object v2, p1
-
-    check-cast v2, Landroid/support/v4/view/WindowInsetsCompat;
+    check-cast p1, Landroid/support/v4/view/WindowInsetsCompat;
 
     .line 384
-    .local v2, "other":Landroid/support/v4/view/WindowInsetsCompat;
-    iget-object v3, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
+    iget-object v2, p0, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
-    if-nez v3, :cond_3
+    if-nez v2, :cond_3
 
-    iget-object v3, v2, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
-    if-nez v3, :cond_2
+    if-nez p1, :cond_2
 
     goto :goto_0
 
@@ -254,17 +241,15 @@
     goto :goto_0
 
     :cond_3
-    iget-object v0, v2, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
+    iget-object p1, p1, Landroid/support/v4/view/WindowInsetsCompat;->mInsets:Ljava/lang/Object;
 
-    invoke-virtual {v3, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     :goto_0
     return v0
 
-    .line 381
-    .end local v2    # "other":Landroid/support/v4/view/WindowInsetsCompat;
     :cond_4
     :goto_1
     return v1
@@ -297,7 +282,6 @@
 
     return-object v0
 
-    .line 358
     :cond_0
     const/4 v0, 0x0
 
@@ -325,7 +309,6 @@
 
     return v0
 
-    .line 311
     :cond_0
     const/4 v0, 0x0
 
@@ -353,7 +336,6 @@
 
     return v0
 
-    .line 272
     :cond_0
     const/4 v0, 0x0
 
@@ -381,7 +363,6 @@
 
     return v0
 
-    .line 291
     :cond_0
     const/4 v0, 0x0
 
@@ -409,7 +390,6 @@
 
     return v0
 
-    .line 253
     :cond_0
     const/4 v0, 0x0
 
@@ -437,7 +417,6 @@
 
     return v0
 
-    .line 116
     :cond_0
     const/4 v0, 0x0
 
@@ -465,7 +444,6 @@
 
     return v0
 
-    .line 65
     :cond_0
     const/4 v0, 0x0
 
@@ -493,7 +471,6 @@
 
     return v0
 
-    .line 99
     :cond_0
     const/4 v0, 0x0
 
@@ -521,7 +498,6 @@
 
     return v0
 
-    .line 82
     :cond_0
     const/4 v0, 0x0
 
@@ -549,7 +525,6 @@
 
     return v0
 
-    .line 146
     :cond_0
     const/4 v0, 0x0
 
@@ -577,7 +552,6 @@
 
     return v0
 
-    .line 330
     :cond_0
     const/4 v0, 0x0
 
@@ -605,7 +579,6 @@
 
     return v0
 
-    .line 133
     :cond_0
     const/4 v0, 0x0
 
@@ -654,7 +627,6 @@
 
     return v0
 
-    .line 167
     :cond_0
     const/4 v0, 0x0
 
@@ -682,7 +654,6 @@
 
     return v0
 
-    .line 185
     :cond_0
     const/4 v0, 0x0
 
@@ -691,10 +662,6 @@
 
 .method public replaceSystemWindowInsets(IIII)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 2
-    .param p1, "left"    # I
-    .param p2, "top"    # I
-    .param p3, "right"    # I
-    .param p4, "bottom"    # I
 
     .line 213
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -713,22 +680,20 @@
     .line 215
     invoke-virtual {v1, p1, p2, p3, p4}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Landroid/support/v4/view/WindowInsetsCompat;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/view/WindowInsetsCompat;-><init>(Ljava/lang/Object;)V
 
     return-object v0
 
-    .line 217
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public replaceSystemWindowInsets(Landroid/graphics/Rect;)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 2
-    .param p1, "systemWindowInsets"    # Landroid/graphics/Rect;
 
     .line 230
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -747,15 +712,14 @@
     .line 232
     invoke-virtual {v1, p1}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(Landroid/graphics/Rect;)Landroid/view/WindowInsets;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Landroid/support/v4/view/WindowInsetsCompat;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/view/WindowInsetsCompat;-><init>(Ljava/lang/Object;)V
 
     return-object v0
 
-    .line 234
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

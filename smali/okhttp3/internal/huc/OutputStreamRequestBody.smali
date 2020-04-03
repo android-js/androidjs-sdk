@@ -42,7 +42,6 @@
 .method public final contentType()Lokhttp3/MediaType;
     .locals 1
 
-    .line 105
     const/4 v0, 0x0
 
     return-object v0
@@ -50,8 +49,6 @@
 
 .method protected initOutputStream(Lokio/BufferedSink;J)V
     .locals 1
-    .param p1, "sink"    # Lokio/BufferedSink;
-    .param p2, "expectedContentLength"    # J
 
     .line 42
     invoke-interface {p1}, Lokio/BufferedSink;->timeout()Lokio/Timeout;
@@ -70,7 +67,6 @@
 
     iput-object v0, p0, Lokhttp3/internal/huc/OutputStreamRequestBody;->outputStream:Ljava/io/OutputStream;
 
-    .line 86
     return-void
 .end method
 
@@ -94,14 +90,12 @@
 
 .method public prepareToSendRequest(Lokhttp3/Request;)Lokhttp3/Request;
     .locals 0
-    .param p1, "request"    # Lokhttp3/Request;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 109
     return-object p1
 .end method
 

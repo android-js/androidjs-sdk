@@ -22,28 +22,22 @@
 .end method
 
 .method public static getAcceptableSize(I)I
-    .locals 2
-    .param p0, "size"    # I
+    .locals 1
 
-    .line 65
-    int-to-float v0, p0
+    int-to-float p0, p0
 
-    const v1, 0x3faaaaab
+    const v0, 0x3faaaaab
 
-    mul-float v0, v0, v1
+    mul-float p0, p0, v0
 
-    float-to-int v0, v0
+    float-to-int p0, p0
 
-    return v0
+    return p0
 .end method
 
 .method public static isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
-    .locals 4
-    .param p0, "width"    # I
-    .param p1, "height"    # I
-    .param p2, "resizeOptions"    # Lcom/facebook/imagepipeline/common/ResizeOptions;
+    .locals 3
 
-    .line 40
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -53,31 +47,30 @@
     .line 41
     invoke-static {p0}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->getAcceptableSize(I)I
 
-    move-result v2
+    move-result p0
 
-    int-to-float v2, v2
+    int-to-float p0, p0
 
-    const/high16 v3, 0x45000000    # 2048.0f
+    const/high16 p2, 0x45000000    # 2048.0f
 
-    cmpl-float v2, v2, v3
+    cmpl-float p0, p0, p2
 
-    if-ltz v2, :cond_0
+    if-ltz p0, :cond_0
 
     .line 42
     invoke-static {p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->getAcceptableSize(I)I
 
-    move-result v2
+    move-result p0
 
-    const/16 v3, 0x800
+    const/16 p1, 0x800
 
-    if-lt v2, v3, :cond_0
+    if-lt p0, p1, :cond_0
 
     goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
 
-    .line 41
     :goto_0
     return v0
 
@@ -85,43 +78,38 @@
     :cond_1
     invoke-static {p0}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->getAcceptableSize(I)I
 
-    move-result v2
+    move-result p0
 
-    iget v3, p2, Lcom/facebook/imagepipeline/common/ResizeOptions;->width:I
+    iget v2, p2, Lcom/facebook/imagepipeline/common/ResizeOptions;->width:I
 
-    if-lt v2, v3, :cond_2
+    if-lt p0, v2, :cond_2
 
     .line 45
     invoke-static {p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->getAcceptableSize(I)I
 
-    move-result v2
+    move-result p0
 
-    iget v3, p2, Lcom/facebook/imagepipeline/common/ResizeOptions;->height:I
+    iget p1, p2, Lcom/facebook/imagepipeline/common/ResizeOptions;->height:I
 
-    if-lt v2, v3, :cond_2
+    if-lt p0, p1, :cond_2
 
     goto :goto_1
 
     :cond_2
     const/4 v0, 0x0
 
-    .line 44
     :goto_1
     return v0
 .end method
 
 .method public static isImageBigEnough(Lcom/facebook/imagepipeline/image/EncodedImage;Lcom/facebook/imagepipeline/common/ResizeOptions;)Z
     .locals 2
-    .param p0, "encodedImage"    # Lcom/facebook/imagepipeline/image/EncodedImage;
-    .param p1, "resizeOptions"    # Lcom/facebook/imagepipeline/common/ResizeOptions;
 
-    .line 50
     if-nez p0, :cond_0
 
-    .line 51
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
     .line 54
     :cond_0
@@ -144,13 +132,13 @@
 
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/image/EncodedImage;->getHeight()I
 
-    move-result v1
+    move-result p0
 
-    invoke-static {v0, v1, p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
+    invoke-static {v0, p0, p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 58
     :cond_1
@@ -160,11 +148,11 @@
 
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/image/EncodedImage;->getWidth()I
 
-    move-result v1
+    move-result p0
 
-    invoke-static {v0, v1, p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
+    invoke-static {v0, p0, p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

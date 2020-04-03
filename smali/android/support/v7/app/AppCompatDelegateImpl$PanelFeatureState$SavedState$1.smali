@@ -40,29 +40,26 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
 
-    .line 2478
     const/4 v0, 0x0
 
+    .line 2478
     invoke-static {p1, v0}, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
-    .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .locals 0
 
     .line 2473
     invoke-static {p1, p2}, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -88,13 +85,12 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 2483
-    new-array v0, p1, [Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
+    new-array p1, p1, [Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

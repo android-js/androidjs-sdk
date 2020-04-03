@@ -26,9 +26,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/util/zip/ZipEntry;I)V
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "backingEntry"    # Ljava/util/zip/ZipEntry;
-    .param p3, "abiScore"    # I
 
     .line 179
     invoke-static {p2}, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;->makePseudoHash(Ljava/util/zip/ZipEntry;)Ljava/lang/String;
@@ -43,17 +40,15 @@
     .line 181
     iput p3, p0, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;->abiScore:I
 
-    .line 182
     return-void
 .end method
 
 .method private static makePseudoHash(Ljava/util/zip/ZipEntry;)Ljava/lang/String;
     .locals 3
-    .param p0, "ze"    # Ljava/util/zip/ZipEntry;
 
-    .line 185
     const/4 v0, 0x4
 
+    .line 185
     new-array v0, v0, [Ljava/lang/Object;
 
     .line 187
@@ -95,40 +90,37 @@
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object p0
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    aput-object v1, v0, v2
+    aput-object p0, v0, v1
+
+    const-string p0, "pseudo-zip-hash-1-%s-%s-%s-%s"
 
     .line 185
-    const-string v1, "pseudo-zip-hash-1-%s-%s-%s-%s"
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public compareTo(Ljava/lang/Object;)I
-    .locals 2
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 1
 
     .line 192
     iget-object v0, p0, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;->name:Ljava/lang/String;
 
-    move-object v1, p1
+    check-cast p1, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;
 
-    check-cast v1, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;
+    iget-object p1, p1, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;->name:Ljava/lang/String;
 
-    iget-object v1, v1, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;->name:Ljava/lang/String;
+    invoke-virtual {v0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method

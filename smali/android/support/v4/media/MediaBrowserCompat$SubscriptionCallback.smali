@@ -94,13 +94,12 @@
 
     goto :goto_0
 
-    .line 707
     :cond_1
     const/4 v0, 0x0
 
+    .line 707
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mSubscriptionCallbackObj:Ljava/lang/Object;
 
-    .line 709
     :goto_0
     return-void
 .end method
@@ -109,7 +108,7 @@
 # virtual methods
 .method public onChildrenLoaded(Ljava/lang/String;Ljava/util/List;)V
     .locals 0
-    .param p1, "parentId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -127,14 +126,12 @@
         }
     .end annotation
 
-    .line 718
-    .local p2, "children":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
     return-void
 .end method
 
 .method public onChildrenLoaded(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "parentId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -142,7 +139,7 @@
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "options"    # Landroid/os/Bundle;
+    .param p3    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -158,40 +155,35 @@
         }
     .end annotation
 
-    .line 731
-    .local p2, "children":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
     return-void
 .end method
 
 .method public onError(Ljava/lang/String;)V
     .locals 0
-    .param p1, "parentId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    .line 743
     return-void
 .end method
 
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "parentId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "options"    # Landroid/os/Bundle;
+    .param p2    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    .line 758
     return-void
 .end method
 
 .method setSubscription(Landroid/support/v4/media/MediaBrowserCompat$Subscription;)V
     .locals 1
-    .param p1, "subscription"    # Landroid/support/v4/media/MediaBrowserCompat$Subscription;
 
     .line 761
     new-instance v0, Ljava/lang/ref/WeakReference;
@@ -200,6 +192,5 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mSubscriptionRef:Ljava/lang/ref/WeakReference;
 
-    .line 762
     return-void
 .end method

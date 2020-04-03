@@ -507,8 +507,6 @@
 
 .method public constructor <init>(ILjava/lang/CharSequence;)V
     .locals 2
-    .param p1, "actionId"    # I
-    .param p2, "label"    # Ljava/lang/CharSequence;
 
     .line 454
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -529,13 +527,11 @@
     :goto_0
     invoke-direct {p0, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(Ljava/lang/Object;)V
 
-    .line 456
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "action"    # Ljava/lang/Object;
 
     .line 458
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -543,7 +539,6 @@
     .line 459
     iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->mAction:Ljava/lang/Object;
 
-    .line 460
     return-void
 .end method
 
@@ -570,7 +565,6 @@
 
     return v0
 
-    .line 471
     :cond_0
     const/4 v0, 0x0
 
@@ -598,7 +592,6 @@
 
     return-object v0
 
-    .line 485
     :cond_0
     const/4 v0, 0x0
 

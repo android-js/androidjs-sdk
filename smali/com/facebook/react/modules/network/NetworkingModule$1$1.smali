@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/network/NetworkingModule$1;)V
     .locals 2
-    .param p1, "this$1"    # Lcom/facebook/react/modules/network/NetworkingModule$1;
 
     .line 317
     iput-object p1, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
@@ -46,67 +45,60 @@
 
 # virtual methods
 .method public onProgress(JJZ)V
-    .locals 9
-    .param p1, "bytesWritten"    # J
-    .param p3, "contentLength"    # J
-    .param p5, "done"    # Z
+    .locals 8
 
     .line 322
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v0
 
-    .line 323
-    .local v0, "now":J
     if-nez p5, :cond_0
 
+    .line 323
     iget-wide v2, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->last:J
 
     invoke-static {v0, v1, v2, v3}, Lcom/facebook/react/modules/network/NetworkingModule;->access$000(JJ)Z
 
-    move-result v2
+    move-result p5
 
-    if-nez v2, :cond_0
+    if-nez p5, :cond_0
 
-    .line 324
     return-void
 
     .line 326
     :cond_0
-    iget-object v2, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
+    iget-object p5, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
 
-    iget-object v2, v2, Lcom/facebook/react/modules/network/NetworkingModule$1;->val$responseType:Ljava/lang/String;
+    iget-object p5, p5, Lcom/facebook/react/modules/network/NetworkingModule$1;->val$responseType:Ljava/lang/String;
 
-    const-string v3, "text"
+    const-string v2, "text"
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p5
 
-    if-eqz v2, :cond_1
+    if-eqz p5, :cond_1
 
-    .line 329
     return-void
 
     .line 331
     :cond_1
-    iget-object v2, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
+    iget-object p5, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
 
-    iget-object v3, v2, Lcom/facebook/react/modules/network/NetworkingModule$1;->val$eventEmitter:Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;
+    iget-object v2, p5, Lcom/facebook/react/modules/network/NetworkingModule$1;->val$eventEmitter:Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;
 
-    iget-object v2, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
+    iget-object p5, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->this$1:Lcom/facebook/react/modules/network/NetworkingModule$1;
 
-    iget v4, v2, Lcom/facebook/react/modules/network/NetworkingModule$1;->val$requestId:I
+    iget v3, p5, Lcom/facebook/react/modules/network/NetworkingModule$1;->val$requestId:I
 
-    move-wide v5, p1
+    move-wide v4, p1
 
-    move-wide v7, p3
+    move-wide v6, p3
 
-    invoke-static/range {v3 .. v8}, Lcom/facebook/react/modules/network/ResponseUtil;->onDataReceivedProgress(Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;IJJ)V
+    invoke-static/range {v2 .. v7}, Lcom/facebook/react/modules/network/ResponseUtil;->onDataReceivedProgress(Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;IJJ)V
 
     .line 336
     iput-wide v0, p0, Lcom/facebook/react/modules/network/NetworkingModule$1$1;->last:J
 
-    .line 337
     return-void
 .end method

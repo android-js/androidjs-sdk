@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/core/ImagePipeline;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/core/ImagePipeline;
 
     .line 708
     iput-object p1, p0, Lcom/facebook/imagepipeline/core/ImagePipeline$7;->this$0:Lcom/facebook/imagepipeline/core/ImagePipeline;
@@ -51,16 +50,15 @@
 # virtual methods
 .method public apply(Lcom/facebook/cache/common/CacheKey;)Z
     .locals 1
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
 
     .line 711
     iget-object v0, p0, Lcom/facebook/imagepipeline/core/ImagePipeline$7;->val$uri:Landroid/net/Uri;
 
     invoke-interface {p1, v0}, Lcom/facebook/cache/common/CacheKey;->containsUri(Landroid/net/Uri;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Z

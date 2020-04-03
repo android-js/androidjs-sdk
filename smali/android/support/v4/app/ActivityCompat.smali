@@ -25,13 +25,12 @@
     .line 149
     invoke-direct {p0}, Landroid/support/v4/content/ContextCompat;-><init>()V
 
-    .line 151
     return-void
 .end method
 
 .method public static finishAffinity(Landroid/app/Activity;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -52,14 +51,13 @@
     :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 292
     :goto_0
     return-void
 .end method
 
 .method public static finishAfterTransition(Landroid/app/Activity;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -80,7 +78,6 @@
     :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    .line 309
     :goto_0
     return-void
 .end method
@@ -100,8 +97,8 @@
 .end method
 
 .method public static getReferrer(Landroid/app/Activity;)Landroid/net/Uri;
-    .locals 4
-    .param p0, "activity"    # Landroid/app/Activity;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -118,77 +115,68 @@
     .line 330
     invoke-virtual {p0}, Landroid/app/Activity;->getReferrer()Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 332
     :cond_0
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
+
+    const-string v0, "android.intent.extra.REFERRER"
 
     .line 333
-    .local v0, "intent":Landroid/content/Intent;
-    const-string v1, "android.intent.extra.REFERRER"
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    move-result-object v0
 
-    move-result-object v1
+    check-cast v0, Landroid/net/Uri;
 
-    check-cast v1, Landroid/net/Uri;
+    if-eqz v0, :cond_1
 
-    .line 334
-    .local v1, "referrer":Landroid/net/Uri;
-    if-eqz v1, :cond_1
+    return-object v0
 
-    .line 335
-    return-object v1
+    :cond_1
+    const-string v0, "android.intent.extra.REFERRER_NAME"
 
     .line 337
-    :cond_1
-    const-string v2, "android.intent.extra.REFERRER_NAME"
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v2
-
-    .line 338
-    .local v2, "referrerName":Ljava/lang/String;
-    if-eqz v2, :cond_2
+    if-eqz p0, :cond_2
 
     .line 339
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 
-    .line 341
     :cond_2
-    const/4 v3, 0x0
+    const/4 p0, 0x0
 
-    return-object v3
+    return-object p0
 .end method
 
 .method public static invalidateOptionsMenu(Landroid/app/Activity;)Z
-    .locals 1
-    .param p0, "activity"    # Landroid/app/Activity;
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 207
     invoke-virtual {p0}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    .line 208
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 .end method
 
 .method public static postponeEnterTransition(Landroid/app/Activity;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -203,37 +191,34 @@
     .line 412
     invoke-virtual {p0}, Landroid/app/Activity;->postponeEnterTransition()V
 
-    .line 414
     :cond_0
     return-void
 .end method
 
 .method public static requestDragAndDropPermissions(Landroid/app/Activity;Landroid/view/DragEvent;)Landroid/support/v13/view/DragAndDropPermissionsCompat;
-    .locals 1
-    .param p0, "activity"    # Landroid/app/Activity;
-    .param p1, "dragEvent"    # Landroid/view/DragEvent;
+    .locals 0
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
     .line 565
     invoke-static {p0, p1}, Landroid/support/v13/view/DragAndDropPermissionsCompat;->request(Landroid/app/Activity;Landroid/view/DragEvent;)Landroid/support/v13/view/DragAndDropPermissionsCompat;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "permissions"    # [Ljava/lang/String;
+    .param p1    # [Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "requestCode"    # I
+    .param p2    # I
         .annotation build Landroid/support/annotation/IntRange;
             from = 0x0L
         .end annotation
@@ -251,7 +236,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 494
     return-void
 
     .line 497
@@ -297,27 +281,24 @@
     invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     .line 505
-    .local v0, "handler":Landroid/os/Handler;
     new-instance v1, Landroid/support/v4/app/ActivityCompat$1;
 
     invoke-direct {v1, p1, p0, p2}, Landroid/support/v4/app/ActivityCompat$1;-><init>([Ljava/lang/String;Landroid/app/Activity;I)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 524
-    .end local v0    # "handler":Landroid/os/Handler;
     :cond_3
     :goto_0
     return-void
 .end method
 
 .method public static requireViewById(Landroid/app/Activity;I)Landroid/view/View;
-    .locals 3
-    .param p0, "activity"    # Landroid/app/Activity;
+    .locals 2
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "id"    # I
+    .param p1    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
     .end param
@@ -344,41 +325,38 @@
     .line 363
     invoke-virtual {p0, p1}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 366
     :cond_0
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 367
-    .local v0, "view":Landroid/view/View;, "TT;"
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    .line 370
-    return-object v0
+    return-object p0
 
     .line 368
     :cond_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string v2, "ID does not reference a View inside this Activity"
+    const-string p1, "ID does not reference a View inside this Activity"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
 .end method
 
 .method public static setEnterSharedElementCallback(Landroid/app/Activity;Landroid/support/v4/app/SharedElementCallback;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "callback"    # Landroid/support/v4/app/SharedElementCallback;
+    .param p1    # Landroid/support/v4/app/SharedElementCallback;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -390,9 +368,9 @@
 
     if-lt v0, v1, :cond_1
 
-    .line 384
     if-eqz p1, :cond_0
 
+    .line 384
     new-instance v0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;
 
     invoke-direct {v0, p1}, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;-><init>(Landroid/support/v4/app/SharedElementCallback;)V
@@ -403,23 +381,20 @@
     const/4 v0, 0x0
 
     .line 387
-    .local v0, "frameworkCallback":Landroid/app/SharedElementCallback;
     :goto_0
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setEnterSharedElementCallback(Landroid/app/SharedElementCallback;)V
 
-    .line 389
-    .end local v0    # "frameworkCallback":Landroid/app/SharedElementCallback;
     :cond_1
     return-void
 .end method
 
 .method public static setExitSharedElementCallback(Landroid/app/Activity;Landroid/support/v4/app/SharedElementCallback;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "callback"    # Landroid/support/v4/app/SharedElementCallback;
+    .param p1    # Landroid/support/v4/app/SharedElementCallback;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -431,9 +406,9 @@
 
     if-lt v0, v1, :cond_1
 
-    .line 403
     if-eqz p1, :cond_0
 
+    .line 403
     new-instance v0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;
 
     invoke-direct {v0, p1}, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;-><init>(Landroid/support/v4/app/SharedElementCallback;)V
@@ -444,19 +419,16 @@
     const/4 v0, 0x0
 
     .line 406
-    .local v0, "frameworkCallback":Landroid/app/SharedElementCallback;
     :goto_0
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setExitSharedElementCallback(Landroid/app/SharedElementCallback;)V
 
-    .line 408
-    .end local v0    # "frameworkCallback":Landroid/app/SharedElementCallback;
     :cond_1
     return-void
 .end method
 
 .method public static setPermissionCompatDelegate(Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;)V
     .locals 0
-    .param p0, "delegate"    # Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
+    .param p0    # Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -464,17 +436,16 @@
     .line 161
     sput-object p0, Landroid/support/v4/app/ActivityCompat;->sDelegate:Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
 
-    .line 162
     return-void
 .end method
 
 .method public static shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "permission"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -489,29 +460,27 @@
     .line 549
     invoke-virtual {p0, p1}, Landroid/app/Activity;->shouldShowRequestPermissionRationale(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
-    .line 551
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method public static startActivityForResult(Landroid/app/Activity;Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "intent"    # Landroid/content/Intent;
+    .param p1    # Landroid/content/Intent;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "requestCode"    # I
-    .param p3, "options"    # Landroid/os/Bundle;
+    .param p3    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -532,30 +501,25 @@
     :cond_0
     invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 238
     :goto_0
     return-void
 .end method
 
 .method public static startIntentSenderForResult(Landroid/app/Activity;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "intent"    # Landroid/content/IntentSender;
+    .param p1    # Landroid/content/IntentSender;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "requestCode"    # I
-    .param p3, "fillInIntent"    # Landroid/content/Intent;
+    .param p3    # Landroid/content/Intent;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "flagsMask"    # I
-    .param p5, "flagsValues"    # I
-    .param p6, "extraFlags"    # I
-    .param p7, "options"    # Landroid/os/Bundle;
+    .param p7    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -581,14 +545,13 @@
     :cond_0
     invoke-virtual/range {p0 .. p6}, Landroid/app/Activity;->startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;III)V
 
-    .line 277
     :goto_0
     return-void
 .end method
 
 .method public static startPostponedEnterTransition(Landroid/app/Activity;)V
     .locals 2
-    .param p0, "activity"    # Landroid/app/Activity;
+    .param p0    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -603,7 +566,6 @@
     .line 418
     invoke-virtual {p0}, Landroid/app/Activity;->startPostponedEnterTransition()V
 
-    .line 420
     :cond_0
     return-void
 .end method

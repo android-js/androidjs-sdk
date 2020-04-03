@@ -45,40 +45,35 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 1
-    .param p1, "source"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .locals 0
 
     .line 1307
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
+    const/4 p2, 0x0
+
     .line 1308
-    const/4 v0, 0x0
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Ljava/lang/Boolean;
 
-    check-cast v0, Ljava/lang/Boolean;
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result p1
 
-    move-result v0
+    iput-boolean p1, p0, Landroid/support/v7/widget/SearchView$SavedState;->isIconified:Z
 
-    iput-boolean v0, p0, Landroid/support/v7/widget/SearchView$SavedState;->isIconified:Z
-
-    .line 1309
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .param p1, "superState"    # Landroid/os/Parcelable;
 
     .line 1303
     invoke-direct {p0, p1}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
-    .line 1304
     return-void
 .end method
 
@@ -127,22 +122,19 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 0
 
     .line 1313
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 1314
-    iget-boolean v0, p0, Landroid/support/v7/widget/SearchView$SavedState;->isIconified:Z
+    iget-boolean p2, p0, Landroid/support/v7/widget/SearchView$SavedState;->isIconified:Z
 
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 1315
     return-void
 .end method

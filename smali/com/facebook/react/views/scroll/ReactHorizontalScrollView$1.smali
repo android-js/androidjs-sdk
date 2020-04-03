@@ -25,18 +25,17 @@
 
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/scroll/ReactHorizontalScrollView;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/facebook/react/views/scroll/ReactHorizontalScrollView;
+    .locals 0
 
     .line 459
     iput-object p1, p0, Lcom/facebook/react/views/scroll/ReactHorizontalScrollView$1;->this$0:Lcom/facebook/react/views/scroll/ReactHorizontalScrollView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 461
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactHorizontalScrollView$1;->mSnappingToPage:Z
+    .line 461
+    iput-boolean p1, p0, Lcom/facebook/react/views/scroll/ReactHorizontalScrollView$1;->mSnappingToPage:Z
 
     return-void
 .end method
@@ -85,9 +84,9 @@
 
     if-nez v0, :cond_1
 
-    .line 475
     const/4 v0, 0x1
 
+    .line 475
     iput-boolean v0, p0, Lcom/facebook/react/views/scroll/ReactHorizontalScrollView$1;->mSnappingToPage:Z
 
     .line 476
@@ -130,7 +129,6 @@
 
     invoke-static {v0}, Lcom/facebook/react/views/scroll/ReactHorizontalScrollView;->access$500(Lcom/facebook/react/views/scroll/ReactHorizontalScrollView;)V
 
-    .line 488
     :goto_0
     return-void
 .end method

@@ -47,9 +47,9 @@
 .method protected initialValue()[D
     .locals 1
 
-    .line 24
     const/16 v0, 0x10
 
+    .line 24
     new-array v0, v0, [D
 
     return-object v0

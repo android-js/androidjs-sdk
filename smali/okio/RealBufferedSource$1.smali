@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lokio/RealBufferedSource;)V
     .locals 0
-    .param p1, "this$0"    # Lokio/RealBufferedSource;
 
     .line 424
     iput-object p1, p0, Lokio/RealBufferedSource$1;->this$0:Lokio/RealBufferedSource;
@@ -89,7 +88,6 @@
 
     invoke-virtual {v0}, Lokio/RealBufferedSource;->close()V
 
-    .line 453
     return-void
 .end method
 
@@ -136,20 +134,17 @@
 
     move-result-wide v0
 
-    .line 429
-    .local v0, "count":J
     const-wide/16 v2, -0x1
 
     cmp-long v4, v0, v2
 
     if-nez v4, :cond_0
 
-    const/4 v2, -0x1
+    const/4 v0, -0x1
 
-    return v2
+    return v0
 
     .line 431
-    .end local v0    # "count":J
     :cond_0
     iget-object v0, p0, Lokio/RealBufferedSource$1;->this$0:Lokio/RealBufferedSource;
 
@@ -176,9 +171,6 @@
 
 .method public read([BII)I
     .locals 7
-    .param p1, "data"    # [B
-    .param p2, "offset"    # I
-    .param p3, "byteCount"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -231,20 +223,17 @@
 
     move-result-wide v0
 
-    .line 440
-    .local v0, "count":J
     const-wide/16 v2, -0x1
 
     cmp-long v4, v0, v2
 
     if-nez v4, :cond_0
 
-    const/4 v2, -0x1
+    const/4 p1, -0x1
 
-    return v2
+    return p1
 
     .line 443
-    .end local v0    # "count":J
     :cond_0
     iget-object v0, p0, Lokio/RealBufferedSource$1;->this$0:Lokio/RealBufferedSource;
 
@@ -252,19 +241,19 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lokio/Buffer;->read([BII)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 435
     :cond_1
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public toString()Ljava/lang/String;

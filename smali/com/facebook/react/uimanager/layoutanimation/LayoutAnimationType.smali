@@ -60,9 +60,9 @@
 
     sput-object v0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;->DELETE:Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
 
-    .line 11
     const/4 v0, 0x3
 
+    .line 11
     new-array v0, v0, [Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
 
     sget-object v4, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;->CREATE:Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
@@ -98,7 +98,6 @@
 
 .method public static toString(Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;)Ljava/lang/String;
     .locals 3
-    .param p0, "type"    # Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
 
     .line 17
     sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType$1;->$SwitchMap$com$facebook$react$uimanager$layoutanimation$LayoutAnimationType:[I
@@ -121,10 +120,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 23
-    const-string v0, "delete"
+    const-string p0, "delete"
 
-    return-object v0
+    return-object p0
 
     .line 25
     :cond_0
@@ -142,39 +140,36 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 21
     :cond_1
-    const-string v0, "update"
+    const-string p0, "update"
 
-    return-object v0
+    return-object p0
 
-    .line 19
     :cond_2
-    const-string v0, "create"
+    const-string p0, "create"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 11
     const-class v0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
+    check-cast p0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationType;

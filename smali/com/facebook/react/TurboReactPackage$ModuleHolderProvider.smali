@@ -37,8 +37,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/TurboReactPackage;Ljava/lang/String;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 116
     iput-object p1, p0, Lcom/facebook/react/TurboReactPackage$ModuleHolderProvider;->this$0:Lcom/facebook/react/TurboReactPackage;
@@ -51,7 +49,6 @@
     .line 118
     iput-object p3, p0, Lcom/facebook/react/TurboReactPackage$ModuleHolderProvider;->mReactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 119
     return-void
 .end method
 

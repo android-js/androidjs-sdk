@@ -20,25 +20,18 @@
 # virtual methods
 .method public onFinish(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
-    .line 27
     return-void
 .end method
 
 .method public onUpdate(Landroid/view/View;F)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "value"    # F
 
-    .line 23
     return-void
 .end method
 
 .method public prepare(Landroid/view/View;)V
     .locals 0
-    .param p1, "view"    # Landroid/view/View;
 
-    .line 19
     return-void
 .end method

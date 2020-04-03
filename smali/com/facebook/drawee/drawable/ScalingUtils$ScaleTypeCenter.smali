@@ -44,77 +44,65 @@
 
 # virtual methods
 .method public getTransformImpl(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFFFF)V
-    .locals 4
-    .param p1, "outTransform"    # Landroid/graphics/Matrix;
-    .param p2, "parentRect"    # Landroid/graphics/Rect;
-    .param p3, "childWidth"    # I
-    .param p4, "childHeight"    # I
-    .param p5, "focusX"    # F
-    .param p6, "focusY"    # F
-    .param p7, "scaleX"    # F
-    .param p8, "scaleY"    # F
+    .locals 0
 
     .line 314
-    iget v0, p2, Landroid/graphics/Rect;->left:I
+    iget p5, p2, Landroid/graphics/Rect;->left:I
 
-    int-to-float v0, v0
+    int-to-float p5, p5
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
-    move-result v1
+    move-result p6
 
-    sub-int/2addr v1, p3
+    sub-int/2addr p6, p3
 
-    int-to-float v1, v1
+    int-to-float p3, p6
 
-    const/high16 v2, 0x3f000000    # 0.5f
+    const/high16 p6, 0x3f000000    # 0.5f
 
-    mul-float v1, v1, v2
+    mul-float p3, p3, p6
 
-    add-float/2addr v0, v1
+    add-float/2addr p5, p3
 
     .line 315
-    .local v0, "dx":F
-    iget v1, p2, Landroid/graphics/Rect;->top:I
+    iget p3, p2, Landroid/graphics/Rect;->top:I
 
-    int-to-float v1, v1
+    int-to-float p3, p3
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
-    move-result v3
+    move-result p2
 
-    sub-int/2addr v3, p4
+    sub-int/2addr p2, p4
 
-    int-to-float v3, v3
+    int-to-float p2, p2
 
-    mul-float v3, v3, v2
+    mul-float p2, p2, p6
 
-    add-float/2addr v1, v3
+    add-float/2addr p3, p2
+
+    add-float/2addr p5, p6
+
+    float-to-int p2, p5
+
+    int-to-float p2, p2
+
+    add-float/2addr p3, p6
+
+    float-to-int p3, p3
+
+    int-to-float p3, p3
 
     .line 316
-    .local v1, "dy":F
-    add-float v3, v0, v2
+    invoke-virtual {p1, p2, p3}, Landroid/graphics/Matrix;->setTranslate(FF)V
 
-    float-to-int v3, v3
-
-    int-to-float v3, v3
-
-    add-float/2addr v2, v1
-
-    float-to-int v2, v2
-
-    int-to-float v2, v2
-
-    invoke-virtual {p1, v3, v2}, Landroid/graphics/Matrix;->setTranslate(FF)V
-
-    .line 317
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 321
     const-string v0, "center"
 
     return-object v0

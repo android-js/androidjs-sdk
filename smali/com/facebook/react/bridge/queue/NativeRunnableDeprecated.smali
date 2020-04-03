@@ -20,7 +20,6 @@
     .line 21
     invoke-direct {p0}, Lcom/facebook/jni/Countable;-><init>()V
 
-    .line 22
     return-void
 .end method
 

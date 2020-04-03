@@ -38,7 +38,6 @@
 # virtual methods
 .method public loadScript(Lcom/facebook/react/bridge/JSBundleLoaderDelegate;)Ljava/lang/String;
     .locals 2
-    .param p1, "delegate"    # Lcom/facebook/react/bridge/JSBundleLoaderDelegate;
 
     .line 113
     iget-object v0, p0, Lcom/facebook/react/bridge/JSBundleLoader$5;->val$realSourceURL:Ljava/lang/String;
@@ -48,7 +47,7 @@
     invoke-interface {p1, v0, v1}, Lcom/facebook/react/bridge/JSBundleLoaderDelegate;->setSourceURLs(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 114
-    iget-object v0, p0, Lcom/facebook/react/bridge/JSBundleLoader$5;->val$realSourceURL:Ljava/lang/String;
+    iget-object p1, p0, Lcom/facebook/react/bridge/JSBundleLoader$5;->val$realSourceURL:Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 .end method

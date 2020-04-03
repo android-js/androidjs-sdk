@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;
 
     .line 3603
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21$ExtraSession;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;
@@ -34,42 +33,36 @@
 
 # virtual methods
 .method public addQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
-    .locals 1
-    .param p1, "descriptionCompat"    # Landroid/support/v4/media/MediaDescriptionCompat;
+    .locals 0
 
     .line 3834
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addQueueItemAt(Landroid/support/v4/media/MediaDescriptionCompat;I)V
-    .locals 1
-    .param p1, "descriptionCompat"    # Landroid/support/v4/media/MediaDescriptionCompat;
-    .param p2, "index"    # I
+    .locals 0
 
     .line 3840
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public adjustVolume(IILjava/lang/String;)V
-    .locals 1
-    .param p1, "direction"    # I
-    .param p2, "flags"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
+    .locals 0
 
     .line 3668
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public fastForward()V
@@ -173,7 +166,6 @@
         }
     .end annotation
 
-    .line 3828
     const/4 v0, 0x0
 
     return-object v0
@@ -259,7 +251,6 @@
 .method public isShuffleModeEnabledRemoved()Z
     .locals 1
 
-    .line 3886
     const/4 v0, 0x0
 
     return v0
@@ -325,9 +316,7 @@
 .end method
 
 .method public playFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "mediaId"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -335,17 +324,15 @@
     .end annotation
 
     .line 3710
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public playFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -353,17 +340,15 @@
     .end annotation
 
     .line 3716
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public playFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -371,11 +356,11 @@
     .end annotation
 
     .line 3722
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public prepare()V
@@ -395,9 +380,7 @@
 .end method
 
 .method public prepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "mediaId"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -405,17 +388,15 @@
     .end annotation
 
     .line 3686
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public prepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "query"    # Ljava/lang/String;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -423,17 +404,15 @@
     .end annotation
 
     .line 3692
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public prepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -441,11 +420,11 @@
     .end annotation
 
     .line 3698
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public previous()V
@@ -465,8 +444,7 @@
 .end method
 
 .method public rate(Landroid/support/v4/media/RatingCompat;)V
-    .locals 1
-    .param p1, "rating"    # Landroid/support/v4/media/RatingCompat;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -474,17 +452,15 @@
     .end annotation
 
     .line 3776
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public rateWithExtras(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "rating"    # Landroid/support/v4/media/RatingCompat;
-    .param p2, "extras"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -492,16 +468,15 @@
     .end annotation
 
     .line 3782
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
     .locals 4
-    .param p1, "cb"    # Landroid/support/v4/media/session/IMediaControllerCallback;
 
     .line 3618
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21$ExtraSession;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;
@@ -517,11 +492,8 @@
 
     move-result-object v0
 
-    .line 3620
-    .local v0, "packageName":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 3621
     const-string v0, "android.media.session.MediaController"
 
     .line 3623
@@ -540,42 +512,36 @@
     invoke-direct {v1, v0, v2, v3}, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;-><init>(Ljava/lang/String;II)V
 
     .line 3625
-    .local v1, "info":Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;
-    iget-object v2, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21$ExtraSession;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;
+    iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21$ExtraSession;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;
 
-    iget-object v2, v2, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;->mExtraControllerCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v0, v0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;->mExtraControllerCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v2, p1, v1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1, v1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;Ljava/lang/Object;)Z
 
-    .line 3627
-    .end local v0    # "packageName":Ljava/lang/String;
-    .end local v1    # "info":Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;
     :cond_1
     return-void
 .end method
 
 .method public removeQueueItem(Landroid/support/v4/media/MediaDescriptionCompat;)V
-    .locals 1
-    .param p1, "description"    # Landroid/support/v4/media/MediaDescriptionCompat;
+    .locals 0
 
     .line 3846
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public removeQueueItemAt(I)V
-    .locals 1
-    .param p1, "index"    # I
+    .locals 0
 
     .line 3852
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public rewind()V
@@ -595,8 +561,7 @@
 .end method
 
 .method public seekTo(J)V
-    .locals 1
-    .param p1, "pos"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -604,31 +569,26 @@
     .end annotation
 
     .line 3770
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public sendCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;)V
-    .locals 1
-    .param p1, "command"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
-    .param p3, "cb"    # Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;
+    .locals 0
 
     .line 3607
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
-    .param p1, "action"    # Ljava/lang/String;
-    .param p2, "args"    # Landroid/os/Bundle;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -636,28 +596,26 @@
     .end annotation
 
     .line 3811
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public sendMediaButton(Landroid/view/KeyEvent;)Z
-    .locals 1
-    .param p1, "mediaButton"    # Landroid/view/KeyEvent;
+    .locals 0
 
     .line 3613
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setCaptioningEnabled(Z)V
-    .locals 1
-    .param p1, "enabled"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -665,16 +623,15 @@
     .end annotation
 
     .line 3788
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setRepeatMode(I)V
-    .locals 1
-    .param p1, "repeatMode"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -682,16 +639,15 @@
     .end annotation
 
     .line 3794
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setShuffleMode(I)V
-    .locals 1
-    .param p1, "shuffleMode"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -699,50 +655,44 @@
     .end annotation
 
     .line 3805
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setShuffleModeEnabledRemoved(Z)V
     .locals 0
-    .param p1, "enabled"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    .line 3800
     return-void
 .end method
 
 .method public setVolumeTo(IILjava/lang/String;)V
-    .locals 1
-    .param p1, "value"    # I
-    .param p2, "flags"    # I
-    .param p3, "packageName"    # Ljava/lang/String;
+    .locals 0
 
     .line 3674
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public skipToQueueItem(J)V
-    .locals 1
-    .param p1, "id"    # J
+    .locals 0
 
     .line 3728
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public stop()V
@@ -763,7 +713,6 @@
 
 .method public unregisterCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
     .locals 1
-    .param p1, "cb"    # Landroid/support/v4/media/session/IMediaControllerCallback;
 
     .line 3631
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21$ExtraSession;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi21;
@@ -772,6 +721,5 @@
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
 
-    .line 3632
     return-void
 .end method

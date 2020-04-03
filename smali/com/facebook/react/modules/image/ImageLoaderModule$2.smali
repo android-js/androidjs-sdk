@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/image/ImageLoaderModule;ILcom/facebook/react/bridge/Promise;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/image/ImageLoaderModule;
 
     .line 146
     iput-object p1, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$2;->this$0:Lcom/facebook/react/modules/image/ImageLoaderModule;
@@ -61,7 +60,6 @@
     .end annotation
 
     .line 163
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Ljava/lang/Void;>;"
     :try_start_0
     iget-object v0, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$2;->this$0:Lcom/facebook/react/modules/image/ImageLoaderModule;
 
@@ -85,13 +83,8 @@
     .line 166
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 167
-    nop
-
-    .line 168
     return-void
 
-    .line 166
     :catchall_0
     move-exception v0
 
@@ -113,14 +106,12 @@
     .end annotation
 
     .line 149
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Ljava/lang/Void;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->isFinished()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 150
     return-void
 
     .line 153
@@ -148,13 +139,8 @@
     .line 156
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 157
-    nop
-
-    .line 158
     return-void
 
-    .line 156
     :catchall_0
     move-exception v0
 

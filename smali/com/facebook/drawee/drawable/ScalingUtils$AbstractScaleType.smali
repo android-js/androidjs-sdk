@@ -30,13 +30,7 @@
 
 # virtual methods
 .method public getTransform(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFF)Landroid/graphics/Matrix;
-    .locals 13
-    .param p1, "outTransform"    # Landroid/graphics/Matrix;
-    .param p2, "parentRect"    # Landroid/graphics/Rect;
-    .param p3, "childWidth"    # I
-    .param p4, "childHeight"    # I
-    .param p5, "focusX"    # F
-    .param p6, "focusY"    # F
+    .locals 10
 
     .line 149
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
@@ -45,49 +39,38 @@
 
     int-to-float v0, v0
 
-    move/from16 v10, p3
+    move v4, p3
 
-    int-to-float v1, v10
+    int-to-float v1, v4
 
-    div-float/2addr v0, v1
+    div-float v8, v0, v1
 
     .line 150
-    .local v0, "sX":F
     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
-    move-result v1
+    move-result v0
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    move/from16 v11, p4
+    move v5, p4
 
-    int-to-float v2, v11
+    int-to-float v1, v5
 
-    div-float v12, v1, v2
+    div-float v9, v0, v1
 
-    .line 151
-    .local v12, "sY":F
     move-object v1, p0
 
     move-object v2, p1
 
     move-object v3, p2
 
-    move/from16 v4, p3
-
-    move/from16 v5, p4
-
-    move/from16 v6, p5
+    move v6, p5
 
     move/from16 v7, p6
 
-    move v8, v0
-
-    move v9, v12
-
+    .line 151
     invoke-virtual/range {v1 .. v9}, Lcom/facebook/drawee/drawable/ScalingUtils$AbstractScaleType;->getTransformImpl(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFFFF)V
 
-    .line 152
     return-object p1
 .end method
 

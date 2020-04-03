@@ -18,13 +18,10 @@
 # direct methods
 .method private constructor <init>(I)V
     .locals 0
-    .param p1, "capacity"    # I
 
     .line 21
-    .local p0, "this":Lcom/facebook/common/internal/ImmutableList;, "Lcom/facebook/common/internal/ImmutableList<TE;>;"
     invoke-direct {p0, p1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 22
     return-void
 .end method
 
@@ -39,11 +36,8 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lcom/facebook/common/internal/ImmutableList;, "Lcom/facebook/common/internal/ImmutableList<TE;>;"
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     invoke-direct {p0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 26
     return-void
 .end method
 
@@ -62,7 +56,6 @@
     .end annotation
 
     .line 29
-    .local p0, "list":Ljava/util/List;, "Ljava/util/List<TE;>;"
     new-instance v0, Lcom/facebook/common/internal/ImmutableList;
 
     invoke-direct {v0, p0}, Lcom/facebook/common/internal/ImmutableList;-><init>(Ljava/util/List;)V
@@ -83,7 +76,6 @@
     .end annotation
 
     .line 33
-    .local p0, "elements":[Ljava/lang/Object;, "[TE;"
     new-instance v0, Lcom/facebook/common/internal/ImmutableList;
 
     array-length v1, p0
@@ -91,9 +83,7 @@
     invoke-direct {v0, v1}, Lcom/facebook/common/internal/ImmutableList;-><init>(I)V
 
     .line 34
-    .local v0, "list":Lcom/facebook/common/internal/ImmutableList;, "Lcom/facebook/common/internal/ImmutableList<TE;>;"
     invoke-static {v0, p0}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
-    .line 35
     return-object v0
 .end method

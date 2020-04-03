@@ -30,47 +30,35 @@
     .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 157
     return-void
 .end method
 
 .method public static connect(Ljava/lang/Object;)V
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 45
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->connect()V
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->connect()V
-
-    .line 46
     return-void
 .end method
 
 .method public static createBrowser(Landroid/content/Context;Landroid/content/ComponentName;Ljava/lang/Object;Landroid/os/Bundle;)Ljava/lang/Object;
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "serviceComponent"    # Landroid/content/ComponentName;
-    .param p2, "callback"    # Ljava/lang/Object;
-    .param p3, "rootHints"    # Landroid/os/Bundle;
+    .locals 1
 
     .line 40
     new-instance v0, Landroid/media/browse/MediaBrowser;
 
-    move-object v1, p2
+    check-cast p2, Landroid/media/browse/MediaBrowser$ConnectionCallback;
 
-    check-cast v1, Landroid/media/browse/MediaBrowser$ConnectionCallback;
-
-    invoke-direct {v0, p0, p1, v1, p3}, Landroid/media/browse/MediaBrowser;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/media/browse/MediaBrowser$ConnectionCallback;Landroid/os/Bundle;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Landroid/media/browse/MediaBrowser;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/media/browse/MediaBrowser$ConnectionCallback;Landroid/os/Bundle;)V
 
     return-object v0
 .end method
 
 .method public static createConnectionCallback(Landroid/support/v4/media/MediaBrowserCompatApi21$ConnectionCallback;)Ljava/lang/Object;
     .locals 1
-    .param p0, "callback"    # Landroid/support/v4/media/MediaBrowserCompatApi21$ConnectionCallback;
 
     .line 35
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompatApi21$ConnectionCallbackProxy;
@@ -82,7 +70,6 @@
 
 .method public static createSubscriptionCallback(Landroid/support/v4/media/MediaBrowserCompatApi21$SubscriptionCallback;)Ljava/lang/Object;
     .locals 1
-    .param p0, "callback"    # Landroid/support/v4/media/MediaBrowserCompatApi21$SubscriptionCallback;
 
     .line 74
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompatApi21$SubscriptionCallbackProxy;
@@ -93,133 +80,101 @@
 .end method
 
 .method public static disconnect(Ljava/lang/Object;)V
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 49
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->disconnect()V
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->disconnect()V
-
-    .line 51
     return-void
 .end method
 
 .method public static getExtras(Ljava/lang/Object;)Landroid/os/Bundle;
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 66
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getExtras()Landroid/os/Bundle;
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->getExtras()Landroid/os/Bundle;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getRoot(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 62
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getRoot()Ljava/lang/String;
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->getRoot()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getServiceComponent(Ljava/lang/Object;)Landroid/content/ComponentName;
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 58
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getServiceComponent()Landroid/content/ComponentName;
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->getServiceComponent()Landroid/content/ComponentName;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getSessionToken(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 70
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->getSessionToken()Landroid/media/session/MediaSession$Token;
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->getSessionToken()Landroid/media/session/MediaSession$Token;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static isConnected(Ljava/lang/Object;)Z
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 54
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0}, Landroid/media/browse/MediaBrowser;->isConnected()Z
 
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->isConnected()Z
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method
 
 .method public static subscribe(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
-    .param p0, "browserObj"    # Ljava/lang/Object;
-    .param p1, "parentId"    # Ljava/lang/String;
-    .param p2, "subscriptionCallbackObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 79
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    check-cast p2, Landroid/media/browse/MediaBrowser$SubscriptionCallback;
 
-    move-object v1, p2
+    invoke-virtual {p0, p1, p2}, Landroid/media/browse/MediaBrowser;->subscribe(Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
 
-    check-cast v1, Landroid/media/browse/MediaBrowser$SubscriptionCallback;
-
-    invoke-virtual {v0, p1, v1}, Landroid/media/browse/MediaBrowser;->subscribe(Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
-
-    .line 81
     return-void
 .end method
 
 .method public static unsubscribe(Ljava/lang/Object;Ljava/lang/String;)V
-    .locals 1
-    .param p0, "browserObj"    # Ljava/lang/Object;
-    .param p1, "parentId"    # Ljava/lang/String;
+    .locals 0
 
     .line 84
-    move-object v0, p0
+    check-cast p0, Landroid/media/browse/MediaBrowser;
 
-    check-cast v0, Landroid/media/browse/MediaBrowser;
+    invoke-virtual {p0, p1}, Landroid/media/browse/MediaBrowser;->unsubscribe(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Landroid/media/browse/MediaBrowser;->unsubscribe(Ljava/lang/String;)V
-
-    .line 85
     return-void
 .end method

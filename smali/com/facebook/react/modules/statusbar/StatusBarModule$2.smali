@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/statusbar/StatusBarModule;Lcom/facebook/react/bridge/ReactContext;Landroid/app/Activity;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/statusbar/StatusBarModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 126
     iput-object p1, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$2;->this$0:Lcom/facebook/react/modules/statusbar/StatusBarModule;
@@ -60,7 +58,6 @@
     move-result-object v0
 
     .line 133
-    .local v0, "decorView":Landroid/view/View;
     iget-boolean v1, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$2;->val$translucent:Z
 
     if-eqz v1, :cond_0
@@ -74,16 +71,15 @@
 
     goto :goto_0
 
-    .line 146
     :cond_0
     const/4 v1, 0x0
 
+    .line 146
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
 
     .line 149
     :goto_0
     invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
-    .line 150
     return-void
 .end method

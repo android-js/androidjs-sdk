@@ -40,25 +40,16 @@
 # virtual methods
 .method public release(Ljava/io/Closeable;)V
     .locals 1
-    .param p1, "value"    # Ljava/io/Closeable;
 
-    .line 75
     const/4 v0, 0x1
 
+    .line 75
     :try_start_0
     invoke-static {p1, v0}, Lcom/facebook/common/internal/Closeables;->close(Ljava/io/Closeable;Z)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 78
-    goto :goto_0
-
-    .line 76
     :catch_0
-    move-exception v0
-
-    .line 79
-    :goto_0
     return-void
 .end method
 

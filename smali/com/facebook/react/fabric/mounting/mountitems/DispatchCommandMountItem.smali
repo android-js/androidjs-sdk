@@ -20,9 +20,7 @@
 # direct methods
 .method public constructor <init>(IILcom/facebook/react/bridge/ReadableArray;)V
     .locals 0
-    .param p1, "reactTag"    # I
-    .param p2, "commandId"    # I
-    .param p3, "commandArgs"    # Lcom/facebook/react/bridge/ReadableArray;
+    .param p3    # Lcom/facebook/react/bridge/ReadableArray;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -39,7 +37,6 @@
     .line 24
     iput-object p3, p0, Lcom/facebook/react/fabric/mounting/mountitems/DispatchCommandMountItem;->mCommandArgs:Lcom/facebook/react/bridge/ReadableArray;
 
-    .line 25
     return-void
 .end method
 
@@ -47,7 +44,6 @@
 # virtual methods
 .method public execute(Lcom/facebook/react/fabric/mounting/MountingManager;)V
     .locals 3
-    .param p1, "mountingManager"    # Lcom/facebook/react/fabric/mounting/MountingManager;
 
     .line 29
     invoke-static {}, Lcom/facebook/react/bridge/UiThreadUtil;->assertOnUiThread()V
@@ -61,7 +57,6 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/facebook/react/fabric/mounting/MountingManager;->receiveCommand(IILcom/facebook/react/bridge/ReadableArray;)V
 
-    .line 31
     return-void
 .end method
 

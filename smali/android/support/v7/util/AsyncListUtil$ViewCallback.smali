@@ -36,21 +36,20 @@
 # virtual methods
 .method public extendRangeInto([I[II)V
     .locals 6
-    .param p1, "range"    # [I
+    .param p1    # [I
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "outRange"    # [I
+    .param p2    # [I
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "scrollHint"    # I
     .annotation build Landroid/support/annotation/UiThread;
     .end annotation
 
-    .line 577
     const/4 v0, 0x1
 
+    .line 577
     aget v1, p1, v0
 
     const/4 v2, 0x0
@@ -62,11 +61,9 @@
     add-int/2addr v1, v0
 
     .line 578
-    .local v1, "fullRange":I
     div-int/lit8 v3, v1, 0x2
 
     .line 579
-    .local v3, "halfRange":I
     aget v4, p1, v2
 
     if-ne p3, v0, :cond_0
@@ -84,25 +81,22 @@
     aput v4, p2, v2
 
     .line 580
-    aget v2, p1, v0
+    aget p1, p1, v0
 
-    const/4 v4, 0x2
+    const/4 v2, 0x2
 
-    if-ne p3, v4, :cond_1
-
-    move v4, v1
+    if-ne p3, v2, :cond_1
 
     goto :goto_1
 
     :cond_1
-    move v4, v3
+    move v1, v3
 
     :goto_1
-    add-int/2addr v2, v4
+    add-int/2addr p1, v1
 
-    aput v2, p2, v0
+    aput p1, p2, v0
 
-    .line 581
     return-void
 .end method
 

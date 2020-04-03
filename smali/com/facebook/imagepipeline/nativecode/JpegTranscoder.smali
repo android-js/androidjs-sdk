@@ -27,7 +27,6 @@
     .line 24
     invoke-static {}, Lcom/facebook/imagepipeline/nativecode/ImagePipelineNativeLoader;->load()V
 
-    .line 25
     return-void
 .end method
 
@@ -41,22 +40,18 @@
 .end method
 
 .method public static isExifOrientationAllowed(I)Z
-    .locals 1
-    .param p0, "exifOrientation"    # I
+    .locals 0
 
-    .line 45
     packed-switch p0, :pswitch_data_0
 
-    .line 56
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 
-    .line 54
     :pswitch_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
     nop
 
@@ -75,28 +70,27 @@
 
 .method public static isRotationAngleAllowed(I)Z
     .locals 1
-    .param p0, "degrees"    # I
 
-    .line 38
     if-ltz p0, :cond_0
 
     const/16 v0, 0x10e
 
     if-gt p0, v0, :cond_0
 
-    rem-int/lit8 v0, p0, 0x5a
+    .line 38
+    rem-int/lit8 p0, p0, 0x5a
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private static native nativeTranscodeJpeg(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
@@ -123,18 +117,12 @@
 
 .method public static transcodeJpeg(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
     .locals 3
-    .param p0, "inputStream"    # Ljava/io/InputStream;
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
-    .param p2, "rotationAngle"    # I
-    .param p3, "scaleNumerator"    # I
-    .param p4, "quality"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 76
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -148,10 +136,10 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 76
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 77
     const/16 v2, 0x10
 
     if-gt p3, v2, :cond_1
@@ -163,10 +151,10 @@
     :cond_1
     const/4 v2, 0x0
 
+    .line 77
     :goto_1
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 78
     if-ltz p4, :cond_2
 
     const/4 v2, 0x1
@@ -176,10 +164,10 @@
     :cond_2
     const/4 v2, 0x0
 
+    .line 78
     :goto_2
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 79
     const/16 v2, 0x64
 
     if-gt p4, v2, :cond_3
@@ -191,6 +179,7 @@
     :cond_3
     const/4 v2, 0x0
 
+    .line 79
     :goto_3
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
@@ -201,7 +190,6 @@
 
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 81
     const/16 v2, 0x8
 
     if-ne p3, v2, :cond_4
@@ -214,46 +202,37 @@
     :cond_5
     const-string v1, "no transformation requested"
 
+    .line 81
     invoke-static {v0, v1}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
-
-    .line 84
-    nop
 
     .line 85
     invoke-static {p0}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/io/InputStream;
+    check-cast p0, Ljava/io/InputStream;
 
     .line 86
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/io/OutputStream;
+    check-cast p1, Ljava/io/OutputStream;
 
     .line 84
-    invoke-static {v0, v1, p2, p3, p4}, Lcom/facebook/imagepipeline/nativecode/JpegTranscoder;->nativeTranscodeJpeg(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/facebook/imagepipeline/nativecode/JpegTranscoder;->nativeTranscodeJpeg(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
 
-    .line 90
     return-void
 .end method
 
 .method public static transcodeJpegWithExifOrientation(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
     .locals 3
-    .param p0, "inputStream"    # Ljava/io/InputStream;
-    .param p1, "outputStream"    # Ljava/io/OutputStream;
-    .param p2, "exifOrientation"    # I
-    .param p3, "scaleNumerator"    # I
-    .param p4, "quality"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 116
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -267,10 +246,10 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 116
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 117
     const/16 v2, 0x10
 
     if-gt p3, v2, :cond_1
@@ -282,10 +261,10 @@
     :cond_1
     const/4 v2, 0x0
 
+    .line 117
     :goto_1
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 118
     if-ltz p4, :cond_2
 
     const/4 v2, 0x1
@@ -295,10 +274,10 @@
     :cond_2
     const/4 v2, 0x0
 
+    .line 118
     :goto_2
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 119
     const/16 v2, 0x64
 
     if-gt p4, v2, :cond_3
@@ -310,6 +289,7 @@
     :cond_3
     const/4 v2, 0x0
 
+    .line 119
     :goto_3
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
@@ -320,7 +300,6 @@
 
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 121
     const/16 v2, 0x8
 
     if-ne p3, v2, :cond_4
@@ -333,28 +312,25 @@
     :cond_5
     const-string v1, "no transformation requested"
 
+    .line 121
     invoke-static {v0, v1}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
-
-    .line 124
-    nop
 
     .line 125
     invoke-static {p0}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljava/io/InputStream;
+    check-cast p0, Ljava/io/InputStream;
 
     .line 126
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/io/OutputStream;
+    check-cast p1, Ljava/io/OutputStream;
 
     .line 124
-    invoke-static {v0, v1, p2, p3, p4}, Lcom/facebook/imagepipeline/nativecode/JpegTranscoder;->nativeTranscodeJpegWithExifOrientation(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/facebook/imagepipeline/nativecode/JpegTranscoder;->nativeTranscodeJpegWithExifOrientation(Ljava/io/InputStream;Ljava/io/OutputStream;III)V
 
-    .line 130
     return-void
 .end method

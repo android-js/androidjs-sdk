@@ -29,58 +29,47 @@
     .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 209
     const/16 v0, 0x100
 
+    .line 209
     new-array v0, v0, [Lokhttp3/internal/http2/Huffman$Node;
 
     iput-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->children:[Lokhttp3/internal/http2/Huffman$Node;
 
-    .line 210
     const/4 v0, 0x0
 
+    .line 210
     iput v0, p0, Lokhttp3/internal/http2/Huffman$Node;->symbol:I
 
     .line 211
     iput v0, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBits:I
 
-    .line 212
     return-void
 .end method
 
 .method constructor <init>(II)V
-    .locals 2
-    .param p1, "symbol"    # I
-    .param p2, "bits"    # I
+    .locals 1
 
     .line 220
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 221
     const/4 v0, 0x0
 
+    .line 221
     iput-object v0, p0, Lokhttp3/internal/http2/Huffman$Node;->children:[Lokhttp3/internal/http2/Huffman$Node;
 
     .line 222
     iput p1, p0, Lokhttp3/internal/http2/Huffman$Node;->symbol:I
 
-    .line 223
-    and-int/lit8 v0, p2, 0x7
+    and-int/lit8 p1, p2, 0x7
+
+    if-nez p1, :cond_0
+
+    const/16 p1, 0x8
 
     .line 224
-    .local v0, "b":I
-    if-nez v0, :cond_0
-
-    const/16 v1, 0x8
-
-    goto :goto_0
-
     :cond_0
-    move v1, v0
+    iput p1, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBits:I
 
-    :goto_0
-    iput v1, p0, Lokhttp3/internal/http2/Huffman$Node;->terminalBits:I
-
-    .line 225
     return-void
 .end method

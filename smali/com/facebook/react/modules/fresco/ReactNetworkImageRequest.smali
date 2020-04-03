@@ -10,8 +10,6 @@
 # direct methods
 .method protected constructor <init>(Lcom/facebook/imagepipeline/request/ImageRequestBuilder;Lcom/facebook/react/bridge/ReadableMap;)V
     .locals 0
-    .param p1, "builder"    # Lcom/facebook/imagepipeline/request/ImageRequestBuilder;
-    .param p2, "headers"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 26
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/request/ImageRequest;-><init>(Lcom/facebook/imagepipeline/request/ImageRequestBuilder;)V
@@ -19,14 +17,11 @@
     .line 27
     iput-object p2, p0, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;->mHeaders:Lcom/facebook/react/bridge/ReadableMap;
 
-    .line 28
     return-void
 .end method
 
 .method public static fromBuilderWithHeaders(Lcom/facebook/imagepipeline/request/ImageRequestBuilder;Lcom/facebook/react/bridge/ReadableMap;)Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
     .locals 1
-    .param p0, "builder"    # Lcom/facebook/imagepipeline/request/ImageRequestBuilder;
-    .param p1, "headers"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 22
     new-instance v0, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;

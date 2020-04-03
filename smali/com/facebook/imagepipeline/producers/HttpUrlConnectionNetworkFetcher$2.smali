@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/HttpUrlConnectionNetworkFetcher;Ljava/util/concurrent/Future;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/HttpUrlConnectionNetworkFetcher;
 
     .line 72
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/HttpUrlConnectionNetworkFetcher$2;->this$0:Lcom/facebook/imagepipeline/producers/HttpUrlConnectionNetworkFetcher;
@@ -60,7 +59,6 @@
 
     invoke-interface {v0}, Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;->onCancellation()V
 
-    .line 78
     :cond_0
     return-void
 .end method

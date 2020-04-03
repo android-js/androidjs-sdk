@@ -25,9 +25,6 @@
 # direct methods
 .method constructor <init>(IIZ)V
     .locals 0
-    .param p1, "destX"    # I
-    .param p2, "destY"    # I
-    .param p3, "animated"    # Z
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 41
     iput-boolean p3, p0, Lcom/facebook/react/views/scroll/ReactScrollViewCommandHelper$ScrollToCommandData;->mAnimated:Z
 
-    .line 42
     return-void
 .end method

@@ -25,9 +25,6 @@
 # direct methods
 .method constructor <init>(ILokio/ByteString;J)V
     .locals 0
-    .param p1, "code"    # I
-    .param p2, "reason"    # Lokio/ByteString;
-    .param p3, "cancelAfterCloseMillis"    # J
 
     .line 592
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +38,5 @@
     .line 595
     iput-wide p3, p0, Lokhttp3/internal/ws/RealWebSocket$Close;->cancelAfterCloseMillis:J
 
-    .line 596
     return-void
 .end method

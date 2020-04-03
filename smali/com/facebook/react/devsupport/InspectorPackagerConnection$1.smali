@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/InspectorPackagerConnection;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/InspectorPackagerConnection;
 
     .line 104
     iput-object p1, p0, Lcom/facebook/react/devsupport/InspectorPackagerConnection$1;->this$0:Lcom/facebook/react/devsupport/InspectorPackagerConnection;
@@ -72,30 +71,24 @@
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 121
     goto :goto_0
 
-    .line 119
     :catch_0
     move-exception v0
 
-    .line 120
-    .local v0, "e":Lorg/json/JSONException;
     const-string v1, "InspectorPackagerConnection"
 
     const-string v2, "Couldn\'t send event to packager"
 
+    .line 120
     invoke-static {v1, v2, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 122
-    .end local v0    # "e":Lorg/json/JSONException;
     :goto_0
     return-void
 .end method
 
 .method public onMessage(Ljava/lang/String;)V
-    .locals 3
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 2
 
     .line 108
     :try_start_0
@@ -107,23 +100,18 @@
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 111
     goto :goto_0
 
-    .line 109
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "InspectorPackagerConnection"
+
+    const-string v1, "Couldn\'t send event to packager"
 
     .line 110
-    .local v0, "e":Lorg/json/JSONException;
-    const-string v1, "InspectorPackagerConnection"
+    invoke-static {v0, v1, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    const-string v2, "Couldn\'t send event to packager"
-
-    invoke-static {v1, v2, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 112
-    .end local v0    # "e":Lorg/json/JSONException;
     :goto_0
     return-void
 .end method

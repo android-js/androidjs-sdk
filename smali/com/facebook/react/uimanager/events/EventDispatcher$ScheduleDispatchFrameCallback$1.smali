@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/events/EventDispatcher$ScheduleDispatchFrameCallback;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/uimanager/events/EventDispatcher$ScheduleDispatchFrameCallback;
 
     .line 334
     iput-object p1, p0, Lcom/facebook/react/uimanager/events/EventDispatcher$ScheduleDispatchFrameCallback$1;->this$1:Lcom/facebook/react/uimanager/events/EventDispatcher$ScheduleDispatchFrameCallback;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/uimanager/events/EventDispatcher$ScheduleDispatchFrameCallback;->maybePost()V
 
-    .line 338
     return-void
 .end method

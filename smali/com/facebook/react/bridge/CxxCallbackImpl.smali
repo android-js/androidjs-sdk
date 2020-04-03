@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/jni/HybridData;)V
     .locals 0
-    .param p1, "hybridData"    # Lcom/facebook/jni/HybridData;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -31,7 +30,6 @@
     .line 25
     iput-object p1, p0, Lcom/facebook/react/bridge/CxxCallbackImpl;->mHybridData:Lcom/facebook/jni/HybridData;
 
-    .line 26
     return-void
 .end method
 
@@ -41,16 +39,14 @@
 
 # virtual methods
 .method public varargs invoke([Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "args"    # [Ljava/lang/Object;
+    .locals 0
 
     .line 30
     invoke-static {p1}, Lcom/facebook/react/bridge/Arguments;->fromJavaArgs([Ljava/lang/Object;)Lcom/facebook/react/bridge/WritableNativeArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/facebook/react/bridge/CxxCallbackImpl;->nativeInvoke(Lcom/facebook/react/bridge/NativeArray;)V
+    invoke-direct {p0, p1}, Lcom/facebook/react/bridge/CxxCallbackImpl;->nativeInvoke(Lcom/facebook/react/bridge/NativeArray;)V
 
-    .line 31
     return-void
 .end method

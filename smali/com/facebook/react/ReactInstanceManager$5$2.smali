@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/ReactInstanceManager$5;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/ReactInstanceManager$5;
 
     .line 960
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$5$2;->this$1:Lcom/facebook/react/ReactInstanceManager$5;
@@ -55,15 +54,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 967
     goto :goto_0
 
-    .line 965
     :catch_0
     move-exception v0
 
     .line 966
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lcom/facebook/react/ReactInstanceManager$5$2;->this$1:Lcom/facebook/react/ReactInstanceManager$5;
 
     iget-object v1, v1, Lcom/facebook/react/ReactInstanceManager$5;->this$0:Lcom/facebook/react/ReactInstanceManager;
@@ -74,8 +70,6 @@
 
     invoke-interface {v1, v0}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->handleException(Ljava/lang/Exception;)V
 
-    .line 968
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

@@ -59,13 +59,11 @@
     .line 3095
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3096
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 3084
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -106,21 +104,18 @@
 
     move-result v0
 
-    .line 3089
-    .local v0, "spanCount":I
     if-lez v0, :cond_1
 
     .line 3090
-    new-array v1, v0, [I
+    new-array v0, v0, [I
 
-    iput-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
+    iput-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
 
     .line 3091
-    iget-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
+    iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
 
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->readIntArray([I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readIntArray([I)V
 
-    .line 3093
     :cond_1
     return-void
 .end method
@@ -130,7 +125,6 @@
 .method public describeContents()I
     .locals 1
 
-    .line 3104
     const/4 v0, 0x0
 
     return v0
@@ -138,22 +132,21 @@
 
 .method getGapForSpan(I)I
     .locals 1
-    .param p1, "spanIndex"    # I
 
     .line 3099
     iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
-    aget v0, v0, p1
+    aget p1, v0, p1
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -213,53 +206,50 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 1
 
     .line 3109
-    iget v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mPosition:I
+    iget p2, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mPosition:I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3110
-    iget v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapDir:I
+    iget p2, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapDir:I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3111
-    iget-boolean v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mHasUnwantedGapAfter:Z
+    iget-boolean p2, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mHasUnwantedGapAfter:Z
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3112
-    iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
+    iget-object p2, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
-    array-length v1, v0
+    array-length v0, p2
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
     .line 3113
-    array-length v0, v0
+    array-length p2, p2
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 3114
-    iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
+    iget-object p2, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;->mGapPerSpan:[I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeIntArray([I)V
 
     goto :goto_0
 
-    .line 3116
     :cond_0
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    .line 3116
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 3118
     :goto_0
     return-void
 .end method

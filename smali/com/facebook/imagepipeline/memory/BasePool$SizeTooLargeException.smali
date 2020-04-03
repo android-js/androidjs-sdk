@@ -17,11 +17,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "size"    # Ljava/lang/Object;
 
     .line 866
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/memory/BasePool$InvalidSizeException;-><init>(Ljava/lang/Object;)V
 
-    .line 867
     return-void
 .end method

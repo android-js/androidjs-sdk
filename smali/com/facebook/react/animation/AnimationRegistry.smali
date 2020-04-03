@@ -36,7 +36,6 @@
 # virtual methods
 .method public getAnimation(I)Lcom/facebook/react/animation/Animation;
     .locals 1
-    .param p1, "animationID"    # I
 
     .line 28
     invoke-static {}, Lcom/facebook/react/bridge/UiThreadUtil;->assertOnUiThread()V
@@ -46,16 +45,15 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/animation/Animation;
+    check-cast p1, Lcom/facebook/react/animation/Animation;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public registerAnimation(Lcom/facebook/react/animation/Animation;)V
     .locals 2
-    .param p1, "animation"    # Lcom/facebook/react/animation/Animation;
 
     .line 23
     invoke-static {}, Lcom/facebook/react/bridge/UiThreadUtil;->assertOnUiThread()V
@@ -69,13 +67,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 25
     return-void
 .end method
 
 .method public removeAnimation(I)Lcom/facebook/react/animation/Animation;
     .locals 2
-    .param p1, "animationID"    # I
 
     .line 33
     invoke-static {}, Lcom/facebook/react/bridge/UiThreadUtil;->assertOnUiThread()V
@@ -89,8 +85,6 @@
 
     check-cast v0, Lcom/facebook/react/animation/Animation;
 
-    .line 35
-    .local v0, "animation":Lcom/facebook/react/animation/Animation;
     if-eqz v0, :cond_0
 
     .line 36
@@ -98,7 +92,6 @@
 
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->delete(I)V
 
-    .line 38
     :cond_0
     return-object v0
 .end method

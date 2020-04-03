@@ -45,9 +45,7 @@
 .end method
 
 .method protected addEventEmitters(Lcom/facebook/react/uimanager/ThemedReactContext;Lcom/facebook/react/views/modal/ReactModalHostView;)V
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
-    .param p2, "view"    # Lcom/facebook/react/views/modal/ReactModalHostView;
+    .locals 1
 
     .line 74
     const-class v0, Lcom/facebook/react/uimanager/UIManagerModule;
@@ -55,30 +53,28 @@
     .line 75
     invoke-virtual {p1, v0}, Lcom/facebook/react/uimanager/ThemedReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/uimanager/UIManagerModule;
+    check-cast p1, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {v0}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
+    invoke-virtual {p1}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 76
-    .local v0, "dispatcher":Lcom/facebook/react/uimanager/events/EventDispatcher;
-    new-instance v1, Lcom/facebook/react/views/modal/ReactModalHostManager$1;
+    new-instance v0, Lcom/facebook/react/views/modal/ReactModalHostManager$1;
 
-    invoke-direct {v1, p0, v0, p2}, Lcom/facebook/react/views/modal/ReactModalHostManager$1;-><init>(Lcom/facebook/react/views/modal/ReactModalHostManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/modal/ReactModalHostView;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/facebook/react/views/modal/ReactModalHostManager$1;-><init>(Lcom/facebook/react/views/modal/ReactModalHostManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/modal/ReactModalHostView;)V
 
-    invoke-virtual {p2, v1}, Lcom/facebook/react/views/modal/ReactModalHostView;->setOnRequestCloseListener(Lcom/facebook/react/views/modal/ReactModalHostView$OnRequestCloseListener;)V
+    invoke-virtual {p2, v0}, Lcom/facebook/react/views/modal/ReactModalHostView;->setOnRequestCloseListener(Lcom/facebook/react/views/modal/ReactModalHostView$OnRequestCloseListener;)V
 
     .line 83
-    new-instance v1, Lcom/facebook/react/views/modal/ReactModalHostManager$2;
+    new-instance v0, Lcom/facebook/react/views/modal/ReactModalHostManager$2;
 
-    invoke-direct {v1, p0, v0, p2}, Lcom/facebook/react/views/modal/ReactModalHostManager$2;-><init>(Lcom/facebook/react/views/modal/ReactModalHostManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/modal/ReactModalHostView;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/facebook/react/views/modal/ReactModalHostManager$2;-><init>(Lcom/facebook/react/views/modal/ReactModalHostManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/modal/ReactModalHostView;)V
 
-    invoke-virtual {p2, v1}, Lcom/facebook/react/views/modal/ReactModalHostView;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {p2, v0}, Lcom/facebook/react/views/modal/ReactModalHostView;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
-    .line 90
     return-void
 .end method
 
@@ -117,7 +113,6 @@
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/modal/ReactModalHostView;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 36
     new-instance v0, Lcom/facebook/react/views/modal/ReactModalHostView;
@@ -144,11 +139,11 @@
 
     move-result-object v0
 
-    .line 95
     const-string v1, "registrationName"
 
     const-string v2, "onRequestClose"
 
+    .line 95
     invoke-static {v1, v2}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v2
@@ -159,9 +154,9 @@
 
     move-result-object v0
 
-    .line 96
     const-string v2, "onShow"
 
+    .line 96
     invoke-static {v1, v2}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v1
@@ -177,14 +172,12 @@
 
     move-result-object v0
 
-    .line 94
     return-object v0
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 31
     const-string v0, "RCTModalHostView"
 
     return-object v0
@@ -221,7 +214,6 @@
 
 .method protected onAfterUpdateTransaction(Lcom/facebook/react/views/modal/ReactModalHostView;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/modal/ReactModalHostView;
 
     .line 102
     invoke-super {p0, p1}, Lcom/facebook/react/uimanager/ViewGroupManager;->onAfterUpdateTransaction(Landroid/view/View;)V
@@ -229,7 +221,6 @@
     .line 103
     invoke-virtual {p1}, Lcom/facebook/react/views/modal/ReactModalHostView;->showOrUpdate()V
 
-    .line 104
     return-void
 .end method
 
@@ -246,7 +237,6 @@
 
 .method public onDropViewInstance(Lcom/facebook/react/views/modal/ReactModalHostView;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/modal/ReactModalHostView;
 
     .line 51
     invoke-super {p0, p1}, Lcom/facebook/react/uimanager/ViewGroupManager;->onDropViewInstance(Landroid/view/View;)V
@@ -254,14 +244,11 @@
     .line 52
     invoke-virtual {p1}, Lcom/facebook/react/views/modal/ReactModalHostView;->onDropInstance()V
 
-    .line 53
     return-void
 .end method
 
 .method public setAnimationType(Lcom/facebook/react/views/modal/ReactModalHostView;Ljava/lang/String;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/modal/ReactModalHostView;
-    .param p2, "animationType"    # Ljava/lang/String;
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "animationType"
     .end annotation
@@ -269,14 +256,11 @@
     .line 57
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/modal/ReactModalHostView;->setAnimationType(Ljava/lang/String;)V
 
-    .line 58
     return-void
 .end method
 
 .method public setHardwareAccelerated(Lcom/facebook/react/views/modal/ReactModalHostView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/modal/ReactModalHostView;
-    .param p2, "hardwareAccelerated"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "hardwareAccelerated"
     .end annotation
@@ -284,14 +268,11 @@
     .line 67
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/modal/ReactModalHostView;->setHardwareAccelerated(Z)V
 
-    .line 68
     return-void
 .end method
 
 .method public setTransparent(Lcom/facebook/react/views/modal/ReactModalHostView;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/modal/ReactModalHostView;
-    .param p2, "transparent"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "transparent"
     .end annotation
@@ -299,6 +280,5 @@
     .line 62
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/modal/ReactModalHostView;->setTransparent(Z)V
 
-    .line 63
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/jstasks/HeadlessJsTaskContext;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/jstasks/HeadlessJsTaskContext;
 
     .line 145
     iput-object p1, p0, Lcom/facebook/react/jstasks/HeadlessJsTaskContext$2;->this$0:Lcom/facebook/react/jstasks/HeadlessJsTaskContext;
@@ -50,6 +49,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/jstasks/HeadlessJsTaskContext;->finishTask(I)V
 
-    .line 149
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/events/EventDispatcher;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/events/EventDispatcher;
 
     .line 185
     iput-object p1, p0, Lcom/facebook/react/uimanager/events/EventDispatcher$2;->this$0:Lcom/facebook/react/uimanager/events/EventDispatcher;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Lcom/facebook/react/uimanager/events/EventDispatcher;->access$200(Lcom/facebook/react/uimanager/events/EventDispatcher;)V
 
-    .line 189
     return-void
 .end method

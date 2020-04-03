@@ -25,18 +25,16 @@
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 35
     const/16 v0, 0x180
 
+    .line 35
     iput v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounterConfig$Builder;->mMaxBitmapCount:I
 
-    .line 33
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/memory/BitmapCounterConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/memory/BitmapCounterConfig$1;
 
     .line 31
     invoke-direct {p0}, Lcom/facebook/imagepipeline/memory/BitmapCounterConfig$Builder;-><init>()V
@@ -68,11 +66,9 @@
 
 .method public setMaxBitmapCount(I)Lcom/facebook/imagepipeline/memory/BitmapCounterConfig$Builder;
     .locals 0
-    .param p1, "maxBitmapCount"    # I
 
     .line 38
     iput p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounterConfig$Builder;->mMaxBitmapCount:I
 
-    .line 39
     return-object p0
 .end method

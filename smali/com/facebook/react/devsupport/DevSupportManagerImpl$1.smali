@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 220
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$1;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;

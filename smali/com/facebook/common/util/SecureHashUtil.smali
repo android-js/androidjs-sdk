@@ -13,9 +13,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 65
     const/16 v0, 0x10
 
+    .line 65
     new-array v0, v0, [B
 
     fill-array-data v0, :array_0
@@ -55,8 +55,7 @@
 .end method
 
 .method public static convertToHex([B)Ljava/lang/String;
-    .locals 7
-    .param p0, "raw"    # [B
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;
@@ -71,7 +70,6 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 74
-    .local v0, "sb":Ljava/lang/StringBuilder;
     array-length v1, p0
 
     const/4 v2, 0x0
@@ -81,36 +79,30 @@
 
     aget-byte v3, p0, v2
 
-    .line 75
-    .local v3, "b":B
-    and-int/lit16 v4, v3, 0xff
+    and-int/lit16 v3, v3, 0xff
 
     .line 76
-    .local v4, "v":I
-    sget-object v5, Lcom/facebook/common/util/SecureHashUtil;->HEX_CHAR_TABLE:[B
+    sget-object v4, Lcom/facebook/common/util/SecureHashUtil;->HEX_CHAR_TABLE:[B
 
-    ushr-int/lit8 v6, v4, 0x4
+    ushr-int/lit8 v5, v3, 0x4
 
-    aget-byte v5, v5, v6
+    aget-byte v4, v4, v5
 
-    int-to-char v5, v5
+    int-to-char v4, v4
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 77
-    sget-object v5, Lcom/facebook/common/util/SecureHashUtil;->HEX_CHAR_TABLE:[B
+    sget-object v4, Lcom/facebook/common/util/SecureHashUtil;->HEX_CHAR_TABLE:[B
 
-    and-int/lit8 v6, v4, 0xf
+    and-int/lit8 v3, v3, 0xf
 
-    aget-byte v5, v5, v6
+    aget-byte v3, v4, v3
 
-    int-to-char v5, v5
+    int-to-char v3, v3
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 74
-    .end local v3    # "b":B
-    .end local v4    # "v":I
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -119,15 +111,13 @@
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method private static makeHash(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
-    .param p0, "stream"    # Ljava/io/InputStream;
-    .param p1, "algorithm"    # Ljava/lang/String;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -138,274 +128,237 @@
     :try_start_0
     invoke-static {p1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/16 v0, 0x1000
 
     .line 100
-    .local v0, "md":Ljava/security/MessageDigest;
-    const/16 v1, 0x1000
-
-    new-array v1, v1, [B
+    new-array v0, v0, [B
 
     .line 102
-    .local v1, "buffer":[B
     :goto_0
-    invoke-virtual {p0, v1}, Ljava/io/InputStream;->read([B)I
+    invoke-virtual {p0, v0}, Ljava/io/InputStream;->read([B)I
 
-    move-result v2
+    move-result v1
 
-    move v3, v2
+    if-lez v1, :cond_0
 
-    .local v3, "read":I
-    if-lez v2, :cond_0
-
-    .line 103
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2, v3}, Ljava/security/MessageDigest;->update([BII)V
+    .line 103
+    invoke-virtual {p1, v0, v2, v1}, Ljava/security/MessageDigest;->update([BII)V
 
     goto :goto_0
 
     .line 105
     :cond_0
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
+    invoke-virtual {p1}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v2
+    move-result-object p0
 
     .line 106
-    .local v2, "hash":[B
-    invoke-static {v2}, Lcom/facebook/common/util/SecureHashUtil;->convertToHex([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/facebook/common/util/SecureHashUtil;->convertToHex([B)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p0
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v4
+    return-object p0
 
-    .line 109
-    .end local v0    # "md":Ljava/security/MessageDigest;
-    .end local v1    # "buffer":[B
-    .end local v2    # "hash":[B
-    .end local v3    # "read":I
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 110
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 
-    .line 107
-    .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     :catch_1
-    move-exception v0
+    move-exception p0
 
     .line 108
-    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 
     return-void
 .end method
 
 .method private static makeHash([BLjava/lang/String;)Ljava/lang/String;
-    .locals 3
-    .param p0, "bytes"    # [B
-    .param p1, "algorithm"    # Ljava/lang/String;
+    .locals 2
 
     .line 84
     :try_start_0
     invoke-static {p1}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/4 v0, 0x0
 
     .line 85
-    .local v0, "md":Ljava/security/MessageDigest;
-    const/4 v1, 0x0
+    array-length v1, p0
 
-    array-length v2, p0
-
-    invoke-virtual {v0, p0, v1, v2}, Ljava/security/MessageDigest;->update([BII)V
+    invoke-virtual {p1, p0, v0, v1}, Ljava/security/MessageDigest;->update([BII)V
 
     .line 86
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
+    invoke-virtual {p1}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v1
+    move-result-object p0
 
     .line 87
-    .local v1, "hash":[B
-    invoke-static {v1}, Lcom/facebook/common/util/SecureHashUtil;->convertToHex([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/facebook/common/util/SecureHashUtil;->convertToHex([B)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object p0
 
-    .line 90
-    .end local v0    # "md":Ljava/security/MessageDigest;
-    .end local v1    # "hash":[B
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 91
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 
-    .line 88
-    .end local v0    # "e":Ljava/io/UnsupportedEncodingException;
     :catch_1
-    move-exception v0
+    move-exception p0
 
     .line 89
-    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method public static makeMD5Hash(Ljava/io/InputStream;)Ljava/lang/String;
     .locals 1
-    .param p0, "stream"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 62
     const-string v0, "MD5"
 
+    .line 62
     invoke-static {p0, v0}, Lcom/facebook/common/util/SecureHashUtil;->makeHash(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static makeMD5Hash(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p0, "text"    # Ljava/lang/String;
+    .locals 1
 
-    .line 51
     :try_start_0
     const-string v0, "utf-8"
 
+    .line 51
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/facebook/common/util/SecureHashUtil;->makeMD5Hash([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/facebook/common/util/SecureHashUtil;->makeMD5Hash([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 52
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 53
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static makeMD5Hash([B)Ljava/lang/String;
     .locals 1
-    .param p0, "bytes"    # [B
 
-    .line 58
     const-string v0, "MD5"
 
+    .line 58
     invoke-static {p0, v0}, Lcom/facebook/common/util/SecureHashUtil;->makeHash([BLjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static makeSHA1Hash(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p0, "text"    # Ljava/lang/String;
+    .locals 1
 
-    .line 24
     :try_start_0
     const-string v0, "utf-8"
 
+    .line 24
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/facebook/common/util/SecureHashUtil;->makeSHA1Hash([B)Ljava/lang/String;
+    invoke-static {p0}, Lcom/facebook/common/util/SecureHashUtil;->makeSHA1Hash([B)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p0
 
-    .line 25
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 26
-    .local v0, "e":Ljava/io/UnsupportedEncodingException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static makeSHA1Hash([B)Ljava/lang/String;
     .locals 1
-    .param p0, "bytes"    # [B
 
-    .line 31
     const-string v0, "SHA-1"
 
+    .line 31
     invoke-static {p0, v0}, Lcom/facebook/common/util/SecureHashUtil;->makeHash([BLjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static makeSHA1HashBase64([B)Ljava/lang/String;
     .locals 3
-    .param p0, "bytes"    # [B
 
-    .line 40
     :try_start_0
     const-string v0, "SHA-1"
 
+    .line 40
     invoke-static {v0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v0
 
-    .line 41
-    .local v0, "md":Ljava/security/MessageDigest;
     const/4 v1, 0x0
 
+    .line 41
     array-length v2, p0
 
     invoke-virtual {v0, p0, v1, v2}, Ljava/security/MessageDigest;->update([BII)V
@@ -413,45 +366,39 @@
     .line 42
     invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
-    move-result-object v1
+    move-result-object p0
+
+    const/16 v0, 0xb
 
     .line 43
-    .local v1, "sha1hash":[B
-    const/16 v2, 0xb
+    invoke-static {p0, v0}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
-    invoke-static {v1, v2}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
-
-    move-result-object v2
+    move-result-object p0
     :try_end_0
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object p0
 
-    .line 44
-    .end local v0    # "md":Ljava/security/MessageDigest;
-    .end local v1    # "sha1hash":[B
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 45
-    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method
 
 .method public static makeSHA256Hash([B)Ljava/lang/String;
     .locals 1
-    .param p0, "bytes"    # [B
 
-    .line 35
     const-string v0, "SHA-256"
 
+    .line 35
     invoke-static {p0, v0}, Lcom/facebook/common/util/SecureHashUtil;->makeHash([BLjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

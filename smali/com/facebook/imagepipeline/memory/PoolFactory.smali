@@ -28,8 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/imagepipeline/memory/PoolConfig;)V
-    .locals 1
-    .param p1, "config"    # Lcom/facebook/imagepipeline/memory/PoolConfig;
+    .locals 0
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,13 +36,12 @@
     .line 33
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/imagepipeline/memory/PoolConfig;
+    check-cast p1, Lcom/facebook/imagepipeline/memory/PoolConfig;
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/memory/PoolFactory;->mConfig:Lcom/facebook/imagepipeline/memory/PoolConfig;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/memory/PoolFactory;->mConfig:Lcom/facebook/imagepipeline/memory/PoolConfig;
 
-    .line 34
     return-void
 .end method
 

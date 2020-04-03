@@ -18,9 +18,9 @@
 .method private constructor <init>()V
     .locals 1
 
-    .line 83
     const/4 v0, 0x0
 
+    .line 83
     invoke-direct {p0, v0}, Lcom/facebook/jni/DestructorThread$Destructor;-><init>(Lcom/facebook/jni/DestructorThread$1;)V
 
     return-void
@@ -28,7 +28,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/jni/DestructorThread$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/jni/DestructorThread$1;
 
     .line 83
     invoke-direct {p0}, Lcom/facebook/jni/DestructorThread$Terminus;-><init>()V

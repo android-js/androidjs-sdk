@@ -18,11 +18,10 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 248
     const-string v0, "Null shared reference"
 
+    .line 248
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 249
     return-void
 .end method

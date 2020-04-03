@@ -31,8 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/views/textinput/ReactTextInputManager;Lcom/facebook/react/views/textinput/ReactEditText;)V
-    .locals 1
-    .param p2, "editText"    # Lcom/facebook/react/views/textinput/ReactEditText;
+    .locals 0
 
     .line 955
     iput-object p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactSelectionWatcher;->this$0:Lcom/facebook/react/views/textinput/ReactTextInputManager;
@@ -50,22 +49,20 @@
     check-cast p1, Lcom/facebook/react/bridge/ReactContext;
 
     .line 958
-    .local p1, "reactContext":Lcom/facebook/react/bridge/ReactContext;
-    const-class v0, Lcom/facebook/react/uimanager/UIManagerModule;
+    const-class p2, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/bridge/ReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
+    invoke-virtual {p1, p2}, Lcom/facebook/react/bridge/ReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/uimanager/UIManagerModule;
+    check-cast p1, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {v0}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
+    invoke-virtual {p1}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactSelectionWatcher;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iput-object p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactSelectionWatcher;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    .line 959
     return-void
 .end method
 
@@ -73,8 +70,6 @@
 # virtual methods
 .method public onSelectionChanged(II)V
     .locals 3
-    .param p1, "start"    # I
-    .param p2, "end"    # I
 
     .line 966
     iget v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactSelectionWatcher;->mPreviousSelectionStart:I
@@ -109,7 +104,6 @@
     .line 975
     iput p2, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactSelectionWatcher;->mPreviousSelectionEnd:I
 
-    .line 977
     :cond_1
     return-void
 .end method

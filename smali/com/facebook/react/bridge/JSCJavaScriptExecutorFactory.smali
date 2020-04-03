@@ -15,8 +15,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "appName"    # Ljava/lang/String;
-    .param p2, "deviceName"    # Ljava/lang/String;
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +25,6 @@
     .line 16
     iput-object p2, p0, Lcom/facebook/react/bridge/JSCJavaScriptExecutorFactory;->mDeviceName:Ljava/lang/String;
 
-    .line 17
     return-void
 .end method
 
@@ -46,12 +43,11 @@
 
     invoke-direct {v0}, Lcom/facebook/react/bridge/WritableNativeMap;-><init>()V
 
-    .line 22
-    .local v0, "jscConfig":Lcom/facebook/react/bridge/WritableNativeMap;
     const-string v1, "OwnerIdentity"
 
     const-string v2, "ReactNative"
 
+    .line 22
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/bridge/WritableNativeMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 23
@@ -79,7 +75,6 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    .line 30
     const-string v0, "JSCExecutor"
 
     return-object v0

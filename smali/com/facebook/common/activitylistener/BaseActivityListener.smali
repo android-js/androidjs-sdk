@@ -21,7 +21,6 @@
 .method public getPriority()I
     .locals 1
 
-    .line 32
     const/4 v0, 0x1
 
     return v0
@@ -29,48 +28,36 @@
 
 .method public onActivityCreate(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 16
     return-void
 .end method
 
 .method public onDestroy(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 28
     return-void
 .end method
 
 .method public onPause(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 37
     return-void
 .end method
 
 .method public onResume(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 41
     return-void
 .end method
 
 .method public onStart(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 24
     return-void
 .end method
 
 .method public onStop(Landroid/app/Activity;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
 
-    .line 20
     return-void
 .end method

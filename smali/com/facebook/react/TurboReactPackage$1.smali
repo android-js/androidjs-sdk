@@ -37,7 +37,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/TurboReactPackage;Ljava/util/Iterator;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/TurboReactPackage;
 
     .line 59
     iput-object p1, p0, Lcom/facebook/react/TurboReactPackage$1;->this$0:Lcom/facebook/react/TurboReactPackage;

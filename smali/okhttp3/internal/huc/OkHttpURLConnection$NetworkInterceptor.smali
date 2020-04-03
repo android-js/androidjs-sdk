@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/huc/OkHttpURLConnection;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/huc/OkHttpURLConnection;
 
     .line 625
     iput-object p1, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
@@ -39,8 +38,7 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 5
-    .param p1, "chain"    # Lokhttp3/Interceptor$Chain;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,7 +51,6 @@
     move-result-object v0
 
     .line 640
-    .local v0, "request":Lokhttp3/Request;
     iget-object v1, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
 
     iget-object v1, v1, Lokhttp3/internal/huc/OkHttpURLConnection;->urlFilter:Lokhttp3/internal/URLFilter;
@@ -155,11 +152,8 @@
 
     goto :goto_0
 
-    .line 657
-    :cond_1
-    nop
-
     .line 658
+    :cond_1
     :try_start_2
     monitor-exit v1
     :try_end_2
@@ -182,114 +176,87 @@
     check-cast v1, Lokhttp3/internal/huc/OutputStreamRequestBody;
 
     .line 663
-    .local v1, "requestBody":Lokhttp3/internal/huc/OutputStreamRequestBody;
     invoke-virtual {v1, v0}, Lokhttp3/internal/huc/OutputStreamRequestBody;->prepareToSendRequest(Lokhttp3/Request;)Lokhttp3/Request;
 
     move-result-object v0
 
-    move-object v2, v0
-
-    goto :goto_1
-
-    .line 661
-    .end local v1    # "requestBody":Lokhttp3/internal/huc/OutputStreamRequestBody;
-    :cond_2
-    move-object v2, v0
-
     .line 666
-    .end local v0    # "request":Lokhttp3/Request;
-    .local v2, "request":Lokhttp3/Request;
-    :goto_1
-    invoke-interface {p1, v2}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
+    :cond_2
+    invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 668
-    .local v3, "response":Lokhttp3/Response;
     iget-object v0, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
 
     invoke-static {v0}, Lokhttp3/internal/huc/OkHttpURLConnection;->access$000(Lokhttp3/internal/huc/OkHttpURLConnection;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v0
 
-    monitor-enter v4
+    monitor-enter v0
 
     .line 669
     :try_start_3
-    iget-object v0, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
+    iget-object v1, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
 
-    iput-object v3, v0, Lokhttp3/internal/huc/OkHttpURLConnection;->networkResponse:Lokhttp3/Response;
+    iput-object p1, v1, Lokhttp3/internal/huc/OkHttpURLConnection;->networkResponse:Lokhttp3/Response;
 
     .line 670
-    iget-object v0, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
+    iget-object v1, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->this$0:Lokhttp3/internal/huc/OkHttpURLConnection;
 
-    invoke-virtual {v3}, Lokhttp3/Response;->request()Lokhttp3/Request;
+    invoke-virtual {p1}, Lokhttp3/Response;->request()Lokhttp3/Request;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
+    invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lokhttp3/HttpUrl;->url()Ljava/net/URL;
+    invoke-virtual {v2}, Lokhttp3/HttpUrl;->url()Ljava/net/URL;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Lokhttp3/internal/huc/OkHttpURLConnection;->access$102(Lokhttp3/internal/huc/OkHttpURLConnection;Ljava/net/URL;)Ljava/net/URL;
-
-    .line 671
-    monitor-exit v4
-
-    .line 673
-    return-object v3
+    invoke-static {v1, v2}, Lokhttp3/internal/huc/OkHttpURLConnection;->access$102(Lokhttp3/internal/huc/OkHttpURLConnection;Ljava/net/URL;)Ljava/net/URL;
 
     .line 671
+    monitor-exit v0
+
+    return-object p1
+
     :catchall_0
-    move-exception v0
+    move-exception p1
 
-    monitor-exit v4
+    monitor-exit v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    throw v0
-
-    .line 654
-    .end local v2    # "request":Lokhttp3/Request;
-    .end local v3    # "response":Lokhttp3/Response;
-    .restart local v0    # "request":Lokhttp3/Request;
-    :catch_0
-    move-exception v2
+    throw p1
 
     .line 655
-    .local v2, "e":Ljava/lang/InterruptedException;
+    :catch_0
     :try_start_4
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Ljava/lang/Thread;->interrupt()V
+    invoke-virtual {p1}, Ljava/lang/Thread;->interrupt()V
 
     .line 656
-    new-instance v3, Ljava/io/InterruptedIOException;
+    new-instance p1, Ljava/io/InterruptedIOException;
 
-    invoke-direct {v3}, Ljava/io/InterruptedIOException;-><init>()V
+    invoke-direct {p1}, Ljava/io/InterruptedIOException;-><init>()V
 
-    .end local v0    # "request":Lokhttp3/Request;
-    .end local p1    # "chain":Lokhttp3/Interceptor$Chain;
-    throw v3
+    throw p1
+
+    :catchall_1
+    move-exception p1
 
     .line 658
-    .end local v2    # "e":Ljava/lang/InterruptedException;
-    .restart local v0    # "request":Lokhttp3/Request;
-    .restart local p1    # "chain":Lokhttp3/Interceptor$Chain;
-    :catchall_1
-    move-exception v2
-
     monitor-exit v1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    throw v2
+    throw p1
 
     return-void
 .end method
@@ -306,9 +273,9 @@
 
     monitor-enter v0
 
-    .line 631
     const/4 v1, 0x1
 
+    .line 631
     :try_start_0
     iput-boolean v1, p0, Lokhttp3/internal/huc/OkHttpURLConnection$NetworkInterceptor;->proceed:Z
 
@@ -324,10 +291,8 @@
     .line 633
     monitor-exit v0
 
-    .line 634
     return-void
 
-    .line 633
     :catchall_0
     move-exception v1
 

@@ -37,29 +37,20 @@
 # virtual methods
 .method public logMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;Ljava/lang/String;)V
     .locals 0
-    .param p1, "tag"    # Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;
-    .param p2, "message"    # Ljava/lang/String;
 
-    .line 21
     return-void
 .end method
 
 .method public varargs logMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;Ljava/lang/String;[Ljava/lang/Object;)V
     .locals 0
-    .param p1, "tag"    # Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;
-    .param p2, "message"    # Ljava/lang/String;
-    .param p3, "args"    # [Ljava/lang/Object;
 
-    .line 18
     return-void
 .end method
 
 .method public shouldDisplayLogMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;)Z
-    .locals 1
-    .param p1, "tag"    # Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;
+    .locals 0
 
-    .line 25
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/modal/ReactModalHostManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/modal/ReactModalHostView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/modal/ReactModalHostManager;
 
     .line 77
     iput-object p1, p0, Lcom/facebook/react/views/modal/ReactModalHostManager$1;->this$0:Lcom/facebook/react/views/modal/ReactModalHostManager;
@@ -45,24 +44,22 @@
 
 # virtual methods
 .method public onRequestClose(Landroid/content/DialogInterface;)V
-    .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 2
 
     .line 80
-    iget-object v0, p0, Lcom/facebook/react/views/modal/ReactModalHostManager$1;->val$dispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iget-object p1, p0, Lcom/facebook/react/views/modal/ReactModalHostManager$1;->val$dispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    new-instance v1, Lcom/facebook/react/views/modal/RequestCloseEvent;
+    new-instance v0, Lcom/facebook/react/views/modal/RequestCloseEvent;
 
-    iget-object v2, p0, Lcom/facebook/react/views/modal/ReactModalHostManager$1;->val$view:Lcom/facebook/react/views/modal/ReactModalHostView;
+    iget-object v1, p0, Lcom/facebook/react/views/modal/ReactModalHostManager$1;->val$view:Lcom/facebook/react/views/modal/ReactModalHostView;
 
-    invoke-virtual {v2}, Lcom/facebook/react/views/modal/ReactModalHostView;->getId()I
+    invoke-virtual {v1}, Lcom/facebook/react/views/modal/ReactModalHostView;->getId()I
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {v1, v2}, Lcom/facebook/react/views/modal/RequestCloseEvent;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/facebook/react/views/modal/RequestCloseEvent;-><init>(I)V
 
-    invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
+    invoke-virtual {p1, v0}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 81
     return-void
 .end method

@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIManagerModule;Lcom/facebook/react/bridge/ReactContext;ILjava/lang/Object;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/UIManagerModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 446
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIManagerModule$3;->this$0:Lcom/facebook/react/uimanager/UIManagerModule;
@@ -58,6 +56,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/uimanager/UIImplementation;->setViewLocalData(ILjava/lang/Object;)V
 
-    .line 450
     return-void
 .end method

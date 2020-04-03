@@ -24,7 +24,6 @@
     .locals 0
 
     .line 36
-    .local p0, "this":Lcom/facebook/datasource/BaseDataSubscriber;, "Lcom/facebook/datasource/BaseDataSubscriber<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,9 +41,6 @@
         }
     .end annotation
 
-    .line 65
-    .local p0, "this":Lcom/facebook/datasource/BaseDataSubscriber;, "Lcom/facebook/datasource/BaseDataSubscriber<TT;>;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     return-void
 .end method
 
@@ -59,8 +55,6 @@
     .end annotation
 
     .line 57
-    .local p0, "this":Lcom/facebook/datasource/BaseDataSubscriber;, "Lcom/facebook/datasource/BaseDataSubscriber<TT;>;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/facebook/datasource/BaseDataSubscriber;->onFailureImpl(Lcom/facebook/datasource/DataSource;)V
     :try_end_0
@@ -69,13 +63,8 @@
     .line 59
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 60
-    nop
-
-    .line 61
     return-void
 
-    .line 59
     :catchall_0
     move-exception v0
 
@@ -106,36 +95,29 @@
     .end annotation
 
     .line 44
-    .local p0, "this":Lcom/facebook/datasource/BaseDataSubscriber;, "Lcom/facebook/datasource/BaseDataSubscriber<TT;>;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->isFinished()Z
 
     move-result v0
 
     .line 46
-    .local v0, "shouldClose":Z
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/facebook/datasource/BaseDataSubscriber;->onNewResultImpl(Lcom/facebook/datasource/DataSource;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 48
     if-eqz v0, :cond_0
 
     .line 49
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 52
     :cond_0
     return-void
 
-    .line 48
     :catchall_0
     move-exception v1
 
     if-eqz v0, :cond_1
 
-    .line 49
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
     .line 51
@@ -163,8 +145,5 @@
         }
     .end annotation
 
-    .line 69
-    .local p0, "this":Lcom/facebook/datasource/BaseDataSubscriber;, "Lcom/facebook/datasource/BaseDataSubscriber<TT;>;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     return-void
 .end method

@@ -13,9 +13,9 @@
     .end annotation
 .end field
 
-.field private static sDraweeControllerBuilderSupplier:Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilderSupplier;
+.field private static sDraweeControllerBuilderSupplier:Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilderSupplier; = null
 
-.field private static volatile sIsInitialized:Z
+.field private static volatile sIsInitialized:Z = false
 
 
 # direct methods
@@ -26,11 +26,6 @@
     const-class v0, Lcom/facebook/drawee/backends/pipeline/Fresco;
 
     sput-object v0, Lcom/facebook/drawee/backends/pipeline/Fresco;->TAG:Ljava/lang/Class;
-
-    .line 31
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/facebook/drawee/backends/pipeline/Fresco;->sIsInitialized:Z
 
     return-void
 .end method
@@ -90,42 +85,37 @@
 
 .method public static initialize(Landroid/content/Context;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     invoke-static {p0, v0, v0}, Lcom/facebook/drawee/backends/pipeline/Fresco;->initialize(Landroid/content/Context;Lcom/facebook/imagepipeline/core/ImagePipelineConfig;Lcom/facebook/drawee/backends/pipeline/DraweeConfig;)V
 
-    .line 38
     return-void
 .end method
 
 .method public static initialize(Landroid/content/Context;Lcom/facebook/imagepipeline/core/ImagePipelineConfig;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "imagePipelineConfig"    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
+    .param p1    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 44
     const/4 v0, 0x0
 
+    .line 44
     invoke-static {p0, p1, v0}, Lcom/facebook/drawee/backends/pipeline/Fresco;->initialize(Landroid/content/Context;Lcom/facebook/imagepipeline/core/ImagePipelineConfig;Lcom/facebook/drawee/backends/pipeline/DraweeConfig;)V
 
-    .line 45
     return-void
 .end method
 
 .method public static initialize(Landroid/content/Context;Lcom/facebook/imagepipeline/core/ImagePipelineConfig;Lcom/facebook/drawee/backends/pipeline/DraweeConfig;)V
-    .locals 3
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "imagePipelineConfig"    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
+    .locals 2
+    .param p1    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "draweeConfig"    # Lcom/facebook/drawee/backends/pipeline/DraweeConfig;
+    .param p2    # Lcom/facebook/drawee/backends/pipeline/DraweeConfig;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -144,30 +134,26 @@
 
     goto :goto_0
 
-    .line 58
     :cond_0
     const/4 v0, 0x1
 
+    .line 58
     sput-boolean v0, Lcom/facebook/drawee/backends/pipeline/Fresco;->sIsInitialized:Z
 
-    .line 61
     :goto_0
     const/4 v0, 0x0
 
+    .line 61
     :try_start_0
     invoke-static {p0, v0}, Lcom/facebook/soloader/SoLoader;->init(Landroid/content/Context;I)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 64
-    nop
 
     .line 66
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p0
 
-    .line 67
     if-nez p1, :cond_1
 
     .line 68
@@ -183,28 +169,24 @@
     :goto_1
     invoke-static {p0, p2}, Lcom/facebook/drawee/backends/pipeline/Fresco;->initializeDrawee(Landroid/content/Context;Lcom/facebook/drawee/backends/pipeline/DraweeConfig;)V
 
-    .line 73
     return-void
 
-    .line 62
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 63
-    .local v0, "e":Ljava/io/IOException;
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v2, "Could not initialize SoLoader"
+    const-string p2, "Could not initialize SoLoader"
 
-    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, p2, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 .end method
 
 .method private static initializeDrawee(Landroid/content/Context;Lcom/facebook/drawee/backends/pipeline/DraweeConfig;)V
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "draweeConfig"    # Lcom/facebook/drawee/backends/pipeline/DraweeConfig;
+    .param p1    # Lcom/facebook/drawee/backends/pipeline/DraweeConfig;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -217,11 +199,10 @@
     sput-object v0, Lcom/facebook/drawee/backends/pipeline/Fresco;->sDraweeControllerBuilderSupplier:Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilderSupplier;
 
     .line 81
-    sget-object v0, Lcom/facebook/drawee/backends/pipeline/Fresco;->sDraweeControllerBuilderSupplier:Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilderSupplier;
+    sget-object p0, Lcom/facebook/drawee/backends/pipeline/Fresco;->sDraweeControllerBuilderSupplier:Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilderSupplier;
 
-    invoke-static {v0}, Lcom/facebook/drawee/view/SimpleDraweeView;->initialize(Lcom/facebook/common/internal/Supplier;)V
+    invoke-static {p0}, Lcom/facebook/drawee/view/SimpleDraweeView;->initialize(Lcom/facebook/common/internal/Supplier;)V
 
-    .line 82
     return-void
 .end method
 
@@ -241,9 +222,9 @@
 .method public static shutDown()V
     .locals 1
 
-    .line 105
     const/4 v0, 0x0
 
+    .line 105
     sput-object v0, Lcom/facebook/drawee/backends/pipeline/Fresco;->sDraweeControllerBuilderSupplier:Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilderSupplier;
 
     .line 106
@@ -252,6 +233,5 @@
     .line 107
     invoke-static {}, Lcom/facebook/imagepipeline/core/ImagePipelineFactory;->shutDown()V
 
-    .line 108
     return-void
 .end method

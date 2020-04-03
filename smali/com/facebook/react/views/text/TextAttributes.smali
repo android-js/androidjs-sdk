@@ -30,14 +30,14 @@
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     const/4 v0, 0x1
 
+    .line 25
     iput-boolean v0, p0, Lcom/facebook/react/views/text/TextAttributes;->mAllowFontScaling:Z
 
-    .line 26
     const/high16 v0, 0x7fc00000    # Float.NaN
 
+    .line 26
     iput v0, p0, Lcom/facebook/react/views/text/TextAttributes;->mFontSize:F
 
     .line 27
@@ -57,7 +57,6 @@
 
     iput-object v0, p0, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
 
-    .line 34
     return-void
 .end method
 
@@ -65,7 +64,6 @@
 # virtual methods
 .method public applyChild(Lcom/facebook/react/views/text/TextAttributes;)Lcom/facebook/react/views/text/TextAttributes;
     .locals 3
-    .param p1, "child"    # Lcom/facebook/react/views/text/TextAttributes;
 
     .line 37
     new-instance v0, Lcom/facebook/react/views/text/TextAttributes;
@@ -73,7 +71,6 @@
     invoke-direct {v0}, Lcom/facebook/react/views/text/TextAttributes;-><init>()V
 
     .line 41
-    .local v0, "result":Lcom/facebook/react/views/text/TextAttributes;
     iget-boolean v1, p0, Lcom/facebook/react/views/text/TextAttributes;->mAllowFontScaling:Z
 
     iput-boolean v1, v0, Lcom/facebook/react/views/text/TextAttributes;->mAllowFontScaling:Z
@@ -180,17 +177,16 @@
 
     if-eq v1, v2, :cond_5
 
-    iget-object v1, p1, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
+    iget-object p1, p1, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
 
     goto :goto_5
 
     :cond_5
-    iget-object v1, p0, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
+    iget-object p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
 
     :goto_5
-    iput-object v1, v0, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
+    iput-object p1, v0, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
 
-    .line 50
     return-object v0
 .end method
 
@@ -204,7 +200,7 @@
 .end method
 
 .method public getEffectiveFontSize()I
-    .locals 3
+    .locals 2
 
     .line 122
     iget v0, p0, Lcom/facebook/react/views/text/TextAttributes;->mFontSize:F
@@ -223,7 +219,6 @@
     const/high16 v0, 0x41600000    # 14.0f
 
     .line 123
-    .local v0, "fontSize":F
     :goto_0
     iget-boolean v1, p0, Lcom/facebook/react/views/text/TextAttributes;->mAllowFontScaling:Z
 
@@ -236,15 +231,13 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/uimanager/PixelUtil;->toPixelFromSP(FF)F
 
-    move-result v1
+    move-result v0
 
-    float-to-double v1, v1
+    float-to-double v0, v0
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v1
-
-    double-to-int v1, v1
+    move-result-wide v0
 
     goto :goto_1
 
@@ -252,19 +245,18 @@
     :cond_1
     invoke-static {v0}, Lcom/facebook/react/uimanager/PixelUtil;->toPixelFromDIP(F)F
 
-    move-result v1
+    move-result v0
 
-    float-to-double v1, v1
+    float-to-double v0, v0
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v1
+    move-result-wide v0
 
-    double-to-int v1, v1
-
-    .line 123
     :goto_1
-    return v1
+    double-to-int v0, v0
+
+    return v0
 .end method
 
 .method public getEffectiveLetterSpacing()F
@@ -279,7 +271,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 147
     const/high16 v0, 0x7fc00000    # Float.NaN
 
     return v0
@@ -311,24 +302,21 @@
 
     move-result v0
 
-    :goto_0
-    nop
-
     .line 156
-    .local v0, "letterSpacingPixels":F
+    :goto_0
     invoke-virtual {p0}, Lcom/facebook/react/views/text/TextAttributes;->getEffectiveFontSize()I
 
     move-result v1
 
     int-to-float v1, v1
 
-    div-float v1, v0, v1
+    div-float/2addr v0, v1
 
-    return v1
+    return v0
 .end method
 
 .method public getEffectiveLineHeight()F
-    .locals 3
+    .locals 2
 
     .line 129
     iget v0, p0, Lcom/facebook/react/views/text/TextAttributes;->mLineHeight:F
@@ -339,7 +327,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 130
     const/high16 v0, 0x7fc00000    # Float.NaN
 
     return v0
@@ -371,11 +358,8 @@
 
     move-result v0
 
-    :goto_0
-    nop
-
     .line 139
-    .local v0, "lineHeight":F
+    :goto_0
     iget v1, p0, Lcom/facebook/react/views/text/TextAttributes;->mHeightOfTallestInlineImage:F
 
     .line 140
@@ -398,20 +382,14 @@
     :cond_2
     const/4 v1, 0x0
 
-    .line 142
-    .local v1, "useInlineViewHeight":Z
     :goto_1
     if-eqz v1, :cond_3
 
-    iget v2, p0, Lcom/facebook/react/views/text/TextAttributes;->mHeightOfTallestInlineImage:F
-
-    goto :goto_2
+    .line 142
+    iget v0, p0, Lcom/facebook/react/views/text/TextAttributes;->mHeightOfTallestInlineImage:F
 
     :cond_3
-    move v2, v0
-
-    :goto_2
-    return v2
+    return v0
 .end method
 
 .method public getEffectiveMaxFontSizeMultiplier()F
@@ -493,64 +471,52 @@
 
 .method public setAllowFontScaling(Z)V
     .locals 0
-    .param p1, "value"    # Z
 
     .line 61
     iput-boolean p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mAllowFontScaling:Z
 
-    .line 62
     return-void
 .end method
 
 .method public setFontSize(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 69
     iput p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mFontSize:F
 
-    .line 70
     return-void
 .end method
 
 .method public setHeightOfTallestInlineImage(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 104
     iput p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mHeightOfTallestInlineImage:F
 
-    .line 105
     return-void
 .end method
 
 .method public setLetterSpacing(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 85
     iput p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mLetterSpacing:F
 
-    .line 86
     return-void
 .end method
 
 .method public setLineHeight(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 77
     iput p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mLineHeight:F
 
-    .line 78
     return-void
 .end method
 
 .method public setMaxFontSizeMultiplier(F)V
-    .locals 2
-    .param p1, "maxFontSizeMultiplier"    # F
+    .locals 1
 
-    .line 93
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -567,31 +533,28 @@
 
     .line 94
     :cond_0
-    new-instance v0, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
+    new-instance p1, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
 
-    const-string v1, "maxFontSizeMultiplier must be NaN, 0, or >= 1"
+    const-string v0, "maxFontSizeMultiplier must be NaN, 0, or >= 1"
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 96
     :cond_1
     :goto_0
     iput p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mMaxFontSizeMultiplier:F
 
-    .line 97
     return-void
 .end method
 
 .method public setTextTransform(Lcom/facebook/react/views/text/TextTransform;)V
     .locals 0
-    .param p1, "textTransform"    # Lcom/facebook/react/views/text/TextTransform;
 
     .line 112
     iput-object p1, p0, Lcom/facebook/react/views/text/TextAttributes;->mTextTransform:Lcom/facebook/react/views/text/TextTransform;
 
-    .line 113
     return-void
 .end method
 
@@ -732,6 +695,5 @@
 
     move-result-object v0
 
-    .line 167
     return-object v0
 .end method

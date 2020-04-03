@@ -60,9 +60,9 @@
 
     sput-object v0, Lcom/facebook/react/common/LifecycleState;->RESUMED:Lcom/facebook/react/common/LifecycleState;
 
-    .line 21
     const/4 v0, 0x3
 
+    .line 21
     new-array v0, v0, [Lcom/facebook/react/common/LifecycleState;
 
     sget-object v4, Lcom/facebook/react/common/LifecycleState;->BEFORE_CREATE:Lcom/facebook/react/common/LifecycleState;
@@ -98,18 +98,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/common/LifecycleState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 21
     const-class v0, Lcom/facebook/react/common/LifecycleState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/common/LifecycleState;
+    check-cast p0, Lcom/facebook/react/common/LifecycleState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/common/LifecycleState;

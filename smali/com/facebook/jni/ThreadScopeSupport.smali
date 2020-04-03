@@ -12,12 +12,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 14
     const-string v0, "fb"
 
+    .line 14
     invoke-static {v0}, Lcom/facebook/soloader/SoLoader;->loadLibrary(Ljava/lang/String;)Z
 
-    .line 15
     return-void
 .end method
 
@@ -32,14 +31,12 @@
 
 .method private static runStdFunction(J)V
     .locals 0
-    .param p0, "ptr"    # J
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
     .line 21
     invoke-static {p0, p1}, Lcom/facebook/jni/ThreadScopeSupport;->runStdFunctionImpl(J)V
 
-    .line 22
     return-void
 .end method
 

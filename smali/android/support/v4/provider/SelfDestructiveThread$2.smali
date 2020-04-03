@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/SelfDestructiveThread;Ljava/util/concurrent/Callable;Landroid/os/Handler;Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/provider/SelfDestructiveThread;
 
     .line 137
     iput-object p1, p0, Landroid/support/v4/provider/SelfDestructiveThread$2;->this$0:Landroid/support/v4/provider/SelfDestructiveThread;
@@ -49,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     .line 142
     :try_start_0
@@ -61,34 +60,20 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 145
-    .local v0, "t":Ljava/lang/Object;, "TT;"
     goto :goto_0
 
-    .line 143
-    .end local v0    # "t":Ljava/lang/Object;, "TT;"
     :catch_0
-    move-exception v0
-
-    .line 144
-    .local v0, "e":Ljava/lang/Exception;
     const/4 v0, 0x0
 
-    .line 146
-    .local v0, "t":Ljava/lang/Object;, "TT;"
-    :goto_0
-    move-object v1, v0
-
     .line 147
-    .local v1, "result":Ljava/lang/Object;, "TT;"
-    iget-object v2, p0, Landroid/support/v4/provider/SelfDestructiveThread$2;->val$callingHandler:Landroid/os/Handler;
+    :goto_0
+    iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread$2;->val$callingHandler:Landroid/os/Handler;
 
-    new-instance v3, Landroid/support/v4/provider/SelfDestructiveThread$2$1;
+    new-instance v2, Landroid/support/v4/provider/SelfDestructiveThread$2$1;
 
-    invoke-direct {v3, p0, v1}, Landroid/support/v4/provider/SelfDestructiveThread$2$1;-><init>(Landroid/support/v4/provider/SelfDestructiveThread$2;Ljava/lang/Object;)V
+    invoke-direct {v2, p0, v0}, Landroid/support/v4/provider/SelfDestructiveThread$2$1;-><init>(Landroid/support/v4/provider/SelfDestructiveThread$2;Ljava/lang/Object;)V
 
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 153
     return-void
 .end method

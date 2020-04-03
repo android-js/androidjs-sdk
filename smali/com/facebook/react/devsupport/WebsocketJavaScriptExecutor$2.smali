@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor;Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient;Landroid/os/Handler;Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$JSExecutorConnectCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor;
 
     .line 98
     iput-object p1, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->this$0:Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor;
@@ -45,28 +44,25 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 101
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean p2, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
+    .line 101
+    iput-boolean p1, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
 
     return-void
 .end method
 
 .method static synthetic access$200(Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;
+    .locals 0
 
     .line 98
-    iget-boolean v0, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
+    iget-boolean p0, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$202(Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;
-    .param p1, "x1"    # Z
 
     .line 98
     iput-boolean p1, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
@@ -78,7 +74,6 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 2
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 130
     iget-object v0, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->val$timeoutHandler:Landroid/os/Handler;
@@ -97,32 +92,30 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$JSExecutorConnectCallback;->onFailure(Ljava/lang/Throwable;)V
 
+    const/4 p1, 0x1
+
     .line 133
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
 
-    iput-boolean v0, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->didSendResult:Z
-
-    .line 135
     :cond_0
     return-void
 .end method
 
 .method public onSuccess(Ljava/lang/String;)V
-    .locals 2
-    .param p1, "response"    # Ljava/lang/String;
+    .locals 1
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
     .line 105
-    iget-object v0, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->val$client:Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;->val$client:Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient;
 
-    new-instance v1, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2$1;
+    new-instance v0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2$1;
 
-    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2$1;-><init>(Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2$1;-><init>(Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$2;)V
 
-    invoke-virtual {v0, v1}, Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient;->prepareJSRuntime(Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient$JSDebuggerCallback;)V
+    invoke-virtual {p1, v0}, Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient;->prepareJSRuntime(Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient$JSDebuggerCallback;)V
 
-    .line 126
     return-void
 .end method

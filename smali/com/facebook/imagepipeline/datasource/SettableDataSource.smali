@@ -24,10 +24,8 @@
     .locals 0
 
     .line 33
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;-><init>()V
 
-    .line 34
     return-void
 .end method
 
@@ -68,11 +66,8 @@
     .end annotation
 
     .line 90
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
-    .local p1, "result":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<TT;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 91
     return-void
 .end method
 
@@ -84,7 +79,6 @@
     .end param
 
     .line 23
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
     check-cast p1, Lcom/facebook/common/references/CloseableReference;
 
     invoke-virtual {p0, p1}, Lcom/facebook/imagepipeline/datasource/SettableDataSource;->closeResult(Lcom/facebook/common/references/CloseableReference;)V
@@ -106,7 +100,6 @@
     .end annotation
 
     .line 85
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
     invoke-super {p0}, Lcom/facebook/datasource/AbstractDataSource;->getResult()Ljava/lang/Object;
 
     move-result-object v0
@@ -126,7 +119,6 @@
     .end annotation
 
     .line 23
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/datasource/SettableDataSource;->getResult()Lcom/facebook/common/references/CloseableReference;
 
     move-result-object v0
@@ -135,7 +127,7 @@
 .end method
 
 .method public set(Lcom/facebook/common/references/CloseableReference;)Z
-    .locals 2
+    .locals 1
     .param p1    # Lcom/facebook/common/references/CloseableReference;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -149,45 +141,38 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
-    .local p1, "valueRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<TT;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->cloneOrNull(Lcom/facebook/common/references/CloseableReference;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v0
+    move-result-object p1
+
+    const/4 v0, 0x1
 
     .line 50
-    .local v0, "clonedRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<TT;>;"
-    const/4 v1, 0x1
+    invoke-super {p0, p1, v0}, Lcom/facebook/datasource/AbstractDataSource;->setResult(Ljava/lang/Object;Z)Z
 
-    invoke-super {p0, v0, v1}, Lcom/facebook/datasource/AbstractDataSource;->setResult(Ljava/lang/Object;Z)Z
+    move-result p1
 
-    move-result v1
-
-    return v1
+    return p1
 .end method
 
 .method public setException(Ljava/lang/Throwable;)Z
-    .locals 1
-    .param p1, "throwable"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 63
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
     invoke-super {p0, p1}, Lcom/facebook/datasource/AbstractDataSource;->setFailure(Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public setProgress(F)Z
-    .locals 1
-    .param p1, "progress"    # F
+    .locals 0
 
     .line 74
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/SettableDataSource;, "Lcom/facebook/imagepipeline/datasource/SettableDataSource<TT;>;"
     invoke-super {p0, p1}, Lcom/facebook/datasource/AbstractDataSource;->setProgress(F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

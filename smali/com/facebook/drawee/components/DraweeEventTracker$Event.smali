@@ -342,9 +342,9 @@
 
     sput-object v0, Lcom/facebook/drawee/components/DraweeEventTracker$Event;->ON_SUBMIT_CACHE_HIT:Lcom/facebook/drawee/components/DraweeEventTracker$Event;
 
-    .line 27
     const/16 v0, 0x18
 
+    .line 27
     new-array v0, v0, [Lcom/facebook/drawee/components/DraweeEventTracker$Event;
 
     sget-object v14, Lcom/facebook/drawee/components/DraweeEventTracker$Event;->ON_SET_HIERARCHY:Lcom/facebook/drawee/components/DraweeEventTracker$Event;
@@ -486,18 +486,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/drawee/components/DraweeEventTracker$Event;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 27
     const-class v0, Lcom/facebook/drawee/components/DraweeEventTracker$Event;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/drawee/components/DraweeEventTracker$Event;
+    check-cast p0, Lcom/facebook/drawee/components/DraweeEventTracker$Event;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/drawee/components/DraweeEventTracker$Event;

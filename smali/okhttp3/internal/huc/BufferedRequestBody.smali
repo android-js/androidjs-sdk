@@ -12,7 +12,6 @@
 # direct methods
 .method constructor <init>(J)V
     .locals 2
-    .param p1, "expectedContentLength"    # J
 
     .line 35
     invoke-direct {p0}, Lokhttp3/internal/huc/OutputStreamRequestBody;-><init>()V
@@ -24,9 +23,9 @@
 
     iput-object v0, p0, Lokhttp3/internal/huc/BufferedRequestBody;->buffer:Lokio/Buffer;
 
-    .line 33
     const-wide/16 v0, -0x1
 
+    .line 33
     iput-wide v0, p0, Lokhttp3/internal/huc/BufferedRequestBody;->contentLength:J
 
     .line 36
@@ -34,7 +33,6 @@
 
     invoke-virtual {p0, v0, p1, p2}, Lokhttp3/internal/huc/BufferedRequestBody;->initOutputStream(Lokio/BufferedSink;J)V
 
-    .line 37
     return-void
 .end method
 
@@ -55,17 +53,16 @@
 .end method
 
 .method public prepareToSendRequest(Lokhttp3/Request;)Lokhttp3/Request;
-    .locals 4
-    .param p1, "request"    # Lokhttp3/Request;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 49
     const-string v0, "Content-Length"
 
+    .line 49
     invoke-virtual {p1, v0}, Lokhttp3/Request;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -94,42 +91,40 @@
     .line 53
     invoke-virtual {p1}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object p1
+
+    const-string v1, "Transfer-Encoding"
 
     .line 54
-    const-string v2, "Transfer-Encoding"
+    invoke-virtual {p1, v1}, Lokhttp3/Request$Builder;->removeHeader(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->removeHeader(Ljava/lang/String;)Lokhttp3/Request$Builder;
+    move-result-object p1
+
+    iget-object v1, p0, Lokhttp3/internal/huc/BufferedRequestBody;->buffer:Lokio/Buffer;
+
+    .line 55
+    invoke-virtual {v1}, Lokio/Buffer;->size()J
+
+    move-result-wide v1
+
+    invoke-static {v1, v2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lokhttp3/internal/huc/BufferedRequestBody;->buffer:Lokio/Buffer;
+    invoke-virtual {p1, v0, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    .line 55
-    invoke-virtual {v2}, Lokio/Buffer;->size()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v0, v2}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
-
-    move-result-object v0
+    move-result-object p1
 
     .line 56
-    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 53
-    return-object v0
+    return-object p1
 .end method
 
 .method public writeTo(Lokio/BufferedSink;)V
     .locals 6
-    .param p1, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -143,9 +138,9 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lokhttp3/internal/huc/BufferedRequestBody;->buffer:Lokio/Buffer;
+    iget-object p1, p0, Lokhttp3/internal/huc/BufferedRequestBody;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v2}, Lokio/Buffer;->size()J
+    invoke-virtual {p1}, Lokio/Buffer;->size()J
 
     move-result-wide v4
 
@@ -153,6 +148,5 @@
 
     invoke-virtual/range {v0 .. v5}, Lokio/Buffer;->copyTo(Lokio/Buffer;JJ)Lokio/Buffer;
 
-    .line 61
     return-void
 .end method

@@ -26,8 +26,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/soloader/UnpackingSoSource$Dso;Ljava/io/InputStream;)V
     .locals 0
-    .param p1, "dso"    # Lcom/facebook/soloader/UnpackingSoSource$Dso;
-    .param p2, "content"    # Ljava/io/InputStream;
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 142
     iput-object p2, p0, Lcom/facebook/soloader/UnpackingSoSource$InputDso;->content:Ljava/io/InputStream;
 
-    .line 143
     return-void
 .end method
 
@@ -57,6 +54,5 @@
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
 
-    .line 148
     return-void
 .end method

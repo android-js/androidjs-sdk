@@ -24,12 +24,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 2
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 0
+    .param p1    # Landroid/app/Activity;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -43,30 +43,29 @@
     .line 30
     iput-object p2, p0, Lcom/android/js/api/Location;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 31
     if-nez p1, :cond_0
 
+    .line 31
     invoke-virtual {p2}, Lcom/facebook/react/bridge/ReactApplicationContext;->getCurrentActivity()Landroid/app/Activity;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
+    iput-object p1, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
 
     .line 32
     :cond_0
-    iget-object v0, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
+    iget-object p1, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
 
-    const-string v1, "location"
+    const-string p2, "location"
 
-    invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/location/LocationManager;
+    check-cast p1, Landroid/location/LocationManager;
 
-    iput-object v0, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
+    iput-object p1, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
 
-    .line 33
     return-void
 .end method
 
@@ -97,9 +96,9 @@
         isBlockingSynchronousMethod = true
     .end annotation
 
-    .line 41
     const-string v0, "\"}"
 
+    .line 41
     invoke-direct {p0}, Lcom/android/js/api/Location;->isGPSEnable()Ljava/lang/Boolean;
 
     move-result-object v1
@@ -108,7 +107,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     .line 43
     :try_start_0
@@ -149,7 +148,7 @@
 
     const-string v2, "{\"error\": true, \"err\": \"Please try again..\"}"
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     .line 54
     :try_start_1
@@ -207,20 +206,13 @@
 
     return-object v0
 
-    .line 58
     :cond_1
     return-object v2
 
-    .line 61
-    :cond_2
-    return-object v2
-
-    .line 63
     :catch_0
     move-exception v1
 
     .line 64
-    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 65
@@ -234,9 +226,9 @@
 
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -246,9 +238,7 @@
 
     return-object v0
 
-    .line 68
-    .end local v1    # "e":Ljava/lang/Exception;
-    :cond_3
+    :cond_2
     const-string v0, "{\"error\": true, \"msg\": \"GPS is disabled\"}"
 
     return-object v0
@@ -257,7 +247,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 74
     const-string v0, "Location"
 
     return-object v0
@@ -265,37 +254,27 @@
 
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 0
-    .param p1, "location"    # Landroid/location/Location;
 
     .line 79
     iput-object p1, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
-    .line 80
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "s"    # Ljava/lang/String;
 
-    .line 95
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "s"    # Ljava/lang/String;
 
-    .line 90
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "s"    # Ljava/lang/String;
-    .param p2, "i"    # I
-    .param p3, "bundle"    # Landroid/os/Bundle;
 
-    .line 85
     return-void
 .end method

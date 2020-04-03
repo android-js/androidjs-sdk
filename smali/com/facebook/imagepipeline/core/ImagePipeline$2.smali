@@ -43,7 +43,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/core/ImagePipeline;Lcom/facebook/imagepipeline/request/ImageRequest;Ljava/lang/Object;Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;Lcom/facebook/imagepipeline/listener/RequestListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/core/ImagePipeline;
 
     .line 144
     iput-object p1, p0, Lcom/facebook/imagepipeline/core/ImagePipeline$2;->this$0:Lcom/facebook/imagepipeline/core/ImagePipeline;

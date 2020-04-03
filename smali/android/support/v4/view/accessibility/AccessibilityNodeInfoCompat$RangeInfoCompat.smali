@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1, "info"    # Ljava/lang/Object;
 
     .line 800
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,16 +36,11 @@
     .line 801
     iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;->mInfo:Ljava/lang/Object;
 
-    .line 802
     return-void
 .end method
 
 .method public static obtain(IFFF)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;
     .locals 2
-    .param p0, "type"    # I
-    .param p1, "min"    # F
-    .param p2, "max"    # F
-    .param p3, "current"    # F
 
     .line 790
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -61,21 +55,21 @@
     .line 792
     invoke-static {p0, p1, p2, p3}, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;->obtain(IFFF)Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;-><init>(Ljava/lang/Object;)V
 
     return-object v0
 
     .line 794
     :cond_0
-    new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;
+    new-instance p0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;-><init>(Ljava/lang/Object;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -101,7 +95,6 @@
 
     return v0
 
-    .line 813
     :cond_0
     const/4 v0, 0x0
 
@@ -129,7 +122,6 @@
 
     return v0
 
-    .line 826
     :cond_0
     const/4 v0, 0x0
 
@@ -157,7 +149,6 @@
 
     return v0
 
-    .line 839
     :cond_0
     const/4 v0, 0x0
 
@@ -185,7 +176,6 @@
 
     return v0
 
-    .line 856
     :cond_0
     const/4 v0, 0x0
 

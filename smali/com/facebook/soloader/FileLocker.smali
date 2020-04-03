@@ -17,8 +17,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/io/File;)V
-    .locals 3
-    .param p1, "lockFile"    # Ljava/io/File;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -35,60 +34,47 @@
 
     iput-object v0, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
 
-    .line 36
-    const/4 v0, 0x0
-
     .line 38
-    .local v0, "lock":Ljava/nio/channels/FileLock;
     :try_start_0
-    iget-object v1, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
+    iget-object p1, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
+    invoke-virtual {p1}, Ljava/io/FileOutputStream;->getChannel()Ljava/nio/channels/FileChannel;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Ljava/nio/channels/FileChannel;->lock()Ljava/nio/channels/FileLock;
+    invoke-virtual {p1}, Ljava/nio/channels/FileChannel;->lock()Ljava/nio/channels/FileLock;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v0, v1
-
-    .line 40
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 41
-    iget-object v1, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
+    iget-object v0, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
 
     .line 45
     :cond_0
-    iput-object v0, p0, Lcom/facebook/soloader/FileLocker;->mLock:Ljava/nio/channels/FileLock;
+    iput-object p1, p0, Lcom/facebook/soloader/FileLocker;->mLock:Ljava/nio/channels/FileLock;
 
-    .line 46
     return-void
 
-    .line 40
     :catchall_0
-    move-exception v1
-
-    if-nez v0, :cond_1
+    move-exception p1
 
     .line 41
-    iget-object v2, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
+    iget-object v0, p0, Lcom/facebook/soloader/FileLocker;->mLockFileOutputStream:Ljava/io/FileOutputStream;
 
-    invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
+    invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
 
     .line 43
-    :cond_1
-    throw v1
+    throw p1
 .end method
 
 .method public static lock(Ljava/io/File;)Lcom/facebook/soloader/FileLocker;
     .locals 1
-    .param p0, "lockFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -132,13 +118,8 @@
 
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
 
-    .line 56
-    nop
-
-    .line 57
     return-void
 
-    .line 55
     :catchall_0
     move-exception v0
 

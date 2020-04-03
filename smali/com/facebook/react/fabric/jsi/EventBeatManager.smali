@@ -30,14 +30,11 @@
     .line 24
     invoke-static {}, Lcom/facebook/react/fabric/jsi/FabricSoLoader;->staticInit()V
 
-    .line 25
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/JavaScriptContextHolder;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 2
-    .param p1, "jsContext"    # Lcom/facebook/react/bridge/JavaScriptContextHolder;
-    .param p2, "reactApplicationContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,20 +46,18 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/fabric/jsi/EventBeatManager;->initHybrid(J)Lcom/facebook/jni/HybridData;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/fabric/jsi/EventBeatManager;->mHybridData:Lcom/facebook/jni/HybridData;
+    iput-object p1, p0, Lcom/facebook/react/fabric/jsi/EventBeatManager;->mHybridData:Lcom/facebook/jni/HybridData;
 
     .line 37
     iput-object p2, p0, Lcom/facebook/react/fabric/jsi/EventBeatManager;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 38
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/fabric/jsi/EventBeatManager;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/fabric/jsi/EventBeatManager;
 
     .line 21
     invoke-direct {p0}, Lcom/facebook/react/fabric/jsi/EventBeatManager;->beat()V
@@ -100,7 +95,6 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/bridge/ReactApplicationContext;->runOnJSQueueThread(Ljava/lang/Runnable;)V
 
-    .line 60
     :goto_0
     return-void
 .end method
@@ -116,6 +110,5 @@
     .line 42
     invoke-direct {p0}, Lcom/facebook/react/fabric/jsi/EventBeatManager;->dispatchEventsAsync()V
 
-    .line 43
     return-void
 .end method

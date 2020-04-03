@@ -25,12 +25,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 26
     const-string v0, "fb"
 
+    .line 26
     invoke-static {v0}, Lcom/facebook/soloader/SoLoader;->loadLibrary(Ljava/lang/String;)Z
 
-    .line 27
     return-void
 .end method
 
@@ -97,8 +96,6 @@
 
     return-void
 
-    .line 41
-    .end local p0    # "this":Lcom/facebook/jni/HybridData;
     :catchall_0
     move-exception v0
 

@@ -86,9 +86,9 @@
 
     sput-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->SPRING:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    .line 13
     const/4 v0, 0x5
 
+    .line 13
     new-array v0, v0, [Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
     sget-object v6, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->LINEAR:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
@@ -132,7 +132,6 @@
 
 .method public static fromString(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
     .locals 6
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 21
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -155,7 +154,6 @@
 
     sparse-switch v1, :sswitch_data_0
 
-    :cond_0
     goto :goto_0
 
     :sswitch_0
@@ -223,6 +221,7 @@
 
     goto :goto_1
 
+    :cond_0
     :goto_0
     const/4 v0, -0x1
 
@@ -238,9 +237,9 @@
     if-ne v0, v2, :cond_1
 
     .line 31
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->SPRING:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->SPRING:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    return-object v0
+    return-object p0
 
     .line 33
     :cond_1
@@ -258,35 +257,35 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 29
     :cond_2
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->EASE_IN_EASE_OUT:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->EASE_IN_EASE_OUT:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    return-object v0
+    return-object p0
 
     .line 27
     :cond_3
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->EASE_OUT:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->EASE_OUT:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    return-object v0
+    return-object p0
 
     .line 25
     :cond_4
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->EASE_IN:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->EASE_IN:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    return-object v0
+    return-object p0
 
     .line 23
     :cond_5
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->LINEAR:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    sget-object p0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->LINEAR:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -302,18 +301,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 13
     const-class v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    check-cast p0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;

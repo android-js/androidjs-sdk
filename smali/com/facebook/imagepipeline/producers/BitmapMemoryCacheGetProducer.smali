@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;Lcom/facebook/imagepipeline/producers/Producer;)V
     .locals 0
-    .param p2, "cacheKeyFactory"    # Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -27,11 +26,8 @@
     .end annotation
 
     .line 27
-    .local p1, "memoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .local p3, "inputProducer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/imagepipeline/producers/BitmapMemoryCacheProducer;-><init>(Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;Lcom/facebook/imagepipeline/producers/Producer;)V
 
-    .line 28
     return-void
 .end method
 
@@ -40,7 +36,6 @@
 .method protected getProducerName()Ljava/lang/String;
     .locals 1
 
-    .line 41
     const-string v0, "BitmapMemoryCacheGetProducer"
 
     return-object v0
@@ -48,8 +43,6 @@
 
 .method protected wrapConsumer(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/cache/common/CacheKey;Z)Lcom/facebook/imagepipeline/producers/Consumer;
     .locals 0
-    .param p2, "cacheKey"    # Lcom/facebook/cache/common/CacheKey;
-    .param p3, "isMemoryCacheEnabled"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +59,5 @@
         }
     .end annotation
 
-    .line 36
-    .local p1, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     return-object p1
 .end method

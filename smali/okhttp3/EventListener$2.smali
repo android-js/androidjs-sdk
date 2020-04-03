@@ -36,11 +36,10 @@
 
 # virtual methods
 .method public create(Lokhttp3/Call;)Lokhttp3/EventListener;
-    .locals 1
-    .param p1, "call"    # Lokhttp3/Call;
+    .locals 0
 
     .line 59
-    iget-object v0, p0, Lokhttp3/EventListener$2;->val$listener:Lokhttp3/EventListener;
+    iget-object p1, p0, Lokhttp3/EventListener$2;->val$listener:Lokhttp3/EventListener;
 
-    return-object v0
+    return-object p1
 .end method

@@ -129,28 +129,20 @@
 
 .method public constructor <init>(Lcom/facebook/cache/disk/DiskStorage;Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;Lcom/facebook/cache/disk/DiskStorageCache$Params;Lcom/facebook/cache/common/CacheEventListener;Lcom/facebook/cache/common/CacheErrorLogger;Lcom/facebook/common/disk/DiskTrimmableRegistry;Landroid/content/Context;Ljava/util/concurrent/Executor;Z)V
     .locals 2
-    .param p1, "diskStorage"    # Lcom/facebook/cache/disk/DiskStorage;
-    .param p2, "entryEvictionComparatorSupplier"    # Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
-    .param p3, "params"    # Lcom/facebook/cache/disk/DiskStorageCache$Params;
-    .param p4, "cacheEventListener"    # Lcom/facebook/cache/common/CacheEventListener;
-    .param p5, "cacheErrorLogger"    # Lcom/facebook/cache/common/CacheErrorLogger;
-    .param p6, "diskTrimmableRegistry"    # Lcom/facebook/common/disk/DiskTrimmableRegistry;
+    .param p6    # Lcom/facebook/common/disk/DiskTrimmableRegistry;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p7, "context"    # Landroid/content/Context;
-    .param p8, "executorForBackgrountInit"    # Ljava/util/concurrent/Executor;
-    .param p9, "indexPopulateAtStartupEnabled"    # Z
 
     .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 85
-    new-instance v0, Ljava/lang/Object;
+    new-instance p7, Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p7}, Ljava/lang/Object;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
+    iput-object p7, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
     .line 157
     iget-wide v0, p3, Lcom/facebook/cache/disk/DiskStorageCache$Params;->mLowDiskSpaceCacheSizeLimit:J
@@ -170,9 +162,9 @@
     .line 160
     invoke-static {}, Lcom/facebook/common/statfs/StatFsHelper;->getInstance()Lcom/facebook/common/statfs/StatFsHelper;
 
-    move-result-object v0
+    move-result-object p7
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStatFsHelper:Lcom/facebook/common/statfs/StatFsHelper;
+    iput-object p7, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStatFsHelper:Lcom/facebook/common/statfs/StatFsHelper;
 
     .line 162
     iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
@@ -180,30 +172,29 @@
     .line 164
     iput-object p2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mEntryEvictionComparatorSupplier:Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
 
-    .line 166
-    const-wide/16 v0, -0x1
+    const-wide/16 p1, -0x1
 
-    iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLastUpdateTime:J
+    .line 166
+    iput-wide p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLastUpdateTime:J
 
     .line 168
     iput-object p4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
     .line 170
-    iget-wide v0, p3, Lcom/facebook/cache/disk/DiskStorageCache$Params;->mCacheSizeLimitMinimum:J
+    iget-wide p1, p3, Lcom/facebook/cache/disk/DiskStorageCache$Params;->mCacheSizeLimitMinimum:J
 
-    iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimitMinimum:J
+    iput-wide p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimitMinimum:J
 
     .line 172
     iput-object p5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
     .line 174
-    new-instance v0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    new-instance p1, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    invoke-direct {v0}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;-><init>()V
+    invoke-direct {p1}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    .line 176
     if-eqz p6, :cond_0
 
     .line 177
@@ -213,84 +204,79 @@
     :cond_0
     invoke-static {}, Lcom/facebook/common/time/SystemClock;->get()Lcom/facebook/common/time/SystemClock;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mClock:Lcom/facebook/common/time/Clock;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mClock:Lcom/facebook/common/time/Clock;
 
     .line 181
     iput-boolean p9, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
 
     .line 183
-    new-instance v0, Ljava/util/HashSet;
+    new-instance p1, Ljava/util/HashSet;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
     .line 185
-    iget-boolean v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
+    iget-boolean p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 186
-    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+    new-instance p1, Ljava/util/concurrent/CountDownLatch;
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
 
     .line 188
-    new-instance v0, Lcom/facebook/cache/disk/DiskStorageCache$1;
+    new-instance p1, Lcom/facebook/cache/disk/DiskStorageCache$1;
 
-    invoke-direct {v0, p0}, Lcom/facebook/cache/disk/DiskStorageCache$1;-><init>(Lcom/facebook/cache/disk/DiskStorageCache;)V
+    invoke-direct {p1, p0}, Lcom/facebook/cache/disk/DiskStorageCache$1;-><init>(Lcom/facebook/cache/disk/DiskStorageCache;)V
 
-    invoke-interface {p8, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {p8, p1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
     .line 200
     :cond_1
-    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+    new-instance p1, Ljava/util/concurrent/CountDownLatch;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 202
     :goto_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/cache/disk/DiskStorageCache;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/cache/disk/DiskStorageCache;
+    .locals 0
 
     .line 42
-    iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/cache/disk/DiskStorageCache;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/cache/disk/DiskStorageCache;
+    .locals 0
 
     .line 42
     invoke-direct {p0}, Lcom/facebook/cache/disk/DiskStorageCache;->maybeUpdateFileCacheSize()Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$202(Lcom/facebook/cache/disk/DiskStorageCache;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/cache/disk/DiskStorageCache;
-    .param p1, "x1"    # Z
 
     .line 42
     iput-boolean p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexReady:Z
@@ -299,20 +285,16 @@
 .end method
 
 .method static synthetic access$300(Lcom/facebook/cache/disk/DiskStorageCache;)Ljava/util/concurrent/CountDownLatch;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/cache/disk/DiskStorageCache;
+    .locals 0
 
     .line 42
-    iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCountDownLatch:Ljava/util/concurrent/CountDownLatch;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private endInsert(Lcom/facebook/cache/disk/DiskStorage$Inserter;Lcom/facebook/cache/common/CacheKey;Ljava/lang/String;)Lcom/facebook/binaryresource/BinaryResource;
-    .locals 7
-    .param p1, "inserter"    # Lcom/facebook/cache/disk/DiskStorage$Inserter;
-    .param p2, "key"    # Lcom/facebook/cache/common/CacheKey;
-    .param p3, "resourceId"    # Ljava/lang/String;
+    .locals 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -328,46 +310,42 @@
     :try_start_0
     invoke-interface {p1, p2}, Lcom/facebook/cache/disk/DiskStorage$Inserter;->commit(Ljava/lang/Object;)Lcom/facebook/binaryresource/BinaryResource;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 342
-    .local v1, "resource":Lcom/facebook/binaryresource/BinaryResource;
-    iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object p2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v2, p3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, p3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 343
-    iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    iget-object p2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    invoke-interface {v1}, Lcom/facebook/binaryresource/BinaryResource;->size()J
+    invoke-interface {p1}, Lcom/facebook/binaryresource/BinaryResource;->size()J
 
-    move-result-wide v3
+    move-result-wide v1
 
-    const-wide/16 v5, 0x1
+    const-wide/16 v3, 0x1
 
-    invoke-virtual {v2, v3, v4, v5, v6}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->increment(JJ)V
+    invoke-virtual {p2, v1, v2, v3, v4}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->increment(JJ)V
 
     .line 344
     monitor-exit v0
 
-    return-object v1
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 345
-    .end local v1    # "resource":Lcom/facebook/binaryresource/BinaryResource;
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method private evictAboveSize(JLcom/facebook/cache/common/CacheEventListener$EvictionReason;)V
-    .locals 19
-    .param p1, "desiredSize"    # J
-    .param p3, "reason"    # Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -396,10 +374,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 504
-    .local v0, "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    nop
-
     .line 506
     iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
@@ -407,237 +381,167 @@
 
     move-result-wide v4
 
-    .line 507
-    .local v4, "cacheSizeBeforeClearance":J
     sub-long v6, v4, v2
 
-    .line 508
-    .local v6, "deleteSize":J
     const/4 v8, 0x0
 
-    .line 509
-    .local v8, "itemCount":I
-    const-wide/16 v9, 0x0
-
     .line 510
-    .local v9, "sumItemSizes":J
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :goto_0
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_2
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/facebook/cache/disk/DiskStorage$Entry;
-
-    .line 511
-    .local v12, "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    cmp-long v13, v9, v6
-
-    if-lez v13, :cond_0
-
-    .line 512
-    move-object/from16 v15, p3
-
-    move-object/from16 v16, v0
-
-    move-wide/from16 v17, v6
-
-    goto :goto_2
-
-    .line 514
-    :cond_0
-    iget-object v13, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
-
-    invoke-interface {v13, v12}, Lcom/facebook/cache/disk/DiskStorage;->remove(Lcom/facebook/cache/disk/DiskStorage$Entry;)J
-
-    move-result-wide v13
-
-    .line 515
-    .local v13, "deletedSize":J
-    iget-object v15, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
-
-    move-object/from16 v16, v0
-
-    .end local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .local v16, "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    invoke-interface {v12}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {v15, v0}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    const-wide/16 v11, 0x0
 
-    .line 516
-    const-wide/16 v17, 0x0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    cmp-long v0, v13, v17
+    move-result v13
 
-    if-lez v0, :cond_1
+    if-eqz v13, :cond_2
 
-    .line 517
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/facebook/cache/disk/DiskStorage$Entry;
+
+    cmp-long v14, v11, v6
+
+    if-lez v14, :cond_0
+
+    goto :goto_1
+
+    .line 514
+    :cond_0
+    iget-object v14, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
+
+    invoke-interface {v14, v13}, Lcom/facebook/cache/disk/DiskStorage;->remove(Lcom/facebook/cache/disk/DiskStorage$Entry;)J
+
+    move-result-wide v14
+
+    .line 515
+    iget-object v9, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+
+    invoke-interface {v13}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-interface {v9, v10}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+
+    const-wide/16 v9, 0x0
+
+    cmp-long v16, v14, v9
+
+    if-lez v16, :cond_1
+
     add-int/lit8 v8, v8, 0x1
 
-    .line 518
-    add-long/2addr v9, v13
+    add-long/2addr v11, v14
 
     .line 519
     invoke-static {}, Lcom/facebook/cache/disk/SettableCacheEvent;->obtain()Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v9
 
     .line 520
-    invoke-interface {v12}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
+    invoke-interface {v13}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v0, v15}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v9, v10}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v9
+
+    move-object/from16 v10, p3
 
     .line 521
-    move-object/from16 v15, p3
+    invoke-virtual {v9, v10}, Lcom/facebook/cache/disk/SettableCacheEvent;->setEvictionReason(Lcom/facebook/cache/common/CacheEventListener$EvictionReason;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    invoke-virtual {v0, v15}, Lcom/facebook/cache/disk/SettableCacheEvent;->setEvictionReason(Lcom/facebook/cache/common/CacheEventListener$EvictionReason;)Lcom/facebook/cache/disk/SettableCacheEvent;
-
-    move-result-object v0
+    move-result-object v9
 
     .line 522
-    invoke-virtual {v0, v13, v14}, Lcom/facebook/cache/disk/SettableCacheEvent;->setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v9, v14, v15}, Lcom/facebook/cache/disk/SettableCacheEvent;->setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v9
 
-    move-wide/from16 v17, v6
-
-    .end local v6    # "deleteSize":J
-    .local v17, "deleteSize":J
-    sub-long v6, v4, v9
+    sub-long v13, v4, v11
 
     .line 523
-    invoke-virtual {v0, v6, v7}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v9, v13, v14}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v9
 
     .line 524
-    invoke-virtual {v0, v2, v3}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheLimit(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v9, v2, v3}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheLimit(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v9
 
     .line 525
-    .local v0, "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    iget-object v6, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object v13, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v6, v0}, Lcom/facebook/cache/common/CacheEventListener;->onEviction(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {v13, v9}, Lcom/facebook/cache/common/CacheEventListener;->onEviction(Lcom/facebook/cache/common/CacheEvent;)V
 
     .line 526
-    invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
-
-    goto :goto_1
-
-    .line 516
-    .end local v0    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .end local v17    # "deleteSize":J
-    .restart local v6    # "deleteSize":J
-    :cond_1
-    move-object/from16 v15, p3
-
-    move-wide/from16 v17, v6
-
-    .line 528
-    .end local v6    # "deleteSize":J
-    .end local v12    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .end local v13    # "deletedSize":J
-    .restart local v17    # "deleteSize":J
-    :goto_1
-    move-object/from16 v0, v16
-
-    move-wide/from16 v6, v17
+    invoke-virtual {v9}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
     goto :goto_0
 
-    .line 510
-    .end local v16    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v17    # "deleteSize":J
-    .local v0, "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v6    # "deleteSize":J
-    :cond_2
-    move-object/from16 v15, p3
+    :cond_1
+    move-object/from16 v10, p3
 
-    move-object/from16 v16, v0
-
-    move-wide/from16 v17, v6
+    goto :goto_0
 
     .line 529
-    .end local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v6    # "deleteSize":J
-    .restart local v16    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v17    # "deleteSize":J
-    :goto_2
+    :cond_2
+    :goto_1
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    neg-long v6, v9
+    neg-long v2, v11
 
-    neg-int v11, v8
+    neg-int v4, v8
 
-    int-to-long v11, v11
+    int-to-long v4, v4
 
-    invoke-virtual {v0, v6, v7, v11, v12}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->increment(JJ)V
+    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->increment(JJ)V
 
     .line 530
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
     invoke-interface {v0}, Lcom/facebook/cache/disk/DiskStorage;->purgeUnexpectedResources()V
 
-    .line 531
     return-void
 
-    .line 497
-    .end local v4    # "cacheSizeBeforeClearance":J
-    .end local v8    # "itemCount":I
-    .end local v9    # "sumItemSizes":J
-    .end local v16    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v17    # "deleteSize":J
     :catch_0
     move-exception v0
 
-    move-object/from16 v15, p3
-
     .line 498
-    .local v0, "ioe":Ljava/io/IOException;
-    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    iget-object v2, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    sget-object v5, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->EVICTION:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    sget-object v3, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->EVICTION:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    sget-object v6, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "evictAboveSize: "
+    const-string v6, "evictAboveSize: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 501
     invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v5
 
     .line 498
-    invoke-interface {v4, v5, v6, v7, v0}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {v2, v3, v4, v5, v0}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 503
     throw v0
@@ -646,7 +550,7 @@
 .end method
 
 .method private getSortedEntries(Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 9
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -660,7 +564,6 @@
     .end annotation
 
     .line 542
-    .local p1, "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
     iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mClock:Lcom/facebook/common/time/Clock;
 
     invoke-interface {v0}, Lcom/facebook/common/time/Clock;->now()J
@@ -672,7 +575,6 @@
     add-long/2addr v0, v2
 
     .line 543
-    .local v0, "threshold":J
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -682,7 +584,6 @@
     invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 544
-    .local v2, "sortedList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -692,67 +593,61 @@
     invoke-direct {v3, v4}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 545
-    .local v3, "listToSort":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
     invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
-    :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/facebook/cache/disk/DiskStorage$Entry;
+    check-cast v4, Lcom/facebook/cache/disk/DiskStorage$Entry;
 
     .line 546
-    .local v5, "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    invoke-interface {v5}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
+    invoke-interface {v4}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
 
-    move-result-wide v6
+    move-result-wide v5
 
-    cmp-long v8, v6, v0
+    cmp-long v7, v5, v0
 
-    if-lez v8, :cond_0
+    if-lez v7, :cond_0
 
     .line 547
-    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_0
 
     .line 549
     :cond_0
-    invoke-virtual {v3, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 551
-    .end local v5    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    :goto_1
     goto :goto_0
 
     .line 552
     :cond_1
-    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mEntryEvictionComparatorSupplier:Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mEntryEvictionComparatorSupplier:Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
 
-    invoke-interface {v4}, Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;->get()Lcom/facebook/cache/disk/EntryEvictionComparator;
+    invoke-interface {p1}, Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;->get()Lcom/facebook/cache/disk/EntryEvictionComparator;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-static {v3, v4}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    invoke-static {v3, p1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     .line 553
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 554
     return-object v2
 .end method
 
 .method private maybeEvictFilesInCacheDir()V
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -771,7 +666,6 @@
     move-result v1
 
     .line 471
-    .local v1, "calculatedRightNow":Z
     invoke-direct {p0}, Lcom/facebook/cache/disk/DiskStorageCache;->updateFileCacheSizeLimit()V
 
     .line 473
@@ -782,7 +676,6 @@
     move-result-wide v2
 
     .line 476
-    .local v2, "cacheSize":J
     iget-wide v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
 
     cmp-long v6, v2, v4
@@ -792,9 +685,9 @@
     if-nez v1, :cond_0
 
     .line 477
-    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    invoke-virtual {v4}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->reset()V
+    invoke-virtual {v1}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->reset()V
 
     .line 478
     invoke-direct {p0}, Lcom/facebook/cache/disk/DiskStorageCache;->maybeUpdateFileCacheSize()Z
@@ -803,35 +696,31 @@
     :cond_0
     iget-wide v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
 
-    cmp-long v6, v2, v4
+    cmp-long v1, v2, v4
 
-    if-lez v6, :cond_1
+    if-lez v1, :cond_1
 
     .line 483
-    iget-wide v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
+    iget-wide v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
 
-    const-wide/16 v6, 0x9
+    const-wide/16 v3, 0x9
 
-    mul-long v4, v4, v6
+    mul-long v1, v1, v3
 
-    const-wide/16 v6, 0xa
+    const-wide/16 v3, 0xa
 
-    div-long/2addr v4, v6
+    div-long/2addr v1, v3
 
-    sget-object v6, Lcom/facebook/cache/common/CacheEventListener$EvictionReason;->CACHE_FULL:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
+    sget-object v3, Lcom/facebook/cache/common/CacheEventListener$EvictionReason;->CACHE_FULL:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
 
-    invoke-direct {p0, v4, v5, v6}, Lcom/facebook/cache/disk/DiskStorageCache;->evictAboveSize(JLcom/facebook/cache/common/CacheEventListener$EvictionReason;)V
+    invoke-direct {p0, v1, v2, v3}, Lcom/facebook/cache/disk/DiskStorageCache;->evictAboveSize(JLcom/facebook/cache/common/CacheEventListener$EvictionReason;)V
 
     .line 487
-    .end local v1    # "calculatedRightNow":Z
-    .end local v2    # "cacheSize":J
     :cond_1
     monitor-exit v0
 
-    .line 488
     return-void
 
-    .line 487
     :catchall_0
     move-exception v1
 
@@ -856,7 +745,6 @@
     move-result-wide v0
 
     .line 692
-    .local v0, "now":J
     iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
     invoke-virtual {v2}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->isInitialized()Z
@@ -873,79 +761,52 @@
 
     if-eqz v6, :cond_1
 
-    sub-long v2, v0, v2
+    sub-long/2addr v0, v2
 
-    sget-wide v4, Lcom/facebook/cache/disk/DiskStorageCache;->FILECACHE_SIZE_UPDATE_PERIOD_MS:J
+    sget-wide v2, Lcom/facebook/cache/disk/DiskStorageCache;->FILECACHE_SIZE_UPDATE_PERIOD_MS:J
 
-    cmp-long v6, v2, v4
+    cmp-long v4, v0, v2
 
-    if-lez v6, :cond_0
+    if-lez v4, :cond_0
 
     goto :goto_0
 
-    .line 697
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    return v2
+    return v0
 
     .line 695
     :cond_1
     :goto_0
     invoke-direct {p0}, Lcom/facebook/cache/disk/DiskStorageCache;->maybeUpdateFileCacheSizeAndIndex()Z
 
-    move-result v2
+    move-result v0
 
-    return v2
+    return v0
 .end method
 
 .method private maybeUpdateFileCacheSizeAndIndex()Z
-    .locals 21
+    .locals 22
     .annotation build Ljavax/annotation/concurrent/GuardedBy;
         value = "mLock"
     .end annotation
 
-    .line 702
     move-object/from16 v1, p0
 
-    const-wide/16 v2, 0x0
-
-    .line 703
-    .local v2, "size":J
-    const/4 v4, 0x0
-
-    .line 704
-    .local v4, "count":I
-    const/4 v5, 0x0
-
-    .line 705
-    .local v5, "foundFutureTimestamp":Z
-    const/4 v6, 0x0
-
-    .line 706
-    .local v6, "numFutureFiles":I
-    const/4 v7, 0x0
-
-    .line 707
-    .local v7, "sizeFutureFiles":I
-    const-wide/16 v8, -0x1
-
     .line 708
-    .local v8, "maxTimeDelta":J
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mClock:Lcom/facebook/common/time/Clock;
 
     invoke-interface {v0}, Lcom/facebook/common/time/Clock;->now()J
 
-    move-result-wide v10
+    move-result-wide v2
 
     .line 709
-    .local v10, "now":J
-    sget-wide v12, Lcom/facebook/cache/disk/DiskStorageCache;->FUTURE_TIMESTAMP_THRESHOLD_MS:J
+    sget-wide v4, Lcom/facebook/cache/disk/DiskStorageCache;->FUTURE_TIMESTAMP_THRESHOLD_MS:J
 
-    add-long/2addr v12, v10
+    add-long/2addr v4, v2
 
     .line 711
-    .local v12, "timeThreshold":J
     iget-boolean v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
 
     if-eqz v0, :cond_0
@@ -961,13 +822,9 @@
     .line 712
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    move-object v14, v0
-
-    .local v0, "tempResourceIndex":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     goto :goto_0
 
     .line 713
-    .end local v0    # "tempResourceIndex":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :cond_0
     iget-boolean v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
 
@@ -978,484 +835,272 @@
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    move-object v14, v0
-
-    .restart local v0    # "tempResourceIndex":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     goto :goto_0
 
-    .line 716
-    .end local v0    # "tempResourceIndex":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :cond_1
     const/4 v0, 0x0
 
-    move-object v14, v0
-
     .line 719
-    .local v14, "tempResourceIndex":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     :goto_0
     :try_start_0
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
+    iget-object v8, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
-    invoke-interface {v0}, Lcom/facebook/cache/disk/DiskStorage;->getEntries()Ljava/util/Collection;
+    invoke-interface {v8}, Lcom/facebook/cache/disk/DiskStorage;->getEntries()Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object v8
 
     .line 720
-    .local v0, "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v8}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_9
+    move-result-object v8
+
+    const-wide/16 v9, 0x0
+
+    const-wide/16 v11, -0x1
+
+    move-wide v6, v11
+
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    move-wide v11, v9
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
 
     :goto_1
-    :try_start_1
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v16
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_8
+
+    const/16 v17, 0x1
 
     if-eqz v16, :cond_4
 
-    :try_start_2
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v16
 
     check-cast v16, Lcom/facebook/cache/disk/DiskStorage$Entry;
 
-    .line 721
-    .local v16, "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     .line 722
     invoke-interface/range {v16 .. v16}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getSize()J
 
-    move-result-wide v17
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    move-result-wide v18
 
-    add-long v2, v2, v17
+    add-long v11, v11, v18
 
     .line 725
-    :try_start_3
     invoke-interface/range {v16 .. v16}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
 
-    move-result-wide v17
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    move-result-wide v18
 
-    cmp-long v19, v17, v12
+    cmp-long v20, v18, v4
 
-    if-lez v19, :cond_2
+    if-lez v20, :cond_2
 
-    .line 726
-    const/4 v5, 0x1
+    add-int/lit8 v13, v13, 0x1
 
-    .line 727
-    add-int/lit8 v6, v6, 0x1
+    move-wide/from16 v18, v4
+
+    int-to-long v4, v14
 
     .line 728
-    move-wide/from16 v17, v2
-
-    .end local v2    # "size":J
-    .local v17, "size":J
-    int-to-long v2, v7
-
-    :try_start_4
     invoke-interface/range {v16 .. v16}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getSize()J
 
-    move-result-wide v19
+    move-result-wide v20
 
-    add-long v2, v2, v19
+    add-long v4, v4, v20
 
-    long-to-int v7, v2
+    long-to-int v5, v4
 
     .line 729
     invoke-interface/range {v16 .. v16}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
 
-    move-result-wide v2
+    move-result-wide v20
 
-    sub-long/2addr v2, v10
+    move v9, v5
 
-    invoke-static {v2, v3, v8, v9}, Ljava/lang/Math;->max(JJ)J
+    sub-long v4, v20, v2
 
-    move-result-wide v2
+    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->max(JJ)J
 
-    move-wide v8, v2
+    move-result-wide v4
 
-    .end local v8    # "maxTimeDelta":J
-    .local v2, "maxTimeDelta":J
+    move-wide v6, v4
+
+    move v14, v9
+
+    const/4 v9, 0x1
+
     goto :goto_2
 
-    .line 730
-    .end local v17    # "size":J
-    .local v2, "size":J
-    .restart local v8    # "maxTimeDelta":J
     :cond_2
-    move-wide/from16 v17, v2
+    move-wide/from16 v18, v4
 
-    .end local v2    # "size":J
-    .restart local v17    # "size":J
-    iget-boolean v2, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
+    .line 730
+    iget-boolean v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_3
 
     .line 731
     invoke-interface/range {v16 .. v16}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-interface {v14, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    invoke-interface {v0, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 733
-    .end local v16    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
     :cond_3
     :goto_2
-    move-wide/from16 v2, v17
+    move-wide/from16 v4, v18
 
     goto :goto_1
 
-    .line 750
-    .end local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    :catch_0
-    move-exception v0
-
-    move-wide/from16 v2, v17
-
-    move/from16 v17, v5
-
-    move-wide/from16 v18, v12
-
-    goto/16 :goto_4
-
-    .end local v17    # "size":J
-    .restart local v2    # "size":J
-    :catch_1
-    move-exception v0
-
-    move-wide/from16 v17, v2
-
-    move/from16 v17, v5
-
-    move-wide/from16 v18, v12
-
-    .end local v2    # "size":J
-    .restart local v17    # "size":J
-    goto/16 :goto_4
-
-    .end local v17    # "size":J
-    .restart local v2    # "size":J
-    :catch_2
-    move-exception v0
-
-    move/from16 v17, v5
-
-    move-wide/from16 v18, v12
-
-    goto/16 :goto_4
-
-    .line 734
-    .restart local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
     :cond_4
-    if-eqz v5, :cond_5
+    if-eqz v9, :cond_5
 
     .line 735
-    :try_start_5
-    iget-object v15, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    move-object/from16 v16, v0
+    sget-object v5, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->READ_INVALID_ENTRY:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    .end local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .local v16, "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    sget-object v0, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->READ_INVALID_ENTRY:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_5
+    sget-object v8, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    move/from16 v17, v5
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    .end local v5    # "foundFutureTimestamp":Z
-    .local v17, "foundFutureTimestamp":Z
-    :try_start_6
-    sget-object v5, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-wide/from16 v18, v12
+    const-string v15, "Future timestamp found in "
 
-    .end local v12    # "timeThreshold":J
-    .local v18, "timeThreshold":J
-    :try_start_7
-    new-instance v12, Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "Future timestamp found in "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v13, " files , with a total size of "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v13, " bytes, and a maximum time delta of "
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v13, "ms"
+    const-string v6, "ms"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v6
 
-    const/4 v13, 0x0
+    const/4 v7, 0x0
 
-    invoke-interface {v15, v0, v5, v12, v13}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_3
-
-    goto :goto_3
-
-    .line 750
-    .end local v16    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    :catch_3
-    move-exception v0
-
-    goto :goto_4
-
-    .end local v18    # "timeThreshold":J
-    .restart local v12    # "timeThreshold":J
-    :catch_4
-    move-exception v0
-
-    move-wide/from16 v18, v12
-
-    .end local v12    # "timeThreshold":J
-    .restart local v18    # "timeThreshold":J
-    goto :goto_4
-
-    .end local v17    # "foundFutureTimestamp":Z
-    .end local v18    # "timeThreshold":J
-    .restart local v5    # "foundFutureTimestamp":Z
-    .restart local v12    # "timeThreshold":J
-    :catch_5
-    move-exception v0
-
-    move/from16 v17, v5
-
-    move-wide/from16 v18, v12
-
-    .end local v5    # "foundFutureTimestamp":Z
-    .end local v12    # "timeThreshold":J
-    .restart local v17    # "foundFutureTimestamp":Z
-    .restart local v18    # "timeThreshold":J
-    goto :goto_4
-
-    .line 734
-    .end local v17    # "foundFutureTimestamp":Z
-    .end local v18    # "timeThreshold":J
-    .restart local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v5    # "foundFutureTimestamp":Z
-    .restart local v12    # "timeThreshold":J
-    :cond_5
-    move-object/from16 v16, v0
-
-    move/from16 v17, v5
-
-    move-wide/from16 v18, v12
+    invoke-interface {v4, v5, v8, v6, v7}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 743
-    .end local v0    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v5    # "foundFutureTimestamp":Z
-    .end local v12    # "timeThreshold":J
-    .restart local v16    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v17    # "foundFutureTimestamp":Z
-    .restart local v18    # "timeThreshold":J
-    :goto_3
-    :try_start_8
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    :cond_5
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    invoke-virtual {v0}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getCount()J
+    invoke-virtual {v4}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getCount()J
 
-    move-result-wide v12
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_7
+    move-result-wide v4
 
-    move v15, v6
+    int-to-long v6, v10
 
-    .end local v6    # "numFutureFiles":I
-    .local v15, "numFutureFiles":I
-    int-to-long v5, v4
+    cmp-long v8, v4, v6
 
-    cmp-long v0, v12, v5
+    if-nez v8, :cond_6
 
-    if-nez v0, :cond_6
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    :try_start_9
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    invoke-virtual {v4}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getSize()J
 
-    invoke-virtual {v0}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getSize()J
+    move-result-wide v4
 
-    move-result-wide v5
+    cmp-long v8, v4, v11
 
-    cmp-long v0, v5, v2
-
-    if-eqz v0, :cond_8
+    if-eqz v8, :cond_8
 
     .line 744
     :cond_6
-    iget-boolean v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
+    iget-boolean v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mIndexPopulateAtStartupEnabled:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v4, :cond_7
 
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    if-eq v0, v14, :cond_7
+    if-eq v4, v0, :cond_7
 
     .line 745
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->clear()V
+    invoke-interface {v4}, Ljava/util/Set;->clear()V
 
     .line 746
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v0, v14}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    invoke-interface {v4, v0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
 
     .line 748
     :cond_7
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    int-to-long v5, v4
-
-    invoke-virtual {v0, v2, v3, v5, v6}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->set(JJ)V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
-
-    .line 757
-    .end local v16    # "entries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    :cond_8
-    nop
+    invoke-virtual {v0, v11, v12, v6, v7}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->set(JJ)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 758
-    iput-wide v10, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLastUpdateTime:J
+    :cond_8
+    iput-wide v2, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLastUpdateTime:J
 
-    .line 759
-    const/4 v0, 0x1
+    return v17
 
-    return v0
-
-    .line 750
-    :catch_6
+    :catch_0
     move-exception v0
-
-    move v6, v15
-
-    goto :goto_4
-
-    .end local v15    # "numFutureFiles":I
-    .restart local v6    # "numFutureFiles":I
-    :catch_7
-    move-exception v0
-
-    move v15, v6
-
-    .end local v6    # "numFutureFiles":I
-    .restart local v15    # "numFutureFiles":I
-    goto :goto_4
-
-    .end local v15    # "numFutureFiles":I
-    .end local v17    # "foundFutureTimestamp":Z
-    .end local v18    # "timeThreshold":J
-    .restart local v5    # "foundFutureTimestamp":Z
-    .restart local v6    # "numFutureFiles":I
-    .restart local v12    # "timeThreshold":J
-    :catch_8
-    move-exception v0
-
-    move/from16 v17, v5
-
-    move v15, v6
-
-    move-wide/from16 v18, v12
-
-    .end local v5    # "foundFutureTimestamp":Z
-    .end local v6    # "numFutureFiles":I
-    .end local v12    # "timeThreshold":J
-    .restart local v15    # "numFutureFiles":I
-    .restart local v17    # "foundFutureTimestamp":Z
-    .restart local v18    # "timeThreshold":J
-    goto :goto_4
-
-    .end local v15    # "numFutureFiles":I
-    .end local v17    # "foundFutureTimestamp":Z
-    .end local v18    # "timeThreshold":J
-    .restart local v5    # "foundFutureTimestamp":Z
-    .restart local v6    # "numFutureFiles":I
-    .restart local v12    # "timeThreshold":J
-    :catch_9
-    move-exception v0
-
-    move-wide/from16 v18, v12
-
-    move/from16 v17, v5
 
     .line 751
-    .end local v5    # "foundFutureTimestamp":Z
-    .end local v12    # "timeThreshold":J
-    .local v0, "ioe":Ljava/io/IOException;
-    .restart local v17    # "foundFutureTimestamp":Z
-    .restart local v18    # "timeThreshold":J
-    :goto_4
-    iget-object v5, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    iget-object v2, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    sget-object v12, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->GENERIC_IO:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    sget-object v3, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->GENERIC_IO:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    sget-object v13, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "calcFileCacheSize: "
+    const-string v6, "calcFileCacheSize: "
 
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 754
     invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-virtual {v15, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
     .line 751
-    invoke-interface {v5, v12, v13, v1, v0}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {v2, v3, v4, v5, v0}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 756
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    return v1
+    return v2
 .end method
 
 .method private startInsert(Ljava/lang/String;Lcom/facebook/cache/common/CacheKey;)Lcom/facebook/cache/disk/DiskStorage$Inserter;
     .locals 1
-    .param p1, "resourceId"    # Ljava/lang/String;
-    .param p2, "key"    # Lcom/facebook/cache/common/CacheKey;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1470,14 +1115,13 @@
 
     invoke-interface {v0, p1, p2}, Lcom/facebook/cache/disk/DiskStorage;->insert(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/cache/disk/DiskStorage$Inserter;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private trimBy(D)V
-    .locals 7
-    .param p1, "trimRatio"    # D
+    .locals 5
 
     .line 664
     iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
@@ -1503,89 +1147,78 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 670
-    .local v1, "cacheSize":J
     long-to-double v3, v1
 
+    .line 670
     invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v3, v3, p1
+    mul-double p1, p1, v3
 
-    double-to-long v3, v3
+    double-to-long p1, p1
 
-    sub-long v3, v1, v3
+    sub-long/2addr v1, p1
 
     .line 671
-    .local v3, "newMaxBytesInFiles":J
     :try_start_1
-    sget-object v5, Lcom/facebook/cache/common/CacheEventListener$EvictionReason;->CACHE_MANAGER_TRIMMED:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
+    sget-object p1, Lcom/facebook/cache/common/CacheEventListener$EvictionReason;->CACHE_MANAGER_TRIMMED:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
 
-    invoke-direct {p0, v3, v4, v5}, Lcom/facebook/cache/disk/DiskStorageCache;->evictAboveSize(JLcom/facebook/cache/common/CacheEventListener$EvictionReason;)V
+    invoke-direct {p0, v1, v2, p1}, Lcom/facebook/cache/disk/DiskStorageCache;->evictAboveSize(JLcom/facebook/cache/common/CacheEventListener$EvictionReason;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 680
-    .end local v1    # "cacheSize":J
-    .end local v3    # "newMaxBytesInFiles":J
     goto :goto_0
 
-    .line 681
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_1
 
-    .line 674
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 675
-    .local v1, "ioe":Ljava/io/IOException;
     :try_start_2
-    iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    iget-object p2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    sget-object v3, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->EVICTION:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    sget-object v1, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->EVICTION:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object v2, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "trimBy: "
+    const-string v4, "trimBy: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 678
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
     .line 675
-    invoke-interface {v2, v3, v4, v5, v1}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {p2, v1, v2, v3, p1}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 681
-    .end local v1    # "ioe":Ljava/io/IOException;
     :goto_0
     monitor-exit v0
 
-    .line 682
     return-void
 
-    .line 681
     :goto_1
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method private updateFileCacheSizeLimit()V
@@ -1612,7 +1245,6 @@
     sget-object v0, Lcom/facebook/common/statfs/StatFsHelper$StorageType;->INTERNAL:Lcom/facebook/common/statfs/StatFsHelper$StorageType;
 
     .line 569
-    .local v0, "storageType":Lcom/facebook/common/statfs/StatFsHelper$StorageType;
     :goto_0
     iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStatFsHelper:Lcom/facebook/common/statfs/StatFsHelper;
 
@@ -1630,26 +1262,23 @@
     .line 570
     invoke-virtual {v1, v0, v2, v3}, Lcom/facebook/common/statfs/StatFsHelper;->testLowDiskSpace(Lcom/facebook/common/statfs/StatFsHelper$StorageType;J)Z
 
-    move-result v1
+    move-result v0
 
-    .line 573
-    .local v1, "isAvailableSpaceLowerThanHighLimit":Z
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 574
-    iget-wide v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLowDiskSpaceCacheSizeLimit:J
+    iget-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLowDiskSpaceCacheSizeLimit:J
 
-    iput-wide v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
+    iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
 
     goto :goto_1
 
     .line 576
     :cond_1
-    iget-wide v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mDefaultCacheSizeLimit:J
+    iget-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mDefaultCacheSizeLimit:J
 
-    iput-wide v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
+    iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimit:J
 
-    .line 578
     :goto_1
     return-void
 .end method
@@ -1657,7 +1286,7 @@
 
 # virtual methods
 .method protected awaitIndex()V
-    .locals 3
+    .locals 2
     .annotation build Lcom/facebook/common/internal/VisibleForTesting;
     .end annotation
 
@@ -1669,23 +1298,16 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 224
     goto :goto_0
 
-    .line 222
-    :catch_0
-    move-exception v0
-
     .line 223
-    .local v0, "e":Ljava/lang/InterruptedException;
-    sget-object v1, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    :catch_0
+    sget-object v0, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    const-string v2, "Memory Index is not ready yet. "
+    const-string v1, "Memory Index is not ready yet. "
 
-    invoke-static {v1, v2}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;)V
 
-    .line 225
-    .end local v0    # "e":Ljava/lang/InterruptedException;
     :goto_0
     return-void
 .end method
@@ -1717,21 +1339,17 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 600
     goto :goto_0
 
-    .line 602
     :catchall_0
     move-exception v1
 
     goto :goto_1
 
-    .line 594
     :catch_0
     move-exception v1
 
     .line 595
-    .local v1, "ioe":Ljava/io/IOException;
     :try_start_1
     iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
@@ -1762,7 +1380,6 @@
     invoke-interface {v2, v3, v4, v5, v1}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 601
-    .end local v1    # "ioe":Ljava/io/IOException;
     :goto_0
     iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
@@ -1771,10 +1388,8 @@
     .line 602
     monitor-exit v0
 
-    .line 603
     return-void
 
-    .line 602
     :goto_1
     monitor-exit v0
     :try_end_1
@@ -1784,19 +1399,14 @@
 .end method
 
 .method public clearOldEntries(J)J
-    .locals 22
-    .param p1, "cacheExpirationMs"    # J
+    .locals 20
 
-    .line 415
     move-object/from16 v1, p0
 
-    const-wide/16 v2, 0x0
-
     .line 416
-    .local v2, "oldestRemainingEntryAgeMs":J
-    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
+    iget-object v2, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
-    monitor-enter v4
+    monitor-enter v2
 
     .line 418
     :try_start_0
@@ -1807,7 +1417,6 @@
     move-result-wide v5
 
     .line 419
-    .local v5, "now":J
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
     invoke-interface {v0}, Lcom/facebook/cache/disk/DiskStorage;->getEntries()Ljava/util/Collection;
@@ -1815,219 +1424,154 @@
     move-result-object v0
 
     .line 420
-    .local v0, "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
     iget-object v7, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
     invoke-virtual {v7}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getSize()J
 
     move-result-wide v7
 
-    .line 421
-    .local v7, "cacheSizeBeforeClearance":J
     const/4 v9, 0x0
 
-    .line 422
-    .local v9, "itemsRemovedCount":I
-    const-wide/16 v10, 0x0
-
     .line 423
-    .local v10, "itemsRemovedSize":J
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v12
+    move-result-object v0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const-wide/16 v10, 0x0
+
+    const-wide/16 v12, 0x0
 
     :goto_0
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    :try_start_1
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v13
+    move-result v14
 
-    if-eqz v13, :cond_2
+    if-eqz v14, :cond_2
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v14
 
-    check-cast v13, Lcom/facebook/cache/disk/DiskStorage$Entry;
+    check-cast v14, Lcom/facebook/cache/disk/DiskStorage$Entry;
+
+    const-wide/16 v3, 0x1
 
     .line 425
-    .local v13, "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    invoke-interface {v13}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
+    invoke-interface {v14}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
 
     move-result-wide v16
 
     sub-long v16, v5, v16
 
+    move-wide/from16 v18, v5
+
     invoke-static/range {v16 .. v17}, Ljava/lang/Math;->abs(J)J
-
-    move-result-wide v14
-
-    move-wide/from16 v16, v5
-
-    const-wide/16 v5, 0x1
-
-    .end local v5    # "now":J
-    .local v16, "now":J
-    invoke-static {v5, v6, v14, v15}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide v5
 
-    .line 426
-    .local v5, "entryAgeMs":J
-    cmp-long v14, v5, p1
+    invoke-static {v3, v4, v5, v6}, Ljava/lang/Math;->max(JJ)J
 
-    if-ltz v14, :cond_1
+    move-result-wide v3
+
+    cmp-long v5, v3, p1
+
+    if-ltz v5, :cond_0
 
     .line 427
-    iget-object v14, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
+    iget-object v3, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
-    invoke-interface {v14, v13}, Lcom/facebook/cache/disk/DiskStorage;->remove(Lcom/facebook/cache/disk/DiskStorage$Entry;)J
+    invoke-interface {v3, v14}, Lcom/facebook/cache/disk/DiskStorage;->remove(Lcom/facebook/cache/disk/DiskStorage$Entry;)J
 
-    move-result-wide v14
+    move-result-wide v3
 
     .line 428
-    .local v14, "entryRemovedSize":J
-    move-object/from16 v18, v0
+    iget-object v5, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    .end local v0    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .local v18, "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    invoke-interface {v14}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
 
-    move-object/from16 v19, v12
+    move-result-object v6
 
-    invoke-interface {v13}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
+    invoke-interface {v5, v6}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    move-result-object v12
+    const-wide/16 v5, 0x0
 
-    invoke-interface {v0, v12}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    cmp-long v15, v3, v5
 
-    .line 429
-    const-wide/16 v20, 0x0
+    if-lez v15, :cond_1
 
-    cmp-long v0, v14, v20
-
-    if-lez v0, :cond_0
-
-    .line 430
     add-int/lit8 v9, v9, 0x1
 
-    .line 431
-    add-long/2addr v10, v14
+    add-long/2addr v10, v3
 
     .line 432
     invoke-static {}, Lcom/facebook/cache/disk/SettableCacheEvent;->obtain()Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v15
 
     .line 433
-    invoke-interface {v13}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
+    invoke-interface {v14}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getId()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v0, v12}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v15, v14}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v14
 
-    sget-object v12, Lcom/facebook/cache/common/CacheEventListener$EvictionReason;->CONTENT_STALE:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
+    sget-object v15, Lcom/facebook/cache/common/CacheEventListener$EvictionReason;->CONTENT_STALE:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
 
     .line 434
-    invoke-virtual {v0, v12}, Lcom/facebook/cache/disk/SettableCacheEvent;->setEvictionReason(Lcom/facebook/cache/common/CacheEventListener$EvictionReason;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v14, v15}, Lcom/facebook/cache/disk/SettableCacheEvent;->setEvictionReason(Lcom/facebook/cache/common/CacheEventListener$EvictionReason;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v14
 
     .line 435
-    invoke-virtual {v0, v14, v15}, Lcom/facebook/cache/disk/SettableCacheEvent;->setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v14, v3, v4}, Lcom/facebook/cache/disk/SettableCacheEvent;->setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v3
 
-    move-object/from16 v20, v13
-
-    .end local v13    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .local v20, "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    sub-long v12, v7, v10
+    sub-long v14, v7, v10
 
     .line 436
-    invoke-virtual {v0, v12, v13}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v3, v14, v15}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v0
+    move-result-object v3
 
     .line 437
-    .local v0, "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    iget-object v12, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object v4, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v12, v0}, Lcom/facebook/cache/common/CacheEventListener;->onEviction(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {v4, v3}, Lcom/facebook/cache/common/CacheEventListener;->onEviction(Lcom/facebook/cache/common/CacheEvent;)V
 
     .line 438
-    invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
+    invoke-virtual {v3}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
     goto :goto_1
 
-    .line 429
-    .end local v0    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .end local v20    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .restart local v13    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
     :cond_0
-    move-object/from16 v20, v13
-
-    .line 440
-    .end local v13    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .end local v14    # "entryRemovedSize":J
-    .restart local v20    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    :goto_1
-    goto :goto_2
+    const-wide/16 v5, 0x0
 
     .line 441
-    .end local v18    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v20    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .local v0, "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v13    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
+    invoke-static {v12, v13, v3, v4}, Ljava/lang/Math;->max(JJ)J
+
+    move-result-wide v3
+
+    move-wide v12, v3
+
     :cond_1
-    move-object/from16 v18, v0
-
-    move-object/from16 v19, v12
-
-    move-object/from16 v20, v13
-
-    .end local v0    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v13    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .restart local v18    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v20    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    invoke-static {v2, v3, v5, v6}, Ljava/lang/Math;->max(JJ)J
-
-    move-result-wide v12
-
-    move-wide v2, v12
-
-    .line 443
-    .end local v5    # "entryAgeMs":J
-    .end local v20    # "entry":Lcom/facebook/cache/disk/DiskStorage$Entry;
-    :goto_2
-    move-wide/from16 v5, v16
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v12, v19
+    :goto_1
+    move-wide/from16 v5, v18
 
     goto :goto_0
 
     .line 444
-    .end local v16    # "now":J
-    .end local v18    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .restart local v0    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .local v5, "now":J
     :cond_2
-    move-object/from16 v18, v0
-
-    move-wide/from16 v16, v5
-
-    .end local v0    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    .end local v5    # "now":J
-    .restart local v16    # "now":J
-    .restart local v18    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
     invoke-interface {v0}, Lcom/facebook/cache/disk/DiskStorage;->purgeUnexpectedResources()V
 
-    .line 445
     if-lez v9, :cond_3
 
     .line 446
@@ -2036,80 +1580,78 @@
     .line 447
     iget-object v0, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
-    neg-long v5, v10
+    neg-long v3, v10
 
-    neg-int v12, v9
+    neg-int v5, v9
 
-    int-to-long v12, v12
+    int-to-long v5, v5
 
-    invoke-virtual {v0, v5, v6, v12, v13}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->increment(JJ)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v0, v3, v4, v5, v6}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->increment(JJ)V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 455
-    .end local v7    # "cacheSizeBeforeClearance":J
-    .end local v9    # "itemsRemovedCount":I
-    .end local v10    # "itemsRemovedSize":J
-    .end local v16    # "now":J
-    .end local v18    # "allEntries":Ljava/util/Collection;, "Ljava/util/Collection<Lcom/facebook/cache/disk/DiskStorage$Entry;>;"
-    :cond_3
     goto :goto_3
 
-    .line 456
+    :catch_0
+    move-exception v0
+
+    goto :goto_2
+
     :catchall_0
     move-exception v0
 
     goto :goto_4
 
-    .line 449
-    :catch_0
+    :catch_1
     move-exception v0
 
+    const-wide/16 v5, 0x0
+
+    move-wide v12, v5
+
     .line 450
-    .local v0, "ioe":Ljava/io/IOException;
-    :try_start_1
-    iget-object v5, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    :goto_2
+    :try_start_2
+    iget-object v3, v1, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    sget-object v6, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->EVICTION:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    sget-object v4, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->EVICTION:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    sget-object v7, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object v5, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "clearOldEntries: "
+    const-string v7, "clearOldEntries: "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 453
     invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v7
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v6
 
     .line 450
-    invoke-interface {v5, v6, v7, v8, v0}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {v3, v4, v5, v6, v0}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 456
-    .end local v0    # "ioe":Ljava/io/IOException;
+    :cond_3
     :goto_3
-    monitor-exit v4
+    monitor-exit v2
 
-    .line 457
-    return-wide v2
+    return-wide v12
 
-    .line 456
     :goto_4
-    monitor-exit v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    monitor-exit v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v0
 
@@ -2148,25 +1690,21 @@
 .end method
 
 .method public getResource(Lcom/facebook/cache/common/CacheKey;)Lcom/facebook/binaryresource/BinaryResource;
-    .locals 7
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
-
-    .line 247
-    const/4 v0, 0x0
+    .locals 8
 
     .line 248
-    .local v0, "resourceId":Ljava/lang/String;
     invoke-static {}, Lcom/facebook/cache/disk/SettableCacheEvent;->obtain()Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 249
-    invoke-virtual {v1, p1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheKey(Lcom/facebook/cache/common/CacheKey;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v0, p1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheKey(Lcom/facebook/cache/common/CacheKey;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 251
-    .local v1, "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
     :try_start_0
     iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
@@ -2175,89 +1713,78 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 252
-    const/4 v3, 0x0
-
     .line 253
-    .local v3, "resource":Lcom/facebook/binaryresource/BinaryResource;
     :try_start_1
     invoke-static {p1}, Lcom/facebook/cache/common/CacheKeyUtil;->getResourceIds(Lcom/facebook/cache/common/CacheKey;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    move-object v5, v1
+
+    move-object v6, v5
 
     .line 254
-    .local v4, "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/4 v5, 0x0
-
-    .local v5, "i":I
     :goto_0
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v6
+    move-result v7
 
-    if-ge v5, v6, :cond_1
+    if-ge v4, v7, :cond_1
 
     .line 255
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Ljava/lang/String;
-
-    move-object v0, v6
+    check-cast v5, Ljava/lang/String;
 
     .line 256
-    invoke-virtual {v1, v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v0, v5}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
     .line 257
     iget-object v6, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
-    invoke-interface {v6, v0, p1}, Lcom/facebook/cache/disk/DiskStorage;->getResource(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/binaryresource/BinaryResource;
+    invoke-interface {v6, v5, p1}, Lcom/facebook/cache/disk/DiskStorage;->getResource(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/binaryresource/BinaryResource;
 
     move-result-object v6
 
-    move-object v3, v6
+    if-eqz v6, :cond_0
 
-    .line 258
-    if-eqz v3, :cond_0
-
-    .line 259
     goto :goto_1
 
-    .line 254
     :cond_0
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 262
-    .end local v5    # "i":I
     :cond_1
     :goto_1
-    if-nez v3, :cond_2
+    if-nez v6, :cond_2
 
     .line 263
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v5, v1}, Lcom/facebook/cache/common/CacheEventListener;->onMiss(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {p1, v0}, Lcom/facebook/cache/common/CacheEventListener;->onMiss(Lcom/facebook/cache/common/CacheEvent;)V
 
     .line 264
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v5, v0}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {p1, v5}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     goto :goto_2
 
     .line 266
     :cond_2
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v5, v1}, Lcom/facebook/cache/common/CacheEventListener;->onHit(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {p1, v0}, Lcom/facebook/cache/common/CacheEventListener;->onHit(Lcom/facebook/cache/common/CacheEvent;)V
 
     .line 267
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v5, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 269
     :goto_2
@@ -2266,83 +1793,65 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 281
-    invoke-virtual {v1}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
+    invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
-    .line 269
-    return-object v3
+    return-object v6
+
+    :catchall_0
+    move-exception p1
 
     .line 270
-    .end local v3    # "resource":Lcom/facebook/binaryresource/BinaryResource;
-    .end local v4    # "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :catchall_0
-    move-exception v3
-
     :try_start_2
     monitor-exit v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .end local v0    # "resourceId":Ljava/lang/String;
-    .end local v1    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .end local p1    # "key":Lcom/facebook/cache/common/CacheKey;
     :try_start_3
-    throw v3
+    throw p1
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 281
-    .restart local v0    # "resourceId":Ljava/lang/String;
-    .restart local v1    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .restart local p1    # "key":Lcom/facebook/cache/common/CacheKey;
     :catchall_1
-    move-exception v2
+    move-exception p1
 
     goto :goto_3
 
-    .line 271
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 272
-    .local v2, "ioe":Ljava/io/IOException;
     :try_start_4
-    iget-object v3, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    sget-object v4, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->GENERIC_IO:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    sget-object v3, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->GENERIC_IO:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    sget-object v5, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    const-string v6, "getResource"
+    const-string v5, "getResource"
 
-    invoke-interface {v3, v4, v5, v6, v2}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {v2, v3, v4, v5, p1}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 277
-    invoke-virtual {v1, v2}, Lcom/facebook/cache/disk/SettableCacheEvent;->setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v0, p1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
     .line 278
-    iget-object v3, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v3, v1}, Lcom/facebook/cache/common/CacheEventListener;->onReadException(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {p1, v0}, Lcom/facebook/cache/common/CacheEventListener;->onReadException(Lcom/facebook/cache/common/CacheEvent;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 279
-    const/4 v3, 0x0
-
     .line 281
-    invoke-virtual {v1}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
+    invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
-    .line 279
-    return-object v3
+    return-object v1
 
-    .line 281
-    .end local v2    # "ioe":Ljava/io/IOException;
     :goto_3
-    invoke-virtual {v1}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
+    invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
     .line 282
-    throw v2
+    throw p1
 
     return-void
 .end method
@@ -2362,7 +1871,6 @@
 
 .method public hasKey(Lcom/facebook/cache/common/CacheKey;)Z
     .locals 7
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
 
     .line 622
     iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
@@ -2386,53 +1894,45 @@
 
     return v2
 
-    .line 627
     :cond_0
     const/4 v1, 0x0
 
     .line 628
-    .local v1, "resourceId":Ljava/lang/String;
-    const/4 v3, 0x0
-
     :try_start_1
     invoke-static {p1}, Lcom/facebook/cache/common/CacheKeyUtil;->getResourceIds(Lcom/facebook/cache/common/CacheKey;)Ljava/util/List;
 
-    move-result-object v4
+    move-result-object v3
+
+    const/4 v4, 0x0
 
     .line 629
-    .local v4, "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    move v5, v3
-
-    .local v5, "i":I
     :goto_0
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    move-result v6
+    move-result v5
 
-    if-ge v5, v6, :cond_2
+    if-ge v4, v5, :cond_2
 
     .line 630
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v5
 
-    check-cast v6, Ljava/lang/String;
-
-    move-object v1, v6
+    check-cast v5, Ljava/lang/String;
 
     .line 631
     iget-object v6, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
-    invoke-interface {v6, v1, p1}, Lcom/facebook/cache/disk/DiskStorage;->contains(Ljava/lang/String;Ljava/lang/Object;)Z
+    invoke-interface {v6, v5, p1}, Lcom/facebook/cache/disk/DiskStorage;->contains(Ljava/lang/String;Ljava/lang/Object;)Z
 
     move-result v6
 
     if-eqz v6, :cond_1
 
     .line 632
-    iget-object v6, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v6, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -2443,135 +1943,111 @@
 
     return v2
 
-    .line 629
     :cond_1
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     .line 636
-    .end local v5    # "i":I
     :cond_2
     monitor-exit v0
 
-    return v3
-
-    .line 637
-    .end local v1    # "resourceId":Ljava/lang/String;
-    .end local v4    # "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :catch_0
-    move-exception v1
+    return v1
 
     .line 638
-    .local v1, "e":Ljava/io/IOException;
+    :catch_0
     monitor-exit v0
 
-    return v3
+    return v1
+
+    :catchall_0
+    move-exception p1
 
     .line 640
-    .end local v1    # "e":Ljava/io/IOException;
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v1
+    throw p1
 
     return-void
 .end method
 
 .method public hasKeySync(Lcom/facebook/cache/common/CacheKey;)Z
-    .locals 6
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
+    .locals 5
 
     .line 607
     iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 608
-    const/4 v1, 0x0
-
     .line 609
-    .local v1, "resourceId":Ljava/lang/String;
     :try_start_0
     invoke-static {p1}, Lcom/facebook/cache/common/CacheKeyUtil;->getResourceIds(Lcom/facebook/cache/common/CacheKey;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
 
     .line 610
-    .local v2, "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/4 v3, 0x0
-
-    move v4, v3
-
-    .local v4, "i":I
     :goto_0
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v3
 
-    if-ge v4, v5, :cond_1
+    if-ge v2, v3, :cond_1
 
     .line 611
-    invoke-interface {v2, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v3
 
-    check-cast v5, Ljava/lang/String;
-
-    move-object v1, v5
+    check-cast v3, Ljava/lang/String;
 
     .line 612
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v5, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v4, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_0
+    if-eqz v3, :cond_0
 
     .line 613
     monitor-exit v0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 610
     :cond_0
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 616
-    .end local v4    # "i":I
     :cond_1
     monitor-exit v0
 
-    return v3
+    return v1
+
+    :catchall_0
+    move-exception p1
 
     .line 617
-    .end local v1    # "resourceId":Ljava/lang/String;
-    .end local v2    # "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     return-void
 .end method
 
 .method public insert(Lcom/facebook/cache/common/CacheKey;Lcom/facebook/cache/common/WriterCallback;)Lcom/facebook/binaryresource/BinaryResource;
-    .locals 7
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
-    .param p2, "callback"    # Lcom/facebook/cache/common/WriterCallback;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2589,7 +2065,6 @@
     move-result-object v0
 
     .line 354
-    .local v0, "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
     iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
     invoke-interface {v1, v0}, Lcom/facebook/cache/common/CacheEventListener;->onWriteAttempt(Lcom/facebook/cache/common/CacheEvent;)V
@@ -2606,7 +2081,6 @@
     move-result-object v2
 
     .line 359
-    .local v2, "resourceId":Ljava/lang/String;
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
@@ -2624,58 +2098,53 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     .line 365
-    .local v1, "inserter":Lcom/facebook/cache/disk/DiskStorage$Inserter;
     :try_start_2
     invoke-interface {v1, p2, p1}, Lcom/facebook/cache/disk/DiskStorage$Inserter;->writeData(Lcom/facebook/cache/common/WriterCallback;Ljava/lang/Object;)V
 
     .line 367
     invoke-direct {p0, v1, p1, v2}, Lcom/facebook/cache/disk/DiskStorageCache;->endInsert(Lcom/facebook/cache/disk/DiskStorage$Inserter;Lcom/facebook/cache/common/CacheKey;Ljava/lang/String;)Lcom/facebook/binaryresource/BinaryResource;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 368
-    .local v3, "resource":Lcom/facebook/binaryresource/BinaryResource;
-    invoke-interface {v3}, Lcom/facebook/binaryresource/BinaryResource;->size()J
+    invoke-interface {p1}, Lcom/facebook/binaryresource/BinaryResource;->size()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    invoke-virtual {v0, v4, v5}, Lcom/facebook/cache/disk/SettableCacheEvent;->setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v0, v2, v3}, Lcom/facebook/cache/disk/SettableCacheEvent;->setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v4
+    move-result-object p2
 
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
+    iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheStats:Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
 
     .line 369
-    invoke-virtual {v5}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getSize()J
+    invoke-virtual {v2}, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->getSize()J
 
-    move-result-wide v5
+    move-result-wide v2
 
-    invoke-virtual {v4, v5, v6}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {p2, v2, v3}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
 
     .line 370
-    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object p2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v4, v0}, Lcom/facebook/cache/common/CacheEventListener;->onWriteSuccess(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {p2, v0}, Lcom/facebook/cache/common/CacheEventListener;->onWriteSuccess(Lcom/facebook/cache/common/CacheEvent;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    .line 371
-    nop
 
     .line 373
     :try_start_3
     invoke-interface {v1}, Lcom/facebook/cache/disk/DiskStorage$Inserter;->cleanUp()Z
 
-    move-result v4
+    move-result p2
 
-    if-nez v4, :cond_0
+    if-nez p2, :cond_0
 
     .line 374
-    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object p2, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    const-string v5, "Failed to delete temp file"
+    const-string v1, "Failed to delete temp file"
 
-    invoke-static {v4, v5}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-static {p2, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;)V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
@@ -2684,107 +2153,79 @@
     :cond_0
     invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
-    .line 371
-    return-object v3
+    return-object p1
+
+    :catchall_0
+    move-exception p1
 
     .line 373
-    .end local v3    # "resource":Lcom/facebook/binaryresource/BinaryResource;
-    :catchall_0
-    move-exception v3
-
     :try_start_4
     invoke-interface {v1}, Lcom/facebook/cache/disk/DiskStorage$Inserter;->cleanUp()Z
 
-    move-result v4
+    move-result p2
 
-    if-nez v4, :cond_1
+    if-nez p2, :cond_1
 
     .line 374
-    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object p2, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    const-string v5, "Failed to delete temp file"
+    const-string v1, "Failed to delete temp file"
 
-    invoke-static {v4, v5}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;)V
+    invoke-static {p2, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;)V
 
     .line 376
     :cond_1
-    nop
-
-    .end local v0    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .end local v2    # "resourceId":Ljava/lang/String;
-    .end local p1    # "key":Lcom/facebook/cache/common/CacheKey;
-    .end local p2    # "callback":Lcom/facebook/cache/common/WriterCallback;
-    throw v3
+    throw p1
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 383
-    .end local v1    # "inserter":Lcom/facebook/cache/disk/DiskStorage$Inserter;
-    .restart local v0    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .restart local v2    # "resourceId":Ljava/lang/String;
-    .restart local p1    # "key":Lcom/facebook/cache/common/CacheKey;
-    .restart local p2    # "callback":Lcom/facebook/cache/common/WriterCallback;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
     goto :goto_0
 
-    .line 377
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 378
-    .local v1, "ioe":Ljava/io/IOException;
     :try_start_5
-    invoke-virtual {v0, v1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {v0, p1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
     .line 379
-    iget-object v3, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object p2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v3, v0}, Lcom/facebook/cache/common/CacheEventListener;->onWriteException(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {p2, v0}, Lcom/facebook/cache/common/CacheEventListener;->onWriteException(Lcom/facebook/cache/common/CacheEvent;)V
 
     .line 380
-    sget-object v3, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object p2, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    const-string v4, "Failed inserting a file into the cache"
+    const-string v1, "Failed inserting a file into the cache"
 
-    invoke-static {v3, v4, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {p2, v1, p1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 381
-    nop
-
-    .end local v0    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .end local v2    # "resourceId":Ljava/lang/String;
-    .end local p1    # "key":Lcom/facebook/cache/common/CacheKey;
-    .end local p2    # "callback":Lcom/facebook/cache/common/WriterCallback;
-    throw v1
+    throw p1
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     .line 383
-    .end local v1    # "ioe":Ljava/io/IOException;
-    .restart local v0    # "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    .restart local v2    # "resourceId":Ljava/lang/String;
-    .restart local p1    # "key":Lcom/facebook/cache/common/CacheKey;
-    .restart local p2    # "callback":Lcom/facebook/cache/common/WriterCallback;
     :goto_0
     invoke-virtual {v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
     .line 384
-    throw v1
+    throw p1
+
+    :catchall_2
+    move-exception p1
 
     .line 359
-    .end local v2    # "resourceId":Ljava/lang/String;
-    :catchall_2
-    move-exception v2
-
     :try_start_6
     monitor-exit v1
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
-    throw v2
+    throw p1
 .end method
 
 .method public isEnabled()Z
@@ -2829,107 +2270,134 @@
 
 .method public probe(Lcom/facebook/cache/common/CacheKey;)Z
     .locals 6
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
 
-    .line 297
     const/4 v0, 0x0
 
-    .line 299
-    .local v0, "resourceId":Ljava/lang/String;
     const/4 v1, 0x0
 
+    .line 299
     :try_start_0
     iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v2
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
     .line 300
     :try_start_1
     invoke-static {p1}, Lcom/facebook/cache/common/CacheKeyUtil;->getResourceIds(Lcom/facebook/cache/common/CacheKey;)Ljava/util/List;
 
     move-result-object v3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-object v4, v1
+
+    const/4 v1, 0x0
 
     .line 301
-    .local v3, "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    move v4, v1
-
-    .local v4, "i":I
     :goto_0
+    :try_start_2
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v1, v5, :cond_1
 
     .line 302
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Ljava/lang/String;
-
-    move-object v0, v5
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 303
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
+    :try_start_3
+    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
-    invoke-interface {v5, v0, p1}, Lcom/facebook/cache/disk/DiskStorage;->touch(Ljava/lang/String;Ljava/lang/Object;)Z
+    invoke-interface {v4, v5, p1}, Lcom/facebook/cache/disk/DiskStorage;->touch(Ljava/lang/String;Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
 
     .line 304
-    iget-object v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v5, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     .line 305
     monitor-exit v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 
-    .line 301
     :cond_0
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
+
+    move-object v4, v5
 
     goto :goto_0
 
     .line 308
-    .end local v4    # "i":I
     :cond_1
+    :try_start_4
     monitor-exit v2
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    return v1
+    return v0
 
-    .line 309
-    .end local v3    # "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :catchall_0
+    move-exception v1
+
+    move-object v5, v4
+
+    goto :goto_1
+
+    :catchall_1
     move-exception v3
 
+    move-object v5, v1
+
+    move-object v1, v3
+
+    .line 309
+    :goto_1
+    :try_start_5
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    .end local v0    # "resourceId":Ljava/lang/String;
-    .end local p1    # "key":Lcom/facebook/cache/common/CacheKey;
-    :try_start_2
-    throw v3
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_start_6
+    throw v1
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
 
-    .line 310
-    .restart local v0    # "resourceId":Ljava/lang/String;
-    .restart local p1    # "key":Lcom/facebook/cache/common/CacheKey;
     :catch_0
+    move-exception v1
+
+    move-object v2, v1
+
+    move-object v1, v5
+
+    goto :goto_2
+
+    :catchall_2
+    move-exception v1
+
+    goto :goto_1
+
+    :catch_1
     move-exception v2
 
     .line 311
-    .local v2, "e":Ljava/io/IOException;
+    :goto_2
     invoke-static {}, Lcom/facebook/cache/disk/SettableCacheEvent;->obtain()Lcom/facebook/cache/disk/SettableCacheEvent;
 
     move-result-object v3
@@ -2937,158 +2405,133 @@
     .line 312
     invoke-virtual {v3, p1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setCacheKey(Lcom/facebook/cache/common/CacheKey;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 313
-    invoke-virtual {v3, v0}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {p1, v1}, Lcom/facebook/cache/disk/SettableCacheEvent;->setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 314
-    invoke-virtual {v3, v2}, Lcom/facebook/cache/disk/SettableCacheEvent;->setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
+    invoke-virtual {p1, v2}, Lcom/facebook/cache/disk/SettableCacheEvent;->setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 315
-    .local v3, "cacheEvent":Lcom/facebook/cache/disk/SettableCacheEvent;
-    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
+    iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
 
-    invoke-interface {v4, v3}, Lcom/facebook/cache/common/CacheEventListener;->onReadException(Lcom/facebook/cache/common/CacheEvent;)V
+    invoke-interface {v1, p1}, Lcom/facebook/cache/common/CacheEventListener;->onReadException(Lcom/facebook/cache/common/CacheEvent;)V
 
     .line 316
-    invoke-virtual {v3}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
+    invoke-virtual {p1}, Lcom/facebook/cache/disk/SettableCacheEvent;->recycle()V
 
-    .line 317
-    return v1
+    return v0
 .end method
 
 .method public remove(Lcom/facebook/cache/common/CacheKey;)V
-    .locals 7
-    .param p1, "key"    # Lcom/facebook/cache/common/CacheKey;
+    .locals 6
 
     .line 389
     iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
-    .line 391
-    const/4 v1, 0x0
-
     .line 392
-    .local v1, "resourceId":Ljava/lang/String;
     :try_start_0
     invoke-static {p1}, Lcom/facebook/cache/common/CacheKeyUtil;->getResourceIds(Lcom/facebook/cache/common/CacheKey;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
+
+    const/4 v1, 0x0
 
     .line 393
-    .local v2, "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/4 v3, 0x0
-
-    .local v3, "i":I
     :goto_0
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v2
 
-    if-ge v3, v4, :cond_0
+    if-ge v1, v2, :cond_0
 
     .line 394
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Ljava/lang/String;
-
-    move-object v1, v4
+    check-cast v2, Ljava/lang/String;
 
     .line 395
-    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
+    iget-object v3, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mStorage:Lcom/facebook/cache/disk/DiskStorage;
 
-    invoke-interface {v4, v1}, Lcom/facebook/cache/disk/DiskStorage;->remove(Ljava/lang/String;)J
+    invoke-interface {v3, v2}, Lcom/facebook/cache/disk/DiskStorage;->remove(Ljava/lang/String;)J
 
     .line 396
-    iget-object v4, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
+    iget-object v3, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mResourceIndex:Ljava/util/Set;
 
-    invoke-interface {v4, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v3, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 393
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 404
-    .end local v1    # "resourceId":Ljava/lang/String;
-    .end local v2    # "resourceIds":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    .end local v3    # "i":I
-    :cond_0
+    :catchall_0
+    move-exception p1
+
     goto :goto_1
 
-    .line 405
-    :catchall_0
-    move-exception v1
-
-    goto :goto_2
-
-    .line 398
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 399
-    .local v1, "e":Ljava/io/IOException;
     :try_start_1
-    iget-object v2, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
+    iget-object v1, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    sget-object v3, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->DELETE_FILE:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    sget-object v2, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->DELETE_FILE:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    sget-object v4, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
+    sget-object v3, Lcom/facebook/cache/disk/DiskStorageCache;->TAG:Ljava/lang/Class;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "delete: "
+    const-string v5, "delete: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 402
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
     .line 399
-    invoke-interface {v2, v3, v4, v5, v1}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {v1, v2, v3, v4, p1}, Lcom/facebook/cache/common/CacheErrorLogger;->logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 405
-    .end local v1    # "e":Ljava/io/IOException;
-    :goto_1
+    :cond_0
     monitor-exit v0
 
-    .line 406
     return-void
 
-    .line 405
-    :goto_2
+    :goto_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p1
 
     return-void
 .end method
 
 .method public trimToMinimum()V
-    .locals 9
+    .locals 8
 
     .line 645
     iget-object v0, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mLock:Ljava/lang/Object;
@@ -3107,7 +2550,6 @@
     move-result-wide v1
 
     .line 648
-    .local v1, "cacheSize":J
     iget-wide v3, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimitMinimum:J
 
     const-wide/16 v5, 0x0
@@ -3128,60 +2570,53 @@
 
     goto :goto_0
 
-    .line 651
     :cond_0
     const-wide/high16 v3, 0x3ff0000000000000L    # 1.0
 
+    .line 651
     iget-wide v5, p0, Lcom/facebook/cache/disk/DiskStorageCache;->mCacheSizeLimitMinimum:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     long-to-double v5, v5
 
-    long-to-double v7, v1
+    long-to-double v1, v1
 
     invoke-static {v5, v6}, Ljava/lang/Double;->isNaN(D)Z
 
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
 
-    div-double/2addr v5, v7
+    div-double/2addr v5, v1
 
     sub-double/2addr v3, v5
 
-    .line 652
-    .local v3, "trimRatio":D
-    const-wide v5, 0x3f947ae147ae147bL    # 0.02
+    const-wide v1, 0x3f947ae147ae147bL    # 0.02
 
-    cmpl-double v7, v3, v5
+    cmpl-double v5, v3, v1
 
-    if-lez v7, :cond_1
+    if-lez v5, :cond_1
 
     .line 653
     :try_start_1
     invoke-direct {p0, v3, v4}, Lcom/facebook/cache/disk/DiskStorageCache;->trimBy(D)V
 
     .line 655
-    .end local v1    # "cacheSize":J
-    .end local v3    # "trimRatio":D
     :cond_1
     monitor-exit v0
 
-    .line 656
     return-void
 
     .line 649
-    .restart local v1    # "cacheSize":J
     :cond_2
     :goto_0
     monitor-exit v0
 
     return-void
 
-    .line 655
-    .end local v1    # "cacheSize":J
     :catchall_0
     move-exception v1
 
+    .line 655
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -3195,6 +2630,5 @@
     .line 660
     invoke-virtual {p0}, Lcom/facebook/cache/disk/DiskStorageCache;->clearAll()V
 
-    .line 661
     return-void
 .end method

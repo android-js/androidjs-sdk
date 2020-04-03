@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/FastScroller;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/FastScroller;
 
     .line 123
     iput-object p1, p0, Landroid/support/v7/widget/FastScroller$1;->this$0:Landroid/support/v7/widget/FastScroller;
@@ -46,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/FastScroller;->hide(I)V
 
-    .line 127
     return-void
 .end method

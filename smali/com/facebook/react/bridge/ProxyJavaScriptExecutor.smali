@@ -28,13 +28,11 @@
     .line 38
     invoke-static {}, Lcom/facebook/react/bridge/ReactBridge;->staticInit()V
 
-    .line 39
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/JavaJSExecutor;)V
     .locals 1
-    .param p1, "executor"    # Lcom/facebook/react/bridge/JavaJSExecutor;
 
     .line 49
     invoke-static {p1}, Lcom/facebook/react/bridge/ProxyJavaScriptExecutor;->initHybrid(Lcom/facebook/react/bridge/JavaJSExecutor;)Lcom/facebook/jni/HybridData;
@@ -46,7 +44,6 @@
     .line 50
     iput-object p1, p0, Lcom/facebook/react/bridge/ProxyJavaScriptExecutor;->mJavaJSExecutor:Lcom/facebook/react/bridge/JavaJSExecutor;
 
-    .line 51
     return-void
 .end method
 
@@ -66,12 +63,11 @@
     .line 56
     invoke-interface {v0}, Lcom/facebook/react/bridge/JavaJSExecutor;->close()V
 
-    .line 57
     const/4 v0, 0x0
 
+    .line 57
     iput-object v0, p0, Lcom/facebook/react/bridge/ProxyJavaScriptExecutor;->mJavaJSExecutor:Lcom/facebook/react/bridge/JavaJSExecutor;
 
-    .line 59
     :cond_0
     return-void
 .end method
@@ -79,7 +75,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 63
     const-string v0, "ProxyJavaScriptExecutor"
 
     return-object v0

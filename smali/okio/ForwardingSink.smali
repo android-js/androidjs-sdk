@@ -12,30 +12,27 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Sink;)V
-    .locals 2
-    .param p1, "delegate"    # Lokio/Sink;
+    .locals 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     if-eqz p1, :cond_0
 
     .line 26
     iput-object p1, p0, Lokio/ForwardingSink;->delegate:Lokio/Sink;
 
-    .line 27
     return-void
 
     .line 25
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "delegate == null"
+    const-string v0, "delegate == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -53,7 +50,6 @@
 
     invoke-interface {v0}, Lokio/Sink;->close()V
 
-    .line 48
     return-void
 .end method
 
@@ -79,7 +75,6 @@
 
     invoke-interface {v0}, Lokio/Sink;->flush()V
 
-    .line 40
     return-void
 .end method
 
@@ -139,8 +134,6 @@
 
 .method public write(Lokio/Buffer;J)V
     .locals 1
-    .param p1, "source"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -152,6 +145,5 @@
 
     invoke-interface {v0, p1, p2, p3}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
-    .line 36
     return-void
 .end method

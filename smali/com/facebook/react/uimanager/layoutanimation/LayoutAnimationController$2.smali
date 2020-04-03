@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationController;Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationController;
 
     .line 157
     iput-object p1, p0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationController$2;->this$0:Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationController;
@@ -41,30 +40,24 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 1
-    .param p1, "anim"    # Landroid/view/animation/Animation;
+    .locals 0
 
     .line 166
-    iget-object v0, p0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationController$2;->val$listener:Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationListener;
+    iget-object p1, p0, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationController$2;->val$listener:Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationListener;
 
-    invoke-interface {v0}, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationListener;->onAnimationEnd()V
+    invoke-interface {p1}, Lcom/facebook/react/uimanager/layoutanimation/LayoutAnimationListener;->onAnimationEnd()V
 
-    .line 167
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "anim"    # Landroid/view/animation/Animation;
 
-    .line 162
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
-    .param p1, "anim"    # Landroid/view/animation/Animation;
 
-    .line 159
     return-void
 .end method

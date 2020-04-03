@@ -23,11 +23,11 @@
 
 .method public static getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
     .locals 2
-    .param p0, "bundle"    # Landroid/os/Bundle;
+    .param p0    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "key"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -44,30 +44,30 @@
     .line 106
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getBinder(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 
     .line 108
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 2
-    .param p0, "bundle"    # Landroid/os/Bundle;
+    .param p0    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "key"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "binder"    # Landroid/os/IBinder;
+    .param p2    # Landroid/os/IBinder;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -88,7 +88,6 @@
     :cond_0
     invoke-static {p0, p1, p2}, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
 
-    .line 126
     :goto_0
     return-void
 .end method

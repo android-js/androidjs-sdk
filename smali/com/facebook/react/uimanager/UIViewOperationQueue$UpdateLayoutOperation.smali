@@ -30,13 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;IIIIII)V
-    .locals 3
-    .param p2, "parentTag"    # I
-    .param p3, "tag"    # I
-    .param p4, "x"    # I
-    .param p5, "y"    # I
-    .param p6, "width"    # I
-    .param p7, "height"    # I
+    .locals 0
 
     .line 162
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdateLayoutOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -62,13 +56,12 @@
     .line 169
     iget p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdateLayoutOperation;->mTag:I
 
-    const-wide/16 v0, 0x0
+    const-wide/16 p2, 0x0
 
-    const-string v2, "updateLayout"
+    const-string p4, "updateLayout"
 
-    invoke-static {v0, v1, v2, p1}, Lcom/facebook/systrace/Systrace;->startAsyncFlow(JLjava/lang/String;I)V
+    invoke-static {p2, p3, p4, p1}, Lcom/facebook/systrace/Systrace;->startAsyncFlow(JLjava/lang/String;I)V
 
-    .line 170
     return-void
 .end method
 
@@ -107,6 +100,5 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->updateLayout(IIIIII)V
 
-    .line 176
     return-void
 .end method

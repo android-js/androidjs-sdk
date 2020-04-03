@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/InspectorPackagerConnection$Connection;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/devsupport/InspectorPackagerConnection$Connection;
 
     .line 263
     iput-object p1, p0, Lcom/facebook/react/devsupport/InspectorPackagerConnection$Connection$1;->this$1:Lcom/facebook/react/devsupport/InspectorPackagerConnection$Connection;
@@ -53,7 +52,6 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/devsupport/InspectorPackagerConnection$Connection;->connect()V
 
-    .line 270
     :cond_0
     return-void
 .end method

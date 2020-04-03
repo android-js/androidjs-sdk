@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevLoadingViewController;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevLoadingViewController;
 
     .line 113
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevLoadingViewController$3;->this$0:Lcom/facebook/react/devsupport/DevLoadingViewController;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Lcom/facebook/react/devsupport/DevLoadingViewController;->access$200(Lcom/facebook/react/devsupport/DevLoadingViewController;)V
 
-    .line 117
     return-void
 .end method

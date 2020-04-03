@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/shell/MainReactPackage;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/shell/MainReactPackage;
 
     .line 300
     iput-object p1, p0, Lcom/facebook/react/shell/MainReactPackage$23;->this$0:Lcom/facebook/react/shell/MainReactPackage;

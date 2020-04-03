@@ -41,13 +41,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 59
     return-void
 
-    .line 61
     :cond_0
     const/4 v0, 0x2
 
+    .line 61
     new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
@@ -76,11 +75,11 @@
 
     aput-object v2, v0, v1
 
-    .line 61
     const-string v1, "CloseableImage"
 
     const-string v2, "finalize: %s %x still open."
 
+    .line 61
     invoke-static {v1, v2, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 67
@@ -92,13 +91,8 @@
     .line 69
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 70
-    nop
-
-    .line 71
     return-void
 
-    .line 69
     :catchall_0
     move-exception v0
 
@@ -126,7 +120,6 @@
 .method public isStateful()Z
     .locals 1
 
-    .line 50
     const/4 v0, 0x0
 
     return v0

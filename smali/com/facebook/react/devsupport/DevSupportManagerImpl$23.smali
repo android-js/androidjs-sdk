@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Lcom/facebook/react/common/futures/SimpleSettableFuture;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 932
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$23;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -42,7 +41,6 @@
 # virtual methods
 .method public onFailure(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "cause"    # Ljava/lang/Throwable;
 
     .line 942
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$23;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -60,11 +58,11 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$2002(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Z)Z
 
-    .line 944
     const-string v0, "ReactNative"
 
     const-string v1, "Unable to connect to remote debugger"
 
+    .line 944
     invoke-static {v0, v1, p1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 945
@@ -90,7 +88,6 @@
     .line 945
     invoke-virtual {v0, v1}, Lcom/facebook/react/common/futures/SimpleSettableFuture;->setException(Ljava/lang/Exception;)V
 
-    .line 948
     return-void
 .end method
 
@@ -124,6 +121,5 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$2002(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Z)Z
 
-    .line 938
     return-void
 .end method

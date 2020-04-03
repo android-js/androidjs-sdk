@@ -33,16 +33,16 @@
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     const/4 v0, 0x4
 
+    .line 21
     new-array v0, v0, [D
 
     iput-object v0, p0, Lcom/facebook/react/uimanager/MatrixMathHelper$MatrixDecompositionContext;->perspective:[D
 
-    .line 22
     const/4 v0, 0x3
 
+    .line 22
     new-array v1, v0, [D
 
     iput-object v1, p0, Lcom/facebook/react/uimanager/MatrixMathHelper$MatrixDecompositionContext;->scale:[D

@@ -14,9 +14,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/res/Resources;)V
     .locals 0
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
-    .param p2, "pooledByteBufferFactory"    # Lcom/facebook/common/memory/PooledByteBufferFactory;
-    .param p3, "resources"    # Landroid/content/res/Resources;
 
     .line 31
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/LocalFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;)V
@@ -24,31 +21,25 @@
     .line 32
     iput-object p3, p0, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;->mResources:Landroid/content/res/Resources;
 
-    .line 33
     return-void
 .end method
 
 .method private getLength(Lcom/facebook/imagepipeline/request/ImageRequest;)I
-    .locals 4
-    .param p1, "imageRequest"    # Lcom/facebook/imagepipeline/request/ImageRequest;
+    .locals 3
 
-    .line 43
     const/4 v0, 0x0
 
     .line 45
-    .local v0, "fd":Landroid/content/res/AssetFileDescriptor;
     :try_start_0
     iget-object v1, p0, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;->mResources:Landroid/content/res/Resources;
 
     invoke-static {p1}, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;->getResourceId(Lcom/facebook/imagepipeline/request/ImageRequest;)I
 
-    move-result v2
+    move-result p1
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->openRawResourceFd(I)Landroid/content/res/AssetFileDescriptor;
+    invoke-virtual {v1, p1}, Landroid/content/res/Resources;->openRawResourceFd(I)Landroid/content/res/AssetFileDescriptor;
 
-    move-result-object v1
-
-    move-object v0, v1
+    move-result-object v0
 
     .line 46
     invoke-virtual {v0}, Landroid/content/res/AssetFileDescriptor;->getLength()J
@@ -58,9 +49,8 @@
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    long-to-int v2, v1
+    long-to-int p1, v1
 
-    .line 51
     if-eqz v0, :cond_0
 
     .line 52
@@ -69,62 +59,28 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_0
-
-    .line 54
     :catch_0
-    move-exception v1
-
-    goto :goto_1
-
-    .line 56
     :cond_0
-    :goto_0
-    nop
+    return p1
 
-    .line 46
-    :goto_1
-    return v2
-
-    .line 50
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    .line 51
     if-eqz v0, :cond_1
 
-    .line 52
     :try_start_2
     invoke-virtual {v0}, Landroid/content/res/AssetFileDescriptor;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    goto :goto_2
-
-    .line 54
-    :catch_1
-    move-exception v2
-
-    goto :goto_3
-
-    .line 56
-    :cond_1
-    :goto_2
-    nop
-
     .line 57
-    :goto_3
-    throw v1
+    :catch_1
+    :cond_1
+    throw p1
 
-    .line 47
     :catch_2
-    move-exception v1
+    const/4 p1, -0x1
 
-    .line 48
-    .local v1, "e":Landroid/content/res/Resources$NotFoundException;
-    const/4 v2, -0x1
-
-    .line 51
     if-eqz v0, :cond_2
 
     .line 52
@@ -133,55 +89,40 @@
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
-    goto :goto_4
-
-    .line 54
     :catch_3
-    move-exception v3
-
-    goto :goto_5
-
-    .line 56
     :cond_2
-    :goto_4
-    nop
-
-    .line 48
-    :goto_5
-    return v2
+    return p1
 .end method
 
 .method private static getResourceId(Lcom/facebook/imagepipeline/request/ImageRequest;)I
-    .locals 2
-    .param p0, "imageRequest"    # Lcom/facebook/imagepipeline/request/ImageRequest;
+    .locals 1
 
     .line 66
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/request/ImageRequest;->getSourceUri()Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method protected getEncodedImage(Lcom/facebook/imagepipeline/request/ImageRequest;)Lcom/facebook/imagepipeline/image/EncodedImage;
     .locals 2
-    .param p1, "imageRequest"    # Lcom/facebook/imagepipeline/request/ImageRequest;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -203,20 +144,19 @@
     .line 39
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;->getLength(Lcom/facebook/imagepipeline/request/ImageRequest;)I
 
-    move-result v1
+    move-result p1
 
     .line 37
-    invoke-virtual {p0, v0, v1}, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;->getEncodedImage(Ljava/io/InputStream;I)Lcom/facebook/imagepipeline/image/EncodedImage;
+    invoke-virtual {p0, v0, p1}, Lcom/facebook/imagepipeline/producers/LocalResourceFetchProducer;->getEncodedImage(Ljava/io/InputStream;I)Lcom/facebook/imagepipeline/image/EncodedImage;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected getProducerName()Ljava/lang/String;
     .locals 1
 
-    .line 62
     const-string v0, "LocalResourceFetchProducer"
 
     return-object v0

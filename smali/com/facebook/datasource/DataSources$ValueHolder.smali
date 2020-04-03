@@ -41,12 +41,11 @@
     .locals 1
 
     .line 119
-    .local p0, "this":Lcom/facebook/datasource/DataSources$ValueHolder;, "Lcom/facebook/datasource/DataSources$ValueHolder<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 121
     const/4 v0, 0x0
 
+    .line 121
     iput-object v0, p0, Lcom/facebook/datasource/DataSources$ValueHolder;->value:Ljava/lang/Object;
 
     return-void
@@ -54,10 +53,8 @@
 
 .method synthetic constructor <init>(Lcom/facebook/datasource/DataSources$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/datasource/DataSources$1;
 
     .line 119
-    .local p0, "this":Lcom/facebook/datasource/DataSources$ValueHolder;, "Lcom/facebook/datasource/DataSources$ValueHolder<TT;>;"
     invoke-direct {p0}, Lcom/facebook/datasource/DataSources$ValueHolder;-><init>()V
 
     return-void

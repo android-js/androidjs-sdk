@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 585
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$15;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -37,16 +36,14 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 1
 
     .line 588
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$15;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$15;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$1402(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {p1, v0}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$1402(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    .line 589
     return-void
 .end method

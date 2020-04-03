@@ -17,36 +17,36 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 20
     const-string v0, "UTF-8"
 
+    .line 20
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
 
     sput-object v0, Lcom/facebook/react/common/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
-    .line 26
     const-string v0, "UTF-16"
 
+    .line 26
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
 
     sput-object v0, Lcom/facebook/react/common/StandardCharsets;->UTF_16:Ljava/nio/charset/Charset;
 
-    .line 31
     const-string v0, "UTF-16BE"
 
+    .line 31
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0
 
     sput-object v0, Lcom/facebook/react/common/StandardCharsets;->UTF_16BE:Ljava/nio/charset/Charset;
 
-    .line 35
     const-string v0, "UTF-16LE"
 
+    .line 35
     invoke-static {v0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object v0

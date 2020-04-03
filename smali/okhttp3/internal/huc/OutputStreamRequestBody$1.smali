@@ -27,7 +27,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/huc/OutputStreamRequestBody;JLokio/BufferedSink;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/huc/OutputStreamRequestBody;
 
     .line 47
     iput-object p1, p0, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->this$0:Lokhttp3/internal/huc/OutputStreamRequestBody;
@@ -114,7 +113,6 @@
 
     invoke-interface {v0}, Lokio/BufferedSink;->close()V
 
-    .line 84
     return-void
 .end method
 
@@ -141,41 +139,35 @@
 
     invoke-interface {v0}, Lokio/BufferedSink;->flush()V
 
-    .line 73
     return-void
 .end method
 
 .method public write(I)V
-    .locals 4
-    .param p1, "b"    # I
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 51
     const/4 v0, 0x1
 
+    .line 51
     new-array v1, v0, [B
 
-    int-to-byte v2, p1
+    int-to-byte p1, p1
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput-byte v2, v1, v3
+    aput-byte p1, v1, v2
 
-    invoke-virtual {p0, v1, v3, v0}, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->write([BII)V
+    invoke-virtual {p0, v1, v2, v0}, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->write([BII)V
 
-    .line 52
     return-void
 .end method
 
 .method public write([BII)V
     .locals 6
-    .param p1, "source"    # [B
-    .param p2, "offset"    # I
-    .param p3, "byteCount"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -212,37 +204,37 @@
 
     .line 58
     :cond_0
-    new-instance v0, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "expected "
+    const-string v0, "expected "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->val$expectedContentLength:J
+    iget-wide v0, p0, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->val$expectedContentLength:J
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v2, " bytes but received "
+    const-string v0, " bytes but received "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->bytesReceived:J
+    iget-wide v0, p0, Lokhttp3/internal/huc/OutputStreamRequestBody$1;->bytesReceived:J
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 62
     :cond_1
@@ -263,36 +255,29 @@
     :try_end_0
     .catch Ljava/io/InterruptedIOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 67
-    nop
-
-    .line 68
     return-void
 
-    .line 65
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 66
-    .local v0, "e":Ljava/io/InterruptedIOException;
-    new-instance v1, Ljava/net/SocketTimeoutException;
+    new-instance p2, Ljava/net/SocketTimeoutException;
 
-    invoke-virtual {v0}, Ljava/io/InterruptedIOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/io/InterruptedIOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 
     .line 55
-    .end local v0    # "e":Ljava/io/InterruptedIOException;
     :cond_2
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

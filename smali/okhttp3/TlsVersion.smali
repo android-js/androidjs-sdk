@@ -100,9 +100,9 @@
 
     sput-object v0, Lokhttp3/TlsVersion;->SSL_3_0:Lokhttp3/TlsVersion;
 
-    .line 26
     const/4 v0, 0x5
 
+    .line 26
     new-array v0, v0, [Lokhttp3/TlsVersion;
 
     sget-object v6, Lokhttp3/TlsVersion;->TLS_1_3:Lokhttp3/TlsVersion;
@@ -132,7 +132,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "javaName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,13 +146,11 @@
     .line 37
     iput-object p3, p0, Lokhttp3/TlsVersion;->javaName:Ljava/lang/String;
 
-    .line 38
     return-void
 .end method
 
 .method public static forJavaName(Ljava/lang/String;)Lokhttp3/TlsVersion;
     .locals 6
-    .param p0, "javaName"    # Ljava/lang/String;
 
     .line 41
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -170,15 +167,14 @@
 
     const/4 v5, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_1
 
     const v1, 0x4c38896
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_0
 
     packed-switch v0, :pswitch_data_0
 
-    :cond_0
     goto :goto_0
 
     :pswitch_0
@@ -188,7 +184,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x0
 
@@ -201,7 +197,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x1
 
@@ -214,38 +210,39 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x2
 
     goto :goto_1
 
-    :cond_1
+    :cond_0
     const-string v0, "TLSv1"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x3
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     const-string v0, "SSLv3"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x4
 
     goto :goto_1
 
+    :cond_2
     :goto_0
     const/4 v0, -0x1
 
@@ -261,9 +258,9 @@
     if-ne v0, v2, :cond_3
 
     .line 51
-    sget-object v0, Lokhttp3/TlsVersion;->SSL_3_0:Lokhttp3/TlsVersion;
+    sget-object p0, Lokhttp3/TlsVersion;->SSL_3_0:Lokhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 53
     :cond_3
@@ -281,35 +278,35 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 49
     :cond_4
-    sget-object v0, Lokhttp3/TlsVersion;->TLS_1_0:Lokhttp3/TlsVersion;
+    sget-object p0, Lokhttp3/TlsVersion;->TLS_1_0:Lokhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 47
     :cond_5
-    sget-object v0, Lokhttp3/TlsVersion;->TLS_1_1:Lokhttp3/TlsVersion;
+    sget-object p0, Lokhttp3/TlsVersion;->TLS_1_1:Lokhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 45
     :cond_6
-    sget-object v0, Lokhttp3/TlsVersion;->TLS_1_2:Lokhttp3/TlsVersion;
+    sget-object p0, Lokhttp3/TlsVersion;->TLS_1_2:Lokhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 43
     :cond_7
-    sget-object v0, Lokhttp3/TlsVersion;->TLS_1_3:Lokhttp3/TlsVersion;
+    sget-object p0, Lokhttp3/TlsVersion;->TLS_1_3:Lokhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -322,8 +319,7 @@
 .end method
 
 .method static varargs forJavaNames([Ljava/lang/String;)Ljava/util/List;
-    .locals 5
-    .param p0, "tlsVersions"    # [Ljava/lang/String;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -343,7 +339,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 58
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<Lokhttp3/TlsVersion;>;"
     array-length v1, p0
 
     const/4 v2, 0x0
@@ -354,15 +349,12 @@
     aget-object v3, p0, v2
 
     .line 59
-    .local v3, "tlsVersion":Ljava/lang/String;
     invoke-static {v3}, Lokhttp3/TlsVersion;->forJavaName(Ljava/lang/String;)Lokhttp3/TlsVersion;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 58
-    .end local v3    # "tlsVersion":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -371,25 +363,24 @@
     :cond_0
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lokhttp3/TlsVersion;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 26
     const-class v0, Lokhttp3/TlsVersion;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lokhttp3/TlsVersion;
+    check-cast p0, Lokhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lokhttp3/TlsVersion;

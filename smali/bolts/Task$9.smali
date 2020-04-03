@@ -47,7 +47,6 @@
     .locals 0
 
     .line 611
-    .local p0, "this":Lbolts/Task$9;, "Lbolts/Task.9;"
     iput-object p1, p0, Lbolts/Task$9;->this$0:Lbolts/Task;
 
     iput-object p2, p0, Lbolts/Task$9;->val$ct:Lbolts/CancellationToken;
@@ -68,7 +67,7 @@
 
 # virtual methods
 .method public then(Lbolts/Task;)Lbolts/Task;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,84 +87,81 @@
     .end annotation
 
     .line 614
-    .local p0, "this":Lbolts/Task$9;, "Lbolts/Task.9;"
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<Ljava/lang/Void;>;"
-    iget-object v0, p0, Lbolts/Task$9;->val$ct:Lbolts/CancellationToken;
+    iget-object p1, p0, Lbolts/Task$9;->val$ct:Lbolts/CancellationToken;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0}, Lbolts/CancellationToken;->isCancellationRequested()Z
+    invoke-virtual {p1}, Lbolts/CancellationToken;->isCancellationRequested()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 615
     invoke-static {}, Lbolts/Task;->cancelled()Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 618
     :cond_0
-    iget-object v0, p0, Lbolts/Task$9;->val$predicate:Ljava/util/concurrent/Callable;
+    iget-object p1, p0, Lbolts/Task$9;->val$predicate:Ljava/util/concurrent/Callable;
 
-    invoke-interface {v0}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/concurrent/Callable;->call()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 619
-    invoke-static {v1}, Lbolts/Task;->forResult(Ljava/lang/Object;)Lbolts/Task;
+    invoke-static {v0}, Lbolts/Task;->forResult(Ljava/lang/Object;)Lbolts/Task;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lbolts/Task$9;->val$continuation:Lbolts/Continuation;
+
+    iget-object v1, p0, Lbolts/Task$9;->val$executor:Ljava/util/concurrent/Executor;
+
+    invoke-virtual {p1, v0, v1}, Lbolts/Task;->onSuccessTask(Lbolts/Continuation;Ljava/util/concurrent/Executor;)Lbolts/Task;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lbolts/Task$9;->val$predicateContinuation:Lbolts/Capture;
+
+    invoke-virtual {v0}, Lbolts/Capture;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    iget-object v1, p0, Lbolts/Task$9;->val$continuation:Lbolts/Continuation;
+    check-cast v0, Lbolts/Continuation;
 
-    iget-object v2, p0, Lbolts/Task$9;->val$executor:Ljava/util/concurrent/Executor;
+    iget-object v1, p0, Lbolts/Task$9;->val$executor:Ljava/util/concurrent/Executor;
 
-    invoke-virtual {v0, v1, v2}, Lbolts/Task;->onSuccessTask(Lbolts/Continuation;Ljava/util/concurrent/Executor;)Lbolts/Task;
+    invoke-virtual {p1, v0, v1}, Lbolts/Task;->onSuccessTask(Lbolts/Continuation;Ljava/util/concurrent/Executor;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lbolts/Task$9;->val$predicateContinuation:Lbolts/Capture;
-
-    invoke-virtual {v1}, Lbolts/Capture;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lbolts/Continuation;
-
-    iget-object v2, p0, Lbolts/Task$9;->val$executor:Ljava/util/concurrent/Executor;
-
-    invoke-virtual {v0, v1, v2}, Lbolts/Task;->onSuccessTask(Lbolts/Continuation;Ljava/util/concurrent/Executor;)Lbolts/Task;
-
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 
     .line 622
     :cond_1
-    invoke-static {v1}, Lbolts/Task;->forResult(Ljava/lang/Object;)Lbolts/Task;
+    invoke-static {v0}, Lbolts/Task;->forResult(Ljava/lang/Object;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic then(Lbolts/Task;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Lbolts/Task;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -173,10 +169,9 @@
     .end annotation
 
     .line 611
-    .local p0, "this":Lbolts/Task$9;, "Lbolts/Task.9;"
     invoke-virtual {p0, p1}, Lbolts/Task$9;->then(Lbolts/Task;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -34,8 +34,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/soloader/ExoSoSource$ExoUnpacker;Lcom/facebook/soloader/ExoSoSource$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/soloader/ExoSoSource$ExoUnpacker;
-    .param p2, "x1"    # Lcom/facebook/soloader/ExoSoSource$1;
 
     .line 126
     invoke-direct {p0, p1}, Lcom/facebook/soloader/ExoSoSource$ExoUnpacker$FileBackedInputDsoIterator;-><init>(Lcom/facebook/soloader/ExoSoSource$ExoUnpacker;)V
@@ -96,7 +94,6 @@
     aget-object v0, v0, v1
 
     .line 137
-    .local v0, "fileDso":Lcom/facebook/soloader/ExoSoSource$FileDso;
     new-instance v1, Ljava/io/FileInputStream;
 
     iget-object v2, v0, Lcom/facebook/soloader/ExoSoSource$FileDso;->backingFile:Ljava/io/File;
@@ -104,7 +101,6 @@
     invoke-direct {v1, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 139
-    .local v1, "dsoFile":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v2, Lcom/facebook/soloader/UnpackingSoSource$InputDso;
 
@@ -112,31 +108,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 140
-    .local v2, "ret":Lcom/facebook/soloader/UnpackingSoSource$InputDso;
-    const/4 v1, 0x0
-
-    .line 141
-    nop
-
-    .line 143
-    if-eqz v1, :cond_0
-
-    .line 144
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-
-    .line 141
-    :cond_0
     return-object v2
 
-    .line 143
-    .end local v2    # "ret":Lcom/facebook/soloader/UnpackingSoSource$InputDso;
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     .line 144
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
 
     .line 146
-    throw v2
+    throw v0
 .end method

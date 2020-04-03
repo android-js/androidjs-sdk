@@ -13,40 +13,35 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;[B)V
-    .locals 1
-    .param p1, "inputStream"    # Ljava/io/InputStream;
-    .param p2, "tail"    # [B
+    .locals 0
 
     .line 24
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
 
-    .line 25
     if-eqz p1, :cond_1
 
-    .line 28
     if-eqz p2, :cond_0
 
     .line 31
     iput-object p2, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mTail:[B
 
-    .line 32
     return-void
 
     .line 29
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/NullPointerException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 26
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/NullPointerException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method private readNextTailByte()I
@@ -61,15 +56,14 @@
 
     if-lt v0, v2, :cond_0
 
-    .line 91
     const/4 v0, -0x1
 
     return v0
 
-    .line 93
     :cond_0
     add-int/lit8 v2, v0, 0x1
 
+    .line 93
     iput v2, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mTailOffset:I
 
     aget-byte v0, v1, v0
@@ -83,7 +77,6 @@
 # virtual methods
 .method public mark(I)V
     .locals 1
-    .param p1, "readLimit"    # I
 
     .line 83
     iget-object v0, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->in:Ljava/io/InputStream;
@@ -98,11 +91,10 @@
     invoke-super {p0, p1}, Ljava/io/FilterInputStream;->mark(I)V
 
     .line 85
-    iget v0, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mTailOffset:I
+    iget p1, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mTailOffset:I
 
-    iput v0, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mMarkedTailOffset:I
+    iput p1, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mMarkedTailOffset:I
 
-    .line 87
     :cond_0
     return-void
 .end method
@@ -122,27 +114,23 @@
 
     move-result v0
 
-    .line 37
-    .local v0, "readResult":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 38
     return v0
 
     .line 40
     :cond_0
     invoke-direct {p0}, Lcom/facebook/common/streams/TailAppendingInputStream;->readNextTailByte()I
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 .end method
 
 .method public read([B)I
     .locals 2
-    .param p1, "buffer"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -156,16 +144,13 @@
 
     invoke-virtual {p0, p1, v1, v0}, Lcom/facebook/common/streams/TailAppendingInputStream;->read([BII)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public read([BII)I
-    .locals 6
-    .param p1, "buffer"    # [B
-    .param p2, "offset"    # I
-    .param p3, "count"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -179,71 +164,55 @@
 
     move-result v0
 
-    .line 51
-    .local v0, "readResult":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
-    .line 52
     return v0
 
-    .line 55
     :cond_0
+    const/4 v0, 0x0
+
     if-nez p3, :cond_1
 
-    .line 56
-    const/4 v1, 0x0
+    return v0
 
-    return v1
-
-    .line 59
     :cond_1
-    const/4 v2, 0x0
-
-    .line 60
-    .local v2, "bytesRead":I
     :goto_0
-    if-ge v2, p3, :cond_3
+    if-ge v0, p3, :cond_3
 
     .line 61
     invoke-direct {p0}, Lcom/facebook/common/streams/TailAppendingInputStream;->readNextTailByte()I
 
-    move-result v3
+    move-result v2
 
-    .line 62
-    .local v3, "nextByte":I
-    if-ne v3, v1, :cond_2
+    if-ne v2, v1, :cond_2
 
-    .line 63
     goto :goto_1
 
-    .line 65
     :cond_2
-    add-int v4, p2, v2
+    add-int v3, p2, v0
 
-    int-to-byte v5, v3
+    int-to-byte v2, v2
 
-    aput-byte v5, p1, v4
+    .line 65
+    aput-byte v2, p1, v3
 
-    .line 66
-    nop
+    add-int/lit8 v0, v0, 0x1
 
-    .end local v3    # "nextByte":I
-    add-int/lit8 v2, v2, 0x1
-
-    .line 67
     goto :goto_0
 
-    .line 68
     :cond_3
     :goto_1
-    if-lez v2, :cond_4
+    if-lez v0, :cond_4
 
-    move v1, v2
+    goto :goto_2
 
     :cond_4
-    return v1
+    const/4 v0, -0x1
+
+    :goto_2
+    return v0
 .end method
 
 .method public reset()V
@@ -273,7 +242,6 @@
 
     iput v0, p0, Lcom/facebook/common/streams/TailAppendingInputStream;->mTailOffset:I
 
-    .line 79
     return-void
 
     .line 77

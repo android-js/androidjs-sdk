@@ -24,17 +24,15 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 39
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
-    .line 40
     return-void
 .end method
 
 .method private uiMode()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .line 46
     invoke-virtual {p0}, Lcom/facebook/react/modules/systeminfo/AndroidInfoModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
@@ -50,65 +48,58 @@
     check-cast v0, Landroid/app/UiModeManager;
 
     .line 47
-    .local v0, "uiModeManager":Landroid/app/UiModeManager;
     invoke-virtual {v0}, Landroid/app/UiModeManager;->getCurrentModeType()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eq v1, v2, :cond_4
+    if-eq v0, v1, :cond_4
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    if-eq v1, v2, :cond_3
+    if-eq v0, v1, :cond_3
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    if-eq v1, v2, :cond_2
+    if-eq v0, v1, :cond_2
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    if-eq v1, v2, :cond_1
+    if-eq v0, v1, :cond_1
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    if-eq v1, v2, :cond_0
+    if-eq v0, v1, :cond_0
 
-    .line 59
-    const-string v1, "unknown"
+    const-string v0, "unknown"
 
-    return-object v1
+    return-object v0
 
-    .line 55
     :cond_0
-    const-string v1, "watch"
+    const-string v0, "watch"
 
-    return-object v1
+    return-object v0
 
-    .line 49
     :cond_1
-    const-string v1, "tv"
+    const-string v0, "tv"
 
-    return-object v1
+    return-object v0
 
-    .line 51
     :cond_2
-    const-string v1, "car"
+    const-string v0, "car"
 
-    return-object v1
+    return-object v0
 
-    .line 53
     :cond_3
-    const-string v1, "desk"
+    const-string v0, "desk"
 
-    return-object v1
+    return-object v0
 
-    .line 57
     :cond_4
-    const-string v1, "normal"
+    const-string v0, "normal"
 
-    return-object v1
+    return-object v0
 .end method
 
 
@@ -158,7 +149,6 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     .line 71
-    .local v0, "constants":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -197,9 +187,9 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 79
     const-string v1, "IS_TESTING"
 
+    .line 79
     invoke-static {v1}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -234,14 +224,12 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 82
     return-object v0
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 65
     const-string v0, "PlatformConstants"
 
     return-object v0

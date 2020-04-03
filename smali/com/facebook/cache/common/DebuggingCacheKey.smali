@@ -12,12 +12,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/Object;Landroid/net/Uri;)V
     .locals 0
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "callerContext"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "sourceUri"    # Landroid/net/Uri;
 
     .line 23
     invoke-direct {p0, p1}, Lcom/facebook/cache/common/SimpleCacheKey;-><init>(Ljava/lang/String;)V
@@ -28,7 +26,6 @@
     .line 25
     iput-object p3, p0, Lcom/facebook/cache/common/DebuggingCacheKey;->mSourceUri:Landroid/net/Uri;
 
-    .line 26
     return-void
 .end method
 

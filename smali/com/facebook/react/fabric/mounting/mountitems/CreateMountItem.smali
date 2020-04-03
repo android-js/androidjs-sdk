@@ -19,10 +19,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/ThemedReactContext;Ljava/lang/String;IZ)V
     .locals 0
-    .param p1, "themedReactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
-    .param p2, "componentName"    # Ljava/lang/String;
-    .param p3, "reactTag"    # I
-    .param p4, "isVirtual"    # Z
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +35,6 @@
     .line 27
     iput-boolean p4, p0, Lcom/facebook/react/fabric/mounting/mountitems/CreateMountItem;->mIsVirtual:Z
 
-    .line 28
     return-void
 .end method
 
@@ -47,7 +42,6 @@
 # virtual methods
 .method public execute(Lcom/facebook/react/fabric/mounting/MountingManager;)V
     .locals 4
-    .param p1, "mountingManager"    # Lcom/facebook/react/fabric/mounting/MountingManager;
 
     .line 32
     iget-object v0, p0, Lcom/facebook/react/fabric/mounting/mountitems/CreateMountItem;->mThemedReactContext:Lcom/facebook/react/uimanager/ThemedReactContext;
@@ -60,7 +54,6 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Lcom/facebook/react/fabric/mounting/MountingManager;->createView(Lcom/facebook/react/uimanager/ThemedReactContext;Ljava/lang/String;IZ)V
 
-    .line 33
     return-void
 .end method
 

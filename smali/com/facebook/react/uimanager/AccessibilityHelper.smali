@@ -56,22 +56,16 @@
 
 .method public static sendAccessibilityEvent(Landroid/view/View;I)V
     .locals 0
-    .param p0, "view"    # Landroid/view/View;
-    .param p1, "eventType"    # I
 
     .line 98
     invoke-virtual {p0, p1}, Landroid/view/View;->sendAccessibilityEvent(I)V
 
-    .line 99
     return-void
 .end method
 
 .method public static updateAccessibilityComponentType(Landroid/view/View;Ljava/lang/String;)V
     .locals 6
-    .param p0, "view"    # Landroid/view/View;
-    .param p1, "componentType"    # Ljava/lang/String;
 
-    .line 77
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
@@ -79,13 +73,12 @@
     .line 78
     invoke-virtual {p0, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 79
     return-void
 
-    .line 81
     :cond_0
     const/4 v1, -0x1
 
+    .line 81
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v2
@@ -96,56 +89,56 @@
 
     const/4 v5, 0x1
 
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_3
 
     const v3, -0x4eb523e4
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_2
 
     const v3, -0x2a90b3ab
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_1
 
-    :cond_1
     goto :goto_0
 
-    :cond_2
+    :cond_1
     const-string v2, "radiobutton_checked"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_4
 
     const/4 v1, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     const-string v2, "radiobutton_unchecked"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_4
 
     const/4 v1, 0x2
 
     goto :goto_0
 
-    :cond_4
+    :cond_3
     const-string v2, "button"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_4
 
     const/4 v1, 0x0
 
+    :cond_4
     :goto_0
     if-eqz v1, :cond_7
 
@@ -160,32 +153,26 @@
 
     .line 89
     :cond_5
-    sget-object v0, Lcom/facebook/react/uimanager/AccessibilityHelper;->RADIOBUTTON_UNCHECKED_DELEGATE:Landroid/view/View$AccessibilityDelegate;
+    sget-object p1, Lcom/facebook/react/uimanager/AccessibilityHelper;->RADIOBUTTON_UNCHECKED_DELEGATE:Landroid/view/View$AccessibilityDelegate;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 90
     goto :goto_1
 
     .line 86
     :cond_6
-    sget-object v0, Lcom/facebook/react/uimanager/AccessibilityHelper;->RADIOBUTTON_CHECKED_DELEGATE:Landroid/view/View$AccessibilityDelegate;
+    sget-object p1, Lcom/facebook/react/uimanager/AccessibilityHelper;->RADIOBUTTON_CHECKED_DELEGATE:Landroid/view/View$AccessibilityDelegate;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 87
     goto :goto_1
 
     .line 83
     :cond_7
-    sget-object v0, Lcom/facebook/react/uimanager/AccessibilityHelper;->BUTTON_DELEGATE:Landroid/view/View$AccessibilityDelegate;
+    sget-object p1, Lcom/facebook/react/uimanager/AccessibilityHelper;->BUTTON_DELEGATE:Landroid/view/View$AccessibilityDelegate;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    .line 84
-    nop
-
-    .line 95
     :goto_1
     return-void
 .end method

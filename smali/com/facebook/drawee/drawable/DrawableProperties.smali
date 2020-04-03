@@ -26,19 +26,19 @@
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
     const/4 v0, -0x1
 
+    .line 22
     iput v0, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mAlpha:I
 
-    .line 23
     const/4 v1, 0x0
 
+    .line 23
     iput-boolean v1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mIsSetColorFilter:Z
 
-    .line 24
     const/4 v1, 0x0
 
+    .line 24
     iput-object v1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mColorFilter:Landroid/graphics/ColorFilter;
 
     .line 25
@@ -54,17 +54,14 @@
 # virtual methods
 .method public applyTo(Landroid/graphics/drawable/Drawable;)V
     .locals 4
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "Range"
         }
     .end annotation
 
-    .line 47
     if-nez p1, :cond_0
 
-    .line 48
     return-void
 
     .line 50
@@ -99,7 +96,6 @@
 
     if-eq v0, v1, :cond_4
 
-    .line 57
     if-eqz v0, :cond_3
 
     const/4 v0, 0x1
@@ -109,6 +105,7 @@
     :cond_3
     const/4 v0, 0x0
 
+    .line 57
     :goto_0
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setDither(Z)V
 
@@ -118,7 +115,6 @@
 
     if-eq v0, v1, :cond_6
 
-    .line 60
     if-eqz v0, :cond_5
 
     goto :goto_1
@@ -126,59 +122,51 @@
     :cond_5
     const/4 v2, 0x0
 
+    .line 60
     :goto_1
     invoke-virtual {p1, v2}, Landroid/graphics/drawable/Drawable;->setFilterBitmap(Z)V
 
-    .line 62
     :cond_6
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 0
-    .param p1, "alpha"    # I
 
     .line 29
     iput p1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mAlpha:I
 
-    .line 30
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
-    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
+    .locals 0
 
     .line 33
     iput-object p1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mColorFilter:Landroid/graphics/ColorFilter;
 
+    const/4 p1, 0x1
+
     .line 34
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mIsSetColorFilter:Z
 
-    iput-boolean v0, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mIsSetColorFilter:Z
-
-    .line 35
     return-void
 .end method
 
 .method public setDither(Z)V
     .locals 0
-    .param p1, "dither"    # Z
 
     .line 38
     iput p1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mDither:I
 
-    .line 39
     return-void
 .end method
 
 .method public setFilterBitmap(Z)V
     .locals 0
-    .param p1, "filterBitmap"    # Z
 
     .line 42
     iput p1, p0, Lcom/facebook/drawee/drawable/DrawableProperties;->mFilterBitmap:I
 
-    .line 43
     return-void
 .end method

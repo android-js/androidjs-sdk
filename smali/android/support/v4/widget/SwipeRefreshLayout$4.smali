@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/SwipeRefreshLayout;II)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/widget/SwipeRefreshLayout;
 
     .line 499
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
@@ -42,33 +41,30 @@
 
 # virtual methods
 .method public applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 4
-    .param p1, "interpolatedTime"    # F
-    .param p2, "t"    # Landroid/view/animation/Transformation;
+    .locals 3
 
     .line 502
-    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
+    iget-object p2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    iget-object v0, v0, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/CircularProgressDrawable;
+    iget-object p2, p2, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/CircularProgressDrawable;
 
-    iget v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->val$startingAlpha:I
+    iget v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->val$startingAlpha:I
 
-    int-to-float v2, v1
+    int-to-float v1, v0
 
-    iget v3, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->val$endingAlpha:I
+    iget v2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->val$endingAlpha:I
 
-    sub-int/2addr v3, v1
+    sub-int/2addr v2, v0
 
-    int-to-float v1, v3
+    int-to-float v0, v2
 
-    mul-float v1, v1, p1
+    mul-float v0, v0, p1
 
-    add-float/2addr v2, v1
+    add-float/2addr v1, v0
 
-    float-to-int v1, v2
+    float-to-int p1, v1
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CircularProgressDrawable;->setAlpha(I)V
+    invoke-virtual {p2, p1}, Landroid/support/v4/widget/CircularProgressDrawable;->setAlpha(I)V
 
-    .line 504
     return-void
 .end method

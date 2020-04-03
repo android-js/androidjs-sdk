@@ -39,52 +39,46 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 47
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
-    .line 48
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;)Lcom/facebook/react/bridge/ReactApplicationContext;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;
+    .locals 0
 
     .line 31
     invoke-virtual {p0}, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;)Lcom/facebook/react/bridge/ReactApplicationContext;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;
+    .locals 0
 
     .line 31
     invoke-virtual {p0}, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private createFragmentArguments(Lcom/facebook/react/bridge/ReadableMap;)Landroid/os/Bundle;
     .locals 4
-    .param p1, "options"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 140
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 141
-    .local v0, "args":Landroid/os/Bundle;
     const-string v1, "date"
 
+    .line 141
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -106,10 +100,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 144
     :cond_0
     const-string v1, "minDate"
 
+    .line 144
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -131,10 +125,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 147
     :cond_1
     const-string v1, "maxDate"
 
+    .line 147
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -156,10 +150,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 150
     :cond_2
     const-string v1, "mode"
 
+    .line 150
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -175,11 +169,10 @@
     .line 151
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 153
     :cond_3
     return-object v0
 .end method
@@ -191,19 +184,17 @@
     .annotation runtime Ljavax/annotation/Nonnull;
     .end annotation
 
-    .line 52
     const-string v0, "DatePickerAndroid"
 
     return-object v0
 .end method
 
 .method public open(Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/bridge/Promise;)V
-    .locals 6
-    .param p1, "options"    # Lcom/facebook/react/bridge/ReadableMap;
+    .locals 3
+    .param p1    # Lcom/facebook/react/bridge/ReadableMap;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "promise"    # Lcom/facebook/react/bridge/Promise;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -214,79 +205,67 @@
 
     check-cast v0, Landroid/support/v4/app/FragmentActivity;
 
-    .line 116
-    .local v0, "activity":Landroid/support/v4/app/FragmentActivity;
     if-nez v0, :cond_0
 
+    const-string p1, "E_NO_ACTIVITY"
+
+    const-string v0, "Tried to open a DatePicker dialog while not attached to an Activity"
+
     .line 117
-    const-string v1, "E_NO_ACTIVITY"
+    invoke-interface {p2, p1, v0}, Lcom/facebook/react/bridge/Promise;->reject(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "Tried to open a DatePicker dialog while not attached to an Activity"
-
-    invoke-interface {p2, v1, v2}, Lcom/facebook/react/bridge/Promise;->reject(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 120
     return-void
 
     .line 123
     :cond_0
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "DatePickerAndroid"
 
     .line 124
-    .local v1, "fragmentManager":Landroid/support/v4/app/FragmentManager;
-    const-string v2, "DatePickerAndroid"
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    move-result-object v2
 
-    move-result-object v3
+    check-cast v2, Landroid/support/v4/app/DialogFragment;
 
-    check-cast v3, Landroid/support/v4/app/DialogFragment;
-
-    .line 125
-    .local v3, "oldFragment":Landroid/support/v4/app/DialogFragment;
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 126
-    invoke-virtual {v3}, Landroid/support/v4/app/DialogFragment;->dismiss()V
+    invoke-virtual {v2}, Landroid/support/v4/app/DialogFragment;->dismiss()V
 
     .line 128
     :cond_1
-    new-instance v4, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;
+    new-instance v2, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;
 
-    invoke-direct {v4}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;-><init>()V
+    invoke-direct {v2}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;-><init>()V
 
-    .line 129
-    .local v4, "fragment":Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;
     if-eqz p1, :cond_2
 
     .line 130
     invoke-direct {p0, p1}, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;->createFragmentArguments(Lcom/facebook/react/bridge/ReadableMap;)Landroid/os/Bundle;
 
-    move-result-object v5
+    move-result-object p1
 
     .line 131
-    .local v5, "args":Landroid/os/Bundle;
-    invoke-virtual {v4, v5}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {v2, p1}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
     .line 133
-    .end local v5    # "args":Landroid/os/Bundle;
     :cond_2
-    new-instance v5, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule$DatePickerDialogListener;
+    new-instance p1, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule$DatePickerDialogListener;
 
-    invoke-direct {v5, p0, p2}, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule$DatePickerDialogListener;-><init>(Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;Lcom/facebook/react/bridge/Promise;)V
+    invoke-direct {p1, p0, p2}, Lcom/facebook/react/modules/datepicker/DatePickerDialogModule$DatePickerDialogListener;-><init>(Lcom/facebook/react/modules/datepicker/DatePickerDialogModule;Lcom/facebook/react/bridge/Promise;)V
 
     .line 134
-    .local v5, "listener":Lcom/facebook/react/modules/datepicker/DatePickerDialogModule$DatePickerDialogListener;
-    invoke-virtual {v4, v5}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v2, p1}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 135
-    invoke-virtual {v4, v5}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->setOnDateSetListener(Landroid/app/DatePickerDialog$OnDateSetListener;)V
+    invoke-virtual {v2, p1}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->setOnDateSetListener(Landroid/app/DatePickerDialog$OnDateSetListener;)V
 
     .line 136
-    invoke-virtual {v4, v1, v2}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v1}, Lcom/facebook/react/modules/datepicker/DatePickerDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
 
-    .line 137
     return-void
 .end method

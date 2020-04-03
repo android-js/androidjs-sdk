@@ -15,7 +15,6 @@
     .line 21
     invoke-static {}, Lcom/facebook/imagepipeline/nativecode/ImagePipelineNativeLoader;->load()V
 
-    .line 22
     return-void
 .end method
 
@@ -30,14 +29,10 @@
 
 .method public static iterativeBoxBlur(Landroid/graphics/Bitmap;II)V
     .locals 3
-    .param p0, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p1, "iterations"    # I
-    .param p2, "blurRadius"    # I
 
     .line 45
     invoke-static {p0}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 46
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -51,10 +46,10 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 46
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 47
     if-lez p2, :cond_1
 
     goto :goto_1
@@ -62,13 +57,13 @@
     :cond_1
     const/4 v0, 0x0
 
+    .line 47
     :goto_1
     invoke-static {v0}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
     .line 49
     invoke-static {p0, p1, p2}, Lcom/facebook/imagepipeline/nativecode/NativeBlurFilter;->nativeIterativeBoxBlur(Landroid/graphics/Bitmap;II)V
 
-    .line 50
     return-void
 .end method
 

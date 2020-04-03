@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/ReactInstanceManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/ReactInstanceManager;
 
     .line 1025
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$7;->this$0:Lcom/facebook/react/ReactInstanceManager;
@@ -39,9 +38,9 @@
 .method public run()V
     .locals 2
 
-    .line 1028
     const/4 v0, 0x0
 
+    .line 1028
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 1029
@@ -51,6 +50,5 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;)V
 
-    .line 1030
     return-void
 .end method

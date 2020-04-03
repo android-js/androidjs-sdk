@@ -22,9 +22,7 @@
 .end method
 
 .method public static register(Lcom/facebook/common/activitylistener/ActivityListener;Landroid/content/Context;)V
-    .locals 2
-    .param p0, "activityListener"    # Lcom/facebook/common/activitylistener/ActivityListener;
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 31
     instance-of v0, p1, Lcom/facebook/common/activitylistener/ListenableActivity;
@@ -36,11 +34,9 @@
     if-eqz v0, :cond_0
 
     .line 32
-    move-object v0, p1
+    check-cast p1, Landroid/content/ContextWrapper;
 
-    check-cast v0, Landroid/content/ContextWrapper;
-
-    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
 
     move-result-object p1
 
@@ -51,23 +47,16 @@
     if-eqz v0, :cond_1
 
     .line 35
-    move-object v0, p1
-
-    check-cast v0, Lcom/facebook/common/activitylistener/ListenableActivity;
+    check-cast p1, Lcom/facebook/common/activitylistener/ListenableActivity;
 
     .line 36
-    .local v0, "listenableActivity":Lcom/facebook/common/activitylistener/ListenableActivity;
-    new-instance v1, Lcom/facebook/common/activitylistener/ActivityListenerManager$Listener;
+    new-instance v0, Lcom/facebook/common/activitylistener/ActivityListenerManager$Listener;
 
-    invoke-direct {v1, p0}, Lcom/facebook/common/activitylistener/ActivityListenerManager$Listener;-><init>(Lcom/facebook/common/activitylistener/ActivityListener;)V
+    invoke-direct {v0, p0}, Lcom/facebook/common/activitylistener/ActivityListenerManager$Listener;-><init>(Lcom/facebook/common/activitylistener/ActivityListener;)V
 
     .line 37
-    .local v1, "listener":Lcom/facebook/common/activitylistener/ActivityListenerManager$Listener;
-    invoke-interface {v0, v1}, Lcom/facebook/common/activitylistener/ListenableActivity;->addActivityListener(Lcom/facebook/common/activitylistener/ActivityListener;)V
+    invoke-interface {p1, v0}, Lcom/facebook/common/activitylistener/ListenableActivity;->addActivityListener(Lcom/facebook/common/activitylistener/ActivityListener;)V
 
-    .line 39
-    .end local v0    # "listenableActivity":Lcom/facebook/common/activitylistener/ListenableActivity;
-    .end local v1    # "listener":Lcom/facebook/common/activitylistener/ActivityListenerManager$Listener;
     :cond_1
     return-void
 .end method

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/bridge/LifecycleEventListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 152
     iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext$1;->this$0:Lcom/facebook/react/bridge/ReactContext;
@@ -58,7 +57,6 @@
 
     if-nez v0, :cond_0
 
-    .line 156
     return-void
 
     .line 159
@@ -70,21 +68,16 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 162
     goto :goto_0
 
-    .line 160
     :catch_0
     move-exception v0
 
     .line 161
-    .local v0, "e":Ljava/lang/RuntimeException;
     iget-object v1, p0, Lcom/facebook/react/bridge/ReactContext$1;->this$0:Lcom/facebook/react/bridge/ReactContext;
 
     invoke-virtual {v1, v0}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
 
-    .line 163
-    .end local v0    # "e":Ljava/lang/RuntimeException;
     :goto_0
     return-void
 .end method

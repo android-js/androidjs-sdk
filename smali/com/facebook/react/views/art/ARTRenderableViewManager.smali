@@ -29,7 +29,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "className"    # Ljava/lang/String;
 
     .line 41
     invoke-direct {p0}, Lcom/facebook/react/uimanager/ViewManager;-><init>()V
@@ -37,7 +36,6 @@
     .line 42
     iput-object p1, p0, Lcom/facebook/react/views/art/ARTRenderableViewManager;->mClassName:Ljava/lang/String;
 
-    .line 43
     return-void
 .end method
 
@@ -161,17 +159,16 @@
 .end method
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Landroid/view/View;
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
+    .locals 1
 
     .line 78
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "ARTShape does not map into a native view"
+    const-string v0, "ARTShape does not map into a native view"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getName()Ljava/lang/String;
@@ -271,16 +268,14 @@
 .end method
 
 .method public updateExtraData(Landroid/view/View;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "root"    # Landroid/view/View;
-    .param p2, "extraData"    # Ljava/lang/Object;
+    .locals 0
 
     .line 83
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "ARTShape does not map into a native view"
+    const-string p2, "ARTShape does not map into a native view"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

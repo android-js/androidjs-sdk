@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/core/ImagePipelineConfig;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
 
     .line 133
     iput-object p1, p0, Lcom/facebook/imagepipeline/core/ImagePipelineConfig$1;->this$0:Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
@@ -48,9 +47,9 @@
 .method public get()Ljava/lang/Boolean;
     .locals 1
 
-    .line 136
     const/4 v0, 0x1
 
+    .line 136
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0

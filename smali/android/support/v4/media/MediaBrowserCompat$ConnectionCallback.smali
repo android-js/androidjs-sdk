@@ -55,13 +55,12 @@
 
     goto :goto_0
 
-    .line 627
     :cond_0
     const/4 v0, 0x0
 
+    .line 627
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->mConnectionCallbackObj:Ljava/lang/Object;
 
-    .line 629
     :goto_0
     return-void
 .end method
@@ -71,31 +70,26 @@
 .method public onConnected()V
     .locals 0
 
-    .line 636
     return-void
 .end method
 
 .method public onConnectionFailed()V
     .locals 0
 
-    .line 648
     return-void
 .end method
 
 .method public onConnectionSuspended()V
     .locals 0
 
-    .line 642
     return-void
 .end method
 
 .method setInternalConnectionCallback(Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal;)V
     .locals 0
-    .param p1, "connectionCallbackInternal"    # Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal;
 
     .line 651
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->mConnectionCallbackInternal:Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback$ConnectionCallbackInternal;
 
-    .line 652
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/text/ReactTextShadowNode;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/text/ReactTextShadowNode;
 
     .line 54
     iput-object p1, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
@@ -37,616 +36,490 @@
 
 # virtual methods
 .method public measure(Lcom/facebook/yoga/YogaNode;FLcom/facebook/yoga/YogaMeasureMode;FLcom/facebook/yoga/YogaMeasureMode;)J
-    .locals 20
-    .param p1, "node"    # Lcom/facebook/yoga/YogaNode;
-    .param p2, "width"    # F
-    .param p3, "widthMode"    # Lcom/facebook/yoga/YogaMeasureMode;
-    .param p4, "height"    # F
-    .param p5, "heightMode"    # Lcom/facebook/yoga/YogaMeasureMode;
+    .locals 9
 
     .line 64
-    move-object/from16 v0, p0
-
-    move/from16 v1, p2
-
     invoke-static {}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$000()Landroid/text/TextPaint;
 
-    move-result-object v10
+    move-result-object v2
 
     .line 65
-    .local v10, "textPaint":Landroid/text/TextPaint;
-    iget-object v2, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p1, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget-object v2, v2, Lcom/facebook/react/views/text/ReactTextShadowNode;->mTextAttributes:Lcom/facebook/react/views/text/TextAttributes;
+    iget-object p1, p1, Lcom/facebook/react/views/text/ReactTextShadowNode;->mTextAttributes:Lcom/facebook/react/views/text/TextAttributes;
 
-    invoke-virtual {v2}, Lcom/facebook/react/views/text/TextAttributes;->getEffectiveFontSize()I
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/TextAttributes;->getEffectiveFontSize()I
 
-    move-result v2
+    move-result p1
 
-    int-to-float v2, v2
+    int-to-float p1, p1
 
-    invoke-virtual {v10, v2}, Landroid/text/TextPaint;->setTextSize(F)V
+    invoke-virtual {v2, p1}, Landroid/text/TextPaint;->setTextSize(F)V
 
     .line 67
-    iget-object v2, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p1, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
     .line 69
-    invoke-static {v2}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$100(Lcom/facebook/react/views/text/ReactTextShadowNode;)Landroid/text/Spannable;
+    invoke-static {p1}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$100(Lcom/facebook/react/views/text/ReactTextShadowNode;)Landroid/text/Spannable;
 
-    move-result-object v2
+    move-result-object p1
+
+    const-string p4, "Spannable element has not been prepared in onBeforeLayout"
 
     .line 68
-    const-string v3, "Spannable element has not been prepared in onBeforeLayout"
+    invoke-static {p1, p4}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v2
-
-    move-object v11, v2
-
-    check-cast v11, Landroid/text/Spanned;
+    check-cast p1, Landroid/text/Spanned;
 
     .line 71
-    .local v11, "text":Landroid/text/Spanned;
-    invoke-static {v11, v10}, Landroid/text/BoringLayout;->isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;)Landroid/text/BoringLayout$Metrics;
+    invoke-static {p1, v2}, Landroid/text/BoringLayout;->isBoring(Ljava/lang/CharSequence;Landroid/text/TextPaint;)Landroid/text/BoringLayout$Metrics;
 
-    move-result-object v12
+    move-result-object v6
+
+    if-nez v6, :cond_0
 
     .line 72
-    .local v12, "boring":Landroid/text/BoringLayout$Metrics;
-    if-nez v12, :cond_0
+    invoke-static {p1, v2}, Landroid/text/Layout;->getDesiredWidth(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F
 
-    invoke-static {v11, v10}, Landroid/text/Layout;->getDesiredWidth(Ljava/lang/CharSequence;Landroid/text/TextPaint;)F
-
-    move-result v2
+    move-result p4
 
     goto :goto_0
 
     :cond_0
-    const/high16 v2, 0x7fc00000    # Float.NaN
-
-    :goto_0
-    move v13, v2
+    const/high16 p4, 0x7fc00000    # Float.NaN
 
     .line 75
-    .local v13, "desiredWidth":F
-    sget-object v2, Lcom/facebook/yoga/YogaMeasureMode;->UNDEFINED:Lcom/facebook/yoga/YogaMeasureMode;
+    :goto_0
+    sget-object p5, Lcom/facebook/yoga/YogaMeasureMode;->UNDEFINED:Lcom/facebook/yoga/YogaMeasureMode;
 
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    const/4 v14, 0x1
+    const/4 v8, 0x1
 
-    move-object/from16 v15, p3
+    if-eq p3, p5, :cond_2
 
-    if-eq v15, v2, :cond_2
+    cmpg-float p3, p2, v1
 
-    cmpg-float v2, v1, v4
-
-    if-gez v2, :cond_1
+    if-gez p3, :cond_1
 
     goto :goto_1
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
     goto :goto_2
 
     :cond_2
     :goto_1
-    const/4 v2, 0x1
-
-    :goto_2
-    move/from16 v16, v2
+    const/4 p3, 0x1
 
     .line 77
-    .local v16, "unconstrainedWidth":Z
-    sget-object v2, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
+    :goto_2
+    sget-object p5, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
     .line 78
-    .local v2, "alignment":Landroid/text/Layout$Alignment;
-    iget-object v5, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object v3, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    invoke-static {v5}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$200(Lcom/facebook/react/views/text/ReactTextShadowNode;)I
+    invoke-static {v3}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$200(Lcom/facebook/react/views/text/ReactTextShadowNode;)I
 
-    move-result v5
+    move-result v3
 
-    if-eq v5, v14, :cond_5
+    if-eq v3, v8, :cond_5
 
-    const/4 v6, 0x3
+    const/4 v4, 0x3
 
-    if-eq v5, v6, :cond_4
+    if-eq v3, v4, :cond_4
 
-    const/4 v6, 0x5
+    const/4 v4, 0x5
 
-    if-eq v5, v6, :cond_3
+    if-eq v3, v4, :cond_3
 
-    move-object v9, v2
+    :goto_3
+    move-object v4, p5
 
-    goto :goto_3
+    goto :goto_4
 
     .line 83
     :cond_3
-    sget-object v2, Landroid/text/Layout$Alignment;->ALIGN_OPPOSITE:Landroid/text/Layout$Alignment;
-
-    .line 84
-    move-object v9, v2
+    sget-object p5, Landroid/text/Layout$Alignment;->ALIGN_OPPOSITE:Landroid/text/Layout$Alignment;
 
     goto :goto_3
 
     .line 80
     :cond_4
-    sget-object v2, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
-
-    .line 81
-    move-object v9, v2
+    sget-object p5, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
     goto :goto_3
 
     .line 86
     :cond_5
-    sget-object v2, Landroid/text/Layout$Alignment;->ALIGN_CENTER:Landroid/text/Layout$Alignment;
+    sget-object p5, Landroid/text/Layout$Alignment;->ALIGN_CENTER:Landroid/text/Layout$Alignment;
 
-    move-object v9, v2
+    goto :goto_3
 
-    .line 90
-    .end local v2    # "alignment":Landroid/text/Layout$Alignment;
-    .local v9, "alignment":Landroid/text/Layout$Alignment;
-    :goto_3
-    const/high16 v2, 0x3f800000    # 1.0f
+    :goto_4
+    const/high16 p5, 0x3f800000    # 1.0f
 
-    const/16 v5, 0x17
+    const/16 v3, 0x17
 
-    if-nez v12, :cond_a
+    if-nez v6, :cond_9
 
-    if-nez v16, :cond_7
+    if-nez p3, :cond_6
 
     .line 92
-    invoke-static {v13}, Lcom/facebook/yoga/YogaConstants;->isUndefined(F)Z
+    invoke-static {p4}, Lcom/facebook/yoga/YogaConstants;->isUndefined(F)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_6
+    if-nez v5, :cond_9
 
-    cmpg-float v6, v13, v1
+    cmpg-float v5, p4, p2
 
-    if-gtz v6, :cond_6
-
-    goto :goto_4
+    if-gtz v5, :cond_9
 
     :cond_6
-    move/from16 v18, v13
-
-    move-object v13, v9
-
-    goto/16 :goto_6
+    float-to-double p2, p4
 
     .line 96
-    :cond_7
-    :goto_4
-    float-to-double v6, v13
+    invoke-static {p2, p3}, Ljava/lang/Math;->ceil(D)D
 
-    invoke-static {v6, v7}, Ljava/lang/Math;->ceil(D)D
+    move-result-wide p2
 
-    move-result-wide v6
-
-    double-to-int v8, v6
+    double-to-int p2, p2
 
     .line 97
-    .local v8, "hintWidth":I
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget p3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v6, v5, :cond_8
+    if-ge p3, v3, :cond_7
 
     .line 98
-    new-instance v17, Landroid/text/StaticLayout;
+    new-instance p3, Landroid/text/StaticLayout;
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    const/16 v18, 0x0
+    const/4 v6, 0x0
 
-    iget-object v2, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p4, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget-boolean v6, v2, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
+    iget-boolean v7, p4, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
 
-    move-object/from16 v2, v17
+    move-object v0, p3
 
-    move-object v3, v11
+    move-object v1, p1
 
-    move-object v4, v10
+    move v3, p2
 
-    move v5, v8
+    invoke-direct/range {v0 .. v7}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
-    move/from16 v19, v6
-
-    move-object v6, v9
-
-    move v14, v8
-
-    .end local v8    # "hintWidth":I
-    .local v14, "hintWidth":I
-    move/from16 v8, v18
-
-    move/from16 v18, v13
-
-    move-object v13, v9
-
-    .end local v9    # "alignment":Landroid/text/Layout$Alignment;
-    .local v13, "alignment":Landroid/text/Layout$Alignment;
-    .local v18, "desiredWidth":F
-    move/from16 v9, v19
-
-    invoke-direct/range {v2 .. v9}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
-
-    .local v2, "layout":Landroid/text/Layout;
-    goto :goto_5
-
-    .line 102
-    .end local v2    # "layout":Landroid/text/Layout;
-    .end local v14    # "hintWidth":I
-    .end local v18    # "desiredWidth":F
-    .restart local v8    # "hintWidth":I
-    .restart local v9    # "alignment":Landroid/text/Layout$Alignment;
-    .local v13, "desiredWidth":F
-    :cond_8
-    move v14, v8
-
-    move/from16 v18, v13
-
-    move-object v13, v9
+    goto/16 :goto_5
 
     .line 103
-    .end local v8    # "hintWidth":I
-    .end local v9    # "alignment":Landroid/text/Layout$Alignment;
-    .local v13, "alignment":Landroid/text/Layout$Alignment;
-    .restart local v14    # "hintWidth":I
-    .restart local v18    # "desiredWidth":F
-    invoke-interface {v11}, Landroid/text/Spanned;->length()I
+    :cond_7
+    invoke-interface {p1}, Landroid/text/Spanned;->length()I
 
-    move-result v5
+    move-result p3
 
-    invoke-static {v11, v3, v5, v10, v14}, Landroid/text/StaticLayout$Builder;->obtain(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
+    invoke-static {p1, v0, p3, v2, p2}, Landroid/text/StaticLayout$Builder;->obtain(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 104
-    invoke-virtual {v3, v13}, Landroid/text/StaticLayout$Builder;->setAlignment(Landroid/text/Layout$Alignment;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, v4}, Landroid/text/StaticLayout$Builder;->setAlignment(Landroid/text/Layout$Alignment;)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 105
-    invoke-virtual {v3, v4, v2}, Landroid/text/StaticLayout$Builder;->setLineSpacing(FF)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, v1, p5}, Landroid/text/StaticLayout$Builder;->setLineSpacing(FF)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p3, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget-boolean v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
+    iget-boolean p3, p3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
 
     .line 106
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setIncludePad(Z)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, p3}, Landroid/text/StaticLayout$Builder;->setIncludePad(Z)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p3, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mTextBreakStrategy:I
+    iget p3, p3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mTextBreakStrategy:I
 
     .line 107
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setBreakStrategy(I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, p3}, Landroid/text/StaticLayout$Builder;->setBreakStrategy(I)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 108
-    const/4 v3, 0x1
+    invoke-virtual {p2, v8}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
 
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
-
-    move-result-object v2
+    move-result-object p2
 
     .line 110
-    .local v2, "builder":Landroid/text/StaticLayout$Builder;
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget p3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v4, 0x1a
+    const/16 p4, 0x1a
 
-    if-lt v3, v4, :cond_9
+    if-lt p3, p4, :cond_8
 
     .line 111
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p3, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mJustificationMode:I
+    iget p3, p3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mJustificationMode:I
 
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setJustificationMode(I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, p3}, Landroid/text/StaticLayout$Builder;->setJustificationMode(I)Landroid/text/StaticLayout$Builder;
 
     .line 113
+    :cond_8
+    invoke-virtual {p2}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
+
+    move-result-object p3
+
+    goto :goto_5
+
     :cond_9
-    invoke-virtual {v2}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
+    if-eqz v6, :cond_b
 
-    move-result-object v2
-
-    .line 116
-    .end local v14    # "hintWidth":I
-    .local v2, "layout":Landroid/text/Layout;
-    :goto_5
-    goto :goto_7
-
-    .line 90
-    .end local v2    # "layout":Landroid/text/Layout;
-    .end local v18    # "desiredWidth":F
-    .restart local v9    # "alignment":Landroid/text/Layout$Alignment;
-    .local v13, "desiredWidth":F
-    :cond_a
-    move/from16 v18, v13
-
-    move-object v13, v9
+    if-nez p3, :cond_a
 
     .line 116
-    .end local v9    # "alignment":Landroid/text/Layout$Alignment;
-    .local v13, "alignment":Landroid/text/Layout$Alignment;
-    .restart local v18    # "desiredWidth":F
-    :goto_6
-    if-eqz v12, :cond_c
+    iget p3, v6, Landroid/text/BoringLayout$Metrics;->width:I
 
-    if-nez v16, :cond_b
+    int-to-float p3, p3
 
-    iget v6, v12, Landroid/text/BoringLayout$Metrics;->width:I
+    cmpg-float p3, p3, p2
 
-    int-to-float v6, v6
-
-    cmpg-float v6, v6, v1
-
-    if-gtz v6, :cond_c
+    if-gtz p3, :cond_b
 
     .line 119
-    :cond_b
-    iget v4, v12, Landroid/text/BoringLayout$Metrics;->width:I
+    :cond_a
+    iget p2, v6, Landroid/text/BoringLayout$Metrics;->width:I
 
-    const/high16 v6, 0x3f800000    # 1.0f
+    const/high16 p3, 0x3f800000    # 1.0f
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    iget-object v2, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p4, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget-boolean v9, v2, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
+    iget-boolean v7, p4, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
+
+    move-object v0, p1
+
+    move-object v1, v2
+
+    move v2, p2
+
+    move-object v3, v4
+
+    move v4, p3
 
     .line 120
-    move-object v2, v11
+    invoke-static/range {v0 .. v7}, Landroid/text/BoringLayout;->make(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;Z)Landroid/text/BoringLayout;
 
-    move-object v3, v10
+    move-result-object p3
 
-    move-object v5, v13
-
-    move-object v8, v12
-
-    invoke-static/range {v2 .. v9}, Landroid/text/BoringLayout;->make(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFLandroid/text/BoringLayout$Metrics;Z)Landroid/text/BoringLayout;
-
-    move-result-object v2
-
-    .restart local v2    # "layout":Landroid/text/Layout;
-    goto :goto_7
+    goto :goto_5
 
     .line 132
-    .end local v2    # "layout":Landroid/text/Layout;
-    :cond_c
-    sget v6, Landroid/os/Build$VERSION;->SDK_INT:I
+    :cond_b
+    sget p3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v6, v5, :cond_d
+    if-ge p3, v3, :cond_c
 
     .line 133
-    new-instance v14, Landroid/text/StaticLayout;
+    new-instance p3, Landroid/text/StaticLayout;
 
-    float-to-int v5, v1
+    float-to-int v3, p2
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
-    iget-object v2, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p2, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget-boolean v9, v2, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
+    iget-boolean v7, p2, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
 
-    move-object v2, v14
+    move-object v0, p3
 
-    move-object v3, v11
+    move-object v1, p1
 
-    move-object v4, v10
+    invoke-direct/range {v0 .. v7}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
 
-    move-object v6, v13
-
-    invoke-direct/range {v2 .. v9}, Landroid/text/StaticLayout;-><init>(Ljava/lang/CharSequence;Landroid/text/TextPaint;ILandroid/text/Layout$Alignment;FFZ)V
-
-    .restart local v2    # "layout":Landroid/text/Layout;
-    goto :goto_7
-
-    .line 137
-    .end local v2    # "layout":Landroid/text/Layout;
-    :cond_d
-    nop
+    goto :goto_5
 
     .line 138
-    invoke-interface {v11}, Landroid/text/Spanned;->length()I
+    :cond_c
+    invoke-interface {p1}, Landroid/text/Spanned;->length()I
 
-    move-result v5
+    move-result p3
 
-    float-to-int v6, v1
+    float-to-int p2, p2
 
-    invoke-static {v11, v3, v5, v10, v6}, Landroid/text/StaticLayout$Builder;->obtain(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
+    invoke-static {p1, v0, p3, v2, p2}, Landroid/text/StaticLayout$Builder;->obtain(Ljava/lang/CharSequence;IILandroid/text/TextPaint;I)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 139
-    invoke-virtual {v3, v13}, Landroid/text/StaticLayout$Builder;->setAlignment(Landroid/text/Layout$Alignment;)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, v4}, Landroid/text/StaticLayout$Builder;->setAlignment(Landroid/text/Layout$Alignment;)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 140
-    invoke-virtual {v3, v4, v2}, Landroid/text/StaticLayout$Builder;->setLineSpacing(FF)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, v1, p5}, Landroid/text/StaticLayout$Builder;->setLineSpacing(FF)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p3, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget-boolean v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
+    iget-boolean p3, p3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mIncludeFontPadding:Z
 
     .line 141
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setIncludePad(Z)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, p3}, Landroid/text/StaticLayout$Builder;->setIncludePad(Z)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p3, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mTextBreakStrategy:I
+    iget p3, p3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mTextBreakStrategy:I
 
     .line 142
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setBreakStrategy(I)Landroid/text/StaticLayout$Builder;
+    invoke-virtual {p2, p3}, Landroid/text/StaticLayout$Builder;->setBreakStrategy(I)Landroid/text/StaticLayout$Builder;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 143
-    const/4 v3, 0x1
+    invoke-virtual {p2, v8}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
 
-    invoke-virtual {v2, v3}, Landroid/text/StaticLayout$Builder;->setHyphenationFrequency(I)Landroid/text/StaticLayout$Builder;
-
-    move-result-object v2
+    move-result-object p2
 
     .line 144
-    invoke-virtual {v2}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
+    invoke-virtual {p2}, Landroid/text/StaticLayout$Builder;->build()Landroid/text/StaticLayout;
 
-    move-result-object v2
+    move-result-object p3
 
     .line 148
-    .restart local v2    # "layout":Landroid/text/Layout;
-    :goto_7
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    :goto_5
+    iget-object p2, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    invoke-static {v3}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$300(Lcom/facebook/react/views/text/ReactTextShadowNode;)Z
+    invoke-static {p2}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$300(Lcom/facebook/react/views/text/ReactTextShadowNode;)Z
 
-    move-result v3
+    move-result p2
 
-    if-eqz v3, :cond_e
-
-    .line 149
-    nop
+    if-eqz p2, :cond_d
 
     .line 151
     invoke-static {}, Lcom/facebook/react/views/text/ReactTextShadowNode;->access$000()Landroid/text/TextPaint;
 
-    move-result-object v3
+    move-result-object p2
 
-    iget-object v4, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p4, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    invoke-virtual {v4}, Lcom/facebook/react/views/text/ReactTextShadowNode;->getThemedContext()Lcom/facebook/react/uimanager/ThemedReactContext;
+    invoke-virtual {p4}, Lcom/facebook/react/views/text/ReactTextShadowNode;->getThemedContext()Lcom/facebook/react/uimanager/ThemedReactContext;
 
-    move-result-object v4
+    move-result-object p4
 
     .line 150
-    invoke-static {v11, v2, v3, v4}, Lcom/facebook/react/views/text/FontMetricsUtil;->getFontMetrics(Ljava/lang/CharSequence;Landroid/text/Layout;Landroid/text/TextPaint;Landroid/content/Context;)Lcom/facebook/react/bridge/WritableArray;
+    invoke-static {p1, p3, p2, p4}, Lcom/facebook/react/views/text/FontMetricsUtil;->getFontMetrics(Ljava/lang/CharSequence;Landroid/text/Layout;Landroid/text/TextPaint;Landroid/content/Context;)Lcom/facebook/react/bridge/WritableArray;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 152
-    .local v3, "lines":Lcom/facebook/react/bridge/WritableArray;
     invoke-static {}, Lcom/facebook/react/bridge/Arguments;->createMap()Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v4
+    move-result-object p2
+
+    const-string p4, "lines"
 
     .line 153
-    .local v4, "event":Lcom/facebook/react/bridge/WritableMap;
-    const-string v5, "lines"
-
-    invoke-interface {v4, v5, v3}, Lcom/facebook/react/bridge/WritableMap;->putArray(Ljava/lang/String;Lcom/facebook/react/bridge/WritableArray;)V
+    invoke-interface {p2, p4, p1}, Lcom/facebook/react/bridge/WritableMap;->putArray(Ljava/lang/String;Lcom/facebook/react/bridge/WritableArray;)V
 
     .line 154
-    iget-object v5, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p1, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    invoke-virtual {v5}, Lcom/facebook/react/views/text/ReactTextShadowNode;->getThemedContext()Lcom/facebook/react/uimanager/ThemedReactContext;
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/ReactTextShadowNode;->getThemedContext()Lcom/facebook/react/uimanager/ThemedReactContext;
 
-    move-result-object v5
+    move-result-object p1
 
-    const-class v6, Lcom/facebook/react/uimanager/events/RCTEventEmitter;
+    const-class p4, Lcom/facebook/react/uimanager/events/RCTEventEmitter;
 
     .line 155
-    invoke-virtual {v5, v6}, Lcom/facebook/react/uimanager/ThemedReactContext;->getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
+    invoke-virtual {p1, p4}, Lcom/facebook/react/uimanager/ThemedReactContext;->getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
 
-    move-result-object v5
+    move-result-object p1
 
-    check-cast v5, Lcom/facebook/react/uimanager/events/RCTEventEmitter;
+    check-cast p1, Lcom/facebook/react/uimanager/events/RCTEventEmitter;
 
-    iget-object v6, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p4, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
     .line 156
-    invoke-virtual {v6}, Lcom/facebook/react/views/text/ReactTextShadowNode;->getReactTag()I
+    invoke-virtual {p4}, Lcom/facebook/react/views/text/ReactTextShadowNode;->getReactTag()I
 
-    move-result v6
+    move-result p4
 
-    const-string v7, "topTextLayout"
+    const-string p5, "topTextLayout"
 
-    invoke-interface {v5, v6, v7, v4}, Lcom/facebook/react/uimanager/events/RCTEventEmitter;->receiveEvent(ILjava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
+    invoke-interface {p1, p4, p5, p2}, Lcom/facebook/react/uimanager/events/RCTEventEmitter;->receiveEvent(ILjava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
 
     .line 159
-    .end local v3    # "lines":Lcom/facebook/react/bridge/WritableArray;
-    .end local v4    # "event":Lcom/facebook/react/bridge/WritableMap;
-    :cond_e
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    :cond_d
+    iget-object p1, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mNumberOfLines:I
+    iget p1, p1, Lcom/facebook/react/views/text/ReactTextShadowNode;->mNumberOfLines:I
 
-    const/4 v4, -0x1
+    const/4 p2, -0x1
 
-    if-eq v3, v4, :cond_f
+    if-eq p1, p2, :cond_e
 
-    iget-object v3, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p1, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget v3, v3, Lcom/facebook/react/views/text/ReactTextShadowNode;->mNumberOfLines:I
+    iget p1, p1, Lcom/facebook/react/views/text/ReactTextShadowNode;->mNumberOfLines:I
 
-    invoke-virtual {v2}, Landroid/text/Layout;->getLineCount()I
+    invoke-virtual {p3}, Landroid/text/Layout;->getLineCount()I
 
-    move-result v4
+    move-result p2
 
-    if-ge v3, v4, :cond_f
-
-    .line 160
-    nop
+    if-ge p1, p2, :cond_e
 
     .line 161
-    invoke-virtual {v2}, Landroid/text/Layout;->getWidth()I
+    invoke-virtual {p3}, Landroid/text/Layout;->getWidth()I
 
-    move-result v3
+    move-result p1
 
-    iget-object v4, v0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
+    iget-object p2, p0, Lcom/facebook/react/views/text/ReactTextShadowNode$1;->this$0:Lcom/facebook/react/views/text/ReactTextShadowNode;
 
-    iget v4, v4, Lcom/facebook/react/views/text/ReactTextShadowNode;->mNumberOfLines:I
+    iget p2, p2, Lcom/facebook/react/views/text/ReactTextShadowNode;->mNumberOfLines:I
 
-    const/4 v5, 0x1
+    sub-int/2addr p2, v8
 
-    sub-int/2addr v4, v5
+    invoke-virtual {p3, p2}, Landroid/text/Layout;->getLineBottom(I)I
 
-    invoke-virtual {v2, v4}, Landroid/text/Layout;->getLineBottom(I)I
-
-    move-result v4
+    move-result p2
 
     .line 160
-    invoke-static {v3, v4}, Lcom/facebook/yoga/YogaMeasureOutput;->make(II)J
+    invoke-static {p1, p2}, Lcom/facebook/yoga/YogaMeasureOutput;->make(II)J
 
-    move-result-wide v3
+    move-result-wide p1
 
-    return-wide v3
+    return-wide p1
 
     .line 163
-    :cond_f
-    invoke-virtual {v2}, Landroid/text/Layout;->getWidth()I
+    :cond_e
+    invoke-virtual {p3}, Landroid/text/Layout;->getWidth()I
 
-    move-result v3
+    move-result p1
 
-    invoke-virtual {v2}, Landroid/text/Layout;->getHeight()I
+    invoke-virtual {p3}, Landroid/text/Layout;->getHeight()I
 
-    move-result v4
+    move-result p2
 
-    invoke-static {v3, v4}, Lcom/facebook/yoga/YogaMeasureOutput;->make(II)J
+    invoke-static {p1, p2}, Lcom/facebook/yoga/YogaMeasureOutput;->make(II)J
 
-    move-result-wide v3
+    move-result-wide p1
 
-    return-wide v3
+    return-wide p1
 .end method

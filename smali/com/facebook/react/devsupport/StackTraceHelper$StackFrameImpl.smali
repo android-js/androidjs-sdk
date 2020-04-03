@@ -31,11 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;II)V
-    .locals 1
-    .param p1, "file"    # Ljava/lang/String;
-    .param p2, "method"    # Ljava/lang/String;
-    .param p3, "line"    # I
-    .param p4, "column"    # I
+    .locals 0
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,36 +48,30 @@
     .line 50
     iput p4, p0, Lcom/facebook/react/devsupport/StackTraceHelper$StackFrameImpl;->mColumn:I
 
-    .line 51
     if-eqz p1, :cond_0
 
-    new-instance v0, Ljava/io/File;
+    .line 51
+    new-instance p2, Ljava/io/File;
 
-    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/File;->getName()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/io/File;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const-string v0, ""
+    const-string p1, ""
 
     :goto_0
-    iput-object v0, p0, Lcom/facebook/react/devsupport/StackTraceHelper$StackFrameImpl;->mFileName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/StackTraceHelper$StackFrameImpl;->mFileName:Ljava/lang/String;
 
-    .line 52
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;IILcom/facebook/react/devsupport/StackTraceHelper$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
-    .param p2, "x1"    # Ljava/lang/String;
-    .param p3, "x2"    # I
-    .param p4, "x3"    # I
-    .param p5, "x4"    # Lcom/facebook/react/devsupport/StackTraceHelper$1;
 
     .line 39
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/facebook/react/devsupport/StackTraceHelper$StackFrameImpl;-><init>(Ljava/lang/String;Ljava/lang/String;II)V
@@ -91,11 +81,6 @@
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
     .locals 0
-    .param p1, "file"    # Ljava/lang/String;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "method"    # Ljava/lang/String;
-    .param p4, "line"    # I
-    .param p5, "column"    # I
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -115,18 +100,11 @@
     .line 59
     iput p5, p0, Lcom/facebook/react/devsupport/StackTraceHelper$StackFrameImpl;->mColumn:I
 
-    .line 60
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/facebook/react/devsupport/StackTraceHelper$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
-    .param p2, "x1"    # Ljava/lang/String;
-    .param p3, "x2"    # Ljava/lang/String;
-    .param p4, "x3"    # I
-    .param p5, "x4"    # I
-    .param p6, "x5"    # Lcom/facebook/react/devsupport/StackTraceHelper$1;
 
     .line 39
     invoke-direct/range {p0 .. p5}, Lcom/facebook/react/devsupport/StackTraceHelper$StackFrameImpl;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
@@ -215,7 +193,6 @@
 
     move-result-object v8
 
-    .line 108
     const-string v1, "file"
 
     const-string v3, "methodName"
@@ -224,12 +201,12 @@
 
     const-string v7, "column"
 
+    .line 108
     invoke-static/range {v1 .. v8}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v1
 
     invoke-direct {v0, v1}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
 
-    .line 107
     return-object v0
 .end method

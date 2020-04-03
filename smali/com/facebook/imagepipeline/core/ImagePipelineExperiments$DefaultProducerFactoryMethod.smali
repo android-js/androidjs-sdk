@@ -31,22 +31,6 @@
 # virtual methods
 .method public createProducerFactory(Landroid/content/Context;Lcom/facebook/common/memory/ByteArrayPool;Lcom/facebook/imagepipeline/decoder/ImageDecoder;Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;ZZZLcom/facebook/imagepipeline/core/ExecutorSupplier;Lcom/facebook/common/memory/PooledByteBufferFactory;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;IIZ)Lcom/facebook/imagepipeline/core/ProducerFactory;
     .locals 20
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "byteArrayPool"    # Lcom/facebook/common/memory/ByteArrayPool;
-    .param p3, "imageDecoder"    # Lcom/facebook/imagepipeline/decoder/ImageDecoder;
-    .param p4, "progressiveJpegConfig"    # Lcom/facebook/imagepipeline/decoder/ProgressiveJpegConfig;
-    .param p5, "downsampleEnabled"    # Z
-    .param p6, "resizeAndRotateEnabledForNetwork"    # Z
-    .param p7, "decodeCancellationEnabled"    # Z
-    .param p8, "executorSupplier"    # Lcom/facebook/imagepipeline/core/ExecutorSupplier;
-    .param p9, "pooledByteBufferFactory"    # Lcom/facebook/common/memory/PooledByteBufferFactory;
-    .param p12, "defaultBufferedDiskCache"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p13, "smallImageBufferedDiskCache"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p14, "cacheKeyFactory"    # Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
-    .param p15, "platformBitmapFactory"    # Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;
-    .param p16, "bitmapPrepareToDrawMinSizeBytes"    # I
-    .param p17, "bitmapPrepareToDrawMaxSizeBytes"    # I
-    .param p18, "bitmapPrepareToDrawForPrefetch"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,8 +58,6 @@
         }
     .end annotation
 
-    .local p10, "bitmapMemoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .local p11, "encodedMemoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/common/memory/PooledByteBuffer;>;"
     move-object/from16 v1, p1
 
     move-object/from16 v2, p2

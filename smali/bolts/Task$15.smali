@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 911
     iget-object v0, p0, Lbolts/Task$15;->val$ct:Lbolts/CancellationToken;
@@ -66,7 +66,6 @@
 
     invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
 
-    .line 913
     return-void
 
     .line 917
@@ -82,16 +81,14 @@
 
     check-cast v0, Lbolts/Task;
 
-    .line 918
-    .local v0, "result":Lbolts/Task;, "Lbolts/Task<TTContinuationResult;>;"
     if-nez v0, :cond_1
 
     .line 919
-    iget-object v1, p0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
+    iget-object v0, p0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -108,36 +105,22 @@
 
     goto :goto_0
 
-    .line 942
-    .end local v0    # "result":Lbolts/Task;, "Lbolts/Task<TTContinuationResult;>;"
     :catch_0
     move-exception v0
 
     .line 943
-    .local v0, "e":Ljava/lang/Exception;
     iget-object v1, p0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
 
     invoke-virtual {v1, v0}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
 
-    goto :goto_1
-
-    .line 940
-    .end local v0    # "e":Ljava/lang/Exception;
-    :catch_1
-    move-exception v0
+    goto :goto_0
 
     .line 941
-    .local v0, "e":Ljava/util/concurrent/CancellationException;
-    iget-object v1, p0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
+    :catch_1
+    iget-object v0, p0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v1}, Lbolts/TaskCompletionSource;->setCancelled()V
+    invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
 
-    .line 944
-    .end local v0    # "e":Ljava/util/concurrent/CancellationException;
     :goto_0
-    nop
-
-    .line 945
-    :goto_1
     return-void
 .end method

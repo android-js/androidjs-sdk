@@ -35,39 +35,27 @@
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
     return-void
 .end method
 
 .method public static generateBuckets(III)Landroid/util/SparseIntArray;
-    .locals 2
-    .param p0, "min"    # I
-    .param p1, "max"    # I
-    .param p2, "numThreads"    # I
+    .locals 1
 
     .line 28
     new-instance v0, Landroid/util/SparseIntArray;
 
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 29
-    .local v0, "buckets":Landroid/util/SparseIntArray;
-    move v1, p0
-
-    .local v1, "i":I
     :goto_0
-    if-gt v1, p1, :cond_0
+    if-gt p0, p1, :cond_0
 
     .line 30
-    invoke-virtual {v0, v1, p2}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v0, p0, p2}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 29
-    mul-int/lit8 v1, v1, 0x2
+    mul-int/lit8 p0, p0, 0x2
 
     goto :goto_0
 
-    .line 32
-    .end local v1    # "i":I
     :cond_0
     return-object v0
 .end method
@@ -84,9 +72,9 @@
 
     mul-int v2, v0, v1
 
-    .line 39
     const/high16 v3, 0x20000
 
+    .line 39
     invoke-static {v3, v1, v0}, Lcom/facebook/imagepipeline/memory/DefaultFlexByteArrayPoolParams;->generateBuckets(III)Landroid/util/SparseIntArray;
 
     move-result-object v3
@@ -101,6 +89,5 @@
 
     invoke-direct/range {v0 .. v6}, Lcom/facebook/imagepipeline/memory/PoolParams;-><init>(IILandroid/util/SparseIntArray;III)V
 
-    .line 36
     return-object v7
 .end method

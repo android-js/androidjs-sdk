@@ -73,9 +73,9 @@
 
     sput-object v0, Lcom/facebook/react/uimanager/PointerEvents;->AUTO:Lcom/facebook/react/uimanager/PointerEvents;
 
-    .line 14
     const/4 v0, 0x4
 
+    .line 14
     new-array v0, v0, [Lcom/facebook/react/uimanager/PointerEvents;
 
     sget-object v5, Lcom/facebook/react/uimanager/PointerEvents;->NONE:Lcom/facebook/react/uimanager/PointerEvents;
@@ -115,18 +115,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/uimanager/PointerEvents;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 14
     const-class v0, Lcom/facebook/react/uimanager/PointerEvents;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/uimanager/PointerEvents;
+    check-cast p0, Lcom/facebook/react/uimanager/PointerEvents;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/uimanager/PointerEvents;

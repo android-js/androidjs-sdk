@@ -46,14 +46,12 @@
 # virtual methods
 .method public onCacheHit(Lcom/facebook/cache/common/CacheKey;)V
     .locals 1
-    .param p1, "cacheKey"    # Lcom/facebook/cache/common/CacheKey;
 
     .line 24
     iget-object v0, p0, Lcom/facebook/imagepipeline/cache/EncodedMemoryCacheFactory$1;->val$imageCacheStatsTracker:Lcom/facebook/imagepipeline/cache/ImageCacheStatsTracker;
 
     invoke-interface {v0, p1}, Lcom/facebook/imagepipeline/cache/ImageCacheStatsTracker;->onMemoryCacheHit(Lcom/facebook/cache/common/CacheKey;)V
 
-    .line 25
     return-void
 .end method
 
@@ -76,7 +74,6 @@
 
     invoke-interface {v0}, Lcom/facebook/imagepipeline/cache/ImageCacheStatsTracker;->onMemoryCacheMiss()V
 
-    .line 30
     return-void
 .end method
 
@@ -88,6 +85,5 @@
 
     invoke-interface {v0}, Lcom/facebook/imagepipeline/cache/ImageCacheStatsTracker;->onMemoryCachePut()V
 
-    .line 35
     return-void
 .end method

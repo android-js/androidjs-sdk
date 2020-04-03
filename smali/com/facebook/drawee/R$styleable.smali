@@ -144,18 +144,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 64
     const/16 v0, 0x1d
 
+    .line 64
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/facebook/drawee/R$styleable;->GenericDraweeHierarchy:[I
 
-    .line 94
     const/16 v0, 0x1f
 
+    .line 94
     new-array v0, v0, [I
 
     fill-array-data v0, :array_1

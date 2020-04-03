@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/CoordinatorLayout;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/design/widget/CoordinatorLayout;
 
     .line 3216
     iput-object p1, p0, Landroid/support/design/widget/CoordinatorLayout$1;->this$0:Landroid/support/design/widget/CoordinatorLayout;
@@ -37,16 +36,14 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "insets"    # Landroid/support/v4/view/WindowInsetsCompat;
+    .locals 0
 
     .line 3220
-    iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$1;->this$0:Landroid/support/design/widget/CoordinatorLayout;
+    iget-object p1, p0, Landroid/support/design/widget/CoordinatorLayout$1;->this$0:Landroid/support/design/widget/CoordinatorLayout;
 
-    invoke-virtual {v0, p2}, Landroid/support/design/widget/CoordinatorLayout;->setWindowInsets(Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
+    invoke-virtual {p1, p2}, Landroid/support/design/widget/CoordinatorLayout;->setWindowInsets(Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

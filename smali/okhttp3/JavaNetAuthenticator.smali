@@ -23,17 +23,15 @@
 
 .method private getConnectToInetAddress(Ljava/net/Proxy;Lokhttp3/HttpUrl;)Ljava/net/InetAddress;
     .locals 2
-    .param p1, "proxy"    # Ljava/net/Proxy;
-    .param p2, "url"    # Lokhttp3/HttpUrl;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 71
     if-eqz p1, :cond_0
 
+    .line 71
     invoke-virtual {p1}, Ljava/net/Proxy;->type()Ljava/net/Proxy$Type;
 
     move-result-object v0
@@ -45,13 +43,13 @@
     .line 72
     invoke-virtual {p1}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/net/InetSocketAddress;
+    check-cast p1, Ljava/net/InetSocketAddress;
 
-    invoke-virtual {v0}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
+    invoke-virtual {p1}, Ljava/net/InetSocketAddress;->getAddress()Ljava/net/InetAddress;
 
-    move-result-object v0
+    move-result-object p1
 
     goto :goto_0
 
@@ -59,57 +57,53 @@
     :cond_0
     invoke-virtual {p2}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
+    invoke-static {p1}, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 71
     :goto_0
-    return-object v0
+    return-object p1
 .end method
 
 
 # virtual methods
 .method public authenticate(Lokhttp3/Route;Lokhttp3/Response;)Lokhttp3/Request;
     .locals 18
-    .param p1, "route"    # Lokhttp3/Route;
-    .param p2, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 35
     move-object/from16 v0, p0
 
+    .line 35
     invoke-virtual/range {p2 .. p2}, Lokhttp3/Response;->challenges()Ljava/util/List;
 
     move-result-object v1
 
     .line 36
-    .local v1, "challenges":Ljava/util/List;, "Ljava/util/List<Lokhttp3/Challenge;>;"
     invoke-virtual/range {p2 .. p2}, Lokhttp3/Response;->request()Lokhttp3/Request;
 
     move-result-object v2
 
     .line 37
-    .local v2, "request":Lokhttp3/Request;
     invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
 
     move-result-object v3
 
     .line 38
-    .local v3, "url":Lokhttp3/HttpUrl;
     invoke-virtual/range {p2 .. p2}, Lokhttp3/Response;->code()I
 
     move-result v4
 
-    const/16 v5, 0x197
+    const/4 v5, 0x0
 
-    if-ne v4, v5, :cond_0
+    const/16 v6, 0x197
+
+    if-ne v4, v6, :cond_0
 
     const/4 v4, 0x1
 
@@ -119,34 +113,27 @@
     const/4 v4, 0x0
 
     .line 39
-    .local v4, "proxyAuthorization":Z
     :goto_0
     invoke-virtual/range {p1 .. p1}, Lokhttp3/Route;->proxy()Ljava/net/Proxy;
 
-    move-result-object v5
+    move-result-object v6
 
     .line 41
-    .local v5, "proxy":Ljava/net/Proxy;
-    const/4 v6, 0x0
-
-    .local v6, "i":I
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v7
 
-    .local v7, "size":I
     :goto_1
-    if-ge v6, v7, :cond_5
+    if-ge v5, v7, :cond_5
 
     .line 42
-    invoke-interface {v1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v8
 
     check-cast v8, Lokhttp3/Challenge;
 
     .line 43
-    .local v8, "challenge":Lokhttp3/Challenge;
     invoke-virtual {v8}, Lokhttp3/Challenge;->scheme()Ljava/lang/String;
 
     move-result-object v9
@@ -161,27 +148,22 @@
 
     goto/16 :goto_4
 
-    .line 46
     :cond_1
     if-eqz v4, :cond_2
 
     .line 47
-    invoke-virtual {v5}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
+    invoke-virtual {v6}, Ljava/net/Proxy;->address()Ljava/net/SocketAddress;
 
     move-result-object v9
 
     check-cast v9, Ljava/net/InetSocketAddress;
-
-    .line 48
-    .local v9, "proxyAddress":Ljava/net/InetSocketAddress;
-    nop
 
     .line 49
     invoke-virtual {v9}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
 
     move-result-object v10
 
-    invoke-direct {v0, v5, v3}, Lokhttp3/JavaNetAuthenticator;->getConnectToInetAddress(Ljava/net/Proxy;Lokhttp3/HttpUrl;)Ljava/net/InetAddress;
+    invoke-direct {v0, v6, v3}, Lokhttp3/JavaNetAuthenticator;->getConnectToInetAddress(Ljava/net/Proxy;Lokhttp3/HttpUrl;)Ljava/net/InetAddress;
 
     move-result-object v11
 
@@ -213,21 +195,15 @@
 
     move-result-object v9
 
-    .line 52
-    .local v9, "auth":Ljava/net/PasswordAuthentication;
     goto :goto_2
 
-    .line 53
-    .end local v9    # "auth":Ljava/net/PasswordAuthentication;
-    :cond_2
-    nop
-
     .line 54
+    :cond_2
     invoke-virtual {v3}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
 
     move-result-object v10
 
-    invoke-direct {v0, v5, v3}, Lokhttp3/JavaNetAuthenticator;->getConnectToInetAddress(Ljava/net/Proxy;Lokhttp3/HttpUrl;)Ljava/net/InetAddress;
+    invoke-direct {v0, v6, v3}, Lokhttp3/JavaNetAuthenticator;->getConnectToInetAddress(Ljava/net/Proxy;Lokhttp3/HttpUrl;)Ljava/net/InetAddress;
 
     move-result-object v11
 
@@ -259,80 +235,66 @@
 
     move-result-object v9
 
-    .line 58
-    .restart local v9    # "auth":Ljava/net/PasswordAuthentication;
     :goto_2
     if-eqz v9, :cond_4
-
-    .line 59
-    nop
 
     .line 60
     invoke-virtual {v9}, Ljava/net/PasswordAuthentication;->getUserName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v1
 
-    new-instance v11, Ljava/lang/String;
+    new-instance v3, Ljava/lang/String;
 
     invoke-virtual {v9}, Ljava/net/PasswordAuthentication;->getPassword()[C
 
-    move-result-object v12
+    move-result-object v5
 
-    invoke-direct {v11, v12}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {v3, v5}, Ljava/lang/String;-><init>([C)V
 
     invoke-virtual {v8}, Lokhttp3/Challenge;->charset()Ljava/nio/charset/Charset;
 
-    move-result-object v12
+    move-result-object v5
 
     .line 59
-    invoke-static {v10, v11, v12}, Lokhttp3/Credentials;->basic(Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
+    invoke-static {v1, v3, v5}, Lokhttp3/Credentials;->basic(Ljava/lang/String;Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v1
 
     .line 61
-    .local v10, "credential":Ljava/lang/String;
     invoke-virtual {v2}, Lokhttp3/Request;->newBuilder()Lokhttp3/Request$Builder;
 
-    move-result-object v11
+    move-result-object v2
 
-    .line 62
     if-eqz v4, :cond_3
 
-    const-string v12, "Proxy-Authorization"
+    const-string v3, "Proxy-Authorization"
 
     goto :goto_3
 
     :cond_3
-    const-string v12, "Authorization"
+    const-string v3, "Authorization"
 
+    .line 62
     :goto_3
-    invoke-virtual {v11, v12, v10}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {v2, v3, v1}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v11
+    move-result-object v1
 
     .line 63
-    invoke-virtual {v11}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v11
+    move-result-object v1
 
-    .line 61
-    return-object v11
+    return-object v1
 
-    .line 41
-    .end local v8    # "challenge":Lokhttp3/Challenge;
-    .end local v9    # "auth":Ljava/net/PasswordAuthentication;
-    .end local v10    # "credential":Ljava/lang/String;
     :cond_4
     :goto_4
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto/16 :goto_1
 
-    .line 67
-    .end local v6    # "i":I
-    .end local v7    # "size":I
     :cond_5
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    return-object v6
+    return-object v1
 .end method

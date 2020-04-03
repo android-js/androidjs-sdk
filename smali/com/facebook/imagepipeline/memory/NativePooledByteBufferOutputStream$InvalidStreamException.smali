@@ -18,11 +18,10 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 161
     const-string v0, "OutputStream no longer valid"
 
+    .line 161
     invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    .line 162
     return-void
 .end method

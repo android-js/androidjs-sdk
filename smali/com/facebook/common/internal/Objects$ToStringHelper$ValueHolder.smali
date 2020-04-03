@@ -40,7 +40,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/common/internal/Objects$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/common/internal/Objects$1;
 
     .line 422
     invoke-direct {p0}, Lcom/facebook/common/internal/Objects$ToStringHelper$ValueHolder;-><init>()V

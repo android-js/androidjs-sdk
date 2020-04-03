@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/toolbar/ReactToolbarManager;Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/views/toolbar/ReactToolbar;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/toolbar/ReactToolbarManager;
 
     .line 124
     iput-object p1, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$1;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbarManager;
@@ -45,28 +44,26 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 4
-    .param p1, "v"    # Landroid/view/View;
+    .locals 3
 
     .line 127
-    iget-object v0, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$1;->val$mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iget-object p1, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$1;->val$mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    new-instance v1, Lcom/facebook/react/views/toolbar/events/ToolbarClickEvent;
+    new-instance v0, Lcom/facebook/react/views/toolbar/events/ToolbarClickEvent;
 
-    iget-object v2, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$1;->val$view:Lcom/facebook/react/views/toolbar/ReactToolbar;
+    iget-object v1, p0, Lcom/facebook/react/views/toolbar/ReactToolbarManager$1;->val$view:Lcom/facebook/react/views/toolbar/ReactToolbar;
 
     .line 128
-    invoke-virtual {v2}, Lcom/facebook/react/views/toolbar/ReactToolbar;->getId()I
+    invoke-virtual {v1}, Lcom/facebook/react/views/toolbar/ReactToolbar;->getId()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    invoke-direct {v1, v2, v3}, Lcom/facebook/react/views/toolbar/events/ToolbarClickEvent;-><init>(II)V
+    invoke-direct {v0, v1, v2}, Lcom/facebook/react/views/toolbar/events/ToolbarClickEvent;-><init>(II)V
 
     .line 127
-    invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
+    invoke-virtual {p1, v0}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 129
     return-void
 .end method

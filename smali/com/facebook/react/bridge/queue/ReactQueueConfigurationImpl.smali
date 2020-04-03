@@ -17,9 +17,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;)V
     .locals 0
-    .param p1, "uiQueueThread"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
-    .param p2, "nativeModulesQueueThread"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
-    .param p3, "jsQueueThread"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,14 +30,11 @@
     .line 28
     iput-object p3, p0, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationImpl;->mJSQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
-    .line 29
     return-void
 .end method
 
 .method public static create(Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;)Lcom/facebook/react/bridge/queue/ReactQueueConfigurationImpl;
-    .locals 6
-    .param p0, "spec"    # Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;
-    .param p1, "exceptionHandler"    # Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;
+    .locals 4
 
     .line 62
     invoke-static {}, Lcom/facebook/react/common/MapBuilder;->newHashMap()Ljava/util/HashMap;
@@ -48,14 +42,9 @@
     move-result-object v0
 
     .line 64
-    .local v0, "specsToThreads":Ljava/util/Map;, "Ljava/util/Map<Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;>;"
     invoke-static {}, Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;->mainThreadSpec()Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
 
     move-result-object v1
-
-    .line 65
-    .local v1, "uiThreadSpec":Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
-    nop
 
     .line 66
     invoke-static {v1, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->create(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;)Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
@@ -63,71 +52,60 @@
     move-result-object v2
 
     .line 67
-    .local v2, "uiThread":Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 69
     invoke-virtual {p0}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;->getJSQueueThreadSpec()Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v0, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
+    check-cast v1, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
-    .line 70
-    .local v3, "jsThread":Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
-    if-nez v3, :cond_0
+    if-nez v1, :cond_0
 
     .line 71
     invoke-virtual {p0}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;->getJSQueueThreadSpec()Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v4, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->create(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;)Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
+    invoke-static {v1, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->create(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;)Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
+
+    move-result-object v1
+
+    .line 75
+    :cond_0
+    invoke-virtual {p0}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;->getNativeModulesQueueThreadSpec()Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
 
     move-result-object v3
 
-    .line 74
-    :cond_0
-    nop
+    invoke-interface {v0, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 75
-    invoke-virtual {p0}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;->getNativeModulesQueueThreadSpec()Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
+    move-result-object v0
 
-    move-result-object v4
+    check-cast v0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
-    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
-
-    .line 76
-    .local v4, "nativeModulesThread":Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
-    if-nez v4, :cond_1
-
-    .line 77
-    nop
+    if-nez v0, :cond_1
 
     .line 78
     invoke-virtual {p0}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationSpec;->getNativeModulesQueueThreadSpec()Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
 
-    move-result-object v5
+    move-result-object p0
 
-    invoke-static {v5, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->create(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;)Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
+    invoke-static {p0, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->create(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;Lcom/facebook/react/bridge/queue/QueueThreadExceptionHandler;)Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 81
     :cond_1
-    new-instance v5, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationImpl;
+    new-instance p0, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationImpl;
 
-    invoke-direct {v5, v2, v4, v3}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationImpl;-><init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;)V
+    invoke-direct {p0, v2, v0, v1}, Lcom/facebook/react/bridge/queue/ReactQueueConfigurationImpl;-><init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;)V
 
-    return-object v5
+    return-object p0
 .end method
 
 
@@ -172,7 +150,6 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->quitSynchronous()V
 
-    .line 57
     :cond_1
     return-void
 .end method

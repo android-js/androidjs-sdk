@@ -42,18 +42,16 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 111
     const/4 v0, 0x0
 
+    .line 111
     invoke-direct {p0, v0}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;)V
 
-    .line 112
     return-void
 .end method
 
 .method public constructor <init>(Ljava/nio/charset/Charset;)V
     .locals 1
-    .param p1, "charset"    # Ljava/nio/charset/Charset;
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +73,6 @@
     .line 115
     iput-object p1, p0, Lokhttp3/FormBody$Builder;->charset:Ljava/nio/charset/Charset;
 
-    .line 116
     return-void
 .end method
 
@@ -83,13 +80,9 @@
 # virtual methods
 .method public add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
     .locals 8
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
-    .line 119
     if-eqz p1, :cond_1
 
-    .line 120
     if-eqz p2, :cond_0
 
     .line 122
@@ -111,58 +104,57 @@
 
     invoke-static/range {v1 .. v7}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 123
-    iget-object v0, p0, Lokhttp3/FormBody$Builder;->values:Ljava/util/List;
+    iget-object p1, p0, Lokhttp3/FormBody$Builder;->values:Ljava/util/List;
 
-    iget-object v7, p0, Lokhttp3/FormBody$Builder;->charset:Ljava/nio/charset/Charset;
+    const/4 v2, 0x0
 
-    const-string v2, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
+    const/4 v4, 0x1
 
-    move-object v1, p2
+    iget-object v6, p0, Lokhttp3/FormBody$Builder;->charset:Ljava/nio/charset/Charset;
 
-    invoke-static/range {v1 .. v7}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+    const-string v1, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
 
-    move-result-object v1
+    move-object v0, p2
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-static/range {v0 .. v6}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
 
-    .line 124
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     return-object p0
 
     .line 120
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "value == null"
+    const-string p2, "value == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 119
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "name == null"
+    const-string p2, "name == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public addEncoded(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
     .locals 8
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
-    .line 128
     if-eqz p1, :cond_1
 
-    .line 129
     if-eqz p2, :cond_0
 
     .line 131
@@ -184,47 +176,52 @@
 
     invoke-static/range {v1 .. v7}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 132
-    iget-object v0, p0, Lokhttp3/FormBody$Builder;->values:Ljava/util/List;
+    iget-object p1, p0, Lokhttp3/FormBody$Builder;->values:Ljava/util/List;
 
-    iget-object v7, p0, Lokhttp3/FormBody$Builder;->charset:Ljava/nio/charset/Charset;
+    const/4 v2, 0x1
 
-    const-string v2, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
+    const/4 v3, 0x0
 
-    move-object v1, p2
+    const/4 v4, 0x1
 
-    invoke-static/range {v1 .. v7}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+    iget-object v6, p0, Lokhttp3/FormBody$Builder;->charset:Ljava/nio/charset/Charset;
 
-    move-result-object v1
+    const-string v1, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-object v0, p2
 
-    .line 133
+    invoke-static/range {v0 .. v6}, Lokhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZLjava/nio/charset/Charset;)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     return-object p0
 
     .line 129
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "value == null"
+    const-string p2, "value == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 128
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "name == null"
+    const-string p2, "name == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public build()Lokhttp3/FormBody;

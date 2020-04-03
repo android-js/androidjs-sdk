@@ -34,11 +34,8 @@
     .end annotation
 
     .line 38
-    .local p0, "this":Landroid/support/v4/media/session/MediaSessionCompatApi23$CallbackProxy;, "Landroid/support/v4/media/session/MediaSessionCompatApi23$CallbackProxy<TT;>;"
-    .local p1, "callback":Landroid/support/v4/media/session/MediaSessionCompatApi23$Callback;, "TT;"
     invoke-direct {p0, p1}, Landroid/support/v4/media/session/MediaSessionCompatApi21$CallbackProxy;-><init>(Landroid/support/v4/media/session/MediaSessionCompatApi21$Callback;)V
 
-    .line 39
     return-void
 .end method
 
@@ -46,11 +43,8 @@
 # virtual methods
 .method public onPlayFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
     .locals 1
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "extras"    # Landroid/os/Bundle;
 
     .line 43
-    .local p0, "this":Landroid/support/v4/media/session/MediaSessionCompatApi23$CallbackProxy;, "Landroid/support/v4/media/session/MediaSessionCompatApi23$CallbackProxy<TT;>;"
     invoke-static {p2}, Landroid/support/v4/media/session/MediaSessionCompat;->ensureClassLoader(Landroid/os/Bundle;)V
 
     .line 44
@@ -60,6 +54,5 @@
 
     invoke-interface {v0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompatApi23$Callback;->onPlayFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
 
-    .line 45
     return-void
 .end method

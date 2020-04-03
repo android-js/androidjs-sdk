@@ -16,59 +16,54 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/PointF;FLandroid/graphics/PointF;F)V
     .locals 1
-    .param p1, "start"    # Landroid/graphics/PointF;
+    .param p1    # Landroid/graphics/PointF;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "startFraction"    # F
-    .param p3, "end"    # Landroid/graphics/PointF;
+    .param p3    # Landroid/graphics/PointF;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p4, "endFraction"    # F
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
     const-string v0, "start == null"
 
+    .line 38
     invoke-static {p1, v0}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/graphics/PointF;
+    check-cast p1, Landroid/graphics/PointF;
 
-    iput-object v0, p0, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
+    iput-object p1, p0, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
 
     .line 39
     iput p2, p0, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
 
+    const-string p1, "end == null"
+
     .line 40
-    const-string v0, "end == null"
+    invoke-static {p3, p1}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {p3, v0}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    check-cast p1, Landroid/graphics/PointF;
 
-    check-cast v0, Landroid/graphics/PointF;
-
-    iput-object v0, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
+    iput-object p1, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
 
     .line 41
     iput p4, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
 
-    .line 42
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 72
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
@@ -87,54 +82,51 @@
 
     .line 74
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Landroid/support/v4/graphics/PathSegment;
+    check-cast p1, Landroid/support/v4/graphics/PathSegment;
 
     .line 75
-    .local v1, "that":Landroid/support/v4/graphics/PathSegment;
-    iget v3, p0, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
+    iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
 
-    iget v4, v1, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
+    iget v3, p1, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
 
-    invoke-static {v3, v4}, Ljava/lang/Float;->compare(FF)I
+    invoke-static {v1, v3}, Ljava/lang/Float;->compare(FF)I
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    iget v3, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
+    iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
 
-    iget v4, v1, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
+    iget v3, p1, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
 
     .line 76
-    invoke-static {v3, v4}, Ljava/lang/Float;->compare(FF)I
+    invoke-static {v1, v3}, Ljava/lang/Float;->compare(FF)I
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_2
+    if-nez v1, :cond_2
 
-    iget-object v3, p0, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
+    iget-object v1, p0, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
 
-    iget-object v4, v1, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
+    iget-object v3, p1, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
 
     .line 77
-    invoke-virtual {v3, v4}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget-object v3, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
+    iget-object v1, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
 
-    iget-object v4, v1, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
+    iget-object p1, p1, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
 
     .line 78
-    invoke-virtual {v3, v4}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result p1
 
-    if-eqz v3, :cond_2
+    if-eqz p1, :cond_2
 
     goto :goto_0
 
@@ -186,7 +178,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .locals 5
 
     .line 83
     iget-object v0, p0, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;
@@ -195,67 +187,59 @@
 
     move-result v0
 
-    .line 84
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget v2, p0, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
+    .line 84
+    iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mStartFraction:F
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    cmpl-float v4, v1, v3
 
-    cmpl-float v5, v2, v4
+    if-eqz v4, :cond_0
 
-    if-eqz v5, :cond_0
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v2
+    move-result v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    add-int/2addr v1, v2
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 85
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v1, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
 
-    iget-object v2, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
+    invoke-virtual {v1}, Landroid/graphics/PointF;->hashCode()I
 
-    invoke-virtual {v2}, Landroid/graphics/PointF;->hashCode()I
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    .line 86
+    iget v1, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
+
+    cmpl-float v3, v1, v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {v1}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v2
 
+    :cond_1
     add-int/2addr v0, v2
 
-    .line 86
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
-
-    iget v2, p0, Landroid/support/v4/graphics/PathSegment;->mEndFraction:F
-
-    cmpl-float v4, v2, v4
-
-    if-eqz v4, :cond_1
-
-    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v3
-
-    :cond_1
-    add-int/2addr v1, v3
-
-    .line 87
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
-    return v1
+    return v0
 .end method
 
 .method public toString()Ljava/lang/String;

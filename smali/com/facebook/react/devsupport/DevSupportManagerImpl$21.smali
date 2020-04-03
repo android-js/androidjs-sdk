@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Lcom/facebook/react/packagerconnection/Responder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 860
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$21;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -41,35 +40,31 @@
 
 # virtual methods
 .method public onFailure(Lcom/facebook/react/devsupport/JSCHeapCapture$CaptureException;)V
-    .locals 2
-    .param p1, "error"    # Lcom/facebook/react/devsupport/JSCHeapCapture$CaptureException;
+    .locals 1
 
     .line 868
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$21;->val$responder:Lcom/facebook/react/packagerconnection/Responder;
 
     invoke-virtual {p1}, Lcom/facebook/react/devsupport/JSCHeapCapture$CaptureException;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lcom/facebook/react/packagerconnection/Responder;->error(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/facebook/react/packagerconnection/Responder;->error(Ljava/lang/Object;)V
 
-    .line 869
     return-void
 .end method
 
 .method public onSuccess(Ljava/io/File;)V
-    .locals 2
-    .param p1, "capture"    # Ljava/io/File;
+    .locals 1
 
     .line 863
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$21;->val$responder:Lcom/facebook/react/packagerconnection/Responder;
 
     invoke-virtual {p1}, Ljava/io/File;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Lcom/facebook/react/packagerconnection/Responder;->respond(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/facebook/react/packagerconnection/Responder;->respond(Ljava/lang/Object;)V
 
-    .line 864
     return-void
 .end method

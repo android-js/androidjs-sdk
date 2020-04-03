@@ -34,7 +34,7 @@
 .end method
 
 .method public onNewResultImpl(Lcom/facebook/datasource/DataSource;)V
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,74 +46,63 @@
     .end annotation
 
     .line 48
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->isFinished()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 49
     return-void
 
     .line 52
     :cond_0
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->getResult()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/common/references/CloseableReference;
+    check-cast p1, Lcom/facebook/common/references/CloseableReference;
 
-    .line 53
-    .local v0, "closeableImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .line 54
-    .local v1, "bitmap":Landroid/graphics/Bitmap;
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 55
-    invoke-virtual {v0}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    instance-of v2, v2, Lcom/facebook/imagepipeline/image/CloseableBitmap;
-
-    if-eqz v2, :cond_1
-
-    .line 56
-    invoke-virtual {v0}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/facebook/imagepipeline/image/CloseableBitmap;
-
-    invoke-virtual {v2}, Lcom/facebook/imagepipeline/image/CloseableBitmap;->getUnderlyingBitmap()Landroid/graphics/Bitmap;
+    invoke-virtual {p1}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
 
     move-result-object v1
+
+    instance-of v1, v1, Lcom/facebook/imagepipeline/image/CloseableBitmap;
+
+    if-eqz v1, :cond_1
+
+    .line 56
+    invoke-virtual {p1}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/facebook/imagepipeline/image/CloseableBitmap;
+
+    invoke-virtual {v0}, Lcom/facebook/imagepipeline/image/CloseableBitmap;->getUnderlyingBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v0
 
     .line 60
     :cond_1
     :try_start_0
-    invoke-virtual {p0, v1}, Lcom/facebook/imagepipeline/datasource/BaseBitmapDataSubscriber;->onNewResultImpl(Landroid/graphics/Bitmap;)V
+    invoke-virtual {p0, v0}, Lcom/facebook/imagepipeline/datasource/BaseBitmapDataSubscriber;->onNewResultImpl(Landroid/graphics/Bitmap;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 62
-    invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
+    invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 63
-    nop
-
-    .line 64
     return-void
 
-    .line 62
     :catchall_0
-    move-exception v2
+    move-exception v0
 
-    invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
+    invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
     .line 63
-    throw v2
+    throw v0
 .end method

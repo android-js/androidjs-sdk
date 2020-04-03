@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/cache/disk/DefaultEntryEvictionComparatorSupplier;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/cache/disk/DefaultEntryEvictionComparatorSupplier;
 
     .line 16
     iput-object p1, p0, Lcom/facebook/cache/disk/DefaultEntryEvictionComparatorSupplier$1;->this$0:Lcom/facebook/cache/disk/DefaultEntryEvictionComparatorSupplier;
@@ -37,9 +36,7 @@
 
 # virtual methods
 .method public compare(Lcom/facebook/cache/disk/DiskStorage$Entry;Lcom/facebook/cache/disk/DiskStorage$Entry;)I
-    .locals 5
-    .param p1, "e1"    # Lcom/facebook/cache/disk/DiskStorage$Entry;
-    .param p2, "e2"    # Lcom/facebook/cache/disk/DiskStorage$Entry;
+    .locals 3
 
     .line 19
     invoke-interface {p1}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
@@ -47,35 +44,32 @@
     move-result-wide v0
 
     .line 20
-    .local v0, "time1":J
     invoke-interface {p2}, Lcom/facebook/cache/disk/DiskStorage$Entry;->getTimestamp()J
 
-    move-result-wide v2
+    move-result-wide p1
 
-    .line 21
-    .local v2, "time2":J
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, p1
 
-    if-gez v4, :cond_0
+    if-gez v2, :cond_0
 
-    const/4 v4, -0x1
+    const/4 p1, -0x1
 
     goto :goto_0
 
     :cond_0
-    cmp-long v4, v2, v0
+    cmp-long v2, p1, v0
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
-    const/4 v4, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_1
-    const/4 v4, 0x1
+    const/4 p1, 0x1
 
     :goto_0
-    return v4
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

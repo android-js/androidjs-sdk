@@ -55,32 +55,26 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;)V
     .locals 1
-    .param p1, "scaleTypeFrom"    # Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
-    .param p2, "scaleTypeTo"    # Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
 
-    .line 478
     const/4 v0, 0x0
 
+    .line 478
     invoke-direct {p0, p1, p2, v0, v0}, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;-><init>(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    .line 479
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 7
-    .param p1, "scaleTypeFrom"    # Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
-    .param p2, "scaleTypeTo"    # Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
-    .param p3, "boundsFrom"    # Landroid/graphics/Rect;
+    .param p3    # Landroid/graphics/Rect;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "boundsTo"    # Landroid/graphics/Rect;
+    .param p4    # Landroid/graphics/Rect;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 474
     const/4 v5, 0x0
 
     const/4 v6, 0x0
@@ -95,29 +89,27 @@
 
     move-object v4, p4
 
+    .line 474
     invoke-direct/range {v0 .. v6}, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;-><init>(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/PointF;Landroid/graphics/PointF;)V
 
-    .line 475
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/PointF;Landroid/graphics/PointF;)V
     .locals 2
-    .param p1, "scaleTypeFrom"    # Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
-    .param p2, "scaleTypeTo"    # Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
-    .param p3, "boundsFrom"    # Landroid/graphics/Rect;
+    .param p3    # Landroid/graphics/Rect;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "boundsTo"    # Landroid/graphics/Rect;
+    .param p4    # Landroid/graphics/Rect;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p5, "focusPointFrom"    # Landroid/graphics/PointF;
+    .param p5    # Landroid/graphics/PointF;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p6, "focusPointTo"    # Landroid/graphics/PointF;
+    .param p6    # Landroid/graphics/PointF;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -125,9 +117,9 @@
     .line 460
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 448
     const/16 v0, 0x9
 
+    .line 448
     new-array v1, v0, [F
 
     iput-object v1, p0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesFrom:[F
@@ -160,7 +152,6 @@
     .line 466
     iput-object p6, p0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mFocusPointTo:Landroid/graphics/PointF;
 
-    .line 467
     return-void
 .end method
 
@@ -242,19 +233,13 @@
 .end method
 
 .method public getTransform(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFF)Landroid/graphics/Matrix;
-    .locals 16
-    .param p1, "transform"    # Landroid/graphics/Matrix;
-    .param p2, "parentBounds"    # Landroid/graphics/Rect;
-    .param p3, "childWidth"    # I
-    .param p4, "childHeight"    # I
-    .param p5, "focusX"    # F
-    .param p6, "focusY"    # F
+    .locals 10
+
+    move-object v0, p0
+
+    move-object v8, p1
 
     .line 536
-    move-object/from16 v0, p0
-
-    move-object/from16 v15, p1
-
     iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mBoundsFrom:Landroid/graphics/Rect;
 
     if-eqz v1, :cond_0
@@ -264,24 +249,22 @@
     goto :goto_0
 
     :cond_0
-    move-object/from16 v3, p2
+    move-object v3, p2
 
     .line 537
-    .local v3, "boundsFrom":Landroid/graphics/Rect;
     :goto_0
     iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mBoundsTo:Landroid/graphics/Rect;
 
     if-eqz v1, :cond_1
 
-    move-object v10, v1
+    move-object v9, v1
 
     goto :goto_1
 
     :cond_1
-    move-object/from16 v10, p2
+    move-object v9, p2
 
     .line 539
-    .local v10, "boundsTo":Landroid/graphics/Rect;
     :goto_1
     iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mScaleTypeFrom:Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
 
@@ -289,7 +272,7 @@
 
     if-nez v2, :cond_2
 
-    move/from16 v6, p5
+    move v6, p5
 
     goto :goto_2
 
@@ -313,67 +296,67 @@
     move v7, v2
 
     :goto_3
-    move-object/from16 v2, p1
+    move-object v2, p1
 
-    move/from16 v4, p3
+    move v4, p3
 
-    move/from16 v5, p4
+    move v5, p4
 
     invoke-interface/range {v1 .. v7}, Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;->getTransform(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFF)Landroid/graphics/Matrix;
 
     .line 546
     iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesFrom:[F
 
-    invoke-virtual {v15, v1}, Landroid/graphics/Matrix;->getValues([F)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->getValues([F)V
 
     .line 547
-    iget-object v8, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mScaleTypeTo:Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
+    iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mScaleTypeTo:Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
 
-    iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mFocusPointTo:Landroid/graphics/PointF;
+    iget-object v2, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mFocusPointTo:Landroid/graphics/PointF;
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
-    move/from16 v13, p5
+    move v6, p5
 
     goto :goto_4
 
     :cond_4
-    iget v1, v1, Landroid/graphics/PointF;->x:F
+    iget v2, v2, Landroid/graphics/PointF;->x:F
 
-    move v13, v1
+    move v6, v2
 
     :goto_4
-    iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mFocusPointTo:Landroid/graphics/PointF;
+    iget-object v2, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mFocusPointTo:Landroid/graphics/PointF;
 
-    if-nez v1, :cond_5
+    if-nez v2, :cond_5
 
-    move/from16 v14, p6
+    move/from16 v7, p6
 
     goto :goto_5
 
     :cond_5
-    iget v1, v1, Landroid/graphics/PointF;->y:F
+    iget v2, v2, Landroid/graphics/PointF;->y:F
 
-    move v14, v1
+    move v7, v2
 
     :goto_5
-    move-object/from16 v9, p1
+    move-object v2, p1
 
-    move/from16 v11, p3
+    move-object v3, v9
 
-    move/from16 v12, p4
+    move v4, p3
 
-    invoke-interface/range {v8 .. v14}, Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;->getTransform(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFF)Landroid/graphics/Matrix;
+    move v5, p4
+
+    invoke-interface/range {v1 .. v7}, Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;->getTransform(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFF)Landroid/graphics/Matrix;
 
     .line 554
     iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesTo:[F
 
-    invoke-virtual {v15, v1}, Landroid/graphics/Matrix;->getValues([F)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->getValues([F)V
 
-    .line 556
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_6
     const/16 v2, 0x9
 
@@ -382,42 +365,39 @@
     .line 557
     iget-object v2, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesInterpolated:[F
 
-    iget-object v4, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesFrom:[F
+    iget-object v3, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesFrom:[F
+
+    aget v3, v3, v1
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    iget v5, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mInterpolatingValue:F
+
+    sub-float/2addr v4, v5
+
+    mul-float v3, v3, v4
+
+    iget-object v4, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesTo:[F
 
     aget v4, v4, v1
 
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    iget v6, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mInterpolatingValue:F
-
-    sub-float/2addr v5, v6
-
     mul-float v4, v4, v5
 
-    iget-object v5, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesTo:[F
+    add-float/2addr v3, v4
 
-    aget v5, v5, v1
+    aput v3, v2, v1
 
-    mul-float v5, v5, v6
-
-    add-float/2addr v4, v5
-
-    aput v4, v2, v1
-
-    .line 556
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_6
 
     .line 560
-    .end local v1    # "i":I
     :cond_6
     iget-object v1, v0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mMatrixValuesInterpolated:[F
 
-    invoke-virtual {v15, v1}, Landroid/graphics/Matrix;->setValues([F)V
+    invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->setValues([F)V
 
-    .line 561
-    return-object v15
+    return-object v8
 .end method
 
 .method public getValue()F
@@ -431,21 +411,19 @@
 
 .method public setValue(F)V
     .locals 0
-    .param p1, "value"    # F
 
     .line 513
     iput p1, p0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mInterpolatingValue:F
 
-    .line 514
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 566
     const/4 v0, 0x4
 
+    .line 566
     new-array v0, v0, [Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->mScaleTypeFrom:Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
@@ -492,9 +470,9 @@
 
     aput-object v1, v0, v2
 
-    .line 566
     const-string v1, "InterpolatingScaleType(%s (%s) -> %s (%s))"
 
+    .line 566
     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0

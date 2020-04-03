@@ -44,7 +44,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/JavaModuleWrapper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/bridge/JavaModuleWrapper;
 
     .line 39
     iput-object p1, p0, Lcom/facebook/react/bridge/JavaModuleWrapper$MethodDescriptor;->this$0:Lcom/facebook/react/bridge/JavaModuleWrapper;

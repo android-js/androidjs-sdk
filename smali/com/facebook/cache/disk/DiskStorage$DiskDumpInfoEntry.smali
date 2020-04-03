@@ -27,10 +27,6 @@
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;Ljava/lang/String;FLjava/lang/String;)V
     .locals 0
-    .param p1, "path"    # Ljava/lang/String;
-    .param p2, "type"    # Ljava/lang/String;
-    .param p3, "size"    # F
-    .param p4, "firstBits"    # Ljava/lang/String;
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,6 +43,5 @@
     .line 34
     iput-object p4, p0, Lcom/facebook/cache/disk/DiskStorage$DiskDumpInfoEntry;->firstBits:Ljava/lang/String;
 
-    .line 35
     return-void
 .end method

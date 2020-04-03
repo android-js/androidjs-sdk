@@ -20,7 +20,6 @@
 # virtual methods
 .method public handleException(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 17
     instance-of v0, p1, Ljava/lang/RuntimeException;
@@ -28,11 +27,9 @@
     if-eqz v0, :cond_0
 
     .line 20
-    move-object v0, p1
+    check-cast p1, Ljava/lang/RuntimeException;
 
-    check-cast v0, Ljava/lang/RuntimeException;
-
-    throw v0
+    throw p1
 
     .line 22
     :cond_0

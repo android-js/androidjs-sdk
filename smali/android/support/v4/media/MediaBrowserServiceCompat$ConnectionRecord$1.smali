@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;)V
     .locals 0
-    .param p1, "this$1"    # Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
     .line 723
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
@@ -56,6 +55,5 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 727
     return-void
 .end method

@@ -79,9 +79,9 @@
 
     sput-object v0, Lcom/facebook/systrace/Systrace$EventScope;->GLOBAL:Lcom/facebook/systrace/Systrace$EventScope;
 
-    .line 25
     const/4 v0, 0x3
 
+    .line 25
     new-array v0, v0, [Lcom/facebook/systrace/Systrace$EventScope;
 
     sget-object v4, Lcom/facebook/systrace/Systrace$EventScope;->THREAD:Lcom/facebook/systrace/Systrace$EventScope;
@@ -103,7 +103,6 @@
 
 .method private constructor <init>(Ljava/lang/String;IC)V
     .locals 0
-    .param p3, "code"    # C
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(C)V"
@@ -116,24 +115,22 @@
     .line 33
     iput-char p3, p0, Lcom/facebook/systrace/Systrace$EventScope;->mCode:C
 
-    .line 34
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/systrace/Systrace$EventScope;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 25
     const-class v0, Lcom/facebook/systrace/Systrace$EventScope;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/systrace/Systrace$EventScope;
+    check-cast p0, Lcom/facebook/systrace/Systrace$EventScope;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/systrace/Systrace$EventScope;

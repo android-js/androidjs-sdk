@@ -10,25 +10,23 @@
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
     return-void
 .end method
 
 .method public static postDelayed(Landroid/os/Handler;Ljava/lang/Runnable;Ljava/lang/Object;J)Z
     .locals 2
-    .param p0, "handler"    # Landroid/os/Handler;
+    .param p0    # Landroid/os/Handler;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "r"    # Ljava/lang/Runnable;
+    .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "token"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "delayMillis"    # J
 
     .line 55
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -40,24 +38,23 @@
     .line 56
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;Ljava/lang/Object;J)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 
     .line 59
     :cond_0
     invoke-static {p0, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;Ljava/lang/Runnable;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 60
-    .local v0, "message":Landroid/os/Message;
-    iput-object p2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iput-object p2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     .line 61
-    invoke-virtual {p0, v0, p3, p4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, p1, p3, p4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 .end method

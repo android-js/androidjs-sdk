@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/ReactInstanceManager;ILcom/facebook/react/ReactRootView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/ReactInstanceManager;
 
     .line 1058
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$9;->this$0:Lcom/facebook/react/ReactInstanceManager;
@@ -61,6 +60,5 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/ReactRootView;->onAttachedToReactInstance()V
 
-    .line 1066
     return-void
 .end method

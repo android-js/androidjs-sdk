@@ -50,11 +50,9 @@
 
 .method public process(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
     .line 23
     invoke-static {p1}, Lcom/facebook/imagepipeline/nativecode/NativeRoundingFilter;->toCircle(Landroid/graphics/Bitmap;)V
 
-    .line 24
     return-void
 .end method

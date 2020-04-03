@@ -55,46 +55,39 @@
 
 .method public compare(Ljava/lang/String;Ljava/lang/String;)I
     .locals 6
-    .param p1, "a"    # Ljava/lang/String;
-    .param p2, "b"    # Ljava/lang/String;
 
     .line 51
-    const/4 v0, 0x4
-
-    .local v0, "i":I
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v2
-
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
-
     move-result v1
 
-    .local v1, "limit":I
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    const/4 v1, 0x4
+
     :goto_0
     const/4 v2, -0x1
 
     const/4 v3, 0x1
 
-    if-ge v0, v1, :cond_2
+    if-ge v1, v0, :cond_2
 
     .line 52
-    invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v4
 
     .line 53
-    .local v4, "charA":C
-    invoke-virtual {p2, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p2, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
 
-    .line 54
-    .local v5, "charB":C
     if-eq v4, v5, :cond_1
 
     if-ge v4, v5, :cond_0
@@ -107,33 +100,25 @@
     :goto_1
     return v2
 
-    .line 51
-    .end local v4    # "charA":C
-    .end local v5    # "charB":C
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 56
-    .end local v0    # "i":I
-    .end local v1    # "limit":I
     :cond_2
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result p1
 
     .line 57
-    .local v0, "lengthA":I
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result p2
 
-    .line 58
-    .local v1, "lengthB":I
-    if-eq v0, v1, :cond_4
+    if-eq p1, p2, :cond_4
 
-    if-ge v0, v1, :cond_3
+    if-ge p1, p2, :cond_3
 
     goto :goto_2
 
@@ -143,9 +128,8 @@
     :goto_2
     return v2
 
-    .line 59
     :cond_4
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return v2
+    return p1
 .end method

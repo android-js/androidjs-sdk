@@ -51,13 +51,12 @@
 
     goto :goto_0
 
-    .line 848
     :cond_0
     const/4 v0, 0x0
 
+    .line 848
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackObj:Ljava/lang/Object;
 
-    .line 850
     :goto_0
     return-void
 .end method
@@ -66,19 +65,16 @@
 # virtual methods
 .method public onError(Ljava/lang/String;)V
     .locals 0
-    .param p1, "itemId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    .line 866
     return-void
 .end method
 
 .method public onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
     .locals 0
-    .param p1, "item"    # Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
-    .line 858
     return-void
 .end method

@@ -36,13 +36,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/ImageRequest;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer;
-    .param p3, "producerListener"    # Lcom/facebook/imagepipeline/producers/ProducerListener;
-    .param p4, "producerName"    # Ljava/lang/String;
-    .param p5, "requestId"    # Ljava/lang/String;
 
     .line 64
-    .local p2, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer;
 
     iput-object p6, p0, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer$1;->val$listener:Lcom/facebook/imagepipeline/producers/ProducerListener;
@@ -70,10 +65,8 @@
     .end annotation
 
     .line 106
-    .local p1, "result":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 107
     return-void
 .end method
 
@@ -89,7 +82,7 @@
 .end method
 
 .method protected getExtraMapOnSuccess(Lcom/facebook/common/references/CloseableReference;)Ljava/util/Map;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,29 +96,28 @@
         }
     .end annotation
 
-    .line 101
-    .local p1, "result":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
+    .line 101
     :goto_0
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "createdThumbnail"
+    const-string v0, "createdThumbnail"
 
-    invoke-static {v1, v0}, Lcom/facebook/common/internal/ImmutableMap;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    invoke-static {v0, p1}, Lcom/facebook/common/internal/ImmutableMap;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected bridge synthetic getExtraMapOnSuccess(Ljava/lang/Object;)Ljava/util/Map;
@@ -142,7 +134,7 @@
 .end method
 
 .method protected getResult()Lcom/facebook/common/references/CloseableReference;
-    .locals 6
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -167,13 +159,10 @@
 
     move-result-object v0
 
-    .line 80
-    .local v0, "path":Ljava/lang/String;
     const/4 v1, 0x0
 
     if-nez v0, :cond_0
 
-    .line 81
     return-object v1
 
     .line 83
@@ -188,13 +177,10 @@
     .line 83
     invoke-static {v0, v2}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 86
-    .local v2, "thumbnailBitmap":Landroid/graphics/Bitmap;
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
-    .line 87
     return-object v1
 
     .line 90
@@ -204,20 +190,20 @@
     .line 93
     invoke-static {}, Lcom/facebook/imagepipeline/bitmaps/SimpleBitmapReleaser;->getInstance()Lcom/facebook/imagepipeline/bitmaps/SimpleBitmapReleaser;
 
-    move-result-object v3
+    move-result-object v2
 
-    sget-object v4, Lcom/facebook/imagepipeline/image/ImmutableQualityInfo;->FULL_QUALITY:Lcom/facebook/imagepipeline/image/QualityInfo;
+    sget-object v3, Lcom/facebook/imagepipeline/image/ImmutableQualityInfo;->FULL_QUALITY:Lcom/facebook/imagepipeline/image/QualityInfo;
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-direct {v1, v2, v3, v4, v5}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;-><init>(Landroid/graphics/Bitmap;Lcom/facebook/common/references/ResourceReleaser;Lcom/facebook/imagepipeline/image/QualityInfo;I)V
+    invoke-direct {v1, v0, v2, v3, v4}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;-><init>(Landroid/graphics/Bitmap;Lcom/facebook/common/references/ResourceReleaser;Lcom/facebook/imagepipeline/image/QualityInfo;I)V
 
     .line 90
     invoke-static {v1}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/io/Closeable;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method protected bridge synthetic getResult()Ljava/lang/Object;
@@ -237,29 +223,27 @@
 .end method
 
 .method protected onFailure(Ljava/lang/Exception;)V
-    .locals 4
-    .param p1, "e"    # Ljava/lang/Exception;
+    .locals 3
 
     .line 73
     invoke-super {p0, p1}, Lcom/facebook/imagepipeline/producers/StatefulProducerRunnable;->onFailure(Ljava/lang/Exception;)V
 
     .line 74
-    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer$1;->val$listener:Lcom/facebook/imagepipeline/producers/ProducerListener;
+    iget-object p1, p0, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer$1;->val$listener:Lcom/facebook/imagepipeline/producers/ProducerListener;
 
-    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer$1;->val$requestId:Ljava/lang/String;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/LocalVideoThumbnailProducer$1;->val$requestId:Ljava/lang/String;
 
-    const-string v2, "VideoThumbnailProducer"
+    const-string v1, "VideoThumbnailProducer"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-interface {p1, v0, v1, v2}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 75
     return-void
 .end method
 
 .method protected onSuccess(Lcom/facebook/common/references/CloseableReference;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -270,7 +254,6 @@
     .end annotation
 
     .line 67
-    .local p1, "result":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-super {p0, p1}, Lcom/facebook/imagepipeline/producers/StatefulProducerRunnable;->onSuccess(Ljava/lang/Object;)V
 
     .line 68
@@ -280,19 +263,18 @@
 
     if-eqz p1, :cond_0
 
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    const-string v3, "VideoThumbnailProducer"
+    const-string v2, "VideoThumbnailProducer"
 
-    invoke-interface {v0, v1, v3, v2}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-interface {v0, v1, v2, p1}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 69
     return-void
 .end method
 

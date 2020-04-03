@@ -56,9 +56,9 @@
 
     sput-object v0, Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;->CLIPPING:Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
 
-    .line 28
     const/4 v0, 0x2
 
+    .line 28
     new-array v0, v0, [Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
 
     sget-object v3, Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;->OVERLAY_COLOR:Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
@@ -90,18 +90,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 28
     const-class v0, Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
+    check-cast p0, Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/drawee/drawable/RoundedCornersDrawable$Type;

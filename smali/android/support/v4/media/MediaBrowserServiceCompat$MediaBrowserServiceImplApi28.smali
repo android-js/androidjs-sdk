@@ -25,7 +25,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     .line 572
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi28;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -68,7 +67,6 @@
     move-result-object v0
 
     .line 581
-    .local v0, "userInfoObj":Landroid/media/session/MediaSessionManager$RemoteUserInfo;
     new-instance v1, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;
 
     invoke-direct {v1, v0}, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;-><init>(Landroid/media/session/MediaSessionManager$RemoteUserInfo;)V

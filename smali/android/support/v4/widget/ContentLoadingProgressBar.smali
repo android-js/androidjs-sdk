@@ -26,40 +26,39 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    .line 68
     const/4 v0, 0x0
 
+    .line 68
     invoke-direct {p0, p1, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 69
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 1
+    .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/ProgressBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 37
-    const-wide/16 v1, -0x1
+    const-wide/16 p1, -0x1
 
-    iput-wide v1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
+    .line 37
+    iput-wide p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
     .line 39
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
@@ -71,20 +70,19 @@
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
     .line 45
-    new-instance v0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;
+    new-instance p1, Landroid/support/v4/widget/ContentLoadingProgressBar$1;
 
-    invoke-direct {v0, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$1;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
+    invoke-direct {p1, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$1;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
 
-    iput-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
+    iput-object p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
 
     .line 55
-    new-instance v0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;
+    new-instance p1, Landroid/support/v4/widget/ContentLoadingProgressBar$2;
 
-    invoke-direct {v0, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$2;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
+    invoke-direct {p1, p0}, Landroid/support/v4/widget/ContentLoadingProgressBar$2;-><init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
 
-    iput-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;
+    iput-object p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedShow:Ljava/lang/Runnable;
 
-    .line 73
     return-void
 .end method
 
@@ -101,7 +99,6 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 90
     return-void
 .end method
 
@@ -112,9 +109,9 @@
 
     monitor-enter p0
 
-    .line 98
     const/4 v0, 0x1
 
+    .line 98
     :try_start_0
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
@@ -123,9 +120,9 @@
 
     invoke-virtual {p0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 100
     const/4 v1, 0x0
 
+    .line 100
     iput-boolean v1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
 
     .line 101
@@ -137,14 +134,13 @@
 
     sub-long/2addr v1, v3
 
-    .line 102
-    .local v1, "diff":J
     const-wide/16 v3, 0x1f4
 
     cmp-long v5, v1, v3
 
     if-gez v5, :cond_1
 
+    .line 102
     iget-wide v5, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
     const-wide/16 v7, -0x1
@@ -173,12 +169,11 @@
 
     goto :goto_1
 
-    .line 106
-    .end local p0    # "this":Landroid/support/v4/widget/ContentLoadingProgressBar;
     :cond_1
     :goto_0
     const/16 v0, 0x8
 
+    .line 106
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->setVisibility(I)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -190,8 +185,6 @@
 
     return-void
 
-    .line 97
-    .end local v1    # "diff":J
     :catchall_0
     move-exception v0
 
@@ -209,7 +202,6 @@
     .line 78
     invoke-direct {p0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks()V
 
-    .line 79
     return-void
 .end method
 
@@ -222,7 +214,6 @@
     .line 84
     invoke-direct {p0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->removeCallbacks()V
 
-    .line 85
     return-void
 .end method
 
@@ -231,15 +222,15 @@
 
     monitor-enter p0
 
-    .line 124
     const-wide/16 v0, -0x1
 
+    .line 124
     :try_start_0
     iput-wide v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
-    .line 125
     const/4 v0, 0x0
 
+    .line 125
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
     .line 126
@@ -262,21 +253,19 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 130
     const/4 v0, 0x1
 
+    .line 130
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 132
-    .end local p0    # "this":Landroid/support/v4/widget/ContentLoadingProgressBar;
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 123
     :catchall_0
     move-exception v0
 

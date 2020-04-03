@@ -35,13 +35,11 @@
     .line 45
     invoke-direct {p0}, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->initMeasureFunction()V
 
-    .line 46
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/views/switchview/ReactSwitchManager$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/views/switchview/ReactSwitchManager$1;
 
     .line 37
     invoke-direct {p0}, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;-><init>()V
@@ -55,79 +53,69 @@
     .line 49
     invoke-virtual {p0, p0}, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->setMeasureFunction(Lcom/facebook/yoga/YogaMeasureFunction;)V
 
-    .line 50
     return-void
 .end method
 
 
 # virtual methods
 .method public measure(Lcom/facebook/yoga/YogaNode;FLcom/facebook/yoga/YogaMeasureMode;FLcom/facebook/yoga/YogaMeasureMode;)J
-    .locals 3
-    .param p1, "node"    # Lcom/facebook/yoga/YogaNode;
-    .param p2, "width"    # F
-    .param p3, "widthMode"    # Lcom/facebook/yoga/YogaMeasureMode;
-    .param p4, "height"    # F
-    .param p5, "heightMode"    # Lcom/facebook/yoga/YogaMeasureMode;
+    .locals 0
 
     .line 59
-    iget-boolean v0, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mMeasured:Z
+    iget-boolean p1, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mMeasured:Z
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 63
-    new-instance v0, Lcom/facebook/react/views/switchview/ReactSwitch;
+    new-instance p1, Lcom/facebook/react/views/switchview/ReactSwitch;
 
     invoke-virtual {p0}, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->getThemedContext()Lcom/facebook/react/uimanager/ThemedReactContext;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/views/switchview/ReactSwitch;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;-><init>(Landroid/content/Context;)V
+
+    const/4 p2, 0x0
 
     .line 64
-    .local v0, "reactSwitch":Lcom/facebook/react/views/switchview/ReactSwitch;
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/facebook/react/views/switchview/ReactSwitch;->setShowText(Z)V
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setShowText(Z)V
 
     .line 65
-    invoke-static {v1, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {p2, p2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result v1
+    move-result p2
 
     .line 68
-    .local v1, "spec":I
-    invoke-virtual {v0, v1, v1}, Lcom/facebook/react/views/switchview/ReactSwitch;->measure(II)V
+    invoke-virtual {p1, p2, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->measure(II)V
 
     .line 69
-    invoke-virtual {v0}, Lcom/facebook/react/views/switchview/ReactSwitch;->getMeasuredWidth()I
+    invoke-virtual {p1}, Lcom/facebook/react/views/switchview/ReactSwitch;->getMeasuredWidth()I
 
-    move-result v2
+    move-result p2
 
-    iput v2, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mWidth:I
+    iput p2, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mWidth:I
 
     .line 70
-    invoke-virtual {v0}, Lcom/facebook/react/views/switchview/ReactSwitch;->getMeasuredHeight()I
+    invoke-virtual {p1}, Lcom/facebook/react/views/switchview/ReactSwitch;->getMeasuredHeight()I
 
-    move-result v2
+    move-result p1
 
-    iput v2, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mHeight:I
+    iput p1, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mHeight:I
+
+    const/4 p1, 0x1
 
     .line 71
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mMeasured:Z
+    iput-boolean p1, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mMeasured:Z
 
     .line 74
-    .end local v0    # "reactSwitch":Lcom/facebook/react/views/switchview/ReactSwitch;
-    .end local v1    # "spec":I
     :cond_0
-    iget v0, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mWidth:I
+    iget p1, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mWidth:I
 
-    iget v1, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mHeight:I
+    iget p2, p0, Lcom/facebook/react/views/switchview/ReactSwitchManager$ReactSwitchShadowNode;->mHeight:I
 
-    invoke-static {v0, v1}, Lcom/facebook/yoga/YogaMeasureOutput;->make(II)J
+    invoke-static {p1, p2}, Lcom/facebook/yoga/YogaMeasureOutput;->make(II)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method

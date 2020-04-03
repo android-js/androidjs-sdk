@@ -15,12 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 15
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/facebook/common/disk/NoOpDiskTrimmableRegistry;->sInstance:Lcom/facebook/common/disk/NoOpDiskTrimmableRegistry;
+    .locals 0
 
     return-void
 .end method
@@ -31,7 +26,6 @@
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 18
     return-void
 .end method
 
@@ -65,7 +59,6 @@
 
     return-object v1
 
-    .line 20
     :catchall_0
     move-exception v1
 
@@ -78,16 +71,12 @@
 # virtual methods
 .method public registerDiskTrimmable(Lcom/facebook/common/disk/DiskTrimmable;)V
     .locals 0
-    .param p1, "trimmable"    # Lcom/facebook/common/disk/DiskTrimmable;
 
-    .line 29
     return-void
 .end method
 
 .method public unregisterDiskTrimmable(Lcom/facebook/common/disk/DiskTrimmable;)V
     .locals 0
-    .param p1, "trimmable"    # Lcom/facebook/common/disk/DiskTrimmable;
 
-    .line 33
     return-void
 .end method

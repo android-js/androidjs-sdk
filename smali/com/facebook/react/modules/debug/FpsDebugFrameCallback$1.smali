@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/debug/FpsDebugFrameCallback;Lcom/facebook/react/modules/debug/FpsDebugFrameCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/debug/FpsDebugFrameCallback;
 
     .line 134
     iput-object p1, p0, Lcom/facebook/react/modules/debug/FpsDebugFrameCallback$1;->this$0:Lcom/facebook/react/modules/debug/FpsDebugFrameCallback;
@@ -63,6 +62,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/modules/core/ChoreographerCompat;->postFrameCallback(Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;)V
 
-    .line 139
     return-void
 .end method

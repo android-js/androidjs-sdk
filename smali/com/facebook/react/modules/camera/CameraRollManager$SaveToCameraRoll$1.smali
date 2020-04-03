@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;
 
     .line 157
     iput-object p1, p0, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll$1;->this$0:Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;
@@ -37,43 +36,39 @@
 
 # virtual methods
 .method public onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 3
-    .param p1, "path"    # Ljava/lang/String;
-    .param p2, "uri"    # Landroid/net/Uri;
+    .locals 1
 
-    .line 160
     if-eqz p2, :cond_0
 
     .line 161
-    iget-object v0, p0, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll$1;->this$0:Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;
+    iget-object p1, p0, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll$1;->this$0:Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;
 
-    invoke-static {v0}, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;->access$000(Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;)Lcom/facebook/react/bridge/Promise;
+    invoke-static {p1}, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;->access$000(Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;)Lcom/facebook/react/bridge/Promise;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-virtual {p2}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lcom/facebook/react/bridge/Promise;->resolve(Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/Promise;->resolve(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 163
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll$1;->this$0:Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;
+    iget-object p1, p0, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll$1;->this$0:Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;
 
-    invoke-static {v0}, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;->access$000(Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;)Lcom/facebook/react/bridge/Promise;
+    invoke-static {p1}, Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;->access$000(Lcom/facebook/react/modules/camera/CameraRollManager$SaveToCameraRoll;)Lcom/facebook/react/bridge/Promise;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "E_UNABLE_TO_SAVE"
+    const-string p2, "E_UNABLE_TO_SAVE"
 
-    const-string v2, "Could not add image to gallery"
+    const-string v0, "Could not add image to gallery"
 
-    invoke-interface {v0, v1, v2}, Lcom/facebook/react/bridge/Promise;->reject(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p1, p2, v0}, Lcom/facebook/react/bridge/Promise;->reject(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 165
     :goto_0
     return-void
 .end method

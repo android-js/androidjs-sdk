@@ -37,12 +37,6 @@
 # direct methods
 .method constructor <init>([Ljava/lang/String;Landroid/support/v4/app/RemoteInput;Landroid/app/PendingIntent;Landroid/app/PendingIntent;[Ljava/lang/String;J)V
     .locals 0
-    .param p1, "messages"    # [Ljava/lang/String;
-    .param p2, "remoteInput"    # Landroid/support/v4/app/RemoteInput;
-    .param p3, "replyPendingIntent"    # Landroid/app/PendingIntent;
-    .param p4, "readPendingIntent"    # Landroid/app/PendingIntent;
-    .param p5, "participants"    # [Ljava/lang/String;
-    .param p6, "latestTimestamp"    # J
 
     .line 4859
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +59,6 @@
     .line 4865
     iput-wide p6, p0, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation;->mLatestTimestamp:J
 
-    .line 4866
     return-void
 .end method
 

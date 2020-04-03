@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Stream;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/http2/Http2Stream;
 
     .line 650
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Stream$StreamTimeout;->this$0:Lokhttp3/internal/http2/Http2Stream;
@@ -48,10 +47,8 @@
 
     if-nez v0, :cond_0
 
-    .line 665
     return-void
 
-    .line 664
     :cond_0
     const/4 v0, 0x0
 
@@ -64,7 +61,6 @@
 
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
     .locals 2
-    .param p1, "cause"    # Ljava/io/IOException;
 
     .line 656
     new-instance v0, Ljava/net/SocketTimeoutException;
@@ -73,14 +69,11 @@
 
     invoke-direct {v0, v1}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    .line 657
-    .local v0, "socketTimeoutException":Ljava/net/SocketTimeoutException;
     if-eqz p1, :cond_0
 
     .line 658
     invoke-virtual {v0, p1}, Ljava/net/SocketTimeoutException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 660
     :cond_0
     return-object v0
 .end method
@@ -95,6 +88,5 @@
 
     invoke-virtual {v0, v1}, Lokhttp3/internal/http2/Http2Stream;->closeLater(Lokhttp3/internal/http2/ErrorCode;)V
 
-    .line 653
     return-void
 .end method

@@ -53,23 +53,17 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/facebook/react/devsupport/DevInternalSettings$Listener;)V
     .locals 1
-    .param p1, "applicationContext"    # Landroid/content/Context;
-    .param p2, "listener"    # Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
 
-    .line 54
     const/4 v0, 0x1
 
+    .line 54
     invoke-direct {p0, p1, p2, v0}, Lcom/facebook/react/devsupport/DevInternalSettings;-><init>(Landroid/content/Context;Lcom/facebook/react/devsupport/DevInternalSettings$Listener;Z)V
 
-    .line 55
     return-void
 .end method
 
 .method private constructor <init>(Landroid/content/Context;Lcom/facebook/react/devsupport/DevInternalSettings$Listener;Z)V
-    .locals 1
-    .param p1, "applicationContext"    # Landroid/content/Context;
-    .param p2, "listener"    # Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
-    .param p3, "supportsNativeDeltaClients"    # Z
+    .locals 0
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,33 +74,30 @@
     .line 62
     invoke-static {p1}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
+    iput-object p2, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
 
     .line 63
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
+    iget-object p2, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
 
-    invoke-interface {v0, p0}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
+    invoke-interface {p2, p0}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
     .line 64
-    new-instance v0, Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;
+    new-instance p2, Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;
 
-    invoke-direct {v0, p1}, Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;-><init>(Landroid/content/Context;)V
+    invoke-direct {p2, p1}, Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPackagerConnectionSettings:Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;
+    iput-object p2, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPackagerConnectionSettings:Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;
 
     .line 65
     iput-boolean p3, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mSupportsNativeDeltaClients:Z
 
-    .line 66
     return-void
 .end method
 
 .method public static withoutNativeDeltaClient(Landroid/content/Context;Lcom/facebook/react/devsupport/DevInternalSettings$Listener;)Lcom/facebook/react/devsupport/DevInternalSettings;
     .locals 2
-    .param p0, "applicationContext"    # Landroid/content/Context;
-    .param p1, "listener"    # Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
 
     .line 48
     new-instance v0, Lcom/facebook/react/devsupport/DevInternalSettings;
@@ -287,7 +278,6 @@
 .method public isNuclideJSDebugEnabled()Z
     .locals 1
 
-    .line 155
     const/4 v0, 0x0
 
     return v0
@@ -328,83 +318,79 @@
 .end method
 
 .method public onSharedPreferenceChanged(Landroid/content/SharedPreferences;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "sharedPreferences"    # Landroid/content/SharedPreferences;
-    .param p2, "key"    # Ljava/lang/String;
+    .locals 0
 
     .line 97
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mListener:Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mListener:Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
+
+    const-string p1, "fps_debug"
 
     .line 98
-    const-string v0, "fps_debug"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
+    const-string p1, "reload_on_js_change"
 
     .line 99
-    const-string v0, "reload_on_js_change"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
+    const-string p1, "js_dev_mode_debug"
 
     .line 100
-    const-string v0, "js_dev_mode_debug"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
+    const-string p1, "js_bundle_deltas"
 
     .line 101
-    const-string v0, "js_bundle_deltas"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
+    const-string p1, "js_bundle_deltas_cpp"
 
     .line 102
-    const-string v0, "js_bundle_deltas_cpp"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-nez p1, :cond_0
 
-    if-nez v0, :cond_0
+    const-string p1, "js_minify_debug"
 
     .line 103
-    const-string v0, "js_minify_debug"
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 104
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mListener:Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mListener:Lcom/facebook/react/devsupport/DevInternalSettings$Listener;
 
-    invoke-interface {v0}, Lcom/facebook/react/devsupport/DevInternalSettings$Listener;->onInternalSettingsChanged()V
+    invoke-interface {p1}, Lcom/facebook/react/devsupport/DevInternalSettings$Listener;->onInternalSettingsChanged()V
 
-    .line 107
     :cond_1
     return-void
 .end method
 
 .method public setBundleDeltasCppEnabled(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "SharedPreferencesUse"
@@ -422,17 +408,15 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 151
     return-void
 .end method
 
 .method public setBundleDeltasEnabled(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "SharedPreferencesUse"
@@ -450,17 +434,15 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 141
     return-void
 .end method
 
 .method public setElementInspectorEnabled(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
 
     .line 130
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
@@ -473,17 +455,15 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 131
     return-void
 .end method
 
 .method public setFpsDebugEnabled(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
 
     .line 78
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
@@ -496,17 +476,15 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 79
     return-void
 .end method
 
 .method public setHotModuleReplacementEnabled(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
 
     .line 114
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
@@ -519,17 +497,15 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 115
     return-void
 .end method
 
 .method public setReloadOnJSChangeEnabled(Z)V
     .locals 2
-    .param p1, "enabled"    # Z
 
     .line 122
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
@@ -542,17 +518,15 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 123
     return-void
 .end method
 
 .method public setRemoteJSDebugEnabled(Z)V
     .locals 2
-    .param p1, "remoteJSDebugEnabled"    # Z
 
     .line 165
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevInternalSettings;->mPreferences:Landroid/content/SharedPreferences;
@@ -565,10 +539,9 @@
 
     invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 166
     return-void
 .end method

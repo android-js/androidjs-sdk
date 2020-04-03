@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/memory/BitmapCounter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/memory/BitmapCounter;
 
     .line 43
     iput-object p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter$1;->this$0:Lcom/facebook/imagepipeline/memory/BitmapCounter;
@@ -47,7 +46,6 @@
 # virtual methods
 .method public release(Landroid/graphics/Bitmap;)V
     .locals 1
-    .param p1, "value"    # Landroid/graphics/Bitmap;
 
     .line 47
     :try_start_0
@@ -60,13 +58,8 @@
     .line 49
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 50
-    nop
-
-    .line 51
     return-void
 
-    .line 49
     :catchall_0
     move-exception v0
 

@@ -9,9 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;Landroid/content/Context;)V
-    .locals 1
-    .param p1, "reactApplicationContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
-    .param p2, "base"    # Landroid/content/Context;
+    .locals 0
 
     .line 32
     invoke-direct {p0, p2}, Lcom/facebook/react/bridge/ReactContext;-><init>(Landroid/content/Context;)V
@@ -19,14 +17,13 @@
     .line 33
     invoke-virtual {p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getCatalystInstance()Lcom/facebook/react/bridge/CatalystInstance;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p0, v0}, Lcom/facebook/react/uimanager/ThemedReactContext;->initializeWithInstance(Lcom/facebook/react/bridge/CatalystInstance;)V
+    invoke-virtual {p0, p2}, Lcom/facebook/react/uimanager/ThemedReactContext;->initializeWithInstance(Lcom/facebook/react/bridge/CatalystInstance;)V
 
     .line 34
     iput-object p1, p0, Lcom/facebook/react/uimanager/ThemedReactContext;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 35
     return-void
 .end method
 
@@ -34,14 +31,12 @@
 # virtual methods
 .method public addLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 39
     iget-object v0, p0, Lcom/facebook/react/uimanager/ThemedReactContext;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->addLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
 
-    .line 40
     return-void
 .end method
 
@@ -75,13 +70,11 @@
 
 .method public removeLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 44
     iget-object v0, p0, Lcom/facebook/react/uimanager/ThemedReactContext;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->removeLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
 
-    .line 45
     return-void
 .end method

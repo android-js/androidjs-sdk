@@ -24,19 +24,14 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 49
     goto :goto_0
 
-    .line 46
     :catch_0
     move-exception v0
 
     .line 48
-    .local v0, "ioe":Ljava/io/IOException;
     invoke-static {v0}, Lcom/facebook/common/internal/Throwables;->propagate(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    .line 50
-    .end local v0    # "ioe":Ljava/io/IOException;
     :goto_0
     return-void
 .end method

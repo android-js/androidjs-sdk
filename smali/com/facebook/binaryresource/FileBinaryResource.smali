@@ -12,8 +12,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/io/File;)V
-    .locals 1
-    .param p1, "file"    # Ljava/io/File;
+    .locals 0
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,23 +20,21 @@
     .line 24
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/io/File;
+    check-cast p1, Ljava/io/File;
 
-    iput-object v0, p0, Lcom/facebook/binaryresource/FileBinaryResource;->mFile:Ljava/io/File;
+    iput-object p1, p0, Lcom/facebook/binaryresource/FileBinaryResource;->mFile:Ljava/io/File;
 
-    .line 25
     return-void
 .end method
 
 .method public static createOrNull(Ljava/io/File;)Lcom/facebook/binaryresource/FileBinaryResource;
     .locals 1
-    .param p0, "file"    # Ljava/io/File;
 
-    .line 65
     if-eqz p0, :cond_0
 
+    .line 65
     new-instance v0, Lcom/facebook/binaryresource/FileBinaryResource;
 
     invoke-direct {v0, p0}, Lcom/facebook/binaryresource/FileBinaryResource;-><init>(Ljava/io/File;)V
@@ -54,12 +51,11 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
 
-    .line 48
     if-eqz p1, :cond_1
 
+    .line 48
     instance-of v0, p1, Lcom/facebook/binaryresource/FileBinaryResource;
 
     if-nez v0, :cond_0
@@ -68,29 +64,24 @@
 
     .line 51
     :cond_0
-    move-object v0, p1
-
-    check-cast v0, Lcom/facebook/binaryresource/FileBinaryResource;
+    check-cast p1, Lcom/facebook/binaryresource/FileBinaryResource;
 
     .line 52
-    .local v0, "that":Lcom/facebook/binaryresource/FileBinaryResource;
-    iget-object v1, p0, Lcom/facebook/binaryresource/FileBinaryResource;->mFile:Ljava/io/File;
+    iget-object v0, p0, Lcom/facebook/binaryresource/FileBinaryResource;->mFile:Ljava/io/File;
 
-    iget-object v2, v0, Lcom/facebook/binaryresource/FileBinaryResource;->mFile:Ljava/io/File;
+    iget-object p1, p1, Lcom/facebook/binaryresource/FileBinaryResource;->mFile:Ljava/io/File;
 
-    invoke-virtual {v1, v2}, Ljava/io/File;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/io/File;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    return v1
+    return p1
 
-    .line 49
-    .end local v0    # "that":Lcom/facebook/binaryresource/FileBinaryResource;
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public getFile()Ljava/io/File;

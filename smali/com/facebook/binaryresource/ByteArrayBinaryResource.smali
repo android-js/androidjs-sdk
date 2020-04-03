@@ -12,8 +12,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .locals 1
-    .param p1, "bytes"    # [B
+    .locals 0
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,13 +20,12 @@
     .line 22
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [B
+    check-cast p1, [B
 
-    iput-object v0, p0, Lcom/facebook/binaryresource/ByteArrayBinaryResource;->mBytes:[B
+    iput-object p1, p0, Lcom/facebook/binaryresource/ByteArrayBinaryResource;->mBytes:[B
 
-    .line 23
     return-void
 .end method
 

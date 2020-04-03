@@ -28,12 +28,10 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;IILcom/facebook/react/bridge/ReadableArray;)V
     .locals 0
-    .param p2, "tag"    # I
-    .param p3, "command"    # I
+    .param p3    # I
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "args"    # Lcom/facebook/react/bridge/ReadableArray;
 
     .line 301
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchCommandOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -47,7 +45,6 @@
     .line 304
     iput-object p4, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchCommandOperation;->mArgs:Lcom/facebook/react/bridge/ReadableArray;
 
-    .line 305
     return-void
 .end method
 
@@ -71,6 +68,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->dispatchCommand(IILcom/facebook/react/bridge/ReadableArray;)V
 
-    .line 310
     return-void
 .end method

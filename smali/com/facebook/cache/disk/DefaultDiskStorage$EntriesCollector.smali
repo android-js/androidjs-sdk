@@ -52,8 +52,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/cache/disk/DefaultDiskStorage;Lcom/facebook/cache/disk/DefaultDiskStorage$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/cache/disk/DefaultDiskStorage;
-    .param p2, "x1"    # Lcom/facebook/cache/disk/DefaultDiskStorage$1;
 
     .line 244
     invoke-direct {p0, p1}, Lcom/facebook/cache/disk/DefaultDiskStorage$EntriesCollector;-><init>(Lcom/facebook/cache/disk/DefaultDiskStorage;)V
@@ -86,23 +84,18 @@
 
 .method public postVisitDirectory(Ljava/io/File;)V
     .locals 0
-    .param p1, "directory"    # Ljava/io/File;
 
-    .line 262
     return-void
 .end method
 
 .method public preVisitDirectory(Ljava/io/File;)V
     .locals 0
-    .param p1, "directory"    # Ljava/io/File;
 
-    .line 250
     return-void
 .end method
 
 .method public visitFile(Ljava/io/File;)V
-    .locals 5
-    .param p1, "file"    # Ljava/io/File;
+    .locals 4
 
     .line 254
     iget-object v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntriesCollector;->this$0:Lcom/facebook/cache/disk/DefaultDiskStorage;
@@ -111,10 +104,9 @@
 
     move-result-object v0
 
-    .line 255
-    .local v0, "info":Lcom/facebook/cache/disk/DefaultDiskStorage$FileInfo;
     if-eqz v0, :cond_0
 
+    .line 255
     iget-object v1, v0, Lcom/facebook/cache/disk/DefaultDiskStorage$FileInfo;->type:Ljava/lang/String;
 
     const-string v2, ".cnt"
@@ -126,15 +118,14 @@
 
     new-instance v2, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;
 
-    iget-object v3, v0, Lcom/facebook/cache/disk/DefaultDiskStorage$FileInfo;->resourceId:Ljava/lang/String;
+    iget-object v0, v0, Lcom/facebook/cache/disk/DefaultDiskStorage$FileInfo;->resourceId:Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v2, v3, p1, v4}, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;-><init>(Ljava/lang/String;Ljava/io/File;Lcom/facebook/cache/disk/DefaultDiskStorage$1;)V
+    invoke-direct {v2, v0, p1, v3}, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;-><init>(Ljava/lang/String;Ljava/io/File;Lcom/facebook/cache/disk/DefaultDiskStorage$1;)V
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 258
     :cond_0
     return-void
 .end method

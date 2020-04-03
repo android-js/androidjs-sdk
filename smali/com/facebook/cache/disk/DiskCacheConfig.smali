@@ -48,7 +48,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)V
     .locals 2
-    .param p1, "builder"    # Lcom/facebook/cache/disk/DiskCacheConfig$Builder;
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,9 +106,6 @@
 
     iput-wide v0, p0, Lcom/facebook/cache/disk/DiskCacheConfig;->mMinimumSizeLimit:J
 
-    .line 50
-    nop
-
     .line 51
     invoke-static {p1}, Lcom/facebook/cache/disk/DiskCacheConfig$Builder;->access$600(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
 
@@ -122,9 +118,6 @@
     check-cast v0, Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
 
     iput-object v0, p0, Lcom/facebook/cache/disk/DiskCacheConfig;->mEntryEvictionComparatorSupplier:Lcom/facebook/cache/disk/EntryEvictionComparatorSupplier;
-
-    .line 52
-    nop
 
     .line 53
     invoke-static {p1}, Lcom/facebook/cache/disk/DiskCacheConfig$Builder;->access$700(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)Lcom/facebook/cache/common/CacheErrorLogger;
@@ -149,9 +142,6 @@
     :goto_0
     iput-object v0, p0, Lcom/facebook/cache/disk/DiskCacheConfig;->mCacheErrorLogger:Lcom/facebook/cache/common/CacheErrorLogger;
 
-    .line 56
-    nop
-
     .line 57
     invoke-static {p1}, Lcom/facebook/cache/disk/DiskCacheConfig$Builder;->access$800(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)Lcom/facebook/cache/common/CacheEventListener;
 
@@ -174,9 +164,6 @@
 
     :goto_1
     iput-object v0, p0, Lcom/facebook/cache/disk/DiskCacheConfig;->mCacheEventListener:Lcom/facebook/cache/common/CacheEventListener;
-
-    .line 60
-    nop
 
     .line 61
     invoke-static {p1}, Lcom/facebook/cache/disk/DiskCacheConfig$Builder;->access$900(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)Lcom/facebook/common/disk/DiskTrimmableRegistry;
@@ -211,18 +198,15 @@
     .line 65
     invoke-static {p1}, Lcom/facebook/cache/disk/DiskCacheConfig$Builder;->access$1100(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Lcom/facebook/cache/disk/DiskCacheConfig;->mIndexPopulateAtStartupEnabled:Z
+    iput-boolean p1, p0, Lcom/facebook/cache/disk/DiskCacheConfig;->mIndexPopulateAtStartupEnabled:Z
 
-    .line 66
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;Lcom/facebook/cache/disk/DiskCacheConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/cache/disk/DiskCacheConfig$Builder;
-    .param p2, "x1"    # Lcom/facebook/cache/disk/DiskCacheConfig$1;
 
     .line 28
     invoke-direct {p0, p1}, Lcom/facebook/cache/disk/DiskCacheConfig;-><init>(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)V
@@ -232,7 +216,7 @@
 
 .method public static newBuilder(Landroid/content/Context;)Lcom/facebook/cache/disk/DiskCacheConfig$Builder;
     .locals 2
-    .param p0, "context"    # Landroid/content/Context;
+    .param p0    # Landroid/content/Context;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param

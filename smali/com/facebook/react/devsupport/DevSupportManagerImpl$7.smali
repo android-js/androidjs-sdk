@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 472
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$7;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -56,6 +55,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper;->attachDebugger(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 476
     return-void
 .end method

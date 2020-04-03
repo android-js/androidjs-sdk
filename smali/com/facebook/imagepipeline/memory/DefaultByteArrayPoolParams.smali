@@ -31,12 +31,11 @@
 
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 39
-    .local v0, "defaultBuckets":Landroid/util/SparseIntArray;
     const/16 v1, 0x4000
 
     const/4 v2, 0x5
 
+    .line 39
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
     .line 40

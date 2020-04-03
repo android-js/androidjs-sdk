@@ -26,25 +26,23 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 1675
     const/4 v0, 0x0
 
+    .line 1675
     invoke-direct {p0, v0}, Landroid/support/graphics/drawable/VectorDrawableCompat$VObject;-><init>(Landroid/support/graphics/drawable/VectorDrawableCompat$1;)V
 
     .line 1671
     iput-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    .line 1677
     return-void
 .end method
 
 .method public constructor <init>(Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;)V
     .locals 1
-    .param p1, "copy"    # Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;
 
-    .line 1701
     const/4 v0, 0x0
 
+    .line 1701
     invoke-direct {p0, v0}, Landroid/support/graphics/drawable/VectorDrawableCompat$VObject;-><init>(Landroid/support/graphics/drawable/VectorDrawableCompat$1;)V
 
     .line 1671
@@ -61,15 +59,14 @@
     iput v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mChangingConfigurations:I
 
     .line 1704
-    iget-object v0, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
+    iget-object p1, p1, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    invoke-static {v0}, Landroid/support/v4/graphics/PathParser;->deepCopyNodes([Landroid/support/v4/graphics/PathParser$PathDataNode;)[Landroid/support/v4/graphics/PathParser$PathDataNode;
+    invoke-static {p1}, Landroid/support/v4/graphics/PathParser;->deepCopyNodes([Landroid/support/v4/graphics/PathParser$PathDataNode;)[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
+    iput-object p1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    .line 1705
     return-void
 .end method
 
@@ -77,16 +74,13 @@
 # virtual methods
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 0
-    .param p1, "t"    # Landroid/content/res/Resources$Theme;
 
-    .line 1723
     return-void
 .end method
 
 .method public canApplyTheme()Z
     .locals 1
 
-    .line 1719
     const/4 v0, 0x0
 
     return v0
@@ -113,7 +107,6 @@
 .method public isClipPath()Z
     .locals 1
 
-    .line 1726
     const/4 v0, 0x0
 
     return v0
@@ -121,107 +114,98 @@
 
 .method public nodesToString([Landroid/support/v4/graphics/PathParser$PathDataNode;)Ljava/lang/String;
     .locals 6
-    .param p1, "nodes"    # [Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    .line 1690
-    const-string v0, " "
+    const/4 v0, 0x0
 
-    .line 1691
-    .local v0, "result":Ljava/lang/String;
+    const-string v1, " "
+
+    move-object v2, v1
+
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 1691
     :goto_0
-    array-length v2, p1
+    array-length v3, p1
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v3, :cond_1
 
     .line 1692
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget-object v3, p1, v1
-
-    iget-char v3, v3, Landroid/support/v4/graphics/PathParser$PathDataNode;->mType:C
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    const-string v3, ":"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 1693
     aget-object v2, p1, v1
 
-    iget-object v2, v2, Landroid/support/v4/graphics/PathParser$PathDataNode;->mParams:[F
+    iget-char v2, v2, Landroid/support/v4/graphics/PathParser$PathDataNode;->mType:C
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    const-string v2, ":"
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1693
+    aget-object v3, p1, v1
+
+    iget-object v3, v3, Landroid/support/v4/graphics/PathParser$PathDataNode;->mParams:[F
+
+    move-object v4, v2
+
+    const/4 v2, 0x0
 
     .line 1694
-    .local v2, "params":[F
-    const/4 v3, 0x0
-
-    .local v3, "j":I
     :goto_1
-    array-length v4, v2
+    array-length v5, v3
 
-    if-ge v3, v4, :cond_0
+    if-ge v2, v5, :cond_0
 
     .line 1695
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget v5, v2, v3
+    aget v4, v3, v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v5, ","
+    const-string v4, ","
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    .line 1694
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 1691
-    .end local v2    # "params":[F
-    .end local v3    # "j":I
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
+    move-object v2, v4
+
     goto :goto_0
 
-    .line 1698
-    .end local v1    # "i":I
     :cond_1
-    return-object v0
+    return-object v2
 .end method
 
 .method public printVPath(I)V
-    .locals 4
-    .param p1, "level"    # I
+    .locals 3
 
-    .line 1680
     const-string v0, ""
 
-    .line 1681
-    .local v0, "indent":Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "i":I
     :goto_0
     if-ge v1, p1, :cond_0
 
@@ -232,65 +216,61 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "    "
+    const-string v0, "    "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1681
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 1684
-    .end local v1    # "i":I
     :cond_0
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "current path is :"
+    const-string v0, "current path is :"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mPathName:Ljava/lang/String;
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mPathName:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " pathData is "
+    const-string v0, " pathData is "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
+    iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
     .line 1685
-    invoke-virtual {p0, v2}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->nodesToString([Landroid/support/v4/graphics/PathParser$PathDataNode;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->nodesToString([Landroid/support/v4/graphics/PathParser$PathDataNode;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
+
+    const-string v0, "VectorDrawableCompat"
 
     .line 1684
-    const-string v2, "VectorDrawableCompat"
+    invoke-static {v0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v2, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1687
     return-void
 .end method
 
 .method public setPathData([Landroid/support/v4/graphics/PathParser$PathDataNode;)V
     .locals 1
-    .param p1, "nodes"    # [Landroid/support/v4/graphics/PathParser$PathDataNode;
 
     .line 1737
     iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
@@ -304,9 +284,9 @@
     .line 1739
     invoke-static {p1}, Landroid/support/v4/graphics/PathParser;->deepCopyNodes([Landroid/support/v4/graphics/PathParser$PathDataNode;)[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
+    iput-object p1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VPath;->mNodes:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
     goto :goto_0
 
@@ -316,14 +296,12 @@
 
     invoke-static {v0, p1}, Landroid/support/v4/graphics/PathParser;->updateNodes([Landroid/support/v4/graphics/PathParser$PathDataNode;[Landroid/support/v4/graphics/PathParser$PathDataNode;)V
 
-    .line 1743
     :goto_0
     return-void
 .end method
 
 .method public toPath(Landroid/graphics/Path;)V
     .locals 1
-    .param p1, "path"    # Landroid/graphics/Path;
 
     .line 1708
     invoke-virtual {p1}, Landroid/graphics/Path;->reset()V
@@ -336,7 +314,6 @@
     .line 1710
     invoke-static {v0, p1}, Landroid/support/v4/graphics/PathParser$PathDataNode;->nodesToPath([Landroid/support/v4/graphics/PathParser$PathDataNode;Landroid/graphics/Path;)V
 
-    .line 1712
     :cond_0
     return-void
 .end method

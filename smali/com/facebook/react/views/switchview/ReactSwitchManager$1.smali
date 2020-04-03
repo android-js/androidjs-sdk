@@ -30,9 +30,7 @@
 
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 4
-    .param p1, "buttonView"    # Landroid/widget/CompoundButton;
-    .param p2, "isChecked"    # Z
+    .locals 2
 
     .line 82
     invoke-virtual {p1}, Landroid/widget/CompoundButton;->getContext()Landroid/content/Context;
@@ -42,31 +40,29 @@
     check-cast v0, Lcom/facebook/react/bridge/ReactContext;
 
     .line 83
-    .local v0, "reactContext":Lcom/facebook/react/bridge/ReactContext;
     const-class v1, Lcom/facebook/react/uimanager/UIManagerModule;
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/bridge/ReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/facebook/react/uimanager/UIManagerModule;
+    check-cast v0, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {v1}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
+    invoke-virtual {v0}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/facebook/react/views/switchview/ReactSwitchEvent;
+    new-instance v1, Lcom/facebook/react/views/switchview/ReactSwitchEvent;
 
     .line 85
     invoke-virtual {p1}, Landroid/widget/CompoundButton;->getId()I
 
-    move-result v3
+    move-result p1
 
-    invoke-direct {v2, v3, p2}, Lcom/facebook/react/views/switchview/ReactSwitchEvent;-><init>(IZ)V
+    invoke-direct {v1, p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitchEvent;-><init>(IZ)V
 
     .line 83
-    invoke-virtual {v1, v2}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
+    invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 87
     return-void
 .end method

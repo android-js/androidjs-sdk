@@ -29,13 +29,12 @@
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/shell/MainPackageConfig$Builder;)Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/shell/MainPackageConfig$Builder;
+    .locals 0
 
     .line 27
-    iget-object v0, p0, Lcom/facebook/react/shell/MainPackageConfig$Builder;->mFrescoConfig:Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
+    iget-object p0, p0, Lcom/facebook/react/shell/MainPackageConfig$Builder;->mFrescoConfig:Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -55,11 +54,9 @@
 
 .method public setFrescoConfig(Lcom/facebook/imagepipeline/core/ImagePipelineConfig;)Lcom/facebook/react/shell/MainPackageConfig$Builder;
     .locals 0
-    .param p1, "frescoConfig"    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
 
     .line 32
     iput-object p1, p0, Lcom/facebook/react/shell/MainPackageConfig$Builder;->mFrescoConfig:Lcom/facebook/imagepipeline/core/ImagePipelineConfig;
 
-    .line 33
     return-object p0
 .end method

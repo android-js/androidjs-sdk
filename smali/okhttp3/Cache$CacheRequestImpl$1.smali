@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/Cache$CacheRequestImpl;Lokio/Sink;Lokhttp3/Cache;Lokhttp3/internal/cache/DiskLruCache$Editor;)V
     .locals 0
-    .param p1, "this$1"    # Lokhttp3/Cache$CacheRequestImpl;
-    .param p2, "arg0"    # Lokio/Sink;
 
     .line 443
     iput-object p1, p0, Lokhttp3/Cache$CacheRequestImpl$1;->this$1:Lokhttp3/Cache$CacheRequestImpl;
@@ -102,13 +100,12 @@
 
     invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache$Editor;->commit()V
 
-    .line 454
     return-void
 
-    .line 451
     :catchall_0
     move-exception v1
 
+    .line 451
     :try_start_1
     monitor-exit v0
     :try_end_1

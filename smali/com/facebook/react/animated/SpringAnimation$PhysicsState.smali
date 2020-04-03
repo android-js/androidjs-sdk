@@ -32,7 +32,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/animated/SpringAnimation$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/animated/SpringAnimation$1;
 
     .line 25
     invoke-direct {p0}, Lcom/facebook/react/animated/SpringAnimation$PhysicsState;-><init>()V

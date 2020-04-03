@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIManagerModule;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/UIManagerModule;
 
     .line 356
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIManagerModule$1;->this$0:Lcom/facebook/react/uimanager/UIManagerModule;
@@ -37,8 +36,7 @@
 
 # virtual methods
 .method public resolveCustomEventName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p1, "eventName"    # Ljava/lang/String;
+    .locals 1
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -56,22 +54,17 @@
 
     check-cast v0, Ljava/util/Map;
 
-    .line 361
-    .local v0, "customEventType":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     if-eqz v0, :cond_0
 
+    const-string p1, "registrationName"
+
     .line 362
-    const-string v1, "registrationName"
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
+    check-cast p1, Ljava/lang/String;
 
-    check-cast v1, Ljava/lang/String;
-
-    return-object v1
-
-    .line 364
     :cond_0
     return-object p1
 .end method

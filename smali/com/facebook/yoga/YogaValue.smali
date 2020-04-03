@@ -61,27 +61,22 @@
 .end method
 
 .method constructor <init>(FI)V
-    .locals 1
-    .param p1, "value"    # F
-    .param p2, "unit"    # I
+    .locals 0
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
     .line 28
     invoke-static {p2}, Lcom/facebook/yoga/YogaUnit;->fromInt(I)Lcom/facebook/yoga/YogaUnit;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p0, p1, v0}, Lcom/facebook/yoga/YogaValue;-><init>(FLcom/facebook/yoga/YogaUnit;)V
+    invoke-direct {p0, p1, p2}, Lcom/facebook/yoga/YogaValue;-><init>(FLcom/facebook/yoga/YogaUnit;)V
 
-    .line 29
     return-void
 .end method
 
 .method public constructor <init>(FLcom/facebook/yoga/YogaUnit;)V
     .locals 0
-    .param p1, "value"    # F
-    .param p2, "unit"    # Lcom/facebook/yoga/YogaUnit;
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,26 +87,22 @@
     .line 23
     iput-object p2, p0, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
 
-    .line 24
     return-void
 .end method
 
 .method public static parse(Ljava/lang/String;)Lcom/facebook/yoga/YogaValue;
     .locals 3
-    .param p0, "s"    # Ljava/lang/String;
 
-    .line 66
     if-nez p0, :cond_0
 
-    .line 67
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
-    .line 70
     :cond_0
     const-string v0, "undefined"
 
+    .line 70
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -119,14 +110,14 @@
     if-eqz v0, :cond_1
 
     .line 71
-    sget-object v0, Lcom/facebook/yoga/YogaValue;->UNDEFINED:Lcom/facebook/yoga/YogaValue;
+    sget-object p0, Lcom/facebook/yoga/YogaValue;->UNDEFINED:Lcom/facebook/yoga/YogaValue;
 
-    return-object v0
+    return-object p0
 
-    .line 74
     :cond_1
     const-string v0, "auto"
 
+    .line 74
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -134,14 +125,14 @@
     if-eqz v0, :cond_2
 
     .line 75
-    sget-object v0, Lcom/facebook/yoga/YogaValue;->AUTO:Lcom/facebook/yoga/YogaValue;
+    sget-object p0, Lcom/facebook/yoga/YogaValue;->AUTO:Lcom/facebook/yoga/YogaValue;
 
-    return-object v0
+    return-object p0
 
-    .line 78
     :cond_2
     const-string v0, "%"
 
+    .line 78
     invoke-virtual {p0, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v0
@@ -161,15 +152,15 @@
 
     invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v1
+    move-result p0
 
-    sget-object v2, Lcom/facebook/yoga/YogaUnit;->PERCENT:Lcom/facebook/yoga/YogaUnit;
+    sget-object v1, Lcom/facebook/yoga/YogaUnit;->PERCENT:Lcom/facebook/yoga/YogaUnit;
 
-    invoke-direct {v0, v1, v2}, Lcom/facebook/yoga/YogaValue;-><init>(FLcom/facebook/yoga/YogaUnit;)V
+    invoke-direct {v0, p0, v1}, Lcom/facebook/yoga/YogaValue;-><init>(FLcom/facebook/yoga/YogaUnit;)V
 
     return-object v0
 
@@ -179,11 +170,11 @@
 
     invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result v1
+    move-result p0
 
-    sget-object v2, Lcom/facebook/yoga/YogaUnit;->POINT:Lcom/facebook/yoga/YogaUnit;
+    sget-object v1, Lcom/facebook/yoga/YogaUnit;->POINT:Lcom/facebook/yoga/YogaUnit;
 
-    invoke-direct {v0, v1, v2}, Lcom/facebook/yoga/YogaValue;-><init>(FLcom/facebook/yoga/YogaUnit;)V
+    invoke-direct {v0, p0, v1}, Lcom/facebook/yoga/YogaValue;-><init>(FLcom/facebook/yoga/YogaUnit;)V
 
     return-object v0
 .end method
@@ -191,61 +182,51 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 3
 
     .line 33
     instance-of v0, p1, Lcom/facebook/yoga/YogaValue;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     .line 34
-    move-object v0, p1
-
-    check-cast v0, Lcom/facebook/yoga/YogaValue;
+    check-cast p1, Lcom/facebook/yoga/YogaValue;
 
     .line 35
-    .local v0, "otherValue":Lcom/facebook/yoga/YogaValue;
-    iget-object v2, p0, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
+    iget-object v0, p0, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
 
-    iget-object v3, v0, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
+    iget-object v2, p1, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
 
-    if-ne v2, v3, :cond_2
+    if-ne v0, v2, :cond_1
 
     .line 36
-    sget-object v3, Lcom/facebook/yoga/YogaUnit;->UNDEFINED:Lcom/facebook/yoga/YogaUnit;
+    sget-object v2, Lcom/facebook/yoga/YogaUnit;->UNDEFINED:Lcom/facebook/yoga/YogaUnit;
 
-    if-eq v2, v3, :cond_0
+    if-eq v0, v2, :cond_0
 
-    iget-object v2, p0, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
+    iget-object v0, p0, Lcom/facebook/yoga/YogaValue;->unit:Lcom/facebook/yoga/YogaUnit;
 
-    sget-object v3, Lcom/facebook/yoga/YogaUnit;->AUTO:Lcom/facebook/yoga/YogaUnit;
+    sget-object v2, Lcom/facebook/yoga/YogaUnit;->AUTO:Lcom/facebook/yoga/YogaUnit;
 
-    if-eq v2, v3, :cond_0
+    if-eq v0, v2, :cond_0
 
-    iget v2, p0, Lcom/facebook/yoga/YogaValue;->value:F
+    iget v0, p0, Lcom/facebook/yoga/YogaValue;->value:F
 
-    iget v3, v0, Lcom/facebook/yoga/YogaValue;->value:F
+    iget p1, p1, Lcom/facebook/yoga/YogaValue;->value:F
 
     .line 38
-    invoke-static {v2, v3}, Ljava/lang/Float;->compare(FF)I
+    invoke-static {v0, p1}, Ljava/lang/Float;->compare(FF)I
 
-    move-result v2
+    move-result p1
 
-    if-nez v2, :cond_1
+    if-nez p1, :cond_1
 
     :cond_0
     const/4 v1, 0x1
 
-    .line 36
     :cond_1
-    return v1
-
-    .line 41
-    .end local v0    # "otherValue":Lcom/facebook/yoga/YogaValue;
-    :cond_2
     return v1
 .end method
 
@@ -300,7 +281,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 59
     const-string v0, "auto"
 
     return-object v0
@@ -343,7 +323,6 @@
 
     return-object v0
 
-    .line 53
     :cond_3
     const-string v0, "undefined"
 

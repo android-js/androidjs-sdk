@@ -44,8 +44,6 @@
     .end annotation
 
     .line 105
-    .local p0, "this":Landroid/support/v7/recyclerview/extensions/ListAdapter;, "Landroid/support/v7/recyclerview/extensions/ListAdapter<TT;TVH;>;"
-    .local p1, "config":Landroid/support/v7/recyclerview/extensions/AsyncDifferConfig;, "Landroid/support/v7/recyclerview/extensions/AsyncDifferConfig<TT;>;"
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
 
     .line 106
@@ -59,7 +57,6 @@
 
     iput-object v0, p0, Landroid/support/v7/recyclerview/extensions/ListAdapter;->mHelper:Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;
 
-    .line 107
     return-void
 .end method
 
@@ -78,8 +75,6 @@
     .end annotation
 
     .line 99
-    .local p0, "this":Landroid/support/v7/recyclerview/extensions/ListAdapter;, "Landroid/support/v7/recyclerview/extensions/ListAdapter<TT;TVH;>;"
-    .local p1, "diffCallback":Landroid/support/v7/util/DiffUtil$ItemCallback;, "Landroid/support/v7/util/DiffUtil$ItemCallback<TT;>;"
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
 
     .line 100
@@ -96,13 +91,12 @@
     .line 101
     invoke-virtual {v2}, Landroid/support/v7/recyclerview/extensions/AsyncDifferConfig$Builder;->build()Landroid/support/v7/recyclerview/extensions/AsyncDifferConfig;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v0, v1, v2}, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;-><init>(Landroid/support/v7/util/ListUpdateCallback;Landroid/support/v7/recyclerview/extensions/AsyncDifferConfig;)V
+    invoke-direct {v0, v1, p1}, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;-><init>(Landroid/support/v7/util/ListUpdateCallback;Landroid/support/v7/recyclerview/extensions/AsyncDifferConfig;)V
 
     iput-object v0, p0, Landroid/support/v7/recyclerview/extensions/ListAdapter;->mHelper:Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;
 
-    .line 102
     return-void
 .end method
 
@@ -110,7 +104,6 @@
 # virtual methods
 .method protected getItem(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "position"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -118,7 +111,6 @@
     .end annotation
 
     .line 124
-    .local p0, "this":Landroid/support/v7/recyclerview/extensions/ListAdapter;, "Landroid/support/v7/recyclerview/extensions/ListAdapter<TT;TVH;>;"
     iget-object v0, p0, Landroid/support/v7/recyclerview/extensions/ListAdapter;->mHelper:Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;
 
     invoke-virtual {v0}, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;->getCurrentList()Ljava/util/List;
@@ -127,16 +119,15 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getItemCount()I
     .locals 1
 
     .line 129
-    .local p0, "this":Landroid/support/v7/recyclerview/extensions/ListAdapter;, "Landroid/support/v7/recyclerview/extensions/ListAdapter<TT;TVH;>;"
     iget-object v0, p0, Landroid/support/v7/recyclerview/extensions/ListAdapter;->mHelper:Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;
 
     invoke-virtual {v0}, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;->getCurrentList()Ljava/util/List;
@@ -165,12 +156,9 @@
     .end annotation
 
     .line 119
-    .local p0, "this":Landroid/support/v7/recyclerview/extensions/ListAdapter;, "Landroid/support/v7/recyclerview/extensions/ListAdapter<TT;TVH;>;"
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<TT;>;"
     iget-object v0, p0, Landroid/support/v7/recyclerview/extensions/ListAdapter;->mHelper:Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/recyclerview/extensions/AsyncListDiffer;->submitList(Ljava/util/List;)V
 
-    .line 120
     return-void
 .end method

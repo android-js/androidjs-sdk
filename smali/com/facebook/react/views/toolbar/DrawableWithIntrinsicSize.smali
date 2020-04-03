@@ -13,8 +13,6 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;Lcom/facebook/imagepipeline/image/ImageInfo;)V
     .locals 0
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "imageInfo"    # Lcom/facebook/imagepipeline/image/ImageInfo;
 
     .line 33
     invoke-direct {p0, p1}, Lcom/facebook/drawee/drawable/ForwardingDrawable;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -22,7 +20,6 @@
     .line 34
     iput-object p2, p0, Lcom/facebook/react/views/toolbar/DrawableWithIntrinsicSize;->mImageInfo:Lcom/facebook/imagepipeline/image/ImageInfo;
 
-    .line 35
     return-void
 .end method
 

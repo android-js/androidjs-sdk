@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIImplementation;Lcom/facebook/react/uimanager/ReactShadowNode;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/UIImplementation;
 
     .line 210
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIImplementation$1;->this$0:Lcom/facebook/react/uimanager/UIImplementation;
@@ -52,6 +51,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->addRootNode(Lcom/facebook/react/uimanager/ReactShadowNode;)V
 
-    .line 214
     return-void
 .end method

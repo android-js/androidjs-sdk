@@ -22,10 +22,6 @@
 # virtual methods
 .method public createUIImplementation(Lcom/facebook/react/bridge/ReactApplicationContext;Lcom/facebook/react/uimanager/UIManagerModule$ViewManagerResolver;Lcom/facebook/react/uimanager/events/EventDispatcher;I)Lcom/facebook/react/uimanager/UIImplementation;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
-    .param p2, "viewManagerResolver"    # Lcom/facebook/react/uimanager/UIManagerModule$ViewManagerResolver;
-    .param p3, "eventDispatcher"    # Lcom/facebook/react/uimanager/events/EventDispatcher;
-    .param p4, "minTimeLeftInFrameForNonBatchedOperationMs"    # I
 
     .line 24
     new-instance v0, Lcom/facebook/react/uimanager/UIImplementation;
@@ -37,10 +33,6 @@
 
 .method createUIImplementation(Lcom/facebook/react/bridge/ReactApplicationContext;Lcom/facebook/react/uimanager/ViewManagerRegistry;Lcom/facebook/react/uimanager/events/EventDispatcher;I)Lcom/facebook/react/uimanager/UIImplementation;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
-    .param p2, "viewManagerRegistry"    # Lcom/facebook/react/uimanager/ViewManagerRegistry;
-    .param p3, "eventDispatcher"    # Lcom/facebook/react/uimanager/events/EventDispatcher;
-    .param p4, "minTimeLeftInFrameForNonBatchedOperationMs"    # I
 
     .line 48
     new-instance v0, Lcom/facebook/react/uimanager/UIImplementation;
@@ -52,9 +44,6 @@
 
 .method public createUIImplementation(Lcom/facebook/react/bridge/ReactApplicationContext;Ljava/util/List;Lcom/facebook/react/uimanager/events/EventDispatcher;I)Lcom/facebook/react/uimanager/UIImplementation;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
-    .param p3, "eventDispatcher"    # Lcom/facebook/react/uimanager/events/EventDispatcher;
-    .param p4, "minTimeLeftInFrameForNonBatchedOperationMs"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +58,6 @@
     .end annotation
 
     .line 36
-    .local p2, "viewManagerList":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/react/uimanager/ViewManager;>;"
     new-instance v0, Lcom/facebook/react/uimanager/UIImplementation;
 
     invoke-direct {v0, p1, p2, p3, p4}, Lcom/facebook/react/uimanager/UIImplementation;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;Ljava/util/List;Lcom/facebook/react/uimanager/events/EventDispatcher;I)V

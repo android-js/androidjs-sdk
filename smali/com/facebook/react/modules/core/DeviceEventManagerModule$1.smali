@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/core/DeviceEventManagerModule;Lcom/facebook/react/modules/core/DefaultHardwareBackBtnHandler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/core/DeviceEventManagerModule;
 
     .line 40
     iput-object p1, p0, Lcom/facebook/react/modules/core/DeviceEventManagerModule$1;->this$0:Lcom/facebook/react/modules/core/DeviceEventManagerModule;
@@ -51,6 +50,5 @@
 
     invoke-interface {v0}, Lcom/facebook/react/modules/core/DefaultHardwareBackBtnHandler;->invokeDefaultOnBackPressed()V
 
-    .line 45
     return-void
 .end method

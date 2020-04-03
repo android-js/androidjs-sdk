@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
 
     .line 273
     iput-object p1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest$2;->this$0:Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 6
-    .param p1, "location"    # Landroid/location/Location;
 
     .line 276
     iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest$2;->this$0:Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
@@ -134,42 +132,32 @@
     .line 285
     monitor-exit v0
 
-    .line 286
     return-void
 
-    .line 285
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
 
-    .line 295
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
 
-    .line 292
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
-    .param p2, "status"    # I
-    .param p3, "extras"    # Landroid/os/Bundle;
 
-    .line 289
     return-void
 .end method

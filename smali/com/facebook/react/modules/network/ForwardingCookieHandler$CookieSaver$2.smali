@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;
 
     .line 250
     iput-object p1, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver$2;->this$1:Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;
@@ -52,11 +51,8 @@
     move-result-object v0
 
     .line 255
-    .local v0, "syncManager":Landroid/webkit/CookieSyncManager;
     invoke-virtual {v0}, Landroid/webkit/CookieSyncManager;->sync()V
 
-    .line 256
-    .end local v0    # "syncManager":Landroid/webkit/CookieSyncManager;
     goto :goto_0
 
     .line 257
@@ -65,7 +61,6 @@
 
     invoke-static {v0}, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;->access$300(Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;)V
 
-    .line 259
     :goto_0
     return-void
 .end method

@@ -21,16 +21,11 @@
 
 .method public static create(Landroid/content/Context;Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;Ljava/lang/String;ZI)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
     .locals 8
-    .param p0, "applicationContext"    # Landroid/content/Context;
-    .param p1, "reactInstanceManagerHelper"    # Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;
-    .param p2, "packagerPathForJSBundleName"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "enableOnCreate"    # Z
-    .param p4, "minNumShakes"    # I
 
-    .line 39
     const/4 v4, 0x0
 
     const/4 v5, 0x0
@@ -47,31 +42,28 @@
 
     move v6, p4
 
+    .line 39
     invoke-static/range {v0 .. v7}, Lcom/facebook/react/devsupport/DevSupportManagerFactory;->create(Landroid/content/Context;Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;Ljava/lang/String;ZLcom/facebook/react/devsupport/RedBoxHandler;Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;ILjava/util/Map;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static create(Landroid/content/Context;Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;Ljava/lang/String;ZLcom/facebook/react/devsupport/RedBoxHandler;Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;ILjava/util/Map;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
-    .locals 13
-    .param p0, "applicationContext"    # Landroid/content/Context;
-    .param p1, "reactInstanceManagerHelper"    # Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;
-    .param p2, "packagerPathForJSBundleName"    # Ljava/lang/String;
+    .locals 12
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "enableOnCreate"    # Z
-    .param p4, "redBoxHandler"    # Lcom/facebook/react/devsupport/RedBoxHandler;
+    .param p4    # Lcom/facebook/react/devsupport/RedBoxHandler;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p5, "devBundleDownloadListener"    # Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;
+    .param p5    # Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p6, "minNumShakes"    # I
     .param p7    # Ljava/util/Map;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -94,8 +86,6 @@
         }
     .end annotation
 
-    .line 59
-    .local p7, "customPackagerCommandHandlers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Lcom/facebook/react/packagerconnection/RequestHandler;>;"
     if-nez p3, :cond_0
 
     .line 60
@@ -129,124 +119,113 @@
 
     move-result-object v0
 
-    .line 71
-    .local v0, "className":Ljava/lang/String;
-    nop
-
     .line 72
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/16 v1, 0x8
 
     .line 73
-    .local v1, "devSupportManagerClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const/16 v2, 0x8
+    new-array v2, v1, [Ljava/lang/Class;
 
-    new-array v3, v2, [Ljava/lang/Class;
+    const-class v3, Landroid/content/Context;
 
-    const-class v4, Landroid/content/Context;
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    aput-object v3, v2, v4
 
-    aput-object v4, v3, v5
+    const-class v3, Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;
 
-    const-class v4, Lcom/facebook/react/devsupport/ReactInstanceManagerDevHelper;
+    const/4 v5, 0x1
 
-    const/4 v6, 0x1
+    aput-object v3, v2, v5
 
-    aput-object v4, v3, v6
+    const-class v3, Ljava/lang/String;
 
-    const-class v4, Ljava/lang/String;
+    const/4 v6, 0x2
 
-    const/4 v7, 0x2
+    aput-object v3, v2, v6
 
-    aput-object v4, v3, v7
+    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+    const/4 v7, 0x3
 
-    const/4 v8, 0x3
+    aput-object v3, v2, v7
 
-    aput-object v4, v3, v8
+    const-class v3, Lcom/facebook/react/devsupport/RedBoxHandler;
 
-    const-class v4, Lcom/facebook/react/devsupport/RedBoxHandler;
+    const/4 v8, 0x4
 
-    const/4 v9, 0x4
+    aput-object v3, v2, v8
 
-    aput-object v4, v3, v9
+    const-class v3, Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;
 
-    const-class v4, Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;
+    const/4 v9, 0x5
 
-    const/4 v10, 0x5
+    aput-object v3, v2, v9
 
-    aput-object v4, v3, v10
+    sget-object v3, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
-    sget-object v4, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
+    const/4 v10, 0x6
 
-    const/4 v11, 0x6
+    aput-object v3, v2, v10
 
-    aput-object v4, v3, v11
+    const-class v3, Ljava/util/Map;
 
-    const-class v4, Ljava/util/Map;
+    const/4 v11, 0x7
 
-    const/4 v12, 0x7
-
-    aput-object v4, v3, v12
+    aput-object v3, v2, v11
 
     .line 74
-    invoke-virtual {v1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    invoke-virtual {v0, v2}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 83
-    .local v3, "constructor":Ljava/lang/reflect/Constructor;
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    aput-object p0, v2, v5
+    aput-object p0, v1, v4
 
-    aput-object p1, v2, v6
+    aput-object p1, v1, v5
 
-    aput-object p2, v2, v7
+    aput-object p2, v1, v6
 
     .line 87
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v4
+    move-result-object v2
 
-    aput-object v4, v2, v8
+    aput-object v2, v1, v7
 
-    aput-object p4, v2, v9
+    aput-object p4, v1, v8
 
-    aput-object p5, v2, v10
+    aput-object p5, v1, v9
 
     .line 90
     invoke-static/range {p6 .. p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
-
-    aput-object v4, v2, v11
-
-    aput-object p7, v2, v12
-
-    .line 83
-    invoke-virtual {v3, v2}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
-
     move-result-object v2
 
-    check-cast v2, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
+    aput-object v2, v1, v10
+
+    aput-object p7, v1, v11
+
+    .line 83
+    invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v2
+    return-object v0
 
-    .line 92
-    .end local v0    # "className":Ljava/lang/String;
-    .end local v1    # "devSupportManagerClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v3    # "constructor":Ljava/lang/reflect/Constructor;
     :catch_0
     move-exception v0
 
     .line 93
-    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Requested enabled DevSupportManager, but DevSupportManagerImpl class was not found or could not be created"

@@ -31,8 +31,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/network/ForwardingCookieHandler;Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/bridge/Callback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/network/ForwardingCookieHandler;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 83
     iput-object p1, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$1;->this$0:Lcom/facebook/react/modules/network/ForwardingCookieHandler;
@@ -47,7 +45,7 @@
 
 # virtual methods
 .method protected doInBackgroundGuarded()Ljava/lang/Boolean;
-    .locals 2
+    .locals 1
 
     .line 86
     iget-object v0, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$1;->this$0:Lcom/facebook/react/modules/network/ForwardingCookieHandler;
@@ -56,8 +54,6 @@
 
     move-result-object v0
 
-    .line 87
-    .local v0, "cookieManager":Landroid/webkit/CookieManager;
     if-eqz v0, :cond_0
 
     .line 88
@@ -65,22 +61,22 @@
 
     .line 90
     :cond_0
-    iget-object v1, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$1;->this$0:Lcom/facebook/react/modules/network/ForwardingCookieHandler;
+    iget-object v0, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$1;->this$0:Lcom/facebook/react/modules/network/ForwardingCookieHandler;
 
-    invoke-static {v1}, Lcom/facebook/react/modules/network/ForwardingCookieHandler;->access$100(Lcom/facebook/react/modules/network/ForwardingCookieHandler;)Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;
+    invoke-static {v0}, Lcom/facebook/react/modules/network/ForwardingCookieHandler;->access$100(Lcom/facebook/react/modules/network/ForwardingCookieHandler;)Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;->onCookiesModified()V
+    invoke-virtual {v0}, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;->onCookiesModified()V
+
+    const/4 v0, 0x1
 
     .line 91
-    const/4 v1, 0x1
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v0
 
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method
 
 .method protected bridge synthetic doInBackgroundGuarded()Ljava/lang/Object;
@@ -96,7 +92,6 @@
 
 .method protected onPostExecuteGuarded(Ljava/lang/Boolean;)V
     .locals 3
-    .param p1, "result"    # Ljava/lang/Boolean;
 
     .line 96
     iget-object v0, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$1;->val$callback:Lcom/facebook/react/bridge/Callback;
@@ -111,7 +106,6 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 97
     return-void
 .end method
 

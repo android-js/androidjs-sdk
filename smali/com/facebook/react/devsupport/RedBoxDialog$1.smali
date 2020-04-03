@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/RedBoxDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/RedBoxDialog;
 
     .line 65
     iput-object p1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$1;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onReportError(Landroid/text/SpannedString;)V
     .locals 2
-    .param p1, "spannedString"    # Landroid/text/SpannedString;
 
     .line 75
     iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$1;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
@@ -96,13 +94,11 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 79
     return-void
 .end method
 
 .method public onReportSuccess(Landroid/text/SpannedString;)V
     .locals 2
-    .param p1, "spannedString"    # Landroid/text/SpannedString;
 
     .line 68
     iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$1;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
@@ -160,6 +156,5 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 72
     return-void
 .end method

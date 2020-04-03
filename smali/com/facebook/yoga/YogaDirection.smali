@@ -67,9 +67,9 @@
 
     sput-object v0, Lcom/facebook/yoga/YogaDirection;->RTL:Lcom/facebook/yoga/YogaDirection;
 
-    .line 12
     const/4 v0, 0x3
 
+    .line 12
     new-array v0, v0, [Lcom/facebook/yoga/YogaDirection;
 
     sget-object v4, Lcom/facebook/yoga/YogaDirection;->INHERIT:Lcom/facebook/yoga/YogaDirection;
@@ -91,7 +91,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "intValue"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -104,15 +103,12 @@
     .line 21
     iput p3, p0, Lcom/facebook/yoga/YogaDirection;->mIntValue:I
 
-    .line 22
     return-void
 .end method
 
 .method public static fromInt(I)Lcom/facebook/yoga/YogaDirection;
     .locals 3
-    .param p0, "value"    # I
 
-    .line 29
     if-eqz p0, :cond_2
 
     const/4 v0, 0x1
@@ -124,9 +120,9 @@
     if-ne p0, v0, :cond_0
 
     .line 32
-    sget-object v0, Lcom/facebook/yoga/YogaDirection;->RTL:Lcom/facebook/yoga/YogaDirection;
+    sget-object p0, Lcom/facebook/yoga/YogaDirection;->RTL:Lcom/facebook/yoga/YogaDirection;
 
-    return-object v0
+    return-object p0
 
     .line 33
     :cond_0
@@ -144,39 +140,38 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 31
     :cond_1
-    sget-object v0, Lcom/facebook/yoga/YogaDirection;->LTR:Lcom/facebook/yoga/YogaDirection;
+    sget-object p0, Lcom/facebook/yoga/YogaDirection;->LTR:Lcom/facebook/yoga/YogaDirection;
 
-    return-object v0
+    return-object p0
 
     .line 30
     :cond_2
-    sget-object v0, Lcom/facebook/yoga/YogaDirection;->INHERIT:Lcom/facebook/yoga/YogaDirection;
+    sget-object p0, Lcom/facebook/yoga/YogaDirection;->INHERIT:Lcom/facebook/yoga/YogaDirection;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/yoga/YogaDirection;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 12
     const-class v0, Lcom/facebook/yoga/YogaDirection;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/yoga/YogaDirection;
+    check-cast p0, Lcom/facebook/yoga/YogaDirection;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/yoga/YogaDirection;

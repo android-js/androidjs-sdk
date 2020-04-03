@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/animated/NativeAnimatedNodesManager;Lcom/facebook/react/uimanager/events/Event;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/animated/NativeAnimatedNodesManager;
 
     .line 394
     iput-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedNodesManager$1;->this$0:Lcom/facebook/react/animated/NativeAnimatedNodesManager;
@@ -50,6 +49,5 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/animated/NativeAnimatedNodesManager;->access$000(Lcom/facebook/react/animated/NativeAnimatedNodesManager;Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 398
     return-void
 .end method

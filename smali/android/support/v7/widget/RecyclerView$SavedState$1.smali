@@ -40,7 +40,6 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v7/widget/RecyclerView$SavedState;
     .locals 2
-    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 12086
     new-instance v0, Landroid/support/v7/widget/RecyclerView$SavedState;
@@ -54,8 +53,6 @@
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/widget/RecyclerView$SavedState;
     .locals 1
-    .param p1, "in"    # Landroid/os/Parcel;
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .line 12081
     new-instance v0, Landroid/support/v7/widget/RecyclerView$SavedState;
@@ -88,13 +85,12 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v7/widget/RecyclerView$SavedState;
-    .locals 1
-    .param p1, "size"    # I
+    .locals 0
 
     .line 12091
-    new-array v0, p1, [Landroid/support/v7/widget/RecyclerView$SavedState;
+    new-array p1, p1, [Landroid/support/v7/widget/RecyclerView$SavedState;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

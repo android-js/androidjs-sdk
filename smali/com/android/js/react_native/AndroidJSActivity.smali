@@ -11,19 +11,19 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 17
     const-string v0, "native-lib"
 
+    .line 17
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 18
     const-string v0, "node"
 
+    .line 18
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
-    .line 22
     const/4 v0, 0x0
 
+    .line 22
     sput-boolean v0, Lcom/android/js/react_native/AndroidJSActivity;->_startedNodeAlready:Z
 
     return-void
@@ -43,7 +43,6 @@
 .method protected getMainComponentName()Ljava/lang/String;
     .locals 1
 
-    .line 58
     const-string v0, "androidjs_core_react_native"
 
     return-object v0
@@ -51,12 +50,10 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
     .line 26
     invoke-super {p0, p1}, Lcom/facebook/react/ReactActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 27
     return-void
 .end method
 
@@ -65,16 +62,15 @@
 
 .method public start_node(Landroid/app/Activity;)V
     .locals 2
-    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 30
     sget-boolean v0, Lcom/android/js/react_native/AndroidJSActivity;->_startedNodeAlready:Z
 
     if-nez v0, :cond_0
 
-    .line 31
     const/4 v0, 0x1
 
+    .line 31
     sput-boolean v0, Lcom/android/js/react_native/AndroidJSActivity;->_startedNodeAlready:Z
 
     .line 32
@@ -89,7 +85,6 @@
     .line 52
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    .line 54
     :cond_0
     return-void
 .end method

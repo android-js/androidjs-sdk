@@ -34,7 +34,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/imageutils/TiffUtil$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imageutils/TiffUtil$1;
 
     .line 79
     invoke-direct {p0}, Lcom/facebook/imageutils/TiffUtil$TiffHeader;-><init>()V

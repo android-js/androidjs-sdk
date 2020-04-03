@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/storage/AsyncStorageModule$SerialExecutor;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/modules/storage/AsyncStorageModule$SerialExecutor;
 
     .line 61
     iput-object p1, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$SerialExecutor$1;->this$1:Lcom/facebook/react/modules/storage/AsyncStorageModule$SerialExecutor;
@@ -56,13 +55,8 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/modules/storage/AsyncStorageModule$SerialExecutor;->scheduleNext()V
 
-    .line 67
-    nop
-
-    .line 68
     return-void
 
-    .line 66
     :catchall_0
     move-exception v0
 

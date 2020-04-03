@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/webview/ReactWebViewManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/webview/ReactWebViewManager;
 
     .line 718
     iput-object p1, p0, Lcom/facebook/react/views/webview/ReactWebViewManager$3;->this$0:Lcom/facebook/react/views/webview/ReactWebViewManager;
@@ -37,31 +36,28 @@
 
 # virtual methods
 .method public onNewPicture(Landroid/webkit/WebView;Landroid/graphics/Picture;)V
-    .locals 4
-    .param p1, "webView"    # Landroid/webkit/WebView;
-    .param p2, "picture"    # Landroid/graphics/Picture;
+    .locals 3
 
     .line 721
-    new-instance v0, Lcom/facebook/react/uimanager/events/ContentSizeChangeEvent;
+    new-instance p2, Lcom/facebook/react/uimanager/events/ContentSizeChangeEvent;
 
     .line 724
     invoke-virtual {p1}, Landroid/webkit/WebView;->getId()I
 
-    move-result v1
+    move-result v0
 
     invoke-virtual {p1}, Landroid/webkit/WebView;->getWidth()I
 
-    move-result v2
+    move-result v1
 
     invoke-virtual {p1}, Landroid/webkit/WebView;->getContentHeight()I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/facebook/react/uimanager/events/ContentSizeChangeEvent;-><init>(III)V
+    invoke-direct {p2, v0, v1, v2}, Lcom/facebook/react/uimanager/events/ContentSizeChangeEvent;-><init>(III)V
 
     .line 721
-    invoke-static {p1, v0}, Lcom/facebook/react/views/webview/ReactWebViewManager;->dispatchEvent(Landroid/webkit/WebView;Lcom/facebook/react/uimanager/events/Event;)V
+    invoke-static {p1, p2}, Lcom/facebook/react/views/webview/ReactWebViewManager;->dispatchEvent(Landroid/webkit/WebView;Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 725
     return-void
 .end method

@@ -15,7 +15,6 @@
 
 .method public static from(Ljava/io/InputStream;)Lcom/facebook/cache/common/WriterCallback;
     .locals 1
-    .param p0, "is"    # Ljava/io/InputStream;
 
     .line 29
     new-instance v0, Lcom/facebook/cache/common/WriterCallbacks$1;
@@ -27,7 +26,6 @@
 
 .method public static from([B)Lcom/facebook/cache/common/WriterCallback;
     .locals 1
-    .param p0, "data"    # [B
 
     .line 45
     new-instance v0, Lcom/facebook/cache/common/WriterCallbacks$2;

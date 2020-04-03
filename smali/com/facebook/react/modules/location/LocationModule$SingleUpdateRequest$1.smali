@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
 
     .line 260
     iput-object p1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest$1;->this$0:Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
@@ -94,11 +93,11 @@
 
     invoke-virtual {v1, v3}, Landroid/location/LocationManager;->removeUpdates(Landroid/location/LocationListener;)V
 
-    .line 267
     const-string v1, "ReactNative"
 
     const-string v3, "LocationModule: Location request timed out"
 
+    .line 267
     invoke-static {v1, v3}, Lcom/facebook/common/logging/FLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 268
@@ -110,10 +109,8 @@
     :cond_0
     monitor-exit v0
 
-    .line 271
     return-void
 
-    .line 270
     :catchall_0
     move-exception v1
 

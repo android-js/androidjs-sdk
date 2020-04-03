@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 527
     return-void
 .end method
 
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lokhttp3/internal/ws/RealWebSocket;->writePingFrame()V
 
-    .line 531
     return-void
 .end method

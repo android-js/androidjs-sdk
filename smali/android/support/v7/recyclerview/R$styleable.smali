@@ -142,54 +142,54 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 177
     const/4 v0, 0x3
 
+    .line 177
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->ColorStateListItem:[I
 
-    .line 181
     const/4 v0, 0x2
 
+    .line 181
     new-array v1, v0, [I
 
     fill-array-data v1, :array_1
 
     sput-object v1, Landroid/support/v7/recyclerview/R$styleable;->CoordinatorLayout:[I
 
-    .line 184
     const/4 v1, 0x7
 
+    .line 184
     new-array v1, v1, [I
 
     fill-array-data v1, :array_2
 
     sput-object v1, Landroid/support/v7/recyclerview/R$styleable;->CoordinatorLayout_Layout:[I
 
-    .line 192
     const/4 v1, 0x6
 
+    .line 192
     new-array v1, v1, [I
 
     fill-array-data v1, :array_3
 
     sput-object v1, Landroid/support/v7/recyclerview/R$styleable;->FontFamily:[I
 
-    .line 199
     const/16 v1, 0xa
 
+    .line 199
     new-array v1, v1, [I
 
     fill-array-data v1, :array_4
 
     sput-object v1, Landroid/support/v7/recyclerview/R$styleable;->FontFamilyFont:[I
 
-    .line 210
     const/16 v1, 0xc
 
+    .line 210
     new-array v1, v1, [I
 
     fill-array-data v1, :array_5
@@ -203,9 +203,9 @@
 
     sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->GradientColorItem:[I
 
-    .line 226
     const/16 v0, 0xb
 
+    .line 226
     new-array v0, v0, [I
 
     fill-array-data v0, :array_7

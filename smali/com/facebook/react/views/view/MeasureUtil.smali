@@ -14,25 +14,23 @@
 .end method
 
 .method public static getMeasureSpec(FLcom/facebook/yoga/YogaMeasureMode;)I
-    .locals 2
-    .param p0, "size"    # F
-    .param p1, "mode"    # Lcom/facebook/yoga/YogaMeasureMode;
+    .locals 1
 
     .line 15
     sget-object v0, Lcom/facebook/yoga/YogaMeasureMode;->EXACTLY:Lcom/facebook/yoga/YogaMeasureMode;
 
     if-ne p1, v0, :cond_0
 
+    float-to-int p0, p0
+
+    const/high16 p1, 0x40000000    # 2.0f
+
     .line 16
-    float-to-int v0, p0
+    invoke-static {p0, p1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    const/high16 v1, 0x40000000    # 2.0f
+    move-result p0
 
-    invoke-static {v0, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result v0
-
-    return v0
+    return p0
 
     .line 17
     :cond_0
@@ -40,24 +38,24 @@
 
     if-ne p1, v0, :cond_1
 
+    float-to-int p0, p0
+
+    const/high16 p1, -0x80000000
+
     .line 18
-    float-to-int v0, p0
+    invoke-static {p0, p1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    const/high16 v1, -0x80000000
+    move-result p0
 
-    invoke-static {v0, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    return p0
 
-    move-result v0
-
-    return v0
+    :cond_1
+    const/4 p0, 0x0
 
     .line 20
-    :cond_1
-    const/4 v0, 0x0
+    invoke-static {p0, p0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    invoke-static {v0, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    move-result p0
 
-    move-result v0
-
-    return v0
+    return p0
 .end method

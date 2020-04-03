@@ -12,12 +12,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 18
     const-string v0, "fb"
 
+    .line 18
     invoke-static {v0}, Lcom/facebook/soloader/SoLoader;->loadLibrary(Ljava/lang/String;)Z
 
-    .line 19
     return-void
 .end method
 

@@ -26,7 +26,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReadableMap;)V
     .locals 0
-    .param p2, "config"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 428
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -36,15 +35,11 @@
     .line 429
     iput-object p2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;->mConfig:Lcom/facebook/react/bridge/ReadableMap;
 
-    .line 430
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "x1"    # Lcom/facebook/react/bridge/ReadableMap;
-    .param p3, "x2"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
 
     .line 425
     invoke-direct {p0, p1, p2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReadableMap;)V
@@ -68,6 +63,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->configureLayoutAnimation(Lcom/facebook/react/bridge/ReadableMap;)V
 
-    .line 435
     return-void
 .end method

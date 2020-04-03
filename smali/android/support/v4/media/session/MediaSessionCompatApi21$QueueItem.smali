@@ -21,53 +21,42 @@
     .line 277
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 278
     return-void
 .end method
 
 .method public static createItem(Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 2
-    .param p0, "mediaDescription"    # Ljava/lang/Object;
-    .param p1, "id"    # J
+    .locals 1
 
     .line 266
     new-instance v0, Landroid/media/session/MediaSession$QueueItem;
 
-    move-object v1, p0
+    check-cast p0, Landroid/media/MediaDescription;
 
-    check-cast v1, Landroid/media/MediaDescription;
-
-    invoke-direct {v0, v1, p1, p2}, Landroid/media/session/MediaSession$QueueItem;-><init>(Landroid/media/MediaDescription;J)V
+    invoke-direct {v0, p0, p1, p2}, Landroid/media/session/MediaSession$QueueItem;-><init>(Landroid/media/MediaDescription;J)V
 
     return-object v0
 .end method
 
 .method public static getDescription(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "queueItem"    # Ljava/lang/Object;
+    .locals 0
 
     .line 270
-    move-object v0, p0
+    check-cast p0, Landroid/media/session/MediaSession$QueueItem;
 
-    check-cast v0, Landroid/media/session/MediaSession$QueueItem;
+    invoke-virtual {p0}, Landroid/media/session/MediaSession$QueueItem;->getDescription()Landroid/media/MediaDescription;
 
-    invoke-virtual {v0}, Landroid/media/session/MediaSession$QueueItem;->getDescription()Landroid/media/MediaDescription;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getQueueId(Ljava/lang/Object;)J
     .locals 2
-    .param p0, "queueItem"    # Ljava/lang/Object;
 
     .line 274
-    move-object v0, p0
+    check-cast p0, Landroid/media/session/MediaSession$QueueItem;
 
-    check-cast v0, Landroid/media/session/MediaSession$QueueItem;
-
-    invoke-virtual {v0}, Landroid/media/session/MediaSession$QueueItem;->getQueueId()J
+    invoke-virtual {p0}, Landroid/media/session/MediaSession$QueueItem;->getQueueId()J
 
     move-result-wide v0
 

@@ -34,7 +34,6 @@
     .locals 0
 
     .line 119
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource<TT;>.InternalDataSubscriber;"
     iput-object p1, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;->this$0:Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,11 +43,8 @@
 
 .method synthetic constructor <init>(Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;Lcom/facebook/datasource/RetainingDataSourceSupplier$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
-    .param p2, "x1"    # Lcom/facebook/datasource/RetainingDataSourceSupplier$1;
 
     .line 119
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource<TT;>.InternalDataSubscriber;"
     invoke-direct {p0, p1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;-><init>(Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;)V
 
     return-void
@@ -66,9 +62,6 @@
         }
     .end annotation
 
-    .line 135
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource<TT;>.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     return-void
 .end method
 
@@ -83,13 +76,10 @@
     .end annotation
 
     .line 131
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource<TT;>.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     iget-object v0, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;->this$0:Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
 
     invoke-static {v0, p1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;->access$300(Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;Lcom/facebook/datasource/DataSource;)V
 
-    .line 132
     return-void
 .end method
 
@@ -104,8 +94,6 @@
     .end annotation
 
     .line 122
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource<TT;>.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->hasResult()Z
 
     move-result v0
@@ -132,7 +120,6 @@
 
     invoke-static {v0, p1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;->access$300(Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;Lcom/facebook/datasource/DataSource;)V
 
-    .line 127
     :cond_1
     :goto_0
     return-void
@@ -149,12 +136,9 @@
     .end annotation
 
     .line 139
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource<TT;>.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     iget-object v0, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource$InternalDataSubscriber;->this$0:Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
 
     invoke-static {v0, p1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;->access$400(Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;Lcom/facebook/datasource/DataSource;)V
 
-    .line 140
     return-void
 .end method

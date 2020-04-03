@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/Fragment;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/app/Fragment;
 
     .line 2386
     iput-object p1, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;
@@ -35,9 +34,6 @@
 # virtual methods
 .method public instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/support/v4/app/Fragment;
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "arguments"    # Landroid/os/Bundle;
 
     .line 2403
     iget-object v0, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;
@@ -46,14 +42,13 @@
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/support/v4/app/FragmentHostCallback;->instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/support/v4/app/Fragment;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onFindViewById(I)Landroid/view/View;
-    .locals 2
-    .param p1, "id"    # I
+    .locals 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -71,19 +66,19 @@
 
     invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 2391
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Fragment does not have a view"
+    const-string v0, "Fragment does not have a view"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public onHasView()Z

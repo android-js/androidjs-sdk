@@ -46,14 +46,14 @@
 
     iput-object v0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
 
-    .line 5399
     const/4 v0, 0x5
 
+    .line 5399
     iput v0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mMaxScrap:I
 
-    .line 5400
     const-wide/16 v0, 0x0
 
+    .line 5400
     iput-wide v0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mCreateRunningAverageNs:J
 
     .line 5401

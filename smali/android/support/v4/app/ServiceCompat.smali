@@ -26,17 +26,15 @@
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     return-void
 .end method
 
 .method public static stopForeground(Landroid/app/Service;I)V
     .locals 2
-    .param p0, "service"    # Landroid/app/Service;
+    .param p0    # Landroid/app/Service;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "flags"    # I
 
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -50,23 +48,22 @@
 
     goto :goto_1
 
-    .line 101
     :cond_0
-    and-int/lit8 v0, p1, 0x1
-
-    if-eqz v0, :cond_1
-
     const/4 v0, 0x1
+
+    and-int/2addr p1, v0
+
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
     const/4 v0, 0x0
 
+    .line 101
     :goto_0
     invoke-virtual {p0, v0}, Landroid/app/Service;->stopForeground(Z)V
 
-    .line 103
     :goto_1
     return-void
 .end method

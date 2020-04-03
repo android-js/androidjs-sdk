@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/core/Timing;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/core/Timing;
 
     .line 190
     iput-object p1, p0, Lcom/facebook/react/modules/core/Timing$1;->this$0:Lcom/facebook/react/modules/core/Timing;
@@ -46,9 +45,7 @@
 
 # virtual methods
 .method public compare(Lcom/facebook/react/modules/core/Timing$Timer;Lcom/facebook/react/modules/core/Timing$Timer;)I
-    .locals 5
-    .param p1, "lhs"    # Lcom/facebook/react/modules/core/Timing$Timer;
-    .param p2, "rhs"    # Lcom/facebook/react/modules/core/Timing$Timer;
+    .locals 3
 
     .line 193
     invoke-static {p1}, Lcom/facebook/react/modules/core/Timing$Timer;->access$400(Lcom/facebook/react/modules/core/Timing$Timer;)J
@@ -57,39 +54,33 @@
 
     invoke-static {p2}, Lcom/facebook/react/modules/core/Timing$Timer;->access$400(Lcom/facebook/react/modules/core/Timing$Timer;)J
 
-    move-result-wide v2
+    move-result-wide p1
 
-    sub-long/2addr v0, v2
+    sub-long/2addr v0, p1
 
-    .line 194
-    .local v0, "diff":J
-    const-wide/16 v2, 0x0
+    const-wide/16 p1, 0x0
 
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, p1
 
-    if-nez v4, :cond_0
+    if-nez v2, :cond_0
 
-    .line 195
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    return v2
+    return p1
 
-    .line 196
     :cond_0
-    cmp-long v4, v0, v2
+    cmp-long v2, v0, p1
 
-    if-gez v4, :cond_1
+    if-gez v2, :cond_1
 
-    .line 197
-    const/4 v2, -0x1
+    const/4 p1, -0x1
 
-    return v2
+    return p1
 
-    .line 199
     :cond_1
-    const/4 v2, 0x1
+    const/4 p1, 0x1
 
-    return v2
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

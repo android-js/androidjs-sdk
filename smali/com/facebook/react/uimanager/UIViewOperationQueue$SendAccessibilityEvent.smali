@@ -23,8 +23,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;II)V
     .locals 0
-    .param p2, "tag"    # I
-    .param p3, "eventType"    # I
 
     .line 591
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$SendAccessibilityEvent;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -35,16 +33,11 @@
     .line 593
     iput p3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$SendAccessibilityEvent;->mEventType:I
 
-    .line 594
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;IILcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "x1"    # I
-    .param p3, "x2"    # I
-    .param p4, "x3"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
 
     .line 587
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/react/uimanager/UIViewOperationQueue$SendAccessibilityEvent;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;II)V
@@ -70,6 +63,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->sendAccessibilityEvent(II)V
 
-    .line 599
     return-void
 .end method

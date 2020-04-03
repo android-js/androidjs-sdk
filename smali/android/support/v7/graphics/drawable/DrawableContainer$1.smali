@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/graphics/drawable/DrawableContainer;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/graphics/drawable/DrawableContainer;
 
     .line 471
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/DrawableContainer$1;->this$0:Landroid/support/v7/graphics/drawable/DrawableContainer;
@@ -51,6 +50,5 @@
 
     invoke-virtual {v0}, Landroid/support/v7/graphics/drawable/DrawableContainer;->invalidateSelf()V
 
-    .line 476
     return-void
 .end method

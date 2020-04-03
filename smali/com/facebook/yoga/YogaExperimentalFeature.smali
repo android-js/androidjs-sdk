@@ -41,9 +41,9 @@
 
     sput-object v0, Lcom/facebook/yoga/YogaExperimentalFeature;->WEB_FLEX_BASIS:Lcom/facebook/yoga/YogaExperimentalFeature;
 
-    .line 12
     const/4 v0, 0x1
 
+    .line 12
     new-array v0, v0, [Lcom/facebook/yoga/YogaExperimentalFeature;
 
     sget-object v2, Lcom/facebook/yoga/YogaExperimentalFeature;->WEB_FLEX_BASIS:Lcom/facebook/yoga/YogaExperimentalFeature;
@@ -57,7 +57,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "intValue"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -70,21 +69,18 @@
     .line 19
     iput p3, p0, Lcom/facebook/yoga/YogaExperimentalFeature;->mIntValue:I
 
-    .line 20
     return-void
 .end method
 
 .method public static fromInt(I)Lcom/facebook/yoga/YogaExperimentalFeature;
     .locals 3
-    .param p0, "value"    # I
 
-    .line 27
     if-nez p0, :cond_0
 
     .line 28
-    sget-object v0, Lcom/facebook/yoga/YogaExperimentalFeature;->WEB_FLEX_BASIS:Lcom/facebook/yoga/YogaExperimentalFeature;
+    sget-object p0, Lcom/facebook/yoga/YogaExperimentalFeature;->WEB_FLEX_BASIS:Lcom/facebook/yoga/YogaExperimentalFeature;
 
-    return-object v0
+    return-object p0
 
     .line 29
     :cond_0
@@ -102,27 +98,26 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/yoga/YogaExperimentalFeature;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 12
     const-class v0, Lcom/facebook/yoga/YogaExperimentalFeature;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/yoga/YogaExperimentalFeature;
+    check-cast p0, Lcom/facebook/yoga/YogaExperimentalFeature;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/yoga/YogaExperimentalFeature;

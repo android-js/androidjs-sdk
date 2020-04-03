@@ -32,11 +32,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/cache/DiskLruCache;Ljava/lang/String;J[Lokio/Source;[J)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/cache/DiskLruCache;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "sequenceNumber"    # J
-    .param p5, "sources"    # [Lokio/Source;
-    .param p6, "lengths"    # [J
 
     .line 794
     iput-object p1, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->this$0:Lokhttp3/internal/cache/DiskLruCache;
@@ -55,18 +50,16 @@
     .line 798
     iput-object p6, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->lengths:[J
 
-    .line 799
     return-void
 .end method
 
 .method static synthetic access$000(Lokhttp3/internal/cache/DiskLruCache$Snapshot;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lokhttp3/internal/cache/DiskLruCache$Snapshot;
+    .locals 0
 
     .line 788
-    iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;
+    iget-object p0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -87,16 +80,12 @@
     aget-object v3, v0, v2
 
     .line 825
-    .local v3, "in":Lokio/Source;
     invoke-static {v3}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 824
-    .end local v3    # "in":Lokio/Source;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 827
     :cond_0
     return-void
 .end method
@@ -128,7 +117,6 @@
 
 .method public getLength(I)J
     .locals 3
-    .param p1, "index"    # I
 
     .line 820
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->lengths:[J
@@ -140,14 +128,13 @@
 
 .method public getSource(I)Lokio/Source;
     .locals 1
-    .param p1, "index"    # I
 
     .line 815
     iget-object v0, p0, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->sources:[Lokio/Source;
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public key()Ljava/lang/String;

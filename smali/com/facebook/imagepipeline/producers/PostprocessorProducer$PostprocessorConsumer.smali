@@ -79,11 +79,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/Postprocessor;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
-    .locals 1
-    .param p3, "listener"    # Lcom/facebook/imagepipeline/producers/ProducerListener;
-    .param p4, "requestId"    # Ljava/lang/String;
-    .param p5, "postprocessor"    # Lcom/facebook/imagepipeline/request/Postprocessor;
-    .param p6, "producerContext"    # Lcom/facebook/imagepipeline/producers/ProducerContext;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,27 +96,26 @@
     .end annotation
 
     .line 98
-    .local p2, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;>;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->this$0:Lcom/facebook/imagepipeline/producers/PostprocessorProducer;
 
     .line 99
     invoke-direct {p0, p2}, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;)V
 
-    .line 83
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
+    .line 83
+    iput-object p2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
+
+    const/4 p2, 0x0
 
     .line 86
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mStatus:I
+    iput p2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mStatus:I
 
     .line 88
-    iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsDirty:Z
+    iput-boolean p2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsDirty:Z
 
     .line 90
-    iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsPostProcessingRunning:Z
+    iput-boolean p2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsPostProcessingRunning:Z
 
     .line 100
     iput-object p3, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
@@ -132,19 +127,17 @@
     iput-object p5, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mPostprocessor:Lcom/facebook/imagepipeline/request/Postprocessor;
 
     .line 103
-    new-instance v0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$1;
+    new-instance p2, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$1;
 
-    invoke-direct {v0, p0, p1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$1;-><init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;Lcom/facebook/imagepipeline/producers/PostprocessorProducer;)V
+    invoke-direct {p2, p0, p1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer$1;-><init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;Lcom/facebook/imagepipeline/producers/PostprocessorProducer;)V
 
-    invoke-interface {p6, v0}, Lcom/facebook/imagepipeline/producers/ProducerContext;->addCallbacks(Lcom/facebook/imagepipeline/producers/ProducerContextCallbacks;)V
+    invoke-interface {p6, p2}, Lcom/facebook/imagepipeline/producers/ProducerContext;->addCallbacks(Lcom/facebook/imagepipeline/producers/ProducerContextCallbacks;)V
 
-    .line 110
     return-void
 .end method
 
 .method static synthetic access$200(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
 
     .line 73
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnCancellation()V
@@ -153,19 +146,16 @@
 .end method
 
 .method static synthetic access$300(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)Lcom/facebook/common/references/CloseableReference;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
+    .locals 0
 
     .line 73
-    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
+    iget-object p0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$302(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;Lcom/facebook/common/references/CloseableReference;)Lcom/facebook/common/references/CloseableReference;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
-    .param p1, "x1"    # Lcom/facebook/common/references/CloseableReference;
 
     .line 73
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
@@ -174,19 +164,16 @@
 .end method
 
 .method static synthetic access$400(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)I
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
+    .locals 0
 
     .line 73
-    iget v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mStatus:I
+    iget p0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mStatus:I
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$502(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
-    .param p1, "x1"    # Z
 
     .line 73
     iput-boolean p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsDirty:Z
@@ -196,9 +183,6 @@
 
 .method static synthetic access$600(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;Lcom/facebook/common/references/CloseableReference;I)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
-    .param p1, "x1"    # Lcom/facebook/common/references/CloseableReference;
-    .param p2, "x2"    # I
 
     .line 73
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->doPostprocessing(Lcom/facebook/common/references/CloseableReference;I)V
@@ -208,7 +192,6 @@
 
 .method static synthetic access$700(Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
 
     .line 73
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->clearRunningAndStartIfDirty()V
@@ -222,9 +205,9 @@
     .line 187
     monitor-enter p0
 
-    .line 188
     const/4 v0, 0x0
 
+    .line 188
     :try_start_0
     iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsPostProcessingRunning:Z
 
@@ -234,26 +217,22 @@
     move-result v0
 
     .line 190
-    .local v0, "shouldExecuteAgain":Z
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 191
     if-eqz v0, :cond_0
 
     .line 192
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->submitPostprocessing()V
 
-    .line 194
     :cond_0
     return-void
 
-    .line 190
-    .end local v0    # "shouldExecuteAgain":Z
     :catchall_0
     move-exception v0
 
+    .line 190
     :try_start_1
     monitor-exit p0
     :try_end_1
@@ -274,9 +253,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 288
     const/4 v0, 0x0
 
+    .line 288
     monitor-exit p0
 
     return v0
@@ -285,15 +264,14 @@
     :cond_0
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
 
-    .line 291
-    .local v0, "oldSourceImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     const/4 v1, 0x0
 
+    .line 291
     iput-object v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
 
-    .line 292
     const/4 v1, 0x1
 
+    .line 292
     iput-boolean v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsClosed:Z
 
     .line 293
@@ -304,14 +282,12 @@
     .line 294
     invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 295
     return v1
 
-    .line 293
-    .end local v0    # "oldSourceImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     :catchall_0
     move-exception v0
 
+    .line 293
     :try_start_1
     monitor-exit p0
     :try_end_1
@@ -321,8 +297,7 @@
 .end method
 
 .method private doPostprocessing(Lcom/facebook/common/references/CloseableReference;I)V
-    .locals 8
-    .param p2, "status"    # I
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -333,7 +308,6 @@
     .end annotation
 
     .line 208
-    .local p1, "sourceImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->isValid(Lcom/facebook/common/references/CloseableReference;)Z
 
     move-result v0
@@ -356,7 +330,6 @@
     .line 210
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnNewResult(Lcom/facebook/common/references/CloseableReference;I)V
 
-    .line 211
     return-void
 
     .line 213
@@ -369,49 +342,42 @@
 
     invoke-interface {v0, v1, v2}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerStart(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 214
     const/4 v0, 0x0
 
     .line 217
-    .local v0, "destImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     :try_start_0
     invoke-virtual {p1}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Lcom/facebook/imagepipeline/image/CloseableImage;
+    check-cast p1, Lcom/facebook/imagepipeline/image/CloseableImage;
 
-    invoke-direct {p0, v1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->postprocessInternal(Lcom/facebook/imagepipeline/image/CloseableImage;)Lcom/facebook/common/references/CloseableReference;
+    invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->postprocessInternal(Lcom/facebook/imagepipeline/image/CloseableImage;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v0, v1
-
-    .line 223
-    nop
-
     .line 224
     :try_start_1
-    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
+    iget-object p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
 
-    iget-object v3, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
 
-    iget-object v4, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
+    iget-object v3, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
 
-    iget-object v5, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
+    iget-object v4, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mPostprocessor:Lcom/facebook/imagepipeline/request/Postprocessor;
+    iget-object v5, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mPostprocessor:Lcom/facebook/imagepipeline/request/Postprocessor;
 
     .line 225
-    invoke-direct {p0, v4, v5, v6}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->getExtraMap(Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/Postprocessor;)Ljava/util/Map;
+    invoke-direct {p0, v3, v4, v5}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->getExtraMap(Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/Postprocessor;)Ljava/util/Map;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 224
-    invoke-interface {v1, v3, v2, v4}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerFinishWithSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+    invoke-interface {p1, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerFinishWithSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
 
     .line 226
     invoke-direct {p0, v0, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnNewResult(Lcom/facebook/common/references/CloseableReference;I)V
@@ -421,68 +387,55 @@
     .line 228
     invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 229
-    nop
-
-    .line 230
     return-void
 
-    .line 228
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     goto :goto_0
 
-    .line 218
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 219
-    .local v1, "e":Ljava/lang/Exception;
     :try_start_2
+    iget-object p2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
+
+    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
+
     iget-object v3, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
 
     iget-object v4, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
 
-    iget-object v5, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
-
-    iget-object v6, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mRequestId:Ljava/lang/String;
-
-    iget-object v7, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mPostprocessor:Lcom/facebook/imagepipeline/request/Postprocessor;
+    iget-object v5, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mPostprocessor:Lcom/facebook/imagepipeline/request/Postprocessor;
 
     .line 220
-    invoke-direct {p0, v5, v6, v7}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->getExtraMap(Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/Postprocessor;)Ljava/util/Map;
+    invoke-direct {p0, v3, v4, v5}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->getExtraMap(Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/Postprocessor;)Ljava/util/Map;
 
-    move-result-object v5
+    move-result-object v3
 
     .line 219
-    invoke-interface {v3, v4, v2, v1, v5}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerFinishWithFailure(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/Map;)V
+    invoke-interface {p2, v1, v2, p1, v3}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerFinishWithFailure(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/Map;)V
 
     .line 221
-    invoke-direct {p0, v1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnFailure(Ljava/lang/Throwable;)V
+    invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnFailure(Ljava/lang/Throwable;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 228
     invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 222
     return-void
 
-    .line 228
-    .end local v1    # "e":Ljava/lang/Exception;
     :goto_0
     invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
     .line 229
-    throw v1
+    throw p1
 .end method
 
 .method private getExtraMap(Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/request/Postprocessor;)Ljava/util/Map;
-    .locals 2
-    .param p1, "listener"    # Lcom/facebook/imagepipeline/producers/ProducerListener;
-    .param p2, "requestId"    # Ljava/lang/String;
-    .param p3, "postprocessor"    # Lcom/facebook/imagepipeline/request/Postprocessor;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -500,28 +453,27 @@
     .line 236
     invoke-interface {p1, p2}, Lcom/facebook/imagepipeline/producers/ProducerListener;->requiresExtraMap(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 237
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 239
     :cond_0
     invoke-interface {p3}, Lcom/facebook/imagepipeline/request/Postprocessor;->getName()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "Postprocessor"
+    const-string p2, "Postprocessor"
 
-    invoke-static {v1, v0}, Lcom/facebook/common/internal/ImmutableMap;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    invoke-static {p2, p1}, Lcom/facebook/common/internal/ImmutableMap;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private declared-synchronized isClosed()Z
@@ -539,7 +491,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
     :catchall_0
     move-exception v0
 
@@ -565,14 +516,12 @@
 
     invoke-interface {v0}, Lcom/facebook/imagepipeline/producers/Consumer;->onCancellation()V
 
-    .line 278
     :cond_0
     return-void
 .end method
 
 .method private maybeNotifyOnFailure(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "throwable"    # Ljava/lang/Throwable;
 
     .line 269
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->close()Z
@@ -588,14 +537,12 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/imagepipeline/producers/Consumer;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 272
     :cond_0
     return-void
 .end method
 
 .method private maybeNotifyOnNewResult(Lcom/facebook/common/references/CloseableReference;I)V
     .locals 2
-    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -606,15 +553,13 @@
     .end annotation
 
     .line 262
-    .local p1, "newRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-static {p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->isLast(I)Z
 
     move-result v0
 
-    .line 263
-    .local v0, "isLast":Z
     if-nez v0, :cond_0
 
+    .line 263
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->isClosed()Z
 
     move-result v1
@@ -626,26 +571,24 @@
 
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->close()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 264
     :cond_1
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
+    invoke-interface {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 266
     :cond_2
     return-void
 .end method
 
 .method private postprocessInternal(Lcom/facebook/imagepipeline/image/CloseableImage;)Lcom/facebook/common/references/CloseableReference;
-    .locals 7
-    .param p1, "sourceImage"    # Lcom/facebook/imagepipeline/image/CloseableImage;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -663,13 +606,11 @@
     check-cast v0, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;
 
     .line 248
-    .local v0, "staticBitmap":Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;
     invoke-virtual {v0}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;->getUnderlyingBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v1
 
     .line 249
-    .local v1, "sourceBitmap":Landroid/graphics/Bitmap;
     iget-object v2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mPostprocessor:Lcom/facebook/imagepipeline/request/Postprocessor;
 
     iget-object v3, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->this$0:Lcom/facebook/imagepipeline/producers/PostprocessorProducer;
@@ -680,53 +621,48 @@
 
     invoke-interface {v2, v1, v3}, Lcom/facebook/imagepipeline/request/Postprocessor;->process(Landroid/graphics/Bitmap;Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 250
-    .local v2, "bitmapRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Landroid/graphics/Bitmap;>;"
     invoke-virtual {v0}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;->getRotationAngle()I
 
-    move-result v3
+    move-result v2
 
     .line 251
-    .local v3, "rotationAngle":I
     invoke-virtual {v0}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;->getExifOrientation()I
 
-    move-result v4
+    move-result v0
 
     .line 253
-    .local v4, "exifOrientation":I
     :try_start_0
-    new-instance v5, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;
+    new-instance v3, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;
 
     .line 255
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/image/CloseableImage;->getQualityInfo()Lcom/facebook/imagepipeline/image/QualityInfo;
 
-    move-result-object v6
+    move-result-object p1
 
-    invoke-direct {v5, v2, v6, v3, v4}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;-><init>(Lcom/facebook/common/references/CloseableReference;Lcom/facebook/imagepipeline/image/QualityInfo;II)V
+    invoke-direct {v3, v1, p1, v2, v0}, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;-><init>(Lcom/facebook/common/references/CloseableReference;Lcom/facebook/imagepipeline/image/QualityInfo;II)V
 
     .line 253
-    invoke-static {v5}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/io/Closeable;)Lcom/facebook/common/references/CloseableReference;
+    invoke-static {v3}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/io/Closeable;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v5
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 257
-    invoke-static {v2}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
+    invoke-static {v1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 253
-    return-object v5
+    return-object p1
 
-    .line 257
     :catchall_0
-    move-exception v5
+    move-exception p1
 
-    invoke-static {v2}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
+    invoke-static {v1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
     .line 258
-    throw v5
+    throw p1
 .end method
 
 .method private declared-synchronized setRunningIfDirtyAndNotRunning()Z
@@ -757,9 +693,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 199
     const/4 v0, 0x1
 
+    .line 199
     iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsPostProcessingRunning:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -769,16 +705,14 @@
 
     return v0
 
-    .line 202
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
     :cond_0
     const/4 v0, 0x0
 
+    .line 202
     monitor-exit p0
 
     return v0
 
-    .line 196
     :catchall_0
     move-exception v0
 
@@ -788,13 +722,12 @@
 .end method
 
 .method private shouldPostprocess(Lcom/facebook/imagepipeline/image/CloseableImage;)Z
-    .locals 1
-    .param p1, "sourceImage"    # Lcom/facebook/imagepipeline/image/CloseableImage;
+    .locals 0
 
     .line 243
-    instance-of v0, p1, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;
+    instance-of p1, p1, Lcom/facebook/imagepipeline/image/CloseableStaticBitmap;
 
-    return v0
+    return p1
 .end method
 
 .method private submitPostprocessing()V
@@ -813,17 +746,15 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 183
     return-void
 .end method
 
 .method private updateSourceImageRef(Lcom/facebook/common/references/CloseableReference;I)V
-    .locals 2
+    .locals 1
     .param p1    # Lcom/facebook/common/references/CloseableReference;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -834,7 +765,6 @@
     .end annotation
 
     .line 142
-    .local p1, "sourceImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     monitor-enter p0
 
     .line 143
@@ -853,28 +783,26 @@
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
 
     .line 147
-    .local v0, "oldSourceImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->cloneOrNull(Lcom/facebook/common/references/CloseableReference;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mSourceImageRef:Lcom/facebook/common/references/CloseableReference;
 
     .line 148
     iput p2, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mStatus:I
 
-    .line 149
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsDirty:Z
+    .line 149
+    iput-boolean p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->mIsDirty:Z
 
     .line 150
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->setRunningIfDirtyAndNotRunning()Z
 
-    move-result v1
+    move-result p1
 
     .line 151
-    .local v1, "shouldSubmit":Z
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -882,28 +810,24 @@
     .line 152
     invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 153
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     .line 154
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->submitPostprocessing()V
 
-    .line 156
     :cond_1
     return-void
 
-    .line 151
-    .end local v0    # "oldSourceImageRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .end local v1    # "shouldSubmit":Z
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 151
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -914,24 +838,20 @@
     .line 134
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnCancellation()V
 
-    .line 135
     return-void
 .end method
 
 .method protected onFailureImpl(Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 129
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnFailure(Ljava/lang/Throwable;)V
 
-    .line 130
     return-void
 .end method
 
 .method protected onNewResultImpl(Lcom/facebook/common/references/CloseableReference;I)V
     .locals 1
-    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -942,7 +862,6 @@
     .end annotation
 
     .line 116
-    .local p1, "newResult":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->isValid(Lcom/facebook/common/references/CloseableReference;)Z
 
     move-result v0
@@ -952,16 +871,15 @@
     .line 118
     invoke-static {p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->isLast(I)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x0
 
     .line 119
-    const/4 v0, 0x0
+    invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnNewResult(Lcom/facebook/common/references/CloseableReference;I)V
 
-    invoke-direct {p0, v0, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->maybeNotifyOnNewResult(Lcom/facebook/common/references/CloseableReference;I)V
-
-    .line 122
     :cond_0
     return-void
 
@@ -969,7 +887,6 @@
     :cond_1
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;->updateSourceImageRef(Lcom/facebook/common/references/CloseableReference;I)V
 
-    .line 125
     return-void
 .end method
 

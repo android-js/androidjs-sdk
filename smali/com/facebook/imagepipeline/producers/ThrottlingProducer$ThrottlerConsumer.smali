@@ -37,25 +37,18 @@
     .end annotation
 
     .line 73
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;, "Lcom/facebook/imagepipeline/producers/ThrottlingProducer<TT;>.ThrottlerConsumer;"
-    .local p2, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<TT;>;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->this$0:Lcom/facebook/imagepipeline/producers/ThrottlingProducer;
 
     .line 74
     invoke-direct {p0, p2}, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;)V
 
-    .line 75
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/producers/ThrottlingProducer;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ThrottlingProducer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/producers/ThrottlingProducer;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/producers/Consumer;
-    .param p3, "x2"    # Lcom/facebook/imagepipeline/producers/ThrottlingProducer$1;
 
     .line 71
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;, "Lcom/facebook/imagepipeline/producers/ThrottlingProducer<TT;>.ThrottlerConsumer;"
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;-><init>(Lcom/facebook/imagepipeline/producers/ThrottlingProducer;Lcom/facebook/imagepipeline/producers/Consumer;)V
 
     return-void
@@ -65,7 +58,6 @@
     .locals 3
 
     .line 99
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;, "Lcom/facebook/imagepipeline/producers/ThrottlingProducer<TT;>.ThrottlerConsumer;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->this$0:Lcom/facebook/imagepipeline/producers/ThrottlingProducer;
 
     monitor-enter v0
@@ -84,8 +76,6 @@
 
     check-cast v1, Landroid/util/Pair;
 
-    .line 101
-    .local v1, "nextRequestPair":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/facebook/imagepipeline/producers/Consumer<TT;>;Lcom/facebook/imagepipeline/producers/ProducerContext;>;"
     if-nez v1, :cond_0
 
     .line 102
@@ -99,7 +89,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 106
     if-eqz v1, :cond_1
 
     .line 107
@@ -115,15 +104,13 @@
 
     invoke-interface {v0, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 115
     :cond_1
     return-void
 
-    .line 104
-    .end local v1    # "nextRequestPair":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/facebook/imagepipeline/producers/Consumer<TT;>;Lcom/facebook/imagepipeline/producers/ProducerContext;>;"
     :catchall_0
     move-exception v1
 
+    .line 104
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -138,7 +125,6 @@
     .locals 1
 
     .line 93
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;, "Lcom/facebook/imagepipeline/producers/ThrottlingProducer<TT;>.ThrottlerConsumer;"
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
     move-result-object v0
@@ -148,16 +134,13 @@
     .line 94
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->onRequestFinished()V
 
-    .line 95
     return-void
 .end method
 
 .method protected onFailureImpl(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 87
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;, "Lcom/facebook/imagepipeline/producers/ThrottlingProducer<TT;>.ThrottlerConsumer;"
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
     move-result-object v0
@@ -167,13 +150,11 @@
     .line 88
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->onRequestFinished()V
 
-    .line 89
     return-void
 .end method
 
 .method protected onNewResultImpl(Ljava/lang/Object;I)V
     .locals 1
-    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;I)V"
@@ -181,8 +162,6 @@
     .end annotation
 
     .line 79
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;, "Lcom/facebook/imagepipeline/producers/ThrottlingProducer<TT;>.ThrottlerConsumer;"
-    .local p1, "newResult":Ljava/lang/Object;, "TT;"
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
     move-result-object v0
@@ -192,14 +171,13 @@
     .line 80
     invoke-static {p2}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->isLast(I)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 81
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/ThrottlingProducer$ThrottlerConsumer;->onRequestFinished()V
 
-    .line 83
     :cond_0
     return-void
 .end method

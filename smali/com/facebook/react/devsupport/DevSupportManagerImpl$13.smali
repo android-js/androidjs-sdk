@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 546
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$13;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$1300(Lcom/facebook/react/devsupport/DevSupportManagerImpl;)V
 
-    .line 550
     return-void
 .end method

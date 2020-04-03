@@ -82,9 +82,9 @@
 
     sput-object v0, Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;->RUNNING_AND_PENDING:Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
 
-    .line 49
     const/4 v0, 0x4
 
+    .line 49
     new-array v0, v0, [Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
 
     sget-object v5, Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;->IDLE:Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
@@ -124,18 +124,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 49
     const-class v0, Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
+    check-cast p0, Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/imagepipeline/producers/JobScheduler$JobState;

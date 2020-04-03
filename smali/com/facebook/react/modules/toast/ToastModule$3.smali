@@ -34,7 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/toast/ToastModule;Ljava/lang/String;IIII)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/toast/ToastModule;
 
     .line 85
     iput-object p1, p0, Lcom/facebook/react/modules/toast/ToastModule$3;->this$0:Lcom/facebook/react/modules/toast/ToastModule;
@@ -75,7 +74,6 @@
     move-result-object v0
 
     .line 89
-    .local v0, "toast":Landroid/widget/Toast;
     iget v1, p0, Lcom/facebook/react/modules/toast/ToastModule$3;->val$gravity:I
 
     iget v2, p0, Lcom/facebook/react/modules/toast/ToastModule$3;->val$xOffset:I
@@ -87,6 +85,5 @@
     .line 90
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 91
     return-void
 .end method

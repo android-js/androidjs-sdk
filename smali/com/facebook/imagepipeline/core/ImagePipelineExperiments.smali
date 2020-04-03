@@ -50,7 +50,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -149,18 +148,15 @@
 
     .line 63
     :goto_0
-    iget-object v0, p1, Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;->mLazyDataSource:Lcom/facebook/common/internal/Supplier;
+    iget-object p1, p1, Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;->mLazyDataSource:Lcom/facebook/common/internal/Supplier;
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/core/ImagePipelineExperiments;->mLazyDataSource:Lcom/facebook/common/internal/Supplier;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/core/ImagePipelineExperiments;->mLazyDataSource:Lcom/facebook/common/internal/Supplier;
 
-    .line 64
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$1;
 
     .line 32
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/core/ImagePipelineExperiments;-><init>(Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;)V
@@ -170,7 +166,6 @@
 
 .method public static newBuilder(Lcom/facebook/imagepipeline/core/ImagePipelineConfig$Builder;)Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;
     .locals 1
-    .param p0, "configBuilder"    # Lcom/facebook/imagepipeline/core/ImagePipelineConfig$Builder;
 
     .line 108
     new-instance v0, Lcom/facebook/imagepipeline/core/ImagePipelineExperiments$Builder;

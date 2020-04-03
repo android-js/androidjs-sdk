@@ -81,9 +81,9 @@
 
     sput-object v0, Lcom/facebook/common/memory/MemoryTrimType;->OnAppBackgrounded:Lcom/facebook/common/memory/MemoryTrimType;
 
-    .line 17
     const/4 v0, 0x4
 
+    .line 17
     new-array v0, v0, [Lcom/facebook/common/memory/MemoryTrimType;
 
     sget-object v1, Lcom/facebook/common/memory/MemoryTrimType;->OnCloseToDalvikHeapLimit:Lcom/facebook/common/memory/MemoryTrimType;
@@ -109,7 +109,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ID)V
     .locals 0
-    .param p3, "suggestedTrimRatio"    # D
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(D)V"
@@ -122,24 +121,22 @@
     .line 34
     iput-wide p3, p0, Lcom/facebook/common/memory/MemoryTrimType;->mSuggestedTrimRatio:D
 
-    .line 35
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/common/memory/MemoryTrimType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 17
     const-class v0, Lcom/facebook/common/memory/MemoryTrimType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/common/memory/MemoryTrimType;
+    check-cast p0, Lcom/facebook/common/memory/MemoryTrimType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/common/memory/MemoryTrimType;

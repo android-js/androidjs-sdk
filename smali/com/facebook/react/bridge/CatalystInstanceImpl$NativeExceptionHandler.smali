@@ -35,8 +35,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/bridge/CatalystInstanceImpl;Lcom/facebook/react/bridge/CatalystInstanceImpl$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/bridge/CatalystInstanceImpl;
-    .param p2, "x1"    # Lcom/facebook/react/bridge/CatalystInstanceImpl$1;
 
     .line 551
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/CatalystInstanceImpl$NativeExceptionHandler;-><init>(Lcom/facebook/react/bridge/CatalystInstanceImpl;)V
@@ -48,13 +46,11 @@
 # virtual methods
 .method public handleException(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 557
     iget-object v0, p0, Lcom/facebook/react/bridge/CatalystInstanceImpl$NativeExceptionHandler;->this$0:Lcom/facebook/react/bridge/CatalystInstanceImpl;
 
     invoke-static {v0, p1}, Lcom/facebook/react/bridge/CatalystInstanceImpl;->access$1000(Lcom/facebook/react/bridge/CatalystInstanceImpl;Ljava/lang/Exception;)V
 
-    .line 558
     return-void
 .end method

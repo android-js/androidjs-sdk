@@ -65,32 +65,30 @@
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 1
 
     .line 74
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
+    const/4 p1, 0x0
+
     .line 75
+    iput-object p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfiler:Lcom/facebook/react/devsupport/JSCSamplingProfiler$SamplingProfiler;
+
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfiler:Lcom/facebook/react/devsupport/JSCSamplingProfiler$SamplingProfiler;
-
     .line 76
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
+    iput-boolean v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
 
     .line 77
-    iput v1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationToken:I
+    iput v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationToken:I
 
     .line 78
-    iput-object v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationError:Ljava/lang/String;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationError:Ljava/lang/String;
 
     .line 79
-    iput-object v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfilerResult:Ljava/lang/String;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfilerResult:Ljava/lang/String;
 
-    .line 80
     return-void
 .end method
 
@@ -107,9 +105,9 @@
 
     if-nez v0, :cond_0
 
-    .line 94
     const/4 v0, 0x1
 
+    .line 94
     iput-boolean v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
 
     .line 95
@@ -133,8 +131,7 @@
 .end method
 
 .method public static declared-synchronized poke(J)Ljava/util/List;
-    .locals 5
-    .param p0, "timeout"    # J
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)",
@@ -161,7 +158,6 @@
     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
 
     .line 62
-    .local v1, "results":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Ljava/lang/String;>;"
     sget-object v2, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->sRegisteredDumpers:Ljava/util/HashSet;
 
     invoke-virtual {v2}, Ljava/util/HashSet;->isEmpty()Z
@@ -191,20 +187,15 @@
     check-cast v3, Lcom/facebook/react/devsupport/JSCSamplingProfiler;
 
     .line 67
-    .local v3, "dumper":Lcom/facebook/react/devsupport/JSCSamplingProfiler;
     invoke-direct {v3, p0, p1}, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->pokeHelper(J)V
 
     .line 68
-    iget-object v4, v3, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfilerResult:Ljava/lang/String;
+    iget-object v3, v3, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfilerResult:Ljava/lang/String;
 
-    invoke-virtual {v1, v4}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 69
-    nop
-
-    .end local v3    # "dumper":Lcom/facebook/react/devsupport/JSCSamplingProfiler;
     goto :goto_0
 
     .line 70
@@ -216,19 +207,16 @@
     .line 63
     :cond_1
     :try_start_1
-    new-instance v2, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
+    new-instance p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
 
-    const-string v3, "No JSC registered"
+    const-string p1, "No JSC registered"
 
-    invoke-direct {v2, v3}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 60
-    .end local v1    # "results":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Ljava/lang/String;>;"
-    .end local p0    # "timeout":J
     :catchall_0
     move-exception p0
 
@@ -241,7 +229,6 @@
 
 .method private declared-synchronized pokeHelper(J)V
     .locals 2
-    .param p1, "timeout"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
@@ -276,21 +263,18 @@
     return-void
 
     .line 84
-    .end local p0    # "this":Lcom/facebook/react/devsupport/JSCSamplingProfiler;
     :cond_0
     :try_start_1
-    new-instance v0, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
+    new-instance p1, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
 
-    const-string v1, "SamplingProfiler.js module not connected"
+    const-string p2, "SamplingProfiler.js module not connected"
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 82
-    .end local p1    # "timeout":J
     :catchall_0
     move-exception p1
 
@@ -300,8 +284,7 @@
 .end method
 
 .method private static declared-synchronized registerSamplingProfiler(Lcom/facebook/react/devsupport/JSCSamplingProfiler;)V
-    .locals 3
-    .param p0, "dumper"    # Lcom/facebook/react/devsupport/JSCSamplingProfiler;
+    .locals 2
 
     const-class v0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;
 
@@ -332,18 +315,16 @@
     .line 48
     :cond_0
     :try_start_1
-    new-instance v1, Ljava/lang/RuntimeException;
+    new-instance p0, Ljava/lang/RuntimeException;
 
-    const-string v2, "a JSCSamplingProfiler registered more than once"
+    const-string v1, "a JSCSamplingProfiler registered more than once"
 
-    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 46
-    .end local p0    # "dumper":Lcom/facebook/react/devsupport/JSCSamplingProfiler;
     :catchall_0
     move-exception p0
 
@@ -354,7 +335,6 @@
 
 .method private static declared-synchronized unregisterSamplingProfiler(Lcom/facebook/react/devsupport/JSCSamplingProfiler;)V
     .locals 2
-    .param p0, "dumper"    # Lcom/facebook/react/devsupport/JSCSamplingProfiler;
 
     const-class v0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;
 
@@ -373,8 +353,6 @@
 
     return-void
 
-    .line 55
-    .end local p0    # "dumper":Lcom/facebook/react/devsupport/JSCSamplingProfiler;
     :catchall_0
     move-exception p0
 
@@ -384,8 +362,7 @@
 .end method
 
 .method private waitForOperation(J)V
-    .locals 4
-    .param p1, "timeout"    # J
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
@@ -398,75 +375,69 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 104
-    nop
-
     .line 106
-    iget-boolean v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
+    iget-boolean p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 111
-    iget-object v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationError:Ljava/lang/String;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationError:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 114
     return-void
 
     .line 112
     :cond_0
-    new-instance v1, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
+    new-instance p2, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
 
-    invoke-direct {v1, v0}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
+
+    :cond_1
+    const/4 p1, 0x0
 
     .line 107
-    :cond_1
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
+    iput-boolean p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
 
     .line 108
-    new-instance v0, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
+    new-instance p1, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
 
-    const-string v1, "heap capture timed out."
+    const-string p2, "heap capture timed out."
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 101
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 102
-    .local v0, "e":Ljava/lang/InterruptedException;
-    new-instance v1, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
+    new-instance p2, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Waiting for heap capture failed: "
+    const-string v1, "Waiting for heap capture failed: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 103
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/InterruptedException;->getMessage()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lcom/facebook/react/devsupport/JSCSamplingProfiler$ProfilerException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 .end method
 
 
@@ -474,7 +445,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 131
     const-string v0, "JSCSamplingProfiler"
 
     return-object v0
@@ -485,9 +455,6 @@
 
     .line 136
     invoke-super {p0}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;->initialize()V
-
-    .line 137
-    nop
 
     .line 138
     invoke-virtual {p0}, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
@@ -507,7 +474,6 @@
     .line 139
     invoke-static {p0}, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->registerSamplingProfiler(Lcom/facebook/react/devsupport/JSCSamplingProfiler;)V
 
-    .line 140
     return-void
 .end method
 
@@ -520,20 +486,16 @@
     .line 145
     invoke-static {p0}, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->unregisterSamplingProfiler(Lcom/facebook/react/devsupport/JSCSamplingProfiler;)V
 
-    .line 146
     const/4 v0, 0x0
 
+    .line 146
     iput-object v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfiler:Lcom/facebook/react/devsupport/JSCSamplingProfiler$SamplingProfiler;
 
-    .line 147
     return-void
 .end method
 
 .method public declared-synchronized operationComplete(ILjava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "token"    # I
-    .param p2, "result"    # Ljava/lang/String;
-    .param p3, "error"    # Ljava/lang/String;
+    .locals 1
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -545,10 +507,10 @@
 
     if-ne p1, v0, :cond_0
 
-    .line 120
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
+    .line 120
+    iput-boolean p1, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mOperationInProgress:Z
 
     .line 121
     iput-object p2, p0, Lcom/facebook/react/devsupport/JSCSamplingProfiler;->mSamplingProfilerResult:Ljava/lang/String;
@@ -567,23 +529,18 @@
     return-void
 
     .line 125
-    .end local p0    # "this":Lcom/facebook/react/devsupport/JSCSamplingProfiler;
     :cond_0
     :try_start_1
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Completed operation is not in progress."
+    const-string p2, "Completed operation is not in progress."
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 118
-    .end local p1    # "token":I
-    .end local p2    # "result":Ljava/lang/String;
-    .end local p3    # "error":Ljava/lang/String;
     :catchall_0
     move-exception p1
 

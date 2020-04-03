@@ -47,7 +47,6 @@
 
     iput-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
 
-    .line 29
     return-void
 .end method
 
@@ -55,7 +54,6 @@
 # virtual methods
 .method public addNode(Lcom/facebook/react/uimanager/ReactShadowNode;)V
     .locals 2
-    .param p1, "node"    # Lcom/facebook/react/uimanager/ReactShadowNode;
 
     .line 55
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
@@ -71,13 +69,11 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 57
     return-void
 .end method
 
 .method public addRootNode(Lcom/facebook/react/uimanager/ReactShadowNode;)V
-    .locals 3
-    .param p1, "node"    # Lcom/facebook/react/uimanager/ReactShadowNode;
+    .locals 2
 
     .line 32
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
@@ -90,25 +86,22 @@
     move-result v0
 
     .line 34
-    .local v0, "tag":I
     iget-object v1, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mTagsToCSSNodes:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 35
-    iget-object v1, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mRootTags:Landroid/util/SparseBooleanArray;
+    iget-object p1, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mRootTags:Landroid/util/SparseBooleanArray;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v1, v0, v2}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {p1, v0, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    .line 36
     return-void
 .end method
 
 .method public getNode(I)Lcom/facebook/react/uimanager/ReactShadowNode;
     .locals 1
-    .param p1, "tag"    # I
 
     .line 69
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
@@ -120,11 +113,11 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/uimanager/ReactShadowNode;
+    check-cast p1, Lcom/facebook/react/uimanager/ReactShadowNode;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getRootNodeCount()I
@@ -147,7 +140,6 @@
 
 .method public getRootTag(I)I
     .locals 1
-    .param p1, "index"    # I
 
     .line 84
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
@@ -159,14 +151,13 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->keyAt(I)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isRootNode(I)Z
     .locals 1
-    .param p1, "tag"    # I
 
     .line 74
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
@@ -178,14 +169,13 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public removeNode(I)V
     .locals 3
-    .param p1, "tag"    # I
 
     .line 60
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
@@ -206,7 +196,6 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    .line 66
     return-void
 
     .line 62
@@ -223,34 +212,31 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " without using removeRootNode!"
+    const-string p1, " without using removeRootNode!"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/uimanager/IllegalViewOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/facebook/react/uimanager/IllegalViewOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public removeRootNode(I)V
     .locals 3
-    .param p1, "tag"    # I
 
     .line 39
     iget-object v0, p0, Lcom/facebook/react/uimanager/ShadowNodeRegistry;->mThreadAsserter:Lcom/facebook/react/common/SingleThreadAsserter;
 
     invoke-virtual {v0}, Lcom/facebook/react/common/SingleThreadAsserter;->assertNow()V
 
-    .line 40
     const/4 v0, -0x1
 
     if-ne p1, v0, :cond_0
 
-    .line 43
     return-void
 
     .line 45
@@ -273,7 +259,6 @@
 
     invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
 
-    .line 52
     return-void
 
     .line 46
@@ -290,15 +275,15 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, " is not registered as a root view"
+    const-string p1, " is not registered as a root view"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/uimanager/IllegalViewOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Lcom/facebook/react/uimanager/IllegalViewOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

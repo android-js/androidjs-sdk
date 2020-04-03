@@ -43,11 +43,6 @@
 # direct methods
 .method private constructor <init>(Landroid/location/LocationManager;Ljava/lang/String;JLcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
     .locals 1
-    .param p1, "locationManager"    # Landroid/location/LocationManager;
-    .param p2, "provider"    # Ljava/lang/String;
-    .param p3, "timeout"    # J
-    .param p5, "success"    # Lcom/facebook/react/bridge/Callback;
-    .param p6, "error"    # Lcom/facebook/react/bridge/Callback;
 
     .line 304
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,18 +83,11 @@
     .line 309
     iput-object p6, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mError:Lcom/facebook/react/bridge/Callback;
 
-    .line 310
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/location/LocationManager;Ljava/lang/String;JLcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/modules/location/LocationModule$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/location/LocationManager;
-    .param p2, "x1"    # Ljava/lang/String;
-    .param p3, "x2"    # J
-    .param p5, "x3"    # Lcom/facebook/react/bridge/Callback;
-    .param p6, "x4"    # Lcom/facebook/react/bridge/Callback;
-    .param p7, "x5"    # Lcom/facebook/react/modules/location/LocationModule$1;
 
     .line 251
     invoke-direct/range {p0 .. p6}, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;-><init>(Landroid/location/LocationManager;Ljava/lang/String;JLcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
@@ -108,49 +96,43 @@
 .end method
 
 .method static synthetic access$1000(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Lcom/facebook/react/bridge/Callback;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mError:Lcom/facebook/react/bridge/Callback;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mError:Lcom/facebook/react/bridge/Callback;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1100(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Landroid/location/LocationListener;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mLocationListener:Landroid/location/LocationListener;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mLocationListener:Landroid/location/LocationListener;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1200(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Landroid/location/LocationManager;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mLocationManager:Landroid/location/LocationManager;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mLocationManager:Landroid/location/LocationManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1300(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Landroid/location/Location;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mOldLocation:Landroid/location/Location;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mOldLocation:Landroid/location/Location;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1302(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;Landroid/location/Location;)Landroid/location/Location;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
-    .param p1, "x1"    # Landroid/location/Location;
 
     .line 251
     iput-object p1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mOldLocation:Landroid/location/Location;
@@ -159,63 +141,54 @@
 .end method
 
 .method static synthetic access$1400(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;Landroid/location/Location;Landroid/location/Location;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
-    .param p1, "x1"    # Landroid/location/Location;
-    .param p2, "x2"    # Landroid/location/Location;
+    .locals 0
 
     .line 251
     invoke-direct {p0, p1, p2}, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->isBetterLocation(Landroid/location/Location;Landroid/location/Location;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1500(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Lcom/facebook/react/bridge/Callback;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mSuccess:Lcom/facebook/react/bridge/Callback;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mSuccess:Lcom/facebook/react/bridge/Callback;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1600(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Ljava/lang/Runnable;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTimeoutRunnable:Ljava/lang/Runnable;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1700(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Landroid/os/Handler;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mHandler:Landroid/os/Handler;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$900(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
+    .locals 0
 
     .line 251
-    iget-boolean v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTriggered:Z
+    iget-boolean p0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTriggered:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$902(Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;
-    .param p1, "x1"    # Z
 
     .line 251
     iput-boolean p1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTriggered:Z
@@ -224,16 +197,12 @@
 .end method
 
 .method private isBetterLocation(Landroid/location/Location;Landroid/location/Location;)Z
-    .locals 13
-    .param p1, "location"    # Landroid/location/Location;
-    .param p2, "currentBestLocation"    # Landroid/location/Location;
+    .locals 9
 
-    .line 327
     const/4 v0, 0x1
 
     if-nez p2, :cond_0
 
-    .line 329
     return v0
 
     .line 333
@@ -248,8 +217,6 @@
 
     sub-long/2addr v1, v3
 
-    .line 334
-    .local v1, "timeDelta":J
     const-wide/32 v3, 0x1d4c0
 
     const/4 v5, 0x0
@@ -265,8 +232,6 @@
     :cond_1
     const/4 v3, 0x0
 
-    .line 335
-    .local v3, "isSignificantlyNewer":Z
     :goto_0
     const-wide/32 v6, -0x1d4c0
 
@@ -281,8 +246,6 @@
     :cond_2
     const/4 v4, 0x0
 
-    .line 336
-    .local v4, "isSignificantlyOlder":Z
     :goto_1
     const-wide/16 v6, 0x0
 
@@ -290,163 +253,138 @@
 
     if-lez v8, :cond_3
 
-    const/4 v6, 0x1
+    const/4 v1, 0x1
 
     goto :goto_2
 
     :cond_3
-    const/4 v6, 0x0
+    const/4 v1, 0x0
 
-    .line 340
-    .local v6, "isNewer":Z
     :goto_2
     if-eqz v3, :cond_4
 
-    .line 341
     return v0
 
-    .line 343
     :cond_4
     if-eqz v4, :cond_5
 
-    .line 344
     return v5
 
     .line 348
     :cond_5
     invoke-virtual {p1}, Landroid/location/Location;->getAccuracy()F
 
-    move-result v7
+    move-result v2
 
     invoke-virtual {p2}, Landroid/location/Location;->getAccuracy()F
 
-    move-result v8
+    move-result v3
 
-    sub-float/2addr v7, v8
+    sub-float/2addr v2, v3
 
-    float-to-int v7, v7
+    float-to-int v2, v2
 
-    .line 349
-    .local v7, "accuracyDelta":I
-    if-lez v7, :cond_6
+    if-lez v2, :cond_6
 
-    const/4 v8, 0x1
+    const/4 v3, 0x1
 
     goto :goto_3
 
     :cond_6
-    const/4 v8, 0x0
+    const/4 v3, 0x0
 
-    .line 350
-    .local v8, "isLessAccurate":Z
     :goto_3
-    if-gez v7, :cond_7
+    if-gez v2, :cond_7
 
-    const/4 v9, 0x1
+    const/4 v4, 0x1
 
     goto :goto_4
 
     :cond_7
-    const/4 v9, 0x0
+    const/4 v4, 0x0
 
-    .line 351
-    .local v9, "isMoreAccurate":Z
     :goto_4
-    const/16 v10, 0xc8
+    const/16 v6, 0xc8
 
-    if-le v7, v10, :cond_8
+    if-le v2, v6, :cond_8
 
-    const/4 v10, 0x1
+    const/4 v2, 0x1
 
     goto :goto_5
 
     :cond_8
-    const/4 v10, 0x0
+    const/4 v2, 0x0
 
     .line 354
-    .local v10, "isSignificantlyLessAccurate":Z
     :goto_5
     invoke-virtual {p1}, Landroid/location/Location;->getProvider()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object p1
 
     .line 355
     invoke-virtual {p2}, Landroid/location/Location;->getProvider()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object p2
 
     .line 354
-    invoke-direct {p0, v11, v12}, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->isSameProvider(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-direct {p0, p1, p2}, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->isSameProvider(Ljava/lang/String;Ljava/lang/String;)Z
 
-    move-result v11
+    move-result p1
 
-    .line 358
-    .local v11, "isFromSameProvider":Z
-    if-eqz v9, :cond_9
+    if-eqz v4, :cond_9
 
-    .line 359
     return v0
 
-    .line 360
     :cond_9
-    if-eqz v6, :cond_a
+    if-eqz v1, :cond_a
 
-    if-nez v8, :cond_a
+    if-nez v3, :cond_a
 
-    .line 361
     return v0
 
-    .line 362
     :cond_a
-    if-eqz v6, :cond_b
+    if-eqz v1, :cond_b
 
-    if-nez v10, :cond_b
+    if-nez v2, :cond_b
 
-    if-eqz v11, :cond_b
+    if-eqz p1, :cond_b
 
-    .line 363
     return v0
 
-    .line 366
     :cond_b
     return v5
 .end method
 
 .method private isSameProvider(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
-    .param p1, "provider1"    # Ljava/lang/String;
-    .param p2, "provider2"    # Ljava/lang/String;
+    .locals 0
 
-    .line 371
     if-nez p1, :cond_1
 
-    .line 372
     if-nez p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 
     .line 374
     :cond_1
     invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 
 # virtual methods
 .method public invoke(Landroid/location/Location;)V
     .locals 6
-    .param p1, "location"    # Landroid/location/Location;
 
     .line 313
     iput-object p1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mOldLocation:Landroid/location/Location;
@@ -465,14 +403,13 @@
     invoke-virtual/range {v0 .. v5}, Landroid/location/LocationManager;->requestLocationUpdates(Ljava/lang/String;JFLandroid/location/LocationListener;)V
 
     .line 315
-    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mHandler:Landroid/os/Handler;
+    iget-object p1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTimeoutRunnable:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTimeoutRunnable:Ljava/lang/Runnable;
 
-    iget-wide v2, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTimeout:J
+    iget-wide v1, p0, Lcom/facebook/react/modules/location/LocationModule$SingleUpdateRequest;->mTimeout:J
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p1, v0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 316
     return-void
 .end method

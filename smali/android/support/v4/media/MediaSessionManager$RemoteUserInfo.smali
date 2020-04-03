@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(Landroid/media/session/MediaSessionManager$RemoteUserInfo;)V
     .locals 1
-    .param p1, "remoteUserInfo"    # Landroid/media/session/MediaSessionManager$RemoteUserInfo;
     .annotation build Landroid/support/annotation/RequiresApi;
         value = 0x1c
     .end annotation
@@ -46,18 +45,15 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
 
-    .line 165
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;II)V
     .locals 2
-    .param p1, "packageName"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "pid"    # I
-    .param p3, "uid"    # I
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +82,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
 
-    .line 149
     :goto_0
     return-void
 .end method
@@ -94,19 +89,17 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 208
     if-ne p0, p1, :cond_0
 
-    .line 209
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
     .line 211
     :cond_0
@@ -114,26 +107,23 @@
 
     if-nez v0, :cond_1
 
-    .line 212
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
     .line 214
     :cond_1
     iget-object v0, p0, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
 
-    move-object v1, p1
+    check-cast p1, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;
 
-    check-cast v1, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;
+    iget-object p1, p1, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
 
-    iget-object v1, v1, Landroid/support/v4/media/MediaSessionManager$RemoteUserInfo;->mImpl:Landroid/support/v4/media/MediaSessionManager$RemoteUserInfoImpl;
+    invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
-
-    return v0
+    return p1
 .end method
 
 .method public getPackageName()Ljava/lang/String;

@@ -35,7 +35,6 @@
 
     return-object v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/request/BaseRepeatedPostProcessor;
     :catchall_0
     move-exception v0
 
@@ -48,7 +47,6 @@
 # virtual methods
 .method public declared-synchronized setCallback(Lcom/facebook/imagepipeline/request/RepeatedPostprocessorRunner;)V
     .locals 0
-    .param p1, "runner"    # Lcom/facebook/imagepipeline/request/RepeatedPostprocessorRunner;
 
     monitor-enter p0
 
@@ -63,9 +61,6 @@
 
     return-void
 
-    .line 15
-    .end local p0    # "this":Lcom/facebook/imagepipeline/request/BaseRepeatedPostProcessor;
-    .end local p1    # "runner":Lcom/facebook/imagepipeline/request/RepeatedPostprocessorRunner;
     :catchall_0
     move-exception p1
 
@@ -82,14 +77,11 @@
 
     move-result-object v0
 
-    .line 25
-    .local v0, "callback":Lcom/facebook/imagepipeline/request/RepeatedPostprocessorRunner;
     if-eqz v0, :cond_0
 
     .line 26
     invoke-interface {v0}, Lcom/facebook/imagepipeline/request/RepeatedPostprocessorRunner;->update()V
 
-    .line 28
     :cond_0
     return-void
 .end method

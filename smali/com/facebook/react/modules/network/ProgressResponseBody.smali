@@ -18,9 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/ResponseBody;Lcom/facebook/react/modules/network/ProgressListener;)V
-    .locals 2
-    .param p1, "responseBody"    # Lokhttp3/ResponseBody;
-    .param p2, "progressListener"    # Lcom/facebook/react/modules/network/ProgressListener;
+    .locals 0
 
     .line 26
     invoke-direct {p0}, Lokhttp3/ResponseBody;-><init>()V
@@ -31,18 +29,16 @@
     .line 28
     iput-object p2, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mProgressListener:Lcom/facebook/react/modules/network/ProgressListener;
 
+    const-wide/16 p1, 0x0
+
     .line 29
-    const-wide/16 v0, 0x0
+    iput-wide p1, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mTotalBytesRead:J
 
-    iput-wide v0, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mTotalBytesRead:J
-
-    .line 30
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/modules/network/ProgressResponseBody;)J
     .locals 2
-    .param p0, "x0"    # Lcom/facebook/react/modules/network/ProgressResponseBody;
 
     .line 19
     iget-wide v0, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mTotalBytesRead:J
@@ -52,8 +48,6 @@
 
 .method static synthetic access$002(Lcom/facebook/react/modules/network/ProgressResponseBody;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/modules/network/ProgressResponseBody;
-    .param p1, "x1"    # J
 
     .line 19
     iput-wide p1, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mTotalBytesRead:J
@@ -62,28 +56,25 @@
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/modules/network/ProgressResponseBody;)Lokhttp3/ResponseBody;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/network/ProgressResponseBody;
+    .locals 0
 
     .line 19
-    iget-object v0, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mResponseBody:Lokhttp3/ResponseBody;
+    iget-object p0, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mResponseBody:Lokhttp3/ResponseBody;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/facebook/react/modules/network/ProgressResponseBody;)Lcom/facebook/react/modules/network/ProgressListener;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/network/ProgressResponseBody;
+    .locals 0
 
     .line 19
-    iget-object v0, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mProgressListener:Lcom/facebook/react/modules/network/ProgressListener;
+    iget-object p0, p0, Lcom/facebook/react/modules/network/ProgressResponseBody;->mProgressListener:Lcom/facebook/react/modules/network/ProgressListener;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private source(Lokio/Source;)Lokio/Source;
     .locals 1
-    .param p1, "source"    # Lokio/Source;
 
     .line 54
     new-instance v0, Lcom/facebook/react/modules/network/ProgressResponseBody$1;

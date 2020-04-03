@@ -27,8 +27,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/fabric/FabricUIManager;Lcom/facebook/react/bridge/ReactContext;III)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/fabric/FabricUIManager;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 368
     iput-object p1, p0, Lcom/facebook/react/fabric/FabricUIManager$1;->this$0:Lcom/facebook/react/fabric/FabricUIManager;
@@ -89,6 +87,5 @@
     .line 371
     invoke-virtual/range {v1 .. v6}, Lcom/facebook/react/fabric/jsi/Binding;->setConstraints(IFFFF)V
 
-    .line 377
     return-void
 .end method

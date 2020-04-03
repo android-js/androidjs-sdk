@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIManagerModule$2;Lcom/facebook/react/bridge/ReactContext;II)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/uimanager/UIManagerModule$2;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 409
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIManagerModule$2$1;->this$1:Lcom/facebook/react/uimanager/UIManagerModule$2;
@@ -60,6 +58,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/facebook/react/uimanager/UIManagerModule;->updateNodeSize(III)V
 
-    .line 413
     return-void
 .end method

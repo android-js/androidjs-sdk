@@ -228,7 +228,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "httpCode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -241,13 +240,11 @@
     .line 46
     iput p3, p0, Lokhttp3/internal/http2/ErrorCode;->httpCode:I
 
-    .line 47
     return-void
 .end method
 
 .method public static fromHttp2(I)Lokhttp3/internal/http2/ErrorCode;
     .locals 5
-    .param p0, "code"    # I
 
     .line 50
     invoke-static {}, Lokhttp3/internal/http2/ErrorCode;->values()[Lokhttp3/internal/http2/ErrorCode;
@@ -264,41 +261,36 @@
     aget-object v3, v0, v2
 
     .line 51
-    .local v3, "errorCode":Lokhttp3/internal/http2/ErrorCode;
     iget v4, v3, Lokhttp3/internal/http2/ErrorCode;->httpCode:I
 
     if-ne v4, p0, :cond_0
 
     return-object v3
 
-    .line 50
-    .end local v3    # "errorCode":Lokhttp3/internal/http2/ErrorCode;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 53
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lokhttp3/internal/http2/ErrorCode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 19
     const-class v0, Lokhttp3/internal/http2/ErrorCode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lokhttp3/internal/http2/ErrorCode;
+    check-cast p0, Lokhttp3/internal/http2/ErrorCode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lokhttp3/internal/http2/ErrorCode;

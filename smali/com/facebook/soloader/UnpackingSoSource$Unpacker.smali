@@ -37,7 +37,6 @@
         }
     .end annotation
 
-    .line 168
     return-void
 .end method
 

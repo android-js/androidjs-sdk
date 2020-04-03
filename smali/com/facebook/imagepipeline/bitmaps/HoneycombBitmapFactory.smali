@@ -13,7 +13,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "HoneycombBitmapFactory"
 
 
 # instance fields
@@ -26,24 +26,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 29
-    const-class v0, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->TAG:Ljava/lang/String;
+    .locals 0
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/imagepipeline/bitmaps/EmptyJpegGenerator;Lcom/facebook/imagepipeline/platform/PlatformDecoder;)V
     .locals 0
-    .param p1, "jpegGenerator"    # Lcom/facebook/imagepipeline/bitmaps/EmptyJpegGenerator;
-    .param p2, "purgeableDecoder"    # Lcom/facebook/imagepipeline/platform/PlatformDecoder;
 
     .line 35
     invoke-direct {p0}, Lcom/facebook/imagepipeline/bitmaps/PlatformBitmapFactory;-><init>()V
@@ -54,15 +43,11 @@
     .line 37
     iput-object p2, p0, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->mPurgeableDecoder:Lcom/facebook/imagepipeline/platform/PlatformDecoder;
 
-    .line 38
     return-void
 .end method
 
 .method private static createFallbackBitmap(IILandroid/graphics/Bitmap$Config;)Lcom/facebook/common/references/CloseableReference;
-    .locals 2
-    .param p0, "width"    # I
-    .param p1, "height"    # I
-    .param p2, "bitmapConfig"    # Landroid/graphics/Bitmap$Config;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
@@ -74,33 +59,27 @@
         }
     .end annotation
 
-    .line 91
-    nop
-
     .line 92
     invoke-static {p0, p1, p2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p0
 
     invoke-static {}, Lcom/facebook/imagepipeline/bitmaps/SimpleBitmapReleaser;->getInstance()Lcom/facebook/imagepipeline/bitmaps/SimpleBitmapReleaser;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 91
-    invoke-static {v0, v1}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/lang/Object;Lcom/facebook/common/references/ResourceReleaser;)Lcom/facebook/common/references/CloseableReference;
+    invoke-static {p0, p1}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/lang/Object;Lcom/facebook/common/references/ResourceReleaser;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public createBitmapInternal(IILandroid/graphics/Bitmap$Config;)Lcom/facebook/common/references/CloseableReference;
     .locals 5
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "bitmapConfig"    # Landroid/graphics/Bitmap$Config;
     .annotation build Landroid/annotation/TargetApi;
         value = 0xc
     .end annotation
@@ -124,9 +103,9 @@
     .line 58
     invoke-static {p1, p2, p3}, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->createFallbackBitmap(IILandroid/graphics/Bitmap$Config;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 60
     :cond_0
@@ -141,14 +120,12 @@
     move-result-object v0
 
     .line 64
-    .local v0, "jpgRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/common/memory/PooledByteBuffer;>;"
     :try_start_0
     new-instance v1, Lcom/facebook/imagepipeline/image/EncodedImage;
 
     invoke-direct {v1, v0}, Lcom/facebook/imagepipeline/image/EncodedImage;-><init>(Lcom/facebook/common/references/CloseableReference;)V
 
     .line 65
-    .local v1, "encodedImage":Lcom/facebook/imagepipeline/image/EncodedImage;
     sget-object v2, Lcom/facebook/imageformat/DefaultImageFormats;->JPEG:Lcom/facebook/imageformat/ImageFormat;
 
     invoke-virtual {v1, v2}, Lcom/facebook/imagepipeline/image/EncodedImage;->setImageFormat(Lcom/facebook/imageformat/ImageFormat;)V
@@ -178,7 +155,6 @@
     move-result-object v2
 
     .line 70
-    .local v2, "bitmapRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Landroid/graphics/Bitmap;>;"
     invoke-virtual {v2}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
 
     move-result-object v3
@@ -200,16 +176,16 @@
     iput-boolean v4, p0, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->mImmutableBitmapFallback:Z
 
     .line 73
-    sget-object v3, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->TAG:Ljava/lang/String;
 
-    const-string v4, "Immutable bitmap returned by decoder"
+    const-string v3, "Immutable bitmap returned by decoder"
 
-    invoke-static {v3, v4}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 76
     invoke-static {p1, p2, p3}, Lcom/facebook/imagepipeline/bitmaps/HoneycombBitmapFactory;->createFallbackBitmap(IILandroid/graphics/Bitmap$Config;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v3
+    move-result-object p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -222,35 +198,31 @@
     .line 85
     invoke-virtual {v0}, Lcom/facebook/common/references/CloseableReference;->close()V
 
-    .line 76
-    return-object v3
+    return-object p1
 
     .line 78
     :cond_1
     :try_start_3
     invoke-virtual {v2}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Landroid/graphics/Bitmap;
+    check-cast p1, Landroid/graphics/Bitmap;
 
-    invoke-virtual {v3, v4}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
+    invoke-virtual {p1, v4}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
     .line 79
     invoke-virtual {v2}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    check-cast v3, Landroid/graphics/Bitmap;
+    check-cast p1, Landroid/graphics/Bitmap;
 
-    const/4 v4, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {v3, v4}, Landroid/graphics/Bitmap;->eraseColor(I)V
+    invoke-virtual {p1, p2}, Landroid/graphics/Bitmap;->eraseColor(I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    .line 80
-    nop
 
     .line 82
     :try_start_4
@@ -261,39 +233,26 @@
     .line 85
     invoke-virtual {v0}, Lcom/facebook/common/references/CloseableReference;->close()V
 
-    .line 80
     return-object v2
 
-    .line 82
-    .end local v2    # "bitmapRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Landroid/graphics/Bitmap;>;"
     :catchall_0
-    move-exception v2
+    move-exception p1
 
+    .line 82
     :try_start_5
     invoke-static {v1}, Lcom/facebook/imagepipeline/image/EncodedImage;->closeSafely(Lcom/facebook/imagepipeline/image/EncodedImage;)V
 
     .line 83
-    nop
-
-    .end local v0    # "jpgRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/common/memory/PooledByteBuffer;>;"
-    .end local p1    # "width":I
-    .end local p2    # "height":I
-    .end local p3    # "bitmapConfig":Landroid/graphics/Bitmap$Config;
-    throw v2
+    throw p1
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    .line 85
-    .end local v1    # "encodedImage":Lcom/facebook/imagepipeline/image/EncodedImage;
-    .restart local v0    # "jpgRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/common/memory/PooledByteBuffer;>;"
-    .restart local p1    # "width":I
-    .restart local p2    # "height":I
-    .restart local p3    # "bitmapConfig":Landroid/graphics/Bitmap$Config;
     :catchall_1
-    move-exception v1
+    move-exception p1
 
+    .line 85
     invoke-virtual {v0}, Lcom/facebook/common/references/CloseableReference;->close()V
 
     .line 86
-    throw v1
+    throw p1
 .end method

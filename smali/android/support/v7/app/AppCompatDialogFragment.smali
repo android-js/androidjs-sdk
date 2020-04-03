@@ -16,29 +16,26 @@
 
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 3
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 2
 
     .line 40
-    new-instance v0, Landroid/support/v7/app/AppCompatDialog;
+    new-instance p1, Landroid/support/v7/app/AppCompatDialog;
 
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialogFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialogFragment;->getTheme()I
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {v0, v1, v2}, Landroid/support/v7/app/AppCompatDialog;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p1, v0, v1}, Landroid/support/v7/app/AppCompatDialog;-><init>(Landroid/content/Context;I)V
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setupDialog(Landroid/app/Dialog;I)V
-    .locals 4
-    .param p1, "dialog"    # Landroid/app/Dialog;
-    .param p2, "style"    # I
+    .locals 3
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -55,8 +52,6 @@
 
     check-cast v0, Landroid/support/v7/app/AppCompatDialog;
 
-    .line 50
-    .local v0, "acd":Landroid/support/v7/app/AppCompatDialog;
     const/4 v1, 0x1
 
     if-eq p2, v1, :cond_1
@@ -75,26 +70,22 @@
     :cond_0
     invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/16 v3, 0x18
+    const/16 p2, 0x18
 
-    invoke-virtual {v2, v3}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {p1, p2}, Landroid/view/Window;->addFlags(I)V
 
     .line 58
     :cond_1
     invoke-virtual {v0, v1}, Landroid/support/v7/app/AppCompatDialog;->supportRequestWindowFeature(I)Z
 
-    .line 60
-    .end local v0    # "acd":Landroid/support/v7/app/AppCompatDialog;
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
     .line 62
     :cond_2
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/DialogFragment;->setupDialog(Landroid/app/Dialog;I)V
 
-    .line 64
-    :goto_1
+    :goto_0
     return-void
 .end method

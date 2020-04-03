@@ -36,7 +36,6 @@
 # virtual methods
 .method public declared-synchronized connected(Lokhttp3/Route;)V
     .locals 1
-    .param p1, "route"    # Lokhttp3/Route;
 
     monitor-enter p0
 
@@ -53,9 +52,6 @@
 
     return-void
 
-    .line 37
-    .end local p0    # "this":Lokhttp3/internal/connection/RouteDatabase;
-    .end local p1    # "route":Lokhttp3/Route;
     :catchall_0
     move-exception p1
 
@@ -66,7 +62,6 @@
 
 .method public declared-synchronized failed(Lokhttp3/Route;)V
     .locals 1
-    .param p1, "failedRoute"    # Lokhttp3/Route;
 
     monitor-enter p0
 
@@ -83,9 +78,6 @@
 
     return-void
 
-    .line 32
-    .end local p0    # "this":Lokhttp3/internal/connection/RouteDatabase;
-    .end local p1    # "failedRoute":Lokhttp3/Route;
     :catchall_0
     move-exception p1
 
@@ -96,7 +88,6 @@
 
 .method public declared-synchronized shouldPostpone(Lokhttp3/Route;)Z
     .locals 1
-    .param p1, "route"    # Lokhttp3/Route;
 
     monitor-enter p0
 
@@ -106,16 +97,14 @@
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .end local p0    # "this":Lokhttp3/internal/connection/RouteDatabase;
-    .end local p1    # "route":Lokhttp3/Route;
     :catchall_0
     move-exception p1
 

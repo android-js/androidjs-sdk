@@ -23,9 +23,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "parentMenu"    # Landroid/support/v7/view/menu/MenuBuilder;
-    .param p3, "item"    # Landroid/support/v7/view/menu/MenuItemImpl;
 
     .line 42
     invoke-direct {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;-><init>(Landroid/content/Context;)V
@@ -36,7 +33,6 @@
     .line 45
     iput-object p3, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mItem:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    .line 46
     return-void
 .end method
 
@@ -44,22 +40,19 @@
 # virtual methods
 .method public collapseItemActionView(Landroid/support/v7/view/menu/MenuItemImpl;)Z
     .locals 1
-    .param p1, "item"    # Landroid/support/v7/view/menu/MenuItemImpl;
 
     .line 137
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mParentMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->collapseItemActionView(Landroid/support/v7/view/menu/MenuItemImpl;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method dispatchMenuItemSelected(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
-    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
-    .param p2, "item"    # Landroid/view/MenuItem;
 
     .line 89
     invoke-super {p0, p1, p2}, Landroid/support/v7/view/menu/MenuBuilder;->dispatchMenuItemSelected(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
@@ -73,37 +66,36 @@
     .line 90
     invoke-virtual {v0, p1, p2}, Landroid/support/v7/view/menu/MenuBuilder;->dispatchMenuItemSelected(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     :goto_1
-    return v0
+    return p1
 .end method
 
 .method public expandItemActionView(Landroid/support/v7/view/menu/MenuItemImpl;)Z
     .locals 1
-    .param p1, "item"    # Landroid/support/v7/view/menu/MenuItemImpl;
 
     .line 132
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mParentMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->expandItemActionView(Landroid/support/v7/view/menu/MenuItemImpl;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public getActionViewStatesKey()Ljava/lang/String;
@@ -123,15 +115,12 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 143
-    .local v0, "itemId":I
     :goto_0
     if-nez v0, :cond_1
 
-    .line 144
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 146
     :cond_1
@@ -153,9 +142,9 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public getItem()Landroid/view/MenuItem;
@@ -230,148 +219,131 @@
 
 .method public setCallback(Landroid/support/v7/view/menu/MenuBuilder$Callback;)V
     .locals 1
-    .param p1, "callback"    # Landroid/support/v7/view/menu/MenuBuilder$Callback;
 
     .line 79
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mParentMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setCallback(Landroid/support/v7/view/menu/MenuBuilder$Callback;)V
 
-    .line 80
     return-void
 .end method
 
 .method public setGroupDividerEnabled(Z)V
     .locals 1
-    .param p1, "groupDividerEnabled"    # Z
 
     .line 151
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mParentMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setGroupDividerEnabled(Z)V
 
-    .line 152
     return-void
 .end method
 
 .method public setHeaderIcon(I)Landroid/view/SubMenu;
-    .locals 1
-    .param p1, "iconRes"    # I
+    .locals 0
 
     .line 112
     invoke-super {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderIconInt(I)Landroid/support/v7/view/menu/MenuBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/SubMenu;
+    check-cast p1, Landroid/view/SubMenu;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
-    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
 
     .line 107
     invoke-super {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderIconInt(Landroid/graphics/drawable/Drawable;)Landroid/support/v7/view/menu/MenuBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/SubMenu;
+    check-cast p1, Landroid/view/SubMenu;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setHeaderTitle(I)Landroid/view/SubMenu;
-    .locals 1
-    .param p1, "titleRes"    # I
+    .locals 0
 
     .line 122
     invoke-super {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderTitleInt(I)Landroid/support/v7/view/menu/MenuBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/SubMenu;
+    check-cast p1, Landroid/view/SubMenu;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 1
-    .param p1, "title"    # Ljava/lang/CharSequence;
+    .locals 0
 
     .line 117
     invoke-super {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderTitleInt(Ljava/lang/CharSequence;)Landroid/support/v7/view/menu/MenuBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/SubMenu;
+    check-cast p1, Landroid/view/SubMenu;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
-    .locals 1
-    .param p1, "view"    # Landroid/view/View;
+    .locals 0
 
     .line 127
     invoke-super {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setHeaderViewInt(Landroid/view/View;)Landroid/support/v7/view/menu/MenuBuilder;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/view/SubMenu;
+    check-cast p1, Landroid/view/SubMenu;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setIcon(I)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "iconRes"    # I
 
     .line 101
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mItem:Landroid/support/v7/view/menu/MenuItemImpl;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuItemImpl;->setIcon(I)Landroid/view/MenuItem;
 
-    .line 102
     return-object p0
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
-    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 95
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mItem:Landroid/support/v7/view/menu/MenuItemImpl;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuItemImpl;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
-    .line 96
     return-object p0
 .end method
 
 .method public setQwertyMode(Z)V
     .locals 1
-    .param p1, "isQwerty"    # Z
 
     .line 50
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mParentMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setQwertyMode(Z)V
 
-    .line 51
     return-void
 .end method
 
 .method public setShortcutsVisible(Z)V
     .locals 1
-    .param p1, "shortcutsVisible"    # Z
 
     .line 60
     iget-object v0, p0, Landroid/support/v7/view/menu/SubMenuBuilder;->mParentMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuBuilder;->setShortcutsVisible(Z)V
 
-    .line 61
     return-void
 .end method

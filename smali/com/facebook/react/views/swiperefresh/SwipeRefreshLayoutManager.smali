@@ -46,8 +46,6 @@
 
 .method protected addEventEmitters(Lcom/facebook/react/uimanager/ThemedReactContext;Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;)V
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
-    .param p2, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
 
     .line 88
     new-instance v0, Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager$1;
@@ -56,7 +54,6 @@
 
     invoke-virtual {p2, v0}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setOnRefreshListener(Landroid/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;)V
 
-    .line 96
     return-void
 .end method
 
@@ -73,7 +70,6 @@
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 38
     new-instance v0, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
@@ -100,11 +96,11 @@
 
     move-result-object v0
 
-    .line 109
     const-string v1, "registrationName"
 
     const-string v2, "onRefresh"
 
+    .line 109
     invoke-static {v1, v2}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v1
@@ -120,7 +116,6 @@
 
     move-result-object v0
 
-    .line 108
     return-object v0
 .end method
 
@@ -139,12 +134,9 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 101
-    nop
-
-    .line 103
     const/4 v0, 0x1
 
+    .line 103
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
@@ -163,9 +155,9 @@
 
     move-result-object v0
 
-    .line 101
     const-string v1, "SIZE"
 
+    .line 101
     invoke-static {v1, v0}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -176,7 +168,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 43
     const-string v0, "AndroidSwipeRefreshLayout"
 
     return-object v0
@@ -184,8 +175,7 @@
 
 .method public setColors(Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;Lcom/facebook/react/bridge/ReadableArray;)V
     .locals 3
-    .param p1, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
-    .param p2, "colors"    # Lcom/facebook/react/bridge/ReadableArray;
+    .param p2    # Lcom/facebook/react/bridge/ReadableArray;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -194,66 +184,54 @@
         name = "colors"
     .end annotation
 
-    .line 53
+    const/4 v0, 0x0
+
     if-eqz p2, :cond_1
 
     .line 54
     invoke-interface {p2}, Lcom/facebook/react/bridge/ReadableArray;->size()I
 
-    move-result v0
+    move-result v1
 
-    new-array v0, v0, [I
+    new-array v1, v1, [I
 
     .line 55
-    .local v0, "colorValues":[I
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     :goto_0
     invoke-interface {p2}, Lcom/facebook/react/bridge/ReadableArray;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v0, v2, :cond_0
 
     .line 56
-    invoke-interface {p2, v1}, Lcom/facebook/react/bridge/ReadableArray;->getInt(I)I
+    invoke-interface {p2, v0}, Lcom/facebook/react/bridge/ReadableArray;->getInt(I)I
 
     move-result v2
 
-    aput v2, v0, v1
+    aput v2, v1, v0
 
-    .line 55
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 58
-    .end local v1    # "i":I
     :cond_0
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setColorSchemeColors([I)V
+    invoke-virtual {p1, v1}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setColorSchemeColors([I)V
 
-    .line 59
-    .end local v0    # "colorValues":[I
     goto :goto_1
 
     .line 60
     :cond_1
-    const/4 v0, 0x0
+    new-array p2, v0, [I
 
-    new-array v0, v0, [I
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setColorSchemeColors([I)V
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setColorSchemeColors([I)V
-
-    .line 62
     :goto_1
     return-void
 .end method
 
 .method public setEnabled(Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
-    .param p2, "enabled"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultBoolean = true
         name = "enabled"
@@ -262,14 +240,11 @@
     .line 48
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setEnabled(Z)V
 
-    .line 49
     return-void
 .end method
 
 .method public setProgressBackgroundColor(Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;I)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
-    .param p2, "color"    # I
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         customType = "Color"
         defaultInt = 0x0
@@ -279,14 +254,11 @@
     .line 66
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setProgressBackgroundColorSchemeColor(I)V
 
-    .line 67
     return-void
 .end method
 
 .method public setProgressViewOffset(Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;F)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
-    .param p2, "offset"    # F
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultFloat = 0.0f
         name = "progressViewOffset"
@@ -295,14 +267,11 @@
     .line 81
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setProgressViewOffset(F)V
 
-    .line 82
     return-void
 .end method
 
 .method public setRefreshing(Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
-    .param p2, "refreshing"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "refreshing"
     .end annotation
@@ -310,14 +279,11 @@
     .line 76
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setRefreshing(Z)V
 
-    .line 77
     return-void
 .end method
 
 .method public setSize(Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;I)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;
-    .param p2, "size"    # I
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultInt = 0x1
         name = "size"
@@ -326,6 +292,5 @@
     .line 71
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;->setSize(I)V
 
-    .line 72
     return-void
 .end method

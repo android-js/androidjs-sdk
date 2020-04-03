@@ -9,12 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 21
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/facebook/common/executors/UiThreadImmediateExecutorService;->sInstance:Lcom/facebook/common/executors/UiThreadImmediateExecutorService;
+    .locals 0
 
     return-void
 .end method
@@ -33,7 +28,6 @@
 
     invoke-direct {p0, v0}, Lcom/facebook/common/executors/HandlerExecutorServiceImpl;-><init>(Landroid/os/Handler;)V
 
-    .line 25
     return-void
 .end method
 
@@ -63,7 +57,6 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 36
     invoke-virtual {p0}, Lcom/facebook/common/executors/UiThreadImmediateExecutorService;->isHandlerThread()Z
@@ -81,7 +74,6 @@
     :cond_0
     invoke-super {p0, p1}, Lcom/facebook/common/executors/HandlerExecutorServiceImpl;->execute(Ljava/lang/Runnable;)V
 
-    .line 41
     :goto_0
     return-void
 .end method

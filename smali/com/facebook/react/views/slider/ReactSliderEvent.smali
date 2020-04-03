@@ -26,9 +26,6 @@
 # direct methods
 .method public constructor <init>(IDZ)V
     .locals 0
-    .param p1, "viewId"    # I
-    .param p2, "value"    # D
-    .param p4, "fromUser"    # Z
 
     .line 26
     invoke-direct {p0, p1}, Lcom/facebook/react/uimanager/events/Event;-><init>(I)V
@@ -39,7 +36,6 @@
     .line 28
     iput-boolean p4, p0, Lcom/facebook/react/views/slider/ReactSliderEvent;->mFromUser:Z
 
-    .line 29
     return-void
 .end method
 
@@ -52,7 +48,6 @@
     move-result-object v0
 
     .line 56
-    .local v0, "eventData":Lcom/facebook/react/bridge/WritableMap;
     invoke-virtual {p0}, Lcom/facebook/react/views/slider/ReactSliderEvent;->getViewTag()I
 
     move-result v1
@@ -79,7 +74,6 @@
 
     invoke-interface {v0, v2, v1}, Lcom/facebook/react/bridge/WritableMap;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 59
     return-object v0
 .end method
 
@@ -87,7 +81,6 @@
 # virtual methods
 .method public dispatch(Lcom/facebook/react/uimanager/events/RCTEventEmitter;)V
     .locals 3
-    .param p1, "rctEventEmitter"    # Lcom/facebook/react/uimanager/events/RCTEventEmitter;
 
     .line 51
     invoke-virtual {p0}, Lcom/facebook/react/views/slider/ReactSliderEvent;->getViewTag()I
@@ -104,14 +97,12 @@
 
     invoke-interface {p1, v0, v1, v2}, Lcom/facebook/react/uimanager/events/RCTEventEmitter;->receiveEvent(ILjava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
 
-    .line 52
     return-void
 .end method
 
 .method public getCoalescingKey()S
     .locals 1
 
-    .line 47
     const/4 v0, 0x0
 
     return v0
@@ -120,7 +111,6 @@
 .method public getEventName()Ljava/lang/String;
     .locals 1
 
-    .line 42
     const-string v0, "topChange"
 
     return-object v0

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/HeadlessJsTaskService;Lcom/facebook/react/jstasks/HeadlessJsTaskContext;Lcom/facebook/react/jstasks/HeadlessJsTaskConfig;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/HeadlessJsTaskService;
 
     .line 124
     iput-object p1, p0, Lcom/facebook/react/HeadlessJsTaskService$2;->this$0:Lcom/facebook/react/HeadlessJsTaskService;
@@ -45,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
     .line 127
     iget-object v0, p0, Lcom/facebook/react/HeadlessJsTaskService$2;->val$headlessJsTaskContext:Lcom/facebook/react/jstasks/HeadlessJsTaskContext;
@@ -57,7 +56,6 @@
     move-result v0
 
     .line 128
-    .local v0, "taskId":I
     iget-object v1, p0, Lcom/facebook/react/HeadlessJsTaskService$2;->this$0:Lcom/facebook/react/HeadlessJsTaskService;
 
     invoke-static {v1}, Lcom/facebook/react/HeadlessJsTaskService;->access$100(Lcom/facebook/react/HeadlessJsTaskService;)Ljava/util/Set;
@@ -66,10 +64,9 @@
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 129
     return-void
 .end method

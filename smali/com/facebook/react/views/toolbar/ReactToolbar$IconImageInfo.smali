@@ -26,8 +26,6 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
     .line 112
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 114
     iput p2, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$IconImageInfo;->mHeight:I
 
-    .line 115
     return-void
 .end method
 
@@ -56,7 +53,6 @@
 .method public getQualityInfo()Lcom/facebook/imagepipeline/image/QualityInfo;
     .locals 1
 
-    .line 129
     const/4 v0, 0x0
 
     return-object v0

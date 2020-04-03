@@ -13,9 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
-    .locals 2
-    .param p1, "config"    # Lcom/facebook/react/bridge/ReadableMap;
-    .param p2, "nativeAnimatedNodesManager"    # Lcom/facebook/react/animated/NativeAnimatedNodesManager;
+    .locals 0
 
     .line 22
     invoke-direct {p0}, Lcom/facebook/react/animated/ValueAnimatedNode;-><init>()V
@@ -23,32 +21,31 @@
     .line 23
     iput-object p2, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mNativeAnimatedNodesManager:Lcom/facebook/react/animated/NativeAnimatedNodesManager;
 
+    const-string p2, "input"
+
     .line 24
-    const-string v0, "input"
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
 
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
+    move-result p2
 
-    move-result v0
+    iput p2, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mInputNode:I
 
-    iput v0, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mInputNode:I
+    const-string p2, "modulus"
 
     .line 25
-    const-string v0, "modulus"
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    move-result-wide p1
 
-    move-result-wide v0
+    iput-wide p1, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mModulus:D
 
-    iput-wide v0, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mModulus:D
-
-    .line 26
     return-void
 .end method
 
 
 # virtual methods
 .method public update()V
-    .locals 5
+    .locals 4
 
     .line 30
     iget-object v0, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mNativeAnimatedNodesManager:Lcom/facebook/react/animated/NativeAnimatedNodesManager;
@@ -59,39 +56,35 @@
 
     move-result-object v0
 
-    .line 31
-    .local v0, "animatedNode":Lcom/facebook/react/animated/AnimatedNode;
     if-eqz v0, :cond_0
 
+    .line 31
     instance-of v1, v0, Lcom/facebook/react/animated/ValueAnimatedNode;
 
     if-eqz v1, :cond_0
 
     .line 32
-    move-object v1, v0
+    check-cast v0, Lcom/facebook/react/animated/ValueAnimatedNode;
 
-    check-cast v1, Lcom/facebook/react/animated/ValueAnimatedNode;
+    invoke-virtual {v0}, Lcom/facebook/react/animated/ValueAnimatedNode;->getValue()D
 
-    invoke-virtual {v1}, Lcom/facebook/react/animated/ValueAnimatedNode;->getValue()D
+    move-result-wide v0
 
-    move-result-wide v1
+    iget-wide v2, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mModulus:D
 
-    iget-wide v3, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mModulus:D
+    rem-double/2addr v0, v2
 
-    rem-double/2addr v1, v3
+    iput-wide v0, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mValue:D
 
-    iput-wide v1, p0, Lcom/facebook/react/animated/ModulusAnimatedNode;->mValue:D
-
-    .line 37
     return-void
 
     .line 34
     :cond_0
-    new-instance v1, Lcom/facebook/react/bridge/JSApplicationCausedNativeException;
+    new-instance v0, Lcom/facebook/react/bridge/JSApplicationCausedNativeException;
 
-    const-string v2, "Illegal node ID set as an input for Animated.modulus node"
+    const-string v1, "Illegal node ID set as an input for Animated.modulus node"
 
-    invoke-direct {v1, v2}, Lcom/facebook/react/bridge/JSApplicationCausedNativeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationCausedNativeException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v0
 .end method

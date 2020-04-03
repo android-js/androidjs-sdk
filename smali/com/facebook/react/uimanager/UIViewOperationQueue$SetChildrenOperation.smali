@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/bridge/ReadableArray;)V
     .locals 0
-    .param p2, "tag"    # I
-    .param p3, "childrenTags"    # Lcom/facebook/react/bridge/ReadableArray;
 
     .line 241
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$SetChildrenOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -35,7 +33,6 @@
     .line 243
     iput-object p3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$SetChildrenOperation;->mChildrenTags:Lcom/facebook/react/bridge/ReadableArray;
 
-    .line 244
     return-void
 .end method
 
@@ -57,6 +54,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->setChildren(ILcom/facebook/react/bridge/ReadableArray;)V
 
-    .line 251
     return-void
 .end method

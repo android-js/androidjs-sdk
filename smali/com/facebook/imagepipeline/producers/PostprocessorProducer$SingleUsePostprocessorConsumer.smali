@@ -33,8 +33,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer;Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer;
-    .param p2, "postprocessorConsumer"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
 
     .line 306
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$SingleUsePostprocessorConsumer;->this$0:Lcom/facebook/imagepipeline/producers/PostprocessorProducer;
@@ -42,15 +40,11 @@
     .line 307
     invoke-direct {p0, p2}, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;)V
 
-    .line 308
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer;Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;Lcom/facebook/imagepipeline/producers/PostprocessorProducer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;
-    .param p3, "x2"    # Lcom/facebook/imagepipeline/producers/PostprocessorProducer$1;
 
     .line 302
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$SingleUsePostprocessorConsumer;-><init>(Lcom/facebook/imagepipeline/producers/PostprocessorProducer;Lcom/facebook/imagepipeline/producers/PostprocessorProducer$PostprocessorConsumer;)V
@@ -62,7 +56,6 @@
 # virtual methods
 .method protected onNewResultImpl(Lcom/facebook/common/references/CloseableReference;I)V
     .locals 1
-    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,14 +66,12 @@
     .end annotation
 
     .line 314
-    .local p1, "newResult":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/image/CloseableImage;>;"
     invoke-static {p2}, Lcom/facebook/imagepipeline/producers/PostprocessorProducer$SingleUsePostprocessorConsumer;->isNotLast(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 315
     return-void
 
     .line 317
@@ -91,7 +82,6 @@
 
     invoke-interface {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 318
     return-void
 .end method
 

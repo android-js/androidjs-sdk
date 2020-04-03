@@ -32,9 +32,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;Ljava/io/File;)V
-    .locals 2
-    .param p1, "id"    # Ljava/lang/String;
-    .param p2, "cachedFile"    # Ljava/io/File;
+    .locals 0
 
     .line 513
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,36 +43,32 @@
     .line 515
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->id:Ljava/lang/String;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->id:Ljava/lang/String;
 
     .line 516
     invoke-static {p2}, Lcom/facebook/binaryresource/FileBinaryResource;->createOrNull(Ljava/io/File;)Lcom/facebook/binaryresource/FileBinaryResource;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->resource:Lcom/facebook/binaryresource/FileBinaryResource;
+    iput-object p1, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->resource:Lcom/facebook/binaryresource/FileBinaryResource;
+
+    const-wide/16 p1, -0x1
 
     .line 517
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->size:J
+    iput-wide p1, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->size:J
 
     .line 518
-    iput-wide v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->timestamp:J
+    iput-wide p1, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->timestamp:J
 
-    .line 519
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Ljava/io/File;Lcom/facebook/cache/disk/DefaultDiskStorage$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
-    .param p2, "x1"    # Ljava/io/File;
-    .param p3, "x2"    # Lcom/facebook/cache/disk/DefaultDiskStorage$1;
 
     .line 507
     invoke-direct {p0, p1, p2}, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;-><init>(Ljava/lang/String;Ljava/io/File;)V
@@ -161,15 +155,13 @@
     move-result-object v0
 
     .line 530
-    .local v0, "cachedFile":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->lastModified()J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    iput-wide v1, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->timestamp:J
+    iput-wide v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->timestamp:J
 
     .line 532
-    .end local v0    # "cachedFile":Ljava/io/File;
     :cond_0
     iget-wide v0, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$EntryImpl;->timestamp:J
 

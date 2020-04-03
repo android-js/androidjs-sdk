@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/drawee/view/DraweeTransition;Lcom/facebook/drawee/view/GenericDraweeView;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/drawee/view/DraweeTransition;
 
     .line 115
     iput-object p1, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
@@ -38,53 +37,51 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
-    .param p1, "animation"    # Landroid/animation/Animator;
+    .locals 1
 
     .line 118
-    iget-object v0, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->val$draweeView:Lcom/facebook/drawee/view/GenericDraweeView;
+    iget-object p1, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->val$draweeView:Lcom/facebook/drawee/view/GenericDraweeView;
 
-    invoke-virtual {v0}, Lcom/facebook/drawee/view/GenericDraweeView;->getHierarchy()Lcom/facebook/drawee/interfaces/DraweeHierarchy;
+    invoke-virtual {p1}, Lcom/facebook/drawee/view/GenericDraweeView;->getHierarchy()Lcom/facebook/drawee/interfaces/DraweeHierarchy;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;
+
+    iget-object v0, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
+
+    invoke-static {v0}, Lcom/facebook/drawee/view/DraweeTransition;->access$000(Lcom/facebook/drawee/view/DraweeTransition;)Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
 
     move-result-object v0
 
-    check-cast v0, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;
-
-    iget-object v1, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
-
-    invoke-static {v1}, Lcom/facebook/drawee/view/DraweeTransition;->access$000(Lcom/facebook/drawee/view/DraweeTransition;)Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;->setActualImageScaleType(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;)V
+    invoke-virtual {p1, v0}, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;->setActualImageScaleType(Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;)V
 
     .line 119
+    iget-object p1, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
+
+    invoke-static {p1}, Lcom/facebook/drawee/view/DraweeTransition;->access$100(Lcom/facebook/drawee/view/DraweeTransition;)Landroid/graphics/PointF;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    .line 120
+    iget-object p1, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->val$draweeView:Lcom/facebook/drawee/view/GenericDraweeView;
+
+    invoke-virtual {p1}, Lcom/facebook/drawee/view/GenericDraweeView;->getHierarchy()Lcom/facebook/drawee/interfaces/DraweeHierarchy;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;
+
     iget-object v0, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
 
     invoke-static {v0}, Lcom/facebook/drawee/view/DraweeTransition;->access$100(Lcom/facebook/drawee/view/DraweeTransition;)Landroid/graphics/PointF;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, v0}, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;->setActualImageFocusPoint(Landroid/graphics/PointF;)V
 
-    .line 120
-    iget-object v0, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->val$draweeView:Lcom/facebook/drawee/view/GenericDraweeView;
-
-    invoke-virtual {v0}, Lcom/facebook/drawee/view/GenericDraweeView;->getHierarchy()Lcom/facebook/drawee/interfaces/DraweeHierarchy;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;
-
-    iget-object v1, p0, Lcom/facebook/drawee/view/DraweeTransition$2;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
-
-    invoke-static {v1}, Lcom/facebook/drawee/view/DraweeTransition;->access$100(Lcom/facebook/drawee/view/DraweeTransition;)Landroid/graphics/PointF;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/facebook/drawee/generic/GenericDraweeHierarchy;->setActualImageFocusPoint(Landroid/graphics/PointF;)V
-
-    .line 122
     :cond_0
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/MenuItemImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/view/menu/MenuItemImpl;
 
     .line 800
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl$1;->this$0:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -37,18 +36,16 @@
 
 # virtual methods
 .method public onActionProviderVisibilityChanged(Z)V
-    .locals 2
-    .param p1, "isVisible"    # Z
+    .locals 1
 
     .line 803
+    iget-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl$1;->this$0:Landroid/support/v7/view/menu/MenuItemImpl;
+
+    iget-object p1, p1, Landroid/support/v7/view/menu/MenuItemImpl;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
+
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemImpl$1;->this$0:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    iget-object v0, v0, Landroid/support/v7/view/menu/MenuItemImpl;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
+    invoke-virtual {p1, v0}, Landroid/support/v7/view/menu/MenuBuilder;->onItemVisibleChanged(Landroid/support/v7/view/menu/MenuItemImpl;)V
 
-    iget-object v1, p0, Landroid/support/v7/view/menu/MenuItemImpl$1;->this$0:Landroid/support/v7/view/menu/MenuItemImpl;
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->onItemVisibleChanged(Landroid/support/v7/view/menu/MenuItemImpl;)V
-
-    .line 804
     return-void
 .end method

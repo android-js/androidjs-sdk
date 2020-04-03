@@ -68,7 +68,6 @@
 
 .method public writeTo(Lokio/BufferedSink;)V
     .locals 3
-    .param p1, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -84,6 +83,5 @@
 
     invoke-interface {p1, v0, v1, v2}, Lokio/BufferedSink;->write([BII)Lokio/BufferedSink;
 
-    .line 99
     return-void
 .end method

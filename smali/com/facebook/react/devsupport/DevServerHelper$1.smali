@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevServerHelper;
 
     .line 151
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
@@ -65,106 +64,100 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 7
-    .param p1, "backgroundParams"    # [Ljava/lang/Void;
+    .locals 5
 
     .line 154
-    new-instance v0, Ljava/util/HashMap;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
     .line 155
-    .local v0, "handlers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Lcom/facebook/react/packagerconnection/RequestHandler;>;"
-    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$1$1;
+    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$1$1;
 
-    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$1;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$1;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
 
-    const-string v2, "reload"
+    const-string v1, "reload"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 161
-    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$1$2;
+    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$1$2;
 
-    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$2;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$2;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
 
-    const-string v2, "devMenu"
+    const-string v1, "devMenu"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 167
-    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$1$3;
+    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$1$3;
 
-    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$3;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$3;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
 
-    const-string v2, "captureHeap"
+    const-string v1, "captureHeap"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 173
-    iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->val$commandListener:Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;
+    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->val$commandListener:Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;
 
-    invoke-interface {v1}, Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;->customCommandHandlers()Ljava/util/Map;
+    invoke-interface {v0}, Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;->customCommandHandlers()Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 174
-    .local v1, "customHandlers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Lcom/facebook/react/packagerconnection/RequestHandler;>;"
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 175
-    invoke-interface {v0, v1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {p1, v0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
     .line 177
     :cond_0
-    new-instance v2, Lcom/facebook/react/packagerconnection/FileIoHandler;
+    new-instance v0, Lcom/facebook/react/packagerconnection/FileIoHandler;
 
-    invoke-direct {v2}, Lcom/facebook/react/packagerconnection/FileIoHandler;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/packagerconnection/FileIoHandler;-><init>()V
 
-    invoke-virtual {v2}, Lcom/facebook/react/packagerconnection/FileIoHandler;->handlers()Ljava/util/Map;
+    invoke-virtual {v0}, Lcom/facebook/react/packagerconnection/FileIoHandler;->handlers()Ljava/util/Map;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v0, v2}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
+    invoke-interface {p1, v0}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
     .line 179
-    new-instance v2, Lcom/facebook/react/devsupport/DevServerHelper$1$4;
+    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$1$4;
 
-    invoke-direct {v2, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$4;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/DevServerHelper$1$4;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
 
     .line 192
-    .local v2, "onPackagerConnectedCallback":Lcom/facebook/react/packagerconnection/ReconnectingWebSocket$ConnectionCallback;
-    iget-object v3, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
+    iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
 
-    new-instance v4, Lcom/facebook/react/packagerconnection/JSPackagerClient;
+    new-instance v2, Lcom/facebook/react/packagerconnection/JSPackagerClient;
 
-    iget-object v5, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->val$clientId:Ljava/lang/String;
+    iget-object v3, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->val$clientId:Ljava/lang/String;
 
     .line 194
-    invoke-static {v3}, Lcom/facebook/react/devsupport/DevServerHelper;->access$100(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/devsupport/DevInternalSettings;
+    invoke-static {v1}, Lcom/facebook/react/devsupport/DevServerHelper;->access$100(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/devsupport/DevInternalSettings;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Lcom/facebook/react/devsupport/DevInternalSettings;->getPackagerConnectionSettings()Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;
+    invoke-virtual {v4}, Lcom/facebook/react/devsupport/DevInternalSettings;->getPackagerConnectionSettings()Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-direct {v4, v5, v6, v0, v2}, Lcom/facebook/react/packagerconnection/JSPackagerClient;-><init>(Ljava/lang/String;Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;Ljava/util/Map;Lcom/facebook/react/packagerconnection/ReconnectingWebSocket$ConnectionCallback;)V
+    invoke-direct {v2, v3, v4, p1, v0}, Lcom/facebook/react/packagerconnection/JSPackagerClient;-><init>(Ljava/lang/String;Lcom/facebook/react/packagerconnection/PackagerConnectionSettings;Ljava/util/Map;Lcom/facebook/react/packagerconnection/ReconnectingWebSocket$ConnectionCallback;)V
 
     .line 192
-    invoke-static {v3, v4}, Lcom/facebook/react/devsupport/DevServerHelper;->access$002(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/packagerconnection/JSPackagerClient;)Lcom/facebook/react/packagerconnection/JSPackagerClient;
+    invoke-static {v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper;->access$002(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/packagerconnection/JSPackagerClient;)Lcom/facebook/react/packagerconnection/JSPackagerClient;
 
     .line 197
-    iget-object v3, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
 
-    invoke-static {v3}, Lcom/facebook/react/devsupport/DevServerHelper;->access$000(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/packagerconnection/JSPackagerClient;
+    invoke-static {p1}, Lcom/facebook/react/devsupport/DevServerHelper;->access$000(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/packagerconnection/JSPackagerClient;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lcom/facebook/react/packagerconnection/JSPackagerClient;->init()V
+    invoke-virtual {p1}, Lcom/facebook/react/packagerconnection/JSPackagerClient;->init()V
 
-    .line 199
-    const/4 v3, 0x0
+    const/4 p1, 0x0
 
-    return-object v3
+    return-object p1
 .end method

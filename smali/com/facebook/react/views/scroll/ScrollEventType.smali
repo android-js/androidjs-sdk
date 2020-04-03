@@ -86,9 +86,9 @@
 
     sput-object v0, Lcom/facebook/react/views/scroll/ScrollEventType;->MOMENTUM_END:Lcom/facebook/react/views/scroll/ScrollEventType;
 
-    .line 13
     const/4 v0, 0x5
 
+    .line 13
     new-array v0, v0, [Lcom/facebook/react/views/scroll/ScrollEventType;
 
     sget-object v6, Lcom/facebook/react/views/scroll/ScrollEventType;->BEGIN_DRAG:Lcom/facebook/react/views/scroll/ScrollEventType;
@@ -132,7 +132,6 @@
 
 .method public static getJSEventName(Lcom/facebook/react/views/scroll/ScrollEventType;)Ljava/lang/String;
     .locals 3
-    .param p0, "type"    # Lcom/facebook/react/views/scroll/ScrollEventType;
 
     .line 21
     sget-object v0, Lcom/facebook/react/views/scroll/ScrollEventType$1;->$SwitchMap$com$facebook$react$views$scroll$ScrollEventType:[I
@@ -163,10 +162,9 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 31
-    const-string v0, "topMomentumScrollEnd"
+    const-string p0, "topMomentumScrollEnd"
 
-    return-object v0
+    return-object p0
 
     .line 33
     :cond_0
@@ -184,51 +182,46 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 29
     :cond_1
-    const-string v0, "topMomentumScrollBegin"
+    const-string p0, "topMomentumScrollBegin"
 
-    return-object v0
+    return-object p0
 
-    .line 27
     :cond_2
-    const-string v0, "topScroll"
+    const-string p0, "topScroll"
 
-    return-object v0
+    return-object p0
 
-    .line 25
     :cond_3
-    const-string v0, "topScrollEndDrag"
+    const-string p0, "topScrollEndDrag"
 
-    return-object v0
+    return-object p0
 
-    .line 23
     :cond_4
-    const-string v0, "topScrollBeginDrag"
+    const-string p0, "topScrollBeginDrag"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/views/scroll/ScrollEventType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 13
     const-class v0, Lcom/facebook/react/views/scroll/ScrollEventType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/views/scroll/ScrollEventType;
+    check-cast p0, Lcom/facebook/react/views/scroll/ScrollEventType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/views/scroll/ScrollEventType;

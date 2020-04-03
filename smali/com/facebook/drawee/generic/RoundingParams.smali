@@ -41,22 +41,22 @@
 
     iput-object v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput-boolean v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
 
-    .line 48
     const/4 v1, 0x0
 
+    .line 48
     iput-object v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
 
     .line 49
     iput v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
 
-    .line 50
     const/4 v1, 0x0
 
+    .line 50
     iput v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
 
     .line 51
@@ -90,10 +90,6 @@
 
 .method public static fromCornersRadii(FFFF)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 1
-    .param p0, "topLeft"    # F
-    .param p1, "topRight"    # F
-    .param p2, "bottomRight"    # F
-    .param p3, "bottomLeft"    # F
 
     .line 183
     new-instance v0, Lcom/facebook/drawee/generic/RoundingParams;
@@ -103,15 +99,13 @@
     .line 184
     invoke-virtual {v0, p0, p1, p2, p3}, Lcom/facebook/drawee/generic/RoundingParams;->setCornersRadii(FFFF)Lcom/facebook/drawee/generic/RoundingParams;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 183
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromCornersRadii([F)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 1
-    .param p0, "radii"    # [F
 
     .line 189
     new-instance v0, Lcom/facebook/drawee/generic/RoundingParams;
@@ -120,14 +114,13 @@
 
     invoke-virtual {v0, p0}, Lcom/facebook/drawee/generic/RoundingParams;->setCornersRadii([F)Lcom/facebook/drawee/generic/RoundingParams;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static fromCornersRadius(F)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 1
-    .param p0, "radius"    # F
 
     .line 174
     new-instance v0, Lcom/facebook/drawee/generic/RoundingParams;
@@ -136,9 +129,9 @@
 
     invoke-virtual {v0, p0}, Lcom/facebook/drawee/generic/RoundingParams;->setCornersRadius(F)Lcom/facebook/drawee/generic/RoundingParams;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private getOrCreateRoundedCornersRadii()[F
@@ -149,9 +142,9 @@
 
     if-nez v0, :cond_0
 
-    .line 162
     const/16 v0, 0x8
 
+    .line 162
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
@@ -166,26 +159,24 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 3
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 267
     if-ne p0, p1, :cond_0
 
-    .line 268
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 270
     :cond_0
     const/4 v0, 0x0
 
     if-eqz p1, :cond_9
 
+    .line 270
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -200,109 +191,97 @@
 
     .line 274
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Lcom/facebook/drawee/generic/RoundingParams;
+    check-cast p1, Lcom/facebook/drawee/generic/RoundingParams;
 
     .line 276
-    .local v1, "that":Lcom/facebook/drawee/generic/RoundingParams;
-    iget-boolean v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
+    iget-boolean v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
 
-    iget-boolean v3, v1, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
+    iget-boolean v2, p1, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
-    .line 277
     return v0
 
     .line 280
     :cond_2
-    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
+    iget v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
 
-    iget v3, v1, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
+    iget v2, p1, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
 
-    if-eq v2, v3, :cond_3
+    if-eq v1, v2, :cond_3
 
-    .line 281
     return v0
 
     .line 284
     :cond_3
-    iget v2, v1, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
+    iget v1, p1, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
 
-    iget v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
+    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
 
-    invoke-static {v2, v3}, Ljava/lang/Float;->compare(FF)I
+    invoke-static {v1, v2}, Ljava/lang/Float;->compare(FF)I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_4
+    if-eqz v1, :cond_4
 
-    .line 285
     return v0
 
     .line 288
     :cond_4
-    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
+    iget v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
 
-    iget v3, v1, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
+    iget v2, p1, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
 
-    if-eq v2, v3, :cond_5
+    if-eq v1, v2, :cond_5
 
-    .line 289
     return v0
 
     .line 292
     :cond_5
-    iget v2, v1, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
+    iget v1, p1, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
 
-    iget v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
+    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
 
-    invoke-static {v2, v3}, Ljava/lang/Float;->compare(FF)I
+    invoke-static {v1, v2}, Ljava/lang/Float;->compare(FF)I
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_6
+    if-eqz v1, :cond_6
 
-    .line 293
     return v0
 
     .line 296
     :cond_6
-    iget-object v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
+    iget-object v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
-    iget-object v3, v1, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
+    iget-object v2, p1, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
-    if-eq v2, v3, :cond_7
+    if-eq v1, v2, :cond_7
 
-    .line 297
     return v0
 
     .line 300
     :cond_7
-    iget-boolean v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
+    iget-boolean v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
 
-    iget-boolean v3, v1, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
+    iget-boolean v2, p1, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
 
-    if-eq v2, v3, :cond_8
+    if-eq v1, v2, :cond_8
 
-    .line 301
     return v0
 
     .line 304
     :cond_8
     iget-object v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
 
-    iget-object v2, v1, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
+    iget-object p1, p1, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
 
-    invoke-static {v0, v2}, Ljava/util/Arrays;->equals([F[F)Z
+    invoke-static {v0, p1}, Ljava/util/Arrays;->equals([F[F)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 271
-    .end local v1    # "that":Lcom/facebook/drawee/generic/RoundingParams;
     :cond_9
     :goto_0
     return v0
@@ -381,7 +360,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 6
+    .locals 5
 
     .line 309
     iget-object v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
@@ -399,121 +378,103 @@
     :cond_0
     const/4 v0, 0x0
 
-    .line 310
-    .local v0, "result":I
     :goto_0
-    mul-int/lit8 v2, v0, 0x1f
+    mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
+    .line 310
+    iget-boolean v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
 
-    add-int/2addr v2, v3
+    add-int/2addr v0, v2
+
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 311
-    .end local v0    # "result":I
-    .local v2, "result":I
-    mul-int/lit8 v0, v2, 0x1f
+    iget-object v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
 
-    iget-object v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mCornersRadii:[F
+    if-eqz v2, :cond_1
 
-    if-eqz v3, :cond_1
+    invoke-static {v2}, Ljava/util/Arrays;->hashCode([F)I
 
-    invoke-static {v3}, Ljava/util/Arrays;->hashCode([F)I
-
-    move-result v3
+    move-result v2
 
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_1
-    add-int/2addr v0, v3
+    add-int/2addr v0, v2
+
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 312
-    .end local v2    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v2, v0, 0x1f
+    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
 
-    iget v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
+    add-int/2addr v0, v2
 
-    add-int/2addr v2, v3
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 313
-    .end local v0    # "result":I
-    .restart local v2    # "result":I
-    mul-int/lit8 v0, v2, 0x1f
+    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
 
-    iget v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    cmpl-float v4, v2, v3
 
-    cmpl-float v5, v3, v4
+    if-eqz v4, :cond_2
 
-    if-eqz v5, :cond_2
+    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
 
-    invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
-
-    move-result v3
+    move-result v2
 
     goto :goto_2
 
     :cond_2
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_2
-    add-int/2addr v0, v3
+    add-int/2addr v0, v2
+
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 314
-    .end local v2    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v2, v0, 0x1f
+    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
 
-    iget v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
+    add-int/2addr v0, v2
 
-    add-int/2addr v2, v3
+    mul-int/lit8 v0, v0, 0x1f
 
     .line 315
-    .end local v0    # "result":I
-    .restart local v2    # "result":I
-    mul-int/lit8 v0, v2, 0x1f
+    iget v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
 
-    iget v3, p0, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
+    cmpl-float v3, v2, v3
 
-    cmpl-float v4, v3, v4
+    if-eqz v3, :cond_3
 
-    if-eqz v4, :cond_3
-
-    invoke-static {v3}, Ljava/lang/Float;->floatToIntBits(F)I
+    invoke-static {v2}, Ljava/lang/Float;->floatToIntBits(F)I
 
     move-result v1
 
     :cond_3
     add-int/2addr v0, v1
 
+    mul-int/lit8 v0, v0, 0x1f
+
     .line 316
-    .end local v2    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-boolean v1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
 
-    iget-boolean v2, p0, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
+    add-int/2addr v0, v1
 
-    add-int/2addr v1, v2
-
-    .line 318
-    .end local v0    # "result":I
-    .local v1, "result":I
-    return v1
+    return v0
 .end method
 
 .method public setBorder(IF)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 2
-    .param p1, "color"    # I
+    .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
     .end param
-    .param p2, "width"    # F
 
-    .line 227
     const/4 v0, 0x0
 
     cmpl-float v0, p2, v0
@@ -530,6 +491,7 @@
     :goto_0
     const-string v1, "the border width cannot be < 0"
 
+    .line 227
     invoke-static {v0, v1}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 228
@@ -538,13 +500,12 @@
     .line 229
     iput p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
 
-    .line 230
     return-object p0
 .end method
 
 .method public setBorderColor(I)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 0
-    .param p1, "color"    # I
+    .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
     .end param
@@ -552,15 +513,12 @@
     .line 212
     iput p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderColor:I
 
-    .line 213
     return-object p0
 .end method
 
 .method public setBorderWidth(F)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 2
-    .param p1, "width"    # F
 
-    .line 197
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -577,71 +535,64 @@
     :goto_0
     const-string v1, "the border width cannot be < 0"
 
+    .line 197
     invoke-static {v0, v1}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 198
     iput p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mBorderWidth:F
 
-    .line 199
     return-object p0
 .end method
 
 .method public setCornersRadii(FFFF)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 2
-    .param p1, "topLeft"    # F
-    .param p2, "topRight"    # F
-    .param p3, "bottomRight"    # F
-    .param p4, "bottomLeft"    # F
 
     .line 96
     invoke-direct {p0}, Lcom/facebook/drawee/generic/RoundingParams;->getOrCreateRoundedCornersRadii()[F
 
     move-result-object v0
 
-    .line 97
-    .local v0, "radii":[F
     const/4 v1, 0x1
 
+    .line 97
     aput p1, v0, v1
 
     const/4 v1, 0x0
 
     aput p1, v0, v1
 
+    const/4 p1, 0x3
+
     .line 98
-    const/4 v1, 0x3
+    aput p2, v0, p1
 
-    aput p2, v0, v1
+    const/4 p1, 0x2
 
-    const/4 v1, 0x2
+    aput p2, v0, p1
 
-    aput p2, v0, v1
+    const/4 p1, 0x5
 
     .line 99
-    const/4 v1, 0x5
+    aput p3, v0, p1
 
-    aput p3, v0, v1
+    const/4 p1, 0x4
 
-    const/4 v1, 0x4
+    aput p3, v0, p1
 
-    aput p3, v0, v1
+    const/4 p1, 0x7
 
     .line 100
-    const/4 v1, 0x7
+    aput p4, v0, p1
 
-    aput p4, v0, v1
+    const/4 p1, 0x6
 
-    const/4 v1, 0x6
+    aput p4, v0, p1
 
-    aput p4, v0, v1
-
-    .line 101
     return-object p0
 .end method
 
 .method public setCornersRadii([F)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 4
-    .param p1, "radii"    # [F
 
     .line 112
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -674,13 +625,11 @@
 
     invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 115
     return-object p0
 .end method
 
 .method public setCornersRadius(F)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 1
-    .param p1, "radius"    # F
 
     .line 78
     invoke-direct {p0}, Lcom/facebook/drawee/generic/RoundingParams;->getOrCreateRoundedCornersRadii()[F
@@ -689,13 +638,12 @@
 
     invoke-static {v0, p1}, Ljava/util/Arrays;->fill([FF)V
 
-    .line 79
     return-object p0
 .end method
 
 .method public setOverlayColor(I)Lcom/facebook/drawee/generic/RoundingParams;
-    .locals 1
-    .param p1, "overlayColor"    # I
+    .locals 0
+    .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
     .end param
@@ -704,19 +652,16 @@
     iput p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mOverlayColor:I
 
     .line 151
-    sget-object v0, Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;->OVERLAY_COLOR:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
+    sget-object p1, Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;->OVERLAY_COLOR:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
-    iput-object v0, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
+    iput-object p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
-    .line 152
     return-object p0
 .end method
 
 .method public setPadding(F)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 2
-    .param p1, "padding"    # F
 
-    .line 238
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
@@ -733,44 +678,38 @@
     :goto_0
     const-string v1, "the padding cannot be < 0"
 
+    .line 238
     invoke-static {v0, v1}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
     .line 239
     iput p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mPadding:F
 
-    .line 240
     return-object p0
 .end method
 
 .method public setRoundAsCircle(Z)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 0
-    .param p1, "roundAsCircle"    # Z
 
     .line 62
     iput-boolean p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundAsCircle:Z
 
-    .line 63
     return-object p0
 .end method
 
 .method public setRoundingMethod(Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 0
-    .param p1, "roundingMethod"    # Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
     .line 135
     iput-object p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mRoundingMethod:Lcom/facebook/drawee/generic/RoundingParams$RoundingMethod;
 
-    .line 136
     return-object p0
 .end method
 
 .method public setScaleDownInsideBorders(Z)Lcom/facebook/drawee/generic/RoundingParams;
     .locals 0
-    .param p1, "scaleDownInsideBorders"    # Z
 
     .line 256
     iput-boolean p1, p0, Lcom/facebook/drawee/generic/RoundingParams;->mScaleDownInsideBorders:Z
 
-    .line 257
     return-object p0
 .end method

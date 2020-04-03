@@ -15,8 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Lokhttp3/OkHttpClient;)V
-    .locals 1
-    .param p1, "okHttpClient"    # Lokhttp3/OkHttpClient;
+    .locals 0
 
     .line 40
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;-><init>(Lokhttp3/OkHttpClient;)V
@@ -27,21 +26,19 @@
     .line 42
     invoke-virtual {p1}, Lokhttp3/OkHttpClient;->dispatcher()Lokhttp3/Dispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lokhttp3/Dispatcher;->executorService()Ljava/util/concurrent/ExecutorService;
+    invoke-virtual {p1}, Lokhttp3/Dispatcher;->executorService()Ljava/util/concurrent/ExecutorService;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/modules/fresco/ReactOkHttpNetworkFetcher;->mCancellationExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/facebook/react/modules/fresco/ReactOkHttpNetworkFetcher;->mCancellationExecutor:Ljava/util/concurrent/Executor;
 
-    .line 43
     return-void
 .end method
 
 .method private getHeaders(Lcom/facebook/react/bridge/ReadableMap;)Ljava/util/Map;
     .locals 4
-    .param p1, "readableMap"    # Lcom/facebook/react/bridge/ReadableMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,13 +51,11 @@
         }
     .end annotation
 
-    .line 46
     if-nez p1, :cond_0
 
-    .line 47
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 49
     :cond_0
@@ -69,13 +64,11 @@
     move-result-object v0
 
     .line 50
-    .local v0, "iterator":Lcom/facebook/react/bridge/ReadableMapKeySetIterator;
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     .line 51
-    .local v1, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :goto_0
     invoke-interface {v0}, Lcom/facebook/react/bridge/ReadableMapKeySetIterator;->hasNextKey()Z
 
@@ -89,21 +82,15 @@
     move-result-object v2
 
     .line 53
-    .local v2, "key":Ljava/lang/String;
     invoke-interface {p1, v2}, Lcom/facebook/react/bridge/ReadableMap;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
     .line 54
-    .local v3, "value":Ljava/lang/String;
     invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 55
-    .end local v2    # "key":Ljava/lang/String;
-    .end local v3    # "value":Ljava/lang/String;
     goto :goto_0
 
-    .line 56
     :cond_1
     return-object v1
 .end method
@@ -112,8 +99,6 @@
 # virtual methods
 .method public fetch(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
     .locals 4
-    .param p1, "fetchState"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
-    .param p2, "callback"    # Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;
 
     .line 61
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -127,51 +112,45 @@
 
     move-result-object v0
 
-    .line 63
-    .local v0, "uri":Landroid/net/Uri;
-    const/4 v1, 0x0
-
     .line 64
-    .local v1, "requestHeaders":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->getContext()Lcom/facebook/imagepipeline/producers/ProducerContext;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Lcom/facebook/imagepipeline/producers/ProducerContext;->getImageRequest()Lcom/facebook/imagepipeline/request/ImageRequest;
+    invoke-interface {v1}, Lcom/facebook/imagepipeline/producers/ProducerContext;->getImageRequest()Lcom/facebook/imagepipeline/request/ImageRequest;
 
-    move-result-object v2
+    move-result-object v1
 
-    instance-of v2, v2, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
+    instance-of v1, v1, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
 
-    if-eqz v2, :cond_0
-
-    .line 65
-    nop
+    if-eqz v1, :cond_0
 
     .line 66
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->getContext()Lcom/facebook/imagepipeline/producers/ProducerContext;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Lcom/facebook/imagepipeline/producers/ProducerContext;->getImageRequest()Lcom/facebook/imagepipeline/request/ImageRequest;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
-
-    .line 67
-    .local v2, "networkImageRequest":Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
-    invoke-virtual {v2}, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;->getHeaders()Lcom/facebook/react/bridge/ReadableMap;
-
-    move-result-object v3
-
-    invoke-direct {p0, v3}, Lcom/facebook/react/modules/fresco/ReactOkHttpNetworkFetcher;->getHeaders(Lcom/facebook/react/bridge/ReadableMap;)Ljava/util/Map;
+    invoke-interface {v1}, Lcom/facebook/imagepipeline/producers/ProducerContext;->getImageRequest()Lcom/facebook/imagepipeline/request/ImageRequest;
 
     move-result-object v1
 
-    .line 69
-    .end local v2    # "networkImageRequest":Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
+    check-cast v1, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
+
+    .line 67
+    invoke-virtual {v1}, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;->getHeaders()Lcom/facebook/react/bridge/ReadableMap;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/facebook/react/modules/fresco/ReactOkHttpNetworkFetcher;->getHeaders(Lcom/facebook/react/bridge/ReadableMap;)Ljava/util/Map;
+
+    move-result-object v1
+
+    goto :goto_0
+
     :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
     if-nez v1, :cond_1
 
     .line 70
@@ -205,36 +184,34 @@
     .line 74
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v2, v3}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {v2, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 75
     invoke-static {v1}, Lokhttp3/Headers;->of(Ljava/util/Map;)Lokhttp3/Headers;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Lokhttp3/Request$Builder;->headers(Lokhttp3/Headers;)Lokhttp3/Request$Builder;
+    invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->headers(Lokhttp3/Headers;)Lokhttp3/Request$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 76
-    invoke-virtual {v2}, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 77
-    invoke-virtual {v2}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 79
-    .local v2, "request":Lokhttp3/Request;
-    invoke-virtual {p0, p1, p2, v2}, Lcom/facebook/react/modules/fresco/ReactOkHttpNetworkFetcher;->fetchWithRequest(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;Lokhttp3/Request;)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/facebook/react/modules/fresco/ReactOkHttpNetworkFetcher;->fetchWithRequest(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;Lokhttp3/Request;)V
 
-    .line 80
     return-void
 .end method
 

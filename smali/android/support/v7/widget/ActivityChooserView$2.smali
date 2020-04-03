@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/ActivityChooserView;
 
     .line 148
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$2;->this$0:Landroid/support/v7/widget/ActivityChooserView;
@@ -94,7 +93,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ActionProvider;->subUiVisibilityChanged(Z)V
 
-    .line 161
     :cond_1
     :goto_0
     return-void

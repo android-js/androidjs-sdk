@@ -54,13 +54,11 @@
 
     invoke-static {v0, v1}, Lcom/facebook/jni/DestructorThread$Destructor;->access$302(Lcom/facebook/jni/DestructorThread$Destructor;Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
 
-    .line 120
     return-void
 .end method
 
 .method static synthetic access$400(Lcom/facebook/jni/DestructorThread$Destructor;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/jni/DestructorThread$Destructor;
 
     .line 113
     invoke-static {p0}, Lcom/facebook/jni/DestructorThread$DestructorList;->drop(Lcom/facebook/jni/DestructorThread$Destructor;)V
@@ -70,7 +68,6 @@
 
 .method private static drop(Lcom/facebook/jni/DestructorThread$Destructor;)V
     .locals 2
-    .param p0, "current"    # Lcom/facebook/jni/DestructorThread$Destructor;
 
     .line 131
     invoke-static {p0}, Lcom/facebook/jni/DestructorThread$Destructor;->access$600(Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
@@ -90,11 +87,10 @@
 
     invoke-static {p0}, Lcom/facebook/jni/DestructorThread$Destructor;->access$600(Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v0, v1}, Lcom/facebook/jni/DestructorThread$Destructor;->access$602(Lcom/facebook/jni/DestructorThread$Destructor;Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
+    invoke-static {v0, p0}, Lcom/facebook/jni/DestructorThread$Destructor;->access$602(Lcom/facebook/jni/DestructorThread$Destructor;Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
 
-    .line 133
     return-void
 .end method
 
@@ -102,7 +98,6 @@
 # virtual methods
 .method public enqueue(Lcom/facebook/jni/DestructorThread$Destructor;)V
     .locals 1
-    .param p1, "current"    # Lcom/facebook/jni/DestructorThread$Destructor;
 
     .line 123
     iget-object v0, p0, Lcom/facebook/jni/DestructorThread$DestructorList;->mHead:Lcom/facebook/jni/DestructorThread$Destructor;
@@ -130,6 +125,5 @@
 
     invoke-static {p1, v0}, Lcom/facebook/jni/DestructorThread$Destructor;->access$302(Lcom/facebook/jni/DestructorThread$Destructor;Lcom/facebook/jni/DestructorThread$Destructor;)Lcom/facebook/jni/DestructorThread$Destructor;
 
-    .line 128
     return-void
 .end method

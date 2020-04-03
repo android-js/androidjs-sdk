@@ -23,10 +23,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;Lcom/facebook/imagepipeline/producers/StatefulProducerRunnable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
 
     .line 53
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;, "Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;->this$0:Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
 
     iput-object p2, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;->val$statefulRunnable:Lcom/facebook/imagepipeline/producers/StatefulProducerRunnable;
@@ -42,7 +40,6 @@
     .locals 2
 
     .line 56
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;, "Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$2;->val$statefulRunnable:Lcom/facebook/imagepipeline/producers/StatefulProducerRunnable;
 
     invoke-virtual {v0}, Lcom/facebook/imagepipeline/producers/StatefulProducerRunnable;->cancel()V
@@ -58,6 +55,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->remove(Ljava/lang/Runnable;)V
 
-    .line 58
     return-void
 .end method

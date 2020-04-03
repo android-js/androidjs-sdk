@@ -24,7 +24,6 @@
     .locals 0
 
     .line 19
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher;, "Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher<TFETCH_STATE;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -33,8 +32,7 @@
 
 # virtual methods
 .method public getExtraMap(Lcom/facebook/imagepipeline/producers/FetchState;I)Ljava/util/Map;
-    .locals 1
-    .param p2, "byteSize"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TFETCH_STATE;I)",
@@ -48,41 +46,31 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 35
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher;, "Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher<TFETCH_STATE;>;"
-    .local p1, "fetchState":Lcom/facebook/imagepipeline/producers/FetchState;, "TFETCH_STATE;"
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onFetchCompletion(Lcom/facebook/imagepipeline/producers/FetchState;I)V
     .locals 0
-    .param p2, "byteSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TFETCH_STATE;I)V"
         }
     .end annotation
 
-    .line 30
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher;, "Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher<TFETCH_STATE;>;"
-    .local p1, "fetchState":Lcom/facebook/imagepipeline/producers/FetchState;, "TFETCH_STATE;"
     return-void
 .end method
 
 .method public shouldPropagate(Lcom/facebook/imagepipeline/producers/FetchState;)Z
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TFETCH_STATE;)Z"
         }
     .end annotation
 
-    .line 24
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher;, "Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher<TFETCH_STATE;>;"
-    .local p1, "fetchState":Lcom/facebook/imagepipeline/producers/FetchState;, "TFETCH_STATE;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

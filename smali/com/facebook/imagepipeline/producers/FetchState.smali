@@ -28,8 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
-    .locals 2
-    .param p2, "context"    # Lcom/facebook/imagepipeline/producers/ProducerContext;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,7 +41,6 @@
     .end annotation
 
     .line 30
-    .local p1, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 31
@@ -51,12 +49,11 @@
     .line 32
     iput-object p2, p0, Lcom/facebook/imagepipeline/producers/FetchState;->mContext:Lcom/facebook/imagepipeline/producers/ProducerContext;
 
+    const-wide/16 p1, 0x0
+
     .line 33
-    const-wide/16 v0, 0x0
+    iput-wide p1, p0, Lcom/facebook/imagepipeline/producers/FetchState;->mLastIntermediateResultTimeMs:J
 
-    iput-wide v0, p0, Lcom/facebook/imagepipeline/producers/FetchState;->mLastIntermediateResultTimeMs:J
-
-    .line 34
     return-void
 .end method
 
@@ -162,33 +159,27 @@
 
 .method public setLastIntermediateResultTimeMs(J)V
     .locals 0
-    .param p1, "lastIntermediateResultTimeMs"    # J
 
     .line 61
     iput-wide p1, p0, Lcom/facebook/imagepipeline/producers/FetchState;->mLastIntermediateResultTimeMs:J
 
-    .line 62
     return-void
 .end method
 
 .method public setOnNewResultStatusFlags(I)V
     .locals 0
-    .param p1, "onNewResultStatusFlags"    # I
 
     .line 73
     iput p1, p0, Lcom/facebook/imagepipeline/producers/FetchState;->mOnNewResultStatusFlags:I
 
-    .line 74
     return-void
 .end method
 
 .method public setResponseBytesRange(Lcom/facebook/imagepipeline/common/BytesRange;)V
     .locals 0
-    .param p1, "bytesRange"    # Lcom/facebook/imagepipeline/common/BytesRange;
 
     .line 86
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/FetchState;->mResponseBytesRange:Lcom/facebook/imagepipeline/common/BytesRange;
 
-    .line 87
     return-void
 .end method

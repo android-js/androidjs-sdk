@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public contentLength()J
-    .locals 3
+    .locals 2
 
     .line 130
     :try_start_0
@@ -53,15 +53,10 @@
 
     return-wide v0
 
-    .line 131
     :catch_0
-    move-exception v0
+    const-wide/16 v0, 0x0
 
-    .line 132
-    .local v0, "e":Ljava/io/IOException;
-    const-wide/16 v1, 0x0
-
-    return-wide v1
+    return-wide v0
 .end method
 
 .method public contentType()Lokhttp3/MediaType;
@@ -75,26 +70,21 @@
 
 .method public writeTo(Lokio/BufferedSink;)V
     .locals 2
-    .param p1, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 138
     const/4 v0, 0x0
 
     .line 140
-    .local v0, "source":Lokio/Source;
     :try_start_0
     iget-object v1, p0, Lcom/facebook/react/modules/network/RequestBodyUtil$1;->val$inputStream:Ljava/io/InputStream;
 
     invoke-static {v1}, Lokio/Okio;->source(Ljava/io/InputStream;)Lokio/Source;
 
-    move-result-object v1
-
-    move-object v0, v1
+    move-result-object v0
 
     .line 141
     invoke-interface {p1, v0}, Lokio/BufferedSink;->writeAll(Lokio/Source;)J
@@ -104,18 +94,13 @@
     .line 143
     invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 144
-    nop
-
-    .line 145
     return-void
 
-    .line 143
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 144
-    throw v1
+    throw p1
 .end method

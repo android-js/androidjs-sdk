@@ -53,29 +53,23 @@
 
     long-to-int v1, v0
 
-    .line 36
-    .local v1, "maxMemory":I
     const/high16 v0, 0x1000000
 
     if-ge v1, v0, :cond_0
 
-    .line 37
     const/high16 v0, 0x100000
 
     return v0
 
-    .line 38
     :cond_0
     const/high16 v0, 0x2000000
 
     if-ge v1, v0, :cond_1
 
-    .line 39
     const/high16 v0, 0x200000
 
     return v0
 
-    .line 41
     :cond_1
     const/high16 v0, 0x400000
 
@@ -85,36 +79,30 @@
 
 # virtual methods
 .method public get()Lcom/facebook/imagepipeline/cache/MemoryCacheParams;
-    .locals 9
+    .locals 7
 
     .line 24
     invoke-direct {p0}, Lcom/facebook/imagepipeline/cache/DefaultEncodedMemoryCacheParamsSupplier;->getMaxCacheSize()I
 
-    move-result v6
+    move-result v3
 
     .line 25
-    .local v6, "maxCacheSize":I
-    div-int/lit8 v7, v6, 0x8
+    div-int/lit8 v5, v3, 0x8
 
     .line 26
-    .local v7, "maxCacheEntrySize":I
-    new-instance v8, Lcom/facebook/imagepipeline/cache/MemoryCacheParams;
+    new-instance v6, Lcom/facebook/imagepipeline/cache/MemoryCacheParams;
 
     const v2, 0x7fffffff
 
     const v4, 0x7fffffff
 
-    move-object v0, v8
+    move-object v0, v6
 
-    move v1, v6
-
-    move v3, v6
-
-    move v5, v7
+    move v1, v3
 
     invoke-direct/range {v0 .. v5}, Lcom/facebook/imagepipeline/cache/MemoryCacheParams;-><init>(IIIII)V
 
-    return-object v8
+    return-object v6
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;

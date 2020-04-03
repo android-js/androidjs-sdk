@@ -17,9 +17,9 @@
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 18
     const/4 v0, 0x0
 
+    .line 18
     iput-object v0, p0, Lcom/facebook/react/common/SingleThreadAsserter;->mThread:Ljava/lang/Thread;
 
     return-void
@@ -36,7 +36,6 @@
     move-result-object v0
 
     .line 22
-    .local v0, "current":Ljava/lang/Thread;
     iget-object v1, p0, Lcom/facebook/react/common/SingleThreadAsserter;->mThread:Ljava/lang/Thread;
 
     if-nez v1, :cond_0
@@ -50,16 +49,15 @@
 
     if-ne v1, v0, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-static {v1}, Lcom/facebook/infer/annotation/Assertions;->assertCondition(Z)V
+    invoke-static {v0}, Lcom/facebook/infer/annotation/Assertions;->assertCondition(Z)V
 
-    .line 26
     return-void
 .end method

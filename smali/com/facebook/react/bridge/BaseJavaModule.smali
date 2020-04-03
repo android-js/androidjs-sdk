@@ -29,7 +29,6 @@
 .method public canOverrideExistingModule()Z
     .locals 1
 
-    .line 59
     const/4 v0, 0x0
 
     return v0
@@ -50,7 +49,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 48
     const/4 v0, 0x0
 
     return-object v0
@@ -59,7 +57,6 @@
 .method public hasConstants()Z
     .locals 1
 
-    .line 68
     const/4 v0, 0x0
 
     return v0
@@ -68,13 +65,11 @@
 .method public initialize()V
     .locals 0
 
-    .line 54
     return-void
 .end method
 
 .method public onCatalystInstanceDestroy()V
     .locals 0
 
-    .line 65
     return-void
 .end method

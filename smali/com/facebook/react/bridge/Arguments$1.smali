@@ -34,16 +34,15 @@
 # virtual methods
 .method public get(I)Ljava/lang/Object;
     .locals 1
-    .param p1, "index"    # I
 
     .line 95
     iget-object v0, p0, Lcom/facebook/react/bridge/Arguments$1;->val$objects:Ljava/lang/Object;
 
     invoke-static {v0, p1}, Ljava/lang/reflect/Array;->get(Ljava/lang/Object;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public size()I

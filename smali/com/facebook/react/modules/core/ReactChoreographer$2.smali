@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/core/ReactChoreographer;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/core/ReactChoreographer;
 
     .line 121
     iput-object p1, p0, Lcom/facebook/react/modules/core/ReactChoreographer$2;->this$0:Lcom/facebook/react/modules/core/ReactChoreographer;
@@ -81,14 +80,13 @@
     .line 130
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 132
     :cond_1
     return-void
 
-    .line 128
     :catchall_0
     move-exception v1
 
+    .line 128
     :try_start_1
     monitor-exit v0
     :try_end_1

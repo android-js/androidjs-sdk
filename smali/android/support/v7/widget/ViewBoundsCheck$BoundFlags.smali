@@ -33,9 +33,9 @@
     .line 136
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 137
     const/4 v0, 0x0
 
+    .line 137
     iput v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     return-void
@@ -45,16 +45,14 @@
 # virtual methods
 .method addFlags(I)V
     .locals 1
-    .param p1, "flags"    # I
 
     .line 152
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
-    or-int/2addr v0, p1
+    or-int/2addr p1, v0
 
-    iput v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
+    iput p1, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
-    .line 153
     return-void
 .end method
 
@@ -85,7 +83,6 @@
 
     if-nez v0, :cond_0
 
-    .line 172
     return v2
 
     .line 176
@@ -111,7 +108,6 @@
 
     if-nez v0, :cond_1
 
-    .line 178
     return v2
 
     .line 182
@@ -137,7 +133,6 @@
 
     if-nez v0, :cond_2
 
-    .line 184
     return v2
 
     .line 188
@@ -163,10 +158,8 @@
 
     if-nez v0, :cond_3
 
-    .line 190
     return v2
 
-    .line 193
     :cond_3
     const/4 v0, 0x1
 
@@ -174,52 +167,40 @@
 .end method
 
 .method compare(II)I
-    .locals 1
-    .param p1, "x"    # I
-    .param p2, "y"    # I
+    .locals 0
 
-    .line 160
     if-le p1, p2, :cond_0
 
-    .line 161
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 163
     :cond_0
     if-ne p1, p2, :cond_1
 
-    .line 164
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    return v0
+    return p1
 
-    .line 166
     :cond_1
-    const/4 v0, 0x4
+    const/4 p1, 0x4
 
-    return v0
+    return p1
 .end method
 
 .method resetFlags()V
     .locals 1
 
-    .line 156
     const/4 v0, 0x0
 
+    .line 156
     iput v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
-    .line 157
     return-void
 .end method
 
 .method setBounds(IIII)V
     .locals 0
-    .param p1, "rvStart"    # I
-    .param p2, "rvEnd"    # I
-    .param p3, "childStart"    # I
-    .param p4, "childEnd"    # I
 
     .line 141
     iput p1, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
@@ -233,14 +214,11 @@
     .line 144
     iput p4, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mChildEnd:I
 
-    .line 145
     return-void
 .end method
 
 .method setFlags(II)V
     .locals 2
-    .param p1, "flags"    # I
-    .param p2, "mask"    # I
 
     .line 148
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -249,12 +227,11 @@
 
     and-int/2addr v0, v1
 
-    and-int v1, p1, p2
+    and-int/2addr p1, p2
 
-    or-int/2addr v0, v1
+    or-int/2addr p1, v0
 
-    iput v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
+    iput p1, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
-    .line 149
     return-void
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor;Lcom/facebook/react/devsupport/JSDebuggerWebSocketClient;Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$JSExecutorConnectCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor;
 
     .line 138
     iput-object p1, p0, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$3;->this$0:Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor;
@@ -63,6 +62,5 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/react/devsupport/WebsocketJavaScriptExecutor$JSExecutorConnectCallback;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 145
     return-void
 .end method

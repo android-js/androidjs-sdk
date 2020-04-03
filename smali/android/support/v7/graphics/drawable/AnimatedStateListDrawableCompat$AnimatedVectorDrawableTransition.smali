@@ -21,17 +21,15 @@
 # direct methods
 .method constructor <init>(Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;)V
     .locals 1
-    .param p1, "avd"    # Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
 
-    .line 432
     const/4 v0, 0x0
 
+    .line 432
     invoke-direct {p0, v0}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$Transition;-><init>(Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$1;)V
 
     .line 433
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedVectorDrawableTransition;->mAvd:Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;
 
-    .line 434
     return-void
 .end method
 
@@ -45,7 +43,6 @@
 
     invoke-virtual {v0}, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->start()V
 
-    .line 439
     return-void
 .end method
 
@@ -57,6 +54,5 @@
 
     invoke-virtual {v0}, Landroid/support/graphics/drawable/AnimatedVectorDrawableCompat;->stop()V
 
-    .line 444
     return-void
 .end method

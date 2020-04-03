@@ -11,12 +11,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 1
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 0
+    .param p1    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -30,16 +30,15 @@
     .line 17
     iput-object p2, p0, Lcom/android/js/api/Toast;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 18
     if-nez p1, :cond_0
 
+    .line 18
     invoke-virtual {p0}, Lcom/android/js/api/Toast;->getCurrentActivity()Landroid/app/Activity;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/android/js/api/Toast;->activity:Landroid/app/Activity;
+    iput-object p1, p0, Lcom/android/js/api/Toast;->activity:Landroid/app/Activity;
 
-    .line 19
     :cond_0
     return-void
 .end method
@@ -49,7 +48,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 31
     const-string v0, "Toast"
 
     return-object v0
@@ -57,19 +55,15 @@
 
 .method public showToast(Ljava/lang/String;I)V
     .locals 1
-    .param p1, "text"    # Ljava/lang/String;
-    .param p2, "duration"    # I
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
-    .line 23
     const/4 v0, 0x1
 
     if-le p2, v0, :cond_0
 
     const/4 p2, 0x1
 
-    .line 24
     :cond_0
     if-gez p2, :cond_1
 
@@ -89,12 +83,10 @@
     :goto_0
     invoke-static {v0, p1, p2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 26
-    .local v0, "toast":Landroid/widget/Toast;
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 27
     return-void
 .end method

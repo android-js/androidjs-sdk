@@ -28,8 +28,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/bridge/Callback;)V
     .locals 0
-    .param p2, "reactTag"    # I
-    .param p3, "callback"    # Lcom/facebook/react/bridge/Callback;
 
     .line 445
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -43,16 +41,11 @@
     .line 448
     iput-object p3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->mCallback:Lcom/facebook/react/bridge/Callback;
 
-    .line 449
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/bridge/Callback;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "x1"    # I
-    .param p3, "x2"    # Lcom/facebook/react/bridge/Callback;
-    .param p4, "x3"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
 
     .line 438
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/bridge/Callback;)V
@@ -65,9 +58,9 @@
 .method public execute()V
     .locals 11
 
-    .line 454
     const/4 v0, 0x0
 
+    .line 454
     :try_start_0
     iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
@@ -87,9 +80,6 @@
     :try_end_0
     .catch Lcom/facebook/react/uimanager/NoSuchNativeViewException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 460
-    nop
-
     .line 462
     iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
@@ -106,7 +96,6 @@
     move-result v1
 
     .line 463
-    .local v1, "x":F
     iget-object v2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     invoke-static {v2}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$300(Lcom/facebook/react/uimanager/UIViewOperationQueue;)[I
@@ -124,7 +113,6 @@
     move-result v2
 
     .line 464
-    .local v2, "y":F
     iget-object v4, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     invoke-static {v4}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$300(Lcom/facebook/react/uimanager/UIViewOperationQueue;)[I
@@ -142,7 +130,6 @@
     move-result v4
 
     .line 465
-    .local v4, "width":F
     iget-object v6, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     invoke-static {v6}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$300(Lcom/facebook/react/uimanager/UIViewOperationQueue;)[I
@@ -160,7 +147,6 @@
     move-result v6
 
     .line 466
-    .local v6, "height":F
     iget-object v8, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->mCallback:Lcom/facebook/react/bridge/Callback;
 
     const/4 v9, 0x6
@@ -195,39 +181,29 @@
 
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v9, v0
+    aput-object v1, v9, v0
 
     const/4 v0, 0x5
 
     invoke-static {v2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v3
+    move-result-object v1
 
-    aput-object v3, v9, v0
+    aput-object v1, v9, v0
 
     invoke-interface {v8, v9}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 467
     return-void
 
-    .line 455
-    .end local v1    # "x":F
-    .end local v2    # "y":F
-    .end local v4    # "width":F
-    .end local v6    # "height":F
-    :catch_0
-    move-exception v1
-
     .line 458
-    .local v1, "e":Lcom/facebook/react/uimanager/NoSuchNativeViewException;
-    iget-object v2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->mCallback:Lcom/facebook/react/bridge/Callback;
+    :catch_0
+    iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$MeasureOperation;->mCallback:Lcom/facebook/react/bridge/Callback;
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-interface {v2, v0}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 459
     return-void
 .end method

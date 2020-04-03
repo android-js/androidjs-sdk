@@ -58,125 +58,113 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/facebook/imagepipeline/request/ImageRequest;Ljava/lang/Object;Lcom/facebook/imagepipeline/image/ImageInfo;JJJJJJJIZZZ)V
-    .locals 16
-    .param p1, "controllerId"    # Ljava/lang/String;
+    .locals 3
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "requestId"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "imageRequest"    # Lcom/facebook/imagepipeline/request/ImageRequest;
+    .param p3    # Lcom/facebook/imagepipeline/request/ImageRequest;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "callerContext"    # Ljava/lang/Object;
+    .param p4    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p5, "imageInfo"    # Lcom/facebook/imagepipeline/image/ImageInfo;
+    .param p5    # Lcom/facebook/imagepipeline/image/ImageInfo;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p6, "controllerSubmitTimeMs"    # J
-    .param p8, "controllerIntermediateImageSetTimeMs"    # J
-    .param p10, "controllerFinalImageSetTimeMs"    # J
-    .param p12, "controllerFailureTimeMs"    # J
-    .param p14, "controllerCancelTimeMs"    # J
-    .param p16, "imageRequestStartTimeMs"    # J
-    .param p18, "imageRequestEndTimeMs"    # J
-    .param p20, "imageOrigin"    # I
-    .param p21, "isCanceled"    # Z
-    .param p22, "isSuccessful"    # Z
-    .param p23, "isPrefetch"    # Z
+
+    move-object v0, p0
 
     .line 53
-    move-object/from16 v0, p0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    move-object v1, p1
 
     .line 54
-    move-object/from16 v1, p1
-
     iput-object v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerId:Ljava/lang/String;
 
-    .line 55
-    move-object/from16 v2, p2
+    move-object v1, p2
 
-    iput-object v2, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mRequestId:Ljava/lang/String;
+    .line 55
+    iput-object v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mRequestId:Ljava/lang/String;
+
+    move-object v1, p3
 
     .line 56
-    move-object/from16 v3, p3
+    iput-object v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequest:Lcom/facebook/imagepipeline/request/ImageRequest;
 
-    iput-object v3, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequest:Lcom/facebook/imagepipeline/request/ImageRequest;
+    move-object v1, p4
 
     .line 57
-    move-object/from16 v4, p4
+    iput-object v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mCallerContext:Ljava/lang/Object;
 
-    iput-object v4, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mCallerContext:Ljava/lang/Object;
+    move-object v1, p5
 
     .line 58
-    move-object/from16 v5, p5
+    iput-object v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageInfo:Lcom/facebook/imagepipeline/image/ImageInfo;
 
-    iput-object v5, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageInfo:Lcom/facebook/imagepipeline/image/ImageInfo;
+    move-wide v1, p6
 
     .line 59
-    move-wide/from16 v6, p6
+    iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerSubmitTimeMs:J
 
-    iput-wide v6, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerSubmitTimeMs:J
+    move-wide v1, p8
 
     .line 60
-    move-wide/from16 v8, p8
+    iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerIntermediateImageSetTimeMs:J
 
-    iput-wide v8, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerIntermediateImageSetTimeMs:J
+    move-wide v1, p10
 
     .line 61
-    move-wide/from16 v10, p10
+    iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerFinalImageSetTimeMs:J
 
-    iput-wide v10, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerFinalImageSetTimeMs:J
+    move-wide v1, p12
 
     .line 62
-    move-wide/from16 v12, p12
+    iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerFailureTimeMs:J
 
-    iput-wide v12, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerFailureTimeMs:J
+    move-wide/from16 v1, p14
 
     .line 63
-    move-wide/from16 v14, p14
+    iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerCancelTimeMs:J
 
-    iput-wide v14, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerCancelTimeMs:J
-
-    .line 64
     move-wide/from16 v1, p16
 
+    .line 64
     iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequestStartTimeMs:J
 
-    .line 65
     move-wide/from16 v1, p18
 
+    .line 65
     iput-wide v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequestEndTimeMs:J
 
-    .line 66
     move/from16 v1, p20
 
+    .line 66
     iput v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageOrigin:I
 
+    move/from16 v1, p21
+
     .line 67
-    move/from16 v2, p21
+    iput-boolean v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsCanceled:Z
 
-    iput-boolean v2, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsCanceled:Z
-
-    .line 68
     move/from16 v1, p22
 
+    .line 68
     iput-boolean v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsSuccessful:Z
 
-    .line 69
     move/from16 v1, p23
 
+    .line 69
     iput-boolean v1, v0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsPrefetch:Z
 
-    .line 70
     return-void
 .end method
 
@@ -192,72 +180,72 @@
 
     iget-object v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerId:Ljava/lang/String;
 
-    .line 153
     const-string v2, "controller ID"
 
+    .line 153
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mRequestId:Ljava/lang/String;
 
-    .line 154
     const-string v2, "request ID"
 
+    .line 154
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-wide v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerSubmitTimeMs:J
 
-    .line 155
     const-string v3, "controller submit"
 
+    .line 155
     invoke-virtual {v0, v3, v1, v2}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-wide v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerFinalImageSetTimeMs:J
 
-    .line 156
     const-string v3, "controller final image"
 
+    .line 156
     invoke-virtual {v0, v3, v1, v2}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-wide v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerFailureTimeMs:J
 
-    .line 157
     const-string v3, "controller failure"
 
+    .line 157
     invoke-virtual {v0, v3, v1, v2}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-wide v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mControllerCancelTimeMs:J
 
-    .line 158
     const-string v3, "controller cancel"
 
+    .line 158
     invoke-virtual {v0, v3, v1, v2}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-wide v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequestStartTimeMs:J
 
-    .line 159
     const-string v3, "start time"
 
+    .line 159
     invoke-virtual {v0, v3, v1, v2}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-wide v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequestEndTimeMs:J
 
-    .line 160
     const-string v3, "end time"
 
+    .line 160
     invoke-virtual {v0, v3, v1, v2}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;J)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
@@ -277,54 +265,54 @@
 
     iget-boolean v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsCanceled:Z
 
-    .line 162
     const-string v2, "canceled"
 
+    .line 162
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-boolean v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsSuccessful:Z
 
-    .line 163
     const-string v2, "successful"
 
+    .line 163
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-boolean v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mIsPrefetch:Z
 
-    .line 164
     const-string v2, "prefetch"
 
+    .line 164
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Z)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mCallerContext:Ljava/lang/Object;
 
-    .line 165
     const-string v2, "caller context"
 
+    .line 165
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageRequest:Lcom/facebook/imagepipeline/request/ImageRequest;
 
-    .line 166
     const-string v2, "image request"
 
+    .line 166
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/facebook/drawee/backends/pipeline/info/ImagePerfData;->mImageInfo:Lcom/facebook/imagepipeline/image/ImageInfo;
 
-    .line 167
     const-string v2, "image info"
 
+    .line 167
     invoke-virtual {v0, v2, v1}, Lcom/facebook/common/internal/Objects$ToStringHelper;->add(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0
@@ -334,7 +322,6 @@
 
     move-result-object v0
 
-    .line 152
     return-object v0
 .end method
 
@@ -419,7 +406,6 @@
 
     return-wide v0
 
-    .line 141
     :cond_0
     const-wide/16 v0, -0x1
 
@@ -498,7 +484,6 @@
 
     return-wide v0
 
-    .line 148
     :cond_0
     const-wide/16 v0, -0x1
 

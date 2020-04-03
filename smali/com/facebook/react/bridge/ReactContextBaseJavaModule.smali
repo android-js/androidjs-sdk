@@ -10,7 +10,7 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .param p1    # Lcom/facebook/react/bridge/ReactApplicationContext;
         .annotation runtime Ljavax/annotation/Nonnull;
         .end annotation
     .end param
@@ -21,7 +21,6 @@
     .line 24
     iput-object p1, p0, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 25
     return-void
 .end method
 

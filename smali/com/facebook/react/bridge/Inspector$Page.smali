@@ -28,9 +28,6 @@
 # direct methods
 .method private constructor <init>(ILjava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "id"    # I
-    .param p2, "title"    # Ljava/lang/String;
-    .param p3, "vm"    # Ljava/lang/String;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -46,7 +43,6 @@
     .line 83
     iput-object p3, p0, Lcom/facebook/react/bridge/Inspector$Page;->mVM:Ljava/lang/String;
 
-    .line 84
     return-void
 .end method
 

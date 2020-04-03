@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/jstasks/HeadlessJsTaskContext;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/jstasks/HeadlessJsTaskContext;
 
     .line 126
     iput-object p1, p0, Lcom/facebook/react/jstasks/HeadlessJsTaskContext$1;->this$0:Lcom/facebook/react/jstasks/HeadlessJsTaskContext;
@@ -68,16 +67,12 @@
     check-cast v1, Lcom/facebook/react/jstasks/HeadlessJsTaskEventListener;
 
     .line 130
-    .local v1, "listener":Lcom/facebook/react/jstasks/HeadlessJsTaskEventListener;
     iget v2, p0, Lcom/facebook/react/jstasks/HeadlessJsTaskContext$1;->val$taskId:I
 
     invoke-interface {v1, v2}, Lcom/facebook/react/jstasks/HeadlessJsTaskEventListener;->onHeadlessJsTaskFinish(I)V
 
-    .line 131
-    .end local v1    # "listener":Lcom/facebook/react/jstasks/HeadlessJsTaskEventListener;
     goto :goto_0
 
-    .line 132
     :cond_0
     return-void
 .end method

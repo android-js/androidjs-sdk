@@ -28,7 +28,6 @@
     .locals 0
 
     .line 23
-    .local p0, "this":Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor;, "Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,10 +35,8 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/bridge/JavaMethodWrapper$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/bridge/JavaMethodWrapper$1;
 
     .line 23
-    .local p0, "this":Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor;, "Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor<TT;>;"
     invoke-direct {p0}, Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor;-><init>()V
 
     return-void
@@ -64,8 +61,6 @@
 .method public getJSArgumentsNeeded()I
     .locals 1
 
-    .line 25
-    .local p0, "this":Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor;, "Lcom/facebook/react/bridge/JavaMethodWrapper$ArgumentExtractor<TT;>;"
     const/4 v0, 0x1
 
     return v0

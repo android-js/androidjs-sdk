@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevServerHelper;
 
     .line 567
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
@@ -37,50 +36,45 @@
 
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 4
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "e"    # Ljava/io/IOException;
+    .locals 2
 
     .line 570
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
 
-    invoke-static {v0}, Lcom/facebook/react/devsupport/DevServerHelper;->access$800(Lcom/facebook/react/devsupport/DevServerHelper;)Z
+    invoke-static {p1}, Lcom/facebook/react/devsupport/DevServerHelper;->access$800(Lcom/facebook/react/devsupport/DevServerHelper;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const-string p1, "ReactNative"
+
+    const-string v0, "Error while requesting /onchange endpoint"
 
     .line 574
-    const-string v0, "ReactNative"
-
-    const-string v1, "Error while requesting /onchange endpoint"
-
-    invoke-static {v0, v1, p2}, Lcom/facebook/common/logging/FLog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {p1, v0, p2}, Lcom/facebook/common/logging/FLog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 575
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
 
-    invoke-static {v0}, Lcom/facebook/react/devsupport/DevServerHelper;->access$1000(Lcom/facebook/react/devsupport/DevServerHelper;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/facebook/react/devsupport/DevServerHelper;->access$1000(Lcom/facebook/react/devsupport/DevServerHelper;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object p1
 
-    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$10$1;
+    new-instance p2, Lcom/facebook/react/devsupport/DevServerHelper$10$1;
 
-    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$10$1;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$10;)V
+    invoke-direct {p2, p0}, Lcom/facebook/react/devsupport/DevServerHelper$10$1;-><init>(Lcom/facebook/react/devsupport/DevServerHelper$10;)V
 
-    const-wide/16 v2, 0x1388
+    const-wide/16 v0, 0x1388
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p1, p2, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 584
     :cond_0
     return-void
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 3
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "response"    # Lokhttp3/Response;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -88,26 +82,25 @@
     .end annotation
 
     .line 588
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$10;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
 
     invoke-virtual {p2}, Lokhttp3/Response;->code()I
 
-    move-result v1
+    move-result p2
 
-    const/16 v2, 0xcd
+    const/16 v0, 0xcd
 
-    if-ne v1, v2, :cond_0
+    if-ne p2, v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DevServerHelper;->access$900(Lcom/facebook/react/devsupport/DevServerHelper;Z)V
+    invoke-static {p1, p2}, Lcom/facebook/react/devsupport/DevServerHelper;->access$900(Lcom/facebook/react/devsupport/DevServerHelper;Z)V
 
-    .line 589
     return-void
 .end method

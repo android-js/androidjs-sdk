@@ -6,38 +6,27 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "theme"    # I
-    .param p3, "callback"    # Landroid/app/DatePickerDialog$OnDateSetListener;
+    .param p3    # Landroid/app/DatePickerDialog$OnDateSetListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "year"    # I
-    .param p5, "monthOfYear"    # I
-    .param p6, "dayOfMonth"    # I
 
     .line 45
     invoke-direct/range {p0 .. p6}, Landroid/app/DatePickerDialog;-><init>(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "callback"    # Landroid/app/DatePickerDialog$OnDateSetListener;
+    .param p2    # Landroid/app/DatePickerDialog$OnDateSetListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "year"    # I
-    .param p4, "monthOfYear"    # I
-    .param p5, "dayOfMonth"    # I
 
     .line 35
     invoke-direct/range {p0 .. p5}, Landroid/app/DatePickerDialog;-><init>(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V
 
-    .line 36
     return-void
 .end method
 
@@ -56,7 +45,6 @@
     .line 53
     invoke-super {p0}, Landroid/app/DatePickerDialog;->onStop()V
 
-    .line 55
     :cond_0
     return-void
 .end method

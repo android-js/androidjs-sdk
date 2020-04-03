@@ -37,47 +37,39 @@
 
     iput-object v0, p0, Lcom/facebook/react/modules/core/ChoreographerCompat;->mChoreographer:Landroid/view/Choreographer;
 
-    .line 37
     return-void
 .end method
 
 .method private choreographerPostFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
     .locals 1
-    .param p1, "frameCallback"    # Landroid/view/Choreographer$FrameCallback;
 
     .line 56
     iget-object v0, p0, Lcom/facebook/react/modules/core/ChoreographerCompat;->mChoreographer:Landroid/view/Choreographer;
 
     invoke-virtual {v0, p1}, Landroid/view/Choreographer;->postFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
-    .line 57
     return-void
 .end method
 
 .method private choreographerPostFrameCallbackDelayed(Landroid/view/Choreographer$FrameCallback;J)V
     .locals 1
-    .param p1, "frameCallback"    # Landroid/view/Choreographer$FrameCallback;
-    .param p2, "delayMillis"    # J
 
     .line 62
     iget-object v0, p0, Lcom/facebook/react/modules/core/ChoreographerCompat;->mChoreographer:Landroid/view/Choreographer;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/view/Choreographer;->postFrameCallbackDelayed(Landroid/view/Choreographer$FrameCallback;J)V
 
-    .line 63
     return-void
 .end method
 
 .method private choreographerRemoveFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
     .locals 1
-    .param p1, "frameCallback"    # Landroid/view/Choreographer$FrameCallback;
 
     .line 66
     iget-object v0, p0, Lcom/facebook/react/modules/core/ChoreographerCompat;->mChoreographer:Landroid/view/Choreographer;
 
     invoke-virtual {v0, p1}, Landroid/view/Choreographer;->removeFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
-    .line 67
     return-void
 .end method
 
@@ -120,47 +112,40 @@
 
 # virtual methods
 .method public postFrameCallback(Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;)V
-    .locals 1
-    .param p1, "callbackWrapper"    # Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;
+    .locals 0
 
     .line 40
     invoke-virtual {p1}, Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;->getFrameCallback()Landroid/view/Choreographer$FrameCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/facebook/react/modules/core/ChoreographerCompat;->choreographerPostFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
+    invoke-direct {p0, p1}, Lcom/facebook/react/modules/core/ChoreographerCompat;->choreographerPostFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
-    .line 41
     return-void
 .end method
 
 .method public postFrameCallbackDelayed(Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;J)V
-    .locals 1
-    .param p1, "callbackWrapper"    # Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;
-    .param p2, "delayMillis"    # J
+    .locals 0
 
     .line 44
     invoke-virtual {p1}, Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;->getFrameCallback()Landroid/view/Choreographer$FrameCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0, p2, p3}, Lcom/facebook/react/modules/core/ChoreographerCompat;->choreographerPostFrameCallbackDelayed(Landroid/view/Choreographer$FrameCallback;J)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/facebook/react/modules/core/ChoreographerCompat;->choreographerPostFrameCallbackDelayed(Landroid/view/Choreographer$FrameCallback;J)V
 
-    .line 45
     return-void
 .end method
 
 .method public removeFrameCallback(Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;)V
-    .locals 1
-    .param p1, "callbackWrapper"    # Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;
+    .locals 0
 
     .line 48
     invoke-virtual {p1}, Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;->getFrameCallback()Landroid/view/Choreographer$FrameCallback;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Lcom/facebook/react/modules/core/ChoreographerCompat;->choreographerRemoveFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
+    invoke-direct {p0, p1}, Lcom/facebook/react/modules/core/ChoreographerCompat;->choreographerRemoveFrameCallback(Landroid/view/Choreographer$FrameCallback;)V
 
-    .line 49
     return-void
 .end method

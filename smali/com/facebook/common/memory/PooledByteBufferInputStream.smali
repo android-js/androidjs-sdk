@@ -28,7 +28,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/common/memory/PooledByteBuffer;)V
     .locals 1
-    .param p1, "pooledByteBuffer"    # Lcom/facebook/common/memory/PooledByteBuffer;
 
     .line 34
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -45,21 +44,20 @@
     .line 36
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/common/memory/PooledByteBuffer;
+    check-cast p1, Lcom/facebook/common/memory/PooledByteBuffer;
 
-    iput-object v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mPooledByteBuffer:Lcom/facebook/common/memory/PooledByteBuffer;
+    iput-object p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mPooledByteBuffer:Lcom/facebook/common/memory/PooledByteBuffer;
+
+    const/4 p1, 0x0
 
     .line 37
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iput p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
     .line 38
-    iput v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mMark:I
+    iput p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mMark:I
 
-    .line 39
     return-void
 .end method
 
@@ -83,22 +81,19 @@
 .end method
 
 .method public mark(I)V
-    .locals 1
-    .param p1, "readlimit"    # I
+    .locals 0
 
     .line 57
-    iget v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iget p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    iput v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mMark:I
+    iput p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mMark:I
 
-    .line 58
     return-void
 .end method
 
 .method public markSupported()Z
     .locals 1
 
-    .line 66
     const/4 v0, 0x1
 
     return v0
@@ -114,7 +109,6 @@
 
     if-gtz v0, :cond_0
 
-    .line 72
     const/4 v0, -0x1
 
     return v0
@@ -140,7 +134,6 @@
 
 .method public read([B)I
     .locals 2
-    .param p1, "buffer"    # [B
 
     .line 79
     array-length v0, p1
@@ -149,24 +142,21 @@
 
     invoke-virtual {p0, p1, v1, v0}, Lcom/facebook/common/memory/PooledByteBufferInputStream;->read([BII)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public read([BII)I
-    .locals 4
-    .param p1, "buffer"    # [B
-    .param p2, "offset"    # I
-    .param p3, "length"    # I
+    .locals 3
 
-    .line 92
     if-ltz p2, :cond_2
 
     if-ltz p3, :cond_2
 
     add-int v0, p2, p3
 
+    .line 92
     array-length v1, p1
 
     if-gt v0, v1, :cond_2
@@ -176,51 +166,42 @@
 
     move-result v0
 
-    .line 100
-    .local v0, "available":I
     if-gtz v0, :cond_0
 
-    .line 101
-    const/4 v1, -0x1
+    const/4 p1, -0x1
 
-    return v1
+    return p1
 
-    .line 104
     :cond_0
     if-gtz p3, :cond_1
 
-    .line 105
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return v1
+    return p1
 
     .line 108
     :cond_1
     invoke-static {v0, p3}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result p3
 
     .line 109
-    .local v1, "numToRead":I
-    iget-object v2, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mPooledByteBuffer:Lcom/facebook/common/memory/PooledByteBuffer;
+    iget-object v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mPooledByteBuffer:Lcom/facebook/common/memory/PooledByteBuffer;
 
-    iget v3, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iget v1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    invoke-interface {v2, v3, p1, p2, v1}, Lcom/facebook/common/memory/PooledByteBuffer;->read(I[BII)I
+    invoke-interface {v0, v1, p1, p2, p3}, Lcom/facebook/common/memory/PooledByteBuffer;->read(I[BII)I
 
     .line 110
-    iget v2, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iget p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    add-int/2addr v2, v1
+    add-int/2addr p1, p3
 
-    iput v2, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iput p1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    .line 111
-    return v1
+    return p3
 
     .line 93
-    .end local v0    # "available":I
-    .end local v1    # "numToRead":I
     :cond_2
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
@@ -232,27 +213,27 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    array-length v2, p1
+    array-length p1, p1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "; regionStart="
+    const-string p1, "; regionStart="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, "; regionLength="
+    const-string p1, "; regionLength="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
@@ -265,15 +246,12 @@
 
     iput v0, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    .line 122
     return-void
 .end method
 
 .method public skip(J)J
     .locals 3
-    .param p1, "byteCount"    # J
 
-    .line 131
     const-wide/16 v0, 0x0
 
     cmp-long v2, p1, v0
@@ -287,30 +265,29 @@
     :cond_0
     const/4 v0, 0x0
 
+    .line 131
     :goto_0
     invoke-static {v0}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 132
-    long-to-int v0, p1
+    long-to-int p2, p1
 
+    .line 132
     invoke-virtual {p0}, Lcom/facebook/common/memory/PooledByteBufferInputStream;->available()I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
     .line 133
-    .local v0, "skipped":I
-    iget v1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iget p2, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    add-int/2addr v1, v0
+    add-int/2addr p2, p1
 
-    iput v1, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
+    iput p2, p0, Lcom/facebook/common/memory/PooledByteBufferInputStream;->mOffset:I
 
-    .line 134
-    int-to-long v1, v0
+    int-to-long p1, p1
 
-    return-wide v1
+    return-wide p1
 .end method

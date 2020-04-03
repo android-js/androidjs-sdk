@@ -18,7 +18,6 @@
     .line 25
     invoke-static {}, Lcom/facebook/react/bridge/ReactBridge;->staticInit()V
 
-    .line 26
     return-void
 .end method
 
@@ -32,7 +31,6 @@
 
     invoke-direct {p0, v0}, Lcom/facebook/react/bridge/ReadableNativeArray;-><init>(Lcom/facebook/jni/HybridData;)V
 
-    .line 30
     return-void
 .end method
 
@@ -49,14 +47,14 @@
 # virtual methods
 .method public pushArray(Lcom/facebook/react/bridge/WritableArray;)V
     .locals 2
-    .param p1, "array"    # Lcom/facebook/react/bridge/WritableArray;
+    .param p1    # Lcom/facebook/react/bridge/WritableArray;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 46
     if-eqz p1, :cond_1
 
+    .line 46
     instance-of v0, p1, Lcom/facebook/react/bridge/WritableNativeArray;
 
     if-eqz v0, :cond_0
@@ -78,13 +76,10 @@
     invoke-static {v0, v1}, Lcom/facebook/infer/annotation/Assertions;->assertCondition(ZLjava/lang/String;)V
 
     .line 48
-    move-object v0, p1
+    check-cast p1, Lcom/facebook/react/bridge/WritableNativeArray;
 
-    check-cast v0, Lcom/facebook/react/bridge/WritableNativeArray;
+    invoke-direct {p0, p1}, Lcom/facebook/react/bridge/WritableNativeArray;->pushNativeArray(Lcom/facebook/react/bridge/WritableNativeArray;)V
 
-    invoke-direct {p0, v0}, Lcom/facebook/react/bridge/WritableNativeArray;->pushNativeArray(Lcom/facebook/react/bridge/WritableNativeArray;)V
-
-    .line 49
     return-void
 .end method
 
@@ -99,14 +94,14 @@
 
 .method public pushMap(Lcom/facebook/react/bridge/WritableMap;)V
     .locals 2
-    .param p1, "map"    # Lcom/facebook/react/bridge/WritableMap;
+    .param p1    # Lcom/facebook/react/bridge/WritableMap;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 54
     if-eqz p1, :cond_1
 
+    .line 54
     instance-of v0, p1, Lcom/facebook/react/bridge/WritableNativeMap;
 
     if-eqz v0, :cond_0
@@ -128,13 +123,10 @@
     invoke-static {v0, v1}, Lcom/facebook/infer/annotation/Assertions;->assertCondition(ZLjava/lang/String;)V
 
     .line 56
-    move-object v0, p1
+    check-cast p1, Lcom/facebook/react/bridge/WritableNativeMap;
 
-    check-cast v0, Lcom/facebook/react/bridge/WritableNativeMap;
+    invoke-direct {p0, p1}, Lcom/facebook/react/bridge/WritableNativeArray;->pushNativeMap(Lcom/facebook/react/bridge/WritableNativeMap;)V
 
-    invoke-direct {p0, v0}, Lcom/facebook/react/bridge/WritableNativeArray;->pushNativeMap(Lcom/facebook/react/bridge/WritableNativeMap;)V
-
-    .line 57
     return-void
 .end method
 

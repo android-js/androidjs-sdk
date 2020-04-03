@@ -24,12 +24,11 @@
     .line 25
     invoke-direct {p0}, Lcom/facebook/react/uimanager/ReactShadowNodeImpl;-><init>()V
 
-    .line 23
     const/4 v0, 0x0
 
+    .line 23
     iput-object v0, p0, Lcom/facebook/react/views/text/ReactRawTextShadowNode;->mText:Ljava/lang/String;
 
-    .line 25
     return-void
 .end method
 
@@ -49,7 +48,6 @@
 .method public isVirtual()Z
     .locals 1
 
-    .line 39
     const/4 v0, 0x1
 
     return v0
@@ -57,7 +55,7 @@
 
 .method public setText(Ljava/lang/String;)V
     .locals 0
-    .param p1, "text"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -71,7 +69,6 @@
     .line 30
     invoke-virtual {p0}, Lcom/facebook/react/views/text/ReactRawTextShadowNode;->markUpdated()V
 
-    .line 31
     return-void
 .end method
 

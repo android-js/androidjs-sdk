@@ -22,16 +22,11 @@
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
     return-void
 .end method
 
 .method public static createVolumeProvider(IIILandroid/support/v4/media/VolumeProviderCompatApi21$Delegate;)Ljava/lang/Object;
     .locals 1
-    .param p0, "volumeControl"    # I
-    .param p1, "maxVolume"    # I
-    .param p2, "currentVolume"    # I
-    .param p3, "delegate"    # Landroid/support/v4/media/VolumeProviderCompatApi21$Delegate;
 
     .line 27
     new-instance v0, Landroid/support/v4/media/VolumeProviderCompatApi21$1;
@@ -42,17 +37,12 @@
 .end method
 
 .method public static setCurrentVolume(Ljava/lang/Object;I)V
-    .locals 1
-    .param p0, "volumeProviderObj"    # Ljava/lang/Object;
-    .param p1, "currentVolume"    # I
+    .locals 0
 
     .line 41
-    move-object v0, p0
+    check-cast p0, Landroid/media/VolumeProvider;
 
-    check-cast v0, Landroid/media/VolumeProvider;
+    invoke-virtual {p0, p1}, Landroid/media/VolumeProvider;->setCurrentVolume(I)V
 
-    invoke-virtual {v0, p1}, Landroid/media/VolumeProvider;->setCurrentVolume(I)V
-
-    .line 42
     return-void
 .end method

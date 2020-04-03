@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
-    .param p1, "x0"    # I
 
     .line 37
     invoke-direct {p0, p1}, Ljava/io/ByteArrayOutputStream;-><init>(I)V

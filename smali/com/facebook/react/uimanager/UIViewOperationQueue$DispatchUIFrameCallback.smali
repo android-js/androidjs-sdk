@@ -27,8 +27,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;I)V
     .locals 0
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
-    .param p3, "minTimeLeftInFrameForNonBatchedOperationMs"    # I
 
     .line 1064
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -39,16 +37,11 @@
     .line 1066
     iput p3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->mMinTimeLeftInFrameForNonBatchedOperationMs:I
 
-    .line 1067
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;ILcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "x1"    # Lcom/facebook/react/bridge/ReactContext;
-    .param p3, "x2"    # I
-    .param p4, "x3"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
 
     .line 1058
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;I)V
@@ -57,13 +50,12 @@
 .end method
 
 .method private dispatchPendingNonBatchedOperations(J)V
-    .locals 10
-    .param p1, "frameTimeNanos"    # J
+    .locals 8
 
-    .line 1093
     :goto_0
     const-wide/16 v0, 0x10
 
+    .line 1093
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v2
@@ -77,7 +69,6 @@
     sub-long/2addr v0, v2
 
     .line 1094
-    .local v0, "timeLeftInFrame":J
     iget v2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->mMinTimeLeftInFrameForNonBatchedOperationMs:I
 
     int-to-long v2, v2
@@ -86,59 +77,54 @@
 
     if-gez v4, :cond_0
 
-    .line 1095
     goto :goto_1
 
     .line 1099
     :cond_0
-    iget-object v2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    invoke-static {v2}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2700(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2700(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    monitor-enter v2
+    monitor-enter v0
 
     .line 1100
     :try_start_0
-    iget-object v3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    invoke-static {v3}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2800(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/util/ArrayDeque;
+    invoke-static {v1}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2800(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/util/ArrayDeque;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/util/ArrayDeque;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->isEmpty()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_1
+    if-eqz v1, :cond_1
 
     .line 1101
-    monitor-exit v2
+    monitor-exit v0
 
-    .line 1117
-    .end local v0    # "timeLeftInFrame":J
     :goto_1
     return-void
 
     .line 1104
-    .restart local v0    # "timeLeftInFrame":J
     :cond_1
-    iget-object v3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    invoke-static {v3}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2800(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/util/ArrayDeque;
+    invoke-static {v1}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2800(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/util/ArrayDeque;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Ljava/util/ArrayDeque;->pollFirst()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/ArrayDeque;->pollFirst()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    check-cast v3, Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
+    check-cast v1, Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
 
     .line 1105
-    .local v3, "nextOperation":Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
-    monitor-exit v2
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -146,73 +132,59 @@
     :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v2
 
     .line 1109
-    .local v4, "nonBatchedExecutionStartTime":J
-    invoke-interface {v3}, Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;->execute()V
+    invoke-interface {v1}, Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;->execute()V
 
     .line 1110
-    iget-object v2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    iget-object v6, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    invoke-static {v6}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2900(Lcom/facebook/react/uimanager/UIViewOperationQueue;)J
+    invoke-static {v1}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2900(Lcom/facebook/react/uimanager/UIViewOperationQueue;)J
 
-    move-result-wide v6
+    move-result-wide v4
 
     .line 1111
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v6
 
-    sub-long/2addr v8, v4
+    sub-long/2addr v6, v2
 
-    add-long/2addr v6, v8
+    add-long/2addr v4, v6
 
     .line 1110
-    invoke-static {v2, v6, v7}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2902(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
+    invoke-static {v0, v4, v5}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2902(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1115
-    nop
-
-    .line 1116
-    .end local v0    # "timeLeftInFrame":J
-    .end local v3    # "nextOperation":Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
-    .end local v4    # "nonBatchedExecutionStartTime":J
     goto :goto_0
 
-    .line 1112
-    .restart local v0    # "timeLeftInFrame":J
-    .restart local v3    # "nextOperation":Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
     :catch_0
-    move-exception v2
+    move-exception p1
 
     .line 1113
-    .local v2, "e":Ljava/lang/Exception;
-    iget-object v4, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    const/4 v5, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {v4, v5}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2502(Lcom/facebook/react/uimanager/UIViewOperationQueue;Z)Z
+    invoke-static {p2, v0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2502(Lcom/facebook/react/uimanager/UIViewOperationQueue;Z)Z
 
     .line 1114
-    throw v2
+    throw p1
+
+    :catchall_0
+    move-exception p1
 
     .line 1105
-    .end local v2    # "e":Ljava/lang/Exception;
-    .end local v3    # "nextOperation":Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
-    :catchall_0
-    move-exception v3
-
     :try_start_2
-    monitor-exit v2
+    monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v3
+    throw p1
 
     return-void
 .end method
@@ -221,7 +193,6 @@
 # virtual methods
 .method public doFrameGuarded(J)V
     .locals 3
-    .param p1, "frameTimeNanos"    # J
 
     .line 1071
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -232,22 +203,21 @@
 
     if-eqz v0, :cond_0
 
+    const-string p1, "ReactNative"
+
+    const-string p2, "Not flushing pending UI operations because of previously thrown Exception"
+
     .line 1072
-    const-string v0, "ReactNative"
+    invoke-static {p1, p2}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v1, "Not flushing pending UI operations because of previously thrown Exception"
-
-    invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 1075
     return-void
 
-    .line 1078
     :cond_0
     const-wide/16 v0, 0x0
 
     const-string v2, "dispatchNonBatchedUIOperations"
 
+    .line 1078
     invoke-static {v0, v1, v2}, Lcom/facebook/systrace/Systrace;->beginSection(JLjava/lang/String;)V
 
     .line 1080
@@ -259,32 +229,28 @@
     .line 1082
     invoke-static {v0, v1}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
-    .line 1083
-    nop
-
     .line 1085
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    iget-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
-    invoke-static {v0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2600(Lcom/facebook/react/uimanager/UIViewOperationQueue;)V
+    invoke-static {p1}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->access$2600(Lcom/facebook/react/uimanager/UIViewOperationQueue;)V
 
     .line 1087
     invoke-static {}, Lcom/facebook/react/modules/core/ReactChoreographer;->getInstance()Lcom/facebook/react/modules/core/ReactChoreographer;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;->DISPATCH_UI:Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
+    sget-object p2, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;->DISPATCH_UI:Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
 
-    invoke-virtual {v0, v1, p0}, Lcom/facebook/react/modules/core/ReactChoreographer;->postFrameCallback(Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;)V
+    invoke-virtual {p1, p2, p0}, Lcom/facebook/react/modules/core/ReactChoreographer;->postFrameCallback(Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;)V
 
-    .line 1089
     return-void
 
-    .line 1082
     :catchall_0
-    move-exception v2
+    move-exception p1
 
+    .line 1082
     invoke-static {v0, v1}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
     .line 1083
-    throw v2
+    throw p1
 .end method

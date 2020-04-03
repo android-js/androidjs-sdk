@@ -64,10 +64,6 @@
 # virtual methods
 .method public init(Landroid/content/res/Resources;Lcom/facebook/drawee/components/DeferredReleaser;Lcom/facebook/imagepipeline/drawable/DrawableFactory;Ljava/util/concurrent/Executor;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/common/internal/ImmutableList;Lcom/facebook/common/internal/Supplier;)V
     .locals 0
-    .param p1, "resources"    # Landroid/content/res/Resources;
-    .param p2, "deferredReleaser"    # Lcom/facebook/drawee/components/DeferredReleaser;
-    .param p3, "animatedDrawableFactory"    # Lcom/facebook/imagepipeline/drawable/DrawableFactory;
-    .param p4, "uiThreadExecutor"    # Ljava/util/concurrent/Executor;
     .param p6    # Lcom/facebook/common/internal/ImmutableList;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -97,9 +93,6 @@
     .end annotation
 
     .line 40
-    .local p5, "memoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .local p6, "drawableFactories":Lcom/facebook/common/internal/ImmutableList;, "Lcom/facebook/common/internal/ImmutableList<Lcom/facebook/imagepipeline/drawable/DrawableFactory;>;"
-    .local p7, "debugOverlayEnabledSupplier":Lcom/facebook/common/internal/Supplier;, "Lcom/facebook/common/internal/Supplier<Ljava/lang/Boolean;>;"
     iput-object p1, p0, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerFactory;->mResources:Landroid/content/res/Resources;
 
     .line 41
@@ -120,16 +113,11 @@
     .line 46
     iput-object p7, p0, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerFactory;->mDebugOverlayEnabledSupplier:Lcom/facebook/common/internal/Supplier;
 
-    .line 47
     return-void
 .end method
 
 .method protected internalCreateController(Landroid/content/res/Resources;Lcom/facebook/drawee/components/DeferredReleaser;Lcom/facebook/imagepipeline/drawable/DrawableFactory;Ljava/util/concurrent/Executor;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/common/internal/ImmutableList;)Lcom/facebook/drawee/backends/pipeline/PipelineDraweeController;
     .locals 8
-    .param p1, "resources"    # Landroid/content/res/Resources;
-    .param p2, "deferredReleaser"    # Lcom/facebook/drawee/components/DeferredReleaser;
-    .param p3, "animatedDrawableFactory"    # Lcom/facebook/imagepipeline/drawable/DrawableFactory;
-    .param p4, "uiThreadExecutor"    # Ljava/util/concurrent/Executor;
     .param p6    # Lcom/facebook/common/internal/ImmutableList;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
@@ -153,8 +141,6 @@
     .end annotation
 
     .line 71
-    .local p5, "memoryCache":Lcom/facebook/imagepipeline/cache/MemoryCache;, "Lcom/facebook/imagepipeline/cache/MemoryCache<Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/CloseableImage;>;"
-    .local p6, "drawableFactories":Lcom/facebook/common/internal/ImmutableList;, "Lcom/facebook/common/internal/ImmutableList<Lcom/facebook/imagepipeline/drawable/DrawableFactory;>;"
     new-instance v7, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeController;
 
     move-object v0, v7
@@ -192,15 +178,14 @@
 
     iget-object v6, p0, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerFactory;->mDrawableFactories:Lcom/facebook/common/internal/ImmutableList;
 
-    .line 51
     move-object v0, p0
 
+    .line 51
     invoke-virtual/range {v0 .. v6}, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerFactory;->internalCreateController(Landroid/content/res/Resources;Lcom/facebook/drawee/components/DeferredReleaser;Lcom/facebook/imagepipeline/drawable/DrawableFactory;Ljava/util/concurrent/Executor;Lcom/facebook/imagepipeline/cache/MemoryCache;Lcom/facebook/common/internal/ImmutableList;)Lcom/facebook/drawee/backends/pipeline/PipelineDraweeController;
 
     move-result-object v0
 
     .line 58
-    .local v0, "controller":Lcom/facebook/drawee/backends/pipeline/PipelineDraweeController;
     iget-object v1, p0, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerFactory;->mDebugOverlayEnabledSupplier:Lcom/facebook/common/internal/Supplier;
 
     if-eqz v1, :cond_0
@@ -218,7 +203,6 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/drawee/backends/pipeline/PipelineDraweeController;->setDrawDebugOverlay(Z)V
 
-    .line 61
     :cond_0
     return-object v0
 .end method

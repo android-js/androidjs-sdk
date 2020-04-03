@@ -36,14 +36,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
-    .param p3, "producerListener"    # Lcom/facebook/imagepipeline/producers/ProducerListener;
-    .param p4, "producerName"    # Ljava/lang/String;
-    .param p5, "requestId"    # Ljava/lang/String;
 
     .line 37
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;, "Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;"
-    .local p2, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<TT;>;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
 
     iput-object p6, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$producerListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
@@ -69,9 +63,6 @@
         }
     .end annotation
 
-    .line 45
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;, "Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;"
-    .local p1, "ignored":Ljava/lang/Object;, "TT;"
     return-void
 .end method
 
@@ -89,15 +80,13 @@
         }
     .end annotation
 
-    .line 49
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;, "Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;"
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
 .method protected onSuccess(Ljava/lang/Object;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -105,31 +94,28 @@
     .end annotation
 
     .line 40
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;, "Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;"
-    .local p1, "ignored":Ljava/lang/Object;, "TT;"
-    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$producerListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
+    iget-object p1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$producerListener:Lcom/facebook/imagepipeline/producers/ProducerListener;
 
-    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$requestId:Ljava/lang/String;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$requestId:Ljava/lang/String;
 
-    const-string v2, "BackgroundThreadHandoffProducer"
+    const-string v1, "BackgroundThreadHandoffProducer"
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-interface {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerFinishWithSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+    invoke-interface {p1, v0, v1, v2}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onProducerFinishWithSuccess(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
 
     .line 41
-    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
+    iget-object p1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;
 
-    invoke-static {v0}, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;->access$000(Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;)Lcom/facebook/imagepipeline/producers/Producer;
+    invoke-static {p1}, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;->access$000(Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer;)Lcom/facebook/imagepipeline/producers/Producer;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$consumer:Lcom/facebook/imagepipeline/producers/Consumer;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$consumer:Lcom/facebook/imagepipeline/producers/Consumer;
 
-    iget-object v2, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$context:Lcom/facebook/imagepipeline/producers/ProducerContext;
+    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducer$1;->val$context:Lcom/facebook/imagepipeline/producers/ProducerContext;
 
-    invoke-interface {v0, v1, v2}, Lcom/facebook/imagepipeline/producers/Producer;->produceResults(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
+    invoke-interface {p1, v0, v1}, Lcom/facebook/imagepipeline/producers/Producer;->produceResults(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
 
-    .line 42
     return-void
 .end method

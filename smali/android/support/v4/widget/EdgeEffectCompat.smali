@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -24,18 +23,15 @@
 
     iput-object v0, p0, Landroid/support/v4/widget/EdgeEffectCompat;->mEdgeEffect:Landroid/widget/EdgeEffect;
 
-    .line 49
     return-void
 .end method
 
 .method public static onPull(Landroid/widget/EdgeEffect;FF)V
     .locals 2
-    .param p0, "edgeEffect"    # Landroid/widget/EdgeEffect;
+    .param p0    # Landroid/widget/EdgeEffect;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p1, "deltaDistance"    # F
-    .param p2, "displacement"    # F
 
     .line 152
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -53,7 +49,6 @@
     :cond_0
     invoke-virtual {p0, p1}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 157
     :goto_0
     return-void
 .end method
@@ -62,7 +57,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)Z
     .locals 1
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -71,9 +65,9 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/EdgeEffect;->draw(Landroid/graphics/Canvas;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public finish()V
@@ -86,7 +80,6 @@
 
     invoke-virtual {v0}, Landroid/widget/EdgeEffect;->finish()V
 
-    .line 87
     return-void
 .end method
 
@@ -107,7 +100,6 @@
 
 .method public onAbsorb(I)Z
     .locals 1
-    .param p1, "velocity"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -116,15 +108,13 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/EdgeEffect;->onAbsorb(I)V
 
-    .line 191
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onPull(F)Z
     .locals 1
-    .param p1, "deltaDistance"    # F
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -133,16 +123,13 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/EdgeEffect;->onPull(F)V
 
-    .line 105
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onPull(FF)Z
     .locals 1
-    .param p1, "deltaDistance"    # F
-    .param p2, "displacement"    # F
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -151,10 +138,9 @@
 
     invoke-static {v0, p1, p2}, Landroid/support/v4/widget/EdgeEffectCompat;->onPull(Landroid/widget/EdgeEffect;FF)V
 
-    .line 130
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onRelease()Z
@@ -179,8 +165,6 @@
 
 .method public setSize(II)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -189,6 +173,5 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/widget/EdgeEffect;->setSize(II)V
 
-    .line 62
     return-void
 .end method

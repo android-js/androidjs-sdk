@@ -52,26 +52,23 @@
     .locals 1
 
     .line 54
-    .local p0, "this":Landroid/arch/lifecycle/ComputableLiveData;, "Landroid/arch/lifecycle/ComputableLiveData<TT;>;"
     invoke-static {}, Landroid/arch/core/executor/ArchTaskExecutor;->getIOThreadExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroid/arch/lifecycle/ComputableLiveData;-><init>(Ljava/util/concurrent/Executor;)V
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
     .locals 2
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
+    .param p1    # Ljava/util/concurrent/Executor;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 64
-    .local p0, "this":Landroid/arch/lifecycle/ComputableLiveData;, "Landroid/arch/lifecycle/ComputableLiveData<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 46
@@ -110,54 +107,49 @@
     iput-object p1, p0, Landroid/arch/lifecycle/ComputableLiveData;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 66
-    new-instance v0, Landroid/arch/lifecycle/ComputableLiveData$1;
+    new-instance p1, Landroid/arch/lifecycle/ComputableLiveData$1;
 
-    invoke-direct {v0, p0}, Landroid/arch/lifecycle/ComputableLiveData$1;-><init>(Landroid/arch/lifecycle/ComputableLiveData;)V
+    invoke-direct {p1, p0}, Landroid/arch/lifecycle/ComputableLiveData$1;-><init>(Landroid/arch/lifecycle/ComputableLiveData;)V
 
-    iput-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mLiveData:Landroid/arch/lifecycle/LiveData;
+    iput-object p1, p0, Landroid/arch/lifecycle/ComputableLiveData;->mLiveData:Landroid/arch/lifecycle/LiveData;
 
-    .line 72
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/Executor;
-    .locals 1
-    .param p0, "x0"    # Landroid/arch/lifecycle/ComputableLiveData;
+    .locals 0
 
     .line 41
-    iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mExecutor:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mExecutor:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
-    .param p0, "x0"    # Landroid/arch/lifecycle/ComputableLiveData;
+    .locals 0
 
     .line 41
-    iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mComputing:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mComputing:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
-    .locals 1
-    .param p0, "x0"    # Landroid/arch/lifecycle/ComputableLiveData;
+    .locals 0
 
     .line 41
-    iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mInvalid:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mInvalid:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$300(Landroid/arch/lifecycle/ComputableLiveData;)Landroid/arch/lifecycle/LiveData;
-    .locals 1
-    .param p0, "x0"    # Landroid/arch/lifecycle/ComputableLiveData;
+    .locals 0
 
     .line 41
-    iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mLiveData:Landroid/arch/lifecycle/LiveData;
+    iget-object p0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mLiveData:Landroid/arch/lifecycle/LiveData;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -187,7 +179,6 @@
     .end annotation
 
     .line 82
-    .local p0, "this":Landroid/arch/lifecycle/ComputableLiveData;, "Landroid/arch/lifecycle/ComputableLiveData<TT;>;"
     iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData;->mLiveData:Landroid/arch/lifecycle/LiveData;
 
     return-object v0
@@ -197,7 +188,6 @@
     .locals 2
 
     .line 142
-    .local p0, "this":Landroid/arch/lifecycle/ComputableLiveData;, "Landroid/arch/lifecycle/ComputableLiveData<TT;>;"
     invoke-static {}, Landroid/arch/core/executor/ArchTaskExecutor;->getInstance()Landroid/arch/core/executor/ArchTaskExecutor;
 
     move-result-object v0
@@ -206,6 +196,5 @@
 
     invoke-virtual {v0, v1}, Landroid/arch/core/executor/ArchTaskExecutor;->executeOnMainThread(Ljava/lang/Runnable;)V
 
-    .line 143
     return-void
 .end method

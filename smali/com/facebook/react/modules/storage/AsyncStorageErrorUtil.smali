@@ -15,83 +15,79 @@
 
 .method static getDBError(Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
     .locals 1
-    .param p0, "key"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 41
     const-string v0, "Database Error"
 
+    .line 41
     invoke-static {p0, v0}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getError(Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static getError(Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
     .locals 2
-    .param p0, "key"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p1, "errorMessage"    # Ljava/lang/String;
 
     .line 24
     invoke-static {}, Lcom/facebook/react/bridge/Arguments;->createMap()Lcom/facebook/react/bridge/WritableMap;
 
     move-result-object v0
 
-    .line 25
-    .local v0, "errorMap":Lcom/facebook/react/bridge/WritableMap;
     const-string v1, "message"
 
+    .line 25
     invoke-interface {v0, v1, p1}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 26
     if-eqz p0, :cond_0
 
+    const-string p1, "key"
+
     .line 27
-    const-string v1, "key"
+    invoke-interface {v0, p1, p0}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-interface {v0, v1, p0}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 29
     :cond_0
     return-object v0
 .end method
 
 .method static getInvalidKeyError(Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
     .locals 1
-    .param p0, "key"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 33
     const-string v0, "Invalid key"
 
+    .line 33
     invoke-static {p0, v0}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getError(Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static getInvalidValueError(Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
     .locals 1
-    .param p0, "key"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 37
     const-string v0, "Invalid Value"
 
+    .line 37
     invoke-static {p0, v0}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getError(Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

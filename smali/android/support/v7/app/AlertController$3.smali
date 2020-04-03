@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AlertController;Landroid/view/View;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/app/AlertController;
 
     .line 600
     iput-object p1, p0, Landroid/support/v7/app/AlertController$3;->this$0:Landroid/support/v7/app/AlertController;
@@ -58,6 +57,5 @@
 
     invoke-static {v0, v1, v2}, Landroid/support/v7/app/AlertController;->manageScrollIndicators(Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
 
-    .line 604
     return-void
 .end method

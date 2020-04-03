@@ -30,7 +30,6 @@
     .locals 0
 
     .line 496
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;->this$1:Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;
 
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/BaseConsumer;-><init>()V
@@ -40,11 +39,8 @@
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;Lcom/facebook/imagepipeline/producers/MultiplexProducer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/producers/MultiplexProducer$1;
 
     .line 496
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;-><init>(Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;)V
 
     return-void
@@ -56,32 +52,26 @@
     .locals 1
 
     .line 509
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;->this$1:Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;
 
     invoke-virtual {v0, p0}, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;->onCancelled(Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;)V
 
-    .line 510
     return-void
 .end method
 
 .method protected onFailureImpl(Ljava/lang/Throwable;)V
     .locals 1
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 504
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;->this$1:Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;
 
     invoke-virtual {v0, p0, p1}, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;->onFailure(Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;Ljava/lang/Throwable;)V
 
-    .line 505
     return-void
 .end method
 
 .method protected onNewResultImpl(Ljava/io/Closeable;I)V
     .locals 1
-    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;I)V"
@@ -89,13 +79,10 @@
     .end annotation
 
     .line 499
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
-    .local p1, "newResult":Ljava/io/Closeable;, "TT;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;->this$1:Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;
 
     invoke-virtual {v0, p0, p1, p2}, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;->onNextResult(Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;Ljava/io/Closeable;I)V
 
-    .line 500
     return-void
 .end method
 
@@ -103,7 +90,6 @@
     .locals 0
 
     .line 496
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
     check-cast p1, Ljava/io/Closeable;
 
     invoke-virtual {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;->onNewResultImpl(Ljava/io/Closeable;I)V
@@ -113,14 +99,11 @@
 
 .method protected onProgressUpdateImpl(F)V
     .locals 1
-    .param p1, "progress"    # F
 
     .line 514
-    .local p0, "this":Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;, "Lcom/facebook/imagepipeline/producers/MultiplexProducer<TK;TT;>.Multiplexer.ForwardingConsumer;"
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;->this$1:Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;
 
     invoke-virtual {v0, p0, p1}, Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer;->onProgressUpdate(Lcom/facebook/imagepipeline/producers/MultiplexProducer$Multiplexer$ForwardingConsumer;F)V
 
-    .line 515
     return-void
 .end method

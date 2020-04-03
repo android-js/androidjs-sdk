@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/animated/NativeAnimatedModule;ILjava/lang/String;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/animated/NativeAnimatedModule;
 
     .line 373
     iput-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$21;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
@@ -50,7 +49,6 @@
 # virtual methods
 .method public execute(Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
     .locals 3
-    .param p1, "animatedNodesManager"    # Lcom/facebook/react/animated/NativeAnimatedNodesManager;
 
     .line 376
     iget v0, p0, Lcom/facebook/react/animated/NativeAnimatedModule$21;->val$viewTag:I
@@ -61,6 +59,5 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/facebook/react/animated/NativeAnimatedNodesManager;->removeAnimatedEventFromView(ILjava/lang/String;I)V
 
-    .line 377
     return-void
 .end method

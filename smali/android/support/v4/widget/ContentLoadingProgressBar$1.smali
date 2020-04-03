@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/widget/ContentLoadingProgressBar;
 
     .line 45
     iput-object p1, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
@@ -46,16 +45,15 @@
 
     iput-boolean v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
 
-    .line 50
     const-wide/16 v1, -0x1
 
+    .line 50
     iput-wide v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
-    .line 51
     const/16 v1, 0x8
 
+    .line 51
     invoke-virtual {v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->setVisibility(I)V
 
-    .line 52
     return-void
 .end method

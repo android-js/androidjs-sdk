@@ -31,12 +31,11 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImpl;Landroid/support/v7/app/TwilightManager;)V
-    .locals 1
-    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDelegateImpl;
+    .locals 0
+    .param p1    # Landroid/support/v7/app/AppCompatDelegateImpl;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "twilightManager"    # Landroid/support/v7/app/TwilightManager;
 
     .line 2673
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -49,11 +48,10 @@
     .line 2675
     invoke-virtual {p2}, Landroid/support/v7/app/TwilightManager;->isNight()Z
 
-    move-result v0
+    move-result p1
 
-    iput-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mIsNight:Z
+    iput-boolean p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mIsNight:Z
 
-    .line 2676
     return-void
 .end method
 
@@ -76,12 +74,11 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 2721
     const/4 v0, 0x0
 
+    .line 2721
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mAutoTimeChangeReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 2723
     :cond_0
     return-void
 .end method
@@ -97,7 +94,6 @@
     move-result v0
 
     .line 2686
-    .local v0, "isNight":Z
     iget-boolean v1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mIsNight:Z
 
     if-eq v0, v1, :cond_0
@@ -106,11 +102,10 @@
     iput-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mIsNight:Z
 
     .line 2688
-    iget-object v1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
+    iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
 
-    invoke-virtual {v1}, Landroid/support/v7/app/AppCompatDelegateImpl;->applyDayNight()Z
+    invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegateImpl;->applyDayNight()Z
 
-    .line 2690
     :cond_0
     return-void
 .end method
@@ -207,6 +202,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 2716
     return-void
 .end method

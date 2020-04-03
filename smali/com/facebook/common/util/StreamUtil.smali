@@ -15,7 +15,6 @@
 
 .method public static getBytesFromStream(Ljava/io/InputStream;)[B
     .locals 1
-    .param p0, "is"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -29,15 +28,13 @@
 
     invoke-static {p0, v0}, Lcom/facebook/common/util/StreamUtil;->getBytesFromStream(Ljava/io/InputStream;I)[B
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getBytesFromStream(Ljava/io/InputStream;I)[B
-    .locals 2
-    .param p0, "inputStream"    # Ljava/io/InputStream;
-    .param p1, "hint"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -50,21 +47,18 @@
     invoke-direct {v0, p1}, Lcom/facebook/common/util/StreamUtil$1;-><init>(I)V
 
     .line 49
-    .local v0, "byteOutput":Ljava/io/ByteArrayOutputStream;
     invoke-static {p0, v0}, Lcom/facebook/common/internal/ByteStreams;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;)J
 
     .line 50
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static skip(Ljava/io/InputStream;J)J
-    .locals 8
-    .param p0, "inputStream"    # Ljava/io/InputStream;
-    .param p1, "bytesCount"    # J
+    .locals 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,7 +68,6 @@
     .line 62
     invoke-static {p0}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 63
     const-wide/16 v0, 0x0
 
     cmp-long v2, p1, v0
@@ -88,14 +81,12 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 63
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 65
     move-wide v2, p1
 
-    .line 66
-    .local v2, "toSkip":J
     :goto_1
     cmp-long v4, v2, v0
 
@@ -106,44 +97,32 @@
 
     move-result-wide v4
 
-    .line 68
-    .local v4, "skipped":J
     cmp-long v6, v4, v0
 
     if-lez v6, :cond_1
 
-    .line 69
+    :goto_2
     sub-long/2addr v2, v4
 
-    .line 70
     goto :goto_1
 
     .line 73
     :cond_1
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
-    move-result v6
+    move-result v4
 
-    const/4 v7, -0x1
+    const/4 v5, -0x1
 
-    if-eq v6, v7, :cond_2
+    if-eq v4, v5, :cond_2
 
-    .line 74
-    const-wide/16 v6, 0x1
+    const-wide/16 v4, 0x1
 
-    sub-long/2addr v2, v6
+    goto :goto_2
 
-    .line 75
-    goto :goto_1
-
-    .line 77
     :cond_2
-    sub-long v0, p1, v2
+    sub-long/2addr p1, v2
 
-    return-wide v0
-
-    .line 80
-    .end local v4    # "skipped":J
     :cond_3
     return-wide p1
 .end method

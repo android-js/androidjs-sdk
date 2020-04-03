@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v13/view/DragStartHelper;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v13/view/DragStartHelper;
 
     .line 181
     iput-object p1, p0, Landroid/support/v13/view/DragStartHelper$1;->this$0:Landroid/support/v13/view/DragStartHelper;
@@ -38,14 +37,13 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
     .line 184
     iget-object v0, p0, Landroid/support/v13/view/DragStartHelper$1;->this$0:Landroid/support/v13/view/DragStartHelper;
 
     invoke-virtual {v0, p1}, Landroid/support/v13/view/DragStartHelper;->onLongClick(Landroid/view/View;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

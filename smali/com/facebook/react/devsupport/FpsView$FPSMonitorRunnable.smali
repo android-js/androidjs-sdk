@@ -36,9 +36,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 77
     const/4 p1, 0x0
 
+    .line 77
     iput-boolean p1, p0, Lcom/facebook/react/devsupport/FpsView$FPSMonitorRunnable;->mShouldStop:Z
 
     .line 78
@@ -52,8 +52,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/devsupport/FpsView;Lcom/facebook/react/devsupport/FpsView$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/devsupport/FpsView;
-    .param p2, "x1"    # Lcom/facebook/react/devsupport/FpsView$1;
 
     .line 75
     invoke-direct {p0, p1}, Lcom/facebook/react/devsupport/FpsView$FPSMonitorRunnable;-><init>(Lcom/facebook/react/devsupport/FpsView;)V
@@ -71,7 +69,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 84
     return-void
 
     .line 86
@@ -164,16 +161,15 @@
 
     invoke-virtual {v0, p0, v1, v2}, Lcom/facebook/react/devsupport/FpsView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 92
     return-void
 .end method
 
 .method public start()V
     .locals 1
 
-    .line 95
     const/4 v0, 0x0
 
+    .line 95
     iput-boolean v0, p0, Lcom/facebook/react/devsupport/FpsView$FPSMonitorRunnable;->mShouldStop:Z
 
     .line 96
@@ -181,18 +177,16 @@
 
     invoke-virtual {v0, p0}, Lcom/facebook/react/devsupport/FpsView;->post(Ljava/lang/Runnable;)Z
 
-    .line 97
     return-void
 .end method
 
 .method public stop()V
     .locals 1
 
-    .line 100
     const/4 v0, 0x1
 
+    .line 100
     iput-boolean v0, p0, Lcom/facebook/react/devsupport/FpsView$FPSMonitorRunnable;->mShouldStop:Z
 
-    .line 101
     return-void
 .end method

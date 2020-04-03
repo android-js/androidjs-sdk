@@ -35,13 +35,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/LocalFetchProducer;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/imagepipeline/request/ImageRequest;Lcom/facebook/imagepipeline/producers/ProducerListener;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/LocalFetchProducer;
-    .param p3, "producerListener"    # Lcom/facebook/imagepipeline/producers/ProducerListener;
-    .param p4, "producerName"    # Ljava/lang/String;
-    .param p5, "requestId"    # Ljava/lang/String;
 
     .line 48
-    .local p2, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/LocalFetchProducer;
 
     iput-object p6, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->val$imageRequest:Lcom/facebook/imagepipeline/request/ImageRequest;
@@ -59,12 +54,10 @@
 # virtual methods
 .method protected disposeResult(Lcom/facebook/imagepipeline/image/EncodedImage;)V
     .locals 0
-    .param p1, "result"    # Lcom/facebook/imagepipeline/image/EncodedImage;
 
     .line 64
     invoke-static {p1}, Lcom/facebook/imagepipeline/image/EncodedImage;->closeSafely(Lcom/facebook/imagepipeline/image/EncodedImage;)V
 
-    .line 65
     return-void
 .end method
 
@@ -96,29 +89,26 @@
 
     move-result-object v0
 
-    .line 53
-    .local v0, "encodedImage":Lcom/facebook/imagepipeline/image/EncodedImage;
     if-nez v0, :cond_0
 
     .line 54
-    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->val$listener:Lcom/facebook/imagepipeline/producers/ProducerListener;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->val$listener:Lcom/facebook/imagepipeline/producers/ProducerListener;
 
-    iget-object v2, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->val$requestId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->val$requestId:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/LocalFetchProducer;
+    iget-object v2, p0, Lcom/facebook/imagepipeline/producers/LocalFetchProducer$1;->this$0:Lcom/facebook/imagepipeline/producers/LocalFetchProducer;
 
-    invoke-virtual {v3}, Lcom/facebook/imagepipeline/producers/LocalFetchProducer;->getProducerName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/facebook/imagepipeline/producers/LocalFetchProducer;->getProducerName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v1, v2, v3, v4}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-interface {v0, v1, v2, v3}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 55
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return-object v1
+    return-object v0
 
     .line 57
     :cond_0
@@ -139,7 +129,6 @@
 
     invoke-interface {v1, v2, v3, v4}, Lcom/facebook/imagepipeline/producers/ProducerListener;->onUltimateProducerReached(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    .line 59
     return-object v0
 .end method
 

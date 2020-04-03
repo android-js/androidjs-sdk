@@ -10,13 +10,12 @@
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
     return-void
 .end method
 
 .method public static getLongVersionCode(Landroid/content/pm/PackageInfo;)J
     .locals 2
-    .param p0, "info"    # Landroid/content/pm/PackageInfo;
+    .param p0    # Landroid/content/pm/PackageInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -37,9 +36,9 @@
 
     .line 38
     :cond_0
-    iget v0, p0, Landroid/content/pm/PackageInfo;->versionCode:I
+    iget p0, p0, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    int-to-long v0, v0
+    int-to-long v0, p0
 
     return-wide v0
 .end method

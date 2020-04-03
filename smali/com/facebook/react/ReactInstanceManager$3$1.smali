@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/ReactInstanceManager$3;Z)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/ReactInstanceManager$3;
 
     .line 386
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$3$1;->this$1:Lcom/facebook/react/ReactInstanceManager$3;
@@ -78,7 +77,6 @@
 
     invoke-static {v0}, Lcom/facebook/react/ReactInstanceManager;->access$600(Lcom/facebook/react/ReactInstanceManager;)V
 
-    .line 396
     :goto_0
     return-void
 .end method

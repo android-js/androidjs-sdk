@@ -46,8 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic then(Lbolts/Task;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Lbolts/Task;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -57,13 +56,13 @@
     .line 488
     invoke-virtual {p0, p1}, Lbolts/Task$7;->then(Lbolts/Task;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public then(Lbolts/Task;)Ljava/util/List;
-    .locals 4
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,64 +81,56 @@
     .end annotation
 
     .line 491
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<Ljava/lang/Void;>;"
-    iget-object v0, p0, Lbolts/Task$7;->val$tasks:Ljava/util/Collection;
+    iget-object p1, p0, Lbolts/Task$7;->val$tasks:Ljava/util/Collection;
 
-    invoke-interface {v0}, Ljava/util/Collection;->size()I
+    invoke-interface {p1}, Ljava/util/Collection;->size()I
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 492
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 495
     :cond_0
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     .line 496
-    .local v0, "results":Ljava/util/List;, "Ljava/util/List<TTResult;>;"
-    iget-object v1, p0, Lbolts/Task$7;->val$tasks:Ljava/util/Collection;
+    iget-object v0, p0, Lbolts/Task$7;->val$tasks:Ljava/util/Collection;
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    .local v1, "i$":Ljava/util/Iterator;
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lbolts/Task;
+    check-cast v1, Lbolts/Task;
 
     .line 497
-    .local v2, "individualTask":Lbolts/Task;, "Lbolts/Task<TTResult;>;"
-    invoke-virtual {v2}, Lbolts/Task;->getResult()Ljava/lang/Object;
+    invoke-virtual {v1}, Lbolts/Task;->getResult()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 498
-    .end local v2    # "individualTask":Lbolts/Task;, "Lbolts/Task<TTResult;>;"
     goto :goto_0
 
-    .line 499
-    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
-    return-object v0
+    return-object p1
 .end method

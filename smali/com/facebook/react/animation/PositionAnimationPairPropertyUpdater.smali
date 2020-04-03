@@ -6,27 +6,19 @@
 # direct methods
 .method public constructor <init>(FF)V
     .locals 0
-    .param p1, "toFirst"    # F
-    .param p2, "toSecond"    # F
 
     .line 18
     invoke-direct {p0, p1, p2}, Lcom/facebook/react/animation/AbstractFloatPairPropertyUpdater;-><init>(FF)V
 
-    .line 19
     return-void
 .end method
 
 .method public constructor <init>(FFFF)V
     .locals 0
-    .param p1, "fromFirst"    # F
-    .param p2, "fromSecond"    # F
-    .param p3, "toFirst"    # F
-    .param p4, "toSecond"    # F
 
     .line 26
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/facebook/react/animation/AbstractFloatPairPropertyUpdater;-><init>(FFFF)V
 
-    .line 27
     return-void
 .end method
 
@@ -34,8 +26,6 @@
 # virtual methods
 .method protected getProperty(Landroid/view/View;[F)V
     .locals 3
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "returnValues"    # [F
 
     .line 31
     invoke-virtual {p1}, Landroid/view/View;->getX()F
@@ -65,30 +55,27 @@
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    move-result v1
+    move-result p1
 
-    int-to-float v1, v1
+    int-to-float p1, p1
 
-    mul-float v1, v1, v2
+    mul-float p1, p1, v2
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, p1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    aput v0, p2, v1
+    aput v0, p2, p1
 
-    .line 33
     return-void
 .end method
 
 .method protected setProperty(Landroid/view/View;[F)V
     .locals 3
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "propertyValues"    # [F
 
-    .line 37
     const/4 v0, 0x0
 
+    .line 37
     aget v0, p2, v0
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -105,23 +92,22 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setX(F)V
 
-    .line 38
     const/4 v0, 0x1
 
-    aget v0, p2, v0
+    .line 38
+    aget p2, p2, v0
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    move-result v1
+    move-result v0
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    mul-float v1, v1, v2
+    mul-float v0, v0, v2
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p2, v0
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setY(F)V
+    invoke-virtual {p1, p2}, Landroid/view/View;->setY(F)V
 
-    .line 39
     return-void
 .end method

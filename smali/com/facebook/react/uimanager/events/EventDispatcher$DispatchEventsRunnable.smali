@@ -35,8 +35,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/events/EventDispatcher;Lcom/facebook/react/uimanager/events/EventDispatcher$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/events/EventDispatcher;
-    .param p2, "x1"    # Lcom/facebook/react/uimanager/events/EventDispatcher$1;
 
     .line 344
     invoke-direct {p0, p1}, Lcom/facebook/react/uimanager/events/EventDispatcher$DispatchEventsRunnable;-><init>(Lcom/facebook/react/uimanager/events/EventDispatcher;)V
@@ -49,17 +47,17 @@
 .method public run()V
     .locals 7
 
-    .line 348
     const-wide/16 v0, 0x0
 
     const-string v2, "DispatchEventsRunnable"
 
+    .line 348
     invoke-static {v0, v1, v2}, Lcom/facebook/systrace/Systrace;->beginSection(JLjava/lang/String;)V
 
-    .line 350
     :try_start_0
     const-string v2, "ScheduleDispatchFrameCallback"
 
+    .line 350
     iget-object v3, p0, Lcom/facebook/react/uimanager/events/EventDispatcher$DispatchEventsRunnable;->this$0:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
     .line 353
@@ -143,9 +141,6 @@
 
     .line 363
     :cond_0
-    nop
-
-    .local v3, "eventIdx":I
     :goto_0
     iget-object v4, p0, Lcom/facebook/react/uimanager/events/EventDispatcher$DispatchEventsRunnable;->this$0:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
@@ -164,18 +159,12 @@
 
     aget-object v4, v4, v3
 
-    .line 366
-    .local v4, "event":Lcom/facebook/react/uimanager/events/Event;
     if-nez v4, :cond_1
 
-    .line 367
     goto :goto_1
 
-    .line 369
-    :cond_1
-    nop
-
     .line 370
+    :cond_1
     invoke-virtual {v4}, Lcom/facebook/react/uimanager/events/Event;->getEventName()Ljava/lang/String;
 
     move-result-object v5
@@ -199,15 +188,12 @@
     .line 372
     invoke-virtual {v4}, Lcom/facebook/react/uimanager/events/Event;->dispose()V
 
-    .line 363
-    .end local v4    # "event":Lcom/facebook/react/uimanager/events/Event;
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 374
-    .end local v3    # "eventIdx":I
     :cond_2
     iget-object v3, p0, Lcom/facebook/react/uimanager/events/EventDispatcher$DispatchEventsRunnable;->this$0:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
@@ -254,29 +240,22 @@
     check-cast v3, Lcom/facebook/react/uimanager/events/BatchEventDispatchedListener;
 
     .line 379
-    .local v3, "listener":Lcom/facebook/react/uimanager/events/BatchEventDispatchedListener;
     invoke-interface {v3}, Lcom/facebook/react/uimanager/events/BatchEventDispatchedListener;->onBatchEventDispatched()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    .line 380
-    .end local v3    # "listener":Lcom/facebook/react/uimanager/events/BatchEventDispatchedListener;
     goto :goto_2
 
     .line 382
     :cond_4
     invoke-static {v0, v1}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
-    .line 383
-    nop
-
-    .line 384
     return-void
 
-    .line 377
     :catchall_0
     move-exception v3
 
+    .line 377
     :try_start_3
     monitor-exit v2
     :try_end_3
@@ -287,10 +266,10 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 382
     :catchall_1
     move-exception v2
 
+    .line 382
     invoke-static {v0, v1}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
     .line 383

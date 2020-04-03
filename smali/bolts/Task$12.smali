@@ -40,7 +40,6 @@
     .locals 0
 
     .line 754
-    .local p0, "this":Lbolts/Task$12;, "Lbolts/Task.12;"
     iput-object p1, p0, Lbolts/Task$12;->this$0:Lbolts/Task;
 
     iput-object p2, p0, Lbolts/Task$12;->val$ct:Lbolts/CancellationToken;
@@ -67,8 +66,6 @@
     .end annotation
 
     .line 757
-    .local p0, "this":Lbolts/Task$12;, "Lbolts/Task.12;"
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<TTResult;>;"
     iget-object v0, p0, Lbolts/Task$12;->val$ct:Lbolts/CancellationToken;
 
     if-eqz v0, :cond_0
@@ -82,9 +79,9 @@
     .line 758
     invoke-static {}, Lbolts/Task;->cancelled()Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 761
     :cond_0
@@ -97,13 +94,13 @@
     .line 762
     invoke-virtual {p1}, Lbolts/Task;->getError()Ljava/lang/Exception;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Lbolts/Task;->forError(Ljava/lang/Exception;)Lbolts/Task;
+    invoke-static {p1}, Lbolts/Task;->forError(Ljava/lang/Exception;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 763
     :cond_1
@@ -116,9 +113,9 @@
     .line 764
     invoke-static {}, Lbolts/Task;->cancelled()Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 766
     :cond_2
@@ -126,14 +123,13 @@
 
     invoke-virtual {p1, v0}, Lbolts/Task;->continueWith(Lbolts/Continuation;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic then(Lbolts/Task;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Lbolts/Task;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -141,10 +137,9 @@
     .end annotation
 
     .line 754
-    .local p0, "this":Lbolts/Task$12;, "Lbolts/Task.12;"
     invoke-virtual {p0, p1}, Lbolts/Task$12;->then(Lbolts/Task;)Lbolts/Task;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/HeadlessJsTaskService;Lcom/facebook/react/jstasks/HeadlessJsTaskConfig;Lcom/facebook/react/ReactInstanceManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/HeadlessJsTaskService;
 
     .line 104
     iput-object p1, p0, Lcom/facebook/react/HeadlessJsTaskService$1;->this$0:Lcom/facebook/react/HeadlessJsTaskService;
@@ -46,7 +45,6 @@
 # virtual methods
 .method public onReactContextInitialized(Lcom/facebook/react/bridge/ReactContext;)V
     .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 107
     iget-object v0, p0, Lcom/facebook/react/HeadlessJsTaskService$1;->this$0:Lcom/facebook/react/HeadlessJsTaskService;
@@ -56,10 +54,9 @@
     invoke-static {v0, p1, v1}, Lcom/facebook/react/HeadlessJsTaskService;->access$000(Lcom/facebook/react/HeadlessJsTaskService;Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/jstasks/HeadlessJsTaskConfig;)V
 
     .line 108
-    iget-object v0, p0, Lcom/facebook/react/HeadlessJsTaskService$1;->val$reactInstanceManager:Lcom/facebook/react/ReactInstanceManager;
+    iget-object p1, p0, Lcom/facebook/react/HeadlessJsTaskService$1;->val$reactInstanceManager:Lcom/facebook/react/ReactInstanceManager;
 
-    invoke-virtual {v0, p0}, Lcom/facebook/react/ReactInstanceManager;->removeReactInstanceEventListener(Lcom/facebook/react/ReactInstanceManager$ReactInstanceEventListener;)V
+    invoke-virtual {p1, p0}, Lcom/facebook/react/ReactInstanceManager;->removeReactInstanceEventListener(Lcom/facebook/react/ReactInstanceManager$ReactInstanceEventListener;)V
 
-    .line 109
     return-void
 .end method

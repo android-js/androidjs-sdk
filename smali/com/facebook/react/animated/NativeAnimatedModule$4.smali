@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/animated/NativeAnimatedModule;ILcom/facebook/react/bridge/ReadableMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/animated/NativeAnimatedModule;
 
     .line 199
     iput-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$4;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
@@ -46,7 +45,6 @@
 # virtual methods
 .method public execute(Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
     .locals 2
-    .param p1, "animatedNodesManager"    # Lcom/facebook/react/animated/NativeAnimatedNodesManager;
 
     .line 202
     iget v0, p0, Lcom/facebook/react/animated/NativeAnimatedModule$4;->val$tag:I
@@ -55,6 +53,5 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/facebook/react/animated/NativeAnimatedNodesManager;->createAnimatedNode(ILcom/facebook/react/bridge/ReadableMap;)V
 
-    .line 203
     return-void
 .end method

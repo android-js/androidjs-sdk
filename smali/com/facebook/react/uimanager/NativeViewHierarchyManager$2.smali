@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/NativeViewHierarchyManager;ILcom/facebook/react/bridge/Callback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
 
     .line 718
     iput-object p1, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->this$0:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
@@ -45,7 +44,7 @@
 
 # virtual methods
 .method public onCancel()V
-    .locals 5
+    .locals 4
 
     .line 734
     iget-object v0, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->this$0:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
@@ -60,39 +59,37 @@
 
     move-result-object v0
 
-    .line 736
-    .local v0, "removedAnimation":Lcom/facebook/react/animation/Animation;
     const-string v1, "Animation was already removed somehow!"
 
+    .line 736
     invoke-static {v0, v1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 737
-    iget-object v1, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->val$animationCallback:Lcom/facebook/react/bridge/Callback;
+    iget-object v0, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->val$animationCallback:Lcom/facebook/react/bridge/Callback;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x1
 
     .line 738
-    const/4 v2, 0x1
+    new-array v1, v1, [Ljava/lang/Object;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v3
 
-    move-result-object v4
+    aput-object v3, v1, v2
 
-    aput-object v4, v2, v3
+    invoke-interface {v0, v1}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    invoke-interface {v1, v2}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
-
-    .line 740
     :cond_0
     return-void
 .end method
 
 .method public onFinished()V
-    .locals 5
+    .locals 4
 
     .line 721
     iget-object v0, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->this$0:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
@@ -107,33 +104,31 @@
 
     move-result-object v0
 
-    .line 726
-    .local v0, "removedAnimation":Lcom/facebook/react/animation/Animation;
     const-string v1, "Animation was already removed somehow!"
 
+    .line 726
     invoke-static {v0, v1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     .line 727
-    iget-object v1, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->val$animationCallback:Lcom/facebook/react/bridge/Callback;
+    iget-object v0, p0, Lcom/facebook/react/uimanager/NativeViewHierarchyManager$2;->val$animationCallback:Lcom/facebook/react/bridge/Callback;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x1
 
     .line 728
-    const/4 v2, 0x1
+    new-array v2, v1, [Ljava/lang/Object;
 
-    new-array v3, v2, [Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result-object v1
 
-    move-result-object v2
+    aput-object v1, v2, v3
 
-    aput-object v2, v3, v4
+    invoke-interface {v0, v2}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    invoke-interface {v1, v3}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
-
-    .line 730
     :cond_0
     return-void
 .end method

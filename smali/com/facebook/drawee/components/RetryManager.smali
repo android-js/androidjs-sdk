@@ -25,7 +25,6 @@
     .line 21
     invoke-virtual {p0}, Lcom/facebook/drawee/components/RetryManager;->init()V
 
-    .line 22
     return-void
 .end method
 
@@ -45,20 +44,19 @@
 .method public init()V
     .locals 1
 
-    .line 32
     const/4 v0, 0x0
 
+    .line 32
     iput-boolean v0, p0, Lcom/facebook/drawee/components/RetryManager;->mTapToRetryEnabled:Z
 
-    .line 33
     const/4 v0, 0x4
 
+    .line 33
     iput v0, p0, Lcom/facebook/drawee/components/RetryManager;->mMaxTapToRetryAttempts:I
 
     .line 34
     invoke-virtual {p0}, Lcom/facebook/drawee/components/RetryManager;->reset()V
 
-    .line 35
     return-void
 .end method
 
@@ -81,41 +79,35 @@
 
     iput v0, p0, Lcom/facebook/drawee/components/RetryManager;->mTapToRetryAttempts:I
 
-    .line 63
     return-void
 .end method
 
 .method public reset()V
     .locals 1
 
-    .line 42
     const/4 v0, 0x0
 
+    .line 42
     iput v0, p0, Lcom/facebook/drawee/components/RetryManager;->mTapToRetryAttempts:I
 
-    .line 43
     return-void
 .end method
 
 .method public setMaxTapToRetryAttemps(I)V
     .locals 0
-    .param p1, "maxTapToRetryAttemps"    # I
 
     .line 54
     iput p1, p0, Lcom/facebook/drawee/components/RetryManager;->mMaxTapToRetryAttempts:I
 
-    .line 55
     return-void
 .end method
 
 .method public setTapToRetryEnabled(Z)V
     .locals 0
-    .param p1, "tapToRetryEnabled"    # Z
 
     .line 50
     iput-boolean p1, p0, Lcom/facebook/drawee/components/RetryManager;->mTapToRetryEnabled:Z
 
-    .line 51
     return-void
 .end method
 

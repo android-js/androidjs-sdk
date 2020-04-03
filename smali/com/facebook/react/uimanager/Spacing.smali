@@ -39,9 +39,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 59
     const/16 v0, 0x9
 
+    .line 59
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
@@ -67,25 +67,23 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 77
     const/4 v0, 0x0
 
+    .line 77
     invoke-direct {p0, v0}, Lcom/facebook/react/uimanager/Spacing;-><init>(F)V
 
-    .line 78
     return-void
 .end method
 
 .method public constructor <init>(F)V
     .locals 1
-    .param p1, "defaultValue"    # F
 
     .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
     .line 81
@@ -94,24 +92,22 @@
     .line 82
     invoke-static {}, Lcom/facebook/react/uimanager/Spacing;->newFullSpacingArray()[F
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
+    iput-object p1, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
 
-    .line 83
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/uimanager/Spacing;)V
     .locals 2
-    .param p1, "original"    # Lcom/facebook/react/uimanager/Spacing;
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 72
     const/4 v0, 0x0
 
+    .line 72
     iput v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
     .line 86
@@ -136,20 +132,19 @@
     iput v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
     .line 89
-    iget-boolean v0, p1, Lcom/facebook/react/uimanager/Spacing;->mHasAliasesSet:Z
+    iget-boolean p1, p1, Lcom/facebook/react/uimanager/Spacing;->mHasAliasesSet:Z
 
-    iput-boolean v0, p0, Lcom/facebook/react/uimanager/Spacing;->mHasAliasesSet:Z
+    iput-boolean p1, p0, Lcom/facebook/react/uimanager/Spacing;->mHasAliasesSet:Z
 
-    .line 90
     return-void
 .end method
 
 .method private static newFullSpacingArray()[F
     .locals 1
 
-    .line 186
     const/16 v0, 0x9
 
+    .line 186
     new-array v0, v0, [F
 
     fill-array-data v0, :array_0
@@ -173,10 +168,8 @@
 
 # virtual methods
 .method public get(I)F
-    .locals 5
-    .param p1, "spacingType"    # I
+    .locals 4
 
-    .line 128
     const/4 v0, 0x4
 
     if-eq p1, v0, :cond_1
@@ -187,6 +180,7 @@
 
     goto :goto_0
 
+    .line 128
     :cond_0
     iget v0, p0, Lcom/facebook/react/uimanager/Spacing;->mDefaultValue:F
 
@@ -197,13 +191,11 @@
     const/high16 v0, 0x7fc00000    # Float.NaN
 
     .line 132
-    .local v0, "defaultValue":F
     :goto_1
     iget v1, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
     if-nez v1, :cond_2
 
-    .line 133
     return v0
 
     .line 136
@@ -217,11 +209,11 @@
     if-eqz v1, :cond_3
 
     .line 137
-    iget-object v1, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
+    iget-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
 
-    aget v1, v1, p1
+    aget p1, v0, p1
 
-    return v1
+    return p1
 
     .line 140
     :cond_3
@@ -229,7 +221,6 @@
 
     if-eqz v1, :cond_7
 
-    .line 141
     const/4 v1, 0x1
 
     if-eq p1, v1, :cond_5
@@ -241,73 +232,67 @@
     goto :goto_2
 
     :cond_4
-    const/4 v1, 0x6
+    const/4 p1, 0x6
 
     goto :goto_3
 
     :cond_5
     :goto_2
-    const/4 v1, 0x7
+    const/4 p1, 0x7
 
     .line 142
-    .local v1, "secondType":I
     :goto_3
-    iget v2, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
+    iget v1, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
-    sget-object v3, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
+    sget-object v2, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
 
-    aget v4, v3, v1
+    aget v3, v2, p1
 
-    and-int/2addr v4, v2
+    and-int/2addr v3, v1
 
-    if-eqz v4, :cond_6
+    if-eqz v3, :cond_6
 
     .line 143
-    iget-object v2, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
+    iget-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
 
-    aget v2, v2, v1
+    aget p1, v0, p1
 
-    return v2
+    return p1
+
+    :cond_6
+    const/16 p1, 0x8
 
     .line 144
-    :cond_6
-    const/16 v4, 0x8
+    aget v2, v2, p1
 
-    aget v3, v3, v4
+    and-int/2addr v1, v2
 
-    and-int/2addr v2, v3
-
-    if-eqz v2, :cond_7
+    if-eqz v1, :cond_7
 
     .line 145
-    iget-object v2, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
+    iget-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
 
-    aget v2, v2, v4
+    aget p1, v0, p1
 
-    return v2
+    return p1
 
-    .line 149
-    .end local v1    # "secondType":I
     :cond_7
     return v0
 .end method
 
 .method public getRaw(I)F
     .locals 1
-    .param p1, "spacingType"    # I
 
     .line 160
     iget-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method getWithFallback(II)F
     .locals 2
-    .param p1, "spacingType"    # I
-    .param p2, "fallbackType"    # I
 
     .line 179
     iget v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
@@ -320,9 +305,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
+    iget-object p2, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
 
-    aget v0, v0, p1
+    aget p1, p2, p1
 
     goto :goto_0
 
@@ -330,11 +315,10 @@
     :cond_0
     invoke-virtual {p0, p2}, Lcom/facebook/react/uimanager/Spacing;->get(I)F
 
-    move-result v0
+    move-result p1
 
-    .line 179
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public reset()V
@@ -347,22 +331,19 @@
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([FF)V
 
-    .line 169
     const/4 v0, 0x0
 
+    .line 169
     iput-boolean v0, p0, Lcom/facebook/react/uimanager/Spacing;->mHasAliasesSet:Z
 
     .line 170
     iput v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
-    .line 171
     return-void
 .end method
 
 .method public set(IF)Z
-    .locals 5
-    .param p1, "spacingType"    # I
-    .param p2, "value"    # F
+    .locals 3
 
     .line 102
     iget-object v0, p0, Lcom/facebook/react/uimanager/Spacing;->mSpacing:[F
@@ -385,68 +366,68 @@
     .line 105
     invoke-static {p2}, Lcom/facebook/yoga/YogaConstants;->isUndefined(F)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 106
-    iget v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
+    iget p2, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
-    sget-object v2, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
+    sget-object v0, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
 
-    aget v2, v2, p1
+    aget p1, v0, p1
 
-    xor-int/lit8 v2, v2, -0x1
+    xor-int/lit8 p1, p1, -0x1
 
-    and-int/2addr v0, v2
+    and-int/2addr p1, p2
 
-    iput v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
+    iput p1, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
     goto :goto_0
 
     .line 108
     :cond_0
-    iget v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
+    iget p2, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
-    sget-object v2, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
+    sget-object v0, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
 
-    aget v2, v2, p1
+    aget p1, v0, p1
 
-    or-int/2addr v0, v2
+    or-int/2addr p1, p2
 
-    iput v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
+    iput p1, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
     .line 111
     :goto_0
-    iget v0, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
+    iget p1, p0, Lcom/facebook/react/uimanager/Spacing;->mValueFlags:I
 
-    sget-object v2, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
+    sget-object p2, Lcom/facebook/react/uimanager/Spacing;->sFlagsMap:[I
 
-    const/16 v3, 0x8
+    const/16 v0, 0x8
 
-    aget v3, v2, v3
+    aget v0, p2, v0
 
-    and-int/2addr v3, v0
+    and-int/2addr v0, p1
 
-    const/4 v4, 0x1
+    const/4 v2, 0x1
 
-    if-nez v3, :cond_1
+    if-nez v0, :cond_1
 
-    const/4 v3, 0x7
+    const/4 v0, 0x7
 
-    aget v3, v2, v3
+    aget v0, p2, v0
 
-    and-int/2addr v3, v0
+    and-int/2addr v0, p1
 
-    if-nez v3, :cond_1
+    if-nez v0, :cond_1
 
-    const/4 v3, 0x6
+    const/4 v0, 0x6
 
-    aget v2, v2, v3
+    aget p2, p2, v0
 
-    and-int/2addr v0, v2
+    and-int/2addr p1, p2
 
-    if-eqz v0, :cond_2
+    if-eqz p1, :cond_2
 
     :cond_1
     const/4 v1, 0x1
@@ -454,10 +435,8 @@
     :cond_2
     iput-boolean v1, p0, Lcom/facebook/react/uimanager/Spacing;->mHasAliasesSet:Z
 
-    .line 116
-    return v4
+    return v2
 
-    .line 119
     :cond_3
     return v1
 .end method

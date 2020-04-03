@@ -54,11 +54,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 109
     const-string v0, "MediaBrowserCompat"
 
     const/4 v1, 0x3
 
+    .line 109
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v0
@@ -70,10 +70,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;Landroid/os/Bundle;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "serviceComponent"    # Landroid/content/ComponentName;
-    .param p3, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;
-    .param p4, "rootHints"    # Landroid/os/Bundle;
 
     .line 187
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -136,7 +132,6 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat;->mImpl:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;
 
-    .line 199
     :goto_0
     return-void
 .end method
@@ -151,7 +146,6 @@
 
     invoke-interface {v0}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->connect()V
 
-    .line 210
     return-void
 .end method
 
@@ -163,7 +157,6 @@
 
     invoke-interface {v0}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->disconnect()V
 
-    .line 218
     return-void
 .end method
 
@@ -184,11 +177,11 @@
 
 .method public getItem(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
     .locals 1
-    .param p1, "mediaId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "cb"    # Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
+    .param p2    # Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -198,7 +191,6 @@
 
     invoke-interface {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->getItem(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
 
-    .line 389
     return-void
 .end method
 
@@ -282,13 +274,12 @@
 .end method
 
 .method public search(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;)V
-    .locals 2
-    .param p1, "query"    # Ljava/lang/String;
+    .locals 1
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "extras"    # Landroid/os/Bundle;
-    .param p3, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
+    .param p3    # Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -300,7 +291,6 @@
 
     if-nez v0, :cond_1
 
-    .line 407
     if-eqz p3, :cond_0
 
     .line 410
@@ -308,38 +298,36 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->search(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SearchCallback;)V
 
-    .line 411
     return-void
 
     .line 408
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "callback cannot be null"
+    const-string p2, "callback cannot be null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 405
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "query cannot be empty"
+    const-string p2, "query cannot be empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;)V
-    .locals 2
-    .param p1, "action"    # Ljava/lang/String;
+    .locals 1
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "extras"    # Landroid/os/Bundle;
-    .param p3, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;
+    .param p3    # Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -356,31 +344,30 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;)V
 
-    .line 430
     return-void
 
     .line 427
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "action cannot be empty"
+    const-string p2, "action cannot be empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public subscribe(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
-    .locals 2
-    .param p1, "parentId"    # Ljava/lang/String;
+    .locals 1
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "options"    # Landroid/os/Bundle;
+    .param p2    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+    .param p3    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -392,10 +379,8 @@
 
     if-nez v0, :cond_2
 
-    .line 330
     if-eqz p3, :cond_1
 
-    .line 333
     if-eqz p2, :cond_0
 
     .line 336
@@ -403,47 +388,46 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->subscribe(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
-    .line 337
     return-void
 
     .line 334
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "options are null"
+    const-string p2, "options are null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 331
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "callback is null"
+    const-string p2, "callback is null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 328
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "parentId is empty"
+    const-string p2, "parentId is empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public subscribe(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
     .locals 2
-    .param p1, "parentId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+    .param p2    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -455,7 +439,6 @@
 
     if-nez v0, :cond_1
 
-    .line 296
     if-eqz p2, :cond_0
 
     .line 299
@@ -465,33 +448,32 @@
 
     invoke-interface {v0, p1, v1, p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->subscribe(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
-    .line 300
     return-void
 
     .line 297
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "callback is null"
+    const-string p2, "callback is null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 294
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "parentId is empty"
+    const-string p2, "parentId is empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public unsubscribe(Ljava/lang/String;)V
     .locals 2
-    .param p1, "parentId"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -510,27 +492,26 @@
 
     invoke-interface {v0, p1, v1}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->unsubscribe(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
-    .line 355
     return-void
 
     .line 352
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "parentId is empty"
+    const-string v0, "parentId is empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public unsubscribe(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
-    .locals 2
-    .param p1, "parentId"    # Ljava/lang/String;
+    .locals 1
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "callback"    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+    .param p2    # Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -542,7 +523,6 @@
 
     if-nez v0, :cond_1
 
-    .line 373
     if-eqz p2, :cond_0
 
     .line 376
@@ -550,26 +530,25 @@
 
     invoke-interface {v0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImpl;->unsubscribe(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
-    .line 377
     return-void
 
     .line 374
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "callback is null"
+    const-string p2, "callback is null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 371
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "parentId is empty"
+    const-string p2, "parentId is empty"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

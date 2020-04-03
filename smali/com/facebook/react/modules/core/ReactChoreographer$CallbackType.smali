@@ -99,9 +99,9 @@
 
     sput-object v0, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;->IDLE_EVENT:Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
 
-    .line 25
     const/4 v0, 0x5
 
+    .line 25
     new-array v0, v0, [Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
 
     sget-object v6, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;->PERF_MARKERS:Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
@@ -131,7 +131,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "order"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -144,24 +143,22 @@
     .line 57
     iput p3, p0, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;->mOrder:I
 
-    .line 58
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 25
     const-class v0, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
+    check-cast p0, Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;

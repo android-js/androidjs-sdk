@@ -1288,6 +1288,9 @@
 .field public static final TextAppearance_textAllCaps:I = 0xc
 
 .field public static final Toolbar:[I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final Toolbar_android_gravity:I = 0x0
 
@@ -1342,6 +1345,9 @@
 .field public static final Toolbar_titleMarginTop:I = 0x19
 
 .field public static final Toolbar_titleMargins:I = 0x1a
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final Toolbar_titleTextAppearance:I = 0x1b
 
@@ -1380,18 +1386,18 @@
 .method static constructor <clinit>()V
     .locals 11
 
-    .line 4063
     const/16 v0, 0x1d
 
+    .line 4499
     new-array v1, v0, [I
 
     fill-array-data v1, :array_0
 
     sput-object v1, Lcom/android/js/webview/R$styleable;->ActionBar:[I
 
-    .line 4458
     const/4 v1, 0x1
 
+    .line 4931
     new-array v2, v1, [I
 
     const/4 v3, 0x0
@@ -1402,7 +1408,7 @@
 
     sput-object v2, Lcom/android/js/webview/R$styleable;->ActionBarLayout:[I
 
-    .line 4501
+    .line 4974
     new-array v2, v1, [I
 
     const v4, 0x101013f
@@ -1411,103 +1417,103 @@
 
     sput-object v2, Lcom/android/js/webview/R$styleable;->ActionMenuItemView:[I
 
-    .line 4517
+    .line 4990
     new-array v2, v3, [I
 
     sput-object v2, Lcom/android/js/webview/R$styleable;->ActionMenuView:[I
 
-    .line 4540
     const/4 v2, 0x6
 
+    .line 5013
     new-array v4, v2, [I
 
     fill-array-data v4, :array_1
 
     sput-object v4, Lcom/android/js/webview/R$styleable;->ActionMode:[I
 
-    .line 4633
     const/4 v4, 0x2
 
+    .line 5112
     new-array v5, v4, [I
 
     fill-array-data v5, :array_2
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->ActivityChooserView:[I
 
-    .line 4683
     const/16 v5, 0x8
 
+    .line 5168
     new-array v6, v5, [I
 
     fill-array-data v6, :array_3
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->AlertDialog:[I
 
-    .line 4803
+    .line 5288
     new-array v6, v2, [I
 
     fill-array-data v6, :array_4
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->AnimatedStateListDrawableCompat:[I
 
-    .line 4878
+    .line 5379
     new-array v6, v4, [I
 
     fill-array-data v6, :array_5
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->AnimatedStateListDrawableItem:[I
 
-    .line 4922
     const/4 v6, 0x4
 
+    .line 5426
     new-array v7, v6, [I
 
     fill-array-data v7, :array_6
 
     sput-object v7, Lcom/android/js/webview/R$styleable;->AnimatedStateListDrawableTransition:[I
 
-    .line 4988
+    .line 5497
     new-array v7, v6, [I
 
     fill-array-data v7, :array_7
 
     sput-object v7, Lcom/android/js/webview/R$styleable;->AppCompatImageView:[I
 
-    .line 5067
+    .line 5585
     new-array v7, v6, [I
 
     fill-array-data v7, :array_8
 
     sput-object v7, Lcom/android/js/webview/R$styleable;->AppCompatSeekBar:[I
 
-    .line 5149
     const/4 v7, 0x7
 
+    .line 5675
     new-array v8, v7, [I
 
     fill-array-data v8, :array_9
 
     sput-object v8, Lcom/android/js/webview/R$styleable;->AppCompatTextHelper:[I
 
-    .line 5286
     const/16 v8, 0xb
 
+    .line 5814
     new-array v9, v8, [I
 
     fill-array-data v9, :array_a
 
     sput-object v9, Lcom/android/js/webview/R$styleable;->AppCompatTextView:[I
 
-    .line 5685
     const/16 v9, 0x79
 
+    .line 6249
     new-array v9, v9, [I
 
     fill-array-data v9, :array_b
 
     sput-object v9, Lcom/android/js/webview/R$styleable;->AppCompatTheme:[I
 
-    .line 7224
+    .line 7935
     new-array v9, v1, [I
 
     const v10, 0x7f020029
@@ -1516,108 +1522,108 @@
 
     sput-object v9, Lcom/android/js/webview/R$styleable;->ButtonBarLayout:[I
 
-    .line 7252
     const/4 v9, 0x3
 
+    .line 7965
     new-array v10, v9, [I
 
     fill-array-data v10, :array_c
 
     sput-object v10, Lcom/android/js/webview/R$styleable;->ColorStateListItem:[I
 
-    .line 7299
+    .line 8014
     new-array v10, v9, [I
 
     fill-array-data v10, :array_d
 
     sput-object v10, Lcom/android/js/webview/R$styleable;->CompoundButton:[I
 
-    .line 7475
     const/16 v10, 0x3c
 
+    .line 8197
     new-array v10, v10, [I
 
     fill-array-data v10, :array_e
 
     sput-object v10, Lcom/android/js/webview/R$styleable;->ConstraintLayout_Layout:[I
 
-    .line 8377
+    .line 9099
     new-array v10, v4, [I
 
     fill-array-data v10, :array_f
 
     sput-object v10, Lcom/android/js/webview/R$styleable;->ConstraintLayout_placeholder:[I
 
-    .line 8578
     const/16 v10, 0x50
 
+    .line 9300
     new-array v10, v10, [I
 
     fill-array-data v10, :array_10
 
     sput-object v10, Lcom/android/js/webview/R$styleable;->ConstraintSet:[I
 
-    .line 9737
+    .line 10460
     new-array v10, v4, [I
 
     fill-array-data v10, :array_11
 
     sput-object v10, Lcom/android/js/webview/R$styleable;->CoordinatorLayout:[I
 
-    .line 9790
+    .line 10522
     new-array v7, v7, [I
 
     fill-array-data v7, :array_12
 
     sput-object v7, Lcom/android/js/webview/R$styleable;->CoordinatorLayout_Layout:[I
 
-    .line 9953
+    .line 10702
     new-array v5, v5, [I
 
     fill-array-data v5, :array_13
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->DrawerArrowToggle:[I
 
-    .line 10077
+    .line 10834
     new-array v5, v2, [I
 
     fill-array-data v5, :array_14
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->FontFamily:[I
 
-    .line 10186
     const/16 v5, 0xa
 
+    .line 10970
     new-array v5, v5, [I
 
     fill-array-data v5, :array_15
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->FontFamilyFont:[I
 
-    .line 10372
+    .line 11173
     new-array v5, v0, [I
 
     fill-array-data v5, :array_16
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->GenericDraweeHierarchy:[I
 
-    .line 10802
     const/16 v5, 0xc
 
+    .line 11603
     new-array v5, v5, [I
 
     fill-array-data v5, :array_17
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->GradientColor:[I
 
-    .line 10970
+    .line 11787
     new-array v5, v4, [I
 
     fill-array-data v5, :array_18
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->GradientColorItem:[I
 
-    .line 11004
+    .line 11824
     new-array v5, v1, [I
 
     const v7, 0x10100c4
@@ -1626,60 +1632,60 @@
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->LinearConstraintLayout:[I
 
-    .line 11051
     const/16 v5, 0x9
 
+    .line 11872
     new-array v7, v5, [I
 
     fill-array-data v7, :array_19
 
     sput-object v7, Lcom/android/js/webview/R$styleable;->LinearLayoutCompat:[I
 
-    .line 11201
+    .line 12042
     new-array v6, v6, [I
 
     fill-array-data v6, :array_1a
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->LinearLayoutCompat_Layout:[I
 
-    .line 11301
+    .line 12142
     new-array v6, v4, [I
 
     fill-array-data v6, :array_1b
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->ListPopupWindow:[I
 
-    .line 11351
+    .line 12194
     new-array v6, v2, [I
 
     fill-array-data v6, :array_1c
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->MenuGroup:[I
 
-    .line 11488
     const/16 v6, 0x17
 
+    .line 12341
     new-array v6, v6, [I
 
     fill-array-data v6, :array_1d
 
     sput-object v6, Lcom/android/js/webview/R$styleable;->MenuItem:[I
 
-    .line 11811
+    .line 12718
     new-array v5, v5, [I
 
     fill-array-data v5, :array_1e
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->MenuView:[I
 
-    .line 11940
+    .line 12856
     new-array v5, v9, [I
 
     fill-array-data v5, :array_1f
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->PopupWindow:[I
 
-    .line 11991
+    .line 12908
     new-array v5, v1, [I
 
     const v6, 0x7f02012f
@@ -1688,55 +1694,55 @@
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->PopupWindowBackgroundState:[I
 
-    .line 12017
+    .line 12935
     new-array v4, v4, [I
 
     fill-array-data v4, :array_20
 
     sput-object v4, Lcom/android/js/webview/R$styleable;->RecycleListView:[I
 
-    .line 12077
+    .line 12997
     new-array v4, v8, [I
 
     fill-array-data v4, :array_21
 
     sput-object v4, Lcom/android/js/webview/R$styleable;->RecyclerView:[I
 
-    .line 12257
     const/16 v4, 0x11
 
+    .line 13187
     new-array v4, v4, [I
 
     fill-array-data v4, :array_22
 
     sput-object v4, Lcom/android/js/webview/R$styleable;->SearchView:[I
 
-    .line 12595
     const/16 v4, 0x1f
 
+    .line 13543
     new-array v4, v4, [I
 
     fill-array-data v4, :array_23
 
     sput-object v4, Lcom/android/js/webview/R$styleable;->SimpleDraweeView:[I
 
-    .line 13033
     const/4 v4, 0x5
 
+    .line 13982
     new-array v5, v4, [I
 
     fill-array-data v5, :array_24
 
     sput-object v5, Lcom/android/js/webview/R$styleable;->Spinner:[I
 
-    .line 13132
+    .line 14086
     new-array v2, v2, [I
 
     fill-array-data v2, :array_25
 
     sput-object v2, Lcom/android/js/webview/R$styleable;->StateListDrawable:[I
 
-    .line 13205
+    .line 14175
     new-array v1, v1, [I
 
     const v2, 0x1010199
@@ -1745,46 +1751,46 @@
 
     sput-object v1, Lcom/android/js/webview/R$styleable;->StateListDrawableItem:[I
 
-    .line 13257
     const/16 v1, 0xe
 
+    .line 14229
     new-array v1, v1, [I
 
     fill-array-data v1, :array_26
 
     sput-object v1, Lcom/android/js/webview/R$styleable;->SwitchCompat:[I
 
-    .line 13477
     const/16 v1, 0xd
 
+    .line 14473
     new-array v1, v1, [I
 
     fill-array-data v1, :array_27
 
     sput-object v1, Lcom/android/js/webview/R$styleable;->TextAppearance:[I
 
-    .line 13717
+    .line 14723
     new-array v0, v0, [I
 
     fill-array-data v0, :array_28
 
     sput-object v0, Lcom/android/js/webview/R$styleable;->Toolbar:[I
 
-    .line 14118
+    .line 15167
     new-array v0, v4, [I
 
     fill-array-data v0, :array_29
 
     sput-object v0, Lcom/android/js/webview/R$styleable;->View:[I
 
-    .line 14205
+    .line 15266
     new-array v0, v9, [I
 
     fill-array-data v0, :array_2a
 
     sput-object v0, Lcom/android/js/webview/R$styleable;->ViewBackgroundHelper:[I
 
-    .line 14270
+    .line 15338
     new-array v0, v9, [I
 
     fill-array-data v0, :array_2b
@@ -2598,7 +2604,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 3995
+    .line 4427
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

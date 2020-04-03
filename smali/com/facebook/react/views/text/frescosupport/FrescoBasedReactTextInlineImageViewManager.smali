@@ -38,22 +38,21 @@
 .method public constructor <init>()V
     .locals 1
 
-    .line 34
     const/4 v0, 0x0
 
+    .line 34
     invoke-direct {p0, v0, v0}, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageViewManager;-><init>(Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;Ljava/lang/Object;)V
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "draweeControllerBuilder"    # Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    .param p1    # Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "callerContext"    # Ljava/lang/Object;
+    .param p2    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -67,7 +66,6 @@
     .line 41
     iput-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageViewManager;->mCallerContext:Ljava/lang/Object;
 
-    .line 42
     return-void
 .end method
 
@@ -107,28 +105,25 @@
 
     invoke-direct {v0, v1, v2}, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageShadowNode;-><init>(Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;Ljava/lang/Object;)V
 
-    .line 56
     return-object v0
 .end method
 
 .method public createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Landroid/view/View;
-    .locals 2
-    .param p1, "context"    # Lcom/facebook/react/uimanager/ThemedReactContext;
+    .locals 1
 
     .line 51
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "RCTTextInlineImage doesn\'t map into a native view"
+    const-string v0, "RCTTextInlineImage doesn\'t map into a native view"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 46
     const-string v0, "RCTTextInlineImage"
 
     return-object v0
@@ -153,9 +148,6 @@
 
 .method public updateExtraData(Landroid/view/View;Ljava/lang/Object;)V
     .locals 0
-    .param p1, "root"    # Landroid/view/View;
-    .param p2, "extraData"    # Ljava/lang/Object;
 
-    .line 71
     return-void
 .end method

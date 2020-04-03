@@ -60,9 +60,9 @@
 
     sput-object v0, Lcom/facebook/common/util/TriState;->UNSET:Lcom/facebook/common/util/TriState;
 
-    .line 15
     const/4 v0, 0x3
 
+    .line 15
     new-array v0, v0, [Lcom/facebook/common/util/TriState;
 
     sget-object v4, Lcom/facebook/common/util/TriState;->YES:Lcom/facebook/common/util/TriState;
@@ -98,11 +98,9 @@
 
 .method public static fromDbValue(I)Lcom/facebook/common/util/TriState;
     .locals 1
-    .param p0, "value"    # I
     .annotation build Lcom/facebook/infer/annotation/Functional;
     .end annotation
 
-    .line 128
     const/4 v0, 0x1
 
     if-eq p0, v0, :cond_1
@@ -112,83 +110,80 @@
     if-eq p0, v0, :cond_0
 
     .line 135
-    sget-object v0, Lcom/facebook/common/util/TriState;->UNSET:Lcom/facebook/common/util/TriState;
+    sget-object p0, Lcom/facebook/common/util/TriState;->UNSET:Lcom/facebook/common/util/TriState;
 
-    return-object v0
+    return-object p0
 
     .line 132
     :cond_0
-    sget-object v0, Lcom/facebook/common/util/TriState;->NO:Lcom/facebook/common/util/TriState;
+    sget-object p0, Lcom/facebook/common/util/TriState;->NO:Lcom/facebook/common/util/TriState;
 
-    return-object v0
+    return-object p0
 
     .line 130
     :cond_1
-    sget-object v0, Lcom/facebook/common/util/TriState;->YES:Lcom/facebook/common/util/TriState;
+    sget-object p0, Lcom/facebook/common/util/TriState;->YES:Lcom/facebook/common/util/TriState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/Boolean;)Lcom/facebook/common/util/TriState;
-    .locals 1
-    .param p0, "bool"    # Ljava/lang/Boolean;
+    .locals 0
     .annotation build Lcom/facebook/infer/annotation/Functional;
     .end annotation
 
-    .line 46
     if-eqz p0, :cond_0
 
+    .line 46
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Lcom/facebook/common/util/TriState;->valueOf(Z)Lcom/facebook/common/util/TriState;
+    invoke-static {p0}, Lcom/facebook/common/util/TriState;->valueOf(Z)Lcom/facebook/common/util/TriState;
 
-    move-result-object v0
+    move-result-object p0
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/facebook/common/util/TriState;->UNSET:Lcom/facebook/common/util/TriState;
+    sget-object p0, Lcom/facebook/common/util/TriState;->UNSET:Lcom/facebook/common/util/TriState;
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/common/util/TriState;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 15
     const-class v0, Lcom/facebook/common/util/TriState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/common/util/TriState;
+    check-cast p0, Lcom/facebook/common/util/TriState;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Z)Lcom/facebook/common/util/TriState;
-    .locals 1
-    .param p0, "bool"    # Z
+    .locals 0
     .annotation build Lcom/facebook/infer/annotation/Functional;
     .end annotation
 
-    .line 41
     if-eqz p0, :cond_0
 
-    sget-object v0, Lcom/facebook/common/util/TriState;->YES:Lcom/facebook/common/util/TriState;
+    .line 41
+    sget-object p0, Lcom/facebook/common/util/TriState;->YES:Lcom/facebook/common/util/TriState;
 
     goto :goto_0
 
     :cond_0
-    sget-object v0, Lcom/facebook/common/util/TriState;->NO:Lcom/facebook/common/util/TriState;
+    sget-object p0, Lcom/facebook/common/util/TriState;->NO:Lcom/facebook/common/util/TriState;
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/common/util/TriState;
@@ -265,20 +260,17 @@
 
     throw v0
 
-    .line 62
     :cond_1
     const/4 v0, 0x0
 
     return v0
 
-    .line 60
     :cond_2
     return v1
 .end method
 
 .method public asBoolean(Z)Z
-    .locals 3
-    .param p1, "defaultValue"    # Z
+    .locals 2
     .annotation build Lcom/facebook/infer/annotation/Functional;
     .end annotation
 
@@ -303,38 +295,35 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 86
     return p1
 
     .line 88
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Unrecognized TriState value: "
+    const-string v1, "Unrecognized TriState value: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 84
     :cond_1
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 
-    .line 82
     :cond_2
     return v1
 .end method
@@ -365,7 +354,6 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 107
     const/4 v0, 0x0
 
     return-object v0
@@ -421,23 +409,17 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_0
 
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
 
-    .line 122
     const/4 v0, 0x3
 
     return v0
 
-    .line 119
     :cond_0
-    return v1
-
-    .line 117
-    :cond_1
     return v1
 .end method
 

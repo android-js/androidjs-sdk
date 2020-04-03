@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;
 
     .line 617
     iput-object p1, p0, Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl$1;->this$0:Landroid/support/v4/app/ActivityCompat$SharedElementCallback21Impl;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0}, Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;->onSharedElementsReady()V
 
-    .line 621
     return-void
 .end method

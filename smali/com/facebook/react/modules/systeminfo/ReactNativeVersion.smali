@@ -20,31 +20,27 @@
 .method static constructor <clinit>()V
     .locals 9
 
-    .line 17
-    nop
-
-    .line 18
     const/4 v0, 0x0
 
+    .line 18
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    .line 19
     const/16 v0, 0x3b
 
+    .line 19
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    .line 20
     const/4 v0, 0x7
 
+    .line 20
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
-    .line 17
     const-string v1, "major"
 
     const-string v3, "minor"
@@ -55,6 +51,7 @@
 
     const/4 v8, 0x0
 
+    .line 17
     invoke-static/range {v1 .. v8}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0

@@ -79,7 +79,6 @@
 
 .method public constructor <init>(Lcom/facebook/react/bridge/NativeModule;)V
     .locals 9
-    .param p1, "nativeModule"    # Lcom/facebook/react/bridge/NativeModule;
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -160,32 +159,30 @@
     .line 77
     invoke-static {}, Lcom/facebook/debug/holder/PrinterHolder;->getPrinter()Lcom/facebook/debug/holder/Printer;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/facebook/debug/tags/ReactDebugOverlayTags;->NATIVE_MODULE:Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;
+    sget-object v0, Lcom/facebook/debug/tags/ReactDebugOverlayTags;->NATIVE_MODULE:Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
+    iget-object v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v3, v2, v4
+    aput-object v2, v1, v3
+
+    const-string v2, "NativeModule init: %s"
 
     .line 78
-    const-string v3, "NativeModule init: %s"
+    invoke-interface {p1, v0, v2, v1}, Lcom/facebook/debug/holder/Printer;->logMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-interface {v0, v1, v3, v2}, Lcom/facebook/debug/holder/Printer;->logMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 79
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/module/model/ReactModuleInfo;Ljavax/inject/Provider;)V
     .locals 1
-    .param p1, "moduleInfo"    # Lcom/facebook/react/module/model/ReactModuleInfo;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,7 +195,6 @@
     .end annotation
 
     .line 54
-    .local p2, "provider":Ljavax/inject/Provider;, "Ljavax/inject/Provider<+Lcom/facebook/react/bridge/NativeModule;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 40
@@ -226,24 +222,23 @@
     .line 58
     invoke-virtual {p1}, Lcom/facebook/react/module/model/ReactModuleInfo;->needsEagerInit()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 59
     invoke-direct {p0}, Lcom/facebook/react/bridge/ModuleHolder;->create()Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
+    iput-object p1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
-    .line 61
     :cond_0
     return-void
 .end method
 
 .method private create()Lcom/facebook/react/bridge/NativeModule;
-    .locals 7
+    .locals 8
 
     .line 180
     iget-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
@@ -275,20 +270,20 @@
 
     invoke-static {v0, v3, v4}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 182
     const-wide/16 v3, 0x0
 
     const-string v0, "ModuleHolder.createModule"
 
+    .line 182
     invoke-static {v3, v4, v0}, Lcom/facebook/systrace/SystraceMessage;->beginSection(JLjava/lang/String;)Lcom/facebook/systrace/SystraceMessage$Builder;
 
     move-result-object v0
 
     iget-object v5, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
 
-    .line 183
     const-string v6, "name"
 
+    .line 183
     invoke-virtual {v0, v6, v5}, Lcom/facebook/systrace/SystraceMessage$Builder;->arg(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/systrace/SystraceMessage$Builder;
 
     move-result-object v0
@@ -303,16 +298,16 @@
 
     sget-object v5, Lcom/facebook/debug/tags/ReactDebugOverlayTags;->NATIVE_MODULE:Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v6, v1, [Ljava/lang/Object;
 
-    iget-object v6, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
+    iget-object v7, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
 
-    aput-object v6, v1, v2
+    aput-object v7, v6, v2
+
+    const-string v7, "NativeModule init: %s"
 
     .line 186
-    const-string v2, "NativeModule init: %s"
-
-    invoke-interface {v0, v5, v2, v1}, Lcom/facebook/debug/holder/Printer;->logMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-interface {v0, v5, v7, v6}, Lcom/facebook/debug/holder/Printer;->logMessage(Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 189
     :try_start_0
@@ -330,17 +325,12 @@
 
     check-cast v0, Lcom/facebook/react/bridge/NativeModule;
 
+    const/4 v5, 0x0
+
     .line 190
-    .local v0, "module":Lcom/facebook/react/bridge/NativeModule;
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mProvider:Ljavax/inject/Provider;
-
-    .line 191
-    const/4 v1, 0x0
+    iput-object v5, p0, Lcom/facebook/react/bridge/ModuleHolder;->mProvider:Ljavax/inject/Provider;
 
     .line 192
-    .local v1, "shouldInitializeNow":Z
     monitor-enter p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
@@ -350,24 +340,25 @@
     iput-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
     .line 194
-    iget-boolean v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInitializable:Z
+    iget-boolean v5, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInitializable:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v5, :cond_1
 
-    iget-boolean v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
+    iget-boolean v5, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
 
-    if-nez v2, :cond_1
+    if-nez v5, :cond_1
 
-    .line 195
-    const/4 v1, 0x1
+    goto :goto_1
+
+    :cond_1
+    const/4 v1, 0x0
 
     .line 197
-    :cond_1
+    :goto_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 198
     if-eqz v1, :cond_2
 
     .line 199
@@ -377,7 +368,6 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 202
-    .end local v1    # "shouldInitializeNow":Z
     :cond_2
     sget-object v1, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
@@ -394,33 +384,26 @@
 
     invoke-virtual {v1}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
 
-    .line 204
-    nop
-
-    .line 205
     return-object v0
 
-    .line 197
-    .restart local v1    # "shouldInitializeNow":Z
     :catchall_0
-    move-exception v2
+    move-exception v0
 
+    .line 197
     :try_start_3
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    throw v2
+    throw v0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 202
-    .end local v0    # "module":Lcom/facebook/react/bridge/NativeModule;
-    .end local v1    # "shouldInitializeNow":Z
     :catchall_1
     move-exception v0
 
+    .line 202
     sget-object v1, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
     iget-object v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
@@ -441,23 +424,22 @@
 .end method
 
 .method private doInitialize(Lcom/facebook/react/bridge/NativeModule;)V
-    .locals 6
-    .param p1, "module"    # Lcom/facebook/react/bridge/NativeModule;
+    .locals 5
 
-    .line 209
     const-wide/16 v0, 0x0
 
     const-string v2, "ModuleHolder.initialize"
 
+    .line 209
     invoke-static {v0, v1, v2}, Lcom/facebook/systrace/SystraceMessage;->beginSection(JLjava/lang/String;)Lcom/facebook/systrace/SystraceMessage$Builder;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
 
-    .line 210
     const-string v4, "name"
 
+    .line 210
     invoke-virtual {v2, v4, v3}, Lcom/facebook/systrace/SystraceMessage$Builder;->arg(Ljava/lang/String;Ljava/lang/Object;)Lcom/facebook/systrace/SystraceMessage$Builder;
 
     move-result-object v2
@@ -474,11 +456,7 @@
 
     invoke-static {v2, v3, v4}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 214
-    const/4 v2, 0x0
-
     .line 216
-    .local v2, "shouldInitialize":Z
     :try_start_0
     monitor-enter p0
     :try_end_0
@@ -486,30 +464,33 @@
 
     .line 217
     :try_start_1
-    iget-boolean v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInitializable:Z
+    iget-boolean v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInitializable:Z
 
-    if-eqz v3, :cond_0
-
-    iget-boolean v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
-
-    if-nez v3, :cond_0
-
-    .line 218
-    const/4 v2, 0x1
-
-    .line 219
     const/4 v3, 0x1
 
+    const/4 v4, 0x0
+
+    if-eqz v2, :cond_0
+
+    iget-boolean v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
+
+    if-nez v2, :cond_0
+
+    .line 219
     iput-boolean v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
 
-    .line 221
+    goto :goto_0
+
     :cond_0
+    const/4 v3, 0x0
+
+    .line 221
+    :goto_0
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    .line 222
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
     .line 223
     :try_start_2
@@ -521,34 +502,64 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     .line 228
-    const/4 v3, 0x0
-
     :try_start_3
-    iput-boolean v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
+    iput-boolean v4, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
 
     .line 229
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
-    move-exception v3
+    move-exception p1
 
     monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .end local p1    # "module":Lcom/facebook/react/bridge/NativeModule;
     :try_start_4
-    throw v3
+    throw p1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     .line 232
-    .end local v2    # "shouldInitialize":Z
-    .restart local p1    # "module":Lcom/facebook/react/bridge/NativeModule;
     :cond_1
-    :goto_0
+    :goto_1
+    sget-object p1, Lcom/facebook/react/bridge/ReactMarkerConstants;->INITIALIZE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
+
+    iget-object v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
+
+    iget v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInstanceKey:I
+
+    invoke-static {p1, v2, v3}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
+
+    .line 233
+    invoke-static {v0, v1}, Lcom/facebook/systrace/SystraceMessage;->endSection(J)Lcom/facebook/systrace/SystraceMessage$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
+
+    return-void
+
+    :catchall_1
+    move-exception p1
+
+    .line 221
+    :try_start_5
+    monitor-exit p0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+
+    :try_start_6
+    throw p1
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+
+    :catchall_2
+    move-exception p1
+
+    .line 232
     sget-object v2, Lcom/facebook/react/bridge/ReactMarkerConstants;->INITIALIZE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
     iget-object v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
@@ -565,50 +576,7 @@
     invoke-virtual {v0}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
 
     .line 234
-    nop
-
-    .line 235
-    return-void
-
-    .line 221
-    .restart local v2    # "shouldInitialize":Z
-    :catchall_1
-    move-exception v3
-
-    :try_start_5
-    monitor-exit p0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
-
-    .end local p1    # "module":Lcom/facebook/react/bridge/NativeModule;
-    :try_start_6
-    throw v3
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
-
-    .line 232
-    .end local v2    # "shouldInitialize":Z
-    .restart local p1    # "module":Lcom/facebook/react/bridge/NativeModule;
-    :catchall_2
-    move-exception v2
-
-    sget-object v3, Lcom/facebook/react/bridge/ReactMarkerConstants;->INITIALIZE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
-
-    iget-object v4, p0, Lcom/facebook/react/bridge/ModuleHolder;->mName:Ljava/lang/String;
-
-    iget v5, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInstanceKey:I
-
-    invoke-static {v3, v4, v5}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
-
-    .line 233
-    invoke-static {v0, v1}, Lcom/facebook/systrace/SystraceMessage;->endSection(J)Lcom/facebook/systrace/SystraceMessage$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
-
-    .line 234
-    throw v2
+    throw p1
 .end method
 
 
@@ -632,13 +600,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 110
-    .end local p0    # "this":Lcom/facebook/react/bridge/ModuleHolder;
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 106
     :catchall_0
     move-exception v0
 
@@ -691,61 +657,57 @@
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 140
-    const/4 v0, 0x0
-
     .line 141
-    .local v0, "shouldCreate":Z
     monitor-enter p0
 
     .line 142
     :try_start_0
-    iget-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
+    iget-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 143
-    iget-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
+    iget-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
 
     .line 146
     :cond_0
-    iget-boolean v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsCreating:Z
+    iget-boolean v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsCreating:Z
 
-    if-nez v1, :cond_1
-
-    .line 147
-    const/4 v0, 0x1
-
-    .line 148
     const/4 v1, 0x1
 
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_1
+
+    .line 148
     iput-boolean v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsCreating:Z
 
-    .line 152
+    goto :goto_0
+
     :cond_1
+    const/4 v1, 0x0
+
+    .line 152
+    :goto_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
-    .line 153
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 154
     invoke-direct {p0}, Lcom/facebook/react/bridge/ModuleHolder;->create()Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 157
-    .local v1, "module":Lcom/facebook/react/bridge/NativeModule;
     monitor-enter p0
 
     .line 158
-    const/4 v2, 0x0
-
     :try_start_1
     iput-boolean v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsCreating:Z
 
@@ -755,36 +717,34 @@
     .line 160
     monitor-exit p0
 
-    .line 161
-    return-object v1
+    return-object v0
 
-    .line 160
     :catchall_0
-    move-exception v2
+    move-exception v0
 
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw v0
 
     .line 163
-    .end local v1    # "module":Lcom/facebook/react/bridge/NativeModule;
     :cond_2
     monitor-enter p0
 
     .line 167
-    :goto_0
+    :catch_0
+    :goto_1
     :try_start_2
-    iget-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
+    iget-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
-    iget-boolean v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsCreating:Z
+    iget-boolean v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsCreating:Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
     .line 169
     :try_start_3
@@ -793,53 +753,43 @@
     .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_0
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 172
-    goto :goto_0
-
-    .line 170
-    :catch_0
-    move-exception v1
-
-    .line 171
-    .local v1, "e":Ljava/lang/InterruptedException;
-    goto :goto_0
+    goto :goto_1
 
     .line 174
-    .end local v1    # "e":Ljava/lang/InterruptedException;
     :cond_3
     :try_start_4
-    iget-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
+    iget-object v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
-    invoke-static {v1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/facebook/react/bridge/NativeModule;
+    check-cast v0, Lcom/facebook/react/bridge/NativeModule;
 
     monitor-exit p0
 
-    return-object v1
+    return-object v0
+
+    :catchall_1
+    move-exception v0
 
     .line 175
-    :catchall_1
-    move-exception v1
-
     monitor-exit p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    throw v1
+    throw v0
+
+    :catchall_2
+    move-exception v0
 
     .line 152
-    :catchall_2
-    move-exception v1
-
     :try_start_5
     monitor-exit p0
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    throw v1
+    throw v0
 
     return-void
 .end method
@@ -880,7 +830,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/react/bridge/ModuleHolder;
     :catchall_0
     move-exception v0
 
@@ -916,75 +865,66 @@
 .end method
 
 .method markInitializable()V
-    .locals 4
-
-    .line 87
-    const/4 v0, 0x0
-
-    .line 88
-    .local v0, "shouldInitializeNow":Z
-    const/4 v1, 0x0
+    .locals 3
 
     .line 89
-    .local v1, "module":Lcom/facebook/react/bridge/NativeModule;
     monitor-enter p0
 
-    .line 90
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
+    .line 90
     :try_start_0
-    iput-boolean v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInitializable:Z
+    iput-boolean v0, p0, Lcom/facebook/react/bridge/ModuleHolder;->mInitializable:Z
 
     .line 91
-    iget-object v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
+    iget-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
-    if-eqz v3, :cond_1
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_1
 
     .line 92
-    iget-boolean v3, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
+    iget-boolean v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mIsInitializing:Z
 
-    if-nez v3, :cond_0
+    if-nez v1, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    invoke-static {v2}, Lcom/facebook/infer/annotation/Assertions;->assertCondition(Z)V
+
+    .line 94
+    iget-object v1, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
 
     goto :goto_0
 
-    :cond_0
-    const/4 v2, 0x0
+    :cond_1
+    const/4 v1, 0x0
 
-    :goto_0
-    invoke-static {v2}, Lcom/facebook/infer/annotation/Assertions;->assertCondition(Z)V
-
-    .line 93
-    const/4 v0, 0x1
-
-    .line 94
-    iget-object v2, p0, Lcom/facebook/react/bridge/ModuleHolder;->mModule:Lcom/facebook/react/bridge/NativeModule;
-
-    move-object v1, v2
+    const/4 v0, 0x0
 
     .line 96
-    :cond_1
+    :goto_0
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 97
     if-eqz v0, :cond_2
 
     .line 98
     invoke-direct {p0, v1}, Lcom/facebook/react/bridge/ModuleHolder;->doInitialize(Lcom/facebook/react/bridge/NativeModule;)V
 
-    .line 100
     :cond_2
     return-void
 
-    .line 96
     :catchall_0
-    move-exception v2
+    move-exception v0
 
+    .line 96
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw v0
 .end method

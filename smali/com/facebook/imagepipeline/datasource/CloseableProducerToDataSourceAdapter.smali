@@ -22,8 +22,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/SettableProducerContext;Lcom/facebook/imagepipeline/listener/RequestListener;)V
     .locals 0
-    .param p2, "settableProducerContext"    # Lcom/facebook/imagepipeline/producers/SettableProducerContext;
-    .param p3, "listener"    # Lcom/facebook/imagepipeline/listener/RequestListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -37,18 +35,13 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
-    .local p1, "producer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/imagepipeline/datasource/AbstractProducerToDataSourceAdapter;-><init>(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/SettableProducerContext;Lcom/facebook/imagepipeline/listener/RequestListener;)V
 
-    .line 40
     return-void
 .end method
 
 .method public static create(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/SettableProducerContext;Lcom/facebook/imagepipeline/listener/RequestListener;)Lcom/facebook/datasource/DataSource;
     .locals 1
-    .param p1, "settableProducerContext"    # Lcom/facebook/imagepipeline/producers/SettableProducerContext;
-    .param p2, "listener"    # Lcom/facebook/imagepipeline/listener/RequestListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -67,7 +60,6 @@
     .end annotation
 
     .line 31
-    .local p0, "producer":Lcom/facebook/imagepipeline/producers/Producer;, "Lcom/facebook/imagepipeline/producers/Producer<Lcom/facebook/common/references/CloseableReference<TT;>;>;"
     new-instance v0, Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;-><init>(Lcom/facebook/imagepipeline/producers/Producer;Lcom/facebook/imagepipeline/producers/SettableProducerContext;Lcom/facebook/imagepipeline/listener/RequestListener;)V
@@ -88,11 +80,8 @@
     .end annotation
 
     .line 50
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
-    .local p1, "result":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<TT;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 51
     return-void
 .end method
 
@@ -100,7 +89,6 @@
     .locals 0
 
     .line 23
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
     check-cast p1, Lcom/facebook/common/references/CloseableReference;
 
     invoke-virtual {p0, p1}, Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;->closeResult(Lcom/facebook/common/references/CloseableReference;)V
@@ -122,7 +110,6 @@
     .end annotation
 
     .line 45
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
     invoke-super {p0}, Lcom/facebook/imagepipeline/datasource/AbstractProducerToDataSourceAdapter;->getResult()Ljava/lang/Object;
 
     move-result-object v0
@@ -142,7 +129,6 @@
     .end annotation
 
     .line 23
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;->getResult()Lcom/facebook/common/references/CloseableReference;
 
     move-result-object v0
@@ -151,8 +137,7 @@
 .end method
 
 .method protected onNewResultImpl(Lcom/facebook/common/references/CloseableReference;I)V
-    .locals 1
-    .param p2, "status"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -162,15 +147,12 @@
     .end annotation
 
     .line 55
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
-    .local p1, "result":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<TT;>;"
     invoke-static {p1}, Lcom/facebook/common/references/CloseableReference;->cloneOrNull(Lcom/facebook/common/references/CloseableReference;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-super {p0, v0, p2}, Lcom/facebook/imagepipeline/datasource/AbstractProducerToDataSourceAdapter;->onNewResultImpl(Ljava/lang/Object;I)V
+    invoke-super {p0, p1, p2}, Lcom/facebook/imagepipeline/datasource/AbstractProducerToDataSourceAdapter;->onNewResultImpl(Ljava/lang/Object;I)V
 
-    .line 56
     return-void
 .end method
 
@@ -178,7 +160,6 @@
     .locals 0
 
     .line 23
-    .local p0, "this":Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;, "Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter<TT;>;"
     check-cast p1, Lcom/facebook/common/references/CloseableReference;
 
     invoke-virtual {p0, p1, p2}, Lcom/facebook/imagepipeline/datasource/CloseableProducerToDataSourceAdapter;->onNewResultImpl(Lcom/facebook/common/references/CloseableReference;I)V

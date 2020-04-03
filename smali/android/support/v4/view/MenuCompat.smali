@@ -15,8 +15,6 @@
 
 .method public static setGroupDividerEnabled(Landroid/view/Menu;Z)V
     .locals 2
-    .param p0, "menu"    # Landroid/view/Menu;
-    .param p1, "enabled"    # Z
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "NewApi"
@@ -29,11 +27,9 @@
     if-eqz v0, :cond_0
 
     .line 49
-    move-object v0, p0
+    check-cast p0, Landroid/support/v4/internal/view/SupportMenu;
 
-    check-cast v0, Landroid/support/v4/internal/view/SupportMenu;
-
-    invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportMenu;->setGroupDividerEnabled(Z)V
+    invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenu;->setGroupDividerEnabled(Z)V
 
     goto :goto_0
 
@@ -48,7 +44,6 @@
     .line 51
     invoke-interface {p0, p1}, Landroid/view/Menu;->setGroupDividerEnabled(Z)V
 
-    .line 53
     :cond_1
     :goto_0
     return-void
@@ -56,14 +51,11 @@
 
 .method public static setShowAsAction(Landroid/view/MenuItem;I)V
     .locals 0
-    .param p0, "item"    # Landroid/view/MenuItem;
-    .param p1, "actionEnum"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 37
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    .line 38
     return-void
 .end method

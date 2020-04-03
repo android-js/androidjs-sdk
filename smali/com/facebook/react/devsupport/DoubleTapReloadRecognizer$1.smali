@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DoubleTapReloadRecognizer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DoubleTapReloadRecognizer;
 
     .line 31
     iput-object p1, p0, Lcom/facebook/react/devsupport/DoubleTapReloadRecognizer$1;->this$0:Lcom/facebook/react/devsupport/DoubleTapReloadRecognizer;
@@ -46,6 +45,5 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DoubleTapReloadRecognizer;->access$002(Lcom/facebook/react/devsupport/DoubleTapReloadRecognizer;Z)Z
 
-    .line 35
     return-void
 .end method

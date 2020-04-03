@@ -15,7 +15,6 @@
 # direct methods
 .method protected constructor <init>(Landroid/app/Application;)V
     .locals 0
-    .param p1, "application"    # Landroid/app/Application;
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +22,6 @@
     .line 32
     iput-object p1, p0, Lcom/facebook/react/ReactNativeHost;->mApplication:Landroid/app/Application;
 
-    .line 33
     return-void
 .end method
 
@@ -40,18 +38,17 @@
     .line 61
     invoke-virtual {v0}, Lcom/facebook/react/ReactInstanceManager;->destroy()V
 
-    .line 62
     const/4 v0, 0x0
 
+    .line 62
     iput-object v0, p0, Lcom/facebook/react/ReactNativeHost;->mReactInstanceManager:Lcom/facebook/react/ReactInstanceManager;
 
-    .line 64
     :cond_0
     return-void
 .end method
 
 .method protected createReactInstanceManager()Lcom/facebook/react/ReactInstanceManager;
-    .locals 4
+    .locals 3
 
     .line 67
     sget-object v0, Lcom/facebook/react/bridge/ReactMarkerConstants;->BUILD_REACT_INSTANCE_MANAGER_START:Lcom/facebook/react/bridge/ReactMarkerConstants;
@@ -132,7 +129,6 @@
     move-result-object v0
 
     .line 78
-    .local v0, "builder":Lcom/facebook/react/ReactInstanceManagerBuilder;
     invoke-virtual {p0}, Lcom/facebook/react/ReactNativeHost;->getPackages()Ljava/util/List;
 
     move-result-object v1
@@ -155,11 +151,8 @@
     check-cast v2, Lcom/facebook/react/ReactPackage;
 
     .line 79
-    .local v2, "reactPackage":Lcom/facebook/react/ReactPackage;
     invoke-virtual {v0, v2}, Lcom/facebook/react/ReactInstanceManagerBuilder;->addPackage(Lcom/facebook/react/ReactPackage;)Lcom/facebook/react/ReactInstanceManagerBuilder;
 
-    .line 80
-    .end local v2    # "reactPackage":Lcom/facebook/react/ReactPackage;
     goto :goto_0
 
     .line 82
@@ -168,8 +161,6 @@
 
     move-result-object v1
 
-    .line 83
-    .local v1, "jsBundleFile":Ljava/lang/String;
     if-eqz v1, :cond_1
 
     .line 84
@@ -181,30 +172,28 @@
     :cond_1
     invoke-virtual {p0}, Lcom/facebook/react/ReactNativeHost;->getBundleAssetName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/lang/String;
+    check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Lcom/facebook/react/ReactInstanceManagerBuilder;->setBundleAssetName(Ljava/lang/String;)Lcom/facebook/react/ReactInstanceManagerBuilder;
+    invoke-virtual {v0, v1}, Lcom/facebook/react/ReactInstanceManagerBuilder;->setBundleAssetName(Ljava/lang/String;)Lcom/facebook/react/ReactInstanceManagerBuilder;
 
     .line 88
     :goto_1
     invoke-virtual {v0}, Lcom/facebook/react/ReactInstanceManagerBuilder;->build()Lcom/facebook/react/ReactInstanceManager;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 89
-    .local v2, "reactInstanceManager":Lcom/facebook/react/ReactInstanceManager;
-    sget-object v3, Lcom/facebook/react/bridge/ReactMarkerConstants;->BUILD_REACT_INSTANCE_MANAGER_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
+    sget-object v1, Lcom/facebook/react/bridge/ReactMarkerConstants;->BUILD_REACT_INSTANCE_MANAGER_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    invoke-static {v3}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
+    invoke-static {v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
-    .line 90
-    return-object v2
+    return-object v0
 .end method
 
 .method protected final getApplication()Landroid/app/Application;
@@ -221,7 +210,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 154
     const-string v0, "index.android.bundle"
 
     return-object v0
@@ -232,7 +220,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 144
     const/4 v0, 0x0
 
     return-object v0
@@ -243,7 +230,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 124
     const/4 v0, 0x0
 
     return-object v0
@@ -252,7 +238,6 @@
 .method protected getJSMainModuleName()Ljava/lang/String;
     .locals 1
 
-    .line 134
     const-string v0, "index.android"
 
     return-object v0
@@ -263,7 +248,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 105
     const/4 v0, 0x0
 
     return-object v0
@@ -317,7 +301,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 97
     const/4 v0, 0x0
 
     return-object v0

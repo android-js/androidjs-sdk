@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onCancellation(Lcom/facebook/datasource/DataSource;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,17 +62,15 @@
     .end annotation
 
     .line 91
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
-    iget-object v0, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
+    iget-object p1, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 92
     return-void
 .end method
 
 .method public onFailure(Lcom/facebook/datasource/DataSource;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,43 +80,37 @@
     .end annotation
 
     .line 82
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     :try_start_0
     iget-object v0, p0, Lcom/facebook/datasource/DataSources$2;->val$pendingException:Lcom/facebook/datasource/DataSources$ValueHolder;
 
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->getFailureCause()Ljava/lang/Throwable;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, v0, Lcom/facebook/datasource/DataSources$ValueHolder;->value:Ljava/lang/Object;
+    iput-object p1, v0, Lcom/facebook/datasource/DataSources$ValueHolder;->value:Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 84
+    iget-object p1, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
     iget-object v0, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     .line 85
-    nop
-
-    .line 86
-    return-void
-
-    .line 84
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    .line 85
-    throw v0
+    throw p1
 .end method
 
 .method public onNewResult(Lcom/facebook/datasource/DataSource;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,14 +120,12 @@
     .end annotation
 
     .line 68
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->isFinished()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 69
     return-void
 
     .line 73
@@ -145,33 +135,28 @@
 
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->getResult()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, v0, Lcom/facebook/datasource/DataSources$ValueHolder;->value:Ljava/lang/Object;
+    iput-object p1, v0, Lcom/facebook/datasource/DataSources$ValueHolder;->value:Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 75
+    iget-object p1, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
     iget-object v0, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     .line 76
-    nop
-
-    .line 77
-    return-void
-
-    .line 75
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/facebook/datasource/DataSources$2;->val$latch:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    .line 76
-    throw v0
+    throw p1
 .end method
 
 .method public onProgressUpdate(Lcom/facebook/datasource/DataSource;)V
@@ -184,7 +169,5 @@
         }
     .end annotation
 
-    .line 97
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     return-void
 .end method

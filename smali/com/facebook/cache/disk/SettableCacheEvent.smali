@@ -54,7 +54,6 @@
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 54
     return-void
 .end method
 
@@ -78,14 +77,13 @@
     sget-object v1, Lcom/facebook/cache/disk/SettableCacheEvent;->sFirstRecycledEvent:Lcom/facebook/cache/disk/SettableCacheEvent;
 
     .line 43
-    .local v1, "eventToReuse":Lcom/facebook/cache/disk/SettableCacheEvent;
     iget-object v2, v1, Lcom/facebook/cache/disk/SettableCacheEvent;->mNextRecycledEvent:Lcom/facebook/cache/disk/SettableCacheEvent;
 
     sput-object v2, Lcom/facebook/cache/disk/SettableCacheEvent;->sFirstRecycledEvent:Lcom/facebook/cache/disk/SettableCacheEvent;
 
-    .line 44
     const/4 v2, 0x0
 
+    .line 44
     iput-object v2, v1, Lcom/facebook/cache/disk/SettableCacheEvent;->mNextRecycledEvent:Lcom/facebook/cache/disk/SettableCacheEvent;
 
     .line 45
@@ -101,7 +99,6 @@
     return-object v1
 
     .line 48
-    .end local v1    # "eventToReuse":Lcom/facebook/cache/disk/SettableCacheEvent;
     :cond_0
     monitor-exit v0
     :try_end_0
@@ -114,10 +111,10 @@
 
     return-object v0
 
-    .line 48
     :catchall_0
     move-exception v1
 
+    .line 48
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -129,17 +126,17 @@
 .method private reset()V
     .locals 3
 
-    .line 145
     const/4 v0, 0x0
 
+    .line 145
     iput-object v0, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mCacheKey:Lcom/facebook/cache/common/CacheKey;
 
     .line 146
     iput-object v0, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mResourceId:Ljava/lang/String;
 
-    .line 147
     const-wide/16 v1, 0x0
 
+    .line 147
     iput-wide v1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mItemSize:J
 
     .line 148
@@ -154,7 +151,6 @@
     .line 151
     iput-object v0, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mEvictionReason:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
 
-    .line 152
     return-void
 .end method
 
@@ -275,10 +271,8 @@
     :cond_1
     monitor-exit v0
 
-    .line 142
     return-void
 
-    .line 141
     :catchall_0
     move-exception v1
 
@@ -291,77 +285,63 @@
 
 .method public setCacheKey(Lcom/facebook/cache/common/CacheKey;)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "cacheKey"    # Lcom/facebook/cache/common/CacheKey;
 
     .line 63
     iput-object p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mCacheKey:Lcom/facebook/cache/common/CacheKey;
 
-    .line 64
     return-object p0
 .end method
 
 .method public setCacheLimit(J)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "cacheLimit"    # J
 
     .line 104
     iput-wide p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mCacheLimit:J
 
-    .line 105
     return-object p0
 .end method
 
 .method public setCacheSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "cacheSize"    # J
 
     .line 94
     iput-wide p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mCacheSize:J
 
-    .line 95
     return-object p0
 .end method
 
 .method public setEvictionReason(Lcom/facebook/cache/common/CacheEventListener$EvictionReason;)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "evictionReason"    # Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
 
     .line 126
     iput-object p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mEvictionReason:Lcom/facebook/cache/common/CacheEventListener$EvictionReason;
 
-    .line 127
     return-object p0
 .end method
 
 .method public setException(Ljava/io/IOException;)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "exception"    # Ljava/io/IOException;
 
     .line 115
     iput-object p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mException:Ljava/io/IOException;
 
-    .line 116
     return-object p0
 .end method
 
 .method public setItemSize(J)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "itemSize"    # J
 
     .line 84
     iput-wide p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mItemSize:J
 
-    .line 85
     return-object p0
 .end method
 
 .method public setResourceId(Ljava/lang/String;)Lcom/facebook/cache/disk/SettableCacheEvent;
     .locals 0
-    .param p1, "resourceId"    # Ljava/lang/String;
 
     .line 74
     iput-object p1, p0, Lcom/facebook/cache/disk/SettableCacheEvent;->mResourceId:Ljava/lang/String;
 
-    .line 75
     return-object p0
 .end method

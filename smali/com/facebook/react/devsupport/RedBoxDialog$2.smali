@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/RedBoxDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/RedBoxDialog;
 
     .line 82
     iput-object p1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
@@ -37,8 +36,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 9
-    .param p1, "view"    # Landroid/view/View;
+    .locals 7
 
     .line 85
     iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
@@ -173,45 +171,44 @@
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/String;
+    move-object v3, v0
+
+    check-cast v3, Ljava/lang/String;
 
     .line 96
-    .local v0, "title":Ljava/lang/String;
-    iget-object v1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
+    iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
 
-    invoke-static {v1}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$600(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
+    invoke-static {v0}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$600(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->getLastErrorStack()[Lcom/facebook/react/devsupport/interfaces/StackFrame;
+    invoke-interface {v0}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->getLastErrorStack()[Lcom/facebook/react/devsupport/interfaces/StackFrame;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    move-object v7, v1
+    move-object v4, v0
 
-    check-cast v7, [Lcom/facebook/react/devsupport/interfaces/StackFrame;
+    check-cast v4, [Lcom/facebook/react/devsupport/interfaces/StackFrame;
 
     .line 97
-    .local v7, "stack":[Lcom/facebook/react/devsupport/interfaces/StackFrame;
-    iget-object v1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
+    iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
 
-    invoke-static {v1}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$600(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
+    invoke-static {v0}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$600(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->getSourceUrl()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->getSourceUrl()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v5
 
     .line 99
-    .local v8, "sourceUrl":Ljava/lang/String;
-    iget-object v1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
+    iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
 
-    invoke-static {v1}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$400(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/RedBoxHandler;
+    invoke-static {v0}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$400(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/RedBoxHandler;
 
     move-result-object v1
 
@@ -220,37 +217,24 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$2;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
 
     .line 104
-    invoke-static {v3}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$700(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/RedBoxHandler$ReportCompletedListener;
+    invoke-static {p1}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$700(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/RedBoxHandler$ReportCompletedListener;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-static {v3}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object p1
 
-    move-object v6, v3
+    move-object v6, p1
 
     check-cast v6, Lcom/facebook/react/devsupport/RedBoxHandler$ReportCompletedListener;
 
     .line 99
-    move-object v3, v0
-
-    move-object v4, v7
-
-    move-object v5, v8
-
     invoke-interface/range {v1 .. v6}, Lcom/facebook/react/devsupport/RedBoxHandler;->reportRedbox(Landroid/content/Context;Ljava/lang/String;[Lcom/facebook/react/devsupport/interfaces/StackFrame;Ljava/lang/String;Lcom/facebook/react/devsupport/RedBoxHandler$ReportCompletedListener;)V
 
-    .line 105
-    return-void
-
-    .line 86
-    .end local v0    # "title":Ljava/lang/String;
-    .end local v7    # "stack":[Lcom/facebook/react/devsupport/interfaces/StackFrame;
-    .end local v8    # "sourceUrl":Ljava/lang/String;
     :cond_1
     :goto_0
     return-void

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/ReactInstanceManager;Landroid/view/View;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/ReactInstanceManager;
 
     .line 560
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$4;->this$0:Lcom/facebook/react/ReactInstanceManager;
@@ -41,33 +40,29 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
     .line 564
-    iget-object v0, p0, Lcom/facebook/react/ReactInstanceManager$4;->val$decorView:Landroid/view/View;
+    iget-object p1, p0, Lcom/facebook/react/ReactInstanceManager$4;->val$decorView:Landroid/view/View;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
+    invoke-virtual {p1, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     .line 565
-    iget-object v0, p0, Lcom/facebook/react/ReactInstanceManager$4;->this$0:Lcom/facebook/react/ReactInstanceManager;
+    iget-object p1, p0, Lcom/facebook/react/ReactInstanceManager$4;->this$0:Lcom/facebook/react/ReactInstanceManager;
 
-    invoke-static {v0}, Lcom/facebook/react/ReactInstanceManager;->access$500(Lcom/facebook/react/ReactInstanceManager;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
+    invoke-static {p1}, Lcom/facebook/react/ReactInstanceManager;->access$500(Lcom/facebook/react/ReactInstanceManager;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-interface {v0, v1}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->setDevSupportEnabled(Z)V
+    invoke-interface {p1, v0}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->setDevSupportEnabled(Z)V
 
-    .line 566
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
-    .param p1, "v"    # Landroid/view/View;
 
-    .line 571
     return-void
 .end method

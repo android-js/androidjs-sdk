@@ -17,7 +17,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/String;
 
     .line 58
     invoke-direct {p0, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
@@ -31,6 +30,7 @@
     .locals 2
 
     .line 63
+    :catch_0
     :goto_0
     :try_start_0
     invoke-static {}, Lcom/facebook/jni/DestructorThread;->access$000()Ljava/lang/ref/ReferenceQueue;
@@ -44,7 +44,6 @@
     check-cast v0, Lcom/facebook/jni/DestructorThread$Destructor;
 
     .line 64
-    .local v0, "current":Lcom/facebook/jni/DestructorThread$Destructor;
     invoke-virtual {v0}, Lcom/facebook/jni/DestructorThread$Destructor;->destruct()V
 
     .line 68
@@ -67,14 +66,5 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v0    # "current":Lcom/facebook/jni/DestructorThread$Destructor;
-    goto :goto_1
-
-    .line 73
-    :catch_0
-    move-exception v0
-
-    .line 75
-    :goto_1
     goto :goto_0
 .end method

@@ -35,7 +35,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/cache/common/CacheKey;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
     .line 267
     iput-object p1, p0, Lcom/facebook/imagepipeline/cache/BufferedDiskCache$4;->this$0:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
@@ -95,7 +94,6 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/cache/disk/FileCache;->remove(Lcom/facebook/cache/common/CacheKey;)V
 
-    .line 272
     const/4 v0, 0x0
 
     return-object v0

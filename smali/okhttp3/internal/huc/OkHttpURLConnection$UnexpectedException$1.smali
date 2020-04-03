@@ -30,8 +30,7 @@
 
 # virtual methods
 .method public intercept(Lokhttp3/Interceptor$Chain;)Lokhttp3/Response;
-    .locals 2
-    .param p1, "chain"    # Lokhttp3/Interceptor$Chain;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -46,28 +45,26 @@
 
     invoke-interface {p1, v0}, Lokhttp3/Interceptor$Chain;->proceed(Lokhttp3/Request;)Lokhttp3/Response;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catch Ljava/lang/Error; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v0
+    return-object p1
 
-    .line 601
     :catch_0
-    move-exception v0
+    move-exception p1
 
     goto :goto_0
 
     :catch_1
-    move-exception v0
+    move-exception p1
 
     .line 602
-    .local v0, "e":Ljava/lang/Throwable;
     :goto_0
-    new-instance v1, Lokhttp3/internal/huc/OkHttpURLConnection$UnexpectedException;
+    new-instance v0, Lokhttp3/internal/huc/OkHttpURLConnection$UnexpectedException;
 
-    invoke-direct {v1, v0}, Lokhttp3/internal/huc/OkHttpURLConnection$UnexpectedException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, p1}, Lokhttp3/internal/huc/OkHttpURLConnection$UnexpectedException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v1
+    throw v0
 .end method

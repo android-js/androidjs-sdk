@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/DefaultItemAnimator;Ljava/util/ArrayList;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/DefaultItemAnimator;
 
     .line 121
     iput-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$1;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
@@ -64,7 +63,6 @@
     check-cast v1, Landroid/support/v7/widget/DefaultItemAnimator$MoveInfo;
 
     .line 125
-    .local v1, "moveInfo":Landroid/support/v7/widget/DefaultItemAnimator$MoveInfo;
     iget-object v2, p0, Landroid/support/v7/widget/DefaultItemAnimator$1;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
 
     iget-object v3, v1, Landroid/support/v7/widget/DefaultItemAnimator$MoveInfo;->holder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
@@ -79,8 +77,6 @@
 
     invoke-virtual/range {v2 .. v7}, Landroid/support/v7/widget/DefaultItemAnimator;->animateMoveImpl(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
 
-    .line 127
-    .end local v1    # "moveInfo":Landroid/support/v7/widget/DefaultItemAnimator$MoveInfo;
     goto :goto_0
 
     .line 128
@@ -98,6 +94,5 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 130
     return-void
 .end method

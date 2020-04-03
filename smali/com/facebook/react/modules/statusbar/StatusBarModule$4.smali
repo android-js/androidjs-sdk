@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/statusbar/StatusBarModule;Landroid/app/Activity;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/statusbar/StatusBarModule;
 
     .line 187
     iput-object p1, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$4;->this$0:Lcom/facebook/react/modules/statusbar/StatusBarModule;
@@ -62,13 +61,11 @@
     move-result-object v0
 
     .line 192
-    .local v0, "decorView":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->getSystemUiVisibility()I
 
     move-result v1
 
     .line 193
-    .local v1, "systemUiVisibilityFlags":I
     iget-object v2, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$4;->val$style:Ljava/lang/String;
 
     const-string v3, "dark-content"
@@ -79,12 +76,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 194
     or-int/lit16 v1, v1, 0x2000
 
     goto :goto_0
 
-    .line 196
     :cond_0
     and-int/lit16 v1, v1, -0x2001
 
@@ -92,6 +87,5 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/view/View;->setSystemUiVisibility(I)V
 
-    .line 199
     return-void
 .end method

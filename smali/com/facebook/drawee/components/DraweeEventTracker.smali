@@ -42,9 +42,9 @@
 
     sput-object v0, Lcom/facebook/drawee/components/DraweeEventTracker;->sInstance:Lcom/facebook/drawee/components/DraweeEventTracker;
 
-    .line 25
     const/4 v0, 0x1
 
+    .line 25
     sput-boolean v0, Lcom/facebook/drawee/components/DraweeEventTracker;->sEnabled:Z
 
     return-void
@@ -65,19 +65,17 @@
 
     iput-object v0, p0, Lcom/facebook/drawee/components/DraweeEventTracker;->mEventQueue:Ljava/util/Queue;
 
-    .line 55
     return-void
 .end method
 
 .method public static disable()V
     .locals 1
 
-    .line 65
     const/4 v0, 0x0
 
+    .line 65
     sput-boolean v0, Lcom/facebook/drawee/components/DraweeEventTracker;->sEnabled:Z
 
-    .line 66
     return-void
 .end method
 
@@ -106,14 +104,12 @@
 # virtual methods
 .method public recordEvent(Lcom/facebook/drawee/components/DraweeEventTracker$Event;)V
     .locals 2
-    .param p1, "event"    # Lcom/facebook/drawee/components/DraweeEventTracker$Event;
 
     .line 69
     sget-boolean v0, Lcom/facebook/drawee/components/DraweeEventTracker;->sEnabled:Z
 
     if-nez v0, :cond_0
 
-    .line 70
     return-void
 
     .line 72
@@ -141,7 +137,6 @@
 
     invoke-interface {v0, p1}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
-    .line 76
     return-void
 .end method
 

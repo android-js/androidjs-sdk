@@ -45,6 +45,5 @@
 
     invoke-virtual {v0, v1}, Lbolts/TaskCompletionSource;->trySetResult(Ljava/lang/Object;)Z
 
-    .line 270
     return-void
 .end method

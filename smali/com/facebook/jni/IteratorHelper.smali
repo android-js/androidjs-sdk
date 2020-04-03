@@ -22,8 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Iterable;)V
-    .locals 1
-    .param p1, "iterable"    # Ljava/lang/Iterable;
+    .locals 0
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -33,17 +32,15 @@
     .line 37
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/jni/IteratorHelper;->mIterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lcom/facebook/jni/IteratorHelper;->mIterator:Ljava/util/Iterator;
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Iterator;)V
     .locals 0
-    .param p1, "iterator"    # Ljava/util/Iterator;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -53,7 +50,6 @@
     .line 32
     iput-object p1, p0, Lcom/facebook/jni/IteratorHelper;->mIterator:Ljava/util/Iterator;
 
-    .line 33
     return-void
 .end method
 
@@ -82,18 +78,16 @@
 
     iput-object v0, p0, Lcom/facebook/jni/IteratorHelper;->mElement:Ljava/lang/Object;
 
-    .line 48
     const/4 v0, 0x1
 
     return v0
 
-    .line 50
     :cond_0
     const/4 v0, 0x0
 
+    .line 50
     iput-object v0, p0, Lcom/facebook/jni/IteratorHelper;->mElement:Ljava/lang/Object;
 
-    .line 51
     const/4 v0, 0x0
 
     return v0

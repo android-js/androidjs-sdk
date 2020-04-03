@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/location/LocationModule;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/location/LocationModule;
 
     .line 46
     iput-object p1, p0, Lcom/facebook/react/modules/location/LocationModule$1;->this$0:Lcom/facebook/react/modules/location/LocationModule;
@@ -37,8 +36,7 @@
 
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
-    .locals 3
-    .param p1, "location"    # Landroid/location/Location;
+    .locals 2
 
     .line 49
     iget-object v0, p0, Lcom/facebook/react/modules/location/LocationModule$1;->this$0:Lcom/facebook/react/modules/location/LocationModule;
@@ -58,98 +56,87 @@
     .line 50
     invoke-static {p1}, Lcom/facebook/react/modules/location/LocationModule;->access$000(Landroid/location/Location;)Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "geolocationDidChange"
+    const-string v1, "geolocationDidChange"
 
-    invoke-interface {v0, v2, v1}, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {v0, v1, p1}, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 51
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
 
-    .line 66
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
-    .param p1, "provider"    # Ljava/lang/String;
 
-    .line 63
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
-    .locals 4
-    .param p1, "provider"    # Ljava/lang/String;
-    .param p2, "status"    # I
-    .param p3, "extras"    # Landroid/os/Bundle;
+    .locals 2
 
-    .line 55
-    const-string v0, "Provider "
+    const-string p3, "Provider "
 
     if-nez p2, :cond_0
 
     .line 56
-    iget-object v1, p0, Lcom/facebook/react/modules/location/LocationModule$1;->this$0:Lcom/facebook/react/modules/location/LocationModule;
+    iget-object p2, p0, Lcom/facebook/react/modules/location/LocationModule$1;->this$0:Lcom/facebook/react/modules/location/LocationModule;
 
-    sget v2, Lcom/facebook/react/modules/location/PositionError;->POSITION_UNAVAILABLE:I
+    sget v0, Lcom/facebook/react/modules/location/PositionError;->POSITION_UNAVAILABLE:I
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, " is out of service."
+    const-string p1, " is out of service."
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v1, v2, v0}, Lcom/facebook/react/modules/location/LocationModule;->access$200(Lcom/facebook/react/modules/location/LocationModule;ILjava/lang/String;)V
+    invoke-static {p2, v0, p1}, Lcom/facebook/react/modules/location/LocationModule;->access$200(Lcom/facebook/react/modules/location/LocationModule;ILjava/lang/String;)V
 
     goto :goto_0
 
-    .line 57
     :cond_0
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-ne p2, v1, :cond_1
+    if-ne p2, v0, :cond_1
 
     .line 58
-    iget-object v1, p0, Lcom/facebook/react/modules/location/LocationModule$1;->this$0:Lcom/facebook/react/modules/location/LocationModule;
+    iget-object p2, p0, Lcom/facebook/react/modules/location/LocationModule$1;->this$0:Lcom/facebook/react/modules/location/LocationModule;
 
-    sget v2, Lcom/facebook/react/modules/location/PositionError;->TIMEOUT:I
+    sget v0, Lcom/facebook/react/modules/location/PositionError;->TIMEOUT:I
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, " is temporarily unavailable."
+    const-string p1, " is temporarily unavailable."
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v1, v2, v0}, Lcom/facebook/react/modules/location/LocationModule;->access$200(Lcom/facebook/react/modules/location/LocationModule;ILjava/lang/String;)V
+    invoke-static {p2, v0, p1}, Lcom/facebook/react/modules/location/LocationModule;->access$200(Lcom/facebook/react/modules/location/LocationModule;ILjava/lang/String;)V
 
-    .line 60
     :cond_1
     :goto_0
     return-void

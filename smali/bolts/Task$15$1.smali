@@ -46,8 +46,7 @@
 
 # virtual methods
 .method public bridge synthetic then(Lbolts/Task;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Lbolts/Task;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -57,13 +56,13 @@
     .line 921
     invoke-virtual {p0, p1}, Lbolts/Task$15$1;->then(Lbolts/Task;)Ljava/lang/Void;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public then(Lbolts/Task;)Ljava/lang/Void;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +73,6 @@
     .end annotation
 
     .line 924
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<TTContinuationResult;>;"
     iget-object v0, p0, Lbolts/Task$15$1;->this$0:Lbolts/Task$15;
 
     iget-object v0, v0, Lbolts/Task$15;->val$ct:Lbolts/CancellationToken;
@@ -94,13 +92,12 @@
     if-eqz v0, :cond_0
 
     .line 925
-    iget-object v0, p0, Lbolts/Task$15$1;->this$0:Lbolts/Task$15;
+    iget-object p1, p0, Lbolts/Task$15$1;->this$0:Lbolts/Task$15;
 
-    iget-object v0, v0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
+    iget-object p1, p1, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
+    invoke-virtual {p1}, Lbolts/TaskCompletionSource;->setCancelled()V
 
-    .line 926
     return-object v1
 
     .line 929
@@ -112,11 +109,11 @@
     if-eqz v0, :cond_1
 
     .line 930
-    iget-object v0, p0, Lbolts/Task$15$1;->this$0:Lbolts/Task$15;
+    iget-object p1, p0, Lbolts/Task$15$1;->this$0:Lbolts/Task$15;
 
-    iget-object v0, v0, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
+    iget-object p1, p1, Lbolts/Task$15;->val$tcs:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
+    invoke-virtual {p1}, Lbolts/TaskCompletionSource;->setCancelled()V
 
     goto :goto_0
 
@@ -135,9 +132,9 @@
 
     invoke-virtual {p1}, Lbolts/Task;->getError()Ljava/lang/Exception;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
+    invoke-virtual {v0, p1}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
 
     goto :goto_0
 
@@ -149,11 +146,10 @@
 
     invoke-virtual {p1}, Lbolts/Task;->getResult()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v2}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
 
-    .line 936
     :goto_0
     return-object v1
 .end method

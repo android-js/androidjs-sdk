@@ -145,9 +145,9 @@
 
     sput-object v0, Lcom/facebook/yoga/YogaEdge;->ALL:Lcom/facebook/yoga/YogaEdge;
 
-    .line 12
     const/16 v0, 0x9
 
+    .line 12
     new-array v0, v0, [Lcom/facebook/yoga/YogaEdge;
 
     sget-object v10, Lcom/facebook/yoga/YogaEdge;->LEFT:Lcom/facebook/yoga/YogaEdge;
@@ -193,7 +193,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "intValue"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -206,15 +205,12 @@
     .line 27
     iput p3, p0, Lcom/facebook/yoga/YogaEdge;->mIntValue:I
 
-    .line 28
     return-void
 .end method
 
 .method public static fromInt(I)Lcom/facebook/yoga/YogaEdge;
     .locals 3
-    .param p0, "value"    # I
 
-    .line 35
     packed-switch p0, :pswitch_data_0
 
     .line 45
@@ -232,65 +228,65 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 44
     :pswitch_0
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->ALL:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->ALL:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 43
     :pswitch_1
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->VERTICAL:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->VERTICAL:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 42
     :pswitch_2
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->HORIZONTAL:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->HORIZONTAL:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 41
     :pswitch_3
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->END:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->END:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 40
     :pswitch_4
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->START:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->START:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 39
     :pswitch_5
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->BOTTOM:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->BOTTOM:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 38
     :pswitch_6
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->RIGHT:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->RIGHT:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 37
     :pswitch_7
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->TOP:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->TOP:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     .line 36
     :pswitch_8
-    sget-object v0, Lcom/facebook/yoga/YogaEdge;->LEFT:Lcom/facebook/yoga/YogaEdge;
+    sget-object p0, Lcom/facebook/yoga/YogaEdge;->LEFT:Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 
     nop
 
@@ -310,18 +306,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/yoga/YogaEdge;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 12
     const-class v0, Lcom/facebook/yoga/YogaEdge;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/yoga/YogaEdge;
+    check-cast p0, Lcom/facebook/yoga/YogaEdge;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/yoga/YogaEdge;

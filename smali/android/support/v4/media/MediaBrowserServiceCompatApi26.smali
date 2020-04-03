@@ -48,21 +48,16 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 45
     goto :goto_0
 
-    .line 43
     :catch_0
     move-exception v0
 
-    .line 44
-    .local v0, "e":Ljava/lang/NoSuchFieldException;
     const-string v1, "MBSCompatApi26"
 
+    .line 44
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 46
-    .end local v0    # "e":Ljava/lang/NoSuchFieldException;
     :goto_0
     return-void
 .end method
@@ -73,14 +68,11 @@
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 114
     return-void
 .end method
 
 .method public static createService(Landroid/content/Context;Landroid/support/v4/media/MediaBrowserServiceCompatApi26$ServiceCompatProxy;)Ljava/lang/Object;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "serviceProxy"    # Landroid/support/v4/media/MediaBrowserServiceCompatApi26$ServiceCompatProxy;
 
     .line 49
     new-instance v0, Landroid/support/v4/media/MediaBrowserServiceCompatApi26$MediaBrowserServiceAdaptor;
@@ -91,34 +83,25 @@
 .end method
 
 .method public static getBrowserRootHints(Ljava/lang/Object;)Landroid/os/Bundle;
-    .locals 1
-    .param p0, "serviceObj"    # Ljava/lang/Object;
+    .locals 0
 
     .line 57
-    move-object v0, p0
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    check-cast v0, Landroid/service/media/MediaBrowserService;
+    invoke-virtual {p0}, Landroid/service/media/MediaBrowserService;->getBrowserRootHints()Landroid/os/Bundle;
 
-    invoke-virtual {v0}, Landroid/service/media/MediaBrowserService;->getBrowserRootHints()Landroid/os/Bundle;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 .end method
 
 .method public static notifyChildrenChanged(Ljava/lang/Object;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 1
-    .param p0, "serviceObj"    # Ljava/lang/Object;
-    .param p1, "parentId"    # Ljava/lang/String;
-    .param p2, "options"    # Landroid/os/Bundle;
+    .locals 0
 
     .line 53
-    move-object v0, p0
+    check-cast p0, Landroid/service/media/MediaBrowserService;
 
-    check-cast v0, Landroid/service/media/MediaBrowserService;
+    invoke-virtual {p0, p1, p2}, Landroid/service/media/MediaBrowserService;->notifyChildrenChanged(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    invoke-virtual {v0, p1, p2}, Landroid/service/media/MediaBrowserService;->notifyChildrenChanged(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    .line 54
     return-void
 .end method

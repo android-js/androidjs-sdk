@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/animated/NativeAnimatedModule;ILjava/lang/String;Lcom/facebook/react/bridge/ReadableMap;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/animated/NativeAnimatedModule;
 
     .line 363
     iput-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$20;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
@@ -50,7 +49,6 @@
 # virtual methods
 .method public execute(Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
     .locals 3
-    .param p1, "animatedNodesManager"    # Lcom/facebook/react/animated/NativeAnimatedNodesManager;
 
     .line 366
     iget v0, p0, Lcom/facebook/react/animated/NativeAnimatedModule$20;->val$viewTag:I
@@ -61,6 +59,5 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/facebook/react/animated/NativeAnimatedNodesManager;->addAnimatedEventToView(ILjava/lang/String;Lcom/facebook/react/bridge/ReadableMap;)V
 
-    .line 367
     return-void
 .end method

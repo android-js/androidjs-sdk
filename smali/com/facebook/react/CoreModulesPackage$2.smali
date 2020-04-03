@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/CoreModulesPackage;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/CoreModulesPackage;
 
     .line 165
     iput-object p1, p0, Lcom/facebook/react/CoreModulesPackage$2;->this$0:Lcom/facebook/react/CoreModulesPackage;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public getViewManager(Ljava/lang/String;)Lcom/facebook/react/uimanager/ViewManager;
     .locals 1
-    .param p1, "viewManagerName"    # Ljava/lang/String;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -51,9 +49,9 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/ReactInstanceManager;->createViewManager(Ljava/lang/String;)Lcom/facebook/react/uimanager/ViewManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getViewManagerNames()Ljava/util/List;

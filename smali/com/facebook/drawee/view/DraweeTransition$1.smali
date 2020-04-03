@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/drawee/view/DraweeTransition;Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/drawee/view/DraweeTransition;
 
     .line 107
     iput-object p1, p0, Lcom/facebook/drawee/view/DraweeTransition$1;->this$0:Lcom/facebook/drawee/view/DraweeTransition;
@@ -41,26 +40,23 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
-    .param p1, "animation"    # Landroid/animation/ValueAnimator;
+    .locals 1
 
     .line 110
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/Float;
+    check-cast p1, Ljava/lang/Float;
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
 
-    move-result v0
+    move-result p1
 
     .line 111
-    .local v0, "fraction":F
-    iget-object v1, p0, Lcom/facebook/drawee/view/DraweeTransition$1;->val$scaleType:Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;
+    iget-object v0, p0, Lcom/facebook/drawee/view/DraweeTransition$1;->val$scaleType:Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;
 
-    invoke-virtual {v1, v0}, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->setValue(F)V
+    invoke-virtual {v0, p1}, Lcom/facebook/drawee/drawable/ScalingUtils$InterpolatingScaleType;->setValue(F)V
 
-    .line 112
     return-void
 .end method

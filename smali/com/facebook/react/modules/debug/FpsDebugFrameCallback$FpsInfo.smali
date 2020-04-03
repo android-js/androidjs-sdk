@@ -33,13 +33,6 @@
 # direct methods
 .method public constructor <init>(IIIIDDI)V
     .locals 0
-    .param p1, "totalFrames"    # I
-    .param p2, "totalJsFrames"    # I
-    .param p3, "totalExpectedFrames"    # I
-    .param p4, "total4PlusFrameStutters"    # I
-    .param p5, "fps"    # D
-    .param p7, "jsFps"    # D
-    .param p9, "totalTimeMs"    # I
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,6 +58,5 @@
     .line 57
     iput p9, p0, Lcom/facebook/react/modules/debug/FpsDebugFrameCallback$FpsInfo;->totalTimeMs:I
 
-    .line 58
     return-void
 .end method

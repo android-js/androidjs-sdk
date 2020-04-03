@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper$10;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/devsupport/DevServerHelper$10;
 
     .line 576
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$10$1;->this$1:Lcom/facebook/react/devsupport/DevServerHelper$10;
@@ -48,6 +47,5 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DevServerHelper;->access$900(Lcom/facebook/react/devsupport/DevServerHelper;Z)V
 
-    .line 580
     return-void
 .end method

@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/FontsContractCompat$4;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/provider/FontsContractCompat$4;
 
     .line 541
     iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$4$1;->this$0:Landroid/support/v4/provider/FontsContractCompat$4;
@@ -48,6 +47,5 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/provider/FontsContractCompat$FontRequestCallback;->onTypefaceRequestFailed(I)V
 
-    .line 546
     return-void
 .end method

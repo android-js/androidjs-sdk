@@ -31,15 +31,15 @@
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
     .locals 1
-    .param p1, "contentUri"    # Landroid/net/Uri;
+    .param p1    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "description"    # Landroid/content/ClipDescription;
+    .param p2    # Landroid/content/ClipDescription;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "linkUri"    # Landroid/net/Uri;
+    .param p3    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
@@ -54,13 +54,12 @@
 
     iput-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
 
-    .line 116
     return-void
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "inputContentInfo"    # Ljava/lang/Object;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -69,13 +68,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 110
-    move-object v0, p1
+    check-cast p1, Landroid/view/inputmethod/InputContentInfo;
 
-    check-cast v0, Landroid/view/inputmethod/InputContentInfo;
+    iput-object p1, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
 
-    iput-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
-
-    .line 111
     return-void
 .end method
 
@@ -145,7 +141,6 @@
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputContentInfo;->releasePermission()V
 
-    .line 150
     return-void
 .end method
 
@@ -157,6 +152,5 @@
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputContentInfo;->requestPermission()V
 
-    .line 145
     return-void
 .end method

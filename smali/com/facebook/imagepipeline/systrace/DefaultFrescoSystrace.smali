@@ -28,33 +28,28 @@
 # virtual methods
 .method public beginSection(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
-    .line 30
     return-void
 .end method
 
 .method public beginSectionWithArgs(Ljava/lang/String;)Lcom/facebook/imagepipeline/systrace/FrescoSystrace$ArgsBuilder;
-    .locals 1
-    .param p1, "name"    # Ljava/lang/String;
+    .locals 0
 
     .line 38
-    sget-object v0, Lcom/facebook/imagepipeline/systrace/FrescoSystrace;->NO_OP_ARGS_BUILDER:Lcom/facebook/imagepipeline/systrace/FrescoSystrace$ArgsBuilder;
+    sget-object p1, Lcom/facebook/imagepipeline/systrace/FrescoSystrace;->NO_OP_ARGS_BUILDER:Lcom/facebook/imagepipeline/systrace/FrescoSystrace$ArgsBuilder;
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public endSection()V
     .locals 0
 
-    .line 46
     return-void
 .end method
 
 .method public isTracing()Z
     .locals 1
 
-    .line 50
     const/4 v0, 0x0
 
     return v0

@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/animated/NativeAnimatedModule;ID)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/animated/NativeAnimatedModule;
 
     .line 259
     iput-object p1, p0, Lcom/facebook/react/animated/NativeAnimatedModule$10;->this$0:Lcom/facebook/react/animated/NativeAnimatedModule;
@@ -46,7 +45,6 @@
 # virtual methods
 .method public execute(Lcom/facebook/react/animated/NativeAnimatedNodesManager;)V
     .locals 3
-    .param p1, "animatedNodesManager"    # Lcom/facebook/react/animated/NativeAnimatedNodesManager;
 
     .line 262
     iget v0, p0, Lcom/facebook/react/animated/NativeAnimatedModule$10;->val$tag:I
@@ -55,6 +53,5 @@
 
     invoke-virtual {p1, v0, v1, v2}, Lcom/facebook/react/animated/NativeAnimatedNodesManager;->setAnimatedNodeOffset(ID)V
 
-    .line 263
     return-void
 .end method

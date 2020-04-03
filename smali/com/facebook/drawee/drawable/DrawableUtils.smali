@@ -14,8 +14,7 @@
 .end method
 
 .method public static cloneDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 2
-    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .locals 1
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -25,45 +24,39 @@
     if-eqz v0, :cond_0
 
     .line 26
-    move-object v0, p0
+    check-cast p0, Lcom/facebook/drawee/drawable/CloneableDrawable;
 
-    check-cast v0, Lcom/facebook/drawee/drawable/CloneableDrawable;
+    invoke-interface {p0}, Lcom/facebook/drawee/drawable/CloneableDrawable;->cloneDrawable()Landroid/graphics/drawable/Drawable;
 
-    invoke-interface {v0}, Lcom/facebook/drawee/drawable/CloneableDrawable;->cloneDrawable()Landroid/graphics/drawable/Drawable;
+    move-result-object p0
 
-    move-result-object v0
-
-    return-object v0
+    return-object p0
 
     .line 29
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
-    move-result-object v0
+    move-result-object p0
+
+    if-eqz p0, :cond_1
 
     .line 30
-    .local v0, "constantState":Landroid/graphics/drawable/Drawable$ConstantState;
-    if-eqz v0, :cond_1
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
+    move-result-object p0
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return-object v1
+    return-object p0
 .end method
 
 .method public static copyProperties(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .param p0, "to"    # Landroid/graphics/drawable/Drawable;
-    .param p1, "from"    # Landroid/graphics/drawable/Drawable;
 
-    .line 39
     if-eqz p1, :cond_1
 
     if-eqz p0, :cond_1
@@ -106,144 +99,112 @@
     .line 47
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getState()[I
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->setState([I)Z
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    .line 48
-    return-void
-
-    .line 40
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method public static getOpacityFromColor(I)I
-    .locals 2
-    .param p0, "color"    # I
+    .locals 1
 
-    .line 105
-    ushr-int/lit8 v0, p0, 0x18
+    ushr-int/lit8 p0, p0, 0x18
 
-    .line 106
-    .local v0, "colorAlpha":I
-    const/16 v1, 0xff
+    const/16 v0, 0xff
 
-    if-ne v0, v1, :cond_0
+    if-ne p0, v0, :cond_0
 
-    .line 107
-    const/4 v1, -0x1
+    const/4 p0, -0x1
 
-    return v1
+    return p0
 
-    .line 108
     :cond_0
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
-    .line 109
-    const/4 v1, -0x2
+    const/4 p0, -0x2
 
-    return v1
+    return p0
 
-    .line 111
     :cond_1
-    const/4 v1, -0x3
+    const/4 p0, -0x3
 
-    return v1
+    return p0
 .end method
 
 .method public static multiplyColorAlpha(II)I
-    .locals 4
-    .param p0, "color"    # I
-    .param p1, "alpha"    # I
+    .locals 2
 
-    .line 87
     const/16 v0, 0xff
 
     if-ne p1, v0, :cond_0
 
-    .line 88
     return p0
 
-    .line 90
     :cond_0
     const v0, 0xffffff
 
     if-nez p1, :cond_1
 
-    .line 91
-    and-int/2addr v0, p0
+    and-int/2addr p0, v0
 
-    return v0
+    return p0
 
-    .line 93
     :cond_1
     shr-int/lit8 v1, p1, 0x7
 
     add-int/2addr p1, v1
 
-    .line 94
     ushr-int/lit8 v1, p0, 0x18
 
-    .line 95
-    .local v1, "colorAlpha":I
-    mul-int v2, v1, p1
+    mul-int v1, v1, p1
 
-    shr-int/lit8 v2, v2, 0x8
+    shr-int/lit8 p1, v1, 0x8
 
-    .line 96
-    .local v2, "multipliedAlpha":I
-    shl-int/lit8 v3, v2, 0x18
+    shl-int/lit8 p1, p1, 0x18
 
-    and-int/2addr v0, p0
+    and-int/2addr p0, v0
 
-    or-int/2addr v0, v3
+    or-int/2addr p0, p1
 
-    return v0
+    return p0
 .end method
 
 .method public static setCallbacks(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;Lcom/facebook/drawee/drawable/TransformCallback;)V
-    .locals 1
-    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
-    .param p1, "callback"    # Landroid/graphics/drawable/Drawable$Callback;
+    .locals 0
+    .param p1    # Landroid/graphics/drawable/Drawable$Callback;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "transformCallback"    # Lcom/facebook/drawee/drawable/TransformCallback;
+    .param p2    # Lcom/facebook/drawee/drawable/TransformCallback;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 72
     if-eqz p0, :cond_0
 
     .line 73
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 74
-    instance-of v0, p0, Lcom/facebook/drawee/drawable/TransformAwareDrawable;
+    instance-of p1, p0, Lcom/facebook/drawee/drawable/TransformAwareDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 75
-    move-object v0, p0
+    check-cast p0, Lcom/facebook/drawee/drawable/TransformAwareDrawable;
 
-    check-cast v0, Lcom/facebook/drawee/drawable/TransformAwareDrawable;
+    invoke-interface {p0, p2}, Lcom/facebook/drawee/drawable/TransformAwareDrawable;->setTransformCallback(Lcom/facebook/drawee/drawable/TransformCallback;)V
 
-    invoke-interface {v0, p2}, Lcom/facebook/drawee/drawable/TransformAwareDrawable;->setTransformCallback(Lcom/facebook/drawee/drawable/TransformCallback;)V
-
-    .line 78
     :cond_0
     return-void
 .end method
 
 .method public static setDrawableProperties(Landroid/graphics/drawable/Drawable;Lcom/facebook/drawee/drawable/DrawableProperties;)V
     .locals 0
-    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
-    .param p1, "properties"    # Lcom/facebook/drawee/drawable/DrawableProperties;
 
-    .line 56
     if-eqz p0, :cond_1
 
     if-nez p1, :cond_0
@@ -254,10 +215,6 @@
     :cond_0
     invoke-virtual {p1, p0}, Lcom/facebook/drawee/drawable/DrawableProperties;->applyTo(Landroid/graphics/drawable/Drawable;)V
 
-    .line 60
-    return-void
-
-    .line 57
     :cond_1
     :goto_0
     return-void

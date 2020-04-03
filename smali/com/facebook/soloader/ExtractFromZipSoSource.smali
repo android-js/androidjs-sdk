@@ -21,10 +21,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;Ljava/lang/String;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "zipFileName"    # Ljava/io/File;
-    .param p4, "zipSearchPattern"    # Ljava/lang/String;
 
     .line 49
     invoke-direct {p0, p1, p2}, Lcom/facebook/soloader/UnpackingSoSource;-><init>(Landroid/content/Context;Ljava/lang/String;)V
@@ -35,7 +31,6 @@
     .line 51
     iput-object p4, p0, Lcom/facebook/soloader/ExtractFromZipSoSource;->mZipSearchPattern:Ljava/lang/String;
 
-    .line 52
     return-void
 .end method
 

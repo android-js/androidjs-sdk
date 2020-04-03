@@ -46,11 +46,11 @@
 .method static constructor <clinit>()V
     .locals 26
 
-    .line 60
     const-string v0, "file://"
 
     const-string v1, "content://"
 
+    .line 60
     filled-new-array {v0, v1}, [Ljava/lang/String;
 
     move-result-object v0
@@ -61,7 +61,6 @@
 
     sput-object v0, Lcom/facebook/react/modules/camera/ImageEditingManager;->LOCAL_URI_PREFIXES:Ljava/util/List;
 
-    .line 68
     const-string v1, "FNumber"
 
     const-string v2, "DateTime"
@@ -112,6 +111,7 @@
 
     const-string v25, "WhiteBalance"
 
+    .line 68
     filled-new-array/range {v1 .. v25}, [Ljava/lang/String;
 
     move-result-object v0
@@ -122,51 +122,46 @@
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 3
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 2
 
     .line 97
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     .line 98
-    new-instance v0, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;
+    new-instance p1, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;
 
     invoke-virtual {p0}, Lcom/facebook/react/modules/camera/ImageEditingManager;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;-><init>(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/modules/camera/ImageEditingManager$1;)V
+    invoke-direct {p1, v0, v1}, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;-><init>(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/modules/camera/ImageEditingManager$1;)V
 
-    sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Void;
+    new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1, v2}, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {p1, v0, v1}, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 99
     return-void
 .end method
 
 .method static synthetic access$200(Ljava/lang/String;)Z
-    .locals 1
-    .param p0, "x0"    # Ljava/lang/String;
+    .locals 0
 
     .line 56
     invoke-static {p0}, Lcom/facebook/react/modules/camera/ImageEditingManager;->isLocalUri(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$300(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
-    .locals 1
-    .param p0, "x0"    # Landroid/content/Context;
-    .param p1, "x1"    # Ljava/lang/String;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -176,16 +171,13 @@
     .line 56
     invoke-static {p0, p1}, Lcom/facebook/react/modules/camera/ImageEditingManager;->createTempFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400(Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/io/File;)V
     .locals 0
-    .param p0, "x0"    # Landroid/graphics/Bitmap;
-    .param p1, "x1"    # Ljava/lang/String;
-    .param p2, "x2"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -200,9 +192,6 @@
 
 .method static synthetic access$500(Landroid/content/Context;Landroid/net/Uri;Ljava/io/File;)V
     .locals 0
-    .param p0, "x0"    # Landroid/content/Context;
-    .param p1, "x1"    # Landroid/net/Uri;
-    .param p2, "x2"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -216,25 +205,18 @@
 .end method
 
 .method static synthetic access$600(IIII)I
-    .locals 1
-    .param p0, "x0"    # I
-    .param p1, "x1"    # I
-    .param p2, "x2"    # I
-    .param p3, "x3"    # I
+    .locals 0
 
     .line 56
     invoke-static {p0, p1, p2, p3}, Lcom/facebook/react/modules/camera/ImageEditingManager;->getDecodeSampleSize(IIII)I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method private static copyExif(Landroid/content/Context;Landroid/net/Uri;Ljava/io/File;)V
-    .locals 8
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "oldImage"    # Landroid/net/Uri;
-    .param p2, "newFile"    # Ljava/io/File;
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -244,100 +226,87 @@
     .line 400
     invoke-static {p0, p1}, Lcom/facebook/react/modules/camera/ImageEditingManager;->getFileFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 401
-    .local v0, "oldFile":Ljava/io/File;
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     .line 402
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Couldn\'t get real path for uri: "
+    const-string p2, "Couldn\'t get real path for uri: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    const-string v2, "ReactNative"
+    const-string p1, "ReactNative"
 
-    invoke-static {v2, v1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, p0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 403
     return-void
 
     .line 406
     :cond_0
-    new-instance v1, Landroid/media/ExifInterface;
+    new-instance p1, Landroid/media/ExifInterface;
 
-    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
 
     .line 407
-    .local v1, "oldExif":Landroid/media/ExifInterface;
-    new-instance v2, Landroid/media/ExifInterface;
+    new-instance p0, Landroid/media/ExifInterface;
 
     invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    invoke-direct {v2, v3}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p2}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
 
     .line 408
-    .local v2, "newExif":Landroid/media/ExifInterface;
-    sget-object v3, Lcom/facebook/react/modules/camera/ImageEditingManager;->EXIF_ATTRIBUTES:[Ljava/lang/String;
+    sget-object p2, Lcom/facebook/react/modules/camera/ImageEditingManager;->EXIF_ATTRIBUTES:[Ljava/lang/String;
 
-    array-length v4, v3
+    array-length v0, p2
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v5, v4, :cond_2
+    if-ge v1, v0, :cond_2
 
-    aget-object v6, v3, v5
+    aget-object v2, p2, v1
 
     .line 409
-    .local v6, "attribute":Ljava/lang/String;
-    invoke-virtual {v1, v6}, Landroid/media/ExifInterface;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/media/ExifInterface;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v3
 
-    .line 410
-    .local v7, "value":Ljava/lang/String;
-    if-eqz v7, :cond_1
+    if-eqz v3, :cond_1
 
     .line 411
-    invoke-virtual {v2, v6, v7}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v2, v3}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 408
-    .end local v6    # "attribute":Ljava/lang/String;
-    .end local v7    # "value":Ljava/lang/String;
     :cond_1
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 414
     :cond_2
-    invoke-virtual {v2}, Landroid/media/ExifInterface;->saveAttributes()V
+    invoke-virtual {p0}, Landroid/media/ExifInterface;->saveAttributes()V
 
-    .line 415
     return-void
 .end method
 
 .method private static createTempFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
-    .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "mimeType"    # Ljava/lang/String;
+    .locals 6
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -353,96 +322,75 @@
     move-result-object v0
 
     .line 490
-    .local v0, "externalCacheDir":Ljava/io/File;
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p0
 
-    .line 492
-    .local v1, "internalCacheDir":Ljava/io/File;
     if-nez v0, :cond_1
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     goto :goto_0
 
     .line 493
     :cond_0
-    new-instance v2, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string v3, "No cache directory available"
+    const-string p1, "No cache directory available"
 
-    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 
-    .line 495
     :cond_1
     :goto_0
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
-    .line 496
-    move-object v2, v1
+    :cond_2
+    move-object v0, p0
 
-    .local v2, "cacheDir":Ljava/io/File;
     goto :goto_1
 
-    .line 498
-    .end local v2    # "cacheDir":Ljava/io/File;
-    :cond_2
-    if-nez v1, :cond_3
+    :cond_3
+    if-nez p0, :cond_4
 
-    .line 499
-    move-object v2, v0
-
-    .restart local v2    # "cacheDir":Ljava/io/File;
     goto :goto_1
 
     .line 501
-    .end local v2    # "cacheDir":Ljava/io/File;
-    :cond_3
+    :cond_4
     invoke-virtual {v0}, Ljava/io/File;->getFreeSpace()J
 
-    move-result-wide v2
+    move-result-wide v1
 
-    invoke-virtual {v1}, Ljava/io/File;->getFreeSpace()J
+    invoke-virtual {p0}, Ljava/io/File;->getFreeSpace()J
 
-    move-result-wide v4
+    move-result-wide v3
 
-    cmp-long v6, v2, v4
+    cmp-long v5, v1, v3
 
-    if-lez v6, :cond_4
-
-    move-object v2, v0
-
-    goto :goto_1
-
-    :cond_4
-    move-object v2, v1
+    if-lez v5, :cond_2
 
     .line 504
-    .restart local v2    # "cacheDir":Ljava/io/File;
     :goto_1
     invoke-static {p1}, Lcom/facebook/react/modules/camera/ImageEditingManager;->getFileExtensionForType(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    const-string v4, "ReactNative_cropped_image_"
+    const-string p1, "ReactNative_cropped_image_"
 
-    invoke-static {v4, v3, v2}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
+    invoke-static {p1, p0, v0}, Ljava/io/File;->createTempFile(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 .end method
 
 .method private static getCompressFormatForType(Ljava/lang/String;)Landroid/graphics/Bitmap$CompressFormat;
     .locals 1
-    .param p0, "type"    # Ljava/lang/String;
 
-    .line 460
     const-string v0, "image/png"
 
+    .line 460
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -450,126 +398,108 @@
     if-eqz v0, :cond_0
 
     .line 461
-    sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p0, Landroid/graphics/Bitmap$CompressFormat;->PNG:Landroid/graphics/Bitmap$CompressFormat;
 
-    return-object v0
+    return-object p0
 
-    .line 463
     :cond_0
     const-string v0, "image/webp"
 
+    .line 463
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     .line 464
-    sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->WEBP:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p0, Landroid/graphics/Bitmap$CompressFormat;->WEBP:Landroid/graphics/Bitmap$CompressFormat;
 
-    return-object v0
+    return-object p0
 
     .line 466
     :cond_1
-    sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
+    sget-object p0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static getDecodeSampleSize(IIII)I
-    .locals 4
-    .param p0, "width"    # I
-    .param p1, "height"    # I
-    .param p2, "targetWidth"    # I
-    .param p3, "targetHeight"    # I
+    .locals 2
 
-    .line 514
     const/4 v0, 0x1
 
-    .line 515
-    .local v0, "inSampleSize":I
     if-gt p1, p2, :cond_0
 
     if-le p0, p3, :cond_1
 
     .line 516
     :cond_0
-    div-int/lit8 v1, p1, 0x2
+    div-int/lit8 p1, p1, 0x2
 
     .line 517
-    .local v1, "halfHeight":I
-    div-int/lit8 v2, p0, 0x2
+    div-int/lit8 p0, p0, 0x2
 
     .line 518
-    .local v2, "halfWidth":I
     :goto_0
-    div-int v3, v2, v0
+    div-int v1, p0, v0
 
-    if-lt v3, p2, :cond_1
+    if-lt v1, p2, :cond_1
 
-    div-int v3, v1, v0
+    div-int v1, p1, v0
 
-    if-lt v3, p3, :cond_1
+    if-lt v1, p3, :cond_1
 
-    .line 520
     mul-int/lit8 v0, v0, 0x2
 
     goto :goto_0
 
-    .line 523
-    .end local v1    # "halfHeight":I
-    .end local v2    # "halfWidth":I
     :cond_1
     return v0
 .end method
 
 .method private static getFileExtensionForType(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p0, "mimeType"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 450
     const-string v0, "image/png"
 
+    .line 450
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 451
-    const-string v0, ".png"
+    const-string p0, ".png"
 
-    return-object v0
+    return-object p0
 
-    .line 453
     :cond_0
     const-string v0, "image/webp"
 
+    .line 453
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    .line 454
-    const-string v0, ".webp"
+    const-string p0, ".webp"
 
-    return-object v0
+    return-object p0
 
-    .line 456
     :cond_1
-    const-string v0, ".jpg"
+    const-string p0, ".jpg"
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static getFileFromUri(Landroid/content/Context;Landroid/net/Uri;)Ljava/io/File;
     .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "uri"    # Landroid/net/Uri;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -587,15 +517,15 @@
     if-eqz v0, :cond_0
 
     .line 419
-    new-instance v0, Ljava/io/File;
+    new-instance p0, Ljava/io/File;
 
     invoke-virtual {p1}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p0
 
     .line 420
     :cond_0
@@ -616,9 +546,9 @@
 
     move-result-object v1
 
-    const-string v0, "_data"
+    const-string p0, "_data"
 
-    filled-new-array {v0}, [Ljava/lang/String;
+    filled-new-array {p0}, [Ljava/lang/String;
 
     move-result-object v3
 
@@ -628,82 +558,71 @@
 
     const/4 v6, 0x0
 
-    .line 422
     move-object v2, p1
 
+    .line 422
     invoke-virtual/range {v1 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 423
-    .local v0, "cursor":Landroid/database/Cursor;
-    if-eqz v0, :cond_2
+    if-eqz p0, :cond_2
 
     .line 425
     :try_start_0
-    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {p0}, Landroid/database/Cursor;->moveToFirst()Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
+
+    const/4 p1, 0x0
 
     .line 426
-    const/4 v1, 0x0
+    invoke-interface {p0, p1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
+    move-result-object p1
 
     .line 427
-    .local v1, "path":Ljava/lang/String;
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
     .line 428
-    new-instance v2, Ljava/io/File;
+    new-instance v0, Ljava/io/File;
 
-    invoke-direct {v2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 432
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    .line 428
-    return-object v2
-
-    .line 432
-    .end local v1    # "path":Ljava/lang/String;
-    :cond_1
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    .line 433
-    goto :goto_0
-
-    .line 432
-    :catchall_0
-    move-exception v1
-
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    .line 433
-    throw v1
-
-    .line 437
-    .end local v0    # "cursor":Landroid/database/Cursor;
-    :cond_2
-    :goto_0
-    const/4 v0, 0x0
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     return-object v0
+
+    :cond_1
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p1
+
+    invoke-interface {p0}, Landroid/database/Cursor;->close()V
+
+    .line 433
+    throw p1
+
+    :cond_2
+    :goto_0
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method private static isLocalUri(Ljava/lang/String;)Z
-    .locals 3
-    .param p0, "uri"    # Ljava/lang/String;
+    .locals 2
 
     .line 441
     sget-object v0, Lcom/facebook/react/modules/camera/ImageEditingManager;->LOCAL_URI_PREFIXES:Ljava/util/List;
@@ -712,7 +631,7 @@
 
     move-result-object v0
 
-    :goto_0
+    :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
@@ -726,35 +645,24 @@
     check-cast v1, Ljava/lang/String;
 
     .line 442
-    .local v1, "localPrefix":Ljava/lang/String;
     invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 443
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
-    .line 445
-    .end local v1    # "localPrefix":Ljava/lang/String;
-    :cond_0
-    goto :goto_0
-
-    .line 446
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 .method private static writeCompressedBitmapToFile(Landroid/graphics/Bitmap;Ljava/lang/String;Ljava/io/File;)V
-    .locals 3
-    .param p0, "cropped"    # Landroid/graphics/Bitmap;
-    .param p1, "mimeType"    # Ljava/lang/String;
-    .param p2, "tempFile"    # Ljava/io/File;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -767,54 +675,43 @@
     invoke-direct {v0, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 473
-    .local v0, "out":Ljava/io/OutputStream;
     :try_start_0
     invoke-static {p1}, Lcom/facebook/react/modules/camera/ImageEditingManager;->getCompressFormatForType(Ljava/lang/String;)Landroid/graphics/Bitmap$CompressFormat;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/16 v2, 0x5a
+    const/16 p2, 0x5a
 
-    invoke-virtual {p0, v1, v2, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
+    invoke-virtual {p0, p1, p2, v0}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 475
-    nop
-
     .line 476
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 479
     return-void
 
-    .line 475
     :catchall_0
-    move-exception v1
+    move-exception p0
 
-    .line 476
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
     .line 478
-    throw v1
+    throw p0
 .end method
 
 
 # virtual methods
 .method public cropImage(Ljava/lang/String;Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
     .locals 18
-    .param p1, "uri"    # Ljava/lang/String;
-    .param p2, "options"    # Lcom/facebook/react/bridge/ReadableMap;
-    .param p3, "success"    # Lcom/facebook/react/bridge/Callback;
-    .param p4, "error"    # Lcom/facebook/react/bridge/Callback;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
-    .line 174
     move-object/from16 v0, p2
 
     const-string v1, "offset"
 
+    .line 174
     invoke-interface {v0, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -832,11 +729,10 @@
     :cond_0
     move-object v1, v3
 
-    .line 175
-    .local v1, "offset":Lcom/facebook/react/bridge/ReadableMap;
     :goto_0
     const-string v2, "size"
 
+    .line 175
     invoke-interface {v0, v2}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v4
@@ -848,18 +744,14 @@
     move-result-object v3
 
     :cond_1
-    move-object v2, v3
-
-    .line 176
-    .local v2, "size":Lcom/facebook/react/bridge/ReadableMap;
     if-eqz v1, :cond_4
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_4
+
+    const-string v2, "x"
 
     .line 177
-    const-string v3, "x"
-
-    invoke-interface {v1, v3}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
+    invoke-interface {v1, v2}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -873,10 +765,10 @@
 
     if-eqz v5, :cond_4
 
-    .line 178
     const-string v5, "width"
 
-    invoke-interface {v2, v5}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
+    .line 178
+    invoke-interface {v3, v5}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v6
 
@@ -884,15 +776,15 @@
 
     const-string v6, "height"
 
-    invoke-interface {v2, v6}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
+    invoke-interface {v3, v6}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v7
 
     if-eqz v7, :cond_4
 
-    .line 181
     if-eqz p1, :cond_3
 
+    .line 181
     invoke-virtual/range {p1 .. p1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v7
@@ -908,7 +800,7 @@
     move-result-object v9
 
     .line 188
-    invoke-interface {v1, v3}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {v1, v2}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v10
 
@@ -917,23 +809,23 @@
     .line 189
     invoke-interface {v1, v4}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v3
+    move-result-wide v1
 
-    double-to-int v12, v3
+    double-to-int v12, v1
 
     .line 190
-    invoke-interface {v2, v5}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {v3, v5}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v3
+    move-result-wide v1
 
-    double-to-int v13, v3
+    double-to-int v13, v1
 
     .line 191
-    invoke-interface {v2, v6}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {v3, v6}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v3
+    move-result-wide v1
 
-    double-to-int v14, v3
+    double-to-int v14, v1
 
     const/16 v17, 0x0
 
@@ -947,78 +839,68 @@
 
     invoke-direct/range {v8 .. v17}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;-><init>(Lcom/facebook/react/bridge/ReactContext;Ljava/lang/String;IIIILcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/modules/camera/ImageEditingManager$1;)V
 
-    move-object v3, v7
+    const-string v1, "displaySize"
 
     .line 194
-    .local v3, "cropTask":Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;
-    const-string v4, "displaySize"
+    invoke-interface {v0, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
-    invoke-interface {v0, v4}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
+    move-result v2
 
-    move-result v7
-
-    if-eqz v7, :cond_2
+    if-eqz v2, :cond_2
 
     .line 195
-    invoke-interface {v0, v4}, Lcom/facebook/react/bridge/ReadableMap;->getMap(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableMap;
+    invoke-interface {v0, v1}, Lcom/facebook/react/bridge/ReadableMap;->getMap(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableMap;
 
-    move-result-object v4
-
-    .line 196
-    .local v4, "targetSize":Lcom/facebook/react/bridge/ReadableMap;
-    nop
+    move-result-object v0
 
     .line 197
-    invoke-interface {v4, v5}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {v0, v5}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v7
+    move-result-wide v1
 
-    double-to-int v5, v7
+    double-to-int v1, v1
 
     .line 198
-    invoke-interface {v4, v6}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {v0, v6}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v6
+    move-result-wide v2
 
-    double-to-int v6, v6
+    double-to-int v0, v2
 
     .line 196
-    invoke-virtual {v3, v5, v6}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->setTargetSize(II)V
+    invoke-virtual {v7, v1, v0}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->setTargetSize(II)V
 
     .line 200
-    .end local v4    # "targetSize":Lcom/facebook/react/bridge/ReadableMap;
     :cond_2
-    sget-object v4, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    new-array v5, v5, [Ljava/lang/Void;
+    new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v3, v4, v5}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v7, v0, v1}, Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 201
     return-void
 
     .line 182
-    .end local v3    # "cropTask":Lcom/facebook/react/modules/camera/ImageEditingManager$CropTask;
     :cond_3
-    new-instance v3, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
+    new-instance v0, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
 
-    const-string v4, "Please specify a URI"
+    const-string v1, "Please specify a URI"
 
-    invoke-direct {v3, v4}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v0
 
     .line 179
     :cond_4
-    new-instance v3, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
+    new-instance v0, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;
 
-    const-string v4, "Please specify offset and size"
+    const-string v1, "Please specify offset and size"
 
-    invoke-direct {v3, v4}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/facebook/react/bridge/JSApplicationIllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v3
+    throw v0
 .end method
 
 .method public getConstants()Ljava/util/Map;
@@ -1044,7 +926,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 103
     const-string v0, "ImageEditingManager"
 
     return-object v0
@@ -1072,6 +953,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/modules/camera/ImageEditingManager$CleanTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 114
     return-void
 .end method

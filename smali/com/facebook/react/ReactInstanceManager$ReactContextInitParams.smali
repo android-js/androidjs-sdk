@@ -25,8 +25,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/ReactInstanceManager;Lcom/facebook/react/bridge/JavaScriptExecutorFactory;Lcom/facebook/react/bridge/JSBundleLoader;)V
     .locals 0
-    .param p2, "jsExecutorFactory"    # Lcom/facebook/react/bridge/JavaScriptExecutorFactory;
-    .param p3, "jsBundleLoader"    # Lcom/facebook/react/bridge/JSBundleLoader;
 
     .line 177
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$ReactContextInitParams;->this$0:Lcom/facebook/react/ReactInstanceManager;
@@ -51,7 +49,6 @@
 
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$ReactContextInitParams;->mJsBundleLoader:Lcom/facebook/react/bridge/JSBundleLoader;
 
-    .line 180
     return-void
 .end method
 

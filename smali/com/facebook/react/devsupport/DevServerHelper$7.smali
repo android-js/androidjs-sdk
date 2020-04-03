@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevServerHelper;
 
     .line 339
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$7;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
@@ -37,49 +36,43 @@
 
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 2
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "e"    # Ljava/io/IOException;
+    .locals 1
 
     .line 342
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Got IOException when attempting to open stack frame: "
+    const-string v0, "Got IOException when attempting to open stack frame: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 344
     invoke-virtual {p2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
+
+    const-string p2, "ReactNative"
 
     .line 342
-    const-string v1, "ReactNative"
+    invoke-static {p2, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v1, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 345
     return-void
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
     .locals 0
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "response"    # Lokhttp3/Response;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 350
     return-void
 .end method

@@ -125,17 +125,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;Lcom/facebook/react/uimanager/NativeViewHierarchyManager;I)V
-    .locals 3
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
-    .param p2, "nativeViewHierarchyManager"    # Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
-    .param p3, "minTimeLeftInFrameForNonBatchedOperationMs"    # I
+    .locals 1
 
     .line 634
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
     const/4 v0, 0x4
 
+    .line 50
     new-array v0, v0, [I
 
     iput-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mMeasureBuffer:[I
@@ -175,9 +172,9 @@
 
     iput-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
 
-    .line 619
     const/4 v0, 0x0
 
+    .line 619
     iput-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsDispatchUIFrameCallbackEnqueued:Z
 
     .line 620
@@ -192,71 +189,61 @@
     .line 636
     invoke-virtual {p2}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->getAnimationRegistry()Lcom/facebook/react/animation/AnimationRegistry;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mAnimationRegistry:Lcom/facebook/react/animation/AnimationRegistry;
+    iput-object p2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mAnimationRegistry:Lcom/facebook/react/animation/AnimationRegistry;
 
     .line 637
-    new-instance v0, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;
+    new-instance p2, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-ne p3, v1, :cond_0
+    if-ne p3, v0, :cond_0
 
-    const/16 v1, 0x8
-
-    goto :goto_0
+    const/16 p3, 0x8
 
     :cond_0
-    move v1, p3
+    const/4 v0, 0x0
 
-    :goto_0
-    const/4 v2, 0x0
+    invoke-direct {p2, p0, p1, p3, v0}, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;ILcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
 
-    invoke-direct {v0, p0, p1, v1, v2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;ILcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
-
-    iput-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchUIFrameCallback:Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;
+    iput-object p2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchUIFrameCallback:Lcom/facebook/react/uimanager/UIViewOperationQueue$DispatchUIFrameCallback;
 
     .line 643
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    .line 644
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNativeViewHierarchyManager:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNativeViewHierarchyManager:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Lcom/facebook/react/bridge/ReactApplicationContext;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1800(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsProfilingNextBatch:Z
+    iget-boolean p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsProfilingNextBatch:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$1900(Lcom/facebook/react/uimanager/UIViewOperationQueue;)J
     .locals 2
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     .line 46
     iget-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchCommitStartTime:J
@@ -266,8 +253,6 @@
 
 .method static synthetic access$1902(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # J
 
     .line 46
     iput-wide p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchCommitStartTime:J
@@ -276,19 +261,16 @@
 .end method
 
 .method static synthetic access$200(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Lcom/facebook/react/animation/AnimationRegistry;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mAnimationRegistry:Lcom/facebook/react/animation/AnimationRegistry;
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mAnimationRegistry:Lcom/facebook/react/animation/AnimationRegistry;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2002(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # J
 
     .line 46
     iput-wide p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchLayoutTime:J
@@ -298,7 +280,6 @@
 
 .method static synthetic access$2100(Lcom/facebook/react/uimanager/UIViewOperationQueue;)J
     .locals 2
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     .line 46
     iget-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchDispatchViewUpdatesTime:J
@@ -308,8 +289,6 @@
 
 .method static synthetic access$2102(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # J
 
     .line 46
     iput-wide p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchDispatchViewUpdatesTime:J
@@ -319,7 +298,6 @@
 
 .method static synthetic access$2200(Lcom/facebook/react/uimanager/UIViewOperationQueue;)J
     .locals 2
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     .line 46
     iget-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchRunStartTime:J
@@ -329,8 +307,6 @@
 
 .method static synthetic access$2202(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # J
 
     .line 46
     iput-wide p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchRunStartTime:J
@@ -340,8 +316,6 @@
 
 .method static synthetic access$2302(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # J
 
     .line 46
     iput-wide p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mThreadCpuTime:J
@@ -350,29 +324,25 @@
 .end method
 
 .method static synthetic access$2400(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2500(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsInIllegalUIState:Z
+    iget-boolean p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsInIllegalUIState:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$2502(Lcom/facebook/react/uimanager/UIViewOperationQueue;Z)Z
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # Z
 
     .line 46
     iput-boolean p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsInIllegalUIState:Z
@@ -382,7 +352,6 @@
 
 .method static synthetic access$2600(Lcom/facebook/react/uimanager/UIViewOperationQueue;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     .line 46
     invoke-direct {p0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->flushPendingBatches()V
@@ -391,28 +360,25 @@
 .end method
 
 .method static synthetic access$2700(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/lang/Object;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperationsLock:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperationsLock:Ljava/lang/Object;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2800(Lcom/facebook/react/uimanager/UIViewOperationQueue;)Ljava/util/ArrayDeque;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$2900(Lcom/facebook/react/uimanager/UIViewOperationQueue;)J
     .locals 2
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     .line 46
     iget-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedExecutionTotalTime:J
@@ -422,8 +388,6 @@
 
 .method static synthetic access$2902(Lcom/facebook/react/uimanager/UIViewOperationQueue;J)J
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p1, "x1"    # J
 
     .line 46
     iput-wide p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedExecutionTotalTime:J
@@ -432,13 +396,12 @@
 .end method
 
 .method static synthetic access$300(Lcom/facebook/react/uimanager/UIViewOperationQueue;)[I
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
+    .locals 0
 
     .line 46
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mMeasureBuffer:[I
+    iget-object p0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mMeasureBuffer:[I
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private flushPendingBatches()V
@@ -449,14 +412,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 1007
     const-string v0, "ReactNative"
 
     const-string v1, "Not flushing pending UI operations because of previously thrown Exception"
 
+    .line 1007
     invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1010
     return-void
 
     .line 1014
@@ -479,7 +441,6 @@
     iget-object v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchUIRunnables:Ljava/util/ArrayList;
 
     .line 1017
-    .local v1, "runnables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
@@ -497,7 +458,6 @@
     move-result-wide v2
 
     .line 1024
-    .local v2, "batchedExecutionStartTime":J
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
@@ -505,22 +465,19 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v1
 
-    check-cast v4, Ljava/lang/Runnable;
+    check-cast v1, Ljava/lang/Runnable;
 
     .line 1025
-    .local v4, "runnable":Ljava/lang/Runnable;
-    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
+    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
 
-    .line 1026
-    .end local v4    # "runnable":Ljava/lang/Runnable;
     goto :goto_0
 
     .line 1028
@@ -534,23 +491,22 @@
     .line 1029
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v0
 
-    sub-long/2addr v6, v2
+    sub-long/2addr v0, v2
 
-    iput-wide v6, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchBatchedExecutionTime:J
+    iput-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchBatchedExecutionTime:J
 
     .line 1030
-    iget-wide v6, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedExecutionTotalTime:J
+    iget-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedExecutionTotalTime:J
 
-    iput-wide v6, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchNonBatchedExecutionTime:J
+    iput-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchNonBatchedExecutionTime:J
 
-    .line 1031
     const/4 v0, 0x0
 
+    .line 1031
     iput-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsProfilingNextBatch:Z
 
-    .line 1033
     const-wide/16 v6, 0x0
 
     const/4 v9, 0x0
@@ -561,33 +517,31 @@
 
     const-string v8, "batchedExecutionTime"
 
+    .line 1033
     invoke-static/range {v6 .. v11}, Lcom/facebook/systrace/Systrace;->beginAsyncSection(JLjava/lang/String;IJ)V
 
-    .line 1038
-    const-string v6, "batchedExecutionTime"
+    const-string v1, "batchedExecutionTime"
 
-    invoke-static {v4, v5, v6, v0}, Lcom/facebook/systrace/Systrace;->endAsyncSection(JLjava/lang/String;I)V
+    .line 1038
+    invoke-static {v4, v5, v1, v0}, Lcom/facebook/systrace/Systrace;->endAsyncSection(JLjava/lang/String;I)V
 
     .line 1040
     :cond_2
     iput-wide v4, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedExecutionTotalTime:J
 
-    .line 1041
     return-void
 
     .line 1019
-    .end local v1    # "runnables":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Runnable;>;"
-    .end local v2    # "batchedExecutionStartTime":J
     :cond_3
     :try_start_1
     monitor-exit v0
 
     return-void
 
-    .line 1021
     :catchall_0
     move-exception v1
 
+    .line 1021
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -601,47 +555,40 @@
 # virtual methods
 .method public addRootView(ILcom/facebook/react/uimanager/common/SizeMonitoringFrameLayout;Lcom/facebook/react/uimanager/ThemedReactContext;)V
     .locals 1
-    .param p1, "tag"    # I
-    .param p2, "rootView"    # Lcom/facebook/react/uimanager/common/SizeMonitoringFrameLayout;
-    .param p3, "themedRootContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 680
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNativeViewHierarchyManager:Lcom/facebook/react/uimanager/NativeViewHierarchyManager;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->addRootView(ILcom/facebook/react/uimanager/common/SizeMonitoringFrameLayout;Lcom/facebook/react/uimanager/ThemedReactContext;)V
 
-    .line 681
     return-void
 .end method
 
 .method public dispatchViewUpdates(IJJ)V
     .locals 18
-    .param p1, "batchId"    # I
-    .param p2, "commitStartTime"    # J
-    .param p4, "layoutTime"    # J
 
-    .line 864
     move-object/from16 v14, p0
 
-    move/from16 v15, p1
+    move/from16 v0, p1
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v12, 0x0
 
-    const-string v0, "UIViewOperationQueue.dispatchViewUpdates"
+    const-string v1, "UIViewOperationQueue.dispatchViewUpdates"
 
-    invoke-static {v8, v9, v0}, Lcom/facebook/systrace/SystraceMessage;->beginSection(JLjava/lang/String;)Lcom/facebook/systrace/SystraceMessage$Builder;
+    .line 864
+    invoke-static {v12, v13, v1}, Lcom/facebook/systrace/SystraceMessage;->beginSection(JLjava/lang/String;)Lcom/facebook/systrace/SystraceMessage$Builder;
 
-    move-result-object v0
+    move-result-object v1
+
+    const-string v2, "batchId"
 
     .line 867
-    const-string v1, "batchId"
+    invoke-virtual {v1, v2, v0}, Lcom/facebook/systrace/SystraceMessage$Builder;->arg(Ljava/lang/String;I)Lcom/facebook/systrace/SystraceMessage$Builder;
 
-    invoke-virtual {v0, v1, v15}, Lcom/facebook/systrace/SystraceMessage$Builder;->arg(Ljava/lang/String;I)Lcom/facebook/systrace/SystraceMessage$Builder;
-
-    move-result-object v0
+    move-result-object v1
 
     .line 868
-    invoke-virtual {v0}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
+    invoke-virtual {v1}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
 
     .line 870
     :try_start_0
@@ -650,326 +597,232 @@
     move-result-wide v10
 
     .line 871
-    .local v10, "dispatchViewUpdatesTime":J
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
 
-    move-result-wide v12
+    move-result-wide v15
 
     .line 876
-    .local v12, "nativeModulesThreadCpuTime":J
-    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     .line 877
-    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
 
     .line 878
-    .local v0, "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v2, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
+    iput-object v3, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
 
-    move-object/from16 v16, v0
+    move-object v5, v1
 
     goto :goto_0
 
-    .line 880
-    .end local v0    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
     :cond_0
-    move-object v0, v1
-
-    move-object/from16 v16, v0
+    move-object v5, v2
 
     .line 884
-    .local v16, "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
     :goto_0
-    iget-object v2, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperationsLock:Ljava/lang/Object;
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperationsLock:Ljava/lang/Object;
 
-    monitor-enter v2
+    monitor-enter v1
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_6
+    .catchall {:try_start_0 .. :try_end_0} :catchall_5
 
     .line 885
     :try_start_1
-    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
+    iget-object v3, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
 
-    invoke-virtual {v0}, Ljava/util/ArrayDeque;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/ArrayDeque;->isEmpty()Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_1
+    if-nez v3, :cond_1
 
     .line 886
-    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
+    iget-object v2, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
 
     .line 887
-    .local v0, "nonBatchedOperations":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    new-instance v1, Ljava/util/ArrayDeque;
+    new-instance v3, Ljava/util/ArrayDeque;
 
-    invoke-direct {v1}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
+    iput-object v3, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mNonBatchedOperations:Ljava/util/ArrayDeque;
 
-    move-object/from16 v17, v0
-
-    goto :goto_1
-
-    .line 889
-    .end local v0    # "nonBatchedOperations":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
     :cond_1
-    move-object v0, v1
-
-    move-object/from16 v17, v0
+    move-object v4, v2
 
     .line 891
-    .local v17, "nonBatchedOperations":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    :goto_1
-    monitor-exit v2
+    monitor-exit v1
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     .line 893
     :try_start_2
-    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 894
-    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
 
-    invoke-interface {v0}, Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;->onViewHierarchyUpdateEnqueued()V
+    invoke-interface {v1}, Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;->onViewHierarchyUpdateEnqueued()V
 
     .line 897
     :cond_2
-    new-instance v0, Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
+    new-instance v8, Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_6
+    .catchall {:try_start_2 .. :try_end_2} :catchall_5
 
-    move-object v1, v0
+    move-object v1, v8
 
     move-object/from16 v2, p0
 
     move/from16 v3, p1
 
-    move-object/from16 v4, v17
-
-    move-object/from16 v5, v16
-
     move-wide/from16 v6, p2
 
-    move-wide v14, v8
+    move-object/from16 v17, v8
 
     move-wide/from16 v8, p4
+
+    move-wide v12, v15
 
     :try_start_3
     invoke-direct/range {v1 .. v13}, Lcom/facebook/react/uimanager/UIViewOperationQueue$1;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILjava/util/ArrayDeque;Ljava/util/ArrayList;JJJJ)V
 
-    move-object v1, v0
+    const-string v1, "acquiring mDispatchRunnablesLock"
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    const-wide/16 v2, 0x0
 
     .line 965
-    .local v1, "runOperations":Ljava/lang/Runnable;
-    const-string v0, "acquiring mDispatchRunnablesLock"
+    :try_start_4
+    invoke-static {v2, v3, v1}, Lcom/facebook/systrace/SystraceMessage;->beginSection(JLjava/lang/String;)Lcom/facebook/systrace/SystraceMessage$Builder;
 
-    invoke-static {v14, v15, v0}, Lcom/facebook/systrace/SystraceMessage;->beginSection(JLjava/lang/String;)Lcom/facebook/systrace/SystraceMessage$Builder;
+    move-result-object v1
 
-    move-result-object v0
-
-    const-string v2, "batchId"
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    const-string v4, "batchId"
 
     .line 968
-    move/from16 v3, p1
-
-    move-wide v4, v14
-
-    :try_start_4
-    invoke-virtual {v0, v2, v3}, Lcom/facebook/systrace/SystraceMessage$Builder;->arg(Ljava/lang/String;I)Lcom/facebook/systrace/SystraceMessage$Builder;
+    invoke-virtual {v1, v4, v0}, Lcom/facebook/systrace/SystraceMessage$Builder;->arg(Ljava/lang/String;I)Lcom/facebook/systrace/SystraceMessage$Builder;
 
     move-result-object v0
 
     .line 969
     invoke-virtual {v0}, Lcom/facebook/systrace/SystraceMessage$Builder;->flush()V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     .line 970
-    move-object/from16 v6, p0
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchRunnablesLock:Ljava/lang/Object;
 
-    :try_start_5
-    iget-object v2, v6, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchRunnablesLock:Ljava/lang/Object;
-
-    monitor-enter v2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_4
+    monitor-enter v1
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
     .line 971
-    :try_start_6
-    invoke-static {v4, v5}, Lcom/facebook/systrace/Systrace;->endSection(J)V
+    :try_start_5
+    invoke-static {v2, v3}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
     .line 972
-    iget-object v0, v6, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchUIRunnables:Ljava/util/ArrayList;
+    iget-object v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mDispatchUIRunnables:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-object/from16 v4, v17
+
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 973
-    monitor-exit v2
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    monitor-exit v1
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     .line 978
-    :try_start_7
-    iget-boolean v0, v6, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsDispatchUIFrameCallbackEnqueued:Z
+    :try_start_6
+    iget-boolean v0, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsDispatchUIFrameCallbackEnqueued:Z
 
     if-nez v0, :cond_3
 
     .line 979
     new-instance v0, Lcom/facebook/react/uimanager/UIViewOperationQueue$2;
 
-    iget-object v2, v6, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    iget-object v1, v14, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    invoke-direct {v0, v6, v2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$2;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;)V
+    invoke-direct {v0, v14, v1}, Lcom/facebook/react/uimanager/UIViewOperationQueue$2;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReactContext;)V
 
     invoke-static {v0}, Lcom/facebook/react/bridge/UiThreadUtil;->runOnUiThread(Ljava/lang/Runnable;)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_4
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
     .line 988
-    .end local v1    # "runOperations":Ljava/lang/Runnable;
-    .end local v10    # "dispatchViewUpdatesTime":J
-    .end local v12    # "nativeModulesThreadCpuTime":J
-    .end local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    .end local v17    # "nonBatchedOperations":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
     :cond_3
-    invoke-static {v4, v5}, Lcom/facebook/systrace/Systrace;->endSection(J)V
+    invoke-static {v2, v3}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
-    .line 989
-    nop
-
-    .line 990
     return-void
 
-    .line 973
-    .restart local v1    # "runOperations":Ljava/lang/Runnable;
-    .restart local v10    # "dispatchViewUpdatesTime":J
-    .restart local v12    # "nativeModulesThreadCpuTime":J
-    .restart local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    .restart local v17    # "nonBatchedOperations":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
     :catchall_0
     move-exception v0
 
+    .line 973
+    :try_start_7
+    monitor-exit v1
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
     :try_start_8
-    monitor-exit v2
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
-    .end local p1    # "batchId":I
-    .end local p2    # "commitStartTime":J
-    .end local p4    # "layoutTime":J
-    :try_start_9
     throw v0
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_4
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
-    .line 988
-    .end local v1    # "runOperations":Ljava/lang/Runnable;
-    .end local v10    # "dispatchViewUpdatesTime":J
-    .end local v12    # "nativeModulesThreadCpuTime":J
-    .end local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    .end local v17    # "nonBatchedOperations":Ljava/util/ArrayDeque;, "Ljava/util/ArrayDeque<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    .restart local p1    # "batchId":I
-    .restart local p2    # "commitStartTime":J
-    .restart local p4    # "layoutTime":J
     :catchall_1
     move-exception v0
 
-    move-object/from16 v6, p0
+    const-wide/16 v2, 0x0
 
-    goto :goto_3
+    goto :goto_2
 
     :catchall_2
     move-exception v0
 
-    move-object/from16 v6, p0
-
-    move/from16 v3, p1
-
-    move-wide v4, v14
-
-    goto :goto_3
+    move-wide v2, v12
 
     .line 891
-    .restart local v10    # "dispatchViewUpdatesTime":J
-    .restart local v12    # "nativeModulesThreadCpuTime":J
-    .restart local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    :catchall_3
-    move-exception v0
+    :goto_1
+    :try_start_9
+    monitor-exit v1
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_4
 
-    move-wide v4, v8
-
-    move-object v6, v14
-
-    move v3, v15
-
-    :goto_2
     :try_start_a
-    monitor-exit v2
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_5
-
-    .end local p1    # "batchId":I
-    .end local p2    # "commitStartTime":J
-    .end local p4    # "layoutTime":J
-    :try_start_b
     throw v0
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_4
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_3
 
-    .line 988
-    .end local v10    # "dispatchViewUpdatesTime":J
-    .end local v12    # "nativeModulesThreadCpuTime":J
-    .end local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    .restart local p1    # "batchId":I
-    .restart local p2    # "commitStartTime":J
-    .restart local p4    # "layoutTime":J
-    :catchall_4
-    move-exception v0
-
-    goto :goto_3
-
-    .line 891
-    .restart local v10    # "dispatchViewUpdatesTime":J
-    .restart local v12    # "nativeModulesThreadCpuTime":J
-    .restart local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    :catchall_5
+    :catchall_3
     move-exception v0
 
     goto :goto_2
 
-    .line 988
-    .end local v10    # "dispatchViewUpdatesTime":J
-    .end local v12    # "nativeModulesThreadCpuTime":J
-    .end local v16    # "batchedOperations":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;>;"
-    :catchall_6
+    :catchall_4
     move-exception v0
 
-    move-wide v4, v8
+    goto :goto_1
 
-    move-object v6, v14
+    :catchall_5
+    move-exception v0
 
-    move v3, v15
+    move-wide v2, v12
 
-    :goto_3
-    invoke-static {v4, v5}, Lcom/facebook/systrace/Systrace;->endSection(J)V
+    .line 988
+    :goto_2
+    invoke-static {v2, v3}, Lcom/facebook/systrace/Systrace;->endSection(J)V
 
     .line 989
     throw v0
@@ -979,9 +832,6 @@
 
 .method public enqueueAddAnimation(IILcom/facebook/react/bridge/Callback;)V
     .locals 8
-    .param p1, "reactTag"    # I
-    .param p2, "animationID"    # I
-    .param p3, "onSuccess"    # Lcom/facebook/react/bridge/Callback;
 
     .line 804
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1004,7 +854,6 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 805
     return-void
 .end method
 
@@ -1032,37 +881,29 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 711
     return-void
 .end method
 
 .method public enqueueConfigureLayoutAnimation(Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
-    .locals 3
-    .param p1, "config"    # Lcom/facebook/react/bridge/ReadableMap;
-    .param p2, "onSuccess"    # Lcom/facebook/react/bridge/Callback;
-    .param p3, "onError"    # Lcom/facebook/react/bridge/Callback;
+    .locals 1
 
     .line 820
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
 
-    new-instance v1, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;
+    new-instance p3, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v1, p0, p1, v2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
+    invoke-direct {p3, p0, p1, v0}, Lcom/facebook/react/uimanager/UIViewOperationQueue$ConfigureLayoutAnimationOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 821
     return-void
 .end method
 
 .method public enqueueCreateView(Lcom/facebook/react/uimanager/ThemedReactContext;ILjava/lang/String;Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
     .locals 9
-    .param p1, "themedContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
-    .param p2, "viewReactTag"    # I
-    .param p3, "viewClassName"    # Ljava/lang/String;
-    .param p4, "initialProps"    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
+    .param p4    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1097,18 +938,16 @@
     .line 748
     monitor-exit v0
 
-    .line 749
     return-void
 
-    .line 748
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method
 
 .method public enqueueDismissPopupMenu()V
@@ -1125,15 +964,12 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 734
     return-void
 .end method
 
 .method public enqueueDispatchCommand(IILcom/facebook/react/bridge/ReadableArray;)V
     .locals 2
-    .param p1, "reactTag"    # I
-    .param p2, "commandId"    # I
-    .param p3, "commandArgs"    # Lcom/facebook/react/bridge/ReadableArray;
+    .param p3    # Lcom/facebook/react/bridge/ReadableArray;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1147,16 +983,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 718
     return-void
 .end method
 
 .method public enqueueFindTargetForTouch(IFFLcom/facebook/react/bridge/Callback;)V
     .locals 9
-    .param p1, "reactTag"    # I
-    .param p2, "targetX"    # F
-    .param p3, "targetY"    # F
-    .param p4, "callback"    # Lcom/facebook/react/bridge/Callback;
 
     .line 842
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1181,14 +1012,11 @@
 
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 844
     return-void
 .end method
 
 .method public enqueueLayoutUpdateFinished(Lcom/facebook/react/uimanager/ReactShadowNode;Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;)V
     .locals 3
-    .param p1, "node"    # Lcom/facebook/react/uimanager/ReactShadowNode;
-    .param p2, "listener"    # Lcom/facebook/react/uimanager/UIImplementation$LayoutUpdateListener;
 
     .line 851
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1201,22 +1029,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 852
     return-void
 .end method
 
 .method public enqueueManageChildren(I[I[Lcom/facebook/react/uimanager/ViewAtIndex;[I)V
     .locals 8
-    .param p1, "reactTag"    # I
-    .param p2, "indicesToRemove"    # [I
+    .param p2    # [I
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "viewsToAdd"    # [Lcom/facebook/react/uimanager/ViewAtIndex;
+    .param p3    # [Lcom/facebook/react/uimanager/ViewAtIndex;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "tagsToDelete"    # [I
+    .param p4    # [I
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1242,14 +1068,11 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 787
     return-void
 .end method
 
 .method public enqueueMeasure(ILcom/facebook/react/bridge/Callback;)V
     .locals 3
-    .param p1, "reactTag"    # I
-    .param p2, "callback"    # Lcom/facebook/react/bridge/Callback;
 
     .line 826
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1262,14 +1085,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 828
     return-void
 .end method
 
 .method public enqueueMeasureInWindow(ILcom/facebook/react/bridge/Callback;)V
     .locals 3
-    .param p1, "reactTag"    # I
-    .param p2, "callback"    # Lcom/facebook/react/bridge/Callback;
 
     .line 833
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1282,17 +1102,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 835
     return-void
 .end method
 
 .method public enqueueOnLayoutEvent(IIIII)V
     .locals 9
-    .param p1, "tag"    # I
-    .param p2, "screenX"    # I
-    .param p3, "screenY"    # I
-    .param p4, "screenWidth"    # I
-    .param p5, "screenHeight"    # I
 
     .line 765
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1317,13 +1131,11 @@
 
     invoke-virtual {v0, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 766
     return-void
 .end method
 
 .method public enqueueRegisterAnimation(Lcom/facebook/react/animation/Animation;)V
     .locals 3
-    .param p1, "animation"    # Lcom/facebook/react/animation/Animation;
 
     .line 797
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1336,13 +1148,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 798
     return-void
 .end method
 
 .method public enqueueRemoveAnimation(I)V
     .locals 3
-    .param p1, "animationID"    # I
 
     .line 808
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1355,13 +1165,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 809
     return-void
 .end method
 
 .method public enqueueRemoveRootView(I)V
     .locals 2
-    .param p1, "rootViewTag"    # I
 
     .line 693
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1372,14 +1180,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 694
     return-void
 .end method
 
 .method public enqueueSendAccessibilityEvent(II)V
     .locals 3
-    .param p1, "tag"    # I
-    .param p2, "eventType"    # I
 
     .line 847
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1392,14 +1197,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 848
     return-void
 .end method
 
 .method public enqueueSetChildren(ILcom/facebook/react/bridge/ReadableArray;)V
     .locals 2
-    .param p1, "reactTag"    # I
-    .param p2, "childrenTags"    # Lcom/facebook/react/bridge/ReadableArray;
 
     .line 792
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1410,15 +1212,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 794
     return-void
 .end method
 
 .method public enqueueSetJSResponder(IIZ)V
     .locals 8
-    .param p1, "tag"    # I
-    .param p2, "initialTag"    # I
-    .param p3, "blockNativeResponder"    # Z
 
     .line 700
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1441,13 +1239,11 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 706
     return-void
 .end method
 
 .method public enqueueSetLayoutAnimationEnabled(Z)V
     .locals 3
-    .param p1, "enabled"    # Z
 
     .line 813
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1460,16 +1256,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 814
     return-void
 .end method
 
 .method public enqueueShowPopupMenu(ILcom/facebook/react/bridge/ReadableArray;Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
     .locals 8
-    .param p1, "reactTag"    # I
-    .param p2, "items"    # Lcom/facebook/react/bridge/ReadableArray;
-    .param p3, "error"    # Lcom/facebook/react/bridge/Callback;
-    .param p4, "success"    # Lcom/facebook/react/bridge/Callback;
 
     .line 729
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1492,13 +1283,11 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 730
     return-void
 .end method
 
 .method public enqueueUIBlock(Lcom/facebook/react/uimanager/UIBlock;)V
     .locals 2
-    .param p1, "block"    # Lcom/facebook/react/uimanager/UIBlock;
 
     .line 855
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1509,13 +1298,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 856
     return-void
 .end method
 
 .method protected enqueueUIOperation(Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;)V
     .locals 1
-    .param p1, "operation"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$UIOperation;
 
     .line 688
     invoke-static {p1}, Lcom/facebook/react/bridge/SoftAssertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1525,14 +1312,11 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 690
     return-void
 .end method
 
 .method public enqueueUpdateExtraData(ILjava/lang/Object;)V
     .locals 2
-    .param p1, "reactTag"    # I
-    .param p2, "extraData"    # Ljava/lang/Object;
 
     .line 721
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1543,14 +1327,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 722
     return-void
 .end method
 
 .method public enqueueUpdateInstanceHandle(IJ)V
     .locals 8
-    .param p1, "reactTag"    # I
-    .param p2, "instanceHandle"    # J
 
     .line 752
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1571,22 +1352,15 @@
 
     invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 753
     return-void
 .end method
 
 .method public enqueueUpdateLayout(IIIIII)V
     .locals 11
-    .param p1, "parentTag"    # I
-    .param p2, "reactTag"    # I
-    .param p3, "x"    # I
-    .param p4, "y"    # I
-    .param p5, "width"    # I
-    .param p6, "height"    # I
 
-    .line 776
     move-object v8, p0
 
+    .line 776
     iget-object v9, v8, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
 
     new-instance v10, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdateLayoutOperation;
@@ -1611,28 +1385,23 @@
 
     invoke-virtual {v9, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 778
     return-void
 .end method
 
 .method public enqueueUpdateProperties(ILjava/lang/String;Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
-    .locals 3
-    .param p1, "reactTag"    # I
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "props"    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
+    .locals 2
 
     .line 756
-    iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
 
-    new-instance v1, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdatePropertiesOperation;
+    new-instance v0, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdatePropertiesOperation;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {v1, p0, p1, p3, v2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdatePropertiesOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/uimanager/ReactStylesDiffMap;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
+    invoke-direct {v0, p0, p1, p3, v1}, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdatePropertiesOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/uimanager/ReactStylesDiffMap;Lcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 757
     return-void
 .end method
 
@@ -1663,7 +1432,6 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     .line 662
-    .local v0, "perfMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;"
     iget-wide v1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchCommitStartTime:J
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -1740,7 +1508,6 @@
 
     invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 669
     return-object v0
 .end method
 
@@ -1760,9 +1527,9 @@
 .method pauseFrameCallback()V
     .locals 3
 
-    .line 999
     const/4 v0, 0x0
 
+    .line 999
     iput-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsDispatchUIFrameCallbackEnqueued:Z
 
     .line 1000
@@ -1780,13 +1547,11 @@
     .line 1002
     invoke-direct {p0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->flushPendingBatches()V
 
-    .line 1003
     return-void
 .end method
 
 .method public prependUIBlock(Lcom/facebook/react/uimanager/UIBlock;)V
-    .locals 3
-    .param p1, "block"    # Lcom/facebook/react/uimanager/UIBlock;
+    .locals 2
 
     .line 859
     iget-object v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mOperations:Ljava/util/ArrayList;
@@ -1795,37 +1560,35 @@
 
     invoke-direct {v1, p0, p1}, Lcom/facebook/react/uimanager/UIViewOperationQueue$UIBlockOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;Lcom/facebook/react/uimanager/UIBlock;)V
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v0, p1, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    .line 860
     return-void
 .end method
 
 .method public profileNextBatch()V
     .locals 2
 
-    .line 656
     const/4 v0, 0x1
 
+    .line 656
     iput-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsProfilingNextBatch:Z
 
-    .line 657
     const-wide/16 v0, 0x0
 
+    .line 657
     iput-wide v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mProfiledBatchCommitStartTime:J
 
-    .line 658
     return-void
 .end method
 
 .method resumeFrameCallback()V
     .locals 3
 
-    .line 993
     const/4 v0, 0x1
 
+    .line 993
     iput-boolean v0, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mIsDispatchUIFrameCallbackEnqueued:Z
 
     .line 994
@@ -1840,13 +1603,12 @@
     .line 995
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/modules/core/ReactChoreographer;->postFrameCallback(Lcom/facebook/react/modules/core/ReactChoreographer$CallbackType;Lcom/facebook/react/modules/core/ChoreographerCompat$FrameCallback;)V
 
-    .line 996
     return-void
 .end method
 
 .method public setViewHierarchyUpdateDebugListener(Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;)V
     .locals 0
-    .param p1, "listener"    # Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
+    .param p1    # Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1854,6 +1616,5 @@
     .line 652
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue;->mViewHierarchyUpdateDebugListener:Lcom/facebook/react/uimanager/debug/NotThreadSafeViewHierarchyUpdateDebugListener;
 
-    .line 653
     return-void
 .end method

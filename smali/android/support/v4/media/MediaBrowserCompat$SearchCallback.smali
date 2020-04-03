@@ -28,23 +28,20 @@
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
-    .param p1, "query"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "extras"    # Landroid/os/Bundle;
 
-    .line 915
     return-void
 .end method
 
 .method public onSearchResult(Ljava/lang/String;Landroid/os/Bundle;Ljava/util/List;)V
     .locals 0
-    .param p1, "query"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "extras"    # Landroid/os/Bundle;
     .param p3    # Ljava/util/List;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -60,7 +57,5 @@
         }
     .end annotation
 
-    .line 905
-    .local p3, "items":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/media/MediaBrowserCompat$MediaItem;>;"
     return-void
 .end method

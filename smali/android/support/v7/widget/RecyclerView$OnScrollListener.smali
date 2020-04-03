@@ -28,25 +28,20 @@
 # virtual methods
 .method public onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
     .locals 0
-    .param p1, "recyclerView"    # Landroid/support/v7/widget/RecyclerView;
+    .param p1    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "newState"    # I
 
-    .line 10617
     return-void
 .end method
 
 .method public onScrolled(Landroid/support/v7/widget/RecyclerView;II)V
     .locals 0
-    .param p1, "recyclerView"    # Landroid/support/v7/widget/RecyclerView;
+    .param p1    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "dx"    # I
-    .param p3, "dy"    # I
 
-    .line 10630
     return-void
 .end method

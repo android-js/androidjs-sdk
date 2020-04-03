@@ -48,32 +48,27 @@
 .end method
 
 .method static synthetic access$000(Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;)Ljava/util/Map;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
+    .locals 0
 
     .line 40
-    iget-object v0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->mCustomImageDecoders:Ljava/util/Map;
+    iget-object p0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->mCustomImageDecoders:Ljava/util/Map;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;)Ljava/util/List;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
+    .locals 0
 
     .line 40
-    iget-object v0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->mCustomImageFormats:Ljava/util/List;
+    iget-object p0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->mCustomImageFormats:Ljava/util/List;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public addDecodingCapability(Lcom/facebook/imageformat/ImageFormat;Lcom/facebook/imageformat/ImageFormat$FormatChecker;Lcom/facebook/imagepipeline/decoder/ImageDecoder;)Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
     .locals 1
-    .param p1, "imageFormat"    # Lcom/facebook/imageformat/ImageFormat;
-    .param p2, "imageFormatChecker"    # Lcom/facebook/imageformat/ImageFormat$FormatChecker;
-    .param p3, "decoder"    # Lcom/facebook/imagepipeline/decoder/ImageDecoder;
 
     .line 56
     iget-object v0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->mCustomImageFormats:Ljava/util/List;
@@ -96,7 +91,6 @@
     .line 60
     invoke-virtual {p0, p1, p3}, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->overrideDecoder(Lcom/facebook/imageformat/ImageFormat;Lcom/facebook/imagepipeline/decoder/ImageDecoder;)Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
 
-    .line 61
     return-object p0
 .end method
 
@@ -115,8 +109,6 @@
 
 .method public overrideDecoder(Lcom/facebook/imageformat/ImageFormat;Lcom/facebook/imagepipeline/decoder/ImageDecoder;)Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
     .locals 1
-    .param p1, "imageFormat"    # Lcom/facebook/imageformat/ImageFormat;
-    .param p2, "decoder"    # Lcom/facebook/imagepipeline/decoder/ImageDecoder;
 
     .line 74
     iget-object v0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->mCustomImageDecoders:Ljava/util/Map;
@@ -136,6 +128,5 @@
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 78
     return-object p0
 .end method

@@ -17,12 +17,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/res/Resources;)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
+    .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "res"    # Landroid/content/res/Resources;
+    .param p2    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -31,13 +31,12 @@
     invoke-direct {p0, p2}, Landroid/support/v7/widget/ResourcesWrapper;-><init>(Landroid/content/res/Resources;)V
 
     .line 36
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    new-instance p2, Ljava/lang/ref/WeakReference;
 
-    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Landroid/support/v7/widget/TintResources;->mContextRef:Ljava/lang/ref/WeakReference;
+    iput-object p2, p0, Landroid/support/v7/widget/TintResources;->mContextRef:Ljava/lang/ref/WeakReference;
 
-    .line 37
     return-void
 .end method
 
@@ -45,7 +44,6 @@
 # virtual methods
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -58,7 +56,6 @@
     move-result-object v0
 
     .line 47
-    .local v0, "d":Landroid/graphics/drawable/Drawable;
     iget-object v1, p0, Landroid/support/v7/widget/TintResources;->mContextRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -67,8 +64,6 @@
 
     check-cast v1, Landroid/content/Context;
 
-    .line 48
-    .local v1, "context":Landroid/content/Context;
     if-eqz v0, :cond_0
 
     if-eqz v1, :cond_0
@@ -78,7 +73,6 @@
 
     invoke-static {v1, p1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawableUsingColorFilter(Landroid/content/Context;ILandroid/graphics/drawable/Drawable;)Z
 
-    .line 51
     :cond_0
     return-object v0
 .end method

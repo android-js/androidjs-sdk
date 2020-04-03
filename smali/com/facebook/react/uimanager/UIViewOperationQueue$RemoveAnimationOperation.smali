@@ -21,7 +21,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;I)V
     .locals 0
-    .param p2, "animationID"    # I
 
     .line 399
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$RemoveAnimationOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -29,15 +28,11 @@
     .line 400
     invoke-direct {p0, p2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$AnimationOperation;-><init>(I)V
 
-    .line 401
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILcom/facebook/react/uimanager/UIViewOperationQueue$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
-    .param p2, "x1"    # I
-    .param p3, "x2"    # Lcom/facebook/react/uimanager/UIViewOperationQueue$1;
 
     .line 397
     invoke-direct {p0, p1, p2}, Lcom/facebook/react/uimanager/UIViewOperationQueue$RemoveAnimationOperation;-><init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;I)V
@@ -63,14 +58,11 @@
 
     move-result-object v0
 
-    .line 406
-    .local v0, "animation":Lcom/facebook/react/animation/Animation;
     if-eqz v0, :cond_0
 
     .line 407
     invoke-virtual {v0}, Lcom/facebook/react/animation/Animation;->cancel()V
 
-    .line 409
     :cond_0
     return-void
 .end method

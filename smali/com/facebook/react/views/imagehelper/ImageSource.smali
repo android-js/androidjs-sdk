@@ -19,10 +19,7 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 7
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "source"    # Ljava/lang/String;
 
-    .line 37
     const-wide/16 v3, 0x0
 
     const-wide/16 v5, 0x0
@@ -33,18 +30,14 @@
 
     move-object v2, p2
 
+    .line 37
     invoke-direct/range {v0 .. v6}, Lcom/facebook/react/views/imagehelper/ImageSource;-><init>(Landroid/content/Context;Ljava/lang/String;DD)V
 
-    .line 38
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;DD)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "source"    # Ljava/lang/String;
-    .param p3, "width"    # D
-    .param p5, "height"    # D
+    .locals 0
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,29 +45,27 @@
     .line 28
     iput-object p2, p0, Lcom/facebook/react/views/imagehelper/ImageSource;->mSource:Ljava/lang/String;
 
-    .line 29
-    mul-double v0, p3, p5
+    mul-double p3, p3, p5
 
-    iput-wide v0, p0, Lcom/facebook/react/views/imagehelper/ImageSource;->mSize:D
+    .line 29
+    iput-wide p3, p0, Lcom/facebook/react/views/imagehelper/ImageSource;->mSize:D
 
     .line 33
     invoke-direct {p0, p1}, Lcom/facebook/react/views/imagehelper/ImageSource;->computeUri(Landroid/content/Context;)Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/views/imagehelper/ImageSource;->mUri:Landroid/net/Uri;
+    iput-object p1, p0, Lcom/facebook/react/views/imagehelper/ImageSource;->mUri:Landroid/net/Uri;
 
-    .line 34
     return-void
 .end method
 
 .method private computeLocalUri(Landroid/content/Context;)Landroid/net/Uri;
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 79
     const/4 v0, 0x1
 
+    .line 79
     iput-boolean v0, p0, Lcom/facebook/react/views/imagehelper/ImageSource;->isResource:Z
 
     .line 80
@@ -86,14 +77,13 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/facebook/react/views/imagehelper/ResourceDrawableIdHelper;->getResourceDrawableUri(Landroid/content/Context;Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private computeUri(Landroid/content/Context;)Landroid/net/Uri;
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 70
     :try_start_0
@@ -104,7 +94,6 @@
     move-result-object v0
 
     .line 72
-    .local v0, "uri":Landroid/net/Uri;
     invoke-virtual {v0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
     move-result-object v1
@@ -113,30 +102,20 @@
 
     invoke-direct {p0, p1}, Lcom/facebook/react/views/imagehelper/ImageSource;->computeLocalUri(Landroid/content/Context;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :cond_0
-    move-object v1, v0
-
-    :goto_0
-    return-object v1
-
-    .line 73
-    .end local v0    # "uri":Landroid/net/Uri;
-    :catch_0
-    move-exception v0
+    return-object v0
 
     .line 74
-    .local v0, "e":Ljava/lang/Exception;
+    :catch_0
     invoke-direct {p0, p1}, Lcom/facebook/react/views/imagehelper/ImageSource;->computeLocalUri(Landroid/content/Context;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 

@@ -35,8 +35,7 @@
 .end method
 
 .method static create(Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;)Lcom/facebook/react/devsupport/BundleDeltaClient;
-    .locals 3
-    .param p0, "type"    # Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
+    .locals 2
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -45,64 +44,62 @@
 
     invoke-virtual {p0}, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;->ordinal()I
 
-    move-result v1
+    move-result p0
 
-    aget v0, v0, v1
+    aget p0, v0, p0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-eq v0, v1, :cond_1
+    if-eq p0, v0, :cond_1
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    if-eq v0, v1, :cond_0
+    if-eq p0, v0, :cond_0
 
-    .line 48
-    return-object v2
+    return-object v1
 
     .line 46
     :cond_0
-    new-instance v0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;
+    new-instance p0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;
 
-    invoke-direct {v0, v2}, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;-><init>(Lcom/facebook/react/devsupport/BundleDeltaClient$1;)V
+    invoke-direct {p0, v1}, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;-><init>(Lcom/facebook/react/devsupport/BundleDeltaClient$1;)V
 
-    return-object v0
+    return-object p0
 
     .line 44
     :cond_1
-    new-instance v0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaJavaClient;
+    new-instance p0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaJavaClient;
 
-    invoke-direct {v0, v2}, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaJavaClient;-><init>(Lcom/facebook/react/devsupport/BundleDeltaClient$1;)V
+    invoke-direct {p0, v1}, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaJavaClient;-><init>(Lcom/facebook/react/devsupport/BundleDeltaClient$1;)V
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static isDeltaUrl(Ljava/lang/String;)Z
-    .locals 2
-    .param p0, "bundleUrl"    # Ljava/lang/String;
+    .locals 1
 
-    .line 37
     const-string v0, ".delta?"
 
+    .line 37
     invoke-virtual {p0, v0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p0
 
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq p0, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 
@@ -111,8 +108,7 @@
 .end method
 
 .method public final declared-synchronized extendUrlForDelta(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .param p1, "bundleURL"    # Ljava/lang/String;
+    .locals 1
 
     monitor-enter p0
 
@@ -128,32 +124,25 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "&revisionId="
+    const-string p1, "&revisionId="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/facebook/react/devsupport/BundleDeltaClient;->mRevisionId:Ljava/lang/String;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/BundleDeltaClient;->mRevisionId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
-
-    .end local p0    # "this":Lcom/facebook/react/devsupport/BundleDeltaClient;
     :cond_0
-    move-object v0, p1
-
-    :goto_0
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
-    .end local p1    # "bundleURL":Ljava/lang/String;
     :catchall_0
     move-exception p1
 
@@ -164,9 +153,6 @@
 
 .method public declared-synchronized processDelta(Lokhttp3/Headers;Lokio/BufferedSource;Ljava/io/File;)Landroid/util/Pair;
     .locals 1
-    .param p1, "headers"    # Lokhttp3/Headers;
-    .param p2, "body"    # Lokio/BufferedSource;
-    .param p3, "outputFile"    # Ljava/io/File;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -189,32 +175,27 @@
 
     monitor-enter p0
 
-    .line 70
     :try_start_0
     const-string v0, "X-Metro-Delta-ID"
 
+    .line 70
     invoke-virtual {p1, v0}, Lokhttp3/Headers;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/BundleDeltaClient;->mRevisionId:Ljava/lang/String;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/BundleDeltaClient;->mRevisionId:Ljava/lang/String;
 
     .line 71
     invoke-virtual {p0, p2, p3}, Lcom/facebook/react/devsupport/BundleDeltaClient;->processDelta(Lokio/BufferedSource;Ljava/io/File;)Landroid/util/Pair;
 
-    move-result-object v0
+    move-result-object p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return-object v0
+    return-object p1
 
-    .line 69
-    .end local p0    # "this":Lcom/facebook/react/devsupport/BundleDeltaClient;
-    .end local p1    # "headers":Lokhttp3/Headers;
-    .end local p2    # "body":Lokio/BufferedSource;
-    .end local p3    # "outputFile":Ljava/io/File;
     :catchall_0
     move-exception p1
 
@@ -249,9 +230,9 @@
 
     monitor-enter p0
 
-    .line 62
     const/4 v0, 0x0
 
+    .line 62
     :try_start_0
     iput-object v0, p0, Lcom/facebook/react/devsupport/BundleDeltaClient;->mRevisionId:Ljava/lang/String;
     :try_end_0
@@ -262,8 +243,6 @@
 
     return-void
 
-    .line 61
-    .end local p0    # "this":Lcom/facebook/react/devsupport/BundleDeltaClient;
     :catchall_0
     move-exception v0
 

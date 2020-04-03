@@ -32,8 +32,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/views/image/ReactImageView;Lcom/facebook/react/views/image/ReactImageView$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/views/image/ReactImageView;
-    .param p2, "x1"    # Lcom/facebook/react/views/image/ReactImageView$1;
 
     .line 94
     invoke-direct {p0, p1}, Lcom/facebook/react/views/image/ReactImageView$RoundedCornerPostprocessor;-><init>(Lcom/facebook/react/views/image/ReactImageView;)V
@@ -45,9 +43,6 @@
 # virtual methods
 .method getRadii(Landroid/graphics/Bitmap;[F[F)V
     .locals 9
-    .param p1, "source"    # Landroid/graphics/Bitmap;
-    .param p2, "computedCornerRadii"    # [F
-    .param p3, "mappedRadii"    # [F
 
     .line 97
     iget-object v0, p0, Lcom/facebook/react/views/image/ReactImageView$RoundedCornerPostprocessor;->this$0:Lcom/facebook/react/views/image/ReactImageView;
@@ -86,118 +81,115 @@
 
     move-result v5
 
-    .line 97
     const/4 v6, 0x0
 
     const/4 v7, 0x0
 
+    .line 97
     invoke-interface/range {v1 .. v7}, Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;->getTransform(Landroid/graphics/Matrix;Landroid/graphics/Rect;IIFF)Landroid/graphics/Matrix;
 
     .line 104
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$000()Landroid/graphics/Matrix;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$200()Landroid/graphics/Matrix;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
 
     .line 106
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$200()Landroid/graphics/Matrix;
 
-    move-result-object v0
+    move-result-object p1
 
-    aget v1, p2, v8
+    aget v0, p2, v8
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->mapRadius(F)F
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->mapRadius(F)F
 
-    move-result v0
+    move-result p1
 
-    aput v0, p3, v8
+    aput p1, p3, v8
 
     .line 107
-    aget v0, p3, v8
+    aget p1, p3, v8
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    aput v0, p3, v1
+    aput p1, p3, v0
 
     .line 109
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$200()Landroid/graphics/Matrix;
 
-    move-result-object v0
+    move-result-object p1
 
-    aget v1, p2, v1
+    aget v0, p2, v0
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->mapRadius(F)F
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->mapRadius(F)F
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    aput v0, p3, v1
+    aput p1, p3, v0
 
     .line 110
-    aget v0, p3, v1
+    aget p1, p3, v0
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    aput v0, p3, v2
+    aput p1, p3, v1
 
     .line 112
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$200()Landroid/graphics/Matrix;
 
-    move-result-object v0
+    move-result-object p1
 
-    aget v1, p2, v1
+    aget v0, p2, v0
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->mapRadius(F)F
+    invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->mapRadius(F)F
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x4
+    const/4 v0, 0x4
 
-    aput v0, p3, v1
+    aput p1, p3, v0
 
     .line 113
-    aget v0, p3, v1
+    aget p1, p3, v0
 
-    const/4 v1, 0x5
+    const/4 v0, 0x5
 
-    aput v0, p3, v1
+    aput p1, p3, v0
 
     .line 115
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$200()Landroid/graphics/Matrix;
 
-    move-result-object v0
+    move-result-object p1
 
-    aget v1, p2, v2
+    aget p2, p2, v1
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->mapRadius(F)F
+    invoke-virtual {p1, p2}, Landroid/graphics/Matrix;->mapRadius(F)F
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x6
+    const/4 p2, 0x6
 
-    aput v0, p3, v1
+    aput p1, p3, p2
 
     .line 116
-    aget v0, p3, v1
+    aget p1, p3, p2
 
-    const/4 v1, 0x7
+    const/4 p2, 0x7
 
-    aput v0, p3, v1
+    aput p1, p3, p2
 
-    .line 117
     return-void
 .end method
 
 .method public process(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
-    .locals 8
-    .param p1, "output"    # Landroid/graphics/Bitmap;
-    .param p2, "source"    # Landroid/graphics/Bitmap;
+    .locals 6
 
     .line 121
     iget-object v0, p0, Lcom/facebook/react/views/image/ReactImageView$RoundedCornerPostprocessor;->this$0:Lcom/facebook/react/views/image/ReactImageView;
@@ -208,9 +200,9 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/views/image/ReactImageView;->access$400(Lcom/facebook/react/views/image/ReactImageView;[F)V
 
-    .line 123
     const/4 v0, 0x1
 
+    .line 123
     invoke-virtual {p1, v0}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
     .line 124
@@ -276,7 +268,6 @@
     .line 128
     invoke-super {p0, p1, p2}, Lcom/facebook/imagepipeline/request/BasePostprocessor;->process(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
 
-    .line 129
     return-void
 
     .line 131
@@ -286,7 +277,6 @@
     invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
     .line 132
-    .local v1, "paint":Landroid/graphics/Paint;
     invoke-virtual {v1, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 133
@@ -305,52 +295,48 @@
 
     invoke-direct {v0, p1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 136
-    .local v0, "canvas":Landroid/graphics/Canvas;
-    const/16 v3, 0x8
+    const/16 p1, 0x8
 
-    new-array v3, v3, [F
+    .line 136
+    new-array p1, p1, [F
 
     .line 138
-    .local v3, "radii":[F
     invoke-static {}, Lcom/facebook/react/views/image/ReactImageView;->access$300()[F
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {p0, p2, v4, v3}, Lcom/facebook/react/views/image/ReactImageView$RoundedCornerPostprocessor;->getRadii(Landroid/graphics/Bitmap;[F[F)V
+    invoke-virtual {p0, p2, v3, p1}, Lcom/facebook/react/views/image/ReactImageView$RoundedCornerPostprocessor;->getRadii(Landroid/graphics/Bitmap;[F[F)V
 
     .line 140
-    new-instance v4, Landroid/graphics/Path;
+    new-instance v3, Landroid/graphics/Path;
 
-    invoke-direct {v4}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {v3}, Landroid/graphics/Path;-><init>()V
 
     .line 142
-    .local v4, "pathForBorderRadius":Landroid/graphics/Path;
-    new-instance v5, Landroid/graphics/RectF;
+    new-instance v4, Landroid/graphics/RectF;
 
     .line 143
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getWidth()I
 
-    move-result v6
+    move-result v5
 
-    int-to-float v6, v6
+    int-to-float v5, v5
 
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v7
+    move-result p2
 
-    int-to-float v7, v7
+    int-to-float p2, p2
 
-    invoke-direct {v5, v2, v2, v6, v7}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-direct {v4, v2, v2, v5, p2}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    sget-object v2, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+    sget-object p2, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
     .line 142
-    invoke-virtual {v4, v5, v3, v2}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V
+    invoke-virtual {v3, v4, p1, p2}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;[FLandroid/graphics/Path$Direction;)V
 
     .line 147
-    invoke-virtual {v0, v4, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {v0, v3, v1}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    .line 148
     return-void
 .end method

@@ -30,10 +30,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/datasource/AbstractDataSource;ZLcom/facebook/datasource/DataSubscriber;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/datasource/AbstractDataSource;
 
     .line 168
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource$1;, "Lcom/facebook/datasource/AbstractDataSource$1;"
     iput-object p1, p0, Lcom/facebook/datasource/AbstractDataSource$1;->this$0:Lcom/facebook/datasource/AbstractDataSource;
 
     iput-boolean p2, p0, Lcom/facebook/datasource/AbstractDataSource$1;->val$isFailure:Z
@@ -53,7 +51,6 @@
     .locals 2
 
     .line 171
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource$1;, "Lcom/facebook/datasource/AbstractDataSource$1;"
     iget-boolean v0, p0, Lcom/facebook/datasource/AbstractDataSource$1;->val$isFailure:Z
 
     if-eqz v0, :cond_0
@@ -90,7 +87,6 @@
 
     invoke-interface {v0, v1}, Lcom/facebook/datasource/DataSubscriber;->onNewResult(Lcom/facebook/datasource/DataSource;)V
 
-    .line 178
     :goto_0
     return-void
 .end method

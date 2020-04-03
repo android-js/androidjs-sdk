@@ -40,8 +40,6 @@
         }
     .end annotation
 
-    .line 48
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Ljava/lang/Boolean;>;"
     return-void
 .end method
 
@@ -57,7 +55,6 @@
     .end annotation
 
     .line 40
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Ljava/lang/Boolean;>;"
     :try_start_0
     invoke-virtual {p0, p1}, Lcom/facebook/datasource/BaseBooleanSubscriber;->onFailureImpl(Lcom/facebook/datasource/DataSource;)V
     :try_end_0
@@ -66,13 +63,8 @@
     .line 42
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 43
-    nop
-
-    .line 44
     return-void
 
-    .line 42
     :catchall_0
     move-exception v0
 
@@ -105,7 +97,6 @@
     .end annotation
 
     .line 31
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Ljava/lang/Boolean;>;"
     :try_start_0
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->getResult()Ljava/lang/Object;
 
@@ -124,13 +115,8 @@
     .line 33
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->close()Z
 
-    .line 34
-    nop
-
-    .line 35
     return-void
 
-    .line 33
     :catchall_0
     move-exception v0
 
@@ -154,7 +140,5 @@
         }
     .end annotation
 
-    .line 52
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<Ljava/lang/Boolean;>;"
     return-void
 .end method

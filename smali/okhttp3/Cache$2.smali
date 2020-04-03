@@ -49,8 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/Cache;)V
-    .locals 1
-    .param p1, "this$0"    # Lokhttp3/Cache;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -63,15 +62,15 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 332
-    iget-object v0, p0, Lokhttp3/Cache$2;->this$0:Lokhttp3/Cache;
+    iget-object p1, p0, Lokhttp3/Cache$2;->this$0:Lokhttp3/Cache;
 
-    iget-object v0, v0, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
+    iget-object p1, p1, Lokhttp3/Cache;->cache:Lokhttp3/internal/cache/DiskLruCache;
 
-    invoke-virtual {v0}, Lokhttp3/internal/cache/DiskLruCache;->snapshots()Ljava/util/Iterator;
+    invoke-virtual {p1}, Lokhttp3/internal/cache/DiskLruCache;->snapshots()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lokhttp3/Cache$2;->delegate:Ljava/util/Iterator;
+    iput-object p1, p0, Lokhttp3/Cache$2;->delegate:Ljava/util/Iterator;
 
     return-void
 .end method
@@ -79,7 +78,7 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 5
+    .locals 4
 
     .line 338
     iget-object v0, p0, Lokhttp3/Cache$2;->nextUrl:Ljava/lang/String;
@@ -90,10 +89,10 @@
 
     return v1
 
-    .line 340
     :cond_0
     const/4 v0, 0x0
 
+    .line 340
     iput-boolean v0, p0, Lokhttp3/Cache$2;->canRemove:Z
 
     .line 341
@@ -116,7 +115,6 @@
     check-cast v2, Lokhttp3/internal/cache/DiskLruCache$Snapshot;
 
     .line 344
-    .local v2, "snapshot":Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     :try_start_0
     invoke-virtual {v2, v0}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->getSource(I)Lokio/Source;
 
@@ -127,27 +125,20 @@
     move-result-object v3
 
     .line 345
-    .local v3, "metadata":Lokio/BufferedSource;
     invoke-interface {v3}, Lokio/BufferedSource;->readUtf8LineStrict()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    iput-object v4, p0, Lokhttp3/Cache$2;->nextUrl:Ljava/lang/String;
+    iput-object v3, p0, Lokhttp3/Cache$2;->nextUrl:Ljava/lang/String;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 346
-    nop
-
     .line 351
     invoke-virtual {v2}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->close()V
 
-    .line 346
     return v1
 
-    .line 351
-    .end local v3    # "metadata":Lokio/BufferedSource;
     :catchall_0
     move-exception v0
 
@@ -155,21 +146,11 @@
 
     throw v0
 
-    .line 347
     :catch_0
-    move-exception v3
-
-    .line 351
     invoke-virtual {v2}, Lokhttp3/internal/cache/DiskLruCache$Snapshot;->close()V
 
-    .line 352
-    nop
-
-    .line 353
-    .end local v2    # "snapshot":Lokhttp3/internal/cache/DiskLruCache$Snapshot;
     goto :goto_0
 
-    .line 355
     :cond_1
     return v0
 .end method
@@ -198,22 +179,19 @@
     .line 360
     iget-object v0, p0, Lokhttp3/Cache$2;->nextUrl:Ljava/lang/String;
 
-    .line 361
-    .local v0, "result":Ljava/lang/String;
     const/4 v1, 0x0
 
+    .line 361
     iput-object v1, p0, Lokhttp3/Cache$2;->nextUrl:Ljava/lang/String;
 
-    .line 362
     const/4 v1, 0x1
 
+    .line 362
     iput-boolean v1, p0, Lokhttp3/Cache$2;->canRemove:Z
 
-    .line 363
     return-object v0
 
     .line 359
-    .end local v0    # "result":Ljava/lang/String;
     :cond_0
     new-instance v0, Ljava/util/NoSuchElementException;
 
@@ -235,7 +213,6 @@
 
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    .line 369
     return-void
 
     .line 367

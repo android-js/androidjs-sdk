@@ -17,60 +17,40 @@
 # virtual methods
 .method public onClosed(Lokhttp3/WebSocket;ILjava/lang/String;)V
     .locals 0
-    .param p1, "webSocket"    # Lokhttp3/WebSocket;
-    .param p2, "code"    # I
-    .param p3, "reason"    # Ljava/lang/String;
 
-    .line 49
     return-void
 .end method
 
 .method public onClosing(Lokhttp3/WebSocket;ILjava/lang/String;)V
     .locals 0
-    .param p1, "webSocket"    # Lokhttp3/WebSocket;
-    .param p2, "code"    # I
-    .param p3, "reason"    # Ljava/lang/String;
 
-    .line 42
     return-void
 .end method
 
 .method public onFailure(Lokhttp3/WebSocket;Ljava/lang/Throwable;Lokhttp3/Response;)V
     .locals 0
-    .param p1, "webSocket"    # Lokhttp3/WebSocket;
-    .param p2, "t"    # Ljava/lang/Throwable;
-    .param p3, "response"    # Lokhttp3/Response;
+    .param p3    # Lokhttp3/Response;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 57
     return-void
 .end method
 
 .method public onMessage(Lokhttp3/WebSocket;Ljava/lang/String;)V
     .locals 0
-    .param p1, "webSocket"    # Lokhttp3/WebSocket;
-    .param p2, "text"    # Ljava/lang/String;
 
-    .line 31
     return-void
 .end method
 
 .method public onMessage(Lokhttp3/WebSocket;Lokio/ByteString;)V
     .locals 0
-    .param p1, "webSocket"    # Lokhttp3/WebSocket;
-    .param p2, "bytes"    # Lokio/ByteString;
 
-    .line 35
     return-void
 .end method
 
 .method public onOpen(Lokhttp3/WebSocket;Lokhttp3/Response;)V
     .locals 0
-    .param p1, "webSocket"    # Lokhttp3/WebSocket;
-    .param p2, "response"    # Lokhttp3/Response;
 
-    .line 27
     return-void
 .end method

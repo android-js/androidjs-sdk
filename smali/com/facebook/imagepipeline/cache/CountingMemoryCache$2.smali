@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/cache/CountingMemoryCache;Lcom/facebook/imagepipeline/cache/CountingMemoryCache$Entry;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/cache/CountingMemoryCache;
 
     .line 238
-    .local p0, "this":Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;, "Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;->this$0:Lcom/facebook/imagepipeline/cache/CountingMemoryCache;
 
     iput-object p2, p0, Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;->val$entry:Lcom/facebook/imagepipeline/cache/CountingMemoryCache$Entry;
@@ -50,7 +48,7 @@
 
 # virtual methods
 .method public release(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)V"
@@ -58,14 +56,11 @@
     .end annotation
 
     .line 241
-    .local p0, "this":Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;, "Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;"
-    .local p1, "unused":Ljava/lang/Object;, "TV;"
-    iget-object v0, p0, Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;->this$0:Lcom/facebook/imagepipeline/cache/CountingMemoryCache;
+    iget-object p1, p0, Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;->this$0:Lcom/facebook/imagepipeline/cache/CountingMemoryCache;
 
-    iget-object v1, p0, Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;->val$entry:Lcom/facebook/imagepipeline/cache/CountingMemoryCache$Entry;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/cache/CountingMemoryCache$2;->val$entry:Lcom/facebook/imagepipeline/cache/CountingMemoryCache$Entry;
 
-    invoke-static {v0, v1}, Lcom/facebook/imagepipeline/cache/CountingMemoryCache;->access$000(Lcom/facebook/imagepipeline/cache/CountingMemoryCache;Lcom/facebook/imagepipeline/cache/CountingMemoryCache$Entry;)V
+    invoke-static {p1, v0}, Lcom/facebook/imagepipeline/cache/CountingMemoryCache;->access$000(Lcom/facebook/imagepipeline/cache/CountingMemoryCache;Lcom/facebook/imagepipeline/cache/CountingMemoryCache$Entry;)V
 
-    .line 242
     return-void
 .end method

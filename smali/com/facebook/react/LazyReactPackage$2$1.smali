@@ -34,18 +34,17 @@
 
 # direct methods
 .method constructor <init>(Lcom/facebook/react/LazyReactPackage$2;)V
-    .locals 1
-    .param p1, "this$1"    # Lcom/facebook/react/LazyReactPackage$2;
+    .locals 0
 
     .line 89
     iput-object p1, p0, Lcom/facebook/react/LazyReactPackage$2$1;->this$1:Lcom/facebook/react/LazyReactPackage$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/facebook/react/LazyReactPackage$2$1;->position:I
+    .line 90
+    iput p1, p0, Lcom/facebook/react/LazyReactPackage$2$1;->position:I
 
     return-void
 .end method
@@ -80,7 +79,7 @@
 .end method
 
 .method public next()Lcom/facebook/react/bridge/ModuleHolder;
-    .locals 5
+    .locals 3
 
     .line 94
     iget-object v0, p0, Lcom/facebook/react/LazyReactPackage$2$1;->this$1:Lcom/facebook/react/LazyReactPackage$2;
@@ -100,13 +99,11 @@
     check-cast v0, Lcom/facebook/react/bridge/ModuleSpec;
 
     .line 95
-    .local v0, "moduleSpec":Lcom/facebook/react/bridge/ModuleSpec;
     invoke-virtual {v0}, Lcom/facebook/react/bridge/ModuleSpec;->getName()Ljava/lang/String;
 
     move-result-object v1
 
     .line 96
-    .local v1, "name":Ljava/lang/String;
     iget-object v2, p0, Lcom/facebook/react/LazyReactPackage$2$1;->this$1:Lcom/facebook/react/LazyReactPackage$2;
 
     iget-object v2, v2, Lcom/facebook/react/LazyReactPackage$2;->val$reactModuleInfoMap:Ljava/util/Map;
@@ -117,75 +114,62 @@
 
     check-cast v2, Lcom/facebook/react/module/model/ReactModuleInfo;
 
-    .line 98
-    .local v2, "reactModuleInfo":Lcom/facebook/react/module/model/ReactModuleInfo;
     if-nez v2, :cond_0
 
     .line 100
-    sget-object v3, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_START:Lcom/facebook/react/bridge/ReactMarkerConstants;
+    sget-object v2, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_START:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    invoke-static {v3, v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;)V
+    invoke-static {v2, v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;)V
 
     .line 102
     :try_start_0
     invoke-virtual {v0}, Lcom/facebook/react/bridge/ModuleSpec;->getProvider()Ljavax/inject/Provider;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    check-cast v3, Lcom/facebook/react/bridge/NativeModule;
+    check-cast v0, Lcom/facebook/react/bridge/NativeModule;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 104
-    .local v3, "module":Lcom/facebook/react/bridge/NativeModule;
-    sget-object v4, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
+    sget-object v1, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    invoke-static {v4}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
-
-    .line 105
-    nop
+    invoke-static {v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
     .line 106
-    new-instance v4, Lcom/facebook/react/bridge/ModuleHolder;
+    new-instance v1, Lcom/facebook/react/bridge/ModuleHolder;
 
-    invoke-direct {v4, v3}, Lcom/facebook/react/bridge/ModuleHolder;-><init>(Lcom/facebook/react/bridge/NativeModule;)V
+    invoke-direct {v1, v0}, Lcom/facebook/react/bridge/ModuleHolder;-><init>(Lcom/facebook/react/bridge/NativeModule;)V
 
-    move-object v3, v4
-
-    .line 107
-    .local v3, "moduleHolder":Lcom/facebook/react/bridge/ModuleHolder;
     goto :goto_0
 
-    .line 104
-    .end local v3    # "moduleHolder":Lcom/facebook/react/bridge/ModuleHolder;
     :catchall_0
-    move-exception v3
+    move-exception v0
 
-    sget-object v4, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
+    .line 104
+    sget-object v1, Lcom/facebook/react/bridge/ReactMarkerConstants;->CREATE_MODULE_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    invoke-static {v4}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
+    invoke-static {v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
     .line 105
-    throw v3
+    throw v0
 
     .line 108
     :cond_0
-    new-instance v3, Lcom/facebook/react/bridge/ModuleHolder;
+    new-instance v1, Lcom/facebook/react/bridge/ModuleHolder;
 
     invoke-virtual {v0}, Lcom/facebook/react/bridge/ModuleSpec;->getProvider()Ljavax/inject/Provider;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-direct {v3, v2, v4}, Lcom/facebook/react/bridge/ModuleHolder;-><init>(Lcom/facebook/react/module/model/ReactModuleInfo;Ljavax/inject/Provider;)V
+    invoke-direct {v1, v2, v0}, Lcom/facebook/react/bridge/ModuleHolder;-><init>(Lcom/facebook/react/module/model/ReactModuleInfo;Ljavax/inject/Provider;)V
 
-    .line 110
-    .restart local v3    # "moduleHolder":Lcom/facebook/react/bridge/ModuleHolder;
     :goto_0
-    return-object v3
+    return-object v1
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;

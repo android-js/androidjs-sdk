@@ -118,54 +118,54 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    .line 161
     const/4 v0, 0x3
 
+    .line 161
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/graphics/drawable/R$styleable;->ColorStateListItem:[I
 
-    .line 165
     const/4 v0, 0x2
 
+    .line 165
     new-array v1, v0, [I
 
     fill-array-data v1, :array_1
 
     sput-object v1, Landroid/support/graphics/drawable/R$styleable;->CoordinatorLayout:[I
 
-    .line 168
     const/4 v1, 0x7
 
+    .line 168
     new-array v1, v1, [I
 
     fill-array-data v1, :array_2
 
     sput-object v1, Landroid/support/graphics/drawable/R$styleable;->CoordinatorLayout_Layout:[I
 
-    .line 176
     const/4 v1, 0x6
 
+    .line 176
     new-array v1, v1, [I
 
     fill-array-data v1, :array_3
 
     sput-object v1, Landroid/support/graphics/drawable/R$styleable;->FontFamily:[I
 
-    .line 183
     const/16 v1, 0xa
 
+    .line 183
     new-array v1, v1, [I
 
     fill-array-data v1, :array_4
 
     sput-object v1, Landroid/support/graphics/drawable/R$styleable;->FontFamilyFont:[I
 
-    .line 194
     const/16 v1, 0xc
 
+    .line 194
     new-array v1, v1, [I
 
     fill-array-data v1, :array_5

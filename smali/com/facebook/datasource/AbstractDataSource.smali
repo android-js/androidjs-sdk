@@ -84,25 +84,24 @@
     .locals 1
 
     .line 54
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
     const/4 v0, 0x0
 
+    .line 46
     iput-object v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
 
     .line 48
     iput-object v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mFailureThrowable:Ljava/lang/Throwable;
 
-    .line 50
     const/4 v0, 0x0
 
+    .line 50
     iput v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mProgress:F
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     iput-boolean v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mIsClosed:Z
 
     .line 56
@@ -117,15 +116,11 @@
 
     iput-object v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mSubscribers:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
-    .line 58
     return-void
 .end method
 
 .method private notifyDataSubscriber(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;ZZ)V
     .locals 1
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
-    .param p3, "isFailure"    # Z
-    .param p4, "isCancellation"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,35 +132,29 @@
     .end annotation
 
     .line 167
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
-    .local p1, "dataSubscriber":Lcom/facebook/datasource/DataSubscriber;, "Lcom/facebook/datasource/DataSubscriber<TT;>;"
     new-instance v0, Lcom/facebook/datasource/AbstractDataSource$1;
 
     invoke-direct {v0, p0, p3, p1, p4}, Lcom/facebook/datasource/AbstractDataSource$1;-><init>(Lcom/facebook/datasource/AbstractDataSource;ZLcom/facebook/datasource/DataSubscriber;Z)V
 
     invoke-interface {p2, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 180
     return-void
 .end method
 
 .method private notifyDataSubscribers()V
-    .locals 6
+    .locals 5
 
     .line 155
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     invoke-virtual {p0}, Lcom/facebook/datasource/AbstractDataSource;->hasFailed()Z
 
     move-result v0
 
     .line 156
-    .local v0, "isFailure":Z
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;->wasCancelled()Z
 
     move-result v1
 
     .line 157
-    .local v1, "isCancellation":Z
     iget-object v2, p0, Lcom/facebook/datasource/AbstractDataSource;->mSubscribers:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentLinkedQueue;->iterator()Ljava/util/Iterator;
@@ -186,31 +175,25 @@
     check-cast v3, Landroid/util/Pair;
 
     .line 158
-    .local v3, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/facebook/datasource/DataSubscriber<TT;>;Ljava/util/concurrent/Executor;>;"
     iget-object v4, v3, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v4, Lcom/facebook/datasource/DataSubscriber;
 
-    iget-object v5, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v3, v3, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v5, Ljava/util/concurrent/Executor;
+    check-cast v3, Ljava/util/concurrent/Executor;
 
-    invoke-direct {p0, v4, v5, v0, v1}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscriber(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;ZZ)V
+    invoke-direct {p0, v4, v3, v0, v1}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscriber(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;ZZ)V
 
-    .line 159
-    .end local v3    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/facebook/datasource/DataSubscriber<TT;>;Ljava/util/concurrent/Executor;>;"
     goto :goto_0
 
-    .line 160
     :cond_0
     return-void
 .end method
 
 .method private declared-synchronized setFailureInternal(Ljava/lang/Throwable;)Z
     .locals 2
-    .param p1, "throwable"    # Ljava/lang/Throwable;
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 289
@@ -238,25 +221,22 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 294
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
+    .line 294
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 290
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
+    .line 290
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 288
-    .end local p1    # "throwable":Ljava/lang/Throwable;
     :catchall_0
     move-exception p1
 
@@ -267,9 +247,7 @@
 
 .method private declared-synchronized setProgressInternal(F)Z
     .locals 3
-    .param p1, "progress"    # F
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 299
@@ -310,23 +288,20 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 305
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
+    .line 305
     monitor-exit p0
 
-    return v0
+    return p1
 
     .line 300
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :cond_2
     :goto_0
     monitor-exit p0
 
     return v1
 
-    .line 298
-    .end local p1    # "progress":F
     :catchall_0
     move-exception p1
 
@@ -341,24 +316,19 @@
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "isLast"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;Z)Z"
         }
     .end annotation
 
-    .line 263
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     const/4 v0, 0x0
 
     .line 265
-    .local v0, "resultToClose":Ljava/lang/Object;, "TT;"
     :try_start_0
     monitor-enter p0
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
     .line 266
     :try_start_1
@@ -372,100 +342,113 @@
 
     if-eq v1, v2, :cond_0
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 270
     :cond_0
     if-eqz p2, :cond_1
 
     .line 271
-    sget-object v1, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;->SUCCESS:Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
+    sget-object p2, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;->SUCCESS:Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
 
-    iput-object v1, p0, Lcom/facebook/datasource/AbstractDataSource;->mDataSourceStatus:Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
+    iput-object p2, p0, Lcom/facebook/datasource/AbstractDataSource;->mDataSourceStatus:Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
+
+    const/high16 p2, 0x3f800000    # 1.0f
 
     .line 272
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    iput v1, p0, Lcom/facebook/datasource/AbstractDataSource;->mProgress:F
+    iput p2, p0, Lcom/facebook/datasource/AbstractDataSource;->mProgress:F
 
     .line 274
     :cond_1
-    iget-object v1, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
+    iget-object p2, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
 
-    if-eq v1, p1, :cond_2
+    if-eq p2, p1, :cond_2
 
     .line 275
-    iget-object v1, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
-
-    move-object v0, v1
+    iget-object p2, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     .line 276
-    iput-object p1, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
-
-    .line 278
-    :cond_2
-    const/4 v1, 0x1
-
-    monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    .line 282
-    if-eqz v0, :cond_3
-
-    .line 283
-    invoke-virtual {p0, v0}, Lcom/facebook/datasource/AbstractDataSource;->closeResult(Ljava/lang/Object;)V
-
-    .line 278
-    :cond_3
-    return v1
-
-    .line 267
-    :cond_4
-    :goto_0
-    move-object v0, p1
-
-    .line 268
-    const/4 v1, 0x0
-
     :try_start_2
-    monitor-exit p0
+    iput-object p1, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 282
-    if-eqz v0, :cond_5
+    move-object p1, p2
 
-    .line 283
-    invoke-virtual {p0, v0}, Lcom/facebook/datasource/AbstractDataSource;->closeResult(Ljava/lang/Object;)V
+    goto :goto_0
 
-    .line 268
-    :cond_5
-    return v1
-
-    .line 280
     :catchall_0
-    move-exception v1
+    move-exception p1
 
+    move-object v0, p2
+
+    goto :goto_2
+
+    :cond_2
+    move-object p1, v0
+
+    :goto_0
+    const/4 p2, 0x1
+
+    .line 278
     :try_start_3
     monitor-exit p0
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .end local v0    # "resultToClose":Ljava/lang/Object;, "TT;"
-    .end local p1    # "value":Ljava/lang/Object;, "TT;"
-    .end local p2    # "isLast":Z
+    if-eqz p1, :cond_3
+
+    .line 283
+    invoke-virtual {p0, p1}, Lcom/facebook/datasource/AbstractDataSource;->closeResult(Ljava/lang/Object;)V
+
+    :cond_3
+    return p2
+
+    :cond_4
+    :goto_1
+    const/4 p2, 0x0
+
+    .line 268
     :try_start_4
-    throw v1
+    monitor-exit p0
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    .line 282
-    .restart local v0    # "resultToClose":Ljava/lang/Object;, "TT;"
-    .restart local p1    # "value":Ljava/lang/Object;, "TT;"
-    .restart local p2    # "isLast":Z
+    if-eqz p1, :cond_5
+
+    .line 283
+    invoke-virtual {p0, p1}, Lcom/facebook/datasource/AbstractDataSource;->closeResult(Ljava/lang/Object;)V
+
+    :cond_5
+    return p2
+
     :catchall_1
-    move-exception v1
+    move-exception p2
+
+    move-object v0, p1
+
+    move-object p1, p2
+
+    goto :goto_2
+
+    :catchall_2
+    move-exception p1
+
+    .line 280
+    :goto_2
+    :try_start_5
+    monitor-exit p0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    :try_start_6
+    throw p1
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
+
+    :catchall_3
+    move-exception p1
 
     if-eqz v0, :cond_6
 
@@ -474,13 +457,12 @@
 
     .line 285
     :cond_6
-    throw v1
+    throw p1
 .end method
 
 .method private declared-synchronized wasCancelled()Z
     .locals 1
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 183
@@ -503,7 +485,6 @@
 
     goto :goto_0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :cond_0
     const/4 v0, 0x0
 
@@ -526,7 +507,6 @@
     .locals 3
 
     .line 100
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 101
@@ -535,26 +515,25 @@
 
     if-eqz v0, :cond_0
 
-    .line 102
     const/4 v0, 0x0
 
+    .line 102
     monitor-exit p0
 
     return v0
 
-    .line 104
     :cond_0
     const/4 v0, 0x1
 
+    .line 104
     iput-boolean v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mIsClosed:Z
 
     .line 105
     iget-object v1, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
 
-    .line 106
-    .local v1, "resultToClose":Ljava/lang/Object;, "TT;"
     const/4 v2, 0x0
 
+    .line 106
     iput-object v2, p0, Lcom/facebook/datasource/AbstractDataSource;->mResult:Ljava/lang/Object;
 
     .line 107
@@ -562,7 +541,6 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 108
     if-eqz v1, :cond_1
 
     .line 109
@@ -572,9 +550,9 @@
     :cond_1
     invoke-virtual {p0}, Lcom/facebook/datasource/AbstractDataSource;->isFinished()Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_2
+    if-nez v1, :cond_2
 
     .line 112
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscribers()V
@@ -585,17 +563,15 @@
 
     .line 115
     :try_start_1
-    iget-object v2, p0, Lcom/facebook/datasource/AbstractDataSource;->mSubscribers:Ljava/util/concurrent/ConcurrentLinkedQueue;
+    iget-object v1, p0, Lcom/facebook/datasource/AbstractDataSource;->mSubscribers:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentLinkedQueue;->clear()V
+    invoke-virtual {v1}, Ljava/util/concurrent/ConcurrentLinkedQueue;->clear()V
 
     .line 116
     monitor-exit p0
 
-    .line 117
     return v0
 
-    .line 116
     :catchall_0
     move-exception v0
 
@@ -605,11 +581,10 @@
 
     throw v0
 
-    .line 107
-    .end local v1    # "resultToClose":Ljava/lang/Object;, "TT;"
     :catchall_1
     move-exception v0
 
+    .line 107
     :try_start_2
     monitor-exit p0
     :try_end_2
@@ -630,9 +605,6 @@
         }
     .end annotation
 
-    .line 129
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
-    .local p1, "result":Ljava/lang/Object;, "TT;"
     return-void
 .end method
 
@@ -641,7 +613,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 89
@@ -654,7 +625,6 @@
 
     return-object v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -666,7 +636,6 @@
 .method public declared-synchronized getProgress()F
     .locals 1
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 94
@@ -679,7 +648,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -699,7 +667,6 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 78
@@ -712,7 +679,6 @@
 
     return-object v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -724,7 +690,6 @@
 .method public declared-synchronized hasFailed()Z
     .locals 2
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 83
@@ -749,7 +714,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -761,7 +725,6 @@
 .method public declared-synchronized hasResult()Z
     .locals 1
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 72
@@ -784,7 +747,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -796,7 +758,6 @@
 .method public declared-synchronized isClosed()Z
     .locals 1
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 62
@@ -809,7 +770,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -821,7 +781,6 @@
 .method public declared-synchronized isFinished()Z
     .locals 2
 
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     monitor-enter p0
 
     .line 67
@@ -846,7 +805,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     :catchall_0
     move-exception v0
 
@@ -856,10 +814,9 @@
 .end method
 
 .method protected notifyProgressUpdate()V
-    .locals 5
+    .locals 4
 
     .line 310
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     iget-object v0, p0, Lcom/facebook/datasource/AbstractDataSource;->mSubscribers:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->iterator()Ljava/util/Iterator;
@@ -880,87 +837,68 @@
     check-cast v1, Landroid/util/Pair;
 
     .line 311
-    .local v1, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/facebook/datasource/DataSubscriber<TT;>;Ljava/util/concurrent/Executor;>;"
     iget-object v2, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v2, Lcom/facebook/datasource/DataSubscriber;
 
     .line 312
-    .local v2, "subscriber":Lcom/facebook/datasource/DataSubscriber;, "Lcom/facebook/datasource/DataSubscriber<TT;>;"
-    iget-object v3, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v1, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v3, Ljava/util/concurrent/Executor;
+    check-cast v1, Ljava/util/concurrent/Executor;
 
     .line 313
-    .local v3, "executor":Ljava/util/concurrent/Executor;
-    new-instance v4, Lcom/facebook/datasource/AbstractDataSource$2;
+    new-instance v3, Lcom/facebook/datasource/AbstractDataSource$2;
 
-    invoke-direct {v4, p0, v2}, Lcom/facebook/datasource/AbstractDataSource$2;-><init>(Lcom/facebook/datasource/AbstractDataSource;Lcom/facebook/datasource/DataSubscriber;)V
+    invoke-direct {v3, p0, v2}, Lcom/facebook/datasource/AbstractDataSource$2;-><init>(Lcom/facebook/datasource/AbstractDataSource;Lcom/facebook/datasource/DataSubscriber;)V
 
-    invoke-interface {v3, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v1, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 320
-    .end local v1    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Lcom/facebook/datasource/DataSubscriber<TT;>;Ljava/util/concurrent/Executor;>;"
-    .end local v2    # "subscriber":Lcom/facebook/datasource/DataSubscriber;, "Lcom/facebook/datasource/DataSubscriber<TT;>;"
-    .end local v3    # "executor":Ljava/util/concurrent/Executor;
     goto :goto_0
 
-    .line 321
     :cond_0
     return-void
 .end method
 
 .method protected setFailure(Ljava/lang/Throwable;)Z
-    .locals 1
-    .param p1, "throwable"    # Ljava/lang/Throwable;
+    .locals 0
 
     .line 233
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     invoke-direct {p0, p1}, Lcom/facebook/datasource/AbstractDataSource;->setFailureInternal(Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    .line 234
-    .local v0, "result":Z
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 235
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscribers()V
 
-    .line 237
     :cond_0
-    return v0
+    return p1
 .end method
 
 .method protected setProgress(F)Z
-    .locals 1
-    .param p1, "progress"    # F
+    .locals 0
 
     .line 255
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
     invoke-direct {p0, p1}, Lcom/facebook/datasource/AbstractDataSource;->setProgressInternal(F)Z
 
-    move-result v0
+    move-result p1
 
-    .line 256
-    .local v0, "result":Z
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 257
     invoke-virtual {p0}, Lcom/facebook/datasource/AbstractDataSource;->notifyProgressUpdate()V
 
-    .line 259
     :cond_0
-    return v0
+    return p1
 .end method
 
 .method protected setResult(Ljava/lang/Object;Z)Z
-    .locals 1
+    .locals 0
     .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "isLast"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;Z)Z"
@@ -968,27 +906,21 @@
     .end annotation
 
     .line 208
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     invoke-direct {p0, p1, p2}, Lcom/facebook/datasource/AbstractDataSource;->setResultInternal(Ljava/lang/Object;Z)Z
 
-    move-result v0
+    move-result p1
 
-    .line 209
-    .local v0, "result":Z
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 210
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscribers()V
 
-    .line 212
     :cond_0
-    return v0
+    return p1
 .end method
 
 .method public subscribe(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;)V
-    .locals 3
-    .param p2, "executor"    # Ljava/util/concurrent/Executor;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1000,8 +932,6 @@
     .end annotation
 
     .line 133
-    .local p0, "this":Lcom/facebook/datasource/AbstractDataSource;, "Lcom/facebook/datasource/AbstractDataSource<TT;>;"
-    .local p1, "dataSubscriber":Lcom/facebook/datasource/DataSubscriber;, "Lcom/facebook/datasource/DataSubscriber<TT;>;"
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 134
@@ -1070,39 +1000,35 @@
     const/4 v0, 0x1
 
     .line 147
-    .local v0, "shouldNotify":Z
     :goto_1
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 149
     if-eqz v0, :cond_4
 
     .line 150
     invoke-virtual {p0}, Lcom/facebook/datasource/AbstractDataSource;->hasFailed()Z
 
-    move-result v1
+    move-result v0
 
     invoke-direct {p0}, Lcom/facebook/datasource/AbstractDataSource;->wasCancelled()Z
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {p0, p1, p2, v1, v2}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscriber(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;ZZ)V
+    invoke-direct {p0, p1, p2, v0, v1}, Lcom/facebook/datasource/AbstractDataSource;->notifyDataSubscriber(Lcom/facebook/datasource/DataSubscriber;Ljava/util/concurrent/Executor;ZZ)V
 
-    .line 152
     :cond_4
     return-void
 
-    .line 147
-    .end local v0    # "shouldNotify":Z
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 147
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method

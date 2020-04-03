@@ -21,9 +21,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "hash"    # Ljava/lang/String;
-    .param p3, "backingFile"    # Ljava/io/File;
 
     .line 154
     invoke-direct {p0, p1, p2}, Lcom/facebook/soloader/UnpackingSoSource$Dso;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -31,6 +28,5 @@
     .line 155
     iput-object p3, p0, Lcom/facebook/soloader/ExoSoSource$FileDso;->backingFile:Ljava/io/File;
 
-    .line 156
     return-void
 .end method

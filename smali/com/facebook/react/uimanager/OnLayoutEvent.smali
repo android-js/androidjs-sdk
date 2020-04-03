@@ -57,17 +57,11 @@
     .line 41
     invoke-direct {p0}, Lcom/facebook/react/uimanager/events/Event;-><init>()V
 
-    .line 42
     return-void
 .end method
 
 .method public static obtain(IIIII)Lcom/facebook/react/uimanager/OnLayoutEvent;
     .locals 7
-    .param p0, "viewTag"    # I
-    .param p1, "x"    # I
-    .param p2, "y"    # I
-    .param p3, "width"    # I
-    .param p4, "height"    # I
 
     .line 28
     sget-object v0, Lcom/facebook/react/uimanager/OnLayoutEvent;->EVENTS_POOL:Landroid/support/v4/util/Pools$SynchronizedPool;
@@ -78,18 +72,13 @@
 
     check-cast v0, Lcom/facebook/react/uimanager/OnLayoutEvent;
 
-    .line 29
-    .local v0, "event":Lcom/facebook/react/uimanager/OnLayoutEvent;
     if-nez v0, :cond_0
 
     .line 30
-    new-instance v1, Lcom/facebook/react/uimanager/OnLayoutEvent;
+    new-instance v0, Lcom/facebook/react/uimanager/OnLayoutEvent;
 
-    invoke-direct {v1}, Lcom/facebook/react/uimanager/OnLayoutEvent;-><init>()V
+    invoke-direct {v0}, Lcom/facebook/react/uimanager/OnLayoutEvent;-><init>()V
 
-    move-object v0, v1
-
-    .line 32
     :cond_0
     move-object v1, v0
 
@@ -103,9 +92,9 @@
 
     move v6, p4
 
+    .line 32
     invoke-virtual/range {v1 .. v6}, Lcom/facebook/react/uimanager/OnLayoutEvent;->init(IIIII)V
 
-    .line 33
     return-object v0
 .end method
 
@@ -113,7 +102,6 @@
 # virtual methods
 .method public dispatch(Lcom/facebook/react/uimanager/events/RCTEventEmitter;)V
     .locals 4
-    .param p1, "rctEventEmitter"    # Lcom/facebook/react/uimanager/events/RCTEventEmitter;
 
     .line 59
     invoke-static {}, Lcom/facebook/react/bridge/Arguments;->createMap()Lcom/facebook/react/bridge/WritableMap;
@@ -121,7 +109,6 @@
     move-result-object v0
 
     .line 60
-    .local v0, "layout":Lcom/facebook/react/bridge/WritableMap;
     iget v1, p0, Lcom/facebook/react/uimanager/OnLayoutEvent;->mX:I
 
     int-to-float v1, v1
@@ -186,40 +173,37 @@
 
     move-result-object v1
 
-    .line 66
-    .local v1, "event":Lcom/facebook/react/bridge/WritableMap;
     const-string v2, "layout"
 
+    .line 66
     invoke-interface {v1, v2, v0}, Lcom/facebook/react/bridge/WritableMap;->putMap(Ljava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
 
     .line 67
     invoke-virtual {p0}, Lcom/facebook/react/uimanager/OnLayoutEvent;->getViewTag()I
 
-    move-result v2
+    move-result v0
 
-    const-string v3, "target"
+    const-string v2, "target"
 
-    invoke-interface {v1, v3, v2}, Lcom/facebook/react/bridge/WritableMap;->putInt(Ljava/lang/String;I)V
+    invoke-interface {v1, v2, v0}, Lcom/facebook/react/bridge/WritableMap;->putInt(Ljava/lang/String;I)V
 
     .line 69
     invoke-virtual {p0}, Lcom/facebook/react/uimanager/OnLayoutEvent;->getViewTag()I
 
-    move-result v2
+    move-result v0
 
     invoke-virtual {p0}, Lcom/facebook/react/uimanager/OnLayoutEvent;->getEventName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {p1, v2, v3, v1}, Lcom/facebook/react/uimanager/events/RCTEventEmitter;->receiveEvent(ILjava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
+    invoke-interface {p1, v0, v2, v1}, Lcom/facebook/react/uimanager/events/RCTEventEmitter;->receiveEvent(ILjava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
 
-    .line 70
     return-void
 .end method
 
 .method public getEventName()Ljava/lang/String;
     .locals 1
 
-    .line 54
     const-string v0, "topLayout"
 
     return-object v0
@@ -227,11 +211,6 @@
 
 .method protected init(IIIII)V
     .locals 0
-    .param p1, "viewTag"    # I
-    .param p2, "x"    # I
-    .param p3, "y"    # I
-    .param p4, "width"    # I
-    .param p5, "height"    # I
 
     .line 45
     invoke-super {p0, p1}, Lcom/facebook/react/uimanager/events/Event;->init(I)V
@@ -248,7 +227,6 @@
     .line 49
     iput p5, p0, Lcom/facebook/react/uimanager/OnLayoutEvent;->mHeight:I
 
-    .line 50
     return-void
 .end method
 
@@ -260,6 +238,5 @@
 
     invoke-virtual {v0, p0}, Landroid/support/v4/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
 
-    .line 39
     return-void
 .end method

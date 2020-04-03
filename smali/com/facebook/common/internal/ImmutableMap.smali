@@ -29,11 +29,8 @@
     .end annotation
 
     .line 23
-    .local p0, "this":Lcom/facebook/common/internal/ImmutableMap;, "Lcom/facebook/common/internal/ImmutableMap<TK;TV;>;"
-    .local p1, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     invoke-direct {p0, p1}, Ljava/util/HashMap;-><init>(Ljava/util/Map;)V
 
-    .line 24
     return-void
 .end method
 
@@ -54,7 +51,6 @@
     .end annotation
 
     .line 89
-    .local p0, "map":Ljava/util/Map;, "Ljava/util/Map<+TK;+TV;>;"
     new-instance v0, Lcom/facebook/common/internal/ImmutableMap;
 
     invoke-direct {v0, p0}, Lcom/facebook/common/internal/ImmutableMap;-><init>(Ljava/util/Map;)V
@@ -103,8 +99,6 @@
     .end annotation
 
     .line 31
-    .local p0, "k1":Ljava/lang/Object;, "TK;"
-    .local p1, "v1":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x1
@@ -112,15 +106,14 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 32
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 33
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
@@ -138,10 +131,6 @@
     .end annotation
 
     .line 37
-    .local p0, "k1":Ljava/lang/Object;, "TK;"
-    .local p1, "v1":Ljava/lang/Object;, "TV;"
-    .local p2, "k2":Ljava/lang/Object;, "TK;"
-    .local p3, "v2":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x2
@@ -149,7 +138,6 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 38
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 39
@@ -158,9 +146,9 @@
     .line 40
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
@@ -178,12 +166,6 @@
     .end annotation
 
     .line 45
-    .local p0, "k1":Ljava/lang/Object;, "TK;"
-    .local p1, "v1":Ljava/lang/Object;, "TV;"
-    .local p2, "k2":Ljava/lang/Object;, "TK;"
-    .local p3, "v2":Ljava/lang/Object;, "TV;"
-    .local p4, "k3":Ljava/lang/Object;, "TK;"
-    .local p5, "v3":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x3
@@ -191,7 +173,6 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 46
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 47
@@ -203,9 +184,9 @@
     .line 49
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
@@ -223,14 +204,6 @@
     .end annotation
 
     .line 54
-    .local p0, "k1":Ljava/lang/Object;, "TK;"
-    .local p1, "v1":Ljava/lang/Object;, "TV;"
-    .local p2, "k2":Ljava/lang/Object;, "TK;"
-    .local p3, "v2":Ljava/lang/Object;, "TV;"
-    .local p4, "k3":Ljava/lang/Object;, "TK;"
-    .local p5, "v3":Ljava/lang/Object;, "TV;"
-    .local p6, "k4":Ljava/lang/Object;, "TK;"
-    .local p7, "v4":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x4
@@ -238,7 +211,6 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 55
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 56
@@ -253,9 +225,9 @@
     .line 59
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
@@ -273,16 +245,6 @@
     .end annotation
 
     .line 64
-    .local p0, "k1":Ljava/lang/Object;, "TK;"
-    .local p1, "v1":Ljava/lang/Object;, "TV;"
-    .local p2, "k2":Ljava/lang/Object;, "TK;"
-    .local p3, "v2":Ljava/lang/Object;, "TV;"
-    .local p4, "k3":Ljava/lang/Object;, "TK;"
-    .local p5, "v3":Ljava/lang/Object;, "TV;"
-    .local p6, "k4":Ljava/lang/Object;, "TK;"
-    .local p7, "v4":Ljava/lang/Object;, "TV;"
-    .local p8, "k5":Ljava/lang/Object;, "TK;"
-    .local p9, "v5":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x5
@@ -290,7 +252,6 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 65
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 66
@@ -308,9 +269,9 @@
     .line 70
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
@@ -328,18 +289,6 @@
     .end annotation
 
     .line 75
-    .local p0, "k1":Ljava/lang/Object;, "TK;"
-    .local p1, "v1":Ljava/lang/Object;, "TV;"
-    .local p2, "k2":Ljava/lang/Object;, "TK;"
-    .local p3, "v2":Ljava/lang/Object;, "TV;"
-    .local p4, "k3":Ljava/lang/Object;, "TK;"
-    .local p5, "v3":Ljava/lang/Object;, "TV;"
-    .local p6, "k4":Ljava/lang/Object;, "TK;"
-    .local p7, "v4":Ljava/lang/Object;, "TV;"
-    .local p8, "k5":Ljava/lang/Object;, "TK;"
-    .local p9, "v5":Ljava/lang/Object;, "TV;"
-    .local p10, "k6":Ljava/lang/Object;, "TK;"
-    .local p11, "v6":Ljava/lang/Object;, "TV;"
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x6
@@ -347,7 +296,6 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 76
-    .local v0, "map":Ljava/util/Map;, "Ljava/util/Map<TK;TV;>;"
     invoke-interface {v0, p0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 77
@@ -368,7 +316,7 @@
     .line 82
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method

@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/devsupport/DevServerHelper$1;
 
     .line 155
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1$1;->this$1:Lcom/facebook/react/devsupport/DevServerHelper$1;
@@ -34,19 +33,18 @@
 
 # virtual methods
 .method public onNotification(Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "params"    # Ljava/lang/Object;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
     .line 158
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$1$1;->this$1:Lcom/facebook/react/devsupport/DevServerHelper$1;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1$1;->this$1:Lcom/facebook/react/devsupport/DevServerHelper$1;
 
-    iget-object v0, v0, Lcom/facebook/react/devsupport/DevServerHelper$1;->val$commandListener:Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;
+    iget-object p1, p1, Lcom/facebook/react/devsupport/DevServerHelper$1;->val$commandListener:Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;
 
-    invoke-interface {v0}, Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;->onPackagerReloadCommand()V
+    invoke-interface {p1}, Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;->onPackagerReloadCommand()V
 
-    .line 159
     return-void
 .end method

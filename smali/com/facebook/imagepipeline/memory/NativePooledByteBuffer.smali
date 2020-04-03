@@ -35,7 +35,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/common/references/CloseableReference;I)V
     .locals 1
-    .param p2, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,15 +45,14 @@
     .end annotation
 
     .line 30
-    .local p1, "bufRef":Lcom/facebook/common/references/CloseableReference;, "Lcom/facebook/common/references/CloseableReference<Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 31
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 32
     if-ltz p2, :cond_0
 
+    .line 32
     invoke-virtual {p1}, Lcom/facebook/common/references/CloseableReference;->get()Ljava/lang/Object;
 
     move-result-object v0
@@ -80,14 +78,13 @@
     .line 33
     invoke-virtual {p1}, Lcom/facebook/common/references/CloseableReference;->clone()Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->mBufRef:Lcom/facebook/common/references/CloseableReference;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->mBufRef:Lcom/facebook/common/references/CloseableReference;
 
     .line 34
     iput p2, p0, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->mSize:I
 
-    .line 35
     return-void
 .end method
 
@@ -104,9 +101,9 @@
 
     invoke-static {v0}, Lcom/facebook/common/references/CloseableReference;->closeSafely(Lcom/facebook/common/references/CloseableReference;)V
 
-    .line 89
     const/4 v0, 0x0
 
+    .line 89
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->mBufRef:Lcom/facebook/common/references/CloseableReference;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -116,8 +113,6 @@
 
     return-void
 
-    .line 87
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
     :catchall_0
     move-exception v0
 
@@ -157,8 +152,6 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 98
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
     :catchall_0
     move-exception v0
 
@@ -195,8 +188,6 @@
 
     return-wide v0
 
-    .line 66
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
     :catchall_0
     move-exception v0
 
@@ -226,7 +217,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
     :catchall_0
     move-exception v0
 
@@ -237,7 +227,6 @@
 
 .method public declared-synchronized read(I)B
     .locals 3
-    .param p1, "offset"    # I
 
     monitor-enter p0
 
@@ -245,7 +234,6 @@
     :try_start_0
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->ensureValid()V
 
-    .line 51
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -259,6 +247,7 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 51
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
@@ -286,17 +275,14 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;->read(I)B
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 49
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
-    .end local p1    # "offset":I
     :catchall_0
     move-exception p1
 
@@ -307,10 +293,6 @@
 
 .method public declared-synchronized read(I[BII)I
     .locals 2
-    .param p1, "offset"    # I
-    .param p2, "buffer"    # [B
-    .param p3, "bufferOffset"    # I
-    .param p4, "length"    # I
 
     monitor-enter p0
 
@@ -318,9 +300,9 @@
     :try_start_0
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->ensureValid()V
 
-    .line 61
     add-int v0, p1, p4
 
+    .line 61
     iget v1, p0, Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;->mSize:I
 
     if-gt v0, v1, :cond_0
@@ -346,20 +328,14 @@
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;->read(I[BII)I
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit p0
 
-    return v0
+    return p1
 
-    .line 57
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
-    .end local p1    # "offset":I
-    .end local p2    # "buffer":[B
-    .end local p3    # "bufferOffset":I
-    .end local p4    # "length":I
     :catchall_0
     move-exception p1
 
@@ -386,8 +362,6 @@
 
     return v0
 
-    .line 43
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/NativePooledByteBuffer;
     :catchall_0
     move-exception v0
 

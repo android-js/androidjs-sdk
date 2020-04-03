@@ -18,13 +18,11 @@
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 88
     return-void
 .end method
 
 .method public static setDelegate(Landroid/view/View;)V
     .locals 3
-    .param p0, "view"    # Landroid/view/View;
 
     .line 91
     sget v0, Lcom/facebook/react/R$id;->accessibility_hint:I
@@ -36,7 +34,6 @@
     check-cast v0, Ljava/lang/String;
 
     .line 92
-    .local v0, "accessibilityHint":Ljava/lang/String;
     sget v1, Lcom/facebook/react/R$id;->accessibility_role:I
 
     invoke-virtual {p0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
@@ -46,7 +43,6 @@
     check-cast v1, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
     .line 95
-    .local v1, "accessibilityRole":Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->hasAccessibilityDelegate(Landroid/view/View;)Z
 
     move-result v2
@@ -65,18 +61,13 @@
 
     invoke-static {p0, v2}, Landroid/support/v4/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
 
-    .line 118
     :cond_1
     return-void
 .end method
 
 .method public static setRole(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;Landroid/content/Context;)V
     .locals 6
-    .param p0, "nodeInfo"    # Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .param p1, "role"    # Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
-    .param p2, "context"    # Landroid/content/Context;
 
-    .line 127
     if-nez p1, :cond_0
 
     .line 128
@@ -156,7 +147,6 @@
     invoke-direct {v0, v4}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
     .line 137
-    .local v0, "spannable":Landroid/text/SpannableString;
     new-instance v4, Landroid/text/style/URLSpan;
 
     invoke-direct {v4, v3}, Landroid/text/style/URLSpan;-><init>(Ljava/lang/String;)V
@@ -171,7 +161,6 @@
     invoke-virtual {p0, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setContentDescription(Ljava/lang/CharSequence;)V
 
     .line 141
-    .end local v0    # "spannable":Landroid/text/SpannableString;
     :cond_1
     invoke-virtual {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getText()Ljava/lang/CharSequence;
 
@@ -189,7 +178,6 @@
     invoke-direct {v0, v4}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
     .line 143
-    .restart local v0    # "spannable":Landroid/text/SpannableString;
     new-instance v4, Landroid/text/style/URLSpan;
 
     invoke-direct {v4, v3}, Landroid/text/style/URLSpan;-><init>(Ljava/lang/String;)V
@@ -204,7 +192,6 @@
     invoke-virtual {p0, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setText(Ljava/lang/CharSequence;)V
 
     .line 147
-    .end local v0    # "spannable":Landroid/text/SpannableString;
     :cond_2
     sget-object v0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->SEARCH:Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
@@ -295,37 +282,31 @@
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {p0, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setRoleDescription(Ljava/lang/CharSequence;)V
-
-    .line 161
-    nop
+    invoke-virtual {p0, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setRoleDescription(Ljava/lang/CharSequence;)V
 
     .line 162
     invoke-static {v2, v1, v2, v1, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;->obtain(IIIIZ)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 163
-    .local v0, "itemInfo":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
-    invoke-virtual {p0, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setCollectionItemInfo(Ljava/lang/Object;)V
+    invoke-virtual {p0, p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setCollectionItemInfo(Ljava/lang/Object;)V
 
     .line 166
-    .end local v0    # "itemInfo":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;
     :cond_7
-    sget-object v0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->IMAGEBUTTON:Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
+    sget-object p2, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->IMAGEBUTTON:Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p2}, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_8
+    if-eqz p1, :cond_8
 
     .line 167
     invoke-virtual {p0, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setClickable(Z)V
 
-    .line 169
     :cond_8
     return-void
 .end method

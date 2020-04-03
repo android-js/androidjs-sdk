@@ -50,13 +50,11 @@
 
     iput-object v0, p0, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;->mHandler:Landroid/os/Handler;
 
-    .line 239
     return-void
 .end method
 
 .method static synthetic access$300(Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;
 
     .line 220
     invoke-direct {p0}, Lcom/facebook/react/modules/network/ForwardingCookieHandler$CookieSaver;->flush()V
@@ -77,14 +75,11 @@
 
     move-result-object v0
 
-    .line 266
-    .local v0, "cookieManager":Landroid/webkit/CookieManager;
     if-eqz v0, :cond_0
 
     .line 267
     invoke-virtual {v0}, Landroid/webkit/CookieManager;->flush()V
 
-    .line 269
     :cond_0
     return-void
 .end method
@@ -110,7 +105,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 245
     :cond_0
     return-void
 .end method
@@ -134,6 +128,5 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/modules/network/ForwardingCookieHandler;->access$400(Lcom/facebook/react/modules/network/ForwardingCookieHandler;Ljava/lang/Runnable;)V
 
-    .line 261
     return-void
 .end method

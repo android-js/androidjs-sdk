@@ -57,14 +57,11 @@
     .line 2440
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2441
     return-void
 .end method
 
 .method static readFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
     .locals 3
-    .param p0, "source"    # Landroid/os/Parcel;
-    .param p1, "loader"    # Ljava/lang/ClassLoader;
 
     .line 2459
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
@@ -72,7 +69,6 @@
     invoke-direct {v0}, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;-><init>()V
 
     .line 2460
-    .local v0, "savedState":Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -104,11 +100,10 @@
     .line 2464
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object p0
 
-    iput-object v1, v0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->menuState:Landroid/os/Bundle;
+    iput-object p0, v0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->menuState:Landroid/os/Bundle;
 
-    .line 2467
     :cond_1
     return-object v0
 .end method
@@ -118,38 +113,34 @@
 .method public describeContents()I
     .locals 1
 
-    .line 2445
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
-    .param p1, "dest"    # Landroid/os/Parcel;
-    .param p2, "flags"    # I
+    .locals 0
 
     .line 2450
-    iget v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->featureId:I
+    iget p2, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->featureId:I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2451
-    iget-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
+    iget-boolean p2, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 2453
-    iget-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
+    iget-boolean p2, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
     .line 2454
-    iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->menuState:Landroid/os/Bundle;
+    iget-object p2, p0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->menuState:Landroid/os/Bundle;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
-    .line 2456
     :cond_0
     return-void
 .end method

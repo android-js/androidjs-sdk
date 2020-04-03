@@ -65,13 +65,12 @@
 
     invoke-virtual {v0}, Lbolts/CancellationTokenSource;->cancel()V
 
-    .line 117
     return-void
 
-    .line 115
     :catchall_0
     move-exception v1
 
+    .line 115
     :try_start_1
     monitor-exit v0
     :try_end_1

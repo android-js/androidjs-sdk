@@ -72,7 +72,6 @@
 
 .method public createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/text/ReactTextView;
     .locals 1
-    .param p1, "context"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 43
     new-instance v0, Lcom/facebook/react/views/text/ReactTextView;
@@ -87,11 +86,11 @@
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 104
     const-string v0, "registrationName"
 
     const-string v1, "onTextLayout"
 
+    .line 104
     invoke-static {v0, v1}, Lcom/facebook/react/common/MapBuilder;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
 
     move-result-object v0
@@ -108,7 +107,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 38
     const-string v0, "RCTText"
 
     return-object v0
@@ -132,21 +130,14 @@
 .end method
 
 .method public measure(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/bridge/ReadableNativeMap;Lcom/facebook/react/bridge/ReadableNativeMap;FLcom/facebook/yoga/YogaMeasureMode;FLcom/facebook/yoga/YogaMeasureMode;)J
-    .locals 2
-    .param p1, "context"    # Lcom/facebook/react/bridge/ReactContext;
-    .param p2, "localData"    # Lcom/facebook/react/bridge/ReadableNativeMap;
-    .param p3, "props"    # Lcom/facebook/react/bridge/ReadableNativeMap;
-    .param p4, "width"    # F
-    .param p5, "widthMode"    # Lcom/facebook/yoga/YogaMeasureMode;
-    .param p6, "height"    # F
-    .param p7, "heightMode"    # Lcom/facebook/yoga/YogaMeasureMode;
+    .locals 0
 
     .line 116
     invoke-static/range {p1 .. p7}, Lcom/facebook/react/views/text/TextLayoutManager;->measureText(Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/bridge/ReadableNativeMap;Lcom/facebook/react/bridge/ReadableNativeMap;FLcom/facebook/yoga/YogaMeasureMode;FLcom/facebook/yoga/YogaMeasureMode;)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method protected bridge synthetic onAfterUpdateTransaction(Landroid/view/View;)V
@@ -162,7 +153,6 @@
 
 .method protected onAfterUpdateTransaction(Lcom/facebook/react/views/text/ReactTextView;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/text/ReactTextView;
 
     .line 68
     invoke-super {p0, p1}, Lcom/facebook/react/views/text/ReactTextAnchorViewManager;->onAfterUpdateTransaction(Landroid/view/View;)V
@@ -170,7 +160,6 @@
     .line 69
     invoke-virtual {p1}, Lcom/facebook/react/views/text/ReactTextView;->updateView()V
 
-    .line 70
     return-void
 .end method
 
@@ -186,38 +175,30 @@
 .end method
 
 .method public updateExtraData(Lcom/facebook/react/views/text/ReactTextView;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "view"    # Lcom/facebook/react/views/text/ReactTextView;
-    .param p2, "extraData"    # Ljava/lang/Object;
+    .locals 1
 
     .line 48
-    move-object v0, p2
-
-    check-cast v0, Lcom/facebook/react/views/text/ReactTextUpdate;
+    check-cast p2, Lcom/facebook/react/views/text/ReactTextUpdate;
 
     .line 49
-    .local v0, "update":Lcom/facebook/react/views/text/ReactTextUpdate;
-    invoke-virtual {v0}, Lcom/facebook/react/views/text/ReactTextUpdate;->containsImages()Z
+    invoke-virtual {p2}, Lcom/facebook/react/views/text/ReactTextUpdate;->containsImages()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 50
-    invoke-virtual {v0}, Lcom/facebook/react/views/text/ReactTextUpdate;->getText()Landroid/text/Spannable;
+    invoke-virtual {p2}, Lcom/facebook/react/views/text/ReactTextUpdate;->getText()Landroid/text/Spannable;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 51
-    .local v1, "spannable":Landroid/text/Spannable;
-    invoke-static {v1, p1}, Lcom/facebook/react/views/text/TextInlineImageSpan;->possiblyUpdateInlineImageSpans(Landroid/text/Spannable;Landroid/widget/TextView;)V
+    invoke-static {v0, p1}, Lcom/facebook/react/views/text/TextInlineImageSpan;->possiblyUpdateInlineImageSpans(Landroid/text/Spannable;Landroid/widget/TextView;)V
 
     .line 53
-    .end local v1    # "spannable":Landroid/text/Spannable;
     :cond_0
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/text/ReactTextView;->setText(Lcom/facebook/react/views/text/ReactTextUpdate;)V
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/text/ReactTextView;->setText(Lcom/facebook/react/views/text/ReactTextUpdate;)V
 
-    .line 54
     return-void
 .end method
 
@@ -235,96 +216,71 @@
 .end method
 
 .method public updateLocalData(Lcom/facebook/react/views/text/ReactTextView;Lcom/facebook/react/uimanager/ReactStylesDiffMap;Lcom/facebook/react/uimanager/ReactStylesDiffMap;)Ljava/lang/Object;
-    .locals 20
-    .param p1, "view"    # Lcom/facebook/react/views/text/ReactTextView;
-    .param p2, "props"    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
-    .param p3, "localData"    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
+    .locals 12
 
-    .line 74
     const-string v0, "attributedString"
 
-    move-object/from16 v1, p3
+    .line 74
+    invoke-virtual {p3, v0}, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->getMap(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableMap;
 
-    invoke-virtual {v1, v0}, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->getMap(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableMap;
+    move-result-object p3
+
+    .line 76
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/ReactTextView;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 76
-    .local v0, "attributedString":Lcom/facebook/react/bridge/ReadableMap;
-    invoke-virtual/range {p1 .. p1}, Lcom/facebook/react/views/text/ReactTextView;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v2, v0}, Lcom/facebook/react/views/text/TextLayoutManager;->getOrCreateSpannableForText(Landroid/content/Context;Lcom/facebook/react/bridge/ReadableMap;)Landroid/text/Spannable;
+    invoke-static {v0, p3}, Lcom/facebook/react/views/text/TextLayoutManager;->getOrCreateSpannableForText(Landroid/content/Context;Lcom/facebook/react/bridge/ReadableMap;)Landroid/text/Spannable;
 
     move-result-object v2
 
     .line 78
-    .local v2, "spanned":Landroid/text/Spannable;
-    move-object/from16 v14, p1
-
-    invoke-virtual {v14, v2}, Lcom/facebook/react/views/text/ReactTextView;->setSpanned(Landroid/text/Spannable;)V
+    invoke-virtual {p1, v2}, Lcom/facebook/react/views/text/ReactTextView;->setSpanned(Landroid/text/Spannable;)V
 
     .line 80
-    new-instance v3, Lcom/facebook/react/views/text/TextAttributeProps;
+    new-instance p1, Lcom/facebook/react/views/text/TextAttributeProps;
 
-    move-object/from16 v15, p2
-
-    invoke-direct {v3, v15}, Lcom/facebook/react/views/text/TextAttributeProps;-><init>(Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
-
-    move-object/from16 v16, v3
-
-    .line 83
-    .local v16, "textViewProps":Lcom/facebook/react/views/text/TextAttributeProps;
-    const/16 v17, 0x1
-
-    .line 86
-    .local v17, "textBreakStrategy":I
-    const/16 v18, 0x0
+    invoke-direct {p1, p2}, Lcom/facebook/react/views/text/TextAttributeProps;-><init>(Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
 
     .line 88
-    .local v18, "justificationMode":I
-    new-instance v19, Lcom/facebook/react/views/text/ReactTextUpdate;
+    new-instance p2, Lcom/facebook/react/views/text/ReactTextUpdate;
 
     .line 92
-    invoke-virtual/range {v16 .. v16}, Lcom/facebook/react/views/text/TextAttributeProps;->getStartPadding()F
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/TextAttributeProps;->getStartPadding()F
+
+    move-result v5
+
+    .line 93
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/TextAttributeProps;->getTopPadding()F
+
+    move-result v6
+
+    .line 94
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/TextAttributeProps;->getEndPadding()F
 
     move-result v7
 
-    .line 93
-    invoke-virtual/range {v16 .. v16}, Lcom/facebook/react/views/text/TextAttributeProps;->getTopPadding()F
+    .line 95
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/TextAttributeProps;->getBottomPadding()F
 
     move-result v8
 
-    .line 94
-    invoke-virtual/range {v16 .. v16}, Lcom/facebook/react/views/text/TextAttributeProps;->getEndPadding()F
+    .line 96
+    invoke-virtual {p1}, Lcom/facebook/react/views/text/TextAttributeProps;->getTextAlign()I
 
     move-result v9
 
-    .line 95
-    invoke-virtual/range {v16 .. v16}, Lcom/facebook/react/views/text/TextAttributeProps;->getBottomPadding()F
+    const/4 v10, 0x1
 
-    move-result v10
+    const/4 v11, 0x0
 
-    .line 96
-    invoke-virtual/range {v16 .. v16}, Lcom/facebook/react/views/text/TextAttributeProps;->getTextAlign()I
+    const/4 v3, -0x1
 
-    move-result v11
+    const/4 v4, 0x0
 
-    const/4 v5, -0x1
+    move-object v1, p2
 
-    const/4 v6, 0x0
+    invoke-direct/range {v1 .. v11}, Lcom/facebook/react/views/text/ReactTextUpdate;-><init>(Landroid/text/Spannable;IZFFFFIII)V
 
-    move-object/from16 v3, v19
-
-    move-object v4, v2
-
-    move/from16 v12, v17
-
-    move/from16 v13, v18
-
-    invoke-direct/range {v3 .. v13}, Lcom/facebook/react/views/text/ReactTextUpdate;-><init>(Landroid/text/Spannable;IZFFFFIII)V
-
-    .line 88
-    return-object v19
+    return-object p2
 .end method

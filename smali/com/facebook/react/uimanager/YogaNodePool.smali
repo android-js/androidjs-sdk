@@ -56,7 +56,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 21
     return-object v0
 
     .line 24
@@ -88,10 +87,10 @@
 
     return-object v1
 
-    .line 29
     :catchall_0
     move-exception v1
 
+    .line 29
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

@@ -14,37 +14,31 @@
 .end method
 
 .method public static final assertExplicitMeasureSpec(II)V
-    .locals 4
-    .param p0, "widthMeasureSpec"    # I
-    .param p1, "heightMeasureSpec"    # I
+    .locals 0
 
     .line 18
     invoke-static {p0}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
-    move-result v0
+    move-result p0
 
     .line 19
-    .local v0, "widthMode":I
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
-    move-result v1
+    move-result p1
 
-    .line 21
-    .local v1, "heightMode":I
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 26
     return-void
 
     .line 22
     :cond_0
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string v3, "A catalyst view must have an explicit width and height given to it. This should normally happen as part of the standard catalyst UI framework."
+    const-string p1, "A catalyst view must have an explicit width and height given to it. This should normally happen as part of the standard catalyst UI framework."
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw p0
 .end method

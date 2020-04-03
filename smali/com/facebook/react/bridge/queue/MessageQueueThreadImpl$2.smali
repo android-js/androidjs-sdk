@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
     .line 150
     iput-object p1, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl$2;->this$0:Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
@@ -45,13 +44,11 @@
     move-result-wide v0
 
     .line 154
-    .local v0, "wallTime":J
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
 
     move-result-wide v2
 
     .line 155
-    .local v2, "cpuTime":J
     iget-object v4, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl$2;->this$0:Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;
 
     invoke-static {v4}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->access$000(Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;)Lcom/facebook/react/bridge/queue/MessageQueueThreadPerfStats;
@@ -60,6 +57,5 @@
 
     invoke-static {v4, v0, v1, v2, v3}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->access$100(Lcom/facebook/react/bridge/queue/MessageQueueThreadPerfStats;JJ)V
 
-    .line 156
     return-void
 .end method

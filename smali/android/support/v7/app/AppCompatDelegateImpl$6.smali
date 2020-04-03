@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImpl;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDelegateImpl;
 
     .line 991
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$6;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -122,7 +121,6 @@
 
     invoke-virtual {v0, v2}, Landroid/support/v7/widget/ActionBarContextView;->setVisibility(I)V
 
-    .line 1019
     :goto_0
     return-void
 .end method

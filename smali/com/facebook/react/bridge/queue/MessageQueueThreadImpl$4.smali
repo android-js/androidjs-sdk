@@ -36,11 +36,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 5
 
-    .line 225
     const/4 v0, -0x4
 
+    .line 225
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 226
@@ -52,37 +52,33 @@
     invoke-direct {v0}, Lcom/facebook/react/bridge/queue/MessageQueueThreadPerfStats;-><init>()V
 
     .line 228
-    .local v0, "stats":Lcom/facebook/react/bridge/queue/MessageQueueThreadPerfStats;
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
     .line 229
-    .local v1, "wallTime":J
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J
 
     move-result-wide v3
 
     .line 230
-    .local v3, "cpuTime":J
     invoke-static {v0, v1, v2, v3, v4}, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl;->access$100(Lcom/facebook/react/bridge/queue/MessageQueueThreadPerfStats;JJ)V
 
     .line 231
-    iget-object v5, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl$4;->val$dataFuture:Lcom/facebook/react/common/futures/SimpleSettableFuture;
+    iget-object v1, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadImpl$4;->val$dataFuture:Lcom/facebook/react/common/futures/SimpleSettableFuture;
 
-    new-instance v6, Landroid/util/Pair;
+    new-instance v2, Landroid/util/Pair;
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
-    move-result-object v7
+    move-result-object v3
 
-    invoke-direct {v6, v7, v0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v2, v3, v0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-virtual {v5, v6}, Lcom/facebook/react/common/futures/SimpleSettableFuture;->set(Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Lcom/facebook/react/common/futures/SimpleSettableFuture;->set(Ljava/lang/Object;)V
 
     .line 232
     invoke-static {}, Landroid/os/Looper;->loop()V
 
-    .line 233
     return-void
 .end method

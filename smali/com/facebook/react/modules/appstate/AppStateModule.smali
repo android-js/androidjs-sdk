@@ -28,8 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 1
 
     .line 38
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
@@ -40,23 +39,22 @@
     .line 40
     invoke-virtual {p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getLifecycleState()Lcom/facebook/react/common/LifecycleState;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget-object v1, Lcom/facebook/react/common/LifecycleState;->RESUMED:Lcom/facebook/react/common/LifecycleState;
+    sget-object v0, Lcom/facebook/react/common/LifecycleState;->RESUMED:Lcom/facebook/react/common/LifecycleState;
 
-    if-ne v0, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
-    const-string v0, "active"
+    const-string p1, "active"
 
     goto :goto_0
 
     :cond_0
-    const-string v0, "background"
+    const-string p1, "background"
 
     :goto_0
-    iput-object v0, p0, Lcom/facebook/react/modules/appstate/AppStateModule;->mAppState:Ljava/lang/String;
+    iput-object p1, p0, Lcom/facebook/react/modules/appstate/AppStateModule;->mAppState:Ljava/lang/String;
 
-    .line 42
     return-void
 .end method
 
@@ -69,14 +67,12 @@
     move-result-object v0
 
     .line 81
-    .local v0, "appState":Lcom/facebook/react/bridge/WritableMap;
     iget-object v1, p0, Lcom/facebook/react/modules/appstate/AppStateModule;->mAppState:Ljava/lang/String;
 
     const-string v2, "app_state"
 
     invoke-interface {v0, v2, v1}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 82
     return-object v0
 .end method
 
@@ -105,7 +101,6 @@
 
     invoke-interface {v0, v2, v1}, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 88
     return-void
 .end method
 
@@ -129,47 +124,41 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     .line 52
-    .local v0, "constants":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     iget-object v1, p0, Lcom/facebook/react/modules/appstate/AppStateModule;->mAppState:Ljava/lang/String;
 
     const-string v2, "initialAppState"
 
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 53
     return-object v0
 .end method
 
 .method public getCurrentAppState(Lcom/facebook/react/bridge/Callback;Lcom/facebook/react/bridge/Callback;)V
-    .locals 3
-    .param p1, "success"    # Lcom/facebook/react/bridge/Callback;
-    .param p2, "error"    # Lcom/facebook/react/bridge/Callback;
+    .locals 2
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
-    .line 58
-    const/4 v0, 0x1
+    const/4 p2, 0x1
 
-    new-array v0, v0, [Ljava/lang/Object;
+    .line 58
+    new-array p2, p2, [Ljava/lang/Object;
 
     invoke-direct {p0}, Lcom/facebook/react/modules/appstate/AppStateModule;->createAppStateEventMap()Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object v1, v0, v2
+    aput-object v0, p2, v1
 
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 46
     const-string v0, "AppState"
 
     return-object v0
@@ -178,36 +167,33 @@
 .method public onHostDestroy()V
     .locals 0
 
-    .line 77
     return-void
 .end method
 
 .method public onHostPause()V
     .locals 1
 
-    .line 69
     const-string v0, "background"
 
+    .line 69
     iput-object v0, p0, Lcom/facebook/react/modules/appstate/AppStateModule;->mAppState:Ljava/lang/String;
 
     .line 70
     invoke-direct {p0}, Lcom/facebook/react/modules/appstate/AppStateModule;->sendAppStateChangeEvent()V
 
-    .line 71
     return-void
 .end method
 
 .method public onHostResume()V
     .locals 1
 
-    .line 63
     const-string v0, "active"
 
+    .line 63
     iput-object v0, p0, Lcom/facebook/react/modules/appstate/AppStateModule;->mAppState:Ljava/lang/String;
 
     .line 64
     invoke-direct {p0}, Lcom/facebook/react/modules/appstate/AppStateModule;->sendAppStateChangeEvent()V
 
-    .line 65
     return-void
 .end method

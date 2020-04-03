@@ -41,9 +41,9 @@
 .method public get()Ljava/lang/Boolean;
     .locals 1
 
-    .line 31
     const/4 v0, 0x1
 
+    .line 31
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0

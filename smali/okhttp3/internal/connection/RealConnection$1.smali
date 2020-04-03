@@ -23,10 +23,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/connection/RealConnection;ZLokio/BufferedSource;Lokio/BufferedSink;Lokhttp3/internal/connection/StreamAllocation;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/connection/RealConnection;
-    .param p2, "client"    # Z
-    .param p3, "source"    # Lokio/BufferedSource;
-    .param p4, "sink"    # Lokio/BufferedSink;
 
     .line 526
     iput-object p1, p0, Lokhttp3/internal/connection/RealConnection$1;->this$0:Lokhttp3/internal/connection/RealConnection;
@@ -63,6 +59,5 @@
 
     invoke-virtual/range {v0 .. v5}, Lokhttp3/internal/connection/StreamAllocation;->streamFinished(ZLokhttp3/internal/http/HttpCodec;JLjava/io/IOException;)V
 
-    .line 529
     return-void
 .end method

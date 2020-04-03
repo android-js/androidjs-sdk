@@ -24,7 +24,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/JavaJSExecutor$Factory;)V
     .locals 0
-    .param p1, "javaJSExecutorFactory"    # Lcom/facebook/react/bridge/JavaJSExecutor$Factory;
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +31,6 @@
     .line 28
     iput-object p1, p0, Lcom/facebook/react/bridge/ProxyJavaScriptExecutor$Factory;->mJavaJSExecutorFactory:Lcom/facebook/react/bridge/JavaJSExecutor$Factory;
 
-    .line 29
     return-void
 .end method
 

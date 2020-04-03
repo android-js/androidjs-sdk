@@ -34,13 +34,10 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 3
-    .param p1, "maxCount"    # I
-    .param p2, "maxSize"    # I
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -54,10 +51,10 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 39
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 40
     if-lez p2, :cond_1
 
     goto :goto_1
@@ -65,6 +62,7 @@
     :cond_1
     const/4 v0, 0x0
 
+    .line 40
     :goto_1
     invoke-static {v0}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
@@ -75,13 +73,12 @@
     iput p2, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mMaxSize:I
 
     .line 43
-    new-instance v0, Lcom/facebook/imagepipeline/memory/BitmapCounter$1;
+    new-instance p1, Lcom/facebook/imagepipeline/memory/BitmapCounter$1;
 
-    invoke-direct {v0, p0}, Lcom/facebook/imagepipeline/memory/BitmapCounter$1;-><init>(Lcom/facebook/imagepipeline/memory/BitmapCounter;)V
+    invoke-direct {p1, p0}, Lcom/facebook/imagepipeline/memory/BitmapCounter$1;-><init>(Lcom/facebook/imagepipeline/memory/BitmapCounter;)V
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mUnpooledBitmapsReleaser:Lcom/facebook/common/references/ResourceReleaser;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mUnpooledBitmapsReleaser:Lcom/facebook/common/references/ResourceReleaser;
 
-    .line 53
     return-void
 .end method
 
@@ -102,12 +99,9 @@
         }
     .end annotation
 
-    .line 126
-    .local p1, "bitmaps":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/Bitmap;>;"
     const/4 v0, 0x0
 
     .line 128
-    .local v0, "countedBitmaps":I
     :goto_0
     :try_start_0
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -124,7 +118,6 @@
     check-cast v1, Landroid/graphics/Bitmap;
 
     .line 131
-    .local v1, "bitmap":Landroid/graphics/Bitmap;
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x15
@@ -138,31 +131,23 @@
     :cond_0
     invoke-virtual {p0, v1}, Lcom/facebook/imagepipeline/memory/BitmapCounter;->increase(Landroid/graphics/Bitmap;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    .line 128
-    .end local v1    # "bitmap":Landroid/graphics/Bitmap;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 135
-    .restart local v1    # "bitmap":Landroid/graphics/Bitmap;
     :cond_1
-    new-instance v2, Lcom/facebook/imagepipeline/common/TooManyBitmapsException;
+    new-instance v1, Lcom/facebook/imagepipeline/common/TooManyBitmapsException;
 
-    invoke-direct {v2}, Lcom/facebook/imagepipeline/common/TooManyBitmapsException;-><init>()V
+    invoke-direct {v1}, Lcom/facebook/imagepipeline/common/TooManyBitmapsException;-><init>()V
 
-    .end local v0    # "countedBitmaps":I
-    .end local p1    # "bitmaps":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/Bitmap;>;"
-    throw v2
+    throw v1
 
     .line 138
-    .end local v1    # "bitmap":Landroid/graphics/Bitmap;
-    .restart local v0    # "countedBitmaps":I
-    .restart local p1    # "bitmaps":Ljava/util/List;, "Ljava/util/List<Landroid/graphics/Bitmap;>;"
     :cond_2
     new-instance v1, Ljava/util/ArrayList;
 
@@ -173,7 +158,6 @@
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 139
-    .local v1, "ret":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/common/references/CloseableReference<Landroid/graphics/Bitmap;>;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -192,91 +176,72 @@
     check-cast v3, Landroid/graphics/Bitmap;
 
     .line 140
-    .local v3, "bitmap":Landroid/graphics/Bitmap;
     iget-object v4, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mUnpooledBitmapsReleaser:Lcom/facebook/common/references/ResourceReleaser;
 
     invoke-static {v3, v4}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/lang/Object;Lcom/facebook/common/references/ResourceReleaser;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 141
-    nop
-
-    .end local v3    # "bitmap":Landroid/graphics/Bitmap;
     goto :goto_1
 
-    .line 142
     :cond_3
     return-object v1
 
-    .line 143
-    .end local v1    # "ret":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/common/references/CloseableReference<Landroid/graphics/Bitmap;>;>;"
     :catch_0
     move-exception v1
 
-    .line 144
-    .local v1, "exception":Ljava/lang/Exception;
     if-eqz p1, :cond_5
 
     .line 145
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object p1
 
     :goto_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/graphics/Bitmap;
+    check-cast v2, Landroid/graphics/Bitmap;
 
-    .line 146
-    .restart local v3    # "bitmap":Landroid/graphics/Bitmap;
-    add-int/lit8 v4, v0, -0x1
+    add-int/lit8 v3, v0, -0x1
 
-    .end local v0    # "countedBitmaps":I
-    .local v4, "countedBitmaps":I
     if-lez v0, :cond_4
 
     .line 147
-    invoke-virtual {p0, v3}, Lcom/facebook/imagepipeline/memory/BitmapCounter;->decrease(Landroid/graphics/Bitmap;)V
+    invoke-virtual {p0, v2}, Lcom/facebook/imagepipeline/memory/BitmapCounter;->decrease(Landroid/graphics/Bitmap;)V
 
     .line 149
     :cond_4
-    invoke-virtual {v3}, Landroid/graphics/Bitmap;->recycle()V
+    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 150
-    .end local v3    # "bitmap":Landroid/graphics/Bitmap;
-    move v0, v4
+    move v0, v3
 
     goto :goto_2
 
     .line 152
-    .end local v4    # "countedBitmaps":I
-    .restart local v0    # "countedBitmaps":I
     :cond_5
     invoke-static {v1}, Lcom/facebook/common/internal/Throwables;->propagate(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;
 
-    move-result-object v2
+    move-result-object p1
 
-    throw v2
+    throw p1
 
     return-void
 .end method
 
 .method public declared-synchronized decrease(Landroid/graphics/Bitmap;)V
-    .locals 8
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 9
 
     monitor-enter p0
 
@@ -284,87 +249,84 @@
     :try_start_0
     invoke-static {p1}, Lcom/facebook/imageutils/BitmapUtil;->getSizeInBytes(Landroid/graphics/Bitmap;)I
 
-    move-result v0
+    move-result p1
 
     .line 79
-    .local v0, "bitmapSize":I
-    iget v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
+    iget v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    const-string v4, "No bitmaps registered."
+    const-string v3, "No bitmaps registered."
 
-    invoke-static {v1, v4}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+    invoke-static {v0, v3}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/Object;)V
+
+    int-to-long v3, p1
 
     .line 80
-    int-to-long v4, v0
+    iget-wide v5, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
 
-    iget-wide v6, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    cmp-long v0, v3, v5
 
-    cmp-long v1, v4, v6
+    if-gtz v0, :cond_1
 
-    if-gtz v1, :cond_1
-
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_1
-    const-string v4, "Bitmap size bigger than the total registered size: %d, %d"
+    const-string v5, "Bitmap size bigger than the total registered size: %d, %d"
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    new-array v5, v5, [Ljava/lang/Object;
+    new-array v6, v6, [Ljava/lang/Object;
 
     .line 83
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object p1
 
-    aput-object v6, v5, v2
+    aput-object p1, v6, v1
 
-    iget-wide v6, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    iget-wide v7, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
 
     .line 84
-    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object p1
 
-    aput-object v2, v5, v3
+    aput-object p1, v6, v2
 
     .line 80
-    invoke-static {v1, v4, v5}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v5, v6}, Lcom/facebook/common/internal/Preconditions;->checkArgument(ZLjava/lang/String;[Ljava/lang/Object;)V
 
     .line 85
-    iget-wide v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    iget-wide v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
 
-    int-to-long v4, v0
+    sub-long/2addr v0, v3
 
-    sub-long/2addr v1, v4
-
-    iput-wide v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    iput-wide v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
 
     .line 86
-    iget v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
+    iget p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
 
-    sub-int/2addr v1, v3
+    sub-int/2addr p1, v2
 
-    iput v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
+    iput p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -373,10 +335,6 @@
 
     return-void
 
-    .line 77
-    .end local v0    # "bitmapSize":I
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/BitmapCounter;
-    .end local p1    # "bitmap":Landroid/graphics/Bitmap;
     :catchall_0
     move-exception p1
 
@@ -400,7 +358,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/BitmapCounter;
     :catchall_0
     move-exception v0
 
@@ -424,7 +381,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/BitmapCounter;
     :catchall_0
     move-exception v0
 
@@ -448,7 +404,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/BitmapCounter;
     :catchall_0
     move-exception v0
 
@@ -489,7 +444,6 @@
 
     return-wide v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/BitmapCounter;
     :catchall_0
     move-exception v0
 
@@ -499,8 +453,7 @@
 .end method
 
 .method public declared-synchronized increase(Landroid/graphics/Bitmap;)Z
-    .locals 7
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
+    .locals 6
 
     monitor-enter p0
 
@@ -508,71 +461,64 @@
     :try_start_0
     invoke-static {p1}, Lcom/facebook/imageutils/BitmapUtil;->getSizeInBytes(Landroid/graphics/Bitmap;)I
 
-    move-result v0
+    move-result p1
 
     .line 64
-    .local v0, "bitmapSize":I
-    iget v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
+    iget v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
 
-    iget v2, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mMaxCount:I
+    iget v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mMaxCount:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
-    iget-wide v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    iget-wide v0, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
 
-    int-to-long v3, v0
+    int-to-long v2, p1
 
-    add-long/2addr v1, v3
+    add-long/2addr v0, v2
 
-    iget v3, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mMaxSize:I
+    iget p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mMaxSize:I
 
-    int-to-long v3, v3
+    int-to-long v4, p1
 
-    cmp-long v5, v1, v3
+    cmp-long p1, v0, v4
 
-    if-lez v5, :cond_0
+    if-lez p1, :cond_0
 
     goto :goto_0
 
     .line 67
     :cond_0
-    iget v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
+    iget p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    add-int/2addr v1, v2
+    add-int/2addr p1, v0
 
-    iput v1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
+    iput p1, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mCount:I
 
     .line 68
-    iget-wide v3, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    iget-wide v4, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
 
-    int-to-long v5, v0
+    add-long/2addr v4, v2
 
-    add-long/2addr v3, v5
-
-    iput-wide v3, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
+    iput-wide v4, p0, Lcom/facebook/imagepipeline/memory/BitmapCounter;->mSize:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 69
     monitor-exit p0
 
-    return v2
+    return v0
 
-    .line 65
-    .end local p0    # "this":Lcom/facebook/imagepipeline/memory/BitmapCounter;
     :cond_1
     :goto_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
+    .line 65
     monitor-exit p0
 
-    return v1
+    return p1
 
-    .line 62
-    .end local v0    # "bitmapSize":I
-    .end local p1    # "bitmap":Landroid/graphics/Bitmap;
     :catchall_0
     move-exception p1
 

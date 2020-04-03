@@ -27,43 +27,41 @@
 
 # virtual methods
 .method public getItemOffsets(Landroid/graphics/Rect;ILandroid/support/v7/widget/RecyclerView;)V
-    .locals 1
-    .param p1, "outRect"    # Landroid/graphics/Rect;
+    .locals 0
+    .param p1    # Landroid/graphics/Rect;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "itemPosition"    # I
-    .param p3, "parent"    # Landroid/support/v7/widget/RecyclerView;
+    .param p3    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    const/4 p2, 0x0
+
     .line 10496
-    const/4 v0, 0x0
+    invoke-virtual {p1, p2, p2, p2, p2}, Landroid/graphics/Rect;->set(IIII)V
 
-    invoke-virtual {p1, v0, v0, v0, v0}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 10497
     return-void
 .end method
 
 .method public getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$State;)V
-    .locals 1
-    .param p1, "outRect"    # Landroid/graphics/Rect;
+    .locals 0
+    .param p1    # Landroid/graphics/Rect;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "view"    # Landroid/view/View;
+    .param p2    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "parent"    # Landroid/support/v7/widget/RecyclerView;
+    .param p3    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p4, "state"    # Landroid/support/v7/widget/RecyclerView$State;
+    .param p4    # Landroid/support/v7/widget/RecyclerView$State;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -71,48 +69,46 @@
     .line 10521
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Landroid/support/v7/widget/RecyclerView$LayoutParams;
+    check-cast p2, Landroid/support/v7/widget/RecyclerView$LayoutParams;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
+    invoke-virtual {p2}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
 
-    move-result v0
+    move-result p2
 
-    invoke-virtual {p0, p1, v0, p3}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;->getItemOffsets(Landroid/graphics/Rect;ILandroid/support/v7/widget/RecyclerView;)V
+    invoke-virtual {p0, p1, p2, p3}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;->getItemOffsets(Landroid/graphics/Rect;ILandroid/support/v7/widget/RecyclerView;)V
 
-    .line 10523
     return-void
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
     .locals 0
-    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "parent"    # Landroid/support/v7/widget/RecyclerView;
+    .param p2    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 10464
     return-void
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$State;)V
     .locals 0
-    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "parent"    # Landroid/support/v7/widget/RecyclerView;
+    .param p2    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "state"    # Landroid/support/v7/widget/RecyclerView$State;
+    .param p3    # Landroid/support/v7/widget/RecyclerView$State;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -120,38 +116,36 @@
     .line 10455
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;->onDraw(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
 
-    .line 10456
     return-void
 .end method
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
     .locals 0
-    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "parent"    # Landroid/support/v7/widget/RecyclerView;
+    .param p2    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 10486
     return-void
 .end method
 
 .method public onDrawOver(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$State;)V
     .locals 0
-    .param p1, "c"    # Landroid/graphics/Canvas;
+    .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "parent"    # Landroid/support/v7/widget/RecyclerView;
+    .param p2    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p3, "state"    # Landroid/support/v7/widget/RecyclerView$State;
+    .param p3    # Landroid/support/v7/widget/RecyclerView$State;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -159,6 +153,5 @@
     .line 10477
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$ItemDecoration;->onDrawOver(Landroid/graphics/Canvas;Landroid/support/v7/widget/RecyclerView;)V
 
-    .line 10478
     return-void
 .end method

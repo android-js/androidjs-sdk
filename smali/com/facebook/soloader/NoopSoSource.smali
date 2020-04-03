@@ -16,27 +16,22 @@
 
 # virtual methods
 .method public loadLibrary(Ljava/lang/String;ILandroid/os/StrictMode$ThreadPolicy;)I
-    .locals 1
-    .param p1, "soName"    # Ljava/lang/String;
-    .param p2, "loadFlags"    # I
-    .param p3, "threadPolicy"    # Landroid/os/StrictMode$ThreadPolicy;
+    .locals 0
 
-    .line 28
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public unpackLibrary(Ljava/lang/String;)Ljava/io/File;
-    .locals 2
-    .param p1, "soName"    # Ljava/lang/String;
+    .locals 1
 
     .line 33
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "unpacking not supported in test mode"
+    const-string v0, "unpacking not supported in test mode"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

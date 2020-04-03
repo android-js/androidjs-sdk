@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReadableMap;)V
     .locals 0
-    .param p1, "props"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +17,6 @@
     .line 41
     iput-object p1, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
-    .line 42
     return-void
 .end method
 
@@ -26,7 +24,6 @@
 # virtual methods
 .method public getArray(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableArray;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -35,15 +32,13 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getArray(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableArray;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getBoolean(Ljava/lang/String;Z)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "restoreNullToDefaultValue"    # Z
 
     .line 53
     iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
@@ -54,25 +49,21 @@
 
     if-eqz v0, :cond_0
 
-    move v0, p2
-
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
-    invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getBoolean(Ljava/lang/String;)Z
+    invoke-interface {p2, p1}, Lcom/facebook/react/bridge/ReadableMap;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p2
 
     :goto_0
-    return v0
+    return p2
 .end method
 
 .method public getDouble(Ljava/lang/String;D)D
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "restoreNullToDefaultValue"    # D
+    .locals 1
 
     .line 57
     iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
@@ -83,24 +74,21 @@
 
     if-eqz v0, :cond_0
 
-    move-wide v0, p2
-
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
-    invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {p2, p1}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v0
+    move-result-wide p2
 
     :goto_0
-    return-wide v0
+    return-wide p2
 .end method
 
 .method public getDynamic(Ljava/lang/String;)Lcom/facebook/react/bridge/Dynamic;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -109,15 +97,13 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getDynamic(Ljava/lang/String;)Lcom/facebook/react/bridge/Dynamic;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getFloat(Ljava/lang/String;F)F
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "restoreNullToDefaultValue"    # F
+    .locals 1
 
     .line 61
     iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
@@ -128,29 +114,24 @@
 
     if-eqz v0, :cond_0
 
-    move v0, p2
-
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
     .line 62
-    invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
+    invoke-interface {p2, p1}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
-    move-result-wide v0
+    move-result-wide p1
 
-    double-to-float v0, v0
+    double-to-float p2, p1
 
-    .line 61
     :goto_0
-    return v0
+    return p2
 .end method
 
 .method public getInt(Ljava/lang/String;I)I
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "restoreNullToDefaultValue"    # I
 
     .line 66
     iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
@@ -161,24 +142,21 @@
 
     if-eqz v0, :cond_0
 
-    move v0, p2
-
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
-    invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
+    invoke-interface {p2, p1}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p2
 
     :goto_0
-    return v0
+    return p2
 .end method
 
 .method public getMap(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableMap;
     .locals 1
-    .param p1, "key"    # Ljava/lang/String;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -187,14 +165,13 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getMap(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableMap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getString(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -203,37 +180,35 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public hasKey(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 45
     iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public isNull(Ljava/lang/String;)Z
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 49
     iget-object v0, p0, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->mBackingMap:Lcom/facebook/react/bridge/ReadableMap;
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/ReadableMap;->isNull(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public toString()Ljava/lang/String;

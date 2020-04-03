@@ -31,8 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/views/textinput/ReactTextInputManager;Lcom/facebook/react/views/textinput/ReactEditText;)V
-    .locals 1
-    .param p2, "editText"    # Lcom/facebook/react/views/textinput/ReactEditText;
+    .locals 0
 
     .line 987
     iput-object p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->this$0:Lcom/facebook/react/views/textinput/ReactTextInputManager;
@@ -50,53 +49,49 @@
     check-cast p1, Lcom/facebook/react/bridge/ReactContext;
 
     .line 990
-    .local p1, "reactContext":Lcom/facebook/react/bridge/ReactContext;
-    const-class v0, Lcom/facebook/react/uimanager/UIManagerModule;
+    const-class p2, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/bridge/ReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
+    invoke-virtual {p1, p2}, Lcom/facebook/react/bridge/ReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/uimanager/UIManagerModule;
+    check-cast p1, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {v0}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
+    invoke-virtual {p1}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iput-object p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    .line 991
     return-void
 .end method
 
 
 # virtual methods
 .method public onScrollChanged(IIII)V
-    .locals 11
-    .param p1, "horiz"    # I
-    .param p2, "vert"    # I
-    .param p3, "oldHoriz"    # I
-    .param p4, "oldVert"    # I
+    .locals 10
 
     .line 995
-    iget v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mPreviousHoriz:I
+    iget p3, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mPreviousHoriz:I
 
-    if-ne v0, p1, :cond_0
+    if-ne p3, p1, :cond_0
 
-    iget v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mPreviousVert:I
+    iget p3, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mPreviousVert:I
 
-    if-eq v0, p2, :cond_1
+    if-eq p3, p2, :cond_1
 
     .line 996
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mReactEditText:Lcom/facebook/react/views/textinput/ReactEditText;
+    iget-object p3, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mReactEditText:Lcom/facebook/react/views/textinput/ReactEditText;
 
     .line 997
-    invoke-virtual {v0}, Lcom/facebook/react/views/textinput/ReactEditText;->getId()I
+    invoke-virtual {p3}, Lcom/facebook/react/views/textinput/ReactEditText;->getId()I
 
-    move-result v1
+    move-result v0
 
-    sget-object v2, Lcom/facebook/react/views/scroll/ScrollEventType;->SCROLL:Lcom/facebook/react/views/scroll/ScrollEventType;
+    sget-object v1, Lcom/facebook/react/views/scroll/ScrollEventType;->SCROLL:Lcom/facebook/react/views/scroll/ScrollEventType;
+
+    const/4 v4, 0x0
 
     const/4 v5, 0x0
 
@@ -104,36 +99,33 @@
 
     const/4 v7, 0x0
 
-    const/4 v8, 0x0
-
-    iget-object v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mReactEditText:Lcom/facebook/react/views/textinput/ReactEditText;
+    iget-object p3, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mReactEditText:Lcom/facebook/react/views/textinput/ReactEditText;
 
     .line 1005
-    invoke-virtual {v0}, Lcom/facebook/react/views/textinput/ReactEditText;->getWidth()I
+    invoke-virtual {p3}, Lcom/facebook/react/views/textinput/ReactEditText;->getWidth()I
+
+    move-result v8
+
+    iget-object p3, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mReactEditText:Lcom/facebook/react/views/textinput/ReactEditText;
+
+    .line 1006
+    invoke-virtual {p3}, Lcom/facebook/react/views/textinput/ReactEditText;->getHeight()I
 
     move-result v9
 
-    iget-object v0, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mReactEditText:Lcom/facebook/react/views/textinput/ReactEditText;
+    move v2, p1
 
-    .line 1006
-    invoke-virtual {v0}, Lcom/facebook/react/views/textinput/ReactEditText;->getHeight()I
-
-    move-result v10
+    move v3, p2
 
     .line 996
-    move v3, p1
+    invoke-static/range {v0 .. v9}, Lcom/facebook/react/views/scroll/ScrollEvent;->obtain(ILcom/facebook/react/views/scroll/ScrollEventType;IIFFIIII)Lcom/facebook/react/views/scroll/ScrollEvent;
 
-    move v4, p2
-
-    invoke-static/range {v1 .. v10}, Lcom/facebook/react/views/scroll/ScrollEvent;->obtain(ILcom/facebook/react/views/scroll/ScrollEventType;IIFFIIII)Lcom/facebook/react/views/scroll/ScrollEvent;
-
-    move-result-object v0
+    move-result-object p3
 
     .line 1008
-    .local v0, "event":Lcom/facebook/react/views/scroll/ScrollEvent;
-    iget-object v1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iget-object p4, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    invoke-virtual {v1, v0}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
+    invoke-virtual {p4, p3}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
     .line 1010
     iput p1, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mPreviousHoriz:I
@@ -141,8 +133,6 @@
     .line 1011
     iput p2, p0, Lcom/facebook/react/views/textinput/ReactTextInputManager$ReactScrollWatcher;->mPreviousVert:I
 
-    .line 1013
-    .end local v0    # "event":Lcom/facebook/react/views/scroll/ScrollEvent;
     :cond_1
     return-void
 .end method

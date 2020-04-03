@@ -104,18 +104,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 41
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;
+    check-cast p0, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;

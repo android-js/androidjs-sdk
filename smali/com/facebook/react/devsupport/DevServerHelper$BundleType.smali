@@ -79,9 +79,9 @@
 
     sput-object v0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;->MAP:Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
 
-    .line 98
     const/4 v0, 0x3
 
+    .line 98
     new-array v0, v0, [Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
 
     sget-object v4, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;->BUNDLE:Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
@@ -103,7 +103,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "typeID"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -118,24 +117,22 @@
     .line 106
     iput-object p3, p0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;->mTypeID:Ljava/lang/String;
 
-    .line 107
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 98
     const-class v0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
+    check-cast p0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/devsupport/DevServerHelper$BundleType;

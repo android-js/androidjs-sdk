@@ -21,32 +21,23 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/annotations/ReactProp;Ljava/lang/reflect/Method;F)V
     .locals 2
-    .param p1, "prop"    # Lcom/facebook/react/uimanager/annotations/ReactProp;
-    .param p2, "setter"    # Ljava/lang/reflect/Method;
-    .param p3, "defaultValue"    # F
 
-    .line 199
     const-string v0, "number"
 
     const/4 v1, 0x0
 
+    .line 199
     invoke-direct {p0, p1, v0, p2, v1}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;-><init>(Lcom/facebook/react/uimanager/annotations/ReactProp;Ljava/lang/String;Ljava/lang/reflect/Method;Lcom/facebook/react/uimanager/ViewManagersPropertyCache$1;)V
 
     .line 200
     iput p3, p0, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$FloatPropSetter;->mDefaultValue:F
 
-    .line 201
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/uimanager/annotations/ReactPropGroup;Ljava/lang/reflect/Method;IF)V
     .locals 6
-    .param p1, "prop"    # Lcom/facebook/react/uimanager/annotations/ReactPropGroup;
-    .param p2, "setter"    # Ljava/lang/reflect/Method;
-    .param p3, "index"    # I
-    .param p4, "defaultValue"    # F
 
-    .line 204
     const-string v2, "number"
 
     const/4 v5, 0x0
@@ -59,12 +50,12 @@
 
     move v4, p3
 
+    .line 204
     invoke-direct/range {v0 .. v5}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;-><init>(Lcom/facebook/react/uimanager/annotations/ReactPropGroup;Ljava/lang/String;Ljava/lang/reflect/Method;ILcom/facebook/react/uimanager/ViewManagersPropertyCache$1;)V
 
     .line 205
     iput p4, p0, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$FloatPropSetter;->mDefaultValue:F
 
-    .line 206
     return-void
 .end method
 
@@ -72,7 +63,6 @@
 # virtual methods
 .method protected extractProperty(Lcom/facebook/react/uimanager/ReactStylesDiffMap;)Ljava/lang/Object;
     .locals 2
-    .param p1, "props"    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
 
     .line 210
     iget-object v0, p0, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$FloatPropSetter;->mPropName:Ljava/lang/String;
@@ -81,11 +71,11 @@
 
     invoke-virtual {p1, v0, v1}, Lcom/facebook/react/uimanager/ReactStylesDiffMap;->getFloat(Ljava/lang/String;F)F
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

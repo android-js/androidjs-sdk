@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/drawee/components/DeferredReleaser;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/drawee/components/DeferredReleaser;
 
     .line 58
     iput-object p1, p0, Lcom/facebook/drawee/components/DeferredReleaser$1;->this$0:Lcom/facebook/drawee/components/DeferredReleaser;
@@ -67,11 +66,8 @@
     check-cast v1, Lcom/facebook/drawee/components/DeferredReleaser$Releasable;
 
     .line 63
-    .local v1, "releasable":Lcom/facebook/drawee/components/DeferredReleaser$Releasable;
     invoke-interface {v1}, Lcom/facebook/drawee/components/DeferredReleaser$Releasable;->release()V
 
-    .line 64
-    .end local v1    # "releasable":Lcom/facebook/drawee/components/DeferredReleaser$Releasable;
     goto :goto_0
 
     .line 65
@@ -84,6 +80,5 @@
 
     invoke-interface {v0}, Ljava/util/Set;->clear()V
 
-    .line 66
     return-void
 .end method

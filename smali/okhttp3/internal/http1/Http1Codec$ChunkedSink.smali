@@ -49,7 +49,6 @@
 
     iput-object p1, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSink;->timeout:Lokio/ForwardingTimeout;
 
-    .line 322
     return-void
 .end method
 
@@ -77,10 +76,10 @@
 
     return-void
 
-    .line 345
     :cond_0
     const/4 v0, 0x1
 
+    .line 345
     :try_start_1
     iput-boolean v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSink;->closed:Z
 
@@ -114,8 +113,6 @@
 
     return-void
 
-    .line 343
-    .end local p0    # "this":Lokhttp3/internal/http1/Http1Codec$ChunkedSink;
     :catchall_0
     move-exception v0
 
@@ -162,8 +159,6 @@
 
     return-void
 
-    .line 338
-    .end local p0    # "this":Lokhttp3/internal/http1/Http1Codec$ChunkedSink;
     :catchall_0
     move-exception v0
 
@@ -183,8 +178,6 @@
 
 .method public write(Lokio/Buffer;J)V
     .locals 3
-    .param p1, "source"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -196,7 +189,6 @@
 
     if-nez v0, :cond_1
 
-    .line 330
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
@@ -230,22 +222,21 @@
     invoke-interface {v0, p1, p2, p3}, Lokio/BufferedSink;->write(Lokio/Buffer;J)V
 
     .line 335
-    iget-object v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1Codec;
+    iget-object p1, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSink;->this$0:Lokhttp3/internal/http1/Http1Codec;
 
-    iget-object v0, v0, Lokhttp3/internal/http1/Http1Codec;->sink:Lokio/BufferedSink;
+    iget-object p1, p1, Lokhttp3/internal/http1/Http1Codec;->sink:Lokio/BufferedSink;
 
-    invoke-interface {v0, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
+    invoke-interface {p1, v1}, Lokio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
 
-    .line 336
     return-void
 
     .line 329
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

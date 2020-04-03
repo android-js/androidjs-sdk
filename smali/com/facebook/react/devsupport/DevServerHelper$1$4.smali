@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/devsupport/DevServerHelper$1;
 
     .line 180
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$1$4;->this$1:Lcom/facebook/react/devsupport/DevServerHelper$1;
@@ -46,7 +45,6 @@
 
     invoke-interface {v0}, Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;->onPackagerConnected()V
 
-    .line 184
     return-void
 .end method
 
@@ -60,6 +58,5 @@
 
     invoke-interface {v0}, Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;->onPackagerDisconnected()V
 
-    .line 189
     return-void
 .end method

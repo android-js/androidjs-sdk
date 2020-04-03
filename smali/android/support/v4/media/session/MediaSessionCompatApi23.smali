@@ -23,13 +23,11 @@
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     return-void
 .end method
 
 .method public static createCallback(Landroid/support/v4/media/session/MediaSessionCompatApi23$Callback;)Ljava/lang/Object;
     .locals 1
-    .param p0, "callback"    # Landroid/support/v4/media/session/MediaSessionCompatApi23$Callback;
 
     .line 28
     new-instance v0, Landroid/support/v4/media/session/MediaSessionCompatApi23$CallbackProxy;

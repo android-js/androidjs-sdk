@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/core/PriorityThreadFactory;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/core/PriorityThreadFactory;
 
     .line 43
     iput-object p1, p0, Lcom/facebook/imagepipeline/core/PriorityThreadFactory$1;->this$0:Lcom/facebook/imagepipeline/core/PriorityThreadFactory;
@@ -55,19 +54,11 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 50
-    goto :goto_0
-
-    .line 48
-    :catch_0
-    move-exception v0
-
     .line 51
-    :goto_0
+    :catch_0
     iget-object v0, p0, Lcom/facebook/imagepipeline/core/PriorityThreadFactory$1;->val$runnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 52
     return-void
 .end method

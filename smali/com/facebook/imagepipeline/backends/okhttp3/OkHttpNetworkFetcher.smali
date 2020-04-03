@@ -40,8 +40,6 @@
 # direct methods
 .method public constructor <init>(Lokhttp3/Call$Factory;Ljava/util/concurrent/Executor;)V
     .locals 0
-    .param p1, "callFactory"    # Lokhttp3/Call$Factory;
-    .param p2, "cancellationExecutor"    # Ljava/util/concurrent/Executor;
 
     .line 73
     invoke-direct {p0}, Lcom/facebook/imagepipeline/producers/BaseNetworkFetcher;-><init>()V
@@ -52,13 +50,11 @@
     .line 75
     iput-object p2, p0, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->mCancellationExecutor:Ljava/util/concurrent/Executor;
 
-    .line 76
     return-void
 .end method
 
 .method public constructor <init>(Lokhttp3/OkHttpClient;)V
     .locals 1
-    .param p1, "okHttpClient"    # Lokhttp3/OkHttpClient;
 
     .line 65
     invoke-virtual {p1}, Lokhttp3/OkHttpClient;->dispatcher()Lokhttp3/Dispatcher;
@@ -71,26 +67,20 @@
 
     invoke-direct {p0, p1, v0}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;-><init>(Lokhttp3/Call$Factory;Ljava/util/concurrent/Executor;)V
 
-    .line 66
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;)Ljava/util/concurrent/Executor;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;
+    .locals 0
 
     .line 35
-    iget-object v0, p0, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->mCancellationExecutor:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->mCancellationExecutor:Ljava/util/concurrent/Executor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;Lokhttp3/Call;Ljava/lang/Exception;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;
-    .param p1, "x1"    # Lokhttp3/Call;
-    .param p2, "x2"    # Ljava/lang/Exception;
-    .param p3, "x3"    # Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;
 
     .line 35
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->handleException(Lokhttp3/Call;Ljava/lang/Exception;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
@@ -99,17 +89,14 @@
 .end method
 
 .method private handleException(Lokhttp3/Call;Ljava/lang/Exception;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
-    .locals 1
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "e"    # Ljava/lang/Exception;
-    .param p3, "callback"    # Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;
+    .locals 0
 
     .line 200
     invoke-interface {p1}, Lokhttp3/Call;->isCanceled()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 201
     invoke-interface {p3}, Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;->onCancellation()V
@@ -120,7 +107,6 @@
     :cond_0
     invoke-interface {p3, p2}, Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 205
     :goto_0
     return-void
 .end method
@@ -129,7 +115,6 @@
 # virtual methods
 .method public createFetchState(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
     .locals 1
-    .param p2, "context"    # Lcom/facebook/imagepipeline/producers/ProducerContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +128,6 @@
     .end annotation
 
     .line 82
-    .local p1, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     new-instance v0, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
 
     invoke-direct {v0, p1, p2}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)V
@@ -163,9 +147,7 @@
 .end method
 
 .method public fetch(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
-    .locals 5
-    .param p1, "fetchState"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
-    .param p2, "callback"    # Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;
+    .locals 3
 
     .line 88
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -180,7 +162,6 @@
     move-result-object v0
 
     .line 92
-    .local v0, "uri":Landroid/net/Uri;
     :try_start_0
     new-instance v1, Lokhttp3/Request$Builder;
 
@@ -206,69 +187,59 @@
     .line 94
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {v1, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 95
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
+
+    move-result-object v0
+
+    .line 97
+    invoke-virtual {p1}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->getContext()Lcom/facebook/imagepipeline/producers/ProducerContext;
 
     move-result-object v1
 
-    .line 97
-    .local v1, "requestBuilder":Lokhttp3/Request$Builder;
-    invoke-virtual {p1}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->getContext()Lcom/facebook/imagepipeline/producers/ProducerContext;
+    invoke-interface {v1}, Lcom/facebook/imagepipeline/producers/ProducerContext;->getImageRequest()Lcom/facebook/imagepipeline/request/ImageRequest;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v2}, Lcom/facebook/imagepipeline/producers/ProducerContext;->getImageRequest()Lcom/facebook/imagepipeline/request/ImageRequest;
+    invoke-virtual {v1}, Lcom/facebook/imagepipeline/request/ImageRequest;->getBytesRange()Lcom/facebook/imagepipeline/common/BytesRange;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/facebook/imagepipeline/request/ImageRequest;->getBytesRange()Lcom/facebook/imagepipeline/common/BytesRange;
+    if-eqz v1, :cond_0
 
-    move-result-object v2
-
-    .line 98
-    .local v2, "bytesRange":Lcom/facebook/imagepipeline/common/BytesRange;
-    if-eqz v2, :cond_0
+    const-string v2, "Range"
 
     .line 99
-    const-string v3, "Range"
+    invoke-virtual {v1}, Lcom/facebook/imagepipeline/common/BytesRange;->toHttpRangeHeaderValue()Ljava/lang/String;
 
-    invoke-virtual {v2}, Lcom/facebook/imagepipeline/common/BytesRange;->toHttpRangeHeaderValue()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v4
-
-    invoke-virtual {v1, v3, v4}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {v0, v2, v1}, Lokhttp3/Request$Builder;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 102
     :cond_0
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {p0, p1, p2, v3}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->fetchWithRequest(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;Lokhttp3/Request;)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->fetchWithRequest(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;Lokhttp3/Request;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 106
-    .end local v1    # "requestBuilder":Lokhttp3/Request$Builder;
-    .end local v2    # "bytesRange":Lcom/facebook/imagepipeline/common/BytesRange;
     goto :goto_0
 
-    .line 103
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 105
-    .local v1, "e":Ljava/lang/Exception;
-    invoke-interface {p2, v1}, Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;->onFailure(Ljava/lang/Throwable;)V
+    invoke-interface {p2, p1}, Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 107
-    .end local v1    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method
@@ -285,49 +256,39 @@
 .end method
 
 .method protected fetchWithRequest(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;Lokhttp3/Request;)V
-    .locals 3
-    .param p1, "fetchState"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
-    .param p2, "callback"    # Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;
-    .param p3, "request"    # Lokhttp3/Request;
+    .locals 2
 
     .line 128
     iget-object v0, p0, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;->mCallFactory:Lokhttp3/Call$Factory;
 
     invoke-interface {v0, p3}, Lokhttp3/Call$Factory;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v0
-
-    .line 130
-    .local v0, "call":Lokhttp3/Call;
-    nop
+    move-result-object p3
 
     .line 131
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->getContext()Lcom/facebook/imagepipeline/producers/ProducerContext;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$1;
+    new-instance v1, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$1;
 
-    invoke-direct {v2, p0, v0}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$1;-><init>(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;Lokhttp3/Call;)V
+    invoke-direct {v1, p0, p3}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$1;-><init>(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;Lokhttp3/Call;)V
 
     .line 132
-    invoke-interface {v1, v2}, Lcom/facebook/imagepipeline/producers/ProducerContext;->addCallbacks(Lcom/facebook/imagepipeline/producers/ProducerContextCallbacks;)V
+    invoke-interface {v0, v1}, Lcom/facebook/imagepipeline/producers/ProducerContext;->addCallbacks(Lcom/facebook/imagepipeline/producers/ProducerContextCallbacks;)V
 
     .line 150
-    new-instance v1, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$2;
+    new-instance v0, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$2;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$2;-><init>(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$2;-><init>(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher;Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V
 
-    invoke-interface {v0, v1}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+    invoke-interface {p3, v0}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 190
     return-void
 .end method
 
 .method public getExtraMap(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;I)Ljava/util/Map;
     .locals 5
-    .param p1, "fetchState"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
-    .param p2, "byteSize"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -348,7 +309,6 @@
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
     .line 117
-    .local v0, "extraMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     iget-wide v1, p1, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->responseTime:J
 
     iget-wide v3, p1, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->submitTime:J
@@ -387,22 +347,21 @@
 
     invoke-static {v1, v2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "total_time"
+    const-string v1, "total_time"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 120
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "image_size"
+    const-string p2, "image_size"
 
-    invoke-interface {v0, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 121
     return-object v0
 .end method
 
@@ -421,8 +380,6 @@
 
 .method public onFetchCompletion(Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;I)V
     .locals 2
-    .param p1, "fetchState"    # Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;
-    .param p2, "byteSize"    # I
 
     .line 111
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -431,7 +388,6 @@
 
     iput-wide v0, p1, Lcom/facebook/imagepipeline/backends/okhttp3/OkHttpNetworkFetcher$OkHttpNetworkFetchState;->fetchCompleteTime:J
 
-    .line 112
     return-void
 .end method
 

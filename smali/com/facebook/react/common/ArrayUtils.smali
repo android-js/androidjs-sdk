@@ -15,24 +15,23 @@
 
 .method public static copyArray([F)[F
     .locals 1
-    .param p0, "array"    # [F
 
-    .line 16
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_0
 
+    .line 16
     :cond_0
     array-length v0, p0
 
     invoke-static {p0, v0}, Ljava/util/Arrays;->copyOf([FI)[F
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static copyListToArray(Ljava/util/List;)[I
@@ -47,18 +46,15 @@
     .end annotation
 
     .line 20
-    .local p0, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v0
 
     new-array v0, v0, [I
 
-    .line 21
-    .local v0, "array":[I
     const/4 v1, 0x0
 
-    .local v1, "t":I
+    .line 21
     :goto_0
     invoke-interface {p0}, Ljava/util/List;->size()I
 
@@ -79,13 +75,10 @@
 
     aput v2, v0, v1
 
-    .line 21
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 24
-    .end local v1    # "t":I
     :cond_0
     return-object v0
 .end method

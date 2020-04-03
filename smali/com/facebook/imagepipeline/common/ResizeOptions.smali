@@ -20,44 +20,32 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
 
-    .line 61
     const/high16 v0, 0x45000000    # 2048.0f
 
+    .line 61
     invoke-direct {p0, p1, p2, v0}, Lcom/facebook/imagepipeline/common/ResizeOptions;-><init>(IIF)V
 
-    .line 62
     return-void
 .end method
 
 .method public constructor <init>(IIF)V
     .locals 1
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "maxBitmapSize"    # F
 
-    .line 68
     const v0, 0x3f2aaaab
 
+    .line 68
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/facebook/imagepipeline/common/ResizeOptions;-><init>(IIFF)V
 
-    .line 69
     return-void
 .end method
 
 .method public constructor <init>(IIFF)V
     .locals 3
-    .param p1, "width"    # I
-    .param p2, "height"    # I
-    .param p3, "maxBitmapSize"    # F
-    .param p4, "roundUpFraction"    # F
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
     const/4 v0, 0x1
 
     const/4 v1, 0x0
@@ -71,10 +59,10 @@
     :cond_0
     const/4 v2, 0x0
 
+    .line 76
     :goto_0
     invoke-static {v2}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
-    .line 77
     if-lez p2, :cond_1
 
     goto :goto_1
@@ -82,6 +70,7 @@
     :cond_1
     const/4 v0, 0x0
 
+    .line 77
     :goto_1
     invoke-static {v0}, Lcom/facebook/common/internal/Preconditions;->checkArgument(Z)V
 
@@ -97,18 +86,14 @@
     .line 81
     iput p4, p0, Lcom/facebook/imagepipeline/common/ResizeOptions;->roundUpFraction:F
 
-    .line 82
     return-void
 .end method
 
 .method public static forDimensions(II)Lcom/facebook/imagepipeline/common/ResizeOptions;
     .locals 1
-    .param p0, "width"    # I
-    .param p1, "height"    # I
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 42
     if-lez p0, :cond_1
 
     if-gtz p1, :cond_0
@@ -123,27 +108,23 @@
 
     return-object v0
 
-    .line 43
     :cond_1
     :goto_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static forSquareSize(I)Lcom/facebook/imagepipeline/common/ResizeOptions;
     .locals 1
-    .param p0, "size"    # I
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 52
     if-gtz p0, :cond_0
 
-    .line 53
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 55
     :cond_0
@@ -157,15 +138,12 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 93
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
 
-    .line 94
     return v0
 
     .line 96
@@ -176,28 +154,24 @@
 
     if-nez v1, :cond_1
 
-    .line 97
     return v2
 
     .line 99
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Lcom/facebook/imagepipeline/common/ResizeOptions;
+    check-cast p1, Lcom/facebook/imagepipeline/common/ResizeOptions;
 
     .line 100
-    .local v1, "that":Lcom/facebook/imagepipeline/common/ResizeOptions;
-    iget v3, p0, Lcom/facebook/imagepipeline/common/ResizeOptions;->width:I
+    iget v1, p0, Lcom/facebook/imagepipeline/common/ResizeOptions;->width:I
 
-    iget v4, v1, Lcom/facebook/imagepipeline/common/ResizeOptions;->width:I
+    iget v3, p1, Lcom/facebook/imagepipeline/common/ResizeOptions;->width:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget v3, p0, Lcom/facebook/imagepipeline/common/ResizeOptions;->height:I
+    iget v1, p0, Lcom/facebook/imagepipeline/common/ResizeOptions;->height:I
 
-    iget v4, v1, Lcom/facebook/imagepipeline/common/ResizeOptions;->height:I
+    iget p1, p1, Lcom/facebook/imagepipeline/common/ResizeOptions;->height:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, p1, :cond_2
 
     goto :goto_0
 
@@ -226,9 +200,9 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .line 106
     const/4 v0, 0x0
 
+    .line 106
     check-cast v0, Ljava/util/Locale;
 
     const/4 v1, 0x2

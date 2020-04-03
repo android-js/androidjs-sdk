@@ -98,9 +98,9 @@
 
     sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->SUBCLASSES:Landroid/support/annotation/RestrictTo$Scope;
 
-    .line 58
     const/4 v0, 0x5
 
+    .line 58
     new-array v0, v0, [Landroid/support/annotation/RestrictTo$Scope;
 
     sget-object v6, Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
@@ -144,18 +144,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/annotation/RestrictTo$Scope;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 58
     const-class v0, Landroid/support/annotation/RestrictTo$Scope;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/support/annotation/RestrictTo$Scope;
+    check-cast p0, Landroid/support/annotation/RestrictTo$Scope;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/support/annotation/RestrictTo$Scope;

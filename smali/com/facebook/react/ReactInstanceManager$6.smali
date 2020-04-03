@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/ReactInstanceManager;[Lcom/facebook/react/ReactInstanceManager$ReactInstanceEventListener;Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/ReactInstanceManager;
 
     .line 1014
     iput-object p1, p0, Lcom/facebook/react/ReactInstanceManager$6;->this$0:Lcom/facebook/react/ReactInstanceManager;
@@ -60,18 +59,14 @@
     aget-object v3, v0, v2
 
     .line 1018
-    .local v3, "listener":Lcom/facebook/react/ReactInstanceManager$ReactInstanceEventListener;
     iget-object v4, p0, Lcom/facebook/react/ReactInstanceManager$6;->val$reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
     invoke-interface {v3, v4}, Lcom/facebook/react/ReactInstanceManager$ReactInstanceEventListener;->onReactContextInitialized(Lcom/facebook/react/bridge/ReactContext;)V
 
-    .line 1017
-    .end local v3    # "listener":Lcom/facebook/react/ReactInstanceManager$ReactInstanceEventListener;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 1020
     :cond_0
     return-void
 .end method

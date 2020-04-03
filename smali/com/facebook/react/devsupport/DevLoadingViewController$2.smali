@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevLoadingViewController;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevLoadingViewController;
 
     .line 92
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevLoadingViewController$2;->this$0:Lcom/facebook/react/devsupport/DevLoadingViewController;
@@ -57,7 +56,6 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 96
-    .local v0, "message":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/facebook/react/devsupport/DevLoadingViewController$2;->val$status:Ljava/lang/String;
 
     if-eqz v1, :cond_0
@@ -144,10 +142,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 100
     :cond_1
     const-string v1, "\u2026"
 
+    .line 100
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 101
@@ -168,7 +166,6 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 104
     :cond_2
     return-void
 .end method

@@ -114,7 +114,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "value"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -127,14 +126,11 @@
     .line 293
     iput p3, p0, Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;->mValue:I
 
-    .line 294
     return-void
 .end method
 
 .method public static getMax(Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;)Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
     .locals 2
-    .param p0, "requestLevel1"    # Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
-    .param p1, "requestLevel2"    # Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
 
     .line 301
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;->getValue()I
@@ -147,31 +143,28 @@
 
     if-le v0, v1, :cond_0
 
-    move-object v0, p0
-
     goto :goto_0
 
     :cond_0
-    move-object v0, p1
+    move-object p0, p1
 
     :goto_0
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 277
     const-class v0, Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
+    check-cast p0, Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/imagepipeline/request/ImageRequest$RequestLevel;

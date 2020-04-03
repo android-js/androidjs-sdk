@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/toolbar/ReactToolbar;Lcom/facebook/drawee/view/DraweeHolder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/toolbar/ReactToolbar;
-    .param p2, "holder"    # Lcom/facebook/drawee/view/DraweeHolder;
 
     .line 141
     iput-object p1, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$1;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbar;
@@ -36,13 +34,11 @@
 # virtual methods
 .method protected setDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .line 144
     iget-object v0, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$1;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbar;
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/toolbar/ReactToolbar;->setLogo(Landroid/graphics/drawable/Drawable;)V
 
-    .line 145
     return-void
 .end method

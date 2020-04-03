@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DebugOverlayController;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DebugOverlayController;
 
     .line 99
     iput-object p1, p0, Lcom/facebook/react/devsupport/DebugOverlayController$1;->this$0:Lcom/facebook/react/devsupport/DebugOverlayController;
@@ -69,14 +68,13 @@
 
     if-nez v0, :cond_0
 
-    .line 104
     const-string v0, "ReactNative"
 
     const-string v1, "Wait for overlay permission to be set"
 
+    .line 104
     invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 105
     return-void
 
     .line 107
@@ -111,7 +109,6 @@
     invoke-direct/range {v3 .. v8}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     .line 115
-    .local v0, "params":Landroid/view/WindowManager$LayoutParams;
     iget-object v1, p0, Lcom/facebook/react/devsupport/DebugOverlayController$1;->this$0:Lcom/facebook/react/devsupport/DebugOverlayController;
 
     invoke-static {v1}, Lcom/facebook/react/devsupport/DebugOverlayController;->access$300(Lcom/facebook/react/devsupport/DebugOverlayController;)Landroid/view/WindowManager;
@@ -126,7 +123,6 @@
 
     invoke-interface {v1, v2, v0}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .end local v0    # "params":Landroid/view/WindowManager$LayoutParams;
     goto :goto_0
 
     .line 116
@@ -174,14 +170,7 @@
 
     invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DebugOverlayController;->access$002(Lcom/facebook/react/devsupport/DebugOverlayController;Landroid/widget/FrameLayout;)Landroid/widget/FrameLayout;
 
-    goto :goto_1
-
-    .line 116
     :cond_2
     :goto_0
-    nop
-
-    .line 121
-    :goto_1
     return-void
 .end method

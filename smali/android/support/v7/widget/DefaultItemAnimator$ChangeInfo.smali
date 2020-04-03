@@ -31,8 +31,6 @@
 # direct methods
 .method private constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
     .locals 0
-    .param p1, "oldHolder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .param p2, "newHolder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
     .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,18 +41,11 @@
     .line 75
     iput-object p2, p0, Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;->newHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
 
-    .line 76
     return-void
 .end method
 
 .method constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
     .locals 0
-    .param p1, "oldHolder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .param p2, "newHolder"    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .param p3, "fromX"    # I
-    .param p4, "fromY"    # I
-    .param p5, "toX"    # I
-    .param p6, "toY"    # I
 
     .line 80
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;-><init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -71,7 +62,6 @@
     .line 84
     iput p6, p0, Landroid/support/v7/widget/DefaultItemAnimator$ChangeInfo;->toY:I
 
-    .line 85
     return-void
 .end method
 

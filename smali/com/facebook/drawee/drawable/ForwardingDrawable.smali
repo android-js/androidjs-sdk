@@ -37,7 +37,6 @@
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 48
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -53,11 +52,10 @@
     iput-object p1, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
     .line 50
-    iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
-    invoke-static {v0, p0, p0}, Lcom/facebook/drawee/drawable/DrawableUtils;->setCallbacks(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;Lcom/facebook/drawee/drawable/TransformCallback;)V
+    invoke-static {p1, p0, p0}, Lcom/facebook/drawee/drawable/DrawableUtils;->setCallbacks(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;Lcom/facebook/drawee/drawable/TransformCallback;)V
 
-    .line 51
     return-void
 .end method
 
@@ -65,14 +63,12 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 1
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 145
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 146
     return-void
 .end method
 
@@ -150,21 +146,19 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 1
-    .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 160
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected getParentTransform(Landroid/graphics/Matrix;)V
     .locals 1
-    .param p1, "transform"    # Landroid/graphics/Matrix;
 
     .line 213
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mTransformCallback:Lcom/facebook/drawee/drawable/TransformCallback;
@@ -180,14 +174,12 @@
     :cond_0
     invoke-virtual {p1}, Landroid/graphics/Matrix;->reset()V
 
-    .line 218
     :goto_0
     return-void
 .end method
 
 .method public getRootBounds(Landroid/graphics/RectF;)V
     .locals 1
-    .param p1, "bounds"    # Landroid/graphics/RectF;
 
     .line 227
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mTransformCallback:Lcom/facebook/drawee/drawable/TransformCallback;
@@ -207,25 +199,21 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
-    .line 232
     :goto_0
     return-void
 .end method
 
 .method public getTransform(Landroid/graphics/Matrix;)V
     .locals 0
-    .param p1, "transform"    # Landroid/graphics/Matrix;
 
     .line 222
     invoke-virtual {p0, p1}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->getParentTransform(Landroid/graphics/Matrix;)V
 
-    .line 223
     return-void
 .end method
 
 .method public getTransformedBounds(Landroid/graphics/RectF;)V
     .locals 1
-    .param p1, "outBounds"    # Landroid/graphics/RectF;
 
     .line 240
     sget-object v0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->sTempTransform:Landroid/graphics/Matrix;
@@ -244,18 +232,15 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Matrix;->mapRect(Landroid/graphics/RectF;)Z
 
-    .line 245
     return-void
 .end method
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .line 190
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->invalidateSelf()V
 
-    .line 191
     return-void
 .end method
 
@@ -280,67 +265,57 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    .line 166
     return-object p0
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 120
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 121
     return-void
 .end method
 
 .method protected onLevelChange(I)Z
     .locals 1
-    .param p1, "level"    # I
 
     .line 140
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected onStateChange([I)Z
     .locals 1
-    .param p1, "state"    # [I
 
     .line 135
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setState([I)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
     .locals 0
-    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "what"    # Ljava/lang/Runnable;
-    .param p3, "when"    # J
 
     .line 195
     invoke-virtual {p0, p2, p3, p4}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->scheduleSelf(Ljava/lang/Runnable;J)V
 
-    .line 196
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 1
-    .param p1, "alpha"    # I
 
     .line 90
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mDrawableProperties:Lcom/facebook/drawee/drawable/DrawableProperties;
@@ -352,13 +327,11 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 92
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
-    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 96
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mDrawableProperties:Lcom/facebook/drawee/drawable/DrawableProperties;
@@ -370,38 +343,32 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    .line 98
     return-void
 .end method
 
 .method public setCurrent(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p1, "newDelegate"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
 
     .line 61
     invoke-virtual {p0, p1}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->setCurrentWithoutInvalidate(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 62
-    .local v0, "previousDelegate":Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->invalidateSelf()V
 
-    .line 63
-    return-object v0
+    return-object p1
 .end method
 
 .method protected setCurrentWithoutInvalidate(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
     .locals 2
-    .param p1, "newDelegate"    # Landroid/graphics/drawable/Drawable;
 
     .line 73
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
-    .line 74
-    .local v0, "previousDelegate":Landroid/graphics/drawable/Drawable;
     const/4 v1, 0x0
 
+    .line 74
     invoke-static {v0, v1, v1}, Lcom/facebook/drawee/drawable/DrawableUtils;->setCallbacks(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;Lcom/facebook/drawee/drawable/TransformCallback;)V
 
     .line 75
@@ -421,13 +388,11 @@
     .line 79
     iput-object p1, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mCurrentDelegate:Landroid/graphics/drawable/Drawable;
 
-    .line 80
     return-object v0
 .end method
 
 .method public setDither(Z)V
     .locals 1
-    .param p1, "dither"    # Z
 
     .line 102
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mDrawableProperties:Lcom/facebook/drawee/drawable/DrawableProperties;
@@ -439,25 +404,22 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setDither(Z)V
 
-    .line 104
     return-void
 .end method
 
 .method public setDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .param p1, "newDrawable"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
 
     .line 178
     invoke-virtual {p0, p1}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->setCurrent(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setFilterBitmap(Z)V
     .locals 1
-    .param p1, "filterBitmap"    # Z
 
     .line 108
     iget-object v0, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mDrawableProperties:Lcom/facebook/drawee/drawable/DrawableProperties;
@@ -469,14 +431,11 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setFilterBitmap(Z)V
 
-    .line 110
     return-void
 .end method
 
 .method public setHotspot(FF)V
     .locals 1
-    .param p1, "x"    # F
-    .param p2, "y"    # F
     .annotation build Landroid/annotation/TargetApi;
         value = 0x15
     .end annotation
@@ -486,25 +445,20 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setHotspot(FF)V
 
-    .line 251
     return-void
 .end method
 
 .method public setTransformCallback(Lcom/facebook/drawee/drawable/TransformCallback;)V
     .locals 0
-    .param p1, "transformCallback"    # Lcom/facebook/drawee/drawable/TransformCallback;
 
     .line 207
     iput-object p1, p0, Lcom/facebook/drawee/drawable/ForwardingDrawable;->mTransformCallback:Lcom/facebook/drawee/drawable/TransformCallback;
 
-    .line 208
     return-void
 .end method
 
 .method public setVisible(ZZ)Z
     .locals 1
-    .param p1, "visible"    # Z
-    .param p2, "restart"    # Z
 
     .line 114
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
@@ -514,19 +468,16 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
     .locals 0
-    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
-    .param p2, "what"    # Ljava/lang/Runnable;
 
     .line 200
     invoke-virtual {p0, p2}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
-    .line 201
     return-void
 .end method

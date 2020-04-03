@@ -60,9 +60,9 @@
 
     sput-object v0, Lcom/facebook/imagepipeline/common/Priority;->HIGH:Lcom/facebook/imagepipeline/common/Priority;
 
-    .line 15
     const/4 v0, 0x3
 
+    .line 15
     new-array v0, v0, [Lcom/facebook/imagepipeline/common/Priority;
 
     sget-object v4, Lcom/facebook/imagepipeline/common/Priority;->LOW:Lcom/facebook/imagepipeline/common/Priority;
@@ -98,26 +98,22 @@
 
 .method public static getHigherPriority(Lcom/facebook/imagepipeline/common/Priority;Lcom/facebook/imagepipeline/common/Priority;)Lcom/facebook/imagepipeline/common/Priority;
     .locals 2
-    .param p0, "priority1"    # Lcom/facebook/imagepipeline/common/Priority;
+    .param p0    # Lcom/facebook/imagepipeline/common/Priority;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p1, "priority2"    # Lcom/facebook/imagepipeline/common/Priority;
+    .param p1    # Lcom/facebook/imagepipeline/common/Priority;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 45
     if-nez p0, :cond_0
 
-    .line 46
     return-object p1
 
-    .line 48
     :cond_0
     if-nez p1, :cond_1
 
-    .line 49
     return-object p0
 
     .line 51
@@ -132,28 +128,25 @@
 
     if-le v0, v1, :cond_2
 
-    .line 52
     return-object p0
 
-    .line 54
     :cond_2
     return-object p1
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/imagepipeline/common/Priority;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 15
     const-class v0, Lcom/facebook/imagepipeline/common/Priority;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/imagepipeline/common/Priority;
+    check-cast p0, Lcom/facebook/imagepipeline/common/Priority;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/imagepipeline/common/Priority;

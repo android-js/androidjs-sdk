@@ -26,25 +26,25 @@
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 21
     const/high16 v0, -0x80000000
 
+    .line 21
     iput v0, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mPrevX:I
 
     .line 22
     iput v0, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mPrevY:I
 
-    .line 23
     const/4 v0, 0x0
 
+    .line 23
     iput v0, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mXFlingVelocity:F
 
     .line 24
     iput v0, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mYFlingVelocity:F
 
-    .line 26
     const-wide/16 v0, -0xb
 
+    .line 26
     iput-wide v0, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mLastScrollEventTimeMs:J
 
     return-void
@@ -72,8 +72,6 @@
 
 .method public onScrollChanged(II)Z
     .locals 10
-    .param p1, "x"    # I
-    .param p2, "y"    # I
 
     .line 33
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -81,7 +79,6 @@
     move-result-wide v0
 
     .line 34
-    .local v0, "eventTime":J
     iget-wide v2, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mLastScrollEventTimeMs:J
 
     sub-long v2, v0, v2
@@ -112,7 +109,6 @@
     const/4 v2, 0x1
 
     .line 39
-    .local v2, "shouldDispatch":Z
     :goto_1
     iget-wide v3, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mLastScrollEventTimeMs:J
 
@@ -164,6 +160,5 @@
     .line 46
     iput p2, p0, Lcom/facebook/react/views/scroll/OnScrollDispatchHelper;->mPrevY:I
 
-    .line 48
     return v2
 .end method

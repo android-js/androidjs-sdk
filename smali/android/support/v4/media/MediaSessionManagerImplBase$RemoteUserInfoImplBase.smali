@@ -28,9 +28,6 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "pid"    # I
-    .param p3, "uid"    # I
 
     .line 125
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,22 +41,18 @@
     .line 128
     iput p3, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mUid:I
 
-    .line 129
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 5
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 4
 
-    .line 148
     const/4 v0, 0x1
 
     if-ne p0, p1, :cond_0
 
-    .line 149
     return v0
 
     .line 151
@@ -70,38 +63,34 @@
 
     if-nez v1, :cond_1
 
-    .line 152
     return v2
 
     .line 154
     :cond_1
-    move-object v1, p1
-
-    check-cast v1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;
+    check-cast p1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;
 
     .line 155
-    .local v1, "otherUserInfo":Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;
-    iget-object v3, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPackageName:Ljava/lang/String;
+    iget-object v1, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPackageName:Ljava/lang/String;
 
-    iget-object v4, v1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPackageName:Ljava/lang/String;
+    iget-object v3, p1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPackageName:Ljava/lang/String;
 
-    invoke-static {v3, v4}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v1, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
-    iget v3, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPid:I
+    iget v1, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPid:I
 
-    iget v4, v1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPid:I
+    iget v3, p1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPid:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget v3, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mUid:I
+    iget v1, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mUid:I
 
-    iget v4, v1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mUid:I
+    iget p1, p1, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mUid:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v1, p1, :cond_2
 
     goto :goto_0
 
@@ -142,9 +131,9 @@
 .method public hashCode()I
     .locals 3
 
-    .line 162
     const/4 v0, 0x3
 
+    .line 162
     new-array v0, v0, [Ljava/lang/Object;
 
     iget-object v1, p0, Landroid/support/v4/media/MediaSessionManagerImplBase$RemoteUserInfoImplBase;->mPackageName:Ljava/lang/String;

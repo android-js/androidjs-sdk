@@ -34,17 +34,14 @@
 .end method
 
 .method public static getActiveScaleTypeDrawable(Landroid/graphics/drawable/Drawable;)Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
-    .locals 6
-    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .locals 4
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
-    .line 114
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
-    .line 115
     return-object v0
 
     .line 116
@@ -54,11 +51,9 @@
     if-eqz v1, :cond_1
 
     .line 117
-    move-object v0, p0
+    check-cast p0, Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
 
-    check-cast v0, Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
-
-    return-object v0
+    return-object p0
 
     .line 118
     :cond_1
@@ -67,78 +62,57 @@
     if-eqz v1, :cond_2
 
     .line 119
-    move-object v0, p0
+    check-cast p0, Lcom/facebook/drawee/drawable/DrawableParent;
 
-    check-cast v0, Lcom/facebook/drawee/drawable/DrawableParent;
+    invoke-interface {p0}, Lcom/facebook/drawee/drawable/DrawableParent;->getDrawable()Landroid/graphics/drawable/Drawable;
 
-    invoke-interface {v0}, Lcom/facebook/drawee/drawable/DrawableParent;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
+    move-result-object p0
 
     .line 120
-    .local v0, "childDrawable":Landroid/graphics/drawable/Drawable;
-    invoke-static {v0}, Lcom/facebook/drawee/drawable/ScalingUtils;->getActiveScaleTypeDrawable(Landroid/graphics/drawable/Drawable;)Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
+    invoke-static {p0}, Lcom/facebook/drawee/drawable/ScalingUtils;->getActiveScaleTypeDrawable(Landroid/graphics/drawable/Drawable;)Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 
     .line 121
-    .end local v0    # "childDrawable":Landroid/graphics/drawable/Drawable;
     :cond_2
     instance-of v1, p0, Lcom/facebook/drawee/drawable/ArrayDrawable;
 
     if-eqz v1, :cond_4
 
     .line 122
-    move-object v1, p0
-
-    check-cast v1, Lcom/facebook/drawee/drawable/ArrayDrawable;
+    check-cast p0, Lcom/facebook/drawee/drawable/ArrayDrawable;
 
     .line 123
-    .local v1, "fadeDrawable":Lcom/facebook/drawee/drawable/ArrayDrawable;
-    invoke-virtual {v1}, Lcom/facebook/drawee/drawable/ArrayDrawable;->getNumberOfLayers()I
+    invoke-virtual {p0}, Lcom/facebook/drawee/drawable/ArrayDrawable;->getNumberOfLayers()I
 
-    move-result v2
+    move-result v1
 
-    .line 125
-    .local v2, "numLayers":I
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .local v3, "i":I
     :goto_0
-    if-ge v3, v2, :cond_4
+    if-ge v2, v1, :cond_4
 
     .line 126
-    invoke-virtual {v1, v3}, Lcom/facebook/drawee/drawable/ArrayDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v2}, Lcom/facebook/drawee/drawable/ArrayDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 127
-    .local v4, "childDrawable":Landroid/graphics/drawable/Drawable;
-    invoke-static {v4}, Lcom/facebook/drawee/drawable/ScalingUtils;->getActiveScaleTypeDrawable(Landroid/graphics/drawable/Drawable;)Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
+    invoke-static {v3}, Lcom/facebook/drawee/drawable/ScalingUtils;->getActiveScaleTypeDrawable(Landroid/graphics/drawable/Drawable;)Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
 
-    move-result-object v5
+    move-result-object v3
 
-    .line 128
-    .local v5, "result":Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
-    if-eqz v5, :cond_3
+    if-eqz v3, :cond_3
 
-    .line 129
-    return-object v5
+    return-object v3
 
-    .line 125
-    .end local v4    # "childDrawable":Landroid/graphics/drawable/Drawable;
-    .end local v5    # "result":Lcom/facebook/drawee/drawable/ScaleTypeDrawable;
     :cond_3
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 133
-    .end local v1    # "fadeDrawable":Lcom/facebook/drawee/drawable/ArrayDrawable;
-    .end local v2    # "numLayers":I
-    .end local v3    # "i":I
     :cond_4
     return-object v0
 .end method

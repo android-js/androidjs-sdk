@@ -32,7 +32,7 @@
 
 .method public executeOnMainThread(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
+    .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -53,7 +53,6 @@
     :cond_0
     invoke-virtual {p0, p1}, Landroid/arch/core/executor/TaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
-    .line 59
     :goto_0
     return-void
 .end method

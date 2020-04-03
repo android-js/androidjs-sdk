@@ -21,11 +21,11 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "id"    # Ljava/lang/String;
+    .param p2    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -48,7 +48,6 @@
     .line 187
     iput-object p2, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mId:Ljava/lang/String;
 
-    .line 188
     return-void
 .end method
 
@@ -113,7 +112,7 @@
 
 .method public setActivity(Landroid/content/ComponentName;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 1
-    .param p1, "activity"    # Landroid/content/ComponentName;
+    .param p1    # Landroid/content/ComponentName;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -125,7 +124,6 @@
 
     iput-object p1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
 
-    .line 276
     return-object p0
 .end method
 
@@ -139,13 +137,12 @@
 
     iput-boolean v1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIsAlwaysBadged:Z
 
-    .line 293
     return-object p0
 .end method
 
 .method public setDisabledMessage(Ljava/lang/CharSequence;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 1
-    .param p1, "disabledMessage"    # Ljava/lang/CharSequence;
+    .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -157,13 +154,11 @@
 
     iput-object p1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
 
-    .line 228
     return-object p0
 .end method
 
 .method public setIcon(Landroid/support/v4/graphics/drawable/IconCompat;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 1
-    .param p1, "icon"    # Landroid/support/v4/graphics/drawable/IconCompat;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -172,22 +167,21 @@
 
     iput-object p1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    .line 263
     return-object p0
 .end method
 
 .method public setIntent(Landroid/content/Intent;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
+    .param p1    # Landroid/content/Intent;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    .line 242
     const/4 v0, 0x1
 
+    .line 242
     new-array v0, v0, [Landroid/content/Intent;
 
     const/4 v1, 0x0
@@ -196,14 +190,14 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;->setIntents([Landroid/content/Intent;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public setIntents([Landroid/content/Intent;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 1
-    .param p1, "intents"    # [Landroid/content/Intent;
+    .param p1    # [Landroid/content/Intent;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -215,13 +209,12 @@
 
     iput-object p1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
 
-    .line 254
     return-object p0
 .end method
 
 .method public setLongLabel(Ljava/lang/CharSequence;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 1
-    .param p1, "longLabel"    # Ljava/lang/CharSequence;
+    .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -233,13 +226,12 @@
 
     iput-object p1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
 
-    .line 216
     return-object p0
 .end method
 
 .method public setShortLabel(Ljava/lang/CharSequence;)Landroid/support/v4/content/pm/ShortcutInfoCompat$Builder;
     .locals 1
-    .param p1, "shortLabel"    # Ljava/lang/CharSequence;
+    .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -251,6 +243,5 @@
 
     iput-object p1, v0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLabel:Ljava/lang/CharSequence;
 
-    .line 202
     return-object p0
 .end method

@@ -34,8 +34,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker;Lcom/facebook/soloader/ExtractFromZipSoSource$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker;
-    .param p2, "x1"    # Lcom/facebook/soloader/ExtractFromZipSoSource$1;
 
     .line 145
     invoke-direct {p0, p1}, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker$ZipBackedInputDsoIterator;-><init>(Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker;)V
@@ -106,7 +104,6 @@
     aget-object v0, v0, v1
 
     .line 159
-    .local v0, "zipDso":Lcom/facebook/soloader/ExtractFromZipSoSource$ZipDso;
     iget-object v1, p0, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker$ZipBackedInputDsoIterator;->this$1:Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker;
 
     invoke-static {v1}, Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker;->access$200(Lcom/facebook/soloader/ExtractFromZipSoSource$ZipUnpacker;)Ljava/util/zip/ZipFile;
@@ -120,7 +117,6 @@
     move-result-object v1
 
     .line 161
-    .local v1, "is":Ljava/io/InputStream;
     :try_start_0
     new-instance v2, Lcom/facebook/soloader/UnpackingSoSource$InputDso;
 
@@ -128,34 +124,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 162
-    .local v2, "ret":Lcom/facebook/soloader/UnpackingSoSource$InputDso;
-    const/4 v1, 0x0
+    return-object v2
 
-    .line 163
-    nop
+    :catchall_0
+    move-exception v0
 
-    .line 165
     if-eqz v1, :cond_0
 
     .line 166
     invoke-virtual {v1}, Ljava/io/InputStream;->close()V
 
-    .line 163
-    :cond_0
-    return-object v2
-
-    .line 165
-    .end local v2    # "ret":Lcom/facebook/soloader/UnpackingSoSource$InputDso;
-    :catchall_0
-    move-exception v2
-
-    if-eqz v1, :cond_1
-
-    .line 166
-    invoke-virtual {v1}, Ljava/io/InputStream;->close()V
-
     .line 168
-    :cond_1
-    throw v2
+    :cond_0
+    throw v0
 .end method

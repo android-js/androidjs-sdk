@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Lokhttp3/internal/http2/ErrorCode;)V
     .locals 2
-    .param p1, "errorCode"    # Lokhttp3/internal/http2/ErrorCode;
 
     .line 25
     new-instance v0, Ljava/lang/StringBuilder;
@@ -32,6 +31,5 @@
     .line 26
     iput-object p1, p0, Lokhttp3/internal/http2/StreamResetException;->errorCode:Lokhttp3/internal/http2/ErrorCode;
 
-    .line 27
     return-void
 .end method

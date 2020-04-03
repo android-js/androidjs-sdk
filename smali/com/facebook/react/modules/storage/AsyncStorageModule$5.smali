@@ -32,8 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/storage/AsyncStorageModule;Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/bridge/Callback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/storage/AsyncStorageModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 376
     iput-object p1, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->this$0:Lcom/facebook/react/modules/storage/AsyncStorageModule;
@@ -59,100 +57,93 @@
 .end method
 
 .method protected varargs doInBackgroundGuarded([Ljava/lang/Void;)V
-    .locals 6
-    .param p1, "params"    # [Ljava/lang/Void;
+    .locals 5
 
     .line 379
-    iget-object v0, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->this$0:Lcom/facebook/react/modules/storage/AsyncStorageModule;
+    iget-object p1, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->this$0:Lcom/facebook/react/modules/storage/AsyncStorageModule;
 
-    invoke-static {v0}, Lcom/facebook/react/modules/storage/AsyncStorageModule;->access$100(Lcom/facebook/react/modules/storage/AsyncStorageModule;)Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;
+    invoke-static {p1}, Lcom/facebook/react/modules/storage/AsyncStorageModule;->access$100(Lcom/facebook/react/modules/storage/AsyncStorageModule;)Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;->ensureDatabase()Z
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-nez p1, :cond_0
+
+    .line 380
+    iget-object p1, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->val$callback:Lcom/facebook/react/bridge/Callback;
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {v0}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getDBError(Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;->ensureDatabase()Z
+    aput-object v0, v1, v2
 
-    move-result v0
+    invoke-interface {p1, v1}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    if-nez v0, :cond_0
-
-    .line 380
-    iget-object v0, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->val$callback:Lcom/facebook/react/bridge/Callback;
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-static {v1}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getDBError(Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
-
-    move-result-object v1
-
-    aput-object v1, v2, v3
-
-    invoke-interface {v0, v2}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
-
-    .line 381
     return-void
 
     .line 384
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->this$0:Lcom/facebook/react/modules/storage/AsyncStorageModule;
+    iget-object p1, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->this$0:Lcom/facebook/react/modules/storage/AsyncStorageModule;
 
-    invoke-static {v0}, Lcom/facebook/react/modules/storage/AsyncStorageModule;->access$100(Lcom/facebook/react/modules/storage/AsyncStorageModule;)Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;
+    invoke-static {p1}, Lcom/facebook/react/modules/storage/AsyncStorageModule;->access$100(Lcom/facebook/react/modules/storage/AsyncStorageModule;)Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;->clear()V
+    invoke-virtual {p1}, Lcom/facebook/react/modules/storage/ReactDatabaseSupplier;->clear()V
 
     .line 385
-    iget-object v0, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->val$callback:Lcom/facebook/react/bridge/Callback;
+    iget-object p1, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->val$callback:Lcom/facebook/react/bridge/Callback;
 
-    new-array v4, v3, [Ljava/lang/Object;
+    new-array v3, v2, [Ljava/lang/Object;
 
-    invoke-interface {v0, v4}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
+    invoke-interface {p1, v3}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 389
     goto :goto_0
 
-    .line 386
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 387
-    .local v0, "e":Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string v5, "ReactNative"
+    const-string v4, "ReactNative"
 
-    invoke-static {v5, v4, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v4, v3, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 388
-    iget-object v4, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->val$callback:Lcom/facebook/react/bridge/Callback;
+    iget-object v3, p0, Lcom/facebook/react/modules/storage/AsyncStorageModule$5;->val$callback:Lcom/facebook/react/bridge/Callback;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object p1
 
-    invoke-static {v1, v5}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getError(Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
+    invoke-static {v0, p1}, Lcom/facebook/react/modules/storage/AsyncStorageErrorUtil;->getError(Ljava/lang/String;Ljava/lang/String;)Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v1
+    move-result-object p1
 
-    aput-object v1, v2, v3
+    aput-object p1, v1, v2
 
-    invoke-interface {v4, v2}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
+    invoke-interface {v3, v1}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 390
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method

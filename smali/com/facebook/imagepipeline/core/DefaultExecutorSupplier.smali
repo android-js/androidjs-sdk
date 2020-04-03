@@ -25,7 +25,6 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 4
-    .param p1, "numCpuBoundThreads"    # I
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,9 +40,9 @@
 
     invoke-direct {v0, v1, v3, v2}, Lcom/facebook/imagepipeline/core/PriorityThreadFactory;-><init>(ILjava/lang/String;Z)V
 
-    .line 32
     const/4 v3, 0x2
 
+    .line 32
     invoke-static {v3, v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
@@ -74,25 +73,24 @@
     .line 42
     invoke-static {p1, v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/core/DefaultExecutorSupplier;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/core/DefaultExecutorSupplier;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
     .line 46
-    new-instance v0, Lcom/facebook/imagepipeline/core/PriorityThreadFactory;
+    new-instance p1, Lcom/facebook/imagepipeline/core/PriorityThreadFactory;
 
-    const-string v3, "FrescoLightWeightBackgroundExecutor"
+    const-string v0, "FrescoLightWeightBackgroundExecutor"
 
-    invoke-direct {v0, v1, v3, v2}, Lcom/facebook/imagepipeline/core/PriorityThreadFactory;-><init>(ILjava/lang/String;Z)V
+    invoke-direct {p1, v1, v0, v2}, Lcom/facebook/imagepipeline/core/PriorityThreadFactory;-><init>(ILjava/lang/String;Z)V
 
     .line 47
-    invoke-static {v2, v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
+    invoke-static {v2, p1}, Ljava/util/concurrent/Executors;->newFixedThreadPool(ILjava/util/concurrent/ThreadFactory;)Ljava/util/concurrent/ExecutorService;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/core/DefaultExecutorSupplier;->mLightWeightBackgroundExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/core/DefaultExecutorSupplier;->mLightWeightBackgroundExecutor:Ljava/util/concurrent/Executor;
 
-    .line 52
     return-void
 .end method
 

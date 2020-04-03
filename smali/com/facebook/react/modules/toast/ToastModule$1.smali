@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/toast/ToastModule;Ljava/lang/String;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/toast/ToastModule;
 
     .line 57
     iput-object p1, p0, Lcom/facebook/react/modules/toast/ToastModule$1;->this$0:Lcom/facebook/react/modules/toast/ToastModule;
@@ -64,6 +63,5 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 61
     return-void
 .end method

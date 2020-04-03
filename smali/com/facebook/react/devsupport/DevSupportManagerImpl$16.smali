@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl;[Lcom/facebook/react/devsupport/interfaces/DevOptionHandler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     .line 578
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$16;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
@@ -41,24 +40,21 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
+    .locals 0
 
     .line 581
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$16;->val$optionHandlers:[Lcom/facebook/react/devsupport/interfaces/DevOptionHandler;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$16;->val$optionHandlers:[Lcom/facebook/react/devsupport/interfaces/DevOptionHandler;
 
-    aget-object v0, v0, p2
+    aget-object p1, p1, p2
 
-    invoke-interface {v0}, Lcom/facebook/react/devsupport/interfaces/DevOptionHandler;->onOptionSelected()V
+    invoke-interface {p1}, Lcom/facebook/react/devsupport/interfaces/DevOptionHandler;->onOptionSelected()V
 
     .line 582
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$16;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$16;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-static {v0, v1}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$1402(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {p1, p2}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->access$1402(Lcom/facebook/react/devsupport/DevSupportManagerImpl;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    .line 583
     return-void
 .end method

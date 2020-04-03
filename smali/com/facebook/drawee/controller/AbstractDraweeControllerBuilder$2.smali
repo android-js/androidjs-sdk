@@ -43,10 +43,8 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;Lcom/facebook/drawee/interfaces/DraweeController;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$CacheLevel;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
     .line 391
-    .local p0, "this":Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;, "Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;"
     iput-object p1, p0, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;->this$0:Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
     iput-object p2, p0, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;->val$controller:Lcom/facebook/drawee/interfaces/DraweeController;
@@ -77,7 +75,6 @@
     .end annotation
 
     .line 394
-    .local p0, "this":Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;, "Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;"
     iget-object v0, p0, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;->this$0:Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
     iget-object v1, p0, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;->val$controller:Lcom/facebook/drawee/interfaces/DraweeController;
@@ -101,7 +98,6 @@
     .locals 1
 
     .line 391
-    .local p0, "this":Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;, "Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;"
     invoke-virtual {p0}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;->get()Lcom/facebook/datasource/DataSource;
 
     move-result-object v0
@@ -113,7 +109,6 @@
     .locals 3
 
     .line 400
-    .local p0, "this":Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;, "Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder$2;"
     invoke-static {p0}, Lcom/facebook/common/internal/Objects;->toStringHelper(Ljava/lang/Object;)Lcom/facebook/common/internal/Objects$ToStringHelper;
 
     move-result-object v0

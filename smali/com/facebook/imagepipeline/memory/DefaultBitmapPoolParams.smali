@@ -31,7 +31,6 @@
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
     return-void
 .end method
 
@@ -52,7 +51,6 @@
 
     invoke-direct {v0, v3, v1, v2}, Lcom/facebook/imagepipeline/memory/PoolParams;-><init>(IILandroid/util/SparseIntArray;)V
 
-    .line 46
     return-object v0
 .end method
 
@@ -76,22 +74,20 @@
 
     long-to-int v1, v0
 
-    .line 33
-    .local v1, "maxMemory":I
     const/high16 v0, 0x1000000
 
     if-le v1, v0, :cond_0
 
     .line 34
-    div-int/lit8 v0, v1, 0x4
+    div-int/lit8 v1, v1, 0x4
 
-    mul-int/lit8 v0, v0, 0x3
+    mul-int/lit8 v1, v1, 0x3
 
-    return v0
+    return v1
 
     .line 36
     :cond_0
-    div-int/lit8 v0, v1, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    return v0
+    return v1
 .end method

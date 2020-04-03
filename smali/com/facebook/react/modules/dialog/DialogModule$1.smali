@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/dialog/DialogModule;Lcom/facebook/react/modules/dialog/DialogModule$FragmentManagerHelper;Landroid/os/Bundle;Lcom/facebook/react/bridge/Callback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/dialog/DialogModule;
 
     .line 255
     iput-object p1, p0, Lcom/facebook/react/modules/dialog/DialogModule$1;->this$0:Lcom/facebook/react/modules/dialog/DialogModule;
@@ -66,6 +65,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/facebook/react/modules/dialog/DialogModule$FragmentManagerHelper;->showNewAlert(ZLandroid/os/Bundle;Lcom/facebook/react/bridge/Callback;)V
 
-    .line 259
     return-void
 .end method

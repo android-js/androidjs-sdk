@@ -95,9 +95,9 @@
 
     sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->RESUMED:Landroid/arch/lifecycle/Lifecycle$State;
 
-    .line 150
     const/4 v0, 0x5
 
+    .line 150
     new-array v0, v0, [Landroid/arch/lifecycle/Lifecycle$State;
 
     sget-object v6, Landroid/arch/lifecycle/Lifecycle$State;->DESTROYED:Landroid/arch/lifecycle/Lifecycle$State;
@@ -141,18 +141,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/arch/lifecycle/Lifecycle$State;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 150
     const-class v0, Landroid/arch/lifecycle/Lifecycle$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/arch/lifecycle/Lifecycle$State;
+    check-cast p0, Landroid/arch/lifecycle/Lifecycle$State;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/arch/lifecycle/Lifecycle$State;
@@ -173,8 +172,8 @@
 
 # virtual methods
 .method public isAtLeast(Landroid/arch/lifecycle/Lifecycle$State;)Z
-    .locals 1
-    .param p1, "state"    # Landroid/arch/lifecycle/Lifecycle$State;
+    .locals 0
+    .param p1    # Landroid/arch/lifecycle/Lifecycle$State;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -182,17 +181,17 @@
     .line 199
     invoke-virtual {p0, p1}, Landroid/arch/lifecycle/Lifecycle$State;->compareTo(Ljava/lang/Enum;)I
 
-    move-result v0
+    move-result p1
 
-    if-ltz v0, :cond_0
+    if-ltz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method

@@ -45,9 +45,7 @@
 # virtual methods
 .method public onSettings(Lokhttp3/internal/http2/Http2Connection;)V
     .locals 0
-    .param p1, "connection"    # Lokhttp3/internal/http2/Http2Connection;
 
-    .line 950
     return-void
 .end method
 

@@ -12,12 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
-
-    .line 16
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/facebook/cache/common/NoOpCacheErrorLogger;->sInstance:Lcom/facebook/cache/common/NoOpCacheErrorLogger;
+    .locals 0
 
     return-void
 .end method
@@ -28,7 +23,6 @@
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
     return-void
 .end method
 
@@ -62,7 +56,6 @@
 
     return-object v1
 
-    .line 21
     :catchall_0
     move-exception v1
 
@@ -75,9 +68,7 @@
 # virtual methods
 .method public logError(Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "category"    # Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
-    .param p3, "message"    # Ljava/lang/String;
-    .param p4, "throwable"    # Ljava/lang/Throwable;
+    .param p4    # Ljava/lang/Throwable;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -93,7 +84,5 @@
         }
     .end annotation
 
-    .line 41
-    .local p2, "clazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     return-void
 .end method

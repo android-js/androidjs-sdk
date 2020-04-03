@@ -62,8 +62,7 @@
 
 # virtual methods
 .method public bridge synthetic then(Lbolts/Task;)Ljava/lang/Object;
-    .locals 1
-    .param p1, "x0"    # Lbolts/Task;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -73,13 +72,13 @@
     .line 538
     invoke-virtual {p0, p1}, Lbolts/Task$8;->then(Lbolts/Task;)Ljava/lang/Void;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public then(Lbolts/Task;)Ljava/lang/Void;
-    .locals 5
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +90,6 @@
     .end annotation
 
     .line 541
-    .local p1, "task":Lbolts/Task;, "Lbolts/Task<Ljava/lang/Object;>;"
     invoke-virtual {p1}, Lbolts/Task;->isFaulted()Z
 
     move-result v0
@@ -119,140 +117,136 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     .line 547
     :cond_0
     :goto_0
     invoke-virtual {p1}, Lbolts/Task;->isCancelled()Z
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 548
-    iget-object v0, p0, Lbolts/Task$8;->val$isCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p1, p0, Lbolts/Task$8;->val$isCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 551
     :cond_1
-    iget-object v0, p0, Lbolts/Task$8;->val$count:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object p1, p0, Lbolts/Task$8;->val$count:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicInteger;->decrementAndGet()I
 
-    move-result v0
+    move-result p1
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_5
+
+    .line 552
+    iget-object p1, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    .line 553
+    iget-object p1, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_5
-
-    .line 552
-    iget-object v0, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 553
-    iget-object v0, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const/4 v3, 0x0
-
-    if-ne v0, v1, :cond_2
+    if-ne p1, v0, :cond_2
 
     .line 554
-    iget-object v0, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
+    iget-object p1, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
 
-    iget-object v1, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
+    iget-object v0, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/Exception;
+    check-cast v0, Ljava/lang/Exception;
 
-    invoke-virtual {v0, v1}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
+    invoke-virtual {p1, v0}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
 
     goto :goto_1
 
     .line 556
     :cond_2
-    new-instance v0, Lbolts/AggregateException;
+    new-instance p1, Lbolts/AggregateException;
 
-    new-array v1, v1, [Ljava/lang/Object;
-
-    iget-object v4, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v4
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v1, v3
-
-    const-string v3, "There were %d exceptions."
-
-    invoke-static {v3, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
+    new-array v0, v0, [Ljava/lang/Object;
 
     iget-object v3, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
 
-    invoke-direct {v0, v1, v3}, Lbolts/AggregateException;-><init>(Ljava/lang/String;Ljava/util/List;)V
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v0, v2
+
+    const-string v2, "There were %d exceptions."
+
+    invoke-static {v2, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lbolts/Task$8;->val$causes:Ljava/util/ArrayList;
+
+    invoke-direct {p1, v0, v2}, Lbolts/AggregateException;-><init>(Ljava/lang/String;Ljava/util/List;)V
 
     .line 559
-    .local v0, "error":Ljava/lang/Exception;
-    iget-object v1, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
+    iget-object v0, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v1, v0}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
+    invoke-virtual {v0, p1}, Lbolts/TaskCompletionSource;->setError(Ljava/lang/Exception;)V
 
-    .line 560
-    .end local v0    # "error":Ljava/lang/Exception;
     goto :goto_1
 
     .line 561
     :cond_3
-    iget-object v0, p0, Lbolts/Task$8;->val$isCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object p1, p0, Lbolts/Task$8;->val$isCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+    invoke-virtual {p1}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_4
+    if-eqz p1, :cond_4
 
     .line 562
-    iget-object v0, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
+    iget-object p1, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v0}, Lbolts/TaskCompletionSource;->setCancelled()V
+    invoke-virtual {p1}, Lbolts/TaskCompletionSource;->setCancelled()V
 
     goto :goto_1
 
     .line 564
     :cond_4
-    iget-object v0, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
+    iget-object p1, p0, Lbolts/Task$8;->val$allFinished:Lbolts/TaskCompletionSource;
 
-    invoke-virtual {v0, v2}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
+    invoke-virtual {p1, v1}, Lbolts/TaskCompletionSource;->setResult(Ljava/lang/Object;)V
 
-    .line 567
     :cond_5
     :goto_1
-    return-object v2
+    return-object v1
 .end method

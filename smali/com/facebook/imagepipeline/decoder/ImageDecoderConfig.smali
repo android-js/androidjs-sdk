@@ -37,7 +37,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,18 +51,15 @@
     .line 26
     invoke-static {p1}, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;->access$100(Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig;->mCustomImageFormats:Ljava/util/List;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig;->mCustomImageFormats:Ljava/util/List;
 
-    .line 27
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$1;
 
     .line 18
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig;-><init>(Lcom/facebook/imagepipeline/decoder/ImageDecoderConfig$Builder;)V

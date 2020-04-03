@@ -38,20 +38,19 @@
 
 # virtual methods
 .method public final onNotification(Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "params"    # Ljava/lang/Object;
+    .locals 1
+    .param p1    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
 
     .line 19
-    sget-object v0, Lcom/facebook/react/packagerconnection/RequestOnlyHandler;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/facebook/react/packagerconnection/RequestOnlyHandler;->TAG:Ljava/lang/String;
 
-    const-string v1, "Notification is not supported"
+    const-string v0, "Notification is not supported"
 
-    invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 20
     return-void
 .end method
 

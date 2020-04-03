@@ -80,7 +80,6 @@
 
     iput-object v0, p0, Lbolts/BoltsExecutors;->immediate:Ljava/util/concurrent/Executor;
 
-    .line 34
     return-void
 .end method
 
@@ -107,23 +106,20 @@
 .end method
 
 .method private static isAndroidRuntime()Z
-    .locals 3
+    .locals 2
 
-    .line 17
     const-string v0, "java.runtime.name"
 
+    .line 17
     invoke-static {v0}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 18
-    .local v0, "javaRuntimeName":Ljava/lang/String;
     if-nez v0, :cond_0
 
-    .line 19
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 
     .line 21
     :cond_0
@@ -131,15 +127,15 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "android"
+    const-string v1, "android"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    return v1
+    return v0
 .end method
 
 .method static scheduled()Ljava/util/concurrent/ScheduledExecutorService;

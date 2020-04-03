@@ -15,7 +15,6 @@
 
 .method public static mapProducerNameToImageOrigin(Ljava/lang/String;)I
     .locals 7
-    .param p0, "producerName"    # Ljava/lang/String;
 
     .line 33
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -36,7 +35,6 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    :cond_0
     goto :goto_0
 
     :sswitch_0
@@ -44,11 +42,11 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_1
 
@@ -57,11 +55,11 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
     goto :goto_1
 
@@ -70,11 +68,11 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x4
+    const/4 p0, 0x4
 
     goto :goto_1
 
@@ -83,11 +81,11 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x2
+    const/4 p0, 0x2
 
     goto :goto_1
 
@@ -96,44 +94,40 @@
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
+    :cond_0
     :goto_0
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
     :goto_1
-    if-eqz v0, :cond_4
+    if-eqz p0, :cond_4
 
-    if-eq v0, v6, :cond_4
+    if-eq p0, v6, :cond_4
 
-    if-eq v0, v5, :cond_3
+    if-eq p0, v5, :cond_3
 
-    if-eq v0, v4, :cond_2
+    if-eq p0, v4, :cond_2
 
-    if-eq v0, v2, :cond_1
+    if-eq p0, v2, :cond_1
 
-    .line 44
     return v3
 
-    .line 42
     :cond_1
     return v1
 
-    .line 40
     :cond_2
     return v6
 
-    .line 38
     :cond_3
     return v5
 
-    .line 36
     :cond_4
     return v4
 
@@ -149,9 +143,7 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "imageOrigin"    # I
 
-    .line 18
     if-eqz p0, :cond_3
 
     const/4 v0, 0x1
@@ -166,32 +158,27 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 28
-    const-string v0, "unknown"
+    const-string p0, "unknown"
 
-    return-object v0
+    return-object p0
 
-    .line 26
     :cond_0
-    const-string v0, "memory_bitmap"
+    const-string p0, "memory_bitmap"
 
-    return-object v0
+    return-object p0
 
-    .line 24
     :cond_1
-    const-string v0, "memory_encoded"
+    const-string p0, "memory_encoded"
 
-    return-object v0
+    return-object p0
 
-    .line 22
     :cond_2
-    const-string v0, "disk"
+    const-string p0, "disk"
 
-    return-object v0
+    return-object p0
 
-    .line 20
     :cond_3
-    const-string v0, "network"
+    const-string p0, "network"
 
-    return-object v0
+    return-object p0
 .end method

@@ -24,10 +24,7 @@
 
 # direct methods
 .method constructor <init>(IILjava/io/DataInputStream;)V
-    .locals 3
-    .param p1, "fieldId"    # I
-    .param p2, "size"    # I
-    .param p3, "inputStream"    # Ljava/io/DataInputStream;
+    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -44,25 +41,23 @@
     iput p1, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mFieldId:I
 
     .line 513
-    iget v0, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mSize:I
+    iget p1, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mSize:I
 
-    new-array v0, v0, [B
+    new-array p1, p1, [B
 
     .line 514
-    .local v0, "data":[B
-    invoke-virtual {p3, v0}, Ljava/io/DataInputStream;->readFully([B)V
+    invoke-virtual {p3, p1}, Ljava/io/DataInputStream;->readFully([B)V
 
     .line 515
-    new-instance v1, Ljava/io/DataInputStream;
+    new-instance p2, Ljava/io/DataInputStream;
 
-    new-instance v2, Ljava/io/ByteArrayInputStream;
+    new-instance p3, Ljava/io/ByteArrayInputStream;
 
-    invoke-direct {v2, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+    invoke-direct {p3, p1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
-    invoke-direct {v1, v2}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {p2, p3}, Ljava/io/DataInputStream;-><init>(Ljava/io/InputStream;)V
 
-    iput-object v1, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mInputStream:Ljava/io/DataInputStream;
+    iput-object p2, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mInputStream:Ljava/io/DataInputStream;
 
-    .line 516
     return-void
 .end method

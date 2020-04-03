@@ -32,9 +32,7 @@
 .end method
 
 .method public static fallocateIfSupported(Ljava/io/FileDescriptor;J)V
-    .locals 3
-    .param p0, "fd"    # Ljava/io/FileDescriptor;
-    .param p1, "length"    # J
+    .locals 2
     .annotation build Lcom/facebook/soloader/DoNotOptimize;
     .end annotation
 
@@ -44,57 +42,52 @@
         }
     .end annotation
 
-    .line 130
     const-wide/16 v0, 0x0
 
+    .line 130
     :try_start_0
     invoke-static {p0, v0, v1, p1, p2}, Landroid/system/Os;->posix_fallocate(Ljava/io/FileDescriptor;JJ)V
     :try_end_0
     .catch Landroid/system/ErrnoException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 137
     goto :goto_0
 
-    .line 131
     :catch_0
-    move-exception v0
+    move-exception p0
 
     .line 132
-    .local v0, "ex":Landroid/system/ErrnoException;
-    iget v1, v0, Landroid/system/ErrnoException;->errno:I
+    iget p1, p0, Landroid/system/ErrnoException;->errno:I
 
-    sget v2, Landroid/system/OsConstants;->EOPNOTSUPP:I
+    sget p2, Landroid/system/OsConstants;->EOPNOTSUPP:I
 
-    if-eq v1, v2, :cond_1
+    if-eq p1, p2, :cond_1
 
-    iget v1, v0, Landroid/system/ErrnoException;->errno:I
+    iget p1, p0, Landroid/system/ErrnoException;->errno:I
 
-    sget v2, Landroid/system/OsConstants;->ENOSYS:I
+    sget p2, Landroid/system/OsConstants;->ENOSYS:I
 
-    if-eq v1, v2, :cond_1
+    if-eq p1, p2, :cond_1
 
-    iget v1, v0, Landroid/system/ErrnoException;->errno:I
+    iget p1, p0, Landroid/system/ErrnoException;->errno:I
 
-    sget v2, Landroid/system/OsConstants;->EINVAL:I
+    sget p2, Landroid/system/OsConstants;->EINVAL:I
 
-    if-ne v1, v2, :cond_0
+    if-ne p1, p2, :cond_0
 
     goto :goto_0
 
     .line 135
     :cond_0
-    new-instance v1, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    invoke-virtual {v0}, Landroid/system/ErrnoException;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/system/ErrnoException;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p1, p2, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v1
+    throw p1
 
-    .line 138
-    .end local v0    # "ex":Landroid/system/ErrnoException;
     :cond_1
     :goto_0
     return-void

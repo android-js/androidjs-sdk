@@ -28,9 +28,6 @@
 # direct methods
 .method public constructor <init>(ZLokio/BufferedSource;Lokio/BufferedSink;)V
     .locals 0
-    .param p1, "client"    # Z
-    .param p2, "source"    # Lokio/BufferedSource;
-    .param p3, "sink"    # Lokio/BufferedSink;
 
     .line 604
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,6 +41,5 @@
     .line 607
     iput-object p3, p0, Lokhttp3/internal/ws/RealWebSocket$Streams;->sink:Lokio/BufferedSink;
 
-    .line 608
     return-void
 .end method

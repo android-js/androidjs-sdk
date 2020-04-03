@@ -28,14 +28,13 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 42
     invoke-direct {p0}, Lcom/facebook/react/bridge/BaseJavaModule;-><init>()V
 
-    .line 43
     const/4 v0, 0x0
 
+    .line 43
     iput-object v0, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 44
@@ -44,23 +43,21 @@
     .line 45
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget v0, v0, Landroid/content/res/Configuration;->fontScale:F
+    iget p1, p1, Landroid/content/res/Configuration;->fontScale:F
 
-    iput v0, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mFontScale:F
+    iput p1, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mFontScale:F
 
-    .line 46
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 0
 
     .line 37
     invoke-direct {p0, p1}, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;-><init>(Landroid/content/Context;)V
@@ -69,11 +66,10 @@
     iput-object p1, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 39
-    iget-object v0, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    iget-object p1, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mReactApplicationContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    invoke-virtual {v0, p0}, Lcom/facebook/react/bridge/ReactApplicationContext;->addLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
+    invoke-virtual {p1, p0}, Lcom/facebook/react/bridge/ReactApplicationContext;->addLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
 
-    .line 40
     return-void
 .end method
 
@@ -87,7 +83,6 @@
 
     if-nez v0, :cond_0
 
-    .line 85
     return-void
 
     .line 88
@@ -114,7 +109,6 @@
 
     invoke-interface {v0, v2, v1}, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 91
     return-void
 .end method
 
@@ -139,7 +133,6 @@
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     .line 56
-    .local v0, "constants":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     iget v1, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mFontScale:F
 
     float-to-double v1, v1
@@ -149,19 +142,17 @@
 
     move-result-object v1
 
-    .line 56
     const-string v2, "Dimensions"
 
+    .line 56
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 59
     return-object v0
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 50
     const-string v0, "DeviceInfo"
 
     return-object v0
@@ -170,14 +161,12 @@
 .method public onHostDestroy()V
     .locals 0
 
-    .line 81
     return-void
 .end method
 
 .method public onHostPause()V
     .locals 0
 
-    .line 77
     return-void
 .end method
 
@@ -189,7 +178,6 @@
 
     if-nez v0, :cond_0
 
-    .line 65
     return-void
 
     .line 68
@@ -205,7 +193,6 @@
     iget v0, v0, Landroid/content/res/Configuration;->fontScale:F
 
     .line 69
-    .local v0, "fontScale":F
     iget v1, p0, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->mFontScale:F
 
     cmpl-float v1, v1, v0
@@ -218,7 +205,6 @@
     .line 71
     invoke-virtual {p0}, Lcom/facebook/react/modules/deviceinfo/DeviceInfoModule;->emitUpdateDimensionsEvent()V
 
-    .line 73
     :cond_1
     return-void
 .end method

@@ -29,7 +29,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/decoder/SimpleProgressiveJpegConfig$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/decoder/SimpleProgressiveJpegConfig$1;
 
     .line 27
     invoke-direct {p0}, Lcom/facebook/imagepipeline/decoder/SimpleProgressiveJpegConfig$DefaultDynamicValueConfig;-><init>()V
@@ -42,7 +41,6 @@
 .method public getGoodEnoughScanNumber()I
     .locals 1
 
-    .line 33
     const/4 v0, 0x0
 
     return v0

@@ -35,9 +35,9 @@
 
     sput-object v0, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
-    .line 77
     const/4 v0, 0x1
 
+    .line 77
     sput v0, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
     return-void
@@ -53,23 +53,19 @@
 .end method
 
 .method public static completeWakefulIntent(Landroid/content/Intent;)Z
-    .locals 7
-    .param p0, "intent"    # Landroid/content/Intent;
+    .locals 5
 
-    .line 126
     const/4 v0, 0x0
 
     const-string v1, "android.support.content.wakelockid"
 
+    .line 126
     invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p0
 
-    .line 127
-    .local v1, "id":I
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
-    .line 128
     return v0
 
     .line 130
@@ -80,74 +76,69 @@
 
     .line 131
     :try_start_0
-    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v1, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/os/PowerManager$WakeLock;
+    check-cast v1, Landroid/os/PowerManager$WakeLock;
 
-    .line 132
-    .local v2, "wl":Landroid/os/PowerManager$WakeLock;
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     .line 133
-    invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
+    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 134
-    sget-object v4, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v1, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
-    invoke-virtual {v4, v1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->remove(I)V
 
     .line 135
     monitor-exit v0
 
-    return v3
+    return v2
+
+    :cond_1
+    const-string v1, "WakefulBroadcastReceiv."
 
     .line 143
-    :cond_1
-    const-string v4, "WakefulBroadcastReceiv."
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, "No active wake lock id #"
 
-    const-string v6, "No active wake lock id #"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 144
     monitor-exit v0
 
-    return v3
+    return v2
+
+    :catchall_0
+    move-exception p0
 
     .line 145
-    .end local v2    # "wl":Landroid/os/PowerManager$WakeLock;
-    :catchall_0
-    move-exception v2
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw p0
 .end method
 
 .method public static startWakefulService(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/ComponentName;
-    .locals 7
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "intent"    # Landroid/content/Intent;
+    .locals 5
 
     .line 94
     sget-object v0, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
@@ -159,7 +150,6 @@
     sget v1, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
     .line 96
-    .local v1, "id":I
     sget v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
     const/4 v3, 0x1
@@ -176,96 +166,88 @@
     .line 98
     sput v3, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
-    .line 101
     :cond_0
     const-string v2, "android.support.content.wakelockid"
 
+    .line 101
     invoke-virtual {p1, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 102
     invoke-virtual {p0, p1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    move-result-object v2
+    move-result-object p1
 
-    .line 103
-    .local v2, "comp":Landroid/content/ComponentName;
-    if-nez v2, :cond_1
+    if-nez p1, :cond_1
+
+    const/4 p0, 0x0
 
     .line 104
-    const/4 v3, 0x0
-
     monitor-exit v0
 
-    return-object v3
+    return-object p0
+
+    :cond_1
+    const-string v2, "power"
 
     .line 107
-    :cond_1
-    const-string v4, "power"
+    invoke-virtual {p0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p0
+
+    check-cast p0, Landroid/os/PowerManager;
+
+    .line 108
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "androidx.core:wake:"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 109
+    invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Landroid/os/PowerManager;
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     .line 108
-    .local v4, "pm":Landroid/os/PowerManager;
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v3, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object p0
 
-    const-string v6, "androidx.core:wake:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 109
-    invoke-virtual {v2}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    .line 108
-    invoke-virtual {v4, v3, v5}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v3
+    const/4 v2, 0x0
 
     .line 110
-    .local v3, "wl":Landroid/os/PowerManager$WakeLock;
-    const/4 v5, 0x0
+    invoke-virtual {p0, v2}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    invoke-virtual {v3, v5}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
+    const-wide/32 v2, 0xea60
 
     .line 111
-    const-wide/32 v5, 0xea60
-
-    invoke-virtual {v3, v5, v6}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
+    invoke-virtual {p0, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     .line 112
-    sget-object v5, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
-    invoke-virtual {v5, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v2, v1, p0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 113
     monitor-exit v0
 
-    return-object v2
+    return-object p1
+
+    :catchall_0
+    move-exception p0
 
     .line 114
-    .end local v1    # "id":I
-    .end local v2    # "comp":Landroid/content/ComponentName;
-    .end local v3    # "wl":Landroid/os/PowerManager$WakeLock;
-    .end local v4    # "pm":Landroid/os/PowerManager;
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

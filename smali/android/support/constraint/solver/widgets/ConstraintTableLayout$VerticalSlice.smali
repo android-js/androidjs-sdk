@@ -28,18 +28,17 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/constraint/solver/widgets/ConstraintTableLayout;)V
-    .locals 1
-    .param p1, "this$0"    # Landroid/support/constraint/solver/widgets/ConstraintTableLayout;
+    .locals 0
 
     .line 45
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->this$0:Landroid/support/constraint/solver/widgets/ConstraintTableLayout;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
+    .line 48
+    iput p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
     return-void
 .end method

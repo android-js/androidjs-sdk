@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/statusbar/StatusBarModule$2;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/modules/statusbar/StatusBarModule$2;
 
     .line 134
     iput-object p1, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$2$1;->this$1:Lcom/facebook/react/modules/statusbar/StatusBarModule$2;
@@ -37,40 +36,34 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 5
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "insets"    # Landroid/view/WindowInsets;
+    .locals 3
 
     .line 137
     invoke-virtual {p1, p2}, Landroid/view/View;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
-    move-result-object v0
-
-    .line 138
-    .local v0, "defaultInsets":Landroid/view/WindowInsets;
-    nop
+    move-result-object p1
 
     .line 139
-    invoke-virtual {v0}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
+
+    move-result p2
+
+    .line 141
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
+
+    move-result v0
+
+    .line 142
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v1
 
-    .line 141
-    invoke-virtual {v0}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
-
-    move-result v2
-
-    .line 142
-    invoke-virtual {v0}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
-
-    move-result v3
+    const/4 v2, 0x0
 
     .line 138
-    const/4 v4, 0x0
+    invoke-virtual {p1, p2, v2, v0, v1}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    invoke-virtual {v0, v1, v4, v2, v3}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
+    move-result-object p1
 
-    move-result-object v1
-
-    return-object v1
+    return-object p1
 .end method

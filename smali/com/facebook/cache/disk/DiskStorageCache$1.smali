@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/cache/disk/DiskStorageCache;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/cache/disk/DiskStorageCache;
 
     .line 188
     iput-object p1, p0, Lcom/facebook/cache/disk/DiskStorageCache$1;->this$0:Lcom/facebook/cache/disk/DiskStorageCache;
@@ -75,13 +74,12 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 197
     return-void
 
-    .line 194
     :catchall_0
     move-exception v1
 
+    .line 194
     :try_start_1
     monitor-exit v0
     :try_end_1

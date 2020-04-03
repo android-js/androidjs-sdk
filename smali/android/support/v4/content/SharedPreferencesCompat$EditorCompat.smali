@@ -45,7 +45,6 @@
 
     iput-object v0, p0, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat;->mHelper:Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;
 
-    .line 59
     return-void
 .end method
 
@@ -77,7 +76,7 @@
 # virtual methods
 .method public apply(Landroid/content/SharedPreferences$Editor;)V
     .locals 1
-    .param p1, "editor"    # Landroid/content/SharedPreferences$Editor;
+    .param p1    # Landroid/content/SharedPreferences$Editor;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -89,6 +88,5 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/content/SharedPreferencesCompat$EditorCompat$Helper;->apply(Landroid/content/SharedPreferences$Editor;)V
 
-    .line 81
     return-void
 .end method

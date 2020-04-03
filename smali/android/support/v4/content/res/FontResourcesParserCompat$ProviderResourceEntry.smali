@@ -31,12 +31,10 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v4/provider/FontRequest;II)V
     .locals 0
-    .param p1, "request"    # Landroid/support/v4/provider/FontRequest;
+    .param p1    # Landroid/support/v4/provider/FontRequest;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "strategy"    # I
-    .param p3, "timeoutMs"    # I
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +48,6 @@
     .line 85
     iput p3, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mTimeoutMs:I
 
-    .line 86
     return-void
 .end method
 

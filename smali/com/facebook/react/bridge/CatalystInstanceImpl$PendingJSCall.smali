@@ -28,9 +28,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/facebook/react/bridge/NativeArray;)V
     .locals 0
-    .param p1, "module"    # Ljava/lang/String;
-    .param p2, "method"    # Ljava/lang/String;
-    .param p3, "arguments"    # Lcom/facebook/react/bridge/NativeArray;
+    .param p3    # Lcom/facebook/react/bridge/NativeArray;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -47,7 +45,6 @@
     .line 60
     iput-object p3, p0, Lcom/facebook/react/bridge/CatalystInstanceImpl$PendingJSCall;->mArguments:Lcom/facebook/react/bridge/NativeArray;
 
-    .line 61
     return-void
 .end method
 
@@ -55,7 +52,6 @@
 # virtual methods
 .method call(Lcom/facebook/react/bridge/CatalystInstanceImpl;)V
     .locals 3
-    .param p1, "catalystInstance"    # Lcom/facebook/react/bridge/CatalystInstanceImpl;
 
     .line 64
     iget-object v0, p0, Lcom/facebook/react/bridge/CatalystInstanceImpl$PendingJSCall;->mArguments:Lcom/facebook/react/bridge/NativeArray;
@@ -70,7 +66,6 @@
     invoke-direct {v0}, Lcom/facebook/react/bridge/WritableNativeArray;-><init>()V
 
     .line 65
-    .local v0, "arguments":Lcom/facebook/react/bridge/NativeArray;
     :goto_0
     iget-object v1, p0, Lcom/facebook/react/bridge/CatalystInstanceImpl$PendingJSCall;->mModule:Ljava/lang/String;
 
@@ -78,7 +73,6 @@
 
     invoke-static {p1, v1, v2, v0}, Lcom/facebook/react/bridge/CatalystInstanceImpl;->access$000(Lcom/facebook/react/bridge/CatalystInstanceImpl;Ljava/lang/String;Ljava/lang/String;Lcom/facebook/react/bridge/NativeArray;)V
 
-    .line 66
     return-void
 .end method
 
@@ -131,6 +125,5 @@
 
     move-result-object v0
 
-    .line 69
     return-object v0
 .end method

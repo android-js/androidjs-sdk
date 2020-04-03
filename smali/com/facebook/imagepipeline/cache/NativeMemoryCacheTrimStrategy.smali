@@ -24,7 +24,6 @@
 # virtual methods
 .method public getTrimRatio(Lcom/facebook/common/memory/MemoryTrimType;)D
     .locals 5
-    .param p1, "trimType"    # Lcom/facebook/common/memory/MemoryTrimType;
 
     .line 27
     sget-object v0, Lcom/facebook/imagepipeline/cache/NativeMemoryCacheTrimStrategy$1;->$SwitchMap$com$facebook$common$memory$MemoryTrimType:[I
@@ -60,22 +59,19 @@
 
     aput-object p1, v0, v3
 
-    const-string v3, "NativeMemoryCacheTrimStrategy"
+    const-string p1, "NativeMemoryCacheTrimStrategy"
 
-    const-string v4, "unknown trim type: %s"
+    const-string v3, "unknown trim type: %s"
 
-    invoke-static {v3, v4, v0}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {p1, v3, v0}, Lcom/facebook/common/logging/FLog;->wtf(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 37
     return-wide v1
 
-    .line 34
     :cond_0
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
     return-wide v0
 
-    .line 30
     :cond_1
     return-wide v1
 .end method

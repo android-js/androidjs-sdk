@@ -21,114 +21,95 @@
 .end method
 
 .method private static getDefaultTextAttribute(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-    .locals 4
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "attribute"    # I
+    .locals 3
 
     .line 55
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v0
+    move-result-object p0
 
-    .line 56
-    .local v0, "theme":Landroid/content/res/Resources$Theme;
+    const/4 v0, 0x1
+
     const/4 v1, 0x0
 
     .line 58
-    .local v1, "textAppearances":Landroid/content/res/TypedArray;
-    const/4 v2, 0x1
-
     :try_start_0
-    new-array v2, v2, [I
+    new-array v0, v0, [I
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    aput p1, v2, v3
+    aput p1, v0, v2
 
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    move-result-object v2
-
-    move-object v1, v2
+    move-result-object v1
 
     .line 59
-    invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
-    move-result-object v2
+    move-result-object p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 60
-    .local v2, "textColor":Landroid/content/res/ColorStateList;
-    nop
-
-    .line 62
     if-eqz v1, :cond_0
 
     .line 63
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 60
     :cond_0
-    return-object v2
+    return-object p0
 
-    .line 62
-    .end local v2    # "textColor":Landroid/content/res/ColorStateList;
     :catchall_0
-    move-exception v2
+    move-exception p0
 
     if-eqz v1, :cond_1
 
-    .line 63
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 65
     :cond_1
-    throw v2
+    throw p0
 .end method
 
 .method public static getDefaultTextColor(Landroid/content/Context;)Landroid/content/res/ColorStateList;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .line 41
     const v0, 0x1010098
 
+    .line 41
     invoke-static {p0, v0}, Lcom/facebook/react/views/text/DefaultStyleValuesUtil;->getDefaultTextAttribute(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getDefaultTextColorHighlight(Landroid/content/Context;)I
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .line 51
     const v0, 0x1010099
 
+    .line 51
     invoke-static {p0, v0}, Lcom/facebook/react/views/text/DefaultStyleValuesUtil;->getDefaultTextAttribute(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+    invoke-virtual {p0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static getDefaultTextColorHint(Landroid/content/Context;)Landroid/content/res/ColorStateList;
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
-    .line 31
     const v0, 0x101009a
 
+    .line 31
     invoke-static {p0, v0}, Lcom/facebook/react/views/text/DefaultStyleValuesUtil;->getDefaultTextAttribute(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method

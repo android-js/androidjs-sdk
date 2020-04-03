@@ -48,12 +48,11 @@
     .locals 1
 
     .line 42
-    .local p0, "this":Lcom/facebook/common/references/OOMSoftReference;, "Lcom/facebook/common/references/OOMSoftReference<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
     const/4 v0, 0x0
 
+    .line 43
     iput-object v0, p0, Lcom/facebook/common/references/OOMSoftReference;->softRef1:Ljava/lang/ref/SoftReference;
 
     .line 44
@@ -62,7 +61,6 @@
     .line 45
     iput-object v0, p0, Lcom/facebook/common/references/OOMSoftReference;->softRef3:Ljava/lang/ref/SoftReference;
 
-    .line 46
     return-void
 .end method
 
@@ -72,7 +70,6 @@
     .locals 2
 
     .line 60
-    .local p0, "this":Lcom/facebook/common/references/OOMSoftReference;, "Lcom/facebook/common/references/OOMSoftReference<TT;>;"
     iget-object v0, p0, Lcom/facebook/common/references/OOMSoftReference;->softRef1:Ljava/lang/ref/SoftReference;
 
     const/4 v1, 0x0
@@ -109,7 +106,6 @@
     .line 70
     iput-object v1, p0, Lcom/facebook/common/references/OOMSoftReference;->softRef3:Ljava/lang/ref/SoftReference;
 
-    .line 72
     :cond_2
     return-void
 .end method
@@ -126,7 +122,6 @@
     .end annotation
 
     .line 56
-    .local p0, "this":Lcom/facebook/common/references/OOMSoftReference;, "Lcom/facebook/common/references/OOMSoftReference<TT;>;"
     iget-object v0, p0, Lcom/facebook/common/references/OOMSoftReference;->softRef1:Ljava/lang/ref/SoftReference;
 
     if-nez v0, :cond_0
@@ -157,8 +152,6 @@
     .end annotation
 
     .line 49
-    .local p0, "this":Lcom/facebook/common/references/OOMSoftReference;, "Lcom/facebook/common/references/OOMSoftReference<TT;>;"
-    .local p1, "hardReference":Ljava/lang/Object;, "TT;"
     new-instance v0, Ljava/lang/ref/SoftReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
@@ -179,6 +172,5 @@
 
     iput-object v0, p0, Lcom/facebook/common/references/OOMSoftReference;->softRef3:Ljava/lang/ref/SoftReference;
 
-    .line 52
     return-void
 .end method

@@ -30,11 +30,9 @@
     .locals 0
 
     .line 1023
-    .local p0, "this":Lbolts/Task$TaskCompletionSource;, "Lbolts/Task<TTResult;>.TaskCompletionSource;"
     iput-object p1, p0, Lbolts/Task$TaskCompletionSource;->this$0:Lbolts/Task;
 
     invoke-direct {p0}, Lbolts/TaskCompletionSource;-><init>()V
 
-    .line 1024
     return-void
 .end method

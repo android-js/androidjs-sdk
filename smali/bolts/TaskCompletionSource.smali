@@ -30,7 +30,6 @@
     .locals 1
 
     .line 17
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 18
@@ -40,7 +39,6 @@
 
     iput-object v0, p0, Lbolts/TaskCompletionSource;->task:Lbolts/Task;
 
-    .line 19
     return-void
 .end method
 
@@ -57,7 +55,6 @@
     .end annotation
 
     .line 25
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
     iget-object v0, p0, Lbolts/TaskCompletionSource;->task:Lbolts/Task;
 
     return-object v0
@@ -67,14 +64,12 @@
     .locals 2
 
     .line 53
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
     invoke-virtual {p0}, Lbolts/TaskCompletionSource;->trySetCancelled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 56
     return-void
 
     .line 54
@@ -89,33 +84,30 @@
 .end method
 
 .method public setError(Ljava/lang/Exception;)V
-    .locals 2
-    .param p1, "error"    # Ljava/lang/Exception;
+    .locals 1
 
     .line 71
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
     invoke-virtual {p0, p1}, Lbolts/TaskCompletionSource;->trySetError(Ljava/lang/Exception;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 74
     return-void
 
     .line 72
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot set the error on a completed task."
+    const-string v0, "Cannot set the error on a completed task."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public setResult(Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TTResult;)V"
@@ -123,33 +115,29 @@
     .end annotation
 
     .line 62
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
-    .local p1, "result":Ljava/lang/Object;, "TTResult;"
     invoke-virtual {p0, p1}, Lbolts/TaskCompletionSource;->trySetResult(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 65
     return-void
 
     .line 63
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "Cannot set the result of a completed task."
+    const-string v0, "Cannot set the result of a completed task."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public trySetCancelled()Z
     .locals 1
 
     .line 32
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
     iget-object v0, p0, Lbolts/TaskCompletionSource;->task:Lbolts/Task;
 
     invoke-virtual {v0}, Lbolts/Task;->trySetCancelled()Z
@@ -161,17 +149,15 @@
 
 .method public trySetError(Ljava/lang/Exception;)Z
     .locals 1
-    .param p1, "error"    # Ljava/lang/Exception;
 
     .line 46
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
     iget-object v0, p0, Lbolts/TaskCompletionSource;->task:Lbolts/Task;
 
     invoke-virtual {v0, p1}, Lbolts/Task;->trySetError(Ljava/lang/Exception;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method public trySetResult(Ljava/lang/Object;)Z
@@ -183,13 +169,11 @@
     .end annotation
 
     .line 39
-    .local p0, "this":Lbolts/TaskCompletionSource;, "Lbolts/TaskCompletionSource<TTResult;>;"
-    .local p1, "result":Ljava/lang/Object;, "TTResult;"
     iget-object v0, p0, Lbolts/TaskCompletionSource;->task:Lbolts/Task;
 
     invoke-virtual {v0, p1}, Lbolts/Task;->trySetResult(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

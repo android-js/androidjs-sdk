@@ -26,45 +26,41 @@
 
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http2/Http2Connection;ZII)V
-    .locals 3
-    .param p1, "this$0"    # Lokhttp3/internal/http2/Http2Connection;
-    .param p2, "reply"    # Z
-    .param p3, "payload1"    # I
-    .param p4, "payload2"    # I
+    .locals 2
 
     .line 367
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->this$0:Lokhttp3/internal/http2/Http2Connection;
 
-    .line 368
     const/4 v0, 0x3
 
+    .line 368
     new-array v0, v0, [Ljava/lang/Object;
 
-    iget-object v1, p1, Lokhttp3/internal/http2/Http2Connection;->hostname:Ljava/lang/String;
+    iget-object p1, p1, Lokhttp3/internal/http2/Http2Connection;->hostname:Ljava/lang/String;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object v1, v0, v2
+    aput-object p1, v0, v1
 
     invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aput-object v1, v0, v2
+    aput-object p1, v0, v1
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    aput-object v1, v0, v2
+    aput-object p1, v0, v1
 
-    const-string v1, "OkHttp %s ping %08x%08x"
+    const-string p1, "OkHttp %s ping %08x%08x"
 
-    invoke-direct {p0, v1, v0}, Lokhttp3/internal/NamedRunnable;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {p0, p1, v0}, Lokhttp3/internal/NamedRunnable;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 369
     iput-boolean p2, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->reply:Z
@@ -75,7 +71,6 @@
     .line 371
     iput p4, p0, Lokhttp3/internal/http2/Http2Connection$PingRunnable;->payload2:I
 
-    .line 372
     return-void
 .end method
 
@@ -95,6 +90,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lokhttp3/internal/http2/Http2Connection;->writePing(ZII)V
 
-    .line 376
     return-void
 .end method

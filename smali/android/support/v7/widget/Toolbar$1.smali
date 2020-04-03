@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/Toolbar;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/Toolbar;
 
     .line 200
     iput-object p1, p0, Landroid/support/v7/widget/Toolbar$1;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 1
-    .param p1, "item"    # Landroid/view/MenuItem;
 
     .line 203
     iget-object v0, p0, Landroid/support/v7/widget/Toolbar$1;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -54,13 +52,12 @@
 
     invoke-interface {v0, p1}, Landroid/support/v7/widget/Toolbar$OnMenuItemClickListener;->onMenuItemClick(Landroid/view/MenuItem;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
-    .line 206
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method

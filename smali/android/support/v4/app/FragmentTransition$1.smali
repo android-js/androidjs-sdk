@@ -45,6 +45,5 @@
 
     invoke-static {v0, v1}, Landroid/support/v4/app/FragmentTransition;->setViewVisibility(Ljava/util/ArrayList;I)V
 
-    .line 287
     return-void
 .end method

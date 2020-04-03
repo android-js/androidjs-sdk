@@ -15,7 +15,6 @@
 
 .method public static handleTerminate(Ljava/lang/Throwable;)V
     .locals 2
-    .param p0, "t"    # Ljava/lang/Throwable;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;
@@ -27,11 +26,8 @@
 
     move-result-object v0
 
-    .line 11
-    .local v0, "h":Ljava/lang/Thread$UncaughtExceptionHandler;
     if-nez v0, :cond_0
 
-    .line 13
     return-void
 
     .line 15
@@ -42,6 +38,5 @@
 
     invoke-interface {v0, v1, p0}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
-    .line 17
     return-void
 .end method

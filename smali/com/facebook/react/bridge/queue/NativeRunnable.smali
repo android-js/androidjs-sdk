@@ -18,7 +18,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/jni/HybridData;)V
     .locals 0
-    .param p1, "hybridData"    # Lcom/facebook/jni/HybridData;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -28,7 +27,6 @@
     .line 23
     iput-object p1, p0, Lcom/facebook/react/bridge/queue/NativeRunnable;->mHybridData:Lcom/facebook/jni/HybridData;
 
-    .line 24
     return-void
 .end method
 

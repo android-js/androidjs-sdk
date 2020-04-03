@@ -32,8 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/network/NetworkingModule;Lcom/facebook/react/bridge/ReactContext;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/network/NetworkingModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 654
     iput-object p1, p0, Lcom/facebook/react/modules/network/NetworkingModule$4;->this$0:Lcom/facebook/react/modules/network/NetworkingModule;
@@ -59,24 +57,22 @@
 .end method
 
 .method protected varargs doInBackgroundGuarded([Ljava/lang/Void;)V
-    .locals 2
-    .param p1, "params"    # [Ljava/lang/Void;
+    .locals 1
 
     .line 657
-    iget-object v0, p0, Lcom/facebook/react/modules/network/NetworkingModule$4;->this$0:Lcom/facebook/react/modules/network/NetworkingModule;
+    iget-object p1, p0, Lcom/facebook/react/modules/network/NetworkingModule$4;->this$0:Lcom/facebook/react/modules/network/NetworkingModule;
 
-    invoke-static {v0}, Lcom/facebook/react/modules/network/NetworkingModule;->access$600(Lcom/facebook/react/modules/network/NetworkingModule;)Lokhttp3/OkHttpClient;
+    invoke-static {p1}, Lcom/facebook/react/modules/network/NetworkingModule;->access$600(Lcom/facebook/react/modules/network/NetworkingModule;)Lokhttp3/OkHttpClient;
+
+    move-result-object p1
+
+    iget v0, p0, Lcom/facebook/react/modules/network/NetworkingModule$4;->val$requestId:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/facebook/react/modules/network/NetworkingModule$4;->val$requestId:I
+    invoke-static {p1, v0}, Lcom/facebook/react/common/network/OkHttpCallUtil;->cancelTag(Lokhttp3/OkHttpClient;Ljava/lang/Object;)V
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/facebook/react/common/network/OkHttpCallUtil;->cancelTag(Lokhttp3/OkHttpClient;Ljava/lang/Object;)V
-
-    .line 658
     return-void
 .end method

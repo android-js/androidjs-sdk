@@ -34,9 +34,9 @@
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 51
     const/16 v0, 0xa
 
+    .line 51
     new-array v0, v0, [I
 
     iput-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
@@ -49,9 +49,9 @@
 .method clear()V
     .locals 2
 
-    .line 54
     const/4 v0, 0x0
 
+    .line 54
     iput v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
     .line 55
@@ -59,232 +59,184 @@
 
     invoke-static {v1, v0}, Ljava/util/Arrays;->fill([II)V
 
-    .line 56
     return-void
 .end method
 
 .method get(I)I
     .locals 1
-    .param p1, "id"    # I
 
     .line 77
     iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    aget v0, v0, p1
+    aget p1, v0, p1
 
-    return v0
+    return p1
 .end method
 
 .method getEnablePush(Z)Z
-    .locals 5
-    .param p1, "defaultValue"    # Z
-
-    .line 93
-    const/4 v0, 0x4
+    .locals 3
 
     .line 94
-    .local v0, "bit":I
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x4
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v4, 0x2
+    const/4 v0, 0x2
 
-    aget v1, v1, v4
+    aget p1, p1, v0
 
     goto :goto_0
 
     :cond_0
     if-eqz p1, :cond_1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    if-ne v1, v3, :cond_2
+    if-ne p1, v2, :cond_2
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     :cond_2
-    return v2
+    return v1
 .end method
 
 .method getHeaderTableSize()I
-    .locals 3
-
-    .line 87
-    const/4 v0, 0x2
+    .locals 2
 
     .line 88
-    .local v0, "bit":I
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, -0x1
+    const/4 v0, -0x1
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method getInitialWindowSize()I
-    .locals 3
-
-    .line 113
-    const/16 v0, 0x80
+    .locals 2
 
     .line 114
-    .local v0, "bit":I
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit16 v0, v0, 0x80
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v2, 0x7
+    const/4 v1, 0x7
 
-    aget v1, v1, v2
+    aget v0, v0, v1
 
     goto :goto_0
 
     :cond_0
-    const v1, 0xffff
+    const v0, 0xffff
 
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method getMaxConcurrentStreams(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 98
-    const/16 v0, 0x10
+    .locals 1
 
     .line 99
-    .local v0, "bit":I
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x10
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v2, 0x4
+    const/4 v0, 0x4
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getMaxFrameSize(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 103
-    const/16 v0, 0x20
+    .locals 1
 
     .line 104
-    .local v0, "bit":I
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x20
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v2, 0x5
+    const/4 v0, 0x5
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method getMaxHeaderListSize(I)I
-    .locals 3
-    .param p1, "defaultValue"    # I
-
-    .line 108
-    const/16 v0, 0x40
+    .locals 1
 
     .line 109
-    .local v0, "bit":I
-    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v0, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v1, v0
+    and-int/lit8 v0, v0, 0x40
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lokhttp3/internal/http2/Settings;->values:[I
+    iget-object p1, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
-    const/4 v2, 0x6
+    const/4 v0, 0x6
 
-    aget v1, v1, v2
-
-    goto :goto_0
+    aget p1, p1, v0
 
     :cond_0
-    move v1, p1
-
-    :goto_0
-    return v1
+    return p1
 .end method
 
 .method isSet(I)Z
-    .locals 3
-    .param p1, "id"    # I
+    .locals 2
 
-    .line 71
     const/4 v0, 0x1
 
-    shl-int v1, v0, p1
+    shl-int p1, v0, p1
 
     .line 72
-    .local v1, "bit":I
-    iget v2, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iget v1, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    and-int/2addr v2, v1
+    and-int/2addr p1, v1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
@@ -297,12 +249,9 @@
 
 .method merge(Lokhttp3/internal/http2/Settings;)V
     .locals 2
-    .param p1, "other"    # Lokhttp3/internal/http2/Settings;
 
-    .line 122
     const/4 v0, 0x0
 
-    .local v0, "i":I
     :goto_0
     const/16 v1, 0xa
 
@@ -325,26 +274,21 @@
 
     invoke-virtual {p0, v0, v1}, Lokhttp3/internal/http2/Settings;->set(II)Lokhttp3/internal/http2/Settings;
 
-    .line 122
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 126
-    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
 
 .method set(II)Lokhttp3/internal/http2/Settings;
     .locals 3
-    .param p1, "id"    # I
-    .param p2, "value"    # I
 
-    .line 59
     if-ltz p1, :cond_1
 
+    .line 59
     iget-object v0, p0, Lokhttp3/internal/http2/Settings;->values:[I
 
     array-length v1, v0
@@ -353,28 +297,21 @@
 
     goto :goto_0
 
-    .line 63
     :cond_0
     const/4 v1, 0x1
 
     shl-int/2addr v1, p1
 
     .line 64
-    .local v1, "bit":I
     iget v2, p0, Lokhttp3/internal/http2/Settings;->set:I
 
-    or-int/2addr v2, v1
+    or-int/2addr v1, v2
 
-    iput v2, p0, Lokhttp3/internal/http2/Settings;->set:I
+    iput v1, p0, Lokhttp3/internal/http2/Settings;->set:I
 
     .line 65
     aput p2, v0, p1
 
-    .line 66
-    return-object p0
-
-    .line 60
-    .end local v1    # "bit":I
     :cond_1
     :goto_0
     return-object p0

@@ -56,7 +56,6 @@
     move-result-object v0
 
     .line 69
-    .local v0, "canvas":Landroid/graphics/Canvas;
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
 
     const/4 v2, 0x0
@@ -84,10 +83,6 @@
     invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
     .line 75
-    .local v1, "paint":Landroid/graphics/Paint;
-    nop
-
-    .local v2, "i":I
     :goto_0
     invoke-virtual {p0}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->getChildCount()I
 
@@ -102,46 +97,37 @@
 
     check-cast v3, Lcom/facebook/react/views/art/ARTVirtualNode;
 
-    .line 77
-    .local v3, "child":Lcom/facebook/react/views/art/ARTVirtualNode;
     const/high16 v4, 0x3f800000    # 1.0f
 
+    .line 77
     invoke-virtual {v3, v0, v1, v4}, Lcom/facebook/react/views/art/ARTVirtualNode;->draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;F)V
 
     .line 78
     invoke-virtual {v3}, Lcom/facebook/react/views/art/ARTVirtualNode;->markUpdateSeen()V
 
-    .line 75
-    .end local v3    # "child":Lcom/facebook/react/views/art/ARTVirtualNode;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 81
-    .end local v2    # "i":I
     :cond_2
-    iget-object v2, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
+    iget-object v1, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
 
-    if-nez v2, :cond_3
+    if-nez v1, :cond_3
 
-    .line 82
     return-void
 
     .line 85
     :cond_3
-    iget-object v2, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
+    iget-object v1, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
 
-    invoke-virtual {v2, v0}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
+    invoke-virtual {v1, v0}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 88
-    .end local v0    # "canvas":Landroid/graphics/Canvas;
-    .end local v1    # "paint":Landroid/graphics/Paint;
     goto :goto_2
 
-    .line 86
     :catch_0
     move-exception v0
 
@@ -151,7 +137,6 @@
     move-exception v0
 
     .line 87
-    .local v0, "e":Ljava/lang/RuntimeException;
     :goto_1
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -159,28 +144,26 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " in Surface.unlockCanvasAndPost"
+    const-string v0, " in Surface.unlockCanvasAndPost"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "ReactNative"
+    const-string v1, "ReactNative"
 
-    invoke-static {v2, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 89
-    .end local v0    # "e":Ljava/lang/RuntimeException;
     :goto_2
     return-void
 
@@ -189,18 +172,15 @@
     :goto_3
     invoke-direct {p0, p0}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->markChildrenUpdatesSeen(Lcom/facebook/react/uimanager/ReactShadowNode;)V
 
-    .line 64
     return-void
 .end method
 
 .method private markChildrenUpdatesSeen(Lcom/facebook/react/uimanager/ReactShadowNode;)V
     .locals 2
-    .param p1, "shadowNode"    # Lcom/facebook/react/uimanager/ReactShadowNode;
 
-    .line 92
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 92
     :goto_0
     invoke-interface {p1}, Lcom/facebook/react/uimanager/ReactShadowNode;->getChildCount()I
 
@@ -214,20 +194,15 @@
     move-result-object v1
 
     .line 94
-    .local v1, "child":Lcom/facebook/react/uimanager/ReactShadowNode;
     invoke-interface {v1}, Lcom/facebook/react/uimanager/ReactShadowNode;->markUpdateSeen()V
 
     .line 95
     invoke-direct {p0, v1}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->markChildrenUpdatesSeen(Lcom/facebook/react/uimanager/ReactShadowNode;)V
 
-    .line 92
-    .end local v1    # "child":Lcom/facebook/react/uimanager/ReactShadowNode;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 97
-    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -237,7 +212,6 @@
 .method public isVirtual()Z
     .locals 1
 
-    .line 46
     const/4 v0, 0x0
 
     return v0
@@ -246,7 +220,6 @@
 .method public isVirtualAnchor()Z
     .locals 1
 
-    .line 51
     const/4 v0, 0x1
 
     return v0
@@ -254,7 +227,6 @@
 
 .method public onCollectExtraUpdates(Lcom/facebook/react/uimanager/UIViewOperationQueue;)V
     .locals 1
-    .param p1, "uiUpdater"    # Lcom/facebook/react/uimanager/UIViewOperationQueue;
 
     .line 56
     invoke-super {p0, p1}, Lcom/facebook/react/uimanager/LayoutShadowNode;->onCollectExtraUpdates(Lcom/facebook/react/uimanager/UIViewOperationQueue;)V
@@ -269,69 +241,55 @@
 
     invoke-virtual {p1, v0, p0}, Lcom/facebook/react/uimanager/UIViewOperationQueue;->enqueueUpdateExtraData(ILjava/lang/Object;)V
 
-    .line 59
     return-void
 .end method
 
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
-    .locals 1
-    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
+    .locals 0
 
     .line 101
-    new-instance v0, Landroid/view/Surface;
+    new-instance p2, Landroid/view/Surface;
 
-    invoke-direct {v0, p1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
+    invoke-direct {p2, p1}, Landroid/view/Surface;-><init>(Landroid/graphics/SurfaceTexture;)V
 
-    iput-object v0, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
+    iput-object p2, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
 
     .line 102
     invoke-direct {p0}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->drawOutput()V
 
-    .line 103
     return-void
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
-    .locals 1
-    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
+    .locals 0
 
     .line 107
     invoke-virtual {p1}, Landroid/graphics/SurfaceTexture;->release()V
 
+    const/4 p1, 0x0
+
     .line 108
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
 
-    iput-object v0, p0, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->mSurface:Landroid/view/Surface;
+    const/4 p1, 0x1
 
-    .line 109
-    const/4 v0, 0x1
-
-    return v0
+    return p1
 .end method
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
     .locals 0
-    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
-    .param p2, "width"    # I
-    .param p3, "height"    # I
 
-    .line 113
     return-void
 .end method
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
     .locals 0
-    .param p1, "surface"    # Landroid/graphics/SurfaceTexture;
 
-    .line 116
     return-void
 .end method
 
 .method public setBackgroundColor(Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "color"    # Ljava/lang/Integer;
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         customType = "Color"
         name = "backgroundColor"
@@ -343,6 +301,5 @@
     .line 41
     invoke-virtual {p0}, Lcom/facebook/react/views/art/ARTSurfaceViewShadowNode;->markUpdated()V
 
-    .line 42
     return-void
 .end method

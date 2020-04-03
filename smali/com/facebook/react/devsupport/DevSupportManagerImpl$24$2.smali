@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevSupportManagerImpl$24;Ljava/lang/Exception;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/devsupport/DevSupportManagerImpl$24;
 
     .line 1003
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$24$2;->this$1:Lcom/facebook/react/devsupport/DevSupportManagerImpl$24;
@@ -41,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     .line 1006
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$24$2;->val$cause:Ljava/lang/Exception;
@@ -54,21 +53,18 @@
     check-cast v0, Lcom/facebook/react/common/DebugServerException;
 
     .line 1008
-    .local v0, "debugServerException":Lcom/facebook/react/common/DebugServerException;
     iget-object v1, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$24$2;->this$1:Lcom/facebook/react/devsupport/DevSupportManagerImpl$24;
 
     iget-object v1, v1, Lcom/facebook/react/devsupport/DevSupportManagerImpl$24;->this$0:Lcom/facebook/react/devsupport/DevSupportManagerImpl;
 
     invoke-virtual {v0}, Lcom/facebook/react/common/DebugServerException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    iget-object v3, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$24$2;->val$cause:Ljava/lang/Exception;
+    iget-object v2, p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$24$2;->val$cause:Ljava/lang/Exception;
 
-    invoke-virtual {v1, v2, v3}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->showNewJavaError(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v1, v0, v2}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->showNewJavaError(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1009
-    .end local v0    # "debugServerException":Lcom/facebook/react/common/DebugServerException;
     goto :goto_0
 
     .line 1010
@@ -97,7 +93,6 @@
     .line 1010
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevSupportManagerImpl;->showNewJavaError(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 1014
     :goto_0
     return-void
 .end method

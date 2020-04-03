@@ -67,10 +67,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/devsupport/DevInternalSettings;Ljava/lang/String;Lcom/facebook/react/devsupport/InspectorPackagerConnection$BundleStatusProvider;)V
-    .locals 4
-    .param p1, "settings"    # Lcom/facebook/react/devsupport/DevInternalSettings;
-    .param p2, "packageName"    # Ljava/lang/String;
-    .param p3, "bundleStatusProvider"    # Lcom/facebook/react/devsupport/InspectorPackagerConnection$BundleStatusProvider;
+    .locals 2
 
     .line 131
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,83 +79,79 @@
     iput-object p3, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundlerStatusProvider:Lcom/facebook/react/devsupport/InspectorPackagerConnection$BundleStatusProvider;
 
     .line 134
-    new-instance v0, Lokhttp3/OkHttpClient$Builder;
+    new-instance p1, Lokhttp3/OkHttpClient$Builder;
 
-    invoke-direct {v0}, Lokhttp3/OkHttpClient$Builder;-><init>()V
+    invoke-direct {p1}, Lokhttp3/OkHttpClient$Builder;-><init>()V
 
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object p3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+
+    const-wide/16 v0, 0x1388
 
     .line 135
-    const-wide/16 v2, 0x1388
+    invoke-virtual {p1, v0, v1, p3}, Lokhttp3/OkHttpClient$Builder;->connectTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->connectTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
+    move-result-object p1
 
-    move-result-object v0
+    sget-object p3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    const-wide/16 v0, 0x0
 
     .line 136
-    const-wide/16 v2, 0x0
+    invoke-virtual {p1, v0, v1, p3}, Lokhttp3/OkHttpClient$Builder;->readTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->readTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
+    move-result-object p1
 
-    move-result-object v0
-
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object p3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 137
-    invoke-virtual {v0, v2, v3, v1}, Lokhttp3/OkHttpClient$Builder;->writeTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {p1, v0, v1, p3}, Lokhttp3/OkHttpClient$Builder;->writeTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 138
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
 
     .line 139
-    new-instance v0, Lcom/facebook/react/devsupport/BundleDownloader;
+    new-instance p1, Lcom/facebook/react/devsupport/BundleDownloader;
 
-    iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
+    iget-object p3, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/devsupport/BundleDownloader;-><init>(Lokhttp3/OkHttpClient;)V
+    invoke-direct {p1, p3}, Lcom/facebook/react/devsupport/BundleDownloader;-><init>(Lokhttp3/OkHttpClient;)V
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundleDownloader:Lcom/facebook/react/devsupport/BundleDownloader;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundleDownloader:Lcom/facebook/react/devsupport/BundleDownloader;
 
     .line 141
-    new-instance v0, Landroid/os/Handler;
+    new-instance p1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {p1, p3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mRestartOnChangePollingHandler:Landroid/os/Handler;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mRestartOnChangePollingHandler:Landroid/os/Handler;
 
     .line 142
     iput-object p2, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackageName:Ljava/lang/String;
 
-    .line 143
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/packagerconnection/JSPackagerClient;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackagerClient:Lcom/facebook/react/packagerconnection/JSPackagerClient;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackagerClient:Lcom/facebook/react/packagerconnection/JSPackagerClient;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$002(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/packagerconnection/JSPackagerClient;)Lcom/facebook/react/packagerconnection/JSPackagerClient;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
-    .param p1, "x1"    # Lcom/facebook/react/packagerconnection/JSPackagerClient;
 
     .line 64
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackagerClient:Lcom/facebook/react/packagerconnection/JSPackagerClient;
@@ -167,39 +160,34 @@
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/devsupport/DevInternalSettings;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$1000(Lcom/facebook/react/devsupport/DevServerHelper;)Landroid/os/Handler;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mRestartOnChangePollingHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mRestartOnChangePollingHandler:Landroid/os/Handler;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/devsupport/InspectorPackagerConnection;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mInspectorPackagerConnection:Lcom/facebook/react/devsupport/InspectorPackagerConnection;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mInspectorPackagerConnection:Lcom/facebook/react/devsupport/InspectorPackagerConnection;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$202(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/InspectorPackagerConnection;)Lcom/facebook/react/devsupport/InspectorPackagerConnection;
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
-    .param p1, "x1"    # Lcom/facebook/react/devsupport/InspectorPackagerConnection;
 
     .line 64
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mInspectorPackagerConnection:Lcom/facebook/react/devsupport/InspectorPackagerConnection;
@@ -208,74 +196,65 @@
 .end method
 
 .method static synthetic access$300(Lcom/facebook/react/devsupport/DevServerHelper;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
     invoke-direct {p0}, Lcom/facebook/react/devsupport/DevServerHelper;->getInspectorDeviceUrl()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$400(Lcom/facebook/react/devsupport/DevServerHelper;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackageName:Ljava/lang/String;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackageName:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/devsupport/InspectorPackagerConnection$BundleStatusProvider;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundlerStatusProvider:Lcom/facebook/react/devsupport/InspectorPackagerConnection$BundleStatusProvider;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundlerStatusProvider:Lcom/facebook/react/devsupport/InspectorPackagerConnection$BundleStatusProvider;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$600(Lcom/facebook/react/devsupport/DevServerHelper;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
-    .param p1, "x1"    # Ljava/lang/String;
+    .locals 0
 
     .line 64
     invoke-direct {p0, p1}, Lcom/facebook/react/devsupport/DevServerHelper;->getInspectorAttachUrl(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$700(Lcom/facebook/react/devsupport/DevServerHelper;)Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnServerContentChangeListener:Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnServerContentChangeListener:Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$800(Lcom/facebook/react/devsupport/DevServerHelper;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
+    .locals 0
 
     .line 64
-    iget-boolean v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingEnabled:Z
+    iget-boolean p0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingEnabled:Z
 
-    return v0
+    return p0
 .end method
 
 .method static synthetic access$900(Lcom/facebook/react/devsupport/DevServerHelper;Z)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/DevServerHelper;
-    .param p1, "x1"    # Z
 
     .line 64
     invoke-direct {p0, p1}, Lcom/facebook/react/devsupport/DevServerHelper;->handleOnChangePollingResponse(Z)V
@@ -285,8 +264,6 @@
 
 .method private createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;)Ljava/lang/String;
     .locals 1
-    .param p1, "mainModuleID"    # Ljava/lang/String;
-    .param p2, "type"    # Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
 
     .line 447
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
@@ -303,16 +280,13 @@
     .line 447
     invoke-direct {p0, p1, p2, v0}, Lcom/facebook/react/devsupport/DevServerHelper;->createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method private createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
-    .param p1, "mainModuleID"    # Ljava/lang/String;
-    .param p2, "type"    # Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
-    .param p3, "host"    # Ljava/lang/String;
+    .locals 3
 
     .line 436
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -325,53 +299,53 @@
 
     aput-object p3, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p3, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p3
 
     .line 441
     invoke-virtual {p2}, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;->typeID()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/4 v3, 0x2
+    const/4 p2, 0x2
 
-    aput-object v2, v1, v3
+    aput-object p1, v1, p2
 
     .line 442
     invoke-direct {p0}, Lcom/facebook/react/devsupport/DevServerHelper;->getDevMode()Z
 
-    move-result v2
+    move-result p1
 
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/4 v3, 0x3
+    const/4 p2, 0x3
 
-    aput-object v2, v1, v3
+    aput-object p1, v1, p2
 
     .line 443
     invoke-direct {p0}, Lcom/facebook/react/devsupport/DevServerHelper;->getJSMinifyMode()Z
 
-    move-result v2
+    move-result p1
 
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/4 v3, 0x4
+    const/4 p2, 0x4
 
-    aput-object v2, v1, v3
+    aput-object p1, v1, p2
+
+    const-string p1, "http://%s/%s.%s?platform=android&dev=%s&minify=%s"
 
     .line 436
-    const-string v2, "http://%s/%s.%s?platform=android&dev=%s&minify=%s"
+    invoke-static {v0, p1, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method private createLaunchJSDevtoolsCommandUrl()Ljava/lang/String;
@@ -399,9 +373,9 @@
 
     aput-object v2, v1, v3
 
-    .line 601
     const-string v2, "http://%s/launch-js-devtools"
 
+    .line 601
     invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -434,9 +408,9 @@
 
     aput-object v2, v1, v3
 
-    .line 594
     const-string v2, "http://%s/onchange"
 
+    .line 594
     invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -446,7 +420,6 @@
 
 .method private static createOpenStackFrameURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .param p0, "host"    # Ljava/lang/String;
 
     .line 460
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -459,18 +432,17 @@
 
     aput-object p0, v1, v2
 
-    const-string v2, "http://%s/open-stack-frame"
+    const-string p0, "http://%s/open-stack-frame"
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static createPackagerStatusURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .param p0, "host"    # Ljava/lang/String;
 
     .line 521
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -483,19 +455,17 @@
 
     aput-object p0, v1, v2
 
-    const-string v2, "http://%s/status"
+    const-string p0, "http://%s/status"
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static createResourceURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .param p0, "host"    # Ljava/lang/String;
-    .param p1, "resourcePath"    # Ljava/lang/String;
 
     .line 452
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -508,22 +478,21 @@
 
     aput-object p0, v1, v2
 
-    const/4 v2, 0x1
+    const/4 p0, 0x1
 
-    aput-object p1, v1, v2
+    aput-object p1, v1, p0
 
-    const-string v2, "http://%s/%s"
+    const-string p0, "http://%s/%s"
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static createSymbolicateURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .param p0, "host"    # Ljava/lang/String;
 
     .line 456
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -536,17 +505,17 @@
 
     aput-object p0, v1, v2
 
-    const-string v2, "http://%s/symbolicate"
+    const-string p0, "http://%s/symbolicate"
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private enqueueOnChangeEndpointLongPolling()V
-    .locals 3
+    .locals 2
 
     .line 566
     new-instance v0, Lokhttp3/Request$Builder;
@@ -570,7 +539,6 @@
     move-result-object v0
 
     .line 567
-    .local v0, "request":Lokhttp3/Request;
     iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingClient:Lokhttp3/OkHttpClient;
 
     invoke-static {v1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -581,15 +549,14 @@
 
     invoke-virtual {v1, v0}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/facebook/react/devsupport/DevServerHelper$10;
+    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$10;
 
-    invoke-direct {v2, p0}, Lcom/facebook/react/devsupport/DevServerHelper$10;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
+    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$10;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
 
-    invoke-interface {v1, v2}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+    invoke-interface {v0, v1}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 591
     return-void
 .end method
 
@@ -667,16 +634,13 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 413
-    .local v0, "host":Ljava/lang/String;
     const/16 v1, 0x3a
 
+    .line 413
     invoke-virtual {v0, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v1
 
-    .line 414
-    .local v1, "portOffset":I
     const-string v2, "localhost"
 
     const/4 v3, -0x1
@@ -692,24 +656,22 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 
-    .line 417
     :cond_0
     return-object v2
 .end method
 
 .method private getInspectorAttachUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p1, "title"    # Ljava/lang/String;
 
     .line 371
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -731,29 +693,29 @@
 
     aput-object p1, v1, v2
 
-    iget-object v2, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackageName:Ljava/lang/String;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackageName:Ljava/lang/String;
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    aput-object v2, v1, v3
+    aput-object p1, v1, v2
 
     .line 377
     invoke-static {}, Lcom/facebook/react/modules/systeminfo/AndroidInfoHelpers;->getFriendlyDeviceName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    const/4 v3, 0x3
+    const/4 v2, 0x3
 
-    aput-object v2, v1, v3
+    aput-object p1, v1, v2
+
+    const-string p1, "http://%s/nuclide/attach-debugger-nuclide?title=%s&app=%s&device=%s"
 
     .line 371
-    const-string v2, "http://%s/nuclide/attach-debugger-nuclide?title=%s&app=%s&device=%s"
+    invoke-static {v0, p1, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v0
-
-    return-object v0
+    return-object p1
 .end method
 
 .method private getInspectorDeviceUrl()Ljava/lang/String;
@@ -796,9 +758,9 @@
 
     aput-object v2, v1, v3
 
-    .line 362
     const-string v2, "http://%s/inspector/device?name=%s&app=%s"
 
+    .line 362
     invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -821,28 +783,25 @@
 
 .method private handleOnChangePollingResponse(Z)V
     .locals 1
-    .param p1, "didServerContentChanged"    # Z
 
     .line 550
     iget-boolean v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingEnabled:Z
 
     if-eqz v0, :cond_1
 
-    .line 551
     if-eqz p1, :cond_0
 
     .line 552
-    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$9;
+    new-instance p1, Lcom/facebook/react/devsupport/DevServerHelper$9;
 
-    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/DevServerHelper$9;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
+    invoke-direct {p1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$9;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
 
-    invoke-static {v0}, Lcom/facebook/react/bridge/UiThreadUtil;->runOnUiThread(Ljava/lang/Runnable;)V
+    invoke-static {p1}, Lcom/facebook/react/bridge/UiThreadUtil;->runOnUiThread(Ljava/lang/Runnable;)V
 
     .line 561
     :cond_0
     invoke-direct {p0}, Lcom/facebook/react/devsupport/DevServerHelper;->enqueueOnChangeEndpointLongPolling()V
 
-    .line 563
     :cond_1
     return-void
 .end method
@@ -850,25 +809,22 @@
 
 # virtual methods
 .method public attachDebugger(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "title"    # Ljava/lang/String;
+    .locals 1
 
     .line 256
     new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$5;
 
     invoke-direct {v0, p0, p2, p1}, Lcom/facebook/react/devsupport/DevServerHelper$5;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;Ljava/lang/String;Landroid/content/Context;)V
 
-    sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object p1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    new-array v2, v2, [Ljava/lang/Void;
+    new-array p2, p2, [Ljava/lang/Void;
 
     .line 282
-    invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper$5;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, p1, p2}, Lcom/facebook/react/devsupport/DevServerHelper$5;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 283
     return-void
 .end method
 
@@ -889,7 +845,6 @@
     .line 252
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper$4;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 253
     return-void
 .end method
 
@@ -910,7 +865,6 @@
     .line 214
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper$2;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 215
     return-void
 .end method
 
@@ -922,22 +876,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 238
     const-string v1, "{ \"id\":1,\"method\":\"Debugger.disable\" }"
 
+    .line 238
     invoke-virtual {v0, v1}, Lcom/facebook/react/devsupport/InspectorPackagerConnection;->sendEventToAllConnections(Ljava/lang/String;)V
 
-    .line 240
     :cond_0
     return-void
 .end method
 
 .method public downloadBundleFromURL(Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;Ljava/io/File;Ljava/lang/String;Lcom/facebook/react/devsupport/BundleDownloader$BundleInfo;)V
     .locals 6
-    .param p1, "callback"    # Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;
-    .param p2, "outputFile"    # Ljava/io/File;
-    .param p3, "bundleURL"    # Ljava/lang/String;
-    .param p4, "bundleInfo"    # Lcom/facebook/react/devsupport/BundleDownloader$BundleInfo;
 
     .line 383
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundleDownloader:Lcom/facebook/react/devsupport/BundleDownloader;
@@ -956,17 +905,11 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/facebook/react/devsupport/BundleDownloader;->downloadBundleFromURL(Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;Ljava/io/File;Ljava/lang/String;Lcom/facebook/react/devsupport/BundleDownloader$BundleInfo;Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;)V
 
-    .line 384
     return-void
 .end method
 
 .method public downloadBundleFromURL(Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;Ljava/io/File;Ljava/lang/String;Lcom/facebook/react/devsupport/BundleDownloader$BundleInfo;Lokhttp3/Request$Builder;)V
     .locals 7
-    .param p1, "callback"    # Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;
-    .param p2, "outputFile"    # Ljava/io/File;
-    .param p3, "bundleURL"    # Ljava/lang/String;
-    .param p4, "bundleInfo"    # Lcom/facebook/react/devsupport/BundleDownloader$BundleInfo;
-    .param p5, "requestBuilder"    # Lokhttp3/Request$Builder;
 
     .line 392
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mBundleDownloader:Lcom/facebook/react/devsupport/BundleDownloader;
@@ -976,7 +919,6 @@
 
     move-result-object v5
 
-    .line 392
     move-object v1, p1
 
     move-object v2, p2
@@ -987,16 +929,14 @@
 
     move-object v6, p5
 
+    .line 392
     invoke-virtual/range {v0 .. v6}, Lcom/facebook/react/devsupport/BundleDownloader;->downloadBundleFromURL(Lcom/facebook/react/devsupport/interfaces/DevBundleDownloadListener;Ljava/io/File;Ljava/lang/String;Lcom/facebook/react/devsupport/BundleDownloader$BundleInfo;Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;Lokhttp3/Request$Builder;)V
 
-    .line 394
     return-void
 .end method
 
 .method public downloadBundleResourceFromUrlSync(Ljava/lang/String;Ljava/io/File;)Ljava/io/File;
-    .locals 8
-    .param p1, "resourcePath"    # Ljava/lang/String;
-    .param p2, "outputFile"    # Ljava/io/File;
+    .locals 5
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -1018,7 +958,6 @@
     move-result-object v0
 
     .line 654
-    .local v0, "resourceURL":Ljava/lang/String;
     new-instance v1, Lokhttp3/Request$Builder;
 
     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
@@ -1026,259 +965,216 @@
     .line 655
     invoke-virtual {v1, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 656
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 658
-    .local v1, "request":Lokhttp3/Request;
-    const/4 v2, 0x0
-
     :try_start_0
-    iget-object v3, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
+    iget-object v2, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v3, v1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+    invoke-virtual {v2, v0}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v3}, Lokhttp3/Call;->execute()Lokhttp3/Response;
+    invoke-interface {v0}, Lokhttp3/Call;->execute()Lokhttp3/Response;
 
-    move-result-object v3
+    move-result-object v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
     .line 659
-    .local v3, "response":Lokhttp3/Response;
     :try_start_1
-    invoke-virtual {v3}, Lokhttp3/Response;->isSuccessful()Z
+    invoke-virtual {v0}, Lokhttp3/Response;->isSuccessful()Z
 
-    move-result v4
+    move-result v2
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
-    if-nez v4, :cond_1
+    if-nez v2, :cond_1
 
-    .line 660
-    nop
+    if-eqz v0, :cond_0
 
     .line 674
-    if-eqz v3, :cond_0
-
     :try_start_2
-    invoke-virtual {v3}, Lokhttp3/Response;->close()V
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 660
     :cond_0
-    return-object v2
-
-    .line 662
-    :cond_1
-    const/4 v4, 0x0
+    return-object v1
 
     .line 665
-    .local v4, "output":Lokio/Sink;
+    :cond_1
     :try_start_3
     invoke-static {p2}, Lokio/Okio;->sink(Ljava/io/File;)Lokio/Sink;
 
-    move-result-object v5
-
-    move-object v4, v5
+    move-result-object v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 666
-    invoke-virtual {v3}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+    :try_start_4
+    invoke-virtual {v0}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
+    invoke-virtual {v3}, Lokhttp3/ResponseBody;->source()Lokio/BufferedSource;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-static {v5}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
+    invoke-static {v3}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-interface {v5, v4}, Lokio/BufferedSource;->readAll(Lokio/Sink;)J
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    invoke-interface {v3, v2}, Lokio/BufferedSource;->readAll(Lokio/Sink;)J
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 668
-    if-eqz v4, :cond_2
+    if-eqz v2, :cond_2
 
     .line 669
-    :try_start_4
-    invoke-interface {v4}, Lokio/Sink;->close()V
-    :try_end_4
-    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_start_5
+    invoke-interface {v2}, Lokio/Sink;->close()V
+    :try_end_5
+    .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    .line 673
     :cond_2
-    nop
+    if-eqz v0, :cond_3
 
     .line 674
-    if-eqz v3, :cond_3
+    :try_start_6
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
 
-    :try_start_5
-    invoke-virtual {v3}, Lokhttp3/Response;->close()V
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
-
-    .line 673
     :cond_3
     return-object p2
 
-    .line 668
     :catchall_0
-    move-exception v5
-
-    if-eqz v4, :cond_4
-
-    .line 669
-    :try_start_6
-    invoke-interface {v4}, Lokio/Sink;->close()V
-
-    .line 671
-    :cond_4
-    nop
-
-    .end local v0    # "resourceURL":Ljava/lang/String;
-    .end local v1    # "request":Lokhttp3/Request;
-    .end local v3    # "response":Lokhttp3/Response;
-    .end local p1    # "resourcePath":Ljava/lang/String;
-    .end local p2    # "outputFile":Ljava/io/File;
-    throw v5
-    :try_end_6
-    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
-
-    .line 674
-    .end local v4    # "output":Lokio/Sink;
-    .restart local v0    # "resourceURL":Ljava/lang/String;
-    .restart local v1    # "request":Lokhttp3/Request;
-    .restart local v3    # "response":Lokhttp3/Response;
-    .restart local p1    # "resourcePath":Ljava/lang/String;
-    .restart local p2    # "outputFile":Ljava/io/File;
-    :catchall_1
-    move-exception v4
-
-    move-object v5, v2
+    move-exception v3
 
     goto :goto_0
 
-    .line 658
-    :catch_0
-    move-exception v4
-
-    .end local v0    # "resourceURL":Ljava/lang/String;
-    .end local v1    # "request":Lokhttp3/Request;
-    .end local v3    # "response":Lokhttp3/Response;
-    .end local p1    # "resourcePath":Ljava/lang/String;
-    .end local p2    # "outputFile":Ljava/io/File;
-    :try_start_7
-    throw v4
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
-
-    .line 674
-    .restart local v0    # "resourceURL":Ljava/lang/String;
-    .restart local v1    # "request":Lokhttp3/Request;
-    .restart local v3    # "response":Lokhttp3/Response;
-    .restart local p1    # "resourcePath":Ljava/lang/String;
-    .restart local p2    # "outputFile":Ljava/io/File;
-    :catchall_2
-    move-exception v5
-
-    move-object v7, v5
-
-    move-object v5, v4
-
-    move-object v4, v7
-
-    :goto_0
-    if-eqz v3, :cond_6
-
-    if-eqz v5, :cond_5
-
-    :try_start_8
-    invoke-virtual {v3}, Lokhttp3/Response;->close()V
-    :try_end_8
-    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v6
-
-    :try_start_9
-    invoke-virtual {v5, v6}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
-
-    goto :goto_1
-
-    :cond_5
-    invoke-virtual {v3}, Lokhttp3/Response;->close()V
-
-    .end local v0    # "resourceURL":Ljava/lang/String;
-    .end local v1    # "request":Lokhttp3/Request;
-    .end local p1    # "resourcePath":Ljava/lang/String;
-    .end local p2    # "outputFile":Ljava/io/File;
-    :cond_6
-    :goto_1
-    throw v4
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
-
-    .end local v3    # "response":Lokhttp3/Response;
-    .restart local v0    # "resourceURL":Ljava/lang/String;
-    .restart local v1    # "request":Lokhttp3/Request;
-    .restart local p1    # "resourcePath":Ljava/lang/String;
-    .restart local p2    # "outputFile":Ljava/io/File;
-    :catch_2
+    :catchall_1
     move-exception v3
 
+    move-object v2, v1
+
+    :goto_0
+    if-eqz v2, :cond_4
+
+    .line 669
+    :try_start_7
+    invoke-interface {v2}, Lokio/Sink;->close()V
+
+    .line 671
+    :cond_4
+    throw v3
+    :try_end_7
+    .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+
+    :catchall_2
+    move-exception v2
+
+    move-object v3, v1
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v2
+
+    .line 658
+    :try_start_8
+    throw v2
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
+
+    :catchall_3
+    move-exception v3
+
+    move-object v4, v3
+
+    move-object v3, v2
+
+    move-object v2, v4
+
+    :goto_1
+    if-eqz v0, :cond_6
+
+    if-eqz v3, :cond_5
+
+    .line 674
+    :try_start_9
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
+    :try_end_9
+    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_2
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
+    :try_start_a
+    invoke-virtual {v3, v0}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_2
+
+    :cond_5
+    invoke-virtual {v0}, Lokhttp3/Response;->close()V
+
+    :cond_6
+    :goto_2
+    throw v2
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
+
+    :catch_2
+    move-exception v0
+
+    const/4 v2, 0x3
+
     .line 675
-    .local v3, "ex":Ljava/lang/Exception;
-    const/4 v4, 0x3
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const/4 v3, 0x0
 
-    const/4 v5, 0x0
+    aput-object p1, v2, v3
 
-    aput-object p1, v4, v5
-
-    const/4 v5, 0x1
+    const/4 p1, 0x1
 
     .line 679
     invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p2
 
-    aput-object v6, v4, v5
+    aput-object p2, v2, p1
 
-    const/4 v5, 0x2
+    const/4 p1, 0x2
 
-    aput-object v3, v4, v5
+    aput-object v0, v2, p1
+
+    const-string p1, "ReactNative"
+
+    const-string p2, "Failed to fetch resource synchronously - resourcePath: \"%s\", outputFile: \"%s\""
 
     .line 675
-    const-string v5, "ReactNative"
+    invoke-static {p1, p2, v2}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    const-string v6, "Failed to fetch resource synchronously - resourcePath: \"%s\", outputFile: \"%s\""
-
-    invoke-static {v5, v6, v4}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 681
-    return-object v2
+    return-object v1
 .end method
 
 .method public getDevServerBundleURL(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p1, "jsModulePath"    # Ljava/lang/String;
 
     .line 464
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
@@ -1312,14 +1208,13 @@
     .line 464
     invoke-direct {p0, p1, v0, v1}, Lcom/facebook/react/devsupport/DevServerHelper;->createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getJSBundleURLForRemoteDebugging(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
-    .param p1, "mainModuleName"    # Ljava/lang/String;
 
     .line 638
     sget-object v0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;->BUNDLE:Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
@@ -1332,28 +1227,26 @@
     .line 638
     invoke-direct {p0, p1, v0, v1}, Lcom/facebook/react/devsupport/DevServerHelper;->createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getSourceMapUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "mainModuleName"    # Ljava/lang/String;
 
     .line 626
     sget-object v0, Lcom/facebook/react/devsupport/DevServerHelper$BundleType;->MAP:Lcom/facebook/react/devsupport/DevServerHelper$BundleType;
 
     invoke-direct {p0, p1, v0}, Lcom/facebook/react/devsupport/DevServerHelper;->createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getSourceUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
-    .param p1, "mainModuleName"    # Ljava/lang/String;
 
     .line 630
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
@@ -1376,9 +1269,9 @@
     :goto_0
     invoke-direct {p0, p1, v0}, Lcom/facebook/react/devsupport/DevServerHelper;->createBundleURL(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$BundleType;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getWebsocketProxyURL()Ljava/lang/String;
@@ -1406,9 +1299,9 @@
 
     aput-object v2, v1, v3
 
-    .line 355
     const-string v2, "ws://%s/debugger-proxy?role=client"
 
+    .line 355
     invoke-static {v0, v2, v1}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
@@ -1417,8 +1310,7 @@
 .end method
 
 .method public isPackagerRunning(Lcom/facebook/react/devsupport/interfaces/PackagerStatusCallback;)V
-    .locals 4
-    .param p1, "callback"    # Lcom/facebook/react/devsupport/interfaces/PackagerStatusCallback;
+    .locals 2
 
     .line 472
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
@@ -1438,7 +1330,6 @@
     move-result-object v0
 
     .line 474
-    .local v0, "statusURL":Ljava/lang/String;
     new-instance v1, Lokhttp3/Request$Builder;
 
     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
@@ -1446,33 +1337,31 @@
     .line 475
     invoke-virtual {v1, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 476
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {v0}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 478
-    .local v1, "request":Lokhttp3/Request;
-    iget-object v2, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
+    iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v2, v1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+    invoke-virtual {v1, v0}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v2
+    move-result-object v0
 
-    new-instance v3, Lcom/facebook/react/devsupport/DevServerHelper$8;
+    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$8;
 
-    invoke-direct {v3, p0, p1}, Lcom/facebook/react/devsupport/DevServerHelper$8;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/interfaces/PackagerStatusCallback;)V
+    invoke-direct {v1, p0, p1}, Lcom/facebook/react/devsupport/DevServerHelper$8;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/interfaces/PackagerStatusCallback;)V
 
-    invoke-interface {v2, v3}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+    invoke-interface {v0, v1}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 518
     return-void
 .end method
 
 .method public launchJSDevtools()V
-    .locals 3
+    .locals 2
 
     .line 608
     new-instance v0, Lokhttp3/Request$Builder;
@@ -1494,20 +1383,18 @@
     move-result-object v0
 
     .line 611
-    .local v0, "request":Lokhttp3/Request;
     iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
 
     invoke-virtual {v1, v0}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v1
+    move-result-object v0
 
-    new-instance v2, Lcom/facebook/react/devsupport/DevServerHelper$11;
+    new-instance v1, Lcom/facebook/react/devsupport/DevServerHelper$11;
 
-    invoke-direct {v2, p0}, Lcom/facebook/react/devsupport/DevServerHelper$11;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
+    invoke-direct {v1, p0}, Lcom/facebook/react/devsupport/DevServerHelper$11;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
 
-    invoke-interface {v1, v2}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+    invoke-interface {v0, v1}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 623
     return-void
 .end method
 
@@ -1519,14 +1406,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 219
     const-string v0, "ReactNative"
 
     const-string v1, "Inspector connection already open, nooping."
 
+    .line 219
     invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 220
     return-void
 
     .line 222
@@ -1544,28 +1430,24 @@
     .line 233
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper$3;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 234
     return-void
 .end method
 
 .method public openPackagerConnection(Ljava/lang/String;Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;)V
-    .locals 3
-    .param p1, "clientId"    # Ljava/lang/String;
-    .param p2, "commandListener"    # Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;
+    .locals 1
 
     .line 147
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mPackagerClient:Lcom/facebook/react/packagerconnection/JSPackagerClient;
 
     if-eqz v0, :cond_0
 
+    const-string p1, "ReactNative"
+
+    const-string p2, "Packager connection already open, nooping."
+
     .line 148
-    const-string v0, "ReactNative"
+    invoke-static {p1, p2}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v1, "Packager connection already open, nooping."
-
-    invoke-static {v0, v1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 149
     return-void
 
     .line 151
@@ -1574,22 +1456,20 @@
 
     invoke-direct {v0, p0, p2, p1}, Lcom/facebook/react/devsupport/DevServerHelper$1;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/DevServerHelper$PackagerCommandListener;Ljava/lang/String;)V
 
-    sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object p1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    new-array v2, v2, [Ljava/lang/Void;
+    new-array p2, p2, [Ljava/lang/Void;
 
     .line 201
-    invoke-virtual {v0, v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper$1;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, p1, p2}, Lcom/facebook/react/devsupport/DevServerHelper$1;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 202
     return-void
 .end method
 
 .method public openStackFrameCall(Lcom/facebook/react/devsupport/interfaces/StackFrame;)V
-    .locals 4
-    .param p1, "stackFrame"    # Lcom/facebook/react/devsupport/interfaces/StackFrame;
+    .locals 2
 
     .line 330
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
@@ -1609,7 +1489,6 @@
     move-result-object v0
 
     .line 332
-    .local v0, "openStackFrameURL":Ljava/lang/String;
     new-instance v1, Lokhttp3/Request$Builder;
 
     invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
@@ -1617,132 +1496,126 @@
     .line 333
     invoke-virtual {v1, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "application/json"
 
     .line 335
-    const-string v2, "application/json"
+    invoke-static {v1}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
-    invoke-static {v2}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
-
-    move-result-object v2
+    move-result-object v1
 
     .line 336
     invoke-interface {p1}, Lcom/facebook/react/devsupport/interfaces/StackFrame;->toJSON()Lorg/json/JSONObject;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v3}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 334
-    invoke-static {v2, v3}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
+    invoke-static {v1, p1}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+    invoke-virtual {v0, p1}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 337
-    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 338
-    .local v1, "request":Lokhttp3/Request;
-    iget-object v2, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
+    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
 
-    invoke-virtual {v2, v1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-static {v2}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lokhttp3/Call;
+    check-cast p1, Lokhttp3/Call;
 
     .line 339
-    .local v2, "symbolicateCall":Lokhttp3/Call;
-    new-instance v3, Lcom/facebook/react/devsupport/DevServerHelper$7;
+    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$7;
 
-    invoke-direct {v3, p0}, Lcom/facebook/react/devsupport/DevServerHelper$7;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
+    invoke-direct {v0, p0}, Lcom/facebook/react/devsupport/DevServerHelper$7;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;)V
 
-    invoke-interface {v2, v3}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+    invoke-interface {p1, v0}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
 
-    .line 352
     return-void
 .end method
 
 .method public startPollingOnChangeEndpoint(Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;)V
-    .locals 6
-    .param p1, "onServerContentChangeListener"    # Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;
+    .locals 5
 
     .line 536
     iget-boolean v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingEnabled:Z
 
     if-eqz v0, :cond_0
 
-    .line 538
     return-void
 
-    .line 540
     :cond_0
     const/4 v0, 0x1
 
+    .line 540
     iput-boolean v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingEnabled:Z
 
     .line 541
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnServerContentChangeListener:Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;
 
     .line 542
-    new-instance v1, Lokhttp3/OkHttpClient$Builder;
+    new-instance p1, Lokhttp3/OkHttpClient$Builder;
 
-    invoke-direct {v1}, Lokhttp3/OkHttpClient$Builder;-><init>()V
+    invoke-direct {p1}, Lokhttp3/OkHttpClient$Builder;-><init>()V
 
-    new-instance v2, Lokhttp3/ConnectionPool;
+    new-instance v1, Lokhttp3/ConnectionPool;
 
-    const-wide/32 v3, 0x1d4c0
+    const-wide/32 v2, 0x1d4c0
 
-    sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v4, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
-    invoke-direct {v2, v0, v3, v4, v5}, Lokhttp3/ConnectionPool;-><init>(IJLjava/util/concurrent/TimeUnit;)V
+    invoke-direct {v1, v0, v2, v3, v4}, Lokhttp3/ConnectionPool;-><init>(IJLjava/util/concurrent/TimeUnit;)V
 
     .line 543
-    invoke-virtual {v1, v2}, Lokhttp3/OkHttpClient$Builder;->connectionPool(Lokhttp3/ConnectionPool;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {p1, v1}, Lokhttp3/OkHttpClient$Builder;->connectionPool(Lokhttp3/ConnectionPool;)Lokhttp3/OkHttpClient$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-wide/16 v1, 0x1388
+    const-wide/16 v0, 0x1388
 
-    sget-object v3, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v2, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     .line 544
-    invoke-virtual {v0, v1, v2, v3}, Lokhttp3/OkHttpClient$Builder;->connectTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
+    invoke-virtual {p1, v0, v1, v2}, Lokhttp3/OkHttpClient$Builder;->connectTimeout(JLjava/util/concurrent/TimeUnit;)Lokhttp3/OkHttpClient$Builder;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 545
-    invoke-virtual {v0}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
+    invoke-virtual {p1}, Lokhttp3/OkHttpClient$Builder;->build()Lokhttp3/OkHttpClient;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingClient:Lokhttp3/OkHttpClient;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingClient:Lokhttp3/OkHttpClient;
 
     .line 546
     invoke-direct {p0}, Lcom/facebook/react/devsupport/DevServerHelper;->enqueueOnChangeEndpointLongPolling()V
 
-    .line 547
     return-void
 .end method
 
 .method public stopPollingOnChangeEndpoint()V
     .locals 2
 
-    .line 525
     const/4 v0, 0x0
 
+    .line 525
     iput-boolean v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnChangePollingEnabled:Z
 
     .line 526
@@ -1767,13 +1640,11 @@
     :cond_0
     iput-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mOnServerContentChangeListener:Lcom/facebook/react/devsupport/DevServerHelper$OnServerContentChangeListener;
 
-    .line 532
     return-void
 .end method
 
 .method public symbolicateStackTrace(Ljava/lang/Iterable;Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;)V
-    .locals 6
-    .param p2, "listener"    # Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1786,7 +1657,6 @@
     .end annotation
 
     .line 289
-    .local p1, "stackFrames":Ljava/lang/Iterable;, "Ljava/lang/Iterable<Lcom/facebook/react/devsupport/interfaces/StackFrame;>;"
     :try_start_0
     iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mSettings:Lcom/facebook/react/devsupport/DevInternalSettings;
 
@@ -1805,154 +1675,136 @@
     move-result-object v0
 
     .line 291
-    .local v0, "symbolicateURL":Ljava/lang/String;
     new-instance v1, Lorg/json/JSONArray;
 
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
     .line 292
-    .local v1, "jsonStackFrames":Lorg/json/JSONArray;
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/facebook/react/devsupport/interfaces/StackFrame;
+    check-cast v2, Lcom/facebook/react/devsupport/interfaces/StackFrame;
 
     .line 293
-    .local v3, "stackFrame":Lcom/facebook/react/devsupport/interfaces/StackFrame;
-    invoke-interface {v3}, Lcom/facebook/react/devsupport/interfaces/StackFrame;->toJSON()Lorg/json/JSONObject;
+    invoke-interface {v2}, Lcom/facebook/react/devsupport/interfaces/StackFrame;->toJSON()Lorg/json/JSONObject;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-virtual {v1, v4}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
+    invoke-virtual {v1, v2}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
-    .line 294
-    nop
-
-    .end local v3    # "stackFrame":Lcom/facebook/react/devsupport/interfaces/StackFrame;
     goto :goto_0
 
     .line 295
     :cond_0
-    new-instance v2, Lokhttp3/Request$Builder;
+    new-instance p1, Lokhttp3/Request$Builder;
 
-    invoke-direct {v2}, Lokhttp3/Request$Builder;-><init>()V
+    invoke-direct {p1}, Lokhttp3/Request$Builder;-><init>()V
 
     .line 296
-    invoke-virtual {v2, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
+    invoke-virtual {p1, v0}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
 
-    move-result-object v2
+    move-result-object p1
 
-    const-string v3, "application/json"
+    const-string v0, "application/json"
 
     .line 298
-    invoke-static {v3}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
+    invoke-static {v0}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-instance v4, Lorg/json/JSONObject;
+    new-instance v2, Lorg/json/JSONObject;
 
-    invoke-direct {v4}, Lorg/json/JSONObject;-><init>()V
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
 
-    const-string v5, "stack"
+    const-string v3, "stack"
 
     .line 299
-    invoke-virtual {v4, v5, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 297
-    invoke-static {v3, v4}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
-
-    move-result-object v2
-
-    .line 300
-    invoke-virtual {v2}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
-
-    move-result-object v2
-
-    .line 301
-    .local v2, "request":Lokhttp3/Request;
-    iget-object v3, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
-
-    invoke-virtual {v3, v2}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lokhttp3/Call;
-
-    .line 302
-    .local v3, "symbolicateCall":Lokhttp3/Call;
-    new-instance v4, Lcom/facebook/react/devsupport/DevServerHelper$6;
-
-    invoke-direct {v4, p0, p2}, Lcom/facebook/react/devsupport/DevServerHelper$6;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;)V
-
-    invoke-interface {v3, v4}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 326
-    .end local v0    # "symbolicateURL":Ljava/lang/String;
-    .end local v1    # "jsonStackFrames":Lorg/json/JSONArray;
-    .end local v2    # "request":Lokhttp3/Request;
-    .end local v3    # "symbolicateCall":Lokhttp3/Call;
-    goto :goto_1
-
-    .line 322
-    :catch_0
-    move-exception v0
-
-    .line 323
-    .local v0, "e":Lorg/json/JSONException;
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Got JSONException when attempting symbolicate stack trace: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 325
-    invoke-virtual {v0}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
     move-result-object v1
 
+    invoke-virtual {v1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 297
+    invoke-static {v0, v1}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+
+    move-result-object p1
+
+    .line 300
+    invoke-virtual {p1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+
+    move-result-object p1
+
+    .line 301
+    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper;->mClient:Lokhttp3/OkHttpClient;
+
+    invoke-virtual {v0, p1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lokhttp3/Call;
+
+    .line 302
+    new-instance v0, Lcom/facebook/react/devsupport/DevServerHelper$6;
+
+    invoke-direct {v0, p0, p2}, Lcom/facebook/react/devsupport/DevServerHelper$6;-><init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;)V
+
+    invoke-interface {p1, v0}, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p1
+
     .line 323
-    const-string v2, "ReactNative"
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 327
-    .end local v0    # "e":Lorg/json/JSONException;
+    const-string v0, "Got JSONException when attempting symbolicate stack trace: "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 325
+    invoke-virtual {p1}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "ReactNative"
+
+    .line 323
+    invoke-static {p2, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+
     :goto_1
     return-void
 .end method

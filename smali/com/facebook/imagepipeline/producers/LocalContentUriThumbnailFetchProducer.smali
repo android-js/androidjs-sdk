@@ -53,11 +53,11 @@
 
     sput-object v0, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->TAG:Ljava/lang/Class;
 
-    .line 39
     const-string v0, "_data"
 
     const-string v1, "_id"
 
+    .line 39
     filled-new-array {v1, v0}, [Ljava/lang/String;
 
     move-result-object v1
@@ -98,9 +98,6 @@
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;Landroid/content/ContentResolver;)V
     .locals 0
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
-    .param p2, "pooledByteBufferFactory"    # Lcom/facebook/common/memory/PooledByteBufferFactory;
-    .param p3, "contentResolver"    # Landroid/content/ContentResolver;
 
     .line 58
     invoke-direct {p0, p1, p2}, Lcom/facebook/imagepipeline/producers/LocalFetchProducer;-><init>(Ljava/util/concurrent/Executor;Lcom/facebook/common/memory/PooledByteBufferFactory;)V
@@ -108,14 +105,11 @@
     .line 59
     iput-object p3, p0, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->mContentResolver:Landroid/content/ContentResolver;
 
-    .line 60
     return-void
 .end method
 
 .method private getCameraImage(Landroid/net/Uri;Lcom/facebook/imagepipeline/common/ResizeOptions;)Lcom/facebook/imagepipeline/image/EncodedImage;
     .locals 6
-    .param p1, "uri"    # Landroid/net/Uri;
-    .param p2, "resizeOptions"    # Lcom/facebook/imagepipeline/common/ResizeOptions;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -140,131 +134,104 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 88
-    .local v0, "cursor":Landroid/database/Cursor;
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 89
-    return-object v1
+    return-object v0
 
     .line 92
     :cond_0
     :try_start_0
-    invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
+    invoke-interface {p1}, Landroid/database/Cursor;->getCount()I
 
-    move-result v2
+    move-result v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v2, :cond_1
-
-    .line 93
-    nop
+    if-nez v1, :cond_1
 
     .line 107
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 93
-    return-object v1
+    return-object v0
 
     .line 95
     :cond_1
     :try_start_1
-    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {p1}, Landroid/database/Cursor;->moveToFirst()Z
 
-    .line 96
-    const-string v2, "_data"
+    const-string v1, "_data"
 
     .line 97
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 98
-    .local v2, "pathname":Ljava/lang/String;
-    if-eqz p2, :cond_2
-
-    .line 99
-    const-string v3, "_id"
-
-    invoke-interface {v0, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v3
-
-    .line 100
-    .local v3, "imageIdColumnIndex":I
-    invoke-interface {v0, v3}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v4
-
-    invoke-direct {p0, p2, v4}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getThumbnail(Lcom/facebook/imagepipeline/common/ResizeOptions;I)Lcom/facebook/imagepipeline/image/EncodedImage;
-
-    move-result-object v4
-
-    .line 101
-    .local v4, "thumbnail":Lcom/facebook/imagepipeline/image/EncodedImage;
-    if-eqz v4, :cond_2
-
-    .line 102
-    invoke-static {v2}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getRotationAngle(Ljava/lang/String;)I
+    invoke-interface {p1, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v1
 
-    invoke-virtual {v4, v1}, Lcom/facebook/imagepipeline/image/EncodedImage;->setRotationAngle(I)V
+    invoke-interface {p1, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz p2, :cond_2
+
+    const-string v2, "_id"
+
+    .line 99
+    invoke-interface {p1, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v2
+
+    .line 100
+    invoke-interface {p1, v2}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v2
+
+    invoke-direct {p0, p2, v2}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getThumbnail(Lcom/facebook/imagepipeline/common/ResizeOptions;I)Lcom/facebook/imagepipeline/image/EncodedImage;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_2
+
+    .line 102
+    invoke-static {v1}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getRotationAngle(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {p2, v0}, Lcom/facebook/imagepipeline/image/EncodedImage;->setRotationAngle(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 103
-    nop
-
     .line 107
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 103
-    return-object v4
+    return-object p2
 
-    .line 107
-    .end local v2    # "pathname":Ljava/lang/String;
-    .end local v3    # "imageIdColumnIndex":I
-    .end local v4    # "thumbnail":Lcom/facebook/imagepipeline/image/EncodedImage;
     :cond_2
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 108
-    nop
+    return-object v0
 
-    .line 109
-    return-object v1
-
-    .line 107
     :catchall_0
-    move-exception v1
+    move-exception p2
 
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
     .line 108
-    throw v1
+    throw p2
 .end method
 
 .method private static getLength(Ljava/lang/String;)I
     .locals 2
-    .param p0, "pathname"    # Ljava/lang/String;
 
-    .line 167
     if-nez p0, :cond_0
 
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
     goto :goto_0
 
+    .line 167
     :cond_0
     new-instance v0, Ljava/io/File;
 
@@ -274,72 +241,62 @@
 
     move-result-wide v0
 
-    long-to-int v0, v0
+    long-to-int p0, v0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method private static getRotationAngle(Ljava/lang/String;)I
-    .locals 5
-    .param p0, "pathname"    # Ljava/lang/String;
+    .locals 4
 
-    .line 176
     const/4 v0, 0x0
 
     if-eqz p0, :cond_0
 
-    .line 178
     const/4 v1, 0x1
 
+    .line 178
     :try_start_0
     new-instance v2, Landroid/media/ExifInterface;
 
     invoke-direct {v2, p0}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
 
-    .line 179
-    .local v2, "exif":Landroid/media/ExifInterface;
     const-string v3, "Orientation"
 
+    .line 179
     invoke-virtual {v2, v3, v1}, Landroid/media/ExifInterface;->getAttributeInt(Ljava/lang/String;I)I
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v3}, Lcom/facebook/imageutils/JfifUtil;->getAutoRotateAngleFromOrientation(I)I
+    invoke-static {v2}, Lcom/facebook/imageutils/JfifUtil;->getAutoRotateAngleFromOrientation(I)I
 
-    move-result v0
+    move-result p0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p0
 
-    .line 181
-    .end local v2    # "exif":Landroid/media/ExifInterface;
     :catch_0
     move-exception v2
 
     .line 182
-    .local v2, "ioe":Ljava/io/IOException;
     sget-object v3, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->TAG:Ljava/lang/Class;
 
     new-array v1, v1, [Ljava/lang/Object;
 
     aput-object p0, v1, v0
 
-    const-string v4, "Unable to retrieve thumbnail rotation for %s"
+    const-string p0, "Unable to retrieve thumbnail rotation for %s"
 
-    invoke-static {v3, v2, v4, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v2, p0, v1}, Lcom/facebook/common/logging/FLog;->e(Ljava/lang/Class;Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 185
-    .end local v2    # "ioe":Ljava/io/IOException;
     :cond_0
     return v0
 .end method
 
 .method private getThumbnail(Lcom/facebook/imagepipeline/common/ResizeOptions;I)Lcom/facebook/imagepipeline/image/EncodedImage;
-    .locals 7
-    .param p1, "resizeOptions"    # Lcom/facebook/imagepipeline/common/ResizeOptions;
-    .param p2, "imageId"    # I
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -349,145 +306,127 @@
     .line 116
     invoke-static {p1}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getThumbnailKind(Lcom/facebook/imagepipeline/common/ResizeOptions;)I
 
-    move-result v0
+    move-result p1
 
-    .line 117
-    .local v0, "thumbnailKind":I
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 118
-    return-object v1
-
-    .line 120
-    :cond_0
-    const/4 v2, 0x0
+    return-object v0
 
     .line 122
-    .local v2, "thumbnailCursor":Landroid/database/Cursor;
+    :cond_0
     :try_start_0
-    iget-object v3, p0, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->mContentResolver:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->mContentResolver:Landroid/content/ContentResolver;
 
-    int-to-long v4, p2
+    int-to-long v2, p2
 
-    sget-object v6, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->THUMBNAIL_PROJECTION:[Ljava/lang/String;
+    sget-object p2, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->THUMBNAIL_PROJECTION:[Ljava/lang/String;
 
-    invoke-static {v3, v4, v5, v0, v6}, Landroid/provider/MediaStore$Images$Thumbnails;->queryMiniThumbnail(Landroid/content/ContentResolver;JI[Ljava/lang/String;)Landroid/database/Cursor;
+    invoke-static {v1, v2, v3, p1, p2}, Landroid/provider/MediaStore$Images$Thumbnails;->queryMiniThumbnail(Landroid/content/ContentResolver;JI[Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v3
+    move-result-object p1
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    move-object v2, v3
+    if-nez p1, :cond_2
 
-    .line 127
-    if-nez v2, :cond_2
-
-    .line 128
-    nop
-
-    .line 139
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
     .line 140
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 128
     :cond_1
-    return-object v1
+    return-object v0
 
     .line 130
     :cond_2
     :try_start_1
-    invoke-interface {v2}, Landroid/database/Cursor;->moveToFirst()Z
+    invoke-interface {p1}, Landroid/database/Cursor;->moveToFirst()Z
 
     .line 131
-    invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
+    invoke-interface {p1}, Landroid/database/Cursor;->getCount()I
 
-    move-result v3
+    move-result p2
 
-    if-lez v3, :cond_4
+    if-lez p2, :cond_4
 
-    .line 132
-    const-string v3, "_data"
+    const-string p2, "_data"
 
     .line 133
-    invoke-interface {v2, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {p1, p2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v3
+    move-result p2
 
     .line 132
-    invoke-interface {v2, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {p1, p2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 134
-    .local v3, "thumbnailUri":Ljava/lang/String;
-    new-instance v4, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
-    invoke-direct {v4, v3}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, p2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v4}, Ljava/io/File;->exists()Z
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
-    move-result v4
+    move-result v1
 
-    if-eqz v4, :cond_4
+    if-eqz v1, :cond_4
 
     .line 135
-    new-instance v1, Ljava/io/FileInputStream;
+    new-instance v0, Ljava/io/FileInputStream;
 
-    invoke-direct {v1, v3}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
-    invoke-static {v3}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getLength(Ljava/lang/String;)I
+    invoke-static {p2}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getLength(Ljava/lang/String;)I
 
-    move-result v4
+    move-result p2
 
-    invoke-virtual {p0, v1, v4}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getEncodedImage(Ljava/io/InputStream;I)Lcom/facebook/imagepipeline/image/EncodedImage;
+    invoke-virtual {p0, v0, p2}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getEncodedImage(Ljava/io/InputStream;I)Lcom/facebook/imagepipeline/image/EncodedImage;
 
-    move-result-object v1
+    move-result-object p2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 139
-    if-eqz v2, :cond_3
+    if-eqz p1, :cond_3
 
     .line 140
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 135
     :cond_3
-    return-object v1
+    return-object p2
 
-    .line 139
-    .end local v3    # "thumbnailUri":Ljava/lang/String;
     :cond_4
-    if-eqz v2, :cond_5
+    if-eqz p1, :cond_5
 
-    .line 140
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 143
     :cond_5
-    return-object v1
+    return-object v0
 
-    .line 139
     :catchall_0
-    move-exception v1
+    move-exception p2
 
-    if-eqz v2, :cond_6
+    goto :goto_0
 
-    .line 140
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    :catchall_1
+    move-exception p2
+
+    move-object p1, v0
+
+    :goto_0
+    if-eqz p1, :cond_6
+
+    invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
     .line 142
     :cond_6
-    throw v1
+    throw p2
 .end method
 
 .method private static getThumbnailKind(Lcom/facebook/imagepipeline/common/ResizeOptions;)I
     .locals 2
-    .param p0, "resizeOptions"    # Lcom/facebook/imagepipeline/common/ResizeOptions;
 
     .line 151
     sget-object v0, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->MICRO_THUMBNAIL_DIMENSIONS:Landroid/graphics/Rect;
@@ -511,10 +450,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 155
-    const/4 v0, 0x3
+    const/4 p0, 0x3
 
-    return v0
+    return p0
 
     .line 156
     :cond_0
@@ -535,27 +473,24 @@
     .line 156
     invoke-static {v0, v1, p0}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    .line 160
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    return v0
+    return p0
 
-    .line 162
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method public canProvideImageForSize(Lcom/facebook/imagepipeline/common/ResizeOptions;)Z
     .locals 2
-    .param p1, "resizeOptions"    # Lcom/facebook/imagepipeline/common/ResizeOptions;
 
     .line 64
     sget-object v0, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->MINI_THUMBNAIL_DIMENSIONS:Landroid/graphics/Rect;
@@ -575,14 +510,13 @@
     .line 64
     invoke-static {v0, v1, p1}, Lcom/facebook/imagepipeline/producers/ThumbnailSizeChecker;->isImageBigEnough(IILcom/facebook/imagepipeline/common/ResizeOptions;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected getEncodedImage(Lcom/facebook/imagepipeline/request/ImageRequest;)Lcom/facebook/imagepipeline/image/EncodedImage;
     .locals 2
-    .param p1, "imageRequest"    # Lcom/facebook/imagepipeline/request/ImageRequest;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -595,7 +529,6 @@
     move-result-object v0
 
     .line 74
-    .local v0, "uri":Landroid/net/Uri;
     invoke-static {v0}, Lcom/facebook/common/util/UriUtil;->isLocalCameraUri(Landroid/net/Uri;)Z
 
     move-result v1
@@ -605,31 +538,25 @@
     .line 75
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/request/ImageRequest;->getResizeOptions()Lcom/facebook/imagepipeline/common/ResizeOptions;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {p0, v0, v1}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getCameraImage(Landroid/net/Uri;Lcom/facebook/imagepipeline/common/ResizeOptions;)Lcom/facebook/imagepipeline/image/EncodedImage;
+    invoke-direct {p0, v0, p1}, Lcom/facebook/imagepipeline/producers/LocalContentUriThumbnailFetchProducer;->getCameraImage(Landroid/net/Uri;Lcom/facebook/imagepipeline/common/ResizeOptions;)Lcom/facebook/imagepipeline/image/EncodedImage;
 
-    move-result-object v1
+    move-result-object p1
 
-    .line 76
-    .local v1, "cameraImage":Lcom/facebook/imagepipeline/image/EncodedImage;
-    if-eqz v1, :cond_0
+    if-eqz p1, :cond_0
 
-    .line 77
-    return-object v1
+    return-object p1
 
-    .line 81
-    .end local v1    # "cameraImage":Lcom/facebook/imagepipeline/image/EncodedImage;
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 .end method
 
 .method protected getProducerName()Ljava/lang/String;
     .locals 1
 
-    .line 172
     const-string v0, "LocalContentUriThumbnailFetchProducer"
 
     return-object v0

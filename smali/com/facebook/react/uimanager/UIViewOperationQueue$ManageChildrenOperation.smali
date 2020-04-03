@@ -36,19 +36,18 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;I[I[Lcom/facebook/react/uimanager/ViewAtIndex;[I)V
     .locals 0
-    .param p2, "tag"    # I
+    .param p2    # I
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p3, "indicesToRemove"    # [I
+    .param p3    # [I
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p4, "viewsToAdd"    # [Lcom/facebook/react/uimanager/ViewAtIndex;
+    .param p4    # [Lcom/facebook/react/uimanager/ViewAtIndex;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p5, "tagsToDelete"    # [I
 
     .line 218
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$ManageChildrenOperation;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -65,7 +64,6 @@
     .line 222
     iput-object p5, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$ManageChildrenOperation;->mTagsToDelete:[I
 
-    .line 223
     return-void
 .end method
 
@@ -91,6 +89,5 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->manageChildren(I[I[Lcom/facebook/react/uimanager/ViewAtIndex;[I)V
 
-    .line 232
     return-void
 .end method

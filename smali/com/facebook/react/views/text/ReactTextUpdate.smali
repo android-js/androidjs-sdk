@@ -28,18 +28,9 @@
 # direct methods
 .method public constructor <init>(Landroid/text/Spannable;IZFFFFI)V
     .locals 11
-    .param p1, "text"    # Landroid/text/Spannable;
-    .param p2, "jsEventCounter"    # I
-    .param p3, "containsImages"    # Z
-    .param p4, "paddingStart"    # F
-    .param p5, "paddingTop"    # F
-    .param p6, "paddingEnd"    # F
-    .param p7, "paddingBottom"    # F
-    .param p8, "textAlign"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 45
     const/4 v9, 0x1
 
     const/4 v10, 0x0
@@ -62,24 +53,14 @@
 
     move/from16 v8, p8
 
+    .line 45
     invoke-direct/range {v0 .. v10}, Lcom/facebook/react/views/text/ReactTextUpdate;-><init>(Landroid/text/Spannable;IZFFFFIII)V
 
-    .line 55
     return-void
 .end method
 
 .method public constructor <init>(Landroid/text/Spannable;IZFFFFIII)V
     .locals 0
-    .param p1, "text"    # Landroid/text/Spannable;
-    .param p2, "jsEventCounter"    # I
-    .param p3, "containsImages"    # Z
-    .param p4, "paddingStart"    # F
-    .param p5, "paddingTop"    # F
-    .param p6, "paddingEnd"    # F
-    .param p7, "paddingBottom"    # F
-    .param p8, "textAlign"    # I
-    .param p9, "textBreakStrategy"    # I
-    .param p10, "justificationMode"    # I
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,7 +95,6 @@
     .line 77
     iput p10, p0, Lcom/facebook/react/views/text/ReactTextUpdate;->mJustificationMode:I
 
-    .line 78
     return-void
 .end method
 

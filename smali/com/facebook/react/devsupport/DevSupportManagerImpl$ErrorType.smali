@@ -56,9 +56,9 @@
 
     sput-object v0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;->NATIVE:Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
 
-    .line 107
     const/4 v0, 0x2
 
+    .line 107
     new-array v0, v0, [Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
 
     sget-object v3, Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;->JS:Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
@@ -90,18 +90,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 107
     const-class v0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
+    check-cast p0, Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/devsupport/DevSupportManagerImpl$ErrorType;

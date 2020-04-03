@@ -115,9 +115,9 @@
 
     sput-object v0, Lokhttp3/Protocol;->QUIC:Lokhttp3/Protocol;
 
-    .line 29
     const/4 v0, 0x6
 
+    .line 29
     new-array v0, v0, [Lokhttp3/Protocol;
 
     sget-object v7, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
@@ -151,7 +151,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "protocol"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -166,13 +165,11 @@
     .line 86
     iput-object p3, p0, Lokhttp3/Protocol;->protocol:Ljava/lang/String;
 
-    .line 87
     return-void
 .end method
 
 .method public static get(Ljava/lang/String;)Lokhttp3/Protocol;
     .locals 3
-    .param p0, "protocol"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -190,9 +187,9 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
+    sget-object p0, Lokhttp3/Protocol;->HTTP_1_0:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 97
     :cond_0
@@ -206,9 +203,9 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
+    sget-object p0, Lokhttp3/Protocol;->HTTP_1_1:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 98
     :cond_1
@@ -222,9 +219,9 @@
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Lokhttp3/Protocol;->H2_PRIOR_KNOWLEDGE:Lokhttp3/Protocol;
+    sget-object p0, Lokhttp3/Protocol;->H2_PRIOR_KNOWLEDGE:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 99
     :cond_2
@@ -238,9 +235,9 @@
 
     if-eqz v0, :cond_3
 
-    sget-object v0, Lokhttp3/Protocol;->HTTP_2:Lokhttp3/Protocol;
+    sget-object p0, Lokhttp3/Protocol;->HTTP_2:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 100
     :cond_3
@@ -254,9 +251,9 @@
 
     if-eqz v0, :cond_4
 
-    sget-object v0, Lokhttp3/Protocol;->SPDY_3:Lokhttp3/Protocol;
+    sget-object p0, Lokhttp3/Protocol;->SPDY_3:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 101
     :cond_4
@@ -270,9 +267,9 @@
 
     if-eqz v0, :cond_5
 
-    sget-object v0, Lokhttp3/Protocol;->QUIC:Lokhttp3/Protocol;
+    sget-object p0, Lokhttp3/Protocol;->QUIC:Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 102
     :cond_5
@@ -290,27 +287,26 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lokhttp3/Protocol;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 29
     const-class v0, Lokhttp3/Protocol;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lokhttp3/Protocol;
+    check-cast p0, Lokhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lokhttp3/Protocol;

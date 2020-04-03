@@ -150,7 +150,6 @@
     .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 81
     return-void
 .end method
 
@@ -178,7 +177,6 @@
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
     .line 65
-    .local v0, "mDefaultFormats":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/imageformat/ImageFormat;>;"
     sget-object v1, Lcom/facebook/imageformat/DefaultImageFormats;->JPEG:Lcom/facebook/imageformat/ImageFormat;
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -231,12 +229,11 @@
     .line 75
     invoke-static {v0}, Lcom/facebook/common/internal/ImmutableList;->copyOf(Ljava/util/List;)Lcom/facebook/common/internal/ImmutableList;
 
-    move-result-object v1
+    move-result-object v0
 
-    sput-object v1, Lcom/facebook/imageformat/DefaultImageFormats;->sAllDefaultFormats:Lcom/facebook/common/internal/ImmutableList;
+    sput-object v0, Lcom/facebook/imageformat/DefaultImageFormats;->sAllDefaultFormats:Lcom/facebook/common/internal/ImmutableList;
 
     .line 77
-    .end local v0    # "mDefaultFormats":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/imageformat/ImageFormat;>;"
     :cond_0
     sget-object v0, Lcom/facebook/imageformat/DefaultImageFormats;->sAllDefaultFormats:Lcom/facebook/common/internal/ImmutableList;
 
@@ -245,7 +242,6 @@
 
 .method public static isStaticWebpFormat(Lcom/facebook/imageformat/ImageFormat;)Z
     .locals 1
-    .param p0, "imageFormat"    # Lcom/facebook/imageformat/ImageFormat;
 
     .line 50
     sget-object v0, Lcom/facebook/imageformat/DefaultImageFormats;->WEBP_SIMPLE:Lcom/facebook/imageformat/ImageFormat;
@@ -267,21 +263,20 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method
 
 .method public static isWebpFormat(Lcom/facebook/imageformat/ImageFormat;)Z
     .locals 1
-    .param p0, "imageFormat"    # Lcom/facebook/imageformat/ImageFormat;
 
     .line 39
     invoke-static {p0}, Lcom/facebook/imageformat/DefaultImageFormats;->isStaticWebpFormat(Lcom/facebook/imageformat/ImageFormat;)Z
@@ -297,14 +292,14 @@
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     :goto_1
-    return v0
+    return p0
 .end method

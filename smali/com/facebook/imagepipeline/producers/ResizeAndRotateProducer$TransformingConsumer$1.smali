@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer;Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer;
 
     .line 108
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer$1;->this$1:Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer;
@@ -42,14 +41,11 @@
 # virtual methods
 .method public run(Lcom/facebook/imagepipeline/image/EncodedImage;I)V
     .locals 1
-    .param p1, "encodedImage"    # Lcom/facebook/imagepipeline/image/EncodedImage;
-    .param p2, "status"    # I
 
     .line 111
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer$1;->this$1:Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer;
 
     invoke-static {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer;->access$000(Lcom/facebook/imagepipeline/producers/ResizeAndRotateProducer$TransformingConsumer;Lcom/facebook/imagepipeline/image/EncodedImage;I)V
 
-    .line 112
     return-void
 .end method

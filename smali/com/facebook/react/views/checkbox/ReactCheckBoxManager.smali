@@ -56,16 +56,13 @@
 .end method
 
 .method protected addEventEmitters(Lcom/facebook/react/uimanager/ThemedReactContext;Lcom/facebook/react/views/checkbox/ReactCheckBox;)V
-    .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
-    .param p2, "view"    # Lcom/facebook/react/views/checkbox/ReactCheckBox;
+    .locals 0
 
     .line 53
-    sget-object v0, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    sget-object p1, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {p2, v0}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p2, p1}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 54
     return-void
 .end method
 
@@ -82,22 +79,18 @@
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/checkbox/ReactCheckBox;
     .locals 1
-    .param p1, "context"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 58
     new-instance v0, Lcom/facebook/react/views/checkbox/ReactCheckBox;
 
     invoke-direct {v0, p1}, Lcom/facebook/react/views/checkbox/ReactCheckBox;-><init>(Landroid/content/Context;)V
 
-    .line 59
-    .local v0, "view":Lcom/facebook/react/views/checkbox/ReactCheckBox;
     return-object v0
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 48
     const-string v0, "AndroidCheckBox"
 
     return-object v0
@@ -105,8 +98,6 @@
 
 .method public setEnabled(Lcom/facebook/react/views/checkbox/ReactCheckBox;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/checkbox/ReactCheckBox;
-    .param p2, "enabled"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultBoolean = true
         name = "enabled"
@@ -115,31 +106,27 @@
     .line 64
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setEnabled(Z)V
 
-    .line 65
     return-void
 .end method
 
 .method public setOn(Lcom/facebook/react/views/checkbox/ReactCheckBox;Z)V
     .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/checkbox/ReactCheckBox;
-    .param p2, "on"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "on"
     .end annotation
 
-    .line 71
     const/4 v0, 0x0
 
+    .line 71
     invoke-virtual {p1, v0}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 72
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setOn(Z)V
 
     .line 73
-    sget-object v0, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    sget-object p2, Lcom/facebook/react/views/checkbox/ReactCheckBoxManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/checkbox/ReactCheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 74
     return-void
 .end method

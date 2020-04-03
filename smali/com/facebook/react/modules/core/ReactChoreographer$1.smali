@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/core/ReactChoreographer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/core/ReactChoreographer;
 
     .line 103
     iput-object p1, p0, Lcom/facebook/react/modules/core/ReactChoreographer$1;->this$0:Lcom/facebook/react/modules/core/ReactChoreographer;
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/modules/core/ReactChoreographer;->postFrameCallbackOnChoreographer()V
 
-    .line 107
     return-void
 .end method

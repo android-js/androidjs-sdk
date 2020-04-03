@@ -41,8 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
-    .param p1, "map"    # Ljava/util/Map;
+    .locals 0
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -52,15 +51,14 @@
     .line 31
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/jni/MapIteratorHelper;->mIterator:Ljava/util/Iterator;
+    iput-object p1, p0, Lcom/facebook/jni/MapIteratorHelper;->mIterator:Ljava/util/Iterator;
 
-    .line 32
     return-void
 .end method
 
@@ -90,7 +88,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 42
-    .local v0, "entry":Ljava/util/Map$Entry;
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -100,26 +97,23 @@
     .line 43
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/facebook/jni/MapIteratorHelper;->mValue:Ljava/lang/Object;
+    iput-object v0, p0, Lcom/facebook/jni/MapIteratorHelper;->mValue:Ljava/lang/Object;
 
-    .line 44
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    return v1
+    return v0
 
-    .line 46
-    .end local v0    # "entry":Ljava/util/Map$Entry;
     :cond_0
     const/4 v0, 0x0
 
+    .line 46
     iput-object v0, p0, Lcom/facebook/jni/MapIteratorHelper;->mKey:Ljava/lang/Object;
 
     .line 47
     iput-object v0, p0, Lcom/facebook/jni/MapIteratorHelper;->mValue:Ljava/lang/Object;
 
-    .line 48
     const/4 v0, 0x0
 
     return v0

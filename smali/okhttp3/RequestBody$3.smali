@@ -62,26 +62,21 @@
 
 .method public writeTo(Lokio/BufferedSink;)V
     .locals 2
-    .param p1, "sink"    # Lokio/BufferedSink;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 117
     const/4 v0, 0x0
 
     .line 119
-    .local v0, "source":Lokio/Source;
     :try_start_0
     iget-object v1, p0, Lokhttp3/RequestBody$3;->val$file:Ljava/io/File;
 
     invoke-static {v1}, Lokio/Okio;->source(Ljava/io/File;)Lokio/Source;
 
-    move-result-object v1
-
-    move-object v0, v1
+    move-result-object v0
 
     .line 120
     invoke-interface {p1, v0}, Lokio/BufferedSink;->writeAll(Lokio/Source;)J
@@ -91,17 +86,12 @@
     .line 122
     invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 123
-    nop
-
-    .line 124
     return-void
 
-    .line 122
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-static {v0}, Lokhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    throw v1
+    throw p1
 .end method

@@ -82,9 +82,7 @@
 .end method
 
 .method private static getInterpolator(Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;Lcom/facebook/react/bridge/ReadableMap;)Landroid/view/animation/Interpolator;
-    .locals 4
-    .param p0, "type"    # Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
-    .param p1, "params"    # Lcom/facebook/react/bridge/ReadableMap;
+    .locals 2
 
     .line 105
     sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->SPRING:Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
@@ -100,64 +98,56 @@
 
     invoke-static {p1}, Lcom/facebook/react/uimanager/layoutanimation/SimpleSpringInterpolator;->getSpringDamping(Lcom/facebook/react/bridge/ReadableMap;)F
 
-    move-result v1
+    move-result p1
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/uimanager/layoutanimation/SimpleSpringInterpolator;-><init>(F)V
+    invoke-direct {v0, p1}, Lcom/facebook/react/uimanager/layoutanimation/SimpleSpringInterpolator;-><init>(F)V
 
-    .local v0, "interpolator":Landroid/view/animation/Interpolator;
     goto :goto_0
 
     .line 108
-    .end local v0    # "interpolator":Landroid/view/animation/Interpolator;
     :cond_0
-    sget-object v0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->INTERPOLATOR:Ljava/util/Map;
+    sget-object p1, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->INTERPOLATOR:Ljava/util/Map;
 
-    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
+
+    move-object v0, p1
 
     check-cast v0, Landroid/view/animation/Interpolator;
 
-    .line 110
-    .restart local v0    # "interpolator":Landroid/view/animation/Interpolator;
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 113
     return-object v0
 
     .line 111
     :cond_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Missing interpolator for type : "
+    const-string v1, "Missing interpolator for type : "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 .end method
 
 
 # virtual methods
 .method public final createAnimation(Landroid/view/View;IIII)Landroid/view/animation/Animation;
-    .locals 4
-    .param p1, "view"    # Landroid/view/View;
-    .param p2, "x"    # I
-    .param p3, "y"    # I
-    .param p4, "width"    # I
-    .param p5, "height"    # I
+    .locals 1
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -168,52 +158,43 @@
 
     if-nez v0, :cond_0
 
-    .line 91
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 
     .line 93
     :cond_0
     invoke-virtual/range {p0 .. p5}, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->createAnimationImpl(Landroid/view/View;IIII)Landroid/view/animation/Animation;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 94
-    .local v0, "animation":Landroid/view/animation/Animation;
-    if-eqz v0, :cond_1
-
-    .line 95
-    const/4 v1, 0x1
+    if-eqz p1, :cond_1
 
     .line 96
-    .local v1, "slowdownFactor":I
-    iget v2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDurationMs:I
+    iget p2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDurationMs:I
 
-    mul-int v2, v2, v1
+    mul-int/lit8 p2, p2, 0x1
 
-    int-to-long v2, v2
+    int-to-long p2, p2
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/view/animation/Animation;->setDuration(J)V
 
     .line 97
-    iget v2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDelayMs:I
+    iget p2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDelayMs:I
 
-    mul-int v2, v2, v1
+    mul-int/lit8 p2, p2, 0x1
 
-    int-to-long v2, v2
+    int-to-long p2, p2
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setStartOffset(J)V
+    invoke-virtual {p1, p2, p3}, Landroid/view/animation/Animation;->setStartOffset(J)V
 
     .line 98
-    iget-object v2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object p2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v0, v2}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    invoke-virtual {p1, p2}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 100
-    .end local v1    # "slowdownFactor":I
     :cond_1
-    return-object v0
+    return-object p1
 .end method
 
 .method abstract createAnimationImpl(Landroid/view/View;IIII)Landroid/view/animation/Animation;
@@ -222,13 +203,11 @@
 .end method
 
 .method public initializeFromConfig(Lcom/facebook/react/bridge/ReadableMap;I)V
-    .locals 3
-    .param p1, "data"    # Lcom/facebook/react/bridge/ReadableMap;
-    .param p2, "globalDuration"    # I
+    .locals 2
 
-    .line 60
     const-string v0, "property"
 
+    .line 60
     invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v1
@@ -252,9 +231,9 @@
     :goto_0
     iput-object v0, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mAnimatedProperty:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    .line 62
     const-string v0, "duration"
 
+    .line 62
     invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v1
@@ -263,102 +242,96 @@
 
     invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
 
+    move-result p2
+
+    :cond_1
+    iput p2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDurationMs:I
+
+    const-string p2, "delay"
+
+    .line 63
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
+
     move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
+
+    move-result p2
 
     goto :goto_1
 
-    :cond_1
-    move v0, p2
+    :cond_2
+    const/4 p2, 0x0
 
     :goto_1
-    iput v0, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDurationMs:I
+    iput p2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDelayMs:I
 
-    .line 63
-    const-string v0, "delay"
+    const-string p2, "type"
 
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getInt(Ljava/lang/String;)I
+    .line 64
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v0
 
-    goto :goto_2
-
-    :cond_2
-    const/4 v0, 0x0
-
-    :goto_2
-    iput v0, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDelayMs:I
-
-    .line 64
-    const-string v0, "type"
-
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
+    if-eqz v0, :cond_4
 
     .line 67
-    invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p1, p2}, Lcom/facebook/react/bridge/ReadableMap;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0}, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->fromString(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
+    invoke-static {p2}, Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;->fromString(Ljava/lang/String;)Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-static {v0, p1}, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->getInterpolator(Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;Lcom/facebook/react/bridge/ReadableMap;)Landroid/view/animation/Interpolator;
+    invoke-static {p2, p1}, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->getInterpolator(Lcom/facebook/react/uimanager/layoutanimation/InterpolatorType;Lcom/facebook/react/bridge/ReadableMap;)Landroid/view/animation/Interpolator;
 
-    move-result-object v0
+    move-result-object p2
 
-    iput-object v0, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mInterpolator:Landroid/view/animation/Interpolator;
+    iput-object p2, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mInterpolator:Landroid/view/animation/Interpolator;
 
     .line 69
     invoke-virtual {p0}, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->isValid()Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_3
+    if-eqz p2, :cond_3
 
-    .line 72
     return-void
 
     .line 70
     :cond_3
-    new-instance v0, Lcom/facebook/react/uimanager/IllegalViewOperationException;
+    new-instance p2, Lcom/facebook/react/uimanager/IllegalViewOperationException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Invalid layout animation : "
+    const-string v1, "Invalid layout animation : "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/facebook/react/uimanager/IllegalViewOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Lcom/facebook/react/uimanager/IllegalViewOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p2
 
     .line 65
     :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Missing interpolation type."
+    const-string p2, "Missing interpolation type."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method abstract isValid()Z
@@ -367,14 +340,14 @@
 .method public reset()V
     .locals 2
 
-    .line 53
     const/4 v0, 0x0
 
+    .line 53
     iput-object v0, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mAnimatedProperty:Lcom/facebook/react/uimanager/layoutanimation/AnimatedPropertyType;
 
-    .line 54
     const/4 v1, 0x0
 
+    .line 54
     iput v1, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mDurationMs:I
 
     .line 55
@@ -383,6 +356,5 @@
     .line 56
     iput-object v0, p0, Lcom/facebook/react/uimanager/layoutanimation/AbstractLayoutAnimation;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    .line 57
     return-void
 .end method

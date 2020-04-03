@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;Lcom/facebook/react/uimanager/ThemedReactContext;Lcom/facebook/react/views/swiperefresh/ReactSwipeRefreshLayout;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;
 
     .line 89
     iput-object p1, p0, Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager$1;->this$0:Lcom/facebook/react/views/swiperefresh/SwipeRefreshLayoutManager;
@@ -75,6 +74,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 94
     return-void
 .end method

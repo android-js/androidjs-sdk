@@ -52,7 +52,6 @@
 
 .method synthetic constructor <init>(Lbolts/BoltsExecutors$1;)V
     .locals 0
-    .param p1, "x0"    # Lbolts/BoltsExecutors$1;
 
     .line 62
     invoke-direct {p0}, Lbolts/BoltsExecutors$ImmediateExecutor;-><init>()V
@@ -61,7 +60,7 @@
 .end method
 
 .method private decrementDepth()I
-    .locals 4
+    .locals 3
 
     .line 87
     iget-object v0, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
@@ -72,14 +71,12 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 88
-    .local v0, "oldDepth":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
-    .line 89
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    .line 89
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
@@ -87,38 +84,35 @@
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    .line 92
-    .local v1, "newDepth":I
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     .line 93
-    iget-object v2, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
+    iget-object v1, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
 
-    invoke-virtual {v2}, Ljava/lang/ThreadLocal;->remove()V
+    invoke-virtual {v1}, Ljava/lang/ThreadLocal;->remove()V
 
     goto :goto_0
 
     .line 95
     :cond_1
-    iget-object v2, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
+    iget-object v1, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 97
     :goto_0
-    return v1
+    return v0
 .end method
 
 .method private incrementDepth()I
-    .locals 4
+    .locals 3
 
     .line 72
     iget-object v0, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
@@ -129,14 +123,12 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 73
-    .local v0, "oldDepth":Ljava/lang/Integer;
     if-nez v0, :cond_0
 
-    .line 74
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    .line 74
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
@@ -144,37 +136,32 @@
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v1
+    move-result v0
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 77
-    .local v1, "newDepth":I
-    iget-object v2, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
+    iget-object v1, p0, Lbolts/BoltsExecutors$ImmediateExecutor;->executionDepth:Ljava/lang/ThreadLocal;
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v2, v3}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    .line 78
-    return v1
+    return v0
 .end method
 
 
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 2
-    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 102
     invoke-direct {p0}, Lbolts/BoltsExecutors$ImmediateExecutor;->incrementDepth()I
 
     move-result v0
 
-    .line 104
-    .local v0, "depth":I
     const/16 v1, 0xf
 
     if-gt v0, v1, :cond_0
@@ -189,9 +176,9 @@
     :cond_0
     invoke-static {}, Lbolts/BoltsExecutors;->background()Ljava/util/concurrent/ExecutorService;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -199,17 +186,12 @@
     :goto_0
     invoke-direct {p0}, Lbolts/BoltsExecutors$ImmediateExecutor;->decrementDepth()I
 
-    .line 111
-    nop
-
-    .line 112
     return-void
 
-    .line 110
     :catchall_0
-    move-exception v1
+    move-exception p1
 
     invoke-direct {p0}, Lbolts/BoltsExecutors$ImmediateExecutor;->decrementDepth()I
 
-    throw v1
+    throw p1
 .end method

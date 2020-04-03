@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ListPopupWindow;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/ListPopupWindow;
 
     .line 1166
     iput-object p1, p0, Landroid/support/v7/widget/ListPopupWindow$3;->this$0:Landroid/support/v7/widget/ListPopupWindow;
@@ -37,10 +36,7 @@
 
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 2
-    .param p2, "view"    # Landroid/view/View;
-    .param p3, "position"    # I
-    .param p4, "id"    # J
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,28 +47,22 @@
         }
     .end annotation
 
-    .line 1171
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    if-eq p3, v0, :cond_0
+    if-eq p3, p1, :cond_0
 
     .line 1172
-    iget-object v0, p0, Landroid/support/v7/widget/ListPopupWindow$3;->this$0:Landroid/support/v7/widget/ListPopupWindow;
+    iget-object p1, p0, Landroid/support/v7/widget/ListPopupWindow$3;->this$0:Landroid/support/v7/widget/ListPopupWindow;
 
-    iget-object v0, v0, Landroid/support/v7/widget/ListPopupWindow;->mDropDownList:Landroid/support/v7/widget/DropDownListView;
+    iget-object p1, p1, Landroid/support/v7/widget/ListPopupWindow;->mDropDownList:Landroid/support/v7/widget/DropDownListView;
 
-    .line 1174
-    .local v0, "dropDownList":Landroid/support/v7/widget/DropDownListView;
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    const/4 p2, 0x0
 
     .line 1175
-    const/4 v1, 0x0
+    invoke-virtual {p1, p2}, Landroid/support/v7/widget/DropDownListView;->setListSelectionHidden(Z)V
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/DropDownListView;->setListSelectionHidden(Z)V
-
-    .line 1178
-    .end local v0    # "dropDownList":Landroid/support/v7/widget/DropDownListView;
     :cond_0
     return-void
 .end method
@@ -87,7 +77,5 @@
         }
     .end annotation
 
-    .line 1182
-    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     return-void
 .end method

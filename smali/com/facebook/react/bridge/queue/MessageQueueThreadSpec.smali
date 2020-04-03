@@ -45,23 +45,17 @@
 
 .method private constructor <init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec$ThreadType;Ljava/lang/String;)V
     .locals 2
-    .param p1, "threadType"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec$ThreadType;
-    .param p2, "name"    # Ljava/lang/String;
 
-    .line 47
     const-wide/16 v0, 0x0
 
+    .line 47
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;-><init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec$ThreadType;Ljava/lang/String;J)V
 
-    .line 48
     return-void
 .end method
 
 .method private constructor <init>(Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec$ThreadType;Ljava/lang/String;J)V
     .locals 0
-    .param p1, "threadType"    # Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec$ThreadType;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "stackSize"    # J
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +69,6 @@
     .line 53
     iput-wide p3, p0, Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;->mStackSize:J
 
-    .line 54
     return-void
 .end method
 
@@ -90,7 +83,6 @@
 
 .method public static newBackgroundThreadSpec(Ljava/lang/String;)Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
     .locals 2
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 31
     new-instance v0, Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
@@ -104,8 +96,6 @@
 
 .method public static newBackgroundThreadSpec(Ljava/lang/String;J)Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
     .locals 2
-    .param p0, "name"    # Ljava/lang/String;
-    .param p1, "stackSize"    # J
 
     .line 35
     new-instance v0, Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
@@ -119,7 +109,6 @@
 
 .method public static newUIBackgroundTreadSpec(Ljava/lang/String;)Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;
     .locals 2
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 27
     new-instance v0, Lcom/facebook/react/bridge/queue/MessageQueueThreadSpec;

@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/CoreModulesPackage;Ljava/util/Map;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/CoreModulesPackage;
 
     .line 119
     iput-object p1, p0, Lcom/facebook/react/CoreModulesPackage$1;->this$0:Lcom/facebook/react/CoreModulesPackage;

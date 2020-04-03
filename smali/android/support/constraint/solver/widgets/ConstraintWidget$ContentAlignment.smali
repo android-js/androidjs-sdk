@@ -127,9 +127,9 @@
 
     sput-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
-    .line 135
     const/16 v0, 0x8
 
+    .line 135
     new-array v0, v0, [Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
     sget-object v9, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;->BEGIN:Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
@@ -185,18 +185,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 135
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
+    check-cast p0, Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/widgets/ConstraintWidget$ContentAlignment;

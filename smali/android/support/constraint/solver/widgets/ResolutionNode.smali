@@ -41,9 +41,9 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->dependents:Ljava/util/HashSet;
 
-    .line 35
     const/4 v0, 0x0
 
+    .line 35
     iput v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->state:I
 
     return-void
@@ -53,23 +53,21 @@
 # virtual methods
 .method public addDependent(Landroid/support/constraint/solver/widgets/ResolutionNode;)V
     .locals 1
-    .param p1, "node"    # Landroid/support/constraint/solver/widgets/ResolutionNode;
 
     .line 38
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->dependents:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 39
     return-void
 .end method
 
 .method public didResolve()V
     .locals 2
 
-    .line 63
     const/4 v0, 0x1
 
+    .line 63
     iput v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->state:I
 
     .line 70
@@ -93,14 +91,10 @@
     check-cast v1, Landroid/support/constraint/solver/widgets/ResolutionNode;
 
     .line 71
-    .local v1, "node":Landroid/support/constraint/solver/widgets/ResolutionNode;
     invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ResolutionNode;->resolve()V
 
-    .line 72
-    .end local v1    # "node":Landroid/support/constraint/solver/widgets/ResolutionNode;
     goto :goto_0
 
-    .line 73
     :cond_0
     return-void
 .end method
@@ -108,9 +102,9 @@
 .method public invalidate()V
     .locals 2
 
-    .line 47
     const/4 v0, 0x0
 
+    .line 47
     iput v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->state:I
 
     .line 48
@@ -134,14 +128,10 @@
     check-cast v1, Landroid/support/constraint/solver/widgets/ResolutionNode;
 
     .line 49
-    .local v1, "node":Landroid/support/constraint/solver/widgets/ResolutionNode;
     invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ResolutionNode;->invalidate()V
 
-    .line 50
-    .end local v1    # "node":Landroid/support/constraint/solver/widgets/ResolutionNode;
     goto :goto_0
 
-    .line 51
     :cond_0
     return-void
 .end method
@@ -154,9 +144,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 55
     const/4 v0, 0x0
 
+    .line 55
     iput v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->state:I
 
     .line 57
@@ -181,14 +171,10 @@
     check-cast v1, Landroid/support/constraint/solver/widgets/ResolutionNode;
 
     .line 58
-    .local v1, "node":Landroid/support/constraint/solver/widgets/ResolutionNode;
     invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ResolutionNode;->invalidateAnchors()V
 
-    .line 59
-    .end local v1    # "node":Landroid/support/constraint/solver/widgets/ResolutionNode;
     goto :goto_0
 
-    .line 60
     :cond_1
     return-void
 .end method
@@ -214,18 +200,16 @@
 
 .method public remove(Landroid/support/constraint/solver/widgets/ResolutionDimension;)V
     .locals 0
-    .param p1, "resolutionDimension"    # Landroid/support/constraint/solver/widgets/ResolutionDimension;
 
-    .line 85
     return-void
 .end method
 
 .method public reset()V
     .locals 1
 
-    .line 42
     const/4 v0, 0x0
 
+    .line 42
     iput v0, p0, Landroid/support/constraint/solver/widgets/ResolutionNode;->state:I
 
     .line 43
@@ -233,13 +217,11 @@
 
     invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
 
-    .line 44
     return-void
 .end method
 
 .method public resolve()V
     .locals 0
 
-    .line 81
     return-void
 .end method

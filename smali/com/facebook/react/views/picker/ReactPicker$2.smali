@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/picker/ReactPicker;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/picker/ReactPicker;
 
     .line 73
     iput-object p1, p0, Lcom/facebook/react/views/picker/ReactPicker$2;->this$0:Lcom/facebook/react/views/picker/ReactPicker;
@@ -94,6 +93,5 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/facebook/react/views/picker/ReactPicker;->layout(IIII)V
 
-    .line 80
     return-void
 .end method

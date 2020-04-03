@@ -702,6 +702,9 @@
 .field public static final titleMarginTop:I = 0x7f020156
 
 .field public static final titleMargins:I = 0x7f020157
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final titleTextAppearance:I = 0x7f020158
 

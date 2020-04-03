@@ -69,9 +69,9 @@
 
     sput-object v0, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;->FAILURE:Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
 
-    .line 31
     const/4 v0, 0x3
 
+    .line 31
     new-array v0, v0, [Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
 
     sget-object v4, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;->IN_PROGRESS:Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
@@ -107,18 +107,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 31
     const-class v0, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
+    check-cast p0, Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/datasource/AbstractDataSource$DataSourceStatus;

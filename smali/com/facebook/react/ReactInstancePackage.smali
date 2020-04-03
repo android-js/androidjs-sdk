@@ -24,8 +24,7 @@
 
 # virtual methods
 .method public createNativeModules(Lcom/facebook/react/bridge/ReactApplicationContext;)Ljava/util/List;
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,13 +37,13 @@
     .end annotation
 
     .line 32
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "ReactInstancePackage must be passed in the ReactInstanceManager."
+    const-string v0, "ReactInstancePackage must be passed in the ReactInstanceManager."
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public abstract createNativeModules(Lcom/facebook/react/bridge/ReactApplicationContext;Lcom/facebook/react/ReactInstanceManager;)Ljava/util/List;

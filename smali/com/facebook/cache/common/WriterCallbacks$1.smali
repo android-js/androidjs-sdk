@@ -37,7 +37,6 @@
 # virtual methods
 .method public write(Ljava/io/OutputStream;)V
     .locals 1
-    .param p1, "os"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -49,6 +48,5 @@
 
     invoke-static {v0, p1}, Lcom/facebook/common/internal/ByteStreams;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;)J
 
-    .line 33
     return-void
 .end method

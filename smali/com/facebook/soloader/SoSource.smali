@@ -46,8 +46,6 @@
         }
     .end annotation
 
-    .line 100
-    .local p1, "paths":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/String;>;"
     return-void
 .end method
 
@@ -72,14 +70,12 @@
 
 .method protected prepare(I)V
     .locals 0
-    .param p1, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 70
     return-void
 .end method
 

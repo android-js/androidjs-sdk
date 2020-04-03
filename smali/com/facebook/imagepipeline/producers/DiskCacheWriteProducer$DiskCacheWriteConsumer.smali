@@ -36,10 +36,6 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;)V
     .locals 0
-    .param p2, "producerContext"    # Lcom/facebook/imagepipeline/producers/ProducerContext;
-    .param p3, "defaultBufferedDiskCache"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p4, "smallImageBufferedDiskCache"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p5, "cacheKeyFactory"    # Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +51,6 @@
     .end annotation
 
     .line 100
-    .local p1, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     invoke-direct {p0, p1}, Lcom/facebook/imagepipeline/producers/DelegatingConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;)V
 
     .line 101
@@ -70,18 +65,11 @@
     .line 104
     iput-object p5, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mCacheKeyFactory:Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
 
-    .line 105
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/imagepipeline/producers/Consumer;
-    .param p2, "x1"    # Lcom/facebook/imagepipeline/producers/ProducerContext;
-    .param p3, "x2"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p4, "x3"    # Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
-    .param p5, "x4"    # Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
-    .param p6, "x5"    # Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$1;
 
     .line 86
     invoke-direct/range {p0 .. p5}, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;-><init>(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/BufferedDiskCache;Lcom/facebook/imagepipeline/cache/CacheKeyFactory;)V
@@ -92,9 +80,7 @@
 
 # virtual methods
 .method public onNewResultImpl(Lcom/facebook/imagepipeline/image/EncodedImage;I)V
-    .locals 4
-    .param p1, "newResult"    # Lcom/facebook/imagepipeline/image/EncodedImage;
-    .param p2, "status"    # I
+    .locals 3
 
     .line 111
     invoke-static {p2}, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->isNotLast(I)Z
@@ -134,7 +120,6 @@
     move-result-object v0
 
     .line 120
-    .local v0, "imageRequest":Lcom/facebook/imagepipeline/request/ImageRequest;
     iget-object v1, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mCacheKeyFactory:Lcom/facebook/imagepipeline/cache/CacheKeyFactory;
 
     iget-object v2, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mProducerContext:Lcom/facebook/imagepipeline/producers/ProducerContext;
@@ -149,42 +134,38 @@
     move-result-object v1
 
     .line 123
-    .local v1, "cacheKey":Lcom/facebook/cache/common/CacheKey;
     invoke-virtual {v0}, Lcom/facebook/imagepipeline/request/ImageRequest;->getCacheChoice()Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v3, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;->SMALL:Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
+    sget-object v2, Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;->SMALL:Lcom/facebook/imagepipeline/request/ImageRequest$CacheChoice;
 
-    if-ne v2, v3, :cond_1
+    if-ne v0, v2, :cond_1
 
     .line 124
-    iget-object v2, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mSmallImageBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mSmallImageBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
-    invoke-virtual {v2, v1, p1}, Lcom/facebook/imagepipeline/cache/BufferedDiskCache;->put(Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/EncodedImage;)V
+    invoke-virtual {v0, v1, p1}, Lcom/facebook/imagepipeline/cache/BufferedDiskCache;->put(Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/EncodedImage;)V
 
     goto :goto_0
 
     .line 126
     :cond_1
-    iget-object v2, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->mDefaultBufferedDiskCache:Lcom/facebook/imagepipeline/cache/BufferedDiskCache;
 
-    invoke-virtual {v2, v1, p1}, Lcom/facebook/imagepipeline/cache/BufferedDiskCache;->put(Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/EncodedImage;)V
+    invoke-virtual {v0, v1, p1}, Lcom/facebook/imagepipeline/cache/BufferedDiskCache;->put(Lcom/facebook/cache/common/CacheKey;Lcom/facebook/imagepipeline/image/EncodedImage;)V
 
     .line 129
     :goto_0
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-interface {v2, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
+    invoke-interface {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 130
     return-void
 
     .line 115
-    .end local v0    # "imageRequest":Lcom/facebook/imagepipeline/request/ImageRequest;
-    .end local v1    # "cacheKey":Lcom/facebook/cache/common/CacheKey;
     :cond_2
     :goto_1
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/DiskCacheWriteProducer$DiskCacheWriteConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
@@ -193,7 +174,6 @@
 
     invoke-interface {v0, p1, p2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 116
     return-void
 .end method
 

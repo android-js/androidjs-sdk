@@ -938,18 +938,18 @@
 .method static constructor <clinit>()V
     .locals 10
 
-    .line 1177
     const/16 v0, 0x1d
 
+    .line 1177
     new-array v1, v0, [I
 
     fill-array-data v1, :array_0
 
     sput-object v1, Landroid/support/v7/appcompat/R$styleable;->ActionBar:[I
 
-    .line 1207
     const/4 v1, 0x1
 
+    .line 1207
     new-array v2, v1, [I
 
     const/4 v3, 0x0
@@ -974,27 +974,27 @@
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->ActionMenuView:[I
 
-    .line 1212
     const/4 v2, 0x6
 
+    .line 1212
     new-array v4, v2, [I
 
     fill-array-data v4, :array_1
 
     sput-object v4, Landroid/support/v7/appcompat/R$styleable;->ActionMode:[I
 
-    .line 1219
     const/4 v4, 0x2
 
+    .line 1219
     new-array v5, v4, [I
 
     fill-array-data v5, :array_2
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->ActivityChooserView:[I
 
-    .line 1222
     const/16 v5, 0x8
 
+    .line 1222
     new-array v6, v5, [I
 
     fill-array-data v6, :array_3
@@ -1015,9 +1015,9 @@
 
     sput-object v6, Landroid/support/v7/appcompat/R$styleable;->AnimatedStateListDrawableItem:[I
 
-    .line 1241
     const/4 v6, 0x4
 
+    .line 1241
     new-array v7, v6, [I
 
     fill-array-data v7, :array_6
@@ -1038,27 +1038,27 @@
 
     sput-object v7, Landroid/support/v7/appcompat/R$styleable;->AppCompatSeekBar:[I
 
-    .line 1256
     const/4 v7, 0x7
 
+    .line 1256
     new-array v8, v7, [I
 
     fill-array-data v8, :array_9
 
     sput-object v8, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper:[I
 
-    .line 1264
     const/16 v8, 0xb
 
+    .line 1264
     new-array v8, v8, [I
 
     fill-array-data v8, :array_a
 
     sput-object v8, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextView:[I
 
-    .line 1276
     const/16 v8, 0x79
 
+    .line 1276
     new-array v8, v8, [I
 
     fill-array-data v8, :array_b
@@ -1074,9 +1074,9 @@
 
     sput-object v8, Landroid/support/v7/appcompat/R$styleable;->ButtonBarLayout:[I
 
-    .line 1400
     const/4 v8, 0x3
 
+    .line 1400
     new-array v9, v8, [I
 
     fill-array-data v9, :array_c
@@ -1118,18 +1118,18 @@
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->FontFamily:[I
 
-    .line 1435
     const/16 v5, 0xa
 
+    .line 1435
     new-array v5, v5, [I
 
     fill-array-data v5, :array_12
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->FontFamilyFont:[I
 
-    .line 1446
     const/16 v5, 0xc
 
+    .line 1446
     new-array v5, v5, [I
 
     fill-array-data v5, :array_13
@@ -1143,9 +1143,9 @@
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->GradientColorItem:[I
 
-    .line 1462
     const/16 v5, 0x9
 
+    .line 1462
     new-array v7, v5, [I
 
     fill-array-data v7, :array_15
@@ -1173,9 +1173,9 @@
 
     sput-object v6, Landroid/support/v7/appcompat/R$styleable;->MenuGroup:[I
 
-    .line 1487
     const/16 v6, 0x17
 
+    .line 1487
     new-array v6, v6, [I
 
     fill-array-data v6, :array_19
@@ -1212,18 +1212,18 @@
 
     sput-object v4, Landroid/support/v7/appcompat/R$styleable;->RecycleListView:[I
 
-    .line 1530
     const/16 v4, 0x11
 
+    .line 1530
     new-array v4, v4, [I
 
     fill-array-data v4, :array_1d
 
     sput-object v4, Landroid/support/v7/appcompat/R$styleable;->SearchView:[I
 
-    .line 1548
     const/4 v4, 0x5
 
+    .line 1548
     new-array v5, v4, [I
 
     fill-array-data v5, :array_1e
@@ -1246,18 +1246,18 @@
 
     sput-object v1, Landroid/support/v7/appcompat/R$styleable;->StateListDrawableItem:[I
 
-    .line 1563
     const/16 v1, 0xe
 
+    .line 1563
     new-array v1, v1, [I
 
     fill-array-data v1, :array_20
 
     sput-object v1, Landroid/support/v7/appcompat/R$styleable;->SwitchCompat:[I
 
-    .line 1578
     const/16 v1, 0xd
 
+    .line 1578
     new-array v1, v1, [I
 
     fill-array-data v1, :array_21

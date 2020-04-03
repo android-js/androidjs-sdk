@@ -46,7 +46,6 @@
 # virtual methods
 .method public onReply(Landroid/support/v4/provider/FontsContractCompat$TypefaceResult;)V
     .locals 4
-    .param p1, "typeface"    # Landroid/support/v4/provider/FontsContractCompat$TypefaceResult;
 
     .line 308
     sget-object v0, Landroid/support/v4/provider/FontsContractCompat;->sLock:Ljava/lang/Object;
@@ -54,29 +53,20 @@
     monitor-enter v0
 
     .line 309
-    const/4 v1, 0x0
-
     :try_start_0
-    sget-object v2, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+    sget-object v1, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
 
-    iget-object v3, p0, Landroid/support/v4/provider/FontsContractCompat$3;->val$id:Ljava/lang/String;
+    iget-object v2, p0, Landroid/support/v4/provider/FontsContractCompat$3;->val$id:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/util/ArrayList;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    check-cast v1, Ljava/util/ArrayList;
 
-    move-object v1, v2
-
-    .line 310
-    .local v1, "replies":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback<Landroid/support/v4/provider/FontsContractCompat$TypefaceResult;>;>;"
     if-nez v1, :cond_0
 
     .line 311
-    :try_start_1
     monitor-exit v0
 
     return-void
@@ -91,13 +81,12 @@
 
     .line 314
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 315
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 315
     :goto_0
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -114,34 +103,25 @@
 
     invoke-interface {v2, p1}, Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;->onReply(Ljava/lang/Object;)V
 
-    .line 315
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 318
-    .end local v0    # "i":I
     :cond_1
     return-void
 
-    .line 314
-    .end local v1    # "replies":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback<Landroid/support/v4/provider/FontsContractCompat$TypefaceResult;>;>;"
     :catchall_0
-    move-exception v2
+    move-exception p1
 
-    .restart local v1    # "replies":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback<Landroid/support/v4/provider/FontsContractCompat$TypefaceResult;>;>;"
-    :goto_1
-    :try_start_2
+    .line 314
+    :try_start_1
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v2
+    throw p1
 
-    :catchall_1
-    move-exception v2
-
-    goto :goto_1
+    return-void
 .end method
 
 .method public bridge synthetic onReply(Ljava/lang/Object;)V

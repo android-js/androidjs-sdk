@@ -19,9 +19,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "description"    # Ljava/lang/String;
-    .param p3, "color"    # I
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +32,5 @@
     .line 26
     iput p3, p0, Lcom/facebook/debug/debugoverlay/model/DebugOverlayTag;->color:I
 
-    .line 27
     return-void
 .end method

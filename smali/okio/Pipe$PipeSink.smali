@@ -25,8 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Pipe;)V
-    .locals 1
-    .param p1, "this$0"    # Lokio/Pipe;
+    .locals 0
 
     .line 59
     iput-object p1, p0, Lokio/Pipe$PipeSink;->this$0:Lokio/Pipe;
@@ -34,11 +33,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
-    new-instance v0, Lokio/Timeout;
+    new-instance p1, Lokio/Timeout;
 
-    invoke-direct {v0}, Lokio/Timeout;-><init>()V
+    invoke-direct {p1}, Lokio/Timeout;-><init>()V
 
-    iput-object v0, p0, Lokio/Pipe$PipeSink;->timeout:Lokio/Timeout;
+    iput-object p1, p0, Lokio/Pipe$PipeSink;->timeout:Lokio/Timeout;
 
     return-void
 .end method
@@ -124,10 +123,8 @@
     .line 96
     monitor-exit v0
 
-    .line 97
     return-void
 
-    .line 96
     :catchall_0
     move-exception v1
 
@@ -198,7 +195,6 @@
     :goto_0
     monitor-exit v0
 
-    .line 88
     return-void
 
     .line 85
@@ -211,10 +207,10 @@
 
     throw v1
 
-    .line 87
     :catchall_0
     move-exception v1
 
+    .line 87
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -233,8 +229,6 @@
 
 .method public write(Lokio/Buffer;J)V
     .locals 7
-    .param p1, "source"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -256,7 +250,6 @@
 
     if-nez v1, :cond_3
 
-    .line 66
     :goto_0
     const-wide/16 v1, 0x0
 
@@ -286,8 +279,6 @@
 
     sub-long/2addr v3, v5
 
-    .line 70
-    .local v3, "bufferSpaceAvailable":J
     cmp-long v5, v3, v1
 
     if-nez v5, :cond_0
@@ -301,7 +292,6 @@
 
     invoke-virtual {v1, v2}, Lokio/Timeout;->waitUntilNotified(Ljava/lang/Object;)V
 
-    .line 72
     goto :goto_0
 
     .line 75
@@ -311,72 +301,58 @@
     move-result-wide v1
 
     .line 76
-    .local v1, "bytesToWrite":J
-    iget-object v5, p0, Lokio/Pipe$PipeSink;->this$0:Lokio/Pipe;
+    iget-object v3, p0, Lokio/Pipe$PipeSink;->this$0:Lokio/Pipe;
 
-    iget-object v5, v5, Lokio/Pipe;->buffer:Lokio/Buffer;
+    iget-object v3, v3, Lokio/Pipe;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v5, p1, v1, v2}, Lokio/Buffer;->write(Lokio/Buffer;J)V
+    invoke-virtual {v3, p1, v1, v2}, Lokio/Buffer;->write(Lokio/Buffer;J)V
 
-    .line 77
     sub-long/2addr p2, v1
 
     .line 78
-    iget-object v5, p0, Lokio/Pipe$PipeSink;->this$0:Lokio/Pipe;
+    iget-object v1, p0, Lokio/Pipe$PipeSink;->this$0:Lokio/Pipe;
 
-    iget-object v5, v5, Lokio/Pipe;->buffer:Lokio/Buffer;
+    iget-object v1, v1, Lokio/Pipe;->buffer:Lokio/Buffer;
 
-    invoke-virtual {v5}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
-    .line 79
-    .end local v1    # "bytesToWrite":J
-    .end local v3    # "bufferSpaceAvailable":J
     goto :goto_0
 
     .line 67
     :cond_1
-    new-instance v1, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v2, "source is closed"
+    const-string p2, "source is closed"
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "source":Lokio/Buffer;
-    .end local p2    # "byteCount":J
-    throw v1
+    throw p1
 
     .line 80
-    .restart local p1    # "source":Lokio/Buffer;
-    .restart local p2    # "byteCount":J
     :cond_2
     monitor-exit v0
 
-    .line 81
     return-void
 
     .line 64
     :cond_3
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    .end local p1    # "source":Lokio/Buffer;
-    .end local p2    # "byteCount":J
-    throw v1
+    throw p1
+
+    :catchall_0
+    move-exception p1
 
     .line 80
-    .restart local p1    # "source":Lokio/Buffer;
-    .restart local p2    # "byteCount":J
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 
     return-void
 .end method

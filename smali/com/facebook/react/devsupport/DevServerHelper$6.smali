@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/DevServerHelper;Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/DevServerHelper;
 
     .line 302
     iput-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->this$0:Lcom/facebook/react/devsupport/DevServerHelper;
@@ -41,50 +40,45 @@
 
 # virtual methods
 .method public onFailure(Lokhttp3/Call;Ljava/io/IOException;)V
-    .locals 2
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "e"    # Ljava/io/IOException;
+    .locals 1
 
     .line 305
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Got IOException when attempting symbolicate stack trace: "
+    const-string v0, "Got IOException when attempting symbolicate stack trace: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 307
     invoke-virtual {p2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
+
+    const-string p2, "ReactNative"
 
     .line 305
-    const-string v1, "ReactNative"
-
-    invoke-static {v1, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {p2, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 308
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->val$listener:Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->val$listener:Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v0, v1}, Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;->onSymbolicationComplete(Ljava/lang/Iterable;)V
+    invoke-interface {p1, p2}, Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;->onSymbolicationComplete(Ljava/lang/Iterable;)V
 
-    .line 309
     return-void
 .end method
 
 .method public onResponse(Lokhttp3/Call;Lokhttp3/Response;)V
-    .locals 3
-    .param p1, "call"    # Lokhttp3/Call;
-    .param p2, "response"    # Lokhttp3/Response;
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -93,58 +87,51 @@
 
     .line 314
     :try_start_0
-    iget-object v0, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->val$listener:Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->val$listener:Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
 
-    new-instance v1, Lorg/json/JSONObject;
+    new-instance v0, Lorg/json/JSONObject;
 
     .line 316
     invoke-virtual {p2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-virtual {v2}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
+    invoke-virtual {p2}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p2
 
-    invoke-direct {v1, v2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p2}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    const-string v2, "stack"
+    const-string p2, "stack"
 
-    invoke-virtual {v1, v2}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {v0, p2}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 315
-    invoke-static {v1}, Lcom/facebook/react/devsupport/StackTraceHelper;->convertJsStackTrace(Lorg/json/JSONArray;)[Lcom/facebook/react/devsupport/interfaces/StackFrame;
+    invoke-static {p2}, Lcom/facebook/react/devsupport/StackTraceHelper;->convertJsStackTrace(Lorg/json/JSONArray;)[Lcom/facebook/react/devsupport/interfaces/StackFrame;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 314
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-interface {v0, v1}, Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;->onSymbolicationComplete(Ljava/lang/Iterable;)V
+    invoke-interface {p1, p2}, Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;->onSymbolicationComplete(Ljava/lang/Iterable;)V
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 319
     goto :goto_0
 
-    .line 317
-    :catch_0
-    move-exception v0
-
     .line 318
-    .local v0, "exception":Lorg/json/JSONException;
-    iget-object v1, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->val$listener:Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
+    :catch_0
+    iget-object p1, p0, Lcom/facebook/react/devsupport/DevServerHelper$6;->val$listener:Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;
 
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v1, v2}, Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;->onSymbolicationComplete(Ljava/lang/Iterable;)V
+    invoke-interface {p1, p2}, Lcom/facebook/react/devsupport/DevServerHelper$SymbolicationListener;->onSymbolicationComplete(Ljava/lang/Iterable;)V
 
-    .line 320
-    .end local v0    # "exception":Lorg/json/JSONException;
     :goto_0
     return-void
 .end method

@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/cache/disk/DiskCacheConfig$Builder;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/cache/disk/DiskCacheConfig$Builder;
 
     .line 256
     iput-object p1, p0, Lcom/facebook/cache/disk/DiskCacheConfig$Builder$1;->this$0:Lcom/facebook/cache/disk/DiskCacheConfig$Builder;

@@ -34,7 +34,6 @@
 # direct methods
 .method public constructor <init>(Landroid/app/ActivityManager;)V
     .locals 0
-    .param p1, "activityManager"    # Landroid/app/ActivityManager;
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .line 27
     iput-object p1, p0, Lcom/facebook/imagepipeline/cache/DefaultBitmapMemoryCacheParamsSupplier;->mActivityManager:Landroid/app/ActivityManager;
 
-    .line 28
     return-void
 .end method
 
@@ -67,27 +65,22 @@
 
     move-result v0
 
-    .line 43
-    .local v0, "maxMemory":I
     const/high16 v1, 0x2000000
 
     if-ge v0, v1, :cond_0
 
-    .line 44
-    const/high16 v1, 0x400000
+    const/high16 v0, 0x400000
 
-    return v1
+    return v0
 
-    .line 45
     :cond_0
     const/high16 v1, 0x4000000
 
     if-ge v0, v1, :cond_1
 
-    .line 46
-    const/high16 v1, 0x600000
+    const/high16 v0, 0x600000
 
-    return v1
+    return v0
 
     .line 50
     :cond_1
@@ -97,16 +90,15 @@
 
     if-ge v1, v2, :cond_2
 
-    .line 51
-    const/high16 v1, 0x800000
+    const/high16 v0, 0x800000
 
-    return v1
+    return v0
 
     .line 53
     :cond_2
-    div-int/lit8 v1, v0, 0x4
+    div-int/lit8 v0, v0, 0x4
 
-    return v1
+    return v0
 .end method
 
 
@@ -134,7 +126,6 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/facebook/imagepipeline/cache/MemoryCacheParams;-><init>(IIIII)V
 
-    .line 32
     return-object v6
 .end method
 

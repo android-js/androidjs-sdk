@@ -16,16 +16,16 @@
     .line 8
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;-><init>()V
 
-    .line 9
     const/4 v0, 0x4
 
+    .line 9
     new-array v0, v0, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     iput-object v0, p0, Landroid/support/constraint/solver/widgets/Helper;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 10
     const/4 v0, 0x0
 
+    .line 10
     iput v0, p0, Landroid/support/constraint/solver/widgets/Helper;->mWidgetsCount:I
 
     return-void
@@ -35,7 +35,6 @@
 # virtual methods
 .method public add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
     .locals 3
-    .param p1, "widget"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 18
     iget v0, p0, Landroid/support/constraint/solver/widgets/Helper;->mWidgetsCount:I
@@ -69,23 +68,21 @@
 
     aput-object p1, v0, v1
 
-    .line 22
     add-int/lit8 v1, v1, 0x1
 
+    .line 22
     iput v1, p0, Landroid/support/constraint/solver/widgets/Helper;->mWidgetsCount:I
 
-    .line 23
     return-void
 .end method
 
 .method public removeAllIds()V
     .locals 1
 
-    .line 29
     const/4 v0, 0x0
 
+    .line 29
     iput v0, p0, Landroid/support/constraint/solver/widgets/Helper;->mWidgetsCount:I
 
-    .line 30
     return-void
 .end method

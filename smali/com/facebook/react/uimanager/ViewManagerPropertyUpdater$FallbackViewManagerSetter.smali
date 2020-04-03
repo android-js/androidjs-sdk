@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,31 +57,22 @@
     .end annotation
 
     .line 123
-    .local p0, "this":Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;, "Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter<TT;TV;>;"
-    .local p1, "viewManagerClass":Ljava/lang/Class;, "Ljava/lang/Class<+Lcom/facebook/react/uimanager/ViewManager;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 124
-    nop
 
     .line 125
     invoke-static {p1}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache;->getNativePropSettersForViewManagerClass(Ljava/lang/Class;)Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;->mPropSetters:Ljava/util/Map;
+    iput-object p1, p0, Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;->mPropSetters:Ljava/util/Map;
 
-    .line 126
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/Class;Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$1;)V
     .locals 0
-    .param p1, "x0"    # Ljava/lang/Class;
-    .param p2, "x1"    # Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$1;
 
     .line 119
-    .local p0, "this":Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;, "Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter<TT;TV;>;"
     invoke-direct {p0, p1}, Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;-><init>(Ljava/lang/Class;)V
 
     return-void
@@ -90,7 +81,7 @@
 
 # virtual methods
 .method public getProperties(Ljava/util/Map;)V
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,8 +93,6 @@
     .end annotation
 
     .line 138
-    .local p0, "this":Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;, "Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter<TT;TV;>;"
-    .local p1, "props":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     iget-object v0, p0, Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;->mPropSetters:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -128,30 +117,24 @@
     check-cast v1, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;
 
     .line 139
-    .local v1, "setter":Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;
     invoke-virtual {v1}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;->getPropName()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;->getPropType()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {p1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v2, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 140
-    .end local v1    # "setter":Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;
     goto :goto_0
 
-    .line 141
     :cond_0
     return-void
 .end method
 
 .method public setProperty(Lcom/facebook/react/uimanager/ViewManager;Landroid/view/View;Ljava/lang/String;Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
     .locals 1
-    .param p3, "name"    # Ljava/lang/String;
-    .param p4, "props"    # Lcom/facebook/react/uimanager/ReactStylesDiffMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TV;",
@@ -162,25 +145,19 @@
     .end annotation
 
     .line 130
-    .local p0, "this":Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;, "Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter<TT;TV;>;"
-    .local p1, "manager":Lcom/facebook/react/uimanager/ViewManager;, "TT;"
-    .local p2, "v":Landroid/view/View;, "TV;"
     iget-object v0, p0, Lcom/facebook/react/uimanager/ViewManagerPropertyUpdater$FallbackViewManagerSetter;->mPropSetters:Ljava/util/Map;
 
     invoke-interface {v0, p3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p3
 
-    check-cast v0, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;
+    check-cast p3, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;
 
-    .line 131
-    .local v0, "setter":Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;
-    if-eqz v0, :cond_0
+    if-eqz p3, :cond_0
 
     .line 132
-    invoke-virtual {v0, p1, p2, p4}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;->updateViewProp(Lcom/facebook/react/uimanager/ViewManager;Landroid/view/View;Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
+    invoke-virtual {p3, p1, p2, p4}, Lcom/facebook/react/uimanager/ViewManagersPropertyCache$PropSetter;->updateViewProp(Lcom/facebook/react/uimanager/ViewManager;Landroid/view/View;Lcom/facebook/react/uimanager/ReactStylesDiffMap;)V
 
-    .line 134
     :cond_0
     return-void
 .end method

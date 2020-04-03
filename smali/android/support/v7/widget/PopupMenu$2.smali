@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/PopupMenu;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/widget/PopupMenu;
 
     .line 125
     iput-object p1, p0, Landroid/support/v7/widget/PopupMenu$2;->this$0:Landroid/support/v7/widget/PopupMenu;
@@ -55,7 +54,6 @@
 
     invoke-interface {v0, v1}, Landroid/support/v7/widget/PopupMenu$OnDismissListener;->onDismiss(Landroid/support/v7/widget/PopupMenu;)V
 
-    .line 131
     :cond_0
     return-void
 .end method

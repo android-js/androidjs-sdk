@@ -11,9 +11,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 34
     const/16 v0, 0xc9
 
+    .line 34
     new-array v0, v0, [F
 
     fill-array-data v0, :array_0
@@ -236,7 +236,6 @@
 
     invoke-direct {p0, v0}, Landroid/support/v4/view/animation/LookupTableInterpolator;-><init>([F)V
 
-    .line 68
     return-void
 .end method
 

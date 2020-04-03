@@ -79,9 +79,9 @@
 
     sput-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_PARENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    .line 142
     const/4 v0, 0x4
 
+    .line 142
     new-array v0, v0, [Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     sget-object v5, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -121,18 +121,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 142
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    check-cast p0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;

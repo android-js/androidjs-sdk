@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/ws/RealWebSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/ws/RealWebSocket;
 
     .line 156
     iput-object p1, p0, Lokhttp3/internal/ws/RealWebSocket$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
@@ -54,24 +53,16 @@
 
     goto :goto_0
 
-    .line 163
-    :cond_0
-    goto :goto_1
-
-    .line 161
     :catch_0
     move-exception v0
 
     .line 162
-    .local v0, "e":Ljava/io/IOException;
     iget-object v1, p0, Lokhttp3/internal/ws/RealWebSocket$1;->this$0:Lokhttp3/internal/ws/RealWebSocket;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v0, v2}, Lokhttp3/internal/ws/RealWebSocket;->failWebSocket(Ljava/lang/Exception;Lokhttp3/Response;)V
 
-    .line 164
-    .end local v0    # "e":Ljava/io/IOException;
-    :goto_1
+    :cond_0
     return-void
 .end method

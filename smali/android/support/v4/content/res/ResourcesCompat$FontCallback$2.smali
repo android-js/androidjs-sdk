@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/content/res/ResourcesCompat$FontCallback;I)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
 
     .line 266
     iput-object p1, p0, Landroid/support/v4/content/res/ResourcesCompat$FontCallback$2;->this$0:Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
@@ -50,6 +49,5 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/content/res/ResourcesCompat$FontCallback;->onFontRetrievalFailed(I)V
 
-    .line 270
     return-void
 .end method

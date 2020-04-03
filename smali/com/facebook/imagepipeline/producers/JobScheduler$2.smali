@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/producers/JobScheduler;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/producers/JobScheduler;
 
     .line 76
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/JobScheduler$2;->this$0:Lcom/facebook/imagepipeline/producers/JobScheduler;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Lcom/facebook/imagepipeline/producers/JobScheduler;->access$100(Lcom/facebook/imagepipeline/producers/JobScheduler;)V
 
-    .line 80
     return-void
 .end method

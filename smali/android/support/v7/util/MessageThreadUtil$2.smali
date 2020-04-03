@@ -51,11 +51,9 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/util/MessageThreadUtil;Landroid/support/v7/util/ThreadUtil$BackgroundCallback;)V
-    .locals 1
-    .param p1, "this$0"    # Landroid/support/v7/util/MessageThreadUtil;
+    .locals 0
 
     .line 87
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$2;->this$0:Landroid/support/v7/util/MessageThreadUtil;
 
     iput-object p2, p0, Landroid/support/v7/util/MessageThreadUtil$2;->val$callback:Landroid/support/v7/util/ThreadUtil$BackgroundCallback;
@@ -63,32 +61,32 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 88
-    new-instance p2, Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
+    new-instance p1, Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
 
-    invoke-direct {p2}, Landroid/support/v7/util/MessageThreadUtil$MessageQueue;-><init>()V
+    invoke-direct {p1}, Landroid/support/v7/util/MessageThreadUtil$MessageQueue;-><init>()V
 
-    iput-object p2, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
+    iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
 
     .line 89
-    sget-object p2, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object p1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    iput-object p2, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 90
-    new-instance p2, Ljava/util/concurrent/atomic/AtomicBoolean;
+    new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    invoke-direct {p2, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+    invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
-    iput-object p2, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mBackgroundRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mBackgroundRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     .line 135
-    new-instance p2, Landroid/support/v7/util/MessageThreadUtil$2$1;
+    new-instance p1, Landroid/support/v7/util/MessageThreadUtil$2$1;
 
-    invoke-direct {p2, p0}, Landroid/support/v7/util/MessageThreadUtil$2$1;-><init>(Landroid/support/v7/util/MessageThreadUtil$2;)V
+    invoke-direct {p1, p0}, Landroid/support/v7/util/MessageThreadUtil$2$1;-><init>(Landroid/support/v7/util/MessageThreadUtil$2;)V
 
-    iput-object p2, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mBackgroundRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mBackgroundRunnable:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -97,7 +95,6 @@
     .locals 3
 
     .line 130
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     iget-object v0, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mBackgroundRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -117,17 +114,14 @@
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    .line 133
     :cond_0
     return-void
 .end method
 
 .method private sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
     .locals 1
-    .param p1, "msg"    # Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     .line 120
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     iget-object v0, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/util/MessageThreadUtil$MessageQueue;->sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
@@ -135,16 +129,13 @@
     .line 121
     invoke-direct {p0}, Landroid/support/v7/util/MessageThreadUtil$2;->maybeExecuteBackgroundRunnable()V
 
-    .line 122
     return-void
 .end method
 
 .method private sendMessageAtFrontOfQueue(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
     .locals 1
-    .param p1, "msg"    # Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     .line 125
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     iget-object v0, p0, Landroid/support/v7/util/MessageThreadUtil$2;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/util/MessageThreadUtil$MessageQueue;->sendMessageAtFrontOfQueue(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
@@ -152,7 +143,6 @@
     .line 126
     invoke-direct {p0}, Landroid/support/v7/util/MessageThreadUtil$2;->maybeExecuteBackgroundRunnable()V
 
-    .line 127
     return-void
 .end method
 
@@ -160,20 +150,16 @@
 # virtual methods
 .method public loadTile(II)V
     .locals 1
-    .param p1, "position"    # I
-    .param p2, "scrollHint"    # I
 
-    .line 111
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     const/4 v0, 0x3
 
+    .line 111
     invoke-static {v0, p1, p2}, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->obtainMessage(III)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
+    invoke-direct {p0, p1}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
 
-    .line 112
     return-void
 .end method
 
@@ -187,53 +173,40 @@
         }
     .end annotation
 
-    .line 116
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
-    .local p1, "tile":Landroid/support/v7/util/TileList$Tile;, "Landroid/support/v7/util/TileList$Tile<TT;>;"
     const/4 v0, 0x4
 
     const/4 v1, 0x0
 
+    .line 116
     invoke-static {v0, v1, p1}, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->obtainMessage(IILjava/lang/Object;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
+    invoke-direct {p0, p1}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
 
-    .line 117
     return-void
 .end method
 
 .method public refresh(I)V
     .locals 2
-    .param p1, "generation"    # I
 
-    .line 99
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 99
     invoke-static {v0, p1, v1}, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->obtainMessage(IILjava/lang/Object;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessageAtFrontOfQueue(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
+    invoke-direct {p0, p1}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessageAtFrontOfQueue(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
 
-    .line 100
     return-void
 .end method
 
 .method public updateRange(IIIII)V
     .locals 7
-    .param p1, "rangeStart"    # I
-    .param p2, "rangeEnd"    # I
-    .param p3, "extRangeStart"    # I
-    .param p4, "extRangeEnd"    # I
-    .param p5, "scrollHint"    # I
 
-    .line 105
-    .local p0, "this":Landroid/support/v7/util/MessageThreadUtil$2;, "Landroid/support/v7/util/MessageThreadUtil$2;"
     const/4 v0, 0x2
 
     const/4 v6, 0x0
@@ -248,12 +221,12 @@
 
     move v5, p5
 
+    .line 105
     invoke-static/range {v0 .. v6}, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->obtainMessage(IIIIIILjava/lang/Object;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-direct {p0, v0}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessageAtFrontOfQueue(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
+    invoke-direct {p0, p1}, Landroid/support/v7/util/MessageThreadUtil$2;->sendMessageAtFrontOfQueue(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
 
-    .line 107
     return-void
 .end method

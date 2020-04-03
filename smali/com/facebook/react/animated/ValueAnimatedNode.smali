@@ -21,56 +21,53 @@
     .line 23
     invoke-direct {p0}, Lcom/facebook/react/animated/AnimatedNode;-><init>()V
 
-    .line 19
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
 
+    .line 19
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mValue:D
 
-    .line 20
     const-wide/16 v0, 0x0
 
+    .line 20
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mOffset:D
 
-    .line 25
     return-void
 .end method
 
 .method public constructor <init>(Lcom/facebook/react/bridge/ReadableMap;)V
     .locals 2
-    .param p1, "config"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 27
     invoke-direct {p0}, Lcom/facebook/react/animated/AnimatedNode;-><init>()V
 
-    .line 19
     const-wide/high16 v0, 0x7ff8000000000000L    # Double.NaN
 
+    .line 19
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mValue:D
 
-    .line 20
     const-wide/16 v0, 0x0
 
+    .line 20
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mOffset:D
 
-    .line 28
     const-string v0, "value"
 
+    .line 28
     invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mValue:D
 
-    .line 29
     const-string v0, "offset"
 
+    .line 29
     invoke-interface {p1, v0}, Lcom/facebook/react/bridge/ReadableMap;->getDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mOffset:D
 
-    .line 30
     return-void
 .end method
 
@@ -88,12 +85,11 @@
 
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mOffset:D
 
-    .line 43
     const-wide/16 v0, 0x0
 
+    .line 43
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mValue:D
 
-    .line 44
     return-void
 .end method
 
@@ -109,12 +105,11 @@
 
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mValue:D
 
-    .line 38
     const-wide/16 v0, 0x0
 
+    .line 38
     iput-wide v0, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mOffset:D
 
-    .line 39
     return-void
 .end method
 
@@ -139,7 +134,6 @@
 
     if-nez v0, :cond_0
 
-    .line 48
     return-void
 
     .line 50
@@ -150,13 +144,12 @@
 
     invoke-interface {v0, v1, v2}, Lcom/facebook/react/animated/AnimatedNodeValueListener;->onValueUpdate(D)V
 
-    .line 51
     return-void
 .end method
 
 .method public setValueListener(Lcom/facebook/react/animated/AnimatedNodeValueListener;)V
     .locals 0
-    .param p1, "listener"    # Lcom/facebook/react/animated/AnimatedNodeValueListener;
+    .param p1    # Lcom/facebook/react/animated/AnimatedNodeValueListener;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -164,6 +157,5 @@
     .line 54
     iput-object p1, p0, Lcom/facebook/react/animated/ValueAnimatedNode;->mValueListener:Lcom/facebook/react/animated/AnimatedNodeValueListener;
 
-    .line 55
     return-void
 .end method

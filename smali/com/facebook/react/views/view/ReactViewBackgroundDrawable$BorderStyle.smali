@@ -69,9 +69,9 @@
 
     sput-object v0, Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;->DOTTED:Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
 
-    .line 56
     const/4 v0, 0x3
 
+    .line 56
     new-array v0, v0, [Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
 
     sget-object v4, Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;->SOLID:Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
@@ -106,9 +106,7 @@
 .end method
 
 .method public static getPathEffect(Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;F)Landroid/graphics/PathEffect;
-    .locals 9
-    .param p0, "style"    # Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
-    .param p1, "borderWidth"    # F
+    .locals 7
     .annotation runtime Ljavax/annotation/Nullable;
     .end annotation
 
@@ -117,98 +115,89 @@
 
     invoke-virtual {p0}, Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;->ordinal()I
 
-    move-result v1
+    move-result p0
 
-    aget v0, v0, v1
+    aget p0, v0, p0
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eq v0, v2, :cond_2
+    if-eq p0, v1, :cond_2
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x0
+    const/4 v4, 0x4
 
-    const/4 v5, 0x4
+    const/4 v5, 0x3
 
-    const/4 v6, 0x3
+    const/4 v6, 0x2
 
-    const/4 v7, 0x2
+    if-eq p0, v6, :cond_1
 
-    if-eq v0, v7, :cond_1
+    if-eq p0, v5, :cond_0
 
-    if-eq v0, v6, :cond_0
-
-    .line 75
-    return-object v1
+    return-object v0
 
     .line 71
     :cond_0
-    new-instance v0, Landroid/graphics/DashPathEffect;
+    new-instance p0, Landroid/graphics/DashPathEffect;
 
-    new-array v1, v5, [F
+    new-array v0, v4, [F
 
-    aput p1, v1, v4
+    aput p1, v0, v3
 
-    aput p1, v1, v2
+    aput p1, v0, v1
 
-    aput p1, v1, v7
+    aput p1, v0, v6
 
-    aput p1, v1, v6
+    aput p1, v0, v5
 
-    invoke-direct {v0, v1, v3}, Landroid/graphics/DashPathEffect;-><init>([FF)V
+    invoke-direct {p0, v0, v2}, Landroid/graphics/DashPathEffect;-><init>([FF)V
 
-    return-object v0
+    return-object p0
 
     .line 67
     :cond_1
-    new-instance v0, Landroid/graphics/DashPathEffect;
+    new-instance p0, Landroid/graphics/DashPathEffect;
 
-    new-array v1, v5, [F
+    new-array v0, v4, [F
 
-    const/high16 v5, 0x40400000    # 3.0f
+    const/high16 v4, 0x40400000    # 3.0f
 
-    mul-float v8, p1, v5
+    mul-float p1, p1, v4
 
-    aput v8, v1, v4
+    aput p1, v0, v3
 
-    mul-float v4, p1, v5
+    aput p1, v0, v1
 
-    aput v4, v1, v2
+    aput p1, v0, v6
 
-    mul-float v2, p1, v5
+    aput p1, v0, v5
 
-    aput v2, v1, v7
+    invoke-direct {p0, v0, v2}, Landroid/graphics/DashPathEffect;-><init>([FF)V
 
-    mul-float v5, v5, p1
+    return-object p0
 
-    aput v5, v1, v6
-
-    invoke-direct {v0, v1, v3}, Landroid/graphics/DashPathEffect;-><init>([FF)V
-
-    return-object v0
-
-    .line 64
     :cond_2
-    return-object v1
+    return-object v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 56
     const-class v0, Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
+    check-cast p0, Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/views/view/ReactViewBackgroundDrawable$BorderStyle;

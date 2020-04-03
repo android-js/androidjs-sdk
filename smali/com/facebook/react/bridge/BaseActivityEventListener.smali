@@ -20,31 +20,20 @@
 # virtual methods
 .method public onActivityResult(IILandroid/content/Intent;)V
     .locals 0
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Landroid/content/Intent;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 20
     return-void
 .end method
 
 .method public onActivityResult(Landroid/app/Activity;IILandroid/content/Intent;)V
     .locals 0
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "requestCode"    # I
-    .param p3, "resultCode"    # I
-    .param p4, "data"    # Landroid/content/Intent;
 
-    .line 23
     return-void
 .end method
 
 .method public onNewIntent(Landroid/content/Intent;)V
     .locals 0
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .line 26
     return-void
 .end method

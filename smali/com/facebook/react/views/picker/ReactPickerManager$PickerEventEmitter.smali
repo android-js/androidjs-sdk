@@ -26,8 +26,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/views/picker/ReactPicker;Lcom/facebook/react/uimanager/events/EventDispatcher;)V
     .locals 0
-    .param p1, "reactPicker"    # Lcom/facebook/react/views/picker/ReactPicker;
-    .param p2, "eventDispatcher"    # Lcom/facebook/react/uimanager/events/EventDispatcher;
 
     .line 147
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +36,6 @@
     .line 149
     iput-object p2, p0, Lcom/facebook/react/views/picker/ReactPickerManager$PickerEventEmitter;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    .line 150
     return-void
 .end method
 
@@ -46,7 +43,6 @@
 # virtual methods
 .method public onItemSelected(I)V
     .locals 3
-    .param p1, "position"    # I
 
     .line 154
     iget-object v0, p0, Lcom/facebook/react/views/picker/ReactPickerManager$PickerEventEmitter;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
@@ -65,6 +61,5 @@
     .line 154
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/events/EventDispatcher;->dispatchEvent(Lcom/facebook/react/uimanager/events/Event;)V
 
-    .line 156
     return-void
 .end method

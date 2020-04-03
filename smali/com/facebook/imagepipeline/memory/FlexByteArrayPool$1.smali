@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;
 
     .line 38
     iput-object p1, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$1;->this$0:Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;
@@ -57,13 +56,11 @@
 
 .method public release([B)V
     .locals 1
-    .param p1, "unused"    # [B
 
     .line 41
     iget-object v0, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$1;->this$0:Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;
 
     invoke-virtual {v0, p1}, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->release([B)V
 
-    .line 42
     return-void
 .end method

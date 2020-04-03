@@ -62,16 +62,13 @@
 .end method
 
 .method protected addEventEmitters(Lcom/facebook/react/uimanager/ThemedReactContext;Lcom/facebook/react/views/switchview/ReactSwitch;)V
-    .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
-    .param p2, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
+    .locals 0
 
     .line 163
-    sget-object v0, Lcom/facebook/react/views/switchview/ReactSwitchManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    sget-object p1, Lcom/facebook/react/views/switchview/ReactSwitchManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {p2, v0}, Lcom/facebook/react/views/switchview/ReactSwitch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p2, p1}, Lcom/facebook/react/views/switchview/ReactSwitch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 164
     return-void
 .end method
 
@@ -111,28 +108,24 @@
 .end method
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Lcom/facebook/react/views/switchview/ReactSwitch;
-    .locals 2
-    .param p1, "context"    # Lcom/facebook/react/uimanager/ThemedReactContext;
+    .locals 1
 
     .line 107
     new-instance v0, Lcom/facebook/react/views/switchview/ReactSwitch;
 
     invoke-direct {v0, p1}, Lcom/facebook/react/views/switchview/ReactSwitch;-><init>(Landroid/content/Context;)V
 
+    const/4 p1, 0x0
+
     .line 108
-    .local v0, "view":Lcom/facebook/react/views/switchview/ReactSwitch;
-    const/4 v1, 0x0
+    invoke-virtual {v0, p1}, Lcom/facebook/react/views/switchview/ReactSwitch;->setShowText(Z)V
 
-    invoke-virtual {v0, v1}, Lcom/facebook/react/views/switchview/ReactSwitch;->setShowText(Z)V
-
-    .line 109
     return-object v0
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 92
     const-string v0, "AndroidSwitch"
 
     return-object v0
@@ -148,27 +141,22 @@
 .end method
 
 .method public setDisabled(Lcom/facebook/react/views/switchview/ReactSwitch;Z)V
-    .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "disabled"    # Z
+    .locals 0
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultBoolean = false
         name = "disabled"
     .end annotation
 
+    xor-int/lit8 p2, p2, 0x1
+
     .line 114
-    xor-int/lit8 v0, p2, 0x1
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setEnabled(Z)V
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/switchview/ReactSwitch;->setEnabled(Z)V
-
-    .line 115
     return-void
 .end method
 
 .method public setEnabled(Lcom/facebook/react/views/switchview/ReactSwitch;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "enabled"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         defaultBoolean = true
         name = "enabled"
@@ -177,14 +165,11 @@
     .line 119
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setEnabled(Z)V
 
-    .line 120
     return-void
 .end method
 
 .method public setOn(Lcom/facebook/react/views/switchview/ReactSwitch;Z)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "on"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "on"
     .end annotation
@@ -192,14 +177,12 @@
     .line 124
     invoke-virtual {p0, p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitchManager;->setValue(Lcom/facebook/react/views/switchview/ReactSwitch;Z)V
 
-    .line 125
     return-void
 .end method
 
 .method public setThumbColor(Lcom/facebook/react/views/switchview/ReactSwitch;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "color"    # Ljava/lang/Integer;
+    .param p2    # Ljava/lang/Integer;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -211,14 +194,12 @@
     .line 143
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setThumbColor(Ljava/lang/Integer;)V
 
-    .line 144
     return-void
 .end method
 
 .method public setThumbTintColor(Lcom/facebook/react/views/switchview/ReactSwitch;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "color"    # Ljava/lang/Integer;
+    .param p2    # Ljava/lang/Integer;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -230,14 +211,12 @@
     .line 138
     invoke-virtual {p0, p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitchManager;->setThumbColor(Lcom/facebook/react/views/switchview/ReactSwitch;Ljava/lang/Integer;)V
 
-    .line 139
     return-void
 .end method
 
 .method public setTrackColorForFalse(Lcom/facebook/react/views/switchview/ReactSwitch;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "color"    # Ljava/lang/Integer;
+    .param p2    # Ljava/lang/Integer;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -249,14 +228,12 @@
     .line 148
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setTrackColorForFalse(Ljava/lang/Integer;)V
 
-    .line 149
     return-void
 .end method
 
 .method public setTrackColorForTrue(Lcom/facebook/react/views/switchview/ReactSwitch;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "color"    # Ljava/lang/Integer;
+    .param p2    # Ljava/lang/Integer;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -268,14 +245,12 @@
     .line 153
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setTrackColorForTrue(Ljava/lang/Integer;)V
 
-    .line 154
     return-void
 .end method
 
 .method public setTrackTintColor(Lcom/facebook/react/views/switchview/ReactSwitch;Ljava/lang/Integer;)V
     .locals 0
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "color"    # Ljava/lang/Integer;
+    .param p2    # Ljava/lang/Integer;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -287,31 +262,27 @@
     .line 158
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setTrackColor(Ljava/lang/Integer;)V
 
-    .line 159
     return-void
 .end method
 
 .method public setValue(Lcom/facebook/react/views/switchview/ReactSwitch;Z)V
     .locals 1
-    .param p1, "view"    # Lcom/facebook/react/views/switchview/ReactSwitch;
-    .param p2, "value"    # Z
     .annotation runtime Lcom/facebook/react/uimanager/annotations/ReactProp;
         name = "value"
     .end annotation
 
-    .line 131
     const/4 v0, 0x0
 
+    .line 131
     invoke-virtual {p1, v0}, Lcom/facebook/react/views/switchview/ReactSwitch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 132
     invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setOn(Z)V
 
     .line 133
-    sget-object v0, Lcom/facebook/react/views/switchview/ReactSwitchManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    sget-object p2, Lcom/facebook/react/views/switchview/ReactSwitchManager;->ON_CHECKED_CHANGE_LISTENER:Landroid/widget/CompoundButton$OnCheckedChangeListener;
 
-    invoke-virtual {p1, v0}, Lcom/facebook/react/views/switchview/ReactSwitch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {p1, p2}, Lcom/facebook/react/views/switchview/ReactSwitch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 134
     return-void
 .end method

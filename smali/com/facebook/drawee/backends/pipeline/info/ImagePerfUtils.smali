@@ -15,9 +15,7 @@
 
 .method public static toString(I)Ljava/lang/String;
     .locals 1
-    .param p0, "imageLoadStatus"    # I
 
-    .line 12
     if-eqz p0, :cond_5
 
     const/4 v0, 0x1
@@ -40,44 +38,37 @@
 
     if-eq p0, v0, :cond_0
 
-    .line 26
-    const-string v0, "unknown"
+    const-string p0, "unknown"
 
-    return-object v0
+    return-object p0
 
-    .line 24
     :cond_0
-    const-string v0, "error"
+    const-string p0, "error"
 
-    return-object v0
+    return-object p0
 
-    .line 20
     :cond_1
-    const-string v0, "canceled"
+    const-string p0, "canceled"
 
-    return-object v0
+    return-object p0
 
-    .line 18
     :cond_2
-    const-string v0, "success"
+    const-string p0, "success"
 
-    return-object v0
+    return-object p0
 
-    .line 22
     :cond_3
-    const-string v0, "intermediate_available"
+    const-string p0, "intermediate_available"
 
-    return-object v0
+    return-object p0
 
-    .line 16
     :cond_4
-    const-string v0, "origin_available"
+    const-string p0, "origin_available"
 
-    return-object v0
+    return-object p0
 
-    .line 14
     :cond_5
-    const-string v0, "requested"
+    const-string p0, "requested"
 
-    return-object v0
+    return-object p0
 .end method

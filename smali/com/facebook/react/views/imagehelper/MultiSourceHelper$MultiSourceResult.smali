@@ -29,11 +29,11 @@
 # direct methods
 .method private constructor <init>(Lcom/facebook/react/views/imagehelper/ImageSource;Lcom/facebook/react/views/imagehelper/ImageSource;)V
     .locals 0
-    .param p1, "bestResult"    # Lcom/facebook/react/views/imagehelper/ImageSource;
+    .param p1    # Lcom/facebook/react/views/imagehelper/ImageSource;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "bestResultInCache"    # Lcom/facebook/react/views/imagehelper/ImageSource;
+    .param p2    # Lcom/facebook/react/views/imagehelper/ImageSource;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -47,15 +47,11 @@
     .line 31
     iput-object p2, p0, Lcom/facebook/react/views/imagehelper/MultiSourceHelper$MultiSourceResult;->bestResultInCache:Lcom/facebook/react/views/imagehelper/ImageSource;
 
-    .line 32
     return-void
 .end method
 
 .method synthetic constructor <init>(Lcom/facebook/react/views/imagehelper/ImageSource;Lcom/facebook/react/views/imagehelper/ImageSource;Lcom/facebook/react/views/imagehelper/MultiSourceHelper$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/views/imagehelper/ImageSource;
-    .param p2, "x1"    # Lcom/facebook/react/views/imagehelper/ImageSource;
-    .param p3, "x2"    # Lcom/facebook/react/views/imagehelper/MultiSourceHelper$1;
 
     .line 23
     invoke-direct {p0, p1, p2}, Lcom/facebook/react/views/imagehelper/MultiSourceHelper$MultiSourceResult;-><init>(Lcom/facebook/react/views/imagehelper/ImageSource;Lcom/facebook/react/views/imagehelper/ImageSource;)V

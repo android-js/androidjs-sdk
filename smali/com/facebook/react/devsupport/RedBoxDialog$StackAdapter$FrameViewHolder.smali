@@ -23,7 +23,6 @@
 # direct methods
 .method private constructor <init>(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
     .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,20 +43,17 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/widget/TextView;
+    check-cast p1, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;->mFileView:Landroid/widget/TextView;
+    iput-object p1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;->mFileView:Landroid/widget/TextView;
 
-    .line 123
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/view/View;Lcom/facebook/react/devsupport/RedBoxDialog$1;)V
     .locals 0
-    .param p1, "x0"    # Landroid/view/View;
-    .param p2, "x1"    # Lcom/facebook/react/devsupport/RedBoxDialog$1;
 
     .line 116
     invoke-direct {p0, p1}, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;-><init>(Landroid/view/View;)V
@@ -66,21 +62,19 @@
 .end method
 
 .method static synthetic access$1000(Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;)Landroid/widget/TextView;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;
+    .locals 0
 
     .line 116
-    iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;->mFileView:Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;->mFileView:Landroid/widget/TextView;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$900(Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;)Landroid/widget/TextView;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;
+    .locals 0
 
     .line 116
-    iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;->mMethodView:Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$StackAdapter$FrameViewHolder;->mMethodView:Landroid/widget/TextView;
 
-    return-object v0
+    return-object p0
 .end method

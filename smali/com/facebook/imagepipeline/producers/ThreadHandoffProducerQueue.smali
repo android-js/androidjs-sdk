@@ -22,33 +22,31 @@
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
     .locals 1
-    .param p1, "executor"    # Ljava/util/concurrent/Executor;
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 16
     const/4 v0, 0x0
 
+    .line 16
     iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mQueueing:Z
 
     .line 21
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/util/concurrent/Executor;
+    check-cast p1, Ljava/util/concurrent/Executor;
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mExecutor:Ljava/util/concurrent/Executor;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mExecutor:Ljava/util/concurrent/Executor;
 
     .line 22
-    new-instance v0, Ljava/util/ArrayDeque;
+    new-instance p1, Ljava/util/ArrayDeque;
 
-    invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mRunnableList:Ljava/util/Deque;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mRunnableList:Ljava/util/Deque;
 
-    .line 23
     return-void
 .end method
 
@@ -86,7 +84,6 @@
 
     invoke-interface {v0}, Ljava/util/Deque;->clear()V
 
-    .line 47
     return-void
 .end method
 
@@ -94,7 +91,6 @@
 # virtual methods
 .method public declared-synchronized addToQueueOrExecute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     monitor-enter p0
 
@@ -112,7 +108,6 @@
     goto :goto_0
 
     .line 29
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;
     :cond_0
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mExecutor:Ljava/util/concurrent/Executor;
 
@@ -126,8 +121,6 @@
 
     return-void
 
-    .line 25
-    .end local p1    # "runnable":Ljava/lang/Runnable;
     :catchall_0
     move-exception p1
 
@@ -151,7 +144,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;
     :catchall_0
     move-exception v0
 
@@ -162,7 +154,6 @@
 
 .method public declared-synchronized remove(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     monitor-enter p0
 
@@ -179,9 +170,6 @@
 
     return-void
 
-    .line 49
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;
-    .end local p1    # "runnable":Ljava/lang/Runnable;
     :catchall_0
     move-exception p1
 
@@ -195,9 +183,9 @@
 
     monitor-enter p0
 
-    .line 34
     const/4 v0, 0x1
 
+    .line 34
     :try_start_0
     iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mQueueing:Z
     :try_end_0
@@ -208,8 +196,6 @@
 
     return-void
 
-    .line 33
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;
     :catchall_0
     move-exception v0
 
@@ -223,9 +209,9 @@
 
     monitor-enter p0
 
-    .line 38
     const/4 v0, 0x0
 
+    .line 38
     :try_start_0
     iput-boolean v0, p0, Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;->mQueueing:Z
 
@@ -239,8 +225,6 @@
 
     return-void
 
-    .line 37
-    .end local p0    # "this":Lcom/facebook/imagepipeline/producers/ThreadHandoffProducerQueue;
     :catchall_0
     move-exception v0
 

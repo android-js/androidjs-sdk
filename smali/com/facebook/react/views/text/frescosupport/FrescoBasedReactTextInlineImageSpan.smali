@@ -44,18 +44,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;IIILandroid/net/Uri;Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;Ljava/lang/Object;)V
-    .locals 2
-    .param p1, "resources"    # Landroid/content/res/Resources;
-    .param p2, "height"    # I
-    .param p3, "width"    # I
-    .param p4, "tintColor"    # I
-    .param p5, "uri"    # Landroid/net/Uri;
+    .locals 1
+    .param p5    # Landroid/net/Uri;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p6, "headers"    # Lcom/facebook/react/bridge/ReadableMap;
-    .param p7, "draweeControllerBuilder"    # Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
-    .param p8, "callerContext"    # Ljava/lang/Object;
+    .param p8    # Ljava/lang/Object;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -69,14 +63,14 @@
     .line 69
     invoke-static {p1}, Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;->newInstance(Landroid/content/res/Resources;)Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 70
-    invoke-virtual {v1}, Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;->build()Lcom/facebook/drawee/generic/GenericDraweeHierarchy;
+    invoke-virtual {p1}, Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;->build()Lcom/facebook/drawee/generic/GenericDraweeHierarchy;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Lcom/facebook/drawee/view/DraweeHolder;-><init>(Lcom/facebook/drawee/interfaces/DraweeHierarchy;)V
+    invoke-direct {v0, p1}, Lcom/facebook/drawee/view/DraweeHolder;-><init>(Lcom/facebook/drawee/interfaces/DraweeHierarchy;)V
 
     iput-object v0, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
 
@@ -89,249 +83,221 @@
     .line 74
     iput p4, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mTintColor:I
 
-    .line 75
     if-eqz p5, :cond_0
-
-    move-object v0, p5
 
     goto :goto_0
 
+    .line 75
     :cond_0
-    sget-object v0, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
+    sget-object p5, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
 
     :goto_0
-    iput-object v0, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mUri:Landroid/net/Uri;
+    iput-object p5, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mUri:Landroid/net/Uri;
 
     .line 76
     iput-object p6, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeaders:Lcom/facebook/react/bridge/ReadableMap;
 
+    int-to-float p1, p3
+
     .line 77
-    int-to-float v0, p3
+    invoke-static {p1}, Lcom/facebook/react/uimanager/PixelUtil;->toPixelFromDIP(F)F
 
-    invoke-static {v0}, Lcom/facebook/react/uimanager/PixelUtil;->toPixelFromDIP(F)F
+    move-result p1
 
-    move-result v0
+    float-to-int p1, p1
 
-    float-to-int v0, v0
+    iput p1, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mWidth:I
 
-    iput v0, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mWidth:I
+    int-to-float p1, p2
 
     .line 78
-    int-to-float v0, p2
+    invoke-static {p1}, Lcom/facebook/react/uimanager/PixelUtil;->toPixelFromDIP(F)F
 
-    invoke-static {v0}, Lcom/facebook/react/uimanager/PixelUtil;->toPixelFromDIP(F)F
+    move-result p1
 
-    move-result v0
+    float-to-int p1, p1
 
-    float-to-int v0, v0
+    iput p1, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeight:I
 
-    iput v0, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeight:I
-
-    .line 80
     return-void
 .end method
 
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Ljava/lang/CharSequence;IIFIIILandroid/graphics/Paint;)V
-    .locals 9
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
-    .param p2, "text"    # Ljava/lang/CharSequence;
-    .param p3, "start"    # I
-    .param p4, "end"    # I
-    .param p5, "x"    # F
-    .param p6, "top"    # I
-    .param p7, "y"    # I
-    .param p8, "bottom"    # I
-    .param p9, "paint"    # Landroid/graphics/Paint;
+    .locals 0
 
     .line 137
-    move-object v0, p0
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    move-object v1, p1
-
-    iget-object v2, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
-
-    if-nez v2, :cond_1
+    if-nez p2, :cond_1
 
     .line 138
-    iget-object v2, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mUri:Landroid/net/Uri;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mUri:Landroid/net/Uri;
 
-    invoke-static {v2}, Lcom/facebook/imagepipeline/request/ImageRequestBuilder;->newBuilderWithSource(Landroid/net/Uri;)Lcom/facebook/imagepipeline/request/ImageRequestBuilder;
+    invoke-static {p2}, Lcom/facebook/imagepipeline/request/ImageRequestBuilder;->newBuilderWithSource(Landroid/net/Uri;)Lcom/facebook/imagepipeline/request/ImageRequestBuilder;
 
-    move-result-object v2
+    move-result-object p2
 
     .line 139
-    .local v2, "imageRequestBuilder":Lcom/facebook/imagepipeline/request/ImageRequestBuilder;
-    iget-object v3, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeaders:Lcom/facebook/react/bridge/ReadableMap;
+    iget-object p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeaders:Lcom/facebook/react/bridge/ReadableMap;
 
-    invoke-static {v2, v3}, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;->fromBuilderWithHeaders(Lcom/facebook/imagepipeline/request/ImageRequestBuilder;Lcom/facebook/react/bridge/ReadableMap;)Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
+    invoke-static {p2, p3}, Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;->fromBuilderWithHeaders(Lcom/facebook/imagepipeline/request/ImageRequestBuilder;Lcom/facebook/react/bridge/ReadableMap;)Lcom/facebook/react/modules/fresco/ReactNetworkImageRequest;
 
-    move-result-object v3
+    move-result-object p2
 
     .line 141
-    .local v3, "imageRequest":Lcom/facebook/imagepipeline/request/ImageRequest;
-    iget-object v4, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeControllerBuilder:Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    iget-object p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeControllerBuilder:Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
     .line 142
-    invoke-virtual {v4}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->reset()Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    invoke-virtual {p3}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->reset()Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
-    move-result-object v4
+    move-result-object p3
 
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
+    iget-object p4, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
 
     .line 143
-    invoke-virtual {v5}, Lcom/facebook/drawee/view/DraweeHolder;->getController()Lcom/facebook/drawee/interfaces/DraweeController;
+    invoke-virtual {p4}, Lcom/facebook/drawee/view/DraweeHolder;->getController()Lcom/facebook/drawee/interfaces/DraweeController;
 
-    move-result-object v5
+    move-result-object p4
 
-    invoke-virtual {v4, v5}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->setOldController(Lcom/facebook/drawee/interfaces/DraweeController;)Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    invoke-virtual {p3, p4}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->setOldController(Lcom/facebook/drawee/interfaces/DraweeController;)Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
-    move-result-object v4
+    move-result-object p3
 
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mCallerContext:Ljava/lang/Object;
+    iget-object p4, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mCallerContext:Ljava/lang/Object;
 
     .line 144
-    invoke-virtual {v4, v5}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->setCallerContext(Ljava/lang/Object;)Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    invoke-virtual {p3, p4}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->setCallerContext(Ljava/lang/Object;)Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
-    move-result-object v4
+    move-result-object p3
 
     .line 145
-    invoke-virtual {v4, v3}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->setImageRequest(Ljava/lang/Object;)Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    invoke-virtual {p3, p2}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->setImageRequest(Ljava/lang/Object;)Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
-    move-result-object v4
+    move-result-object p2
 
     .line 146
-    invoke-virtual {v4}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->build()Lcom/facebook/drawee/controller/AbstractDraweeController;
+    invoke-virtual {p2}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->build()Lcom/facebook/drawee/controller/AbstractDraweeController;
 
-    move-result-object v4
+    move-result-object p2
 
     .line 147
-    .local v4, "draweeController":Lcom/facebook/drawee/interfaces/DraweeController;
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
+    iget-object p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
 
-    invoke-virtual {v5, v4}, Lcom/facebook/drawee/view/DraweeHolder;->setController(Lcom/facebook/drawee/interfaces/DraweeController;)V
+    invoke-virtual {p3, p2}, Lcom/facebook/drawee/view/DraweeHolder;->setController(Lcom/facebook/drawee/interfaces/DraweeController;)V
 
     .line 148
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeControllerBuilder:Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeControllerBuilder:Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
-    invoke-virtual {v5}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->reset()Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
+    invoke-virtual {p2}, Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;->reset()Lcom/facebook/drawee/controller/AbstractDraweeControllerBuilder;
 
     .line 150
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDraweeHolder:Lcom/facebook/drawee/view/DraweeHolder;
 
-    invoke-virtual {v5}, Lcom/facebook/drawee/view/DraweeHolder;->getTopLevelDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2}, Lcom/facebook/drawee/view/DraweeHolder;->getTopLevelDrawable()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object p2
 
-    iput-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 151
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget v6, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mWidth:I
+    iget p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mWidth:I
 
-    iget v7, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeight:I
+    iget p4, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeight:I
 
-    const/4 v8, 0x0
+    const/4 p6, 0x0
 
-    invoke-virtual {v5, v8, v8, v6, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p2, p6, p6, p3, p4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 152
-    iget v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mTintColor:I
+    iget p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mTintColor:I
 
-    if-eqz v5, :cond_0
+    if-eqz p2, :cond_0
 
     .line 153
-    iget-object v6, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    sget-object v7, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+    sget-object p4, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {v6, v5, v7}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {p3, p2, p4}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     .line 155
     :cond_0
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget-object v6, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mTextView:Landroid/widget/TextView;
+    iget-object p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v5, v6}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+    invoke-virtual {p2, p3}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 161
-    .end local v2    # "imageRequestBuilder":Lcom/facebook/imagepipeline/request/ImageRequestBuilder;
-    .end local v3    # "imageRequest":Lcom/facebook/imagepipeline/request/ImageRequest;
-    .end local v4    # "draweeController":Lcom/facebook/drawee/interfaces/DraweeController;
     :cond_1
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 164
-    invoke-virtual/range {p9 .. p9}, Landroid/graphics/Paint;->descent()F
+    invoke-virtual {p9}, Landroid/graphics/Paint;->descent()F
 
-    move-result v2
+    move-result p2
 
-    invoke-virtual/range {p9 .. p9}, Landroid/graphics/Paint;->ascent()F
+    invoke-virtual {p9}, Landroid/graphics/Paint;->ascent()F
 
-    move-result v3
+    move-result p3
 
-    sub-float/2addr v2, v3
+    sub-float/2addr p2, p3
 
-    float-to-int v2, v2
+    float-to-int p2, p2
 
     .line 165
-    .local v2, "fontHeight":I
-    invoke-virtual/range {p9 .. p9}, Landroid/graphics/Paint;->descent()F
+    invoke-virtual {p9}, Landroid/graphics/Paint;->descent()F
 
-    move-result v3
+    move-result p3
 
-    float-to-int v3, v3
+    float-to-int p3, p3
 
-    add-int v3, p7, v3
+    add-int/2addr p7, p3
 
-    div-int/lit8 v4, v2, 0x2
+    div-int/lit8 p2, p2, 0x2
 
-    sub-int/2addr v3, v4
+    sub-int/2addr p7, p2
 
     .line 166
-    .local v3, "centerY":I
-    iget-object v4, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v4
+    move-result-object p2
 
-    iget v4, v4, Landroid/graphics/Rect;->bottom:I
+    iget p2, p2, Landroid/graphics/Rect;->bottom:I
 
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p3, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v5
+    move-result-object p3
 
-    iget v5, v5, Landroid/graphics/Rect;->top:I
+    iget p3, p3, Landroid/graphics/Rect;->top:I
 
-    sub-int/2addr v4, v5
+    sub-int/2addr p2, p3
 
-    div-int/lit8 v4, v4, 0x2
+    div-int/lit8 p2, p2, 0x2
 
-    sub-int v4, v3, v4
+    sub-int/2addr p7, p2
+
+    int-to-float p2, p7
 
     .line 168
-    .local v4, "transY":I
-    int-to-float v5, v4
-
-    move v6, p5
-
-    invoke-virtual {p1, p5, v5}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, p5, p2}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 169
-    iget-object v5, v0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v5, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {p2, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 170
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 171
     return-void
 .end method
 
@@ -356,41 +322,35 @@
 .end method
 
 .method public getSize(Landroid/graphics/Paint;Ljava/lang/CharSequence;IILandroid/graphics/Paint$FontMetricsInt;)I
-    .locals 2
-    .param p1, "paint"    # Landroid/graphics/Paint;
-    .param p2, "text"    # Ljava/lang/CharSequence;
-    .param p3, "start"    # I
-    .param p4, "end"    # I
-    .param p5, "fm"    # Landroid/graphics/Paint$FontMetricsInt;
+    .locals 0
 
-    .line 111
     if-eqz p5, :cond_0
 
     .line 112
-    iget v0, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeight:I
+    iget p1, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mHeight:I
 
-    neg-int v0, v0
+    neg-int p1, p1
 
-    iput v0, p5, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
+    iput p1, p5, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
+
+    const/4 p1, 0x0
 
     .line 113
-    const/4 v0, 0x0
-
-    iput v0, p5, Landroid/graphics/Paint$FontMetricsInt;->descent:I
+    iput p1, p5, Landroid/graphics/Paint$FontMetricsInt;->descent:I
 
     .line 115
-    iget v1, p5, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
+    iget p2, p5, Landroid/graphics/Paint$FontMetricsInt;->ascent:I
 
-    iput v1, p5, Landroid/graphics/Paint$FontMetricsInt;->top:I
+    iput p2, p5, Landroid/graphics/Paint$FontMetricsInt;->top:I
 
     .line 116
-    iput v0, p5, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
+    iput p1, p5, Landroid/graphics/Paint$FontMetricsInt;->bottom:I
 
     .line 119
     :cond_0
-    iget v0, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mWidth:I
+    iget p1, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mWidth:I
 
-    return v0
+    return p1
 .end method
 
 .method public getWidth()I
@@ -410,7 +370,6 @@
 
     invoke-virtual {v0}, Lcom/facebook/drawee/view/DraweeHolder;->onAttach()V
 
-    .line 96
     return-void
 .end method
 
@@ -422,7 +381,6 @@
 
     invoke-virtual {v0}, Lcom/facebook/drawee/view/DraweeHolder;->onDetach()V
 
-    .line 88
     return-void
 .end method
 
@@ -434,7 +392,6 @@
 
     invoke-virtual {v0}, Lcom/facebook/drawee/view/DraweeHolder;->onAttach()V
 
-    .line 100
     return-void
 .end method
 
@@ -446,17 +403,14 @@
 
     invoke-virtual {v0}, Lcom/facebook/drawee/view/DraweeHolder;->onDetach()V
 
-    .line 92
     return-void
 .end method
 
 .method public setTextView(Landroid/widget/TextView;)V
     .locals 0
-    .param p1, "textView"    # Landroid/widget/TextView;
 
     .line 123
     iput-object p1, p0, Lcom/facebook/react/views/text/frescosupport/FrescoBasedReactTextInlineImageSpan;->mTextView:Landroid/widget/TextView;
 
-    .line 124
     return-void
 .end method

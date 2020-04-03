@@ -73,9 +73,9 @@
 
     sput-object v0, Ljavax/annotation/meta/When;->NEVER:Ljavax/annotation/meta/When;
 
-    .line 13
     const/4 v0, 0x4
 
+    .line 13
     new-array v0, v0, [Ljavax/annotation/meta/When;
 
     sget-object v5, Ljavax/annotation/meta/When;->ALWAYS:Ljavax/annotation/meta/When;
@@ -115,18 +115,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Ljavax/annotation/meta/When;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 13
     const-class v0, Ljavax/annotation/meta/When;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Ljavax/annotation/meta/When;
+    check-cast p0, Ljavax/annotation/meta/When;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Ljavax/annotation/meta/When;

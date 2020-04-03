@@ -22,73 +22,66 @@
 .end method
 
 .method public static cleanDataFromModules(Lcom/facebook/react/bridge/CatalystInstance;)V
-    .locals 4
-    .param p0, "catalystInstance"    # Lcom/facebook/react/bridge/CatalystInstance;
+    .locals 3
 
     .line 41
     invoke-interface {p0}, Lcom/facebook/react/bridge/CatalystInstance;->getNativeModules()Ljava/util/Collection;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p0
 
+    :cond_0
     :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Lcom/facebook/react/bridge/NativeModule;
+    check-cast v0, Lcom/facebook/react/bridge/NativeModule;
 
     .line 42
-    .local v1, "nativeModule":Lcom/facebook/react/bridge/NativeModule;
-    instance-of v2, v1, Lcom/facebook/react/modules/common/ModuleDataCleaner$Cleanable;
+    instance-of v1, v0, Lcom/facebook/react/modules/common/ModuleDataCleaner$Cleanable;
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
     .line 43
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Cleaning data from "
+    const-string v2, "Cleaning data from "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v1}, Lcom/facebook/react/bridge/NativeModule;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/facebook/react/bridge/NativeModule;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v3, "ReactNative"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3, v2}, Lcom/facebook/common/logging/FLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "ReactNative"
+
+    invoke-static {v2, v1}, Lcom/facebook/common/logging/FLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 44
-    move-object v2, v1
+    check-cast v0, Lcom/facebook/react/modules/common/ModuleDataCleaner$Cleanable;
 
-    check-cast v2, Lcom/facebook/react/modules/common/ModuleDataCleaner$Cleanable;
+    invoke-interface {v0}, Lcom/facebook/react/modules/common/ModuleDataCleaner$Cleanable;->clearSensitiveData()V
 
-    invoke-interface {v2}, Lcom/facebook/react/modules/common/ModuleDataCleaner$Cleanable;->clearSensitiveData()V
-
-    .line 46
-    .end local v1    # "nativeModule":Lcom/facebook/react/bridge/NativeModule;
-    :cond_0
     goto :goto_0
 
-    .line 47
     :cond_1
     return-void
 .end method

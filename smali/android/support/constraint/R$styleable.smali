@@ -314,36 +314,36 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    .line 94
     const/16 v0, 0x3c
 
+    .line 94
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/constraint/R$styleable;->ConstraintLayout_Layout:[I
 
-    .line 155
     const/4 v0, 0x2
 
+    .line 155
     new-array v0, v0, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Landroid/support/constraint/R$styleable;->ConstraintLayout_placeholder:[I
 
-    .line 158
     const/16 v0, 0x50
 
+    .line 158
     new-array v0, v0, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Landroid/support/constraint/R$styleable;->ConstraintSet:[I
 
-    .line 239
     const/4 v0, 0x1
 
+    .line 239
     new-array v0, v0, [I
 
     const/4 v1, 0x0

@@ -17,12 +17,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;JLokio/BufferedSource;)V
     .locals 0
-    .param p1, "contentTypeString"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "contentLength"    # J
-    .param p4, "source"    # Lokio/BufferedSource;
 
     .line 33
     invoke-direct {p0}, Lokhttp3/ResponseBody;-><init>()V
@@ -36,7 +34,6 @@
     .line 36
     iput-object p4, p0, Lokhttp3/internal/http/RealResponseBody;->source:Lokio/BufferedSource;
 
-    .line 37
     return-void
 .end method
 

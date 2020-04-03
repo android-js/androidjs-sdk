@@ -15,13 +15,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "name"    # Ljava/lang/String;
 
     .line 39
     invoke-direct {p0, p1, p2}, Lcom/facebook/soloader/UnpackingSoSource;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 40
     return-void
 .end method
 

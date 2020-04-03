@@ -21,42 +21,36 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;)V
     .locals 0
-    .param p1, "compat"    # Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
 
     .line 80
     invoke-direct {p0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16;-><init>(Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;)V
 
-    .line 81
     return-void
 .end method
 
 
 # virtual methods
 .method public findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
-    .locals 2
-    .param p1, "focus"    # I
+    .locals 1
 
     .line 85
     iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19;->mCompat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->findFocus(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 86
-    .local v0, "compatInfo":Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    .line 87
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    return-object v1
+    return-object p1
 
     .line 89
     :cond_0
-    invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
+    invoke-virtual {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

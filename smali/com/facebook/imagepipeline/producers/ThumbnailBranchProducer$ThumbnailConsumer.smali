@@ -36,8 +36,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;I)V
     .locals 0
-    .param p3, "producerContext"    # Lcom/facebook/imagepipeline/producers/ProducerContext;
-    .param p4, "producerIndex"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,7 +48,6 @@
     .end annotation
 
     .line 54
-    .local p2, "consumer":Lcom/facebook/imagepipeline/producers/Consumer;, "Lcom/facebook/imagepipeline/producers/Consumer<Lcom/facebook/imagepipeline/image/EncodedImage;>;"
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->this$0:Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;
 
     .line 55
@@ -75,7 +72,6 @@
 
     iput-object p1, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->mResizeOptions:Lcom/facebook/imagepipeline/common/ResizeOptions;
 
-    .line 59
     return-void
 .end method
 
@@ -83,7 +79,6 @@
 # virtual methods
 .method protected onFailureImpl(Ljava/lang/Throwable;)V
     .locals 4
-    .param p1, "t"    # Ljava/lang/Throwable;
 
     .line 82
     iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->this$0:Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;
@@ -103,28 +98,22 @@
 
     move-result v0
 
-    .line 85
-    .local v0, "fallback":Z
     if-nez v0, :cond_0
 
     .line 86
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, p1}, Lcom/facebook/imagepipeline/producers/Consumer;->onFailure(Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1}, Lcom/facebook/imagepipeline/producers/Consumer;->onFailure(Ljava/lang/Throwable;)V
 
-    .line 88
     :cond_0
     return-void
 .end method
 
 .method protected onNewResultImpl(Lcom/facebook/imagepipeline/image/EncodedImage;I)V
-    .locals 5
-    .param p1, "newResult"    # Lcom/facebook/imagepipeline/image/EncodedImage;
-    .param p2, "status"    # I
+    .locals 3
 
-    .line 63
     if-eqz p1, :cond_1
 
     .line 64
@@ -156,49 +145,45 @@
     :cond_1
     invoke-static {p2}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->isLast(I)Z
 
-    move-result v0
+    move-result p2
 
-    if-eqz v0, :cond_2
+    if-eqz p2, :cond_2
 
     .line 67
     invoke-static {p1}, Lcom/facebook/imagepipeline/image/EncodedImage;->closeSafely(Lcom/facebook/imagepipeline/image/EncodedImage;)V
 
     .line 69
-    iget-object v0, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->this$0:Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;
+    iget-object p1, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->this$0:Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;
 
-    iget v1, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->mProducerIndex:I
+    iget p2, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->mProducerIndex:I
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    add-int/2addr v1, v2
+    add-int/2addr p2, v0
 
     .line 71
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
-    move-result-object v3
+    move-result-object v1
 
-    iget-object v4, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->mProducerContext:Lcom/facebook/imagepipeline/producers/ProducerContext;
+    iget-object v2, p0, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->mProducerContext:Lcom/facebook/imagepipeline/producers/ProducerContext;
 
     .line 69
-    invoke-static {v0, v1, v3, v4}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;->access$000(Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;ILcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)Z
+    invoke-static {p1, p2, v1, v2}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;->access$000(Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer;ILcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)Z
 
-    move-result v0
+    move-result p1
 
-    .line 74
-    .local v0, "fallback":Z
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     .line 75
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/producers/ThumbnailBranchProducer$ThumbnailConsumer;->getConsumer()Lcom/facebook/imagepipeline/producers/Consumer;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v3, 0x0
+    const/4 p2, 0x0
 
-    invoke-interface {v1, v3, v2}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
+    invoke-interface {p1, p2, v0}, Lcom/facebook/imagepipeline/producers/Consumer;->onNewResult(Ljava/lang/Object;I)V
 
-    .line 78
-    .end local v0    # "fallback":Z
     :cond_2
     :goto_0
     return-void

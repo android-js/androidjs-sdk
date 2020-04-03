@@ -16,10 +16,7 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/facebook/react/bridge/WritableMap;)V
     .locals 6
-    .param p1, "taskKey"    # Ljava/lang/String;
-    .param p2, "data"    # Lcom/facebook/react/bridge/WritableMap;
 
-    .line 25
     const-wide/16 v3, 0x0
 
     const/4 v5, 0x0
@@ -30,19 +27,15 @@
 
     move-object v2, p2
 
+    .line 25
     invoke-direct/range {v0 .. v5}, Lcom/facebook/react/jstasks/HeadlessJsTaskConfig;-><init>(Ljava/lang/String;Lcom/facebook/react/bridge/WritableMap;JZ)V
 
-    .line 26
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/facebook/react/bridge/WritableMap;J)V
     .locals 6
-    .param p1, "taskKey"    # Ljava/lang/String;
-    .param p2, "data"    # Lcom/facebook/react/bridge/WritableMap;
-    .param p3, "timeout"    # J
 
-    .line 34
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -53,18 +46,14 @@
 
     move-wide v3, p3
 
+    .line 34
     invoke-direct/range {v0 .. v5}, Lcom/facebook/react/jstasks/HeadlessJsTaskConfig;-><init>(Ljava/lang/String;Lcom/facebook/react/bridge/WritableMap;JZ)V
 
-    .line 35
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/facebook/react/bridge/WritableMap;JZ)V
     .locals 0
-    .param p1, "taskKey"    # Ljava/lang/String;
-    .param p2, "data"    # Lcom/facebook/react/bridge/WritableMap;
-    .param p3, "timeout"    # J
-    .param p5, "allowedInForeground"    # Z
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +70,6 @@
     .line 61
     iput-boolean p5, p0, Lcom/facebook/react/jstasks/HeadlessJsTaskConfig;->mAllowedInForeground:Z
 
-    .line 62
     return-void
 .end method
 

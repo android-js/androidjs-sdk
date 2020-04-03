@@ -19,10 +19,6 @@
 # direct methods
 .method public constructor <init>(FFFI)V
     .locals 0
-    .param p1, "dx"    # F
-    .param p2, "dy"    # F
-    .param p3, "radius"    # F
-    .param p4, "color"    # I
 
     .line 18
     invoke-direct {p0}, Landroid/text/style/CharacterStyle;-><init>()V
@@ -39,7 +35,6 @@
     .line 22
     iput p4, p0, Lcom/facebook/react/views/text/ShadowStyleSpan;->mColor:I
 
-    .line 23
     return-void
 .end method
 
@@ -47,7 +42,6 @@
 # virtual methods
 .method public updateDrawState(Landroid/text/TextPaint;)V
     .locals 4
-    .param p1, "textPaint"    # Landroid/text/TextPaint;
 
     .line 27
     iget v0, p0, Lcom/facebook/react/views/text/ShadowStyleSpan;->mRadius:F
@@ -60,6 +54,5 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/text/TextPaint;->setShadowLayer(FFFI)V
 
-    .line 28
     return-void
 .end method

@@ -59,7 +59,6 @@
     .locals 1
 
     .line 19
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier;, "Lcom/facebook/datasource/RetainingDataSourceSupplier<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 21
@@ -74,9 +73,9 @@
 
     iput-object v0, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier;->mDataSources:Ljava/util/Set;
 
-    .line 24
     const/4 v0, 0x0
 
+    .line 24
     iput-object v0, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier;->mCurrentDataSourceSupplier:Lcom/facebook/common/internal/Supplier;
 
     return-void
@@ -95,7 +94,6 @@
     .end annotation
 
     .line 28
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier;, "Lcom/facebook/datasource/RetainingDataSourceSupplier<TT;>;"
     new-instance v0, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
 
     const/4 v1, 0x0
@@ -103,7 +101,6 @@
     invoke-direct {v0, v1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;-><init>(Lcom/facebook/datasource/RetainingDataSourceSupplier$1;)V
 
     .line 29
-    .local v0, "dataSource":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
     iget-object v1, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier;->mCurrentDataSourceSupplier:Lcom/facebook/common/internal/Supplier;
 
     invoke-virtual {v0, v1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;->setSupplier(Lcom/facebook/common/internal/Supplier;)V
@@ -113,7 +110,6 @@
 
     invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 31
     return-object v0
 .end method
 
@@ -121,7 +117,6 @@
     .locals 1
 
     .line 18
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier;, "Lcom/facebook/datasource/RetainingDataSourceSupplier<TT;>;"
     invoke-virtual {p0}, Lcom/facebook/datasource/RetainingDataSourceSupplier;->get()Lcom/facebook/datasource/DataSource;
 
     move-result-object v0
@@ -141,8 +136,6 @@
     .end annotation
 
     .line 35
-    .local p0, "this":Lcom/facebook/datasource/RetainingDataSourceSupplier;, "Lcom/facebook/datasource/RetainingDataSourceSupplier<TT;>;"
-    .local p1, "supplier":Lcom/facebook/common/internal/Supplier;, "Lcom/facebook/common/internal/Supplier<Lcom/facebook/datasource/DataSource<TT;>;>;"
     iput-object p1, p0, Lcom/facebook/datasource/RetainingDataSourceSupplier;->mCurrentDataSourceSupplier:Lcom/facebook/common/internal/Supplier;
 
     .line 36
@@ -152,6 +145,7 @@
 
     move-result-object v0
 
+    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -166,7 +160,6 @@
     check-cast v1, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
 
     .line 37
-    .local v1, "dataSource":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
     invoke-virtual {v1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;->isClosed()Z
 
     move-result v2
@@ -176,12 +169,8 @@
     .line 38
     invoke-virtual {v1, p1}, Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;->setSupplier(Lcom/facebook/common/internal/Supplier;)V
 
-    .line 40
-    .end local v1    # "dataSource":Lcom/facebook/datasource/RetainingDataSourceSupplier$RetainingDataSource;
-    :cond_0
     goto :goto_0
 
-    .line 41
     :cond_1
     return-void
 .end method

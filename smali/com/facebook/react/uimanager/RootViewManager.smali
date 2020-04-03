@@ -42,7 +42,6 @@
 
 .method protected createViewInstance(Lcom/facebook/react/uimanager/ThemedReactContext;)Landroid/view/ViewGroup;
     .locals 1
-    .param p1, "reactContext"    # Lcom/facebook/react/uimanager/ThemedReactContext;
 
     .line 27
     new-instance v0, Lcom/facebook/react/uimanager/common/SizeMonitoringFrameLayout;
@@ -55,7 +54,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 22
     const-string v0, "RootView"
 
     return-object v0

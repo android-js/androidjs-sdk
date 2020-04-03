@@ -173,9 +173,9 @@
 
     sput-object v0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->HEADER:Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
-    .line 34
     const/16 v0, 0xb
 
+    .line 34
     new-array v0, v0, [Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
     sget-object v12, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->NONE:Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
@@ -243,7 +243,7 @@
 
 .method public static fromValue(Ljava/lang/String;)Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
     .locals 5
-    .param p0, "value"    # Ljava/lang/String;
+    .param p0    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -263,7 +263,6 @@
     aget-object v3, v0, v2
 
     .line 78
-    .local v3, "role":Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
     invoke-virtual {v3}, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;->name()Ljava/lang/String;
 
     move-result-object v4
@@ -274,11 +273,8 @@
 
     if-eqz v4, :cond_0
 
-    .line 79
     return-object v3
 
-    .line 77
-    .end local v3    # "role":Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
@@ -300,9 +296,9 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -311,7 +307,6 @@
 
 .method public static getValue(Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;)Ljava/lang/String;
     .locals 3
-    .param p0, "role"    # Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
     .line 48
     sget-object v0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$2;->$SwitchMap$com$facebook$react$uimanager$AccessibilityDelegateUtil$AccessibilityRole:[I
@@ -343,96 +338,78 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 70
     :pswitch_0
     return-object v2
 
-    .line 68
     :pswitch_1
-    return-object v2
+    const-string p0, "android.widget.SeekBar"
 
-    .line 66
+    return-object p0
+
     :pswitch_2
-    const-string v0, "android.widget.SeekBar"
+    return-object v2
 
-    return-object v0
-
-    .line 64
     :pswitch_3
-    return-object v2
+    const-string p0, "android.inputmethodservice.Keyboard$Key"
 
-    .line 62
+    return-object p0
+
     :pswitch_4
-    const-string v0, "android.inputmethodservice.Keyboard$Key"
+    return-object v1
 
-    return-object v0
-
-    .line 60
     :pswitch_5
-    return-object v1
+    const-string p0, "android.widget.EditText"
 
-    .line 58
+    return-object p0
+
     :pswitch_6
-    return-object v1
-
-    .line 56
-    :pswitch_7
-    const-string v0, "android.widget.EditText"
-
-    return-object v0
-
-    .line 54
-    :pswitch_8
     return-object v2
 
-    .line 52
-    :pswitch_9
-    const-string v0, "android.widget.Button"
+    :pswitch_7
+    const-string p0, "android.widget.Button"
 
-    return-object v0
+    return-object p0
 
-    .line 50
-    :pswitch_a
-    const/4 v0, 0x0
+    :pswitch_8
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x1
-        :pswitch_a
-        :pswitch_9
         :pswitch_8
         :pswitch_7
         :pswitch_6
         :pswitch_5
         :pswitch_4
+        :pswitch_4
         :pswitch_3
         :pswitch_2
         :pswitch_1
+        :pswitch_0
         :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 34
     const-class v0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
+    check-cast p0, Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/uimanager/AccessibilityDelegateUtil$AccessibilityRole;

@@ -51,7 +51,6 @@
 
 .method public static addListener(Lcom/facebook/react/bridge/ReactMarker$MarkerListener;)V
     .locals 2
-    .param p0, "listener"    # Lcom/facebook/react/bridge/ReactMarker$MarkerListener;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -79,18 +78,16 @@
     :cond_0
     monitor-exit v0
 
-    .line 38
     return-void
 
-    .line 37
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method
 
 .method public static clearMarkerListeners()V
@@ -112,10 +109,8 @@
     .line 51
     monitor-exit v0
 
-    .line 52
     return-void
 
-    .line 51
     :catchall_0
     move-exception v1
 
@@ -128,64 +123,55 @@
 
 .method public static logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
     .locals 2
-    .param p0, "name"    # Lcom/facebook/react/bridge/ReactMarkerConstants;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 77
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
+    .line 77
     invoke-static {p0, v0, v1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 78
     return-void
 .end method
 
 .method public static logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;I)V
     .locals 1
-    .param p0, "name"    # Lcom/facebook/react/bridge/ReactMarkerConstants;
-    .param p1, "instanceKey"    # I
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 82
     const/4 v0, 0x0
 
+    .line 82
     invoke-static {p0, v0, p1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 83
     return-void
 .end method
 
 .method public static logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;)V
     .locals 1
-    .param p0, "name"    # Lcom/facebook/react/bridge/ReactMarkerConstants;
-    .param p1, "tag"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 87
     const/4 v0, 0x0
 
+    .line 87
     invoke-static {p0, p1, v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 88
     return-void
 .end method
 
 .method public static logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
     .locals 3
-    .param p0, "name"    # Lcom/facebook/react/bridge/ReactMarkerConstants;
-    .param p1, "tag"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "instanceKey"    # I
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -216,110 +202,93 @@
     check-cast v2, Lcom/facebook/react/bridge/ReactMarker$MarkerListener;
 
     .line 94
-    .local v2, "listener":Lcom/facebook/react/bridge/ReactMarker$MarkerListener;
     invoke-interface {v2, p0, p1, p2}, Lcom/facebook/react/bridge/ReactMarker$MarkerListener;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 95
-    .end local v2    # "listener":Lcom/facebook/react/bridge/ReactMarker$MarkerListener;
     goto :goto_0
 
     .line 96
     :cond_0
     monitor-exit v0
 
-    .line 97
     return-void
 
-    .line 96
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
     return-void
 .end method
 
 .method public static logMarker(Ljava/lang/String;)V
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 56
     const/4 v0, 0x0
 
+    .line 56
     invoke-static {p0, v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 57
     return-void
 .end method
 
 .method public static logMarker(Ljava/lang/String;I)V
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
-    .param p1, "instanceKey"    # I
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 61
     const/4 v0, 0x0
 
+    .line 61
     invoke-static {p0, v0, p1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 62
     return-void
 .end method
 
 .method public static logMarker(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
-    .param p1, "tag"    # Ljava/lang/String;
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
-    .line 66
     const/4 v0, 0x0
 
+    .line 66
     invoke-static {p0, p1, v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 67
     return-void
 .end method
 
 .method public static logMarker(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 1
-    .param p0, "name"    # Ljava/lang/String;
-    .param p1, "tag"    # Ljava/lang/String;
+    .locals 0
+    .param p1    # Ljava/lang/String;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "instanceKey"    # I
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
     .line 71
     invoke-static {p0}, Lcom/facebook/react/bridge/ReactMarkerConstants;->valueOf(Ljava/lang/String;)Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 72
-    .local v0, "marker":Lcom/facebook/react/bridge/ReactMarkerConstants;
-    invoke-static {v0, p1, p2}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
+    invoke-static {p0, p1, p2}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;Ljava/lang/String;I)V
 
-    .line 73
     return-void
 .end method
 
 .method public static removeListener(Lcom/facebook/react/bridge/ReactMarker$MarkerListener;)V
     .locals 2
-    .param p0, "listener"    # Lcom/facebook/react/bridge/ReactMarker$MarkerListener;
     .annotation build Lcom/facebook/proguard/annotations/DoNotStrip;
     .end annotation
 
@@ -337,16 +306,14 @@
     .line 44
     monitor-exit v0
 
-    .line 45
     return-void
 
-    .line 44
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 .end method

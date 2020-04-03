@@ -35,11 +35,6 @@
 # direct methods
 .method constructor <init>(IIIII)V
     .locals 0
-    .param p1, "type"    # I
-    .param p2, "stream"    # I
-    .param p3, "control"    # I
-    .param p4, "max"    # I
-    .param p5, "current"    # I
 
     .line 1363
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +54,6 @@
     .line 1368
     iput p5, p0, Landroid/support/v4/media/session/MediaControllerCompat$PlaybackInfo;->mCurrentVolume:I
 
-    .line 1369
     return-void
 .end method
 

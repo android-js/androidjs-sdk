@@ -27,8 +27,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/statusbar/StatusBarModule;Lcom/facebook/react/bridge/ReactContext;Landroid/app/Activity;ZI)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/statusbar/StatusBarModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 85
     iput-object p1, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$1;->this$0:Lcom/facebook/react/modules/statusbar/StatusBarModule;
@@ -47,7 +45,7 @@
 
 # virtual methods
 .method public runGuarded()V
-    .locals 5
+    .locals 4
     .annotation build Landroid/annotation/TargetApi;
         value = 0x15
     .end annotation
@@ -60,9 +58,9 @@
 
     move-result-object v0
 
-    .line 91
     const/high16 v1, -0x80000000
 
+    .line 91
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
     .line 92
@@ -82,7 +80,6 @@
     move-result v0
 
     .line 94
-    .local v0, "curColor":I
     new-instance v1, Landroid/animation/ArgbEvaluator;
 
     invoke-direct {v1}, Landroid/animation/ArgbEvaluator;-><init>()V
@@ -96,49 +93,45 @@
     .line 95
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v0
 
-    aput-object v4, v2, v3
+    aput-object v0, v2, v3
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
-    iget v4, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$1;->val$color:I
+    iget v3, p0, Lcom/facebook/react/modules/statusbar/StatusBarModule$1;->val$color:I
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v3
 
-    aput-object v4, v2, v3
+    aput-object v3, v2, v0
 
     invoke-static {v1, v2}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 97
-    .local v1, "colorAnimation":Landroid/animation/ValueAnimator;
-    new-instance v2, Lcom/facebook/react/modules/statusbar/StatusBarModule$1$1;
+    new-instance v1, Lcom/facebook/react/modules/statusbar/StatusBarModule$1$1;
 
-    invoke-direct {v2, p0}, Lcom/facebook/react/modules/statusbar/StatusBarModule$1$1;-><init>(Lcom/facebook/react/modules/statusbar/StatusBarModule$1;)V
+    invoke-direct {v1, p0}, Lcom/facebook/react/modules/statusbar/StatusBarModule$1$1;-><init>(Lcom/facebook/react/modules/statusbar/StatusBarModule$1;)V
 
-    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    const-wide/16 v1, 0x12c
 
     .line 106
-    const-wide/16 v2, 0x12c
+    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    move-result-object v1
 
-    move-result-object v2
+    const-wide/16 v2, 0x0
 
-    const-wide/16 v3, 0x0
-
-    invoke-virtual {v2, v3, v4}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
     .line 107
-    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    .line 108
-    .end local v0    # "curColor":I
-    .end local v1    # "colorAnimation":Landroid/animation/ValueAnimator;
     goto :goto_0
 
     .line 109
@@ -153,7 +146,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setStatusBarColor(I)V
 
-    .line 111
     :goto_0
     return-void
 .end method

@@ -22,7 +22,6 @@
     .line 14
     invoke-static {}, Lcom/facebook/react/fabric/jsi/FabricSoLoader;->staticInit()V
 
-    .line 15
     return-void
 .end method
 
@@ -39,7 +38,6 @@
 
     iput-object v0, p0, Lcom/facebook/react/fabric/jsi/ComponentFactoryDelegate;->mHybridData:Lcom/facebook/jni/HybridData;
 
-    .line 25
     return-void
 .end method
 

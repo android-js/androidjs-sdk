@@ -581,7 +581,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
 
-    .line 2645
     return-void
 .end method
 

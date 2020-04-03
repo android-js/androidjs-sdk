@@ -27,8 +27,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/uimanager/UIManagerModule;Lcom/facebook/react/bridge/ReactContext;III)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/uimanager/UIManagerModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 848
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIManagerModule$4;->this$0:Lcom/facebook/react/uimanager/UIManagerModule;
@@ -75,6 +73,5 @@
 
     invoke-virtual {v0, v1}, Lcom/facebook/react/uimanager/UIImplementation;->dispatchViewUpdates(I)V
 
-    .line 853
     return-void
 .end method

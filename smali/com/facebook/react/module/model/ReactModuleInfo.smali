@@ -22,13 +22,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;ZZZZZ)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "className"    # Ljava/lang/String;
-    .param p3, "canOverrideExistingModule"    # Z
-    .param p4, "needsEagerInit"    # Z
-    .param p5, "hasConstants"    # Z
-    .param p6, "isCxxModule"    # Z
-    .param p7, "isTurboModule"    # Z
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +47,6 @@
     .line 36
     iput-boolean p7, p0, Lcom/facebook/react/module/model/ReactModuleInfo;->mIsTurboModule:Z
 
-    .line 37
     return-void
 .end method
 

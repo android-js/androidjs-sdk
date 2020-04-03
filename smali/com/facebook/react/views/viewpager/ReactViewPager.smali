@@ -24,15 +24,14 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactContext;)V
-    .locals 2
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
+    .locals 1
 
     .line 161
     invoke-direct {p0, p1}, Landroid/support/v4/view/ViewPager;-><init>(Landroid/content/Context;)V
 
-    .line 158
     const/4 v0, 0x1
 
+    .line 158
     iput-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mScrollEnabled:Z
 
     .line 232
@@ -47,79 +46,73 @@
 
     invoke-virtual {p1, v0}, Lcom/facebook/react/bridge/ReactContext;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/uimanager/UIManagerModule;
+    check-cast p1, Lcom/facebook/react/uimanager/UIManagerModule;
 
-    invoke-virtual {v0}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
+    invoke-virtual {p1}, Lcom/facebook/react/uimanager/UIManagerModule;->getEventDispatcher()Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iput-object p1, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+
+    const/4 p1, 0x0
 
     .line 163
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
+    iput-boolean p1, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
 
     .line 164
-    new-instance v0, Lcom/facebook/react/views/viewpager/ReactViewPager$PageChangeListener;
+    new-instance p1, Lcom/facebook/react/views/viewpager/ReactViewPager$PageChangeListener;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/facebook/react/views/viewpager/ReactViewPager$PageChangeListener;-><init>(Lcom/facebook/react/views/viewpager/ReactViewPager;Lcom/facebook/react/views/viewpager/ReactViewPager$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/facebook/react/views/viewpager/ReactViewPager$PageChangeListener;-><init>(Lcom/facebook/react/views/viewpager/ReactViewPager;Lcom/facebook/react/views/viewpager/ReactViewPager$1;)V
 
-    invoke-virtual {p0, v0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
+    invoke-virtual {p0, p1}, Lcom/facebook/react/views/viewpager/ReactViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
 
     .line 165
-    new-instance v0, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;
+    new-instance p1, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;
 
-    invoke-direct {v0, p0, v1}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;-><init>(Lcom/facebook/react/views/viewpager/ReactViewPager;Lcom/facebook/react/views/viewpager/ReactViewPager$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;-><init>(Lcom/facebook/react/views/viewpager/ReactViewPager;Lcom/facebook/react/views/viewpager/ReactViewPager$1;)V
 
-    invoke-virtual {p0, v0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
+    invoke-virtual {p0, p1}, Lcom/facebook/react/views/viewpager/ReactViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
 
-    .line 166
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/views/viewpager/ReactViewPager;)Landroid/view/ViewGroup$LayoutParams;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/views/viewpager/ReactViewPager;
+    .locals 0
 
     .line 29
     invoke-virtual {p0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/views/viewpager/ReactViewPager;)Lcom/facebook/react/uimanager/events/EventDispatcher;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/views/viewpager/ReactViewPager;
+    .locals 0
 
     .line 29
-    iget-object v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
+    iget-object p0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mEventDispatcher:Lcom/facebook/react/uimanager/events/EventDispatcher;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/facebook/react/views/viewpager/ReactViewPager;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/views/viewpager/ReactViewPager;
+    .locals 0
 
     .line 29
-    iget-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
+    iget-boolean p0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
 
-    return v0
+    return p0
 .end method
 
 
 # virtual methods
 .method addViewToAdapter(Landroid/view/View;I)V
     .locals 1
-    .param p1, "child"    # Landroid/view/View;
-    .param p2, "index"    # I
 
     .line 243
     invoke-virtual {p0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->getAdapter()Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;
@@ -128,7 +121,6 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;->addView(Landroid/view/View;I)V
 
-    .line 244
     return-void
 .end method
 
@@ -173,7 +165,6 @@
 
 .method getViewFromAdapter(I)Landroid/view/View;
     .locals 1
-    .param p1, "index"    # I
 
     .line 255
     invoke-virtual {p0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->getAdapter()Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;
@@ -182,9 +173,9 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;->getViewAt(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected onAttachedToWindow()V
@@ -201,13 +192,11 @@
 
     invoke-virtual {p0, v0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->post(Ljava/lang/Runnable;)Z
 
-    .line 230
     return-void
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
-    .param p1, "ev"    # Landroid/view/MotionEvent;
+    .locals 3
 
     .line 175
     iget-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mScrollEnabled:Z
@@ -216,7 +205,6 @@
 
     if-nez v0, :cond_0
 
-    .line 176
     return v1
 
     .line 180
@@ -233,36 +221,26 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 182
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 
-    .line 189
-    :cond_1
-    goto :goto_0
-
-    .line 184
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "ReactNative"
+
+    const-string v2, "Error intercepting touch event."
 
     .line 188
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    const-string v2, "ReactNative"
+    invoke-static {v0, v2, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    const-string v3, "Error intercepting touch event."
-
-    invoke-static {v2, v3, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 191
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
-    :goto_0
+    :cond_1
     return v1
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
-    .param p1, "ev"    # Landroid/view/MotionEvent;
+    .locals 3
 
     .line 196
     iget-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mScrollEnabled:Z
@@ -271,7 +249,6 @@
 
     if-nez v0, :cond_0
 
-    .line 197
     return v1
 
     .line 201
@@ -279,26 +256,22 @@
     :try_start_0
     invoke-super {p0, p1}, Landroid/support/v4/view/ViewPager;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    move-result v0
+    move-result p1
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
+    return p1
 
-    .line 202
     :catch_0
-    move-exception v0
+    move-exception p1
+
+    const-string v0, "ReactNative"
+
+    const-string v2, "Error handling touch event."
 
     .line 206
-    .local v0, "e":Ljava/lang/IllegalArgumentException;
-    const-string v2, "ReactNative"
+    invoke-static {v0, v2, p1}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    const-string v3, "Error handling touch event."
-
-    invoke-static {v2, v3, v0}, Lcom/facebook/common/logging/FLog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    .line 209
-    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     return v1
 .end method
 
@@ -312,13 +285,11 @@
 
     invoke-virtual {v0, p0}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;->removeAllViewsFromAdapter(Landroid/support/v4/view/ViewPager;)V
 
-    .line 264
     return-void
 .end method
 
 .method removeViewFromAdapter(I)V
     .locals 1
-    .param p1, "index"    # I
 
     .line 247
     invoke-virtual {p0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->getAdapter()Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;
@@ -327,40 +298,34 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;->removeViewAt(I)V
 
-    .line 248
     return-void
 .end method
 
 .method public setCurrentItemFromJs(IZ)V
     .locals 1
-    .param p1, "item"    # I
-    .param p2, "animated"    # Z
 
-    .line 213
     const/4 v0, 0x1
 
+    .line 213
     iput-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
 
     .line 214
     invoke-virtual {p0, p1, p2}, Lcom/facebook/react/views/viewpager/ReactViewPager;->setCurrentItem(IZ)V
 
+    const/4 p1, 0x0
+
     .line 215
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
 
-    iput-boolean v0, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mIsCurrentItemFromJs:Z
-
-    .line 216
     return-void
 .end method
 
 .method public setScrollEnabled(Z)V
     .locals 0
-    .param p1, "scrollEnabled"    # Z
 
     .line 219
     iput-boolean p1, p0, Lcom/facebook/react/views/viewpager/ReactViewPager;->mScrollEnabled:Z
 
-    .line 220
     return-void
 .end method
 
@@ -376,13 +341,11 @@
     .end annotation
 
     .line 259
-    .local p1, "views":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     invoke-virtual {p0}, Lcom/facebook/react/views/viewpager/ReactViewPager;->getAdapter()Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Lcom/facebook/react/views/viewpager/ReactViewPager$Adapter;->setViews(Ljava/util/List;)V
 
-    .line 260
     return-void
 .end method

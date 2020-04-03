@@ -40,68 +40,63 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 3
-    .param p1, "context"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .locals 1
 
     .line 50
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
-    .line 45
     const/4 v0, 0x0
 
+    .line 45
     iput-boolean v0, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
 
     .line 51
     invoke-virtual {p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
+
+    const-string v0, "accessibility"
 
     .line 52
-    .local v0, "appContext":Landroid/content/Context;
-    const-string v1, "accessibility"
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v1
+    check-cast p1, Landroid/view/accessibility/AccessibilityManager;
 
-    check-cast v1, Landroid/view/accessibility/AccessibilityManager;
-
-    iput-object v1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    iput-object p1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     .line 53
-    iget-object v1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    iget-object p1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
-    move-result v1
+    move-result p1
 
-    iput-boolean v1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
+    iput-boolean p1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
 
     .line 54
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v2, 0x13
+    const/16 v0, 0x13
 
-    if-lt v1, v2, :cond_0
+    if-lt p1, v0, :cond_0
 
     .line 55
-    new-instance v1, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$ReactTouchExplorationStateChangeListener;
+    new-instance p1, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$ReactTouchExplorationStateChangeListener;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$ReactTouchExplorationStateChangeListener;-><init>(Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$1;)V
+    invoke-direct {p1, p0, v0}, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$ReactTouchExplorationStateChangeListener;-><init>(Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$1;)V
 
-    iput-object v1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mTouchExplorationStateChangeListener:Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$ReactTouchExplorationStateChangeListener;
+    iput-object p1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mTouchExplorationStateChangeListener:Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule$ReactTouchExplorationStateChangeListener;
 
-    .line 57
     :cond_0
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;Z)V
     .locals 0
-    .param p0, "x0"    # Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;
-    .param p1, "x1"    # Z
 
     .line 28
     invoke-direct {p0, p1}, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->updateAndSendChangeEvent(Z)V
@@ -110,8 +105,7 @@
 .end method
 
 .method private updateAndSendChangeEvent(Z)V
-    .locals 3
-    .param p1, "enabled"    # Z
+    .locals 2
 
     .line 70
     iget-boolean v0, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
@@ -124,28 +118,27 @@
     .line 72
     invoke-virtual {p0}, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-class v1, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;
+    const-class v0, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;
 
-    invoke-virtual {v0, v1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
+    invoke-virtual {p1, v0}, Lcom/facebook/react/bridge/ReactApplicationContext;->getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;
+    check-cast p1, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;
 
-    iget-boolean v1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
+    iget-boolean v0, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
 
     .line 73
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "touchExplorationDidChange"
+    const-string v1, "touchExplorationDidChange"
 
-    invoke-interface {v0, v2, v1}, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-interface {p1, v1, v0}, Lcom/facebook/react/modules/core/DeviceEventManagerModule$RCTDeviceEventEmitter;->emit(Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 75
     :cond_0
     return-void
 .end method
@@ -155,7 +148,6 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 61
     const-string v0, "AccessibilityInfo"
 
     return-object v0
@@ -180,19 +172,17 @@
 
     invoke-direct {p0, v0}, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->updateAndSendChangeEvent(Z)V
 
-    .line 98
     return-void
 .end method
 
 .method public isTouchExplorationEnabled(Lcom/facebook/react/bridge/Callback;)V
     .locals 3
-    .param p1, "successCallback"    # Lcom/facebook/react/bridge/Callback;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
-    .line 66
     const/4 v0, 0x1
 
+    .line 66
     new-array v0, v0, [Ljava/lang/Object;
 
     iget-boolean v1, p0, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->mEnabled:Z
@@ -207,7 +197,6 @@
 
     invoke-interface {p1, v0}, Lcom/facebook/react/bridge/Callback;->invoke([Ljava/lang/Object;)V
 
-    .line 67
     return-void
 .end method
 
@@ -224,14 +213,12 @@
 
     invoke-virtual {v0, p0}, Lcom/facebook/react/bridge/ReactApplicationContext;->removeLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
 
-    .line 104
     return-void
 .end method
 
 .method public onHostDestroy()V
     .locals 0
 
-    .line 108
     return-void
 .end method
 
@@ -252,7 +239,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityManager;->removeTouchExplorationStateChangeListener(Landroid/view/accessibility/AccessibilityManager$TouchExplorationStateChangeListener;)Z
 
-    .line 92
     :cond_0
     return-void
 .end method
@@ -284,6 +270,5 @@
 
     invoke-direct {p0, v0}, Lcom/facebook/react/modules/accessibilityinfo/AccessibilityInfoModule;->updateAndSendChangeEvent(Z)V
 
-    .line 84
     return-void
 .end method

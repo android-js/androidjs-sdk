@@ -33,8 +33,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/common/memory/MemoryTrimmableRegistry;Lcom/facebook/imagepipeline/memory/PoolParams;)V
     .locals 2
-    .param p1, "memoryTrimmableRegistry"    # Lcom/facebook/common/memory/MemoryTrimmableRegistry;
-    .param p2, "params"    # Lcom/facebook/imagepipeline/memory/PoolParams;
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,21 +65,19 @@
     iput-object v0, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->mDelegatePool:Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$SoftRefByteArrayPool;
 
     .line 38
-    new-instance v0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$1;
+    new-instance p1, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$1;
 
-    invoke-direct {v0, p0}, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$1;-><init>(Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;)V
+    invoke-direct {p1, p0}, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$1;-><init>(Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;)V
 
-    iput-object v0, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->mResourceReleaser:Lcom/facebook/common/references/ResourceReleaser;
+    iput-object p1, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->mResourceReleaser:Lcom/facebook/common/references/ResourceReleaser;
 
-    .line 44
     return-void
 .end method
 
 
 # virtual methods
 .method public get(I)Lcom/facebook/common/references/CloseableReference;
-    .locals 2
-    .param p1, "size"    # I
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -95,15 +91,15 @@
 
     invoke-virtual {v0, p1}, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$SoftRefByteArrayPool;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->mResourceReleaser:Lcom/facebook/common/references/ResourceReleaser;
+    iget-object v0, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->mResourceReleaser:Lcom/facebook/common/references/ResourceReleaser;
 
-    invoke-static {v0, v1}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/lang/Object;Lcom/facebook/common/references/ResourceReleaser;)Lcom/facebook/common/references/CloseableReference;
+    invoke-static {p1, v0}, Lcom/facebook/common/references/CloseableReference;->of(Ljava/lang/Object;Lcom/facebook/common/references/ResourceReleaser;)Lcom/facebook/common/references/CloseableReference;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMinBufferSize()I
@@ -143,13 +139,11 @@
 
 .method public release([B)V
     .locals 1
-    .param p1, "value"    # [B
 
     .line 51
     iget-object v0, p0, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool;->mDelegatePool:Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$SoftRefByteArrayPool;
 
     invoke-virtual {v0, p1}, Lcom/facebook/imagepipeline/memory/FlexByteArrayPool$SoftRefByteArrayPool;->release(Ljava/lang/Object;)V
 
-    .line 52
     return-void
 .end method

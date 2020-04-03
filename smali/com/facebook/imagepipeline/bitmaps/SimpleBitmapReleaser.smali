@@ -57,12 +57,10 @@
 # virtual methods
 .method public release(Landroid/graphics/Bitmap;)V
     .locals 0
-    .param p1, "value"    # Landroid/graphics/Bitmap;
 
     .line 31
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 32
     return-void
 .end method
 

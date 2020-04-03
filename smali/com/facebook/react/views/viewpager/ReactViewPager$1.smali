@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/viewpager/ReactViewPager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/views/viewpager/ReactViewPager;
 
     .line 232
     iput-object p1, p0, Lcom/facebook/react/views/viewpager/ReactViewPager$1;->this$0:Lcom/facebook/react/views/viewpager/ReactViewPager;
@@ -94,6 +93,5 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/facebook/react/views/viewpager/ReactViewPager;->layout(IIII)V
 
-    .line 239
     return-void
 .end method

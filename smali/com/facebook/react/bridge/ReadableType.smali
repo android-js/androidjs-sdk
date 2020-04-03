@@ -102,9 +102,9 @@
 
     sput-object v0, Lcom/facebook/react/bridge/ReadableType;->Array:Lcom/facebook/react/bridge/ReadableType;
 
-    .line 16
     const/4 v0, 0x6
 
+    .line 16
     new-array v0, v0, [Lcom/facebook/react/bridge/ReadableType;
 
     sget-object v7, Lcom/facebook/react/bridge/ReadableType;->Null:Lcom/facebook/react/bridge/ReadableType;
@@ -152,18 +152,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/bridge/ReadableType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 16
     const-class v0, Lcom/facebook/react/bridge/ReadableType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/bridge/ReadableType;
+    check-cast p0, Lcom/facebook/react/bridge/ReadableType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/bridge/ReadableType;

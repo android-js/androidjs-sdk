@@ -10,7 +10,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 20
     invoke-direct {p0}, Lcom/facebook/react/bridge/BaseJavaModule;-><init>()V
@@ -18,7 +17,6 @@
     .line 21
     iput-object p1, p0, Lcom/facebook/react/bridge/ContextBaseJavaModule;->mContext:Landroid/content/Context;
 
-    .line 22
     return-void
 .end method
 

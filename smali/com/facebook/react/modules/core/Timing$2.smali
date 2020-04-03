@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/core/Timing;Z)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/core/Timing;
 
     .line 381
     iput-object p1, p0, Lcom/facebook/react/modules/core/Timing$2;->this$0:Lcom/facebook/react/modules/core/Timing;
@@ -75,10 +74,8 @@
     :goto_0
     monitor-exit v0
 
-    .line 391
     return-void
 
-    .line 390
     :catchall_0
     move-exception v1
 

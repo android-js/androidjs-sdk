@@ -38,23 +38,18 @@
 .end method
 
 .method public static calculateClippingRect(Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 7
-    .param p0, "view"    # Landroid/view/View;
-    .param p1, "outputRect"    # Landroid/graphics/Rect;
+    .locals 5
 
     .line 36
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    .line 37
-    .local v0, "parent":Landroid/view/ViewParent;
     if-nez v0, :cond_0
 
     .line 38
     invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
 
-    .line 39
     return-void
 
     .line 40
@@ -64,98 +59,91 @@
     if-eqz v1, :cond_2
 
     .line 41
-    move-object v1, v0
-
-    check-cast v1, Lcom/facebook/react/uimanager/ReactClippingViewGroup;
+    check-cast v0, Lcom/facebook/react/uimanager/ReactClippingViewGroup;
 
     .line 42
-    .local v1, "clippingViewGroup":Lcom/facebook/react/uimanager/ReactClippingViewGroup;
-    invoke-interface {v1}, Lcom/facebook/react/uimanager/ReactClippingViewGroup;->getRemoveClippedSubviews()Z
+    invoke-interface {v0}, Lcom/facebook/react/uimanager/ReactClippingViewGroup;->getRemoveClippedSubviews()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
 
     .line 43
-    sget-object v2, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
+    sget-object v1, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
 
-    invoke-interface {v1, v2}, Lcom/facebook/react/uimanager/ReactClippingViewGroup;->getClippingRect(Landroid/graphics/Rect;)V
+    invoke-interface {v0, v1}, Lcom/facebook/react/uimanager/ReactClippingViewGroup;->getClippingRect(Landroid/graphics/Rect;)V
 
     .line 46
-    sget-object v2, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
+    sget-object v0, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Landroid/view/View;->getLeft()I
 
-    move-result v3
+    move-result v1
 
     invoke-virtual {p0}, Landroid/view/View;->getTop()I
 
-    move-result v4
+    move-result v2
 
     invoke-virtual {p0}, Landroid/view/View;->getRight()I
 
-    move-result v5
+    move-result v3
 
     invoke-virtual {p0}, Landroid/view/View;->getBottom()I
 
-    move-result v6
+    move-result v4
 
-    invoke-virtual {v2, v3, v4, v5, v6}, Landroid/graphics/Rect;->intersect(IIII)Z
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->intersect(IIII)Z
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_1
+    if-nez v0, :cond_1
 
     .line 47
     invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
 
-    .line 48
     return-void
 
     .line 51
     :cond_1
-    sget-object v2, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
+    sget-object v0, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Landroid/view/View;->getLeft()I
 
-    move-result v3
+    move-result v1
 
-    neg-int v3, v3
+    neg-int v1, v1
 
     invoke-virtual {p0}, Landroid/view/View;->getTop()I
 
-    move-result v4
+    move-result v2
 
-    neg-int v4, v4
+    neg-int v2, v2
 
-    invoke-virtual {v2, v3, v4}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->offset(II)V
 
     .line 52
-    sget-object v2, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
+    sget-object v0, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0}, Landroid/view/View;->getScrollX()I
 
-    move-result v3
+    move-result v1
 
     invoke-virtual {p0}, Landroid/view/View;->getScrollY()I
 
-    move-result v4
+    move-result p0
 
-    invoke-virtual {v2, v3, v4}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {v0, v1, p0}, Landroid/graphics/Rect;->offset(II)V
 
     .line 53
-    sget-object v2, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
+    sget-object p0, Lcom/facebook/react/uimanager/ReactClippingViewGroupHelper;->sHelperRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {p1, p0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 54
     return-void
 
     .line 57
-    .end local v1    # "clippingViewGroup":Lcom/facebook/react/uimanager/ReactClippingViewGroup;
     :cond_2
     invoke-virtual {p0, p1}, Landroid/view/View;->getDrawingRect(Landroid/graphics/Rect;)V
 
-    .line 58
     return-void
 .end method

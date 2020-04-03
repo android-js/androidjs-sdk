@@ -52,7 +52,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 98
     return-void
 .end method
 
@@ -69,7 +68,6 @@
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
 
-    .line 94
     return-void
 .end method
 
@@ -110,9 +108,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 7
-    .param p1, "source"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -128,7 +124,7 @@
 
     invoke-static/range {v0 .. v5}, Lokio/Util;->checkOffsetAndCount(JJJ)V
 
-    .line 75
+    :cond_0
     :goto_0
     const-wide/16 v0, 0x0
 
@@ -145,7 +141,6 @@
     iget-object v0, p1, Lokio/Buffer;->head:Lokio/Segment;
 
     .line 78
-    .local v0, "head":Lokio/Segment;
     iget v1, v0, Lokio/Segment;->limit:I
 
     iget v2, v0, Lokio/Segment;->pos:I
@@ -161,7 +156,6 @@
     long-to-int v2, v1
 
     .line 79
-    .local v2, "toCopy":I
     iget-object v1, p0, Lokio/Okio$1;->val$out:Ljava/io/OutputStream;
 
     iget-object v3, v0, Lokio/Segment;->data:[B
@@ -177,26 +171,23 @@
 
     iput v1, v0, Lokio/Segment;->pos:I
 
-    .line 82
-    int-to-long v3, v2
+    int-to-long v1, v2
 
-    sub-long/2addr p2, v3
+    sub-long/2addr p2, v1
 
     .line 83
     iget-wide v3, p1, Lokio/Buffer;->size:J
 
-    int-to-long v5, v2
-
-    sub-long/2addr v3, v5
+    sub-long/2addr v3, v1
 
     iput-wide v3, p1, Lokio/Buffer;->size:J
 
     .line 85
     iget v1, v0, Lokio/Segment;->pos:I
 
-    iget v3, v0, Lokio/Segment;->limit:I
+    iget v2, v0, Lokio/Segment;->limit:I
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     .line 86
     invoke-virtual {v0}, Lokio/Segment;->pop()Lokio/Segment;
@@ -208,13 +199,8 @@
     .line 87
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    .line 89
-    .end local v0    # "head":Lokio/Segment;
-    .end local v2    # "toCopy":I
-    :cond_0
     goto :goto_0
 
-    .line 90
     :cond_1
     return-void
 .end method

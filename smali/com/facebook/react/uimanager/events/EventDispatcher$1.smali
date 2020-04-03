@@ -39,36 +39,28 @@
 
 # virtual methods
 .method public compare(Lcom/facebook/react/uimanager/events/Event;Lcom/facebook/react/uimanager/events/Event;)I
-    .locals 8
-    .param p1, "lhs"    # Lcom/facebook/react/uimanager/events/Event;
-    .param p2, "rhs"    # Lcom/facebook/react/uimanager/events/Event;
+    .locals 6
 
-    .line 64
     const/4 v0, 0x0
 
     if-nez p1, :cond_0
 
     if-nez p2, :cond_0
 
-    .line 65
     return v0
 
-    .line 67
     :cond_0
     const/4 v1, -0x1
 
     if-nez p1, :cond_1
 
-    .line 68
     return v1
 
-    .line 70
     :cond_1
     const/4 v2, 0x1
 
     if-nez p2, :cond_2
 
-    .line 71
     return v2
 
     .line 74
@@ -79,31 +71,25 @@
 
     invoke-virtual {p2}, Lcom/facebook/react/uimanager/events/Event;->getTimestampMs()J
 
-    move-result-wide v5
+    move-result-wide p1
 
-    sub-long/2addr v3, v5
+    sub-long/2addr v3, p1
 
-    .line 75
-    .local v3, "diff":J
-    const-wide/16 v5, 0x0
+    const-wide/16 p1, 0x0
 
-    cmp-long v7, v3, v5
+    cmp-long v5, v3, p1
 
-    if-nez v7, :cond_3
+    if-nez v5, :cond_3
 
-    .line 76
     return v0
 
-    .line 77
     :cond_3
-    cmp-long v0, v3, v5
+    cmp-long v0, v3, p1
 
     if-gez v0, :cond_4
 
-    .line 78
     return v1
 
-    .line 80
     :cond_4
     return v2
 .end method

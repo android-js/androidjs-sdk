@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/views/toolbar/ReactToolbar;Landroid/view/MenuItem;Lcom/facebook/drawee/view/DraweeHolder;)V
     .locals 0
-    .param p2, "item"    # Landroid/view/MenuItem;
-    .param p3, "holder"    # Lcom/facebook/drawee/view/DraweeHolder;
 
     .line 92
     iput-object p1, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$ActionIconControllerListener;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbar;
@@ -35,7 +33,6 @@
     .line 94
     iput-object p2, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$ActionIconControllerListener;->mItem:Landroid/view/MenuItem;
 
-    .line 95
     return-void
 .end method
 
@@ -43,7 +40,6 @@
 # virtual methods
 .method protected setDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .param p1, "d"    # Landroid/graphics/drawable/Drawable;
 
     .line 99
     iget-object v0, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$ActionIconControllerListener;->mItem:Landroid/view/MenuItem;
@@ -51,10 +47,9 @@
     invoke-interface {v0, p1}, Landroid/view/MenuItem;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
 
     .line 100
-    iget-object v0, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$ActionIconControllerListener;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbar;
+    iget-object p1, p0, Lcom/facebook/react/views/toolbar/ReactToolbar$ActionIconControllerListener;->this$0:Lcom/facebook/react/views/toolbar/ReactToolbar;
 
-    invoke-virtual {v0}, Lcom/facebook/react/views/toolbar/ReactToolbar;->requestLayout()V
+    invoke-virtual {p1}, Lcom/facebook/react/views/toolbar/ReactToolbar;->requestLayout()V
 
-    .line 101
     return-void
 .end method

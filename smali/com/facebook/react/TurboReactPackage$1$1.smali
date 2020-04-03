@@ -33,7 +33,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/TurboReactPackage$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/TurboReactPackage$1;
 
     .line 64
     iput-object p1, p0, Lcom/facebook/react/TurboReactPackage$1$1;->this$1:Lcom/facebook/react/TurboReactPackage$1;
@@ -61,7 +60,7 @@
 .end method
 
 .method public next()Lcom/facebook/react/bridge/ModuleHolder;
-    .locals 7
+    .locals 6
 
     .line 72
     iget-object v0, p0, Lcom/facebook/react/TurboReactPackage$1$1;->this$1:Lcom/facebook/react/TurboReactPackage$1;
@@ -75,7 +74,6 @@
     check-cast v0, Ljava/util/Map$Entry;
 
     .line 73
-    .local v0, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Lcom/facebook/react/module/model/ReactModuleInfo;>;"
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -83,32 +81,30 @@
     check-cast v1, Ljava/lang/String;
 
     .line 74
-    .local v1, "name":Ljava/lang/String;
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v0
 
-    check-cast v2, Lcom/facebook/react/module/model/ReactModuleInfo;
+    check-cast v0, Lcom/facebook/react/module/model/ReactModuleInfo;
 
     .line 75
-    .local v2, "reactModuleInfo":Lcom/facebook/react/module/model/ReactModuleInfo;
-    new-instance v3, Lcom/facebook/react/bridge/ModuleHolder;
+    new-instance v2, Lcom/facebook/react/bridge/ModuleHolder;
 
-    new-instance v4, Lcom/facebook/react/TurboReactPackage$ModuleHolderProvider;
+    new-instance v3, Lcom/facebook/react/TurboReactPackage$ModuleHolderProvider;
+
+    iget-object v4, p0, Lcom/facebook/react/TurboReactPackage$1$1;->this$1:Lcom/facebook/react/TurboReactPackage$1;
+
+    iget-object v4, v4, Lcom/facebook/react/TurboReactPackage$1;->this$0:Lcom/facebook/react/TurboReactPackage;
 
     iget-object v5, p0, Lcom/facebook/react/TurboReactPackage$1$1;->this$1:Lcom/facebook/react/TurboReactPackage$1;
 
-    iget-object v5, v5, Lcom/facebook/react/TurboReactPackage$1;->this$0:Lcom/facebook/react/TurboReactPackage;
+    iget-object v5, v5, Lcom/facebook/react/TurboReactPackage$1;->val$reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    iget-object v6, p0, Lcom/facebook/react/TurboReactPackage$1$1;->this$1:Lcom/facebook/react/TurboReactPackage$1;
+    invoke-direct {v3, v4, v1, v5}, Lcom/facebook/react/TurboReactPackage$ModuleHolderProvider;-><init>(Lcom/facebook/react/TurboReactPackage;Ljava/lang/String;Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
-    iget-object v6, v6, Lcom/facebook/react/TurboReactPackage$1;->val$reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
+    invoke-direct {v2, v0, v3}, Lcom/facebook/react/bridge/ModuleHolder;-><init>(Lcom/facebook/react/module/model/ReactModuleInfo;Ljavax/inject/Provider;)V
 
-    invoke-direct {v4, v5, v1, v6}, Lcom/facebook/react/TurboReactPackage$ModuleHolderProvider;-><init>(Lcom/facebook/react/TurboReactPackage;Ljava/lang/String;Lcom/facebook/react/bridge/ReactApplicationContext;)V
-
-    invoke-direct {v3, v2, v4}, Lcom/facebook/react/bridge/ModuleHolder;-><init>(Lcom/facebook/react/module/model/ReactModuleInfo;Ljavax/inject/Provider;)V
-
-    return-object v3
+    return-object v2
 .end method
 
 .method public bridge synthetic next()Ljava/lang/Object;

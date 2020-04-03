@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/ActionBarDrawerToggle;)V
     .locals 0
-    .param p1, "this$0"    # Landroid/support/v7/app/ActionBarDrawerToggle;
 
     .line 198
     iput-object p1, p0, Landroid/support/v7/app/ActionBarDrawerToggle$1;->this$0:Landroid/support/v7/app/ActionBarDrawerToggle;
@@ -38,7 +37,6 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
-    .param p1, "v"    # Landroid/view/View;
 
     .line 201
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$1;->this$0:Landroid/support/v7/app/ActionBarDrawerToggle;
@@ -48,9 +46,9 @@
     if-eqz v0, :cond_0
 
     .line 202
-    iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$1;->this$0:Landroid/support/v7/app/ActionBarDrawerToggle;
+    iget-object p1, p0, Landroid/support/v7/app/ActionBarDrawerToggle$1;->this$0:Landroid/support/v7/app/ActionBarDrawerToggle;
 
-    invoke-virtual {v0}, Landroid/support/v7/app/ActionBarDrawerToggle;->toggle()V
+    invoke-virtual {p1}, Landroid/support/v7/app/ActionBarDrawerToggle;->toggle()V
 
     goto :goto_0
 
@@ -69,7 +67,6 @@
 
     invoke-interface {v0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    .line 206
     :cond_1
     :goto_0
     return-void

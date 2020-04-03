@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/devsupport/RedBoxDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/devsupport/RedBoxDialog;
 
     .line 279
     iput-object p1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$3;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
@@ -37,18 +36,16 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 282
-    iget-object v0, p0, Lcom/facebook/react/devsupport/RedBoxDialog$3;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
+    iget-object p1, p0, Lcom/facebook/react/devsupport/RedBoxDialog$3;->this$0:Lcom/facebook/react/devsupport/RedBoxDialog;
 
-    invoke-static {v0}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$600(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
+    invoke-static {p1}, Lcom/facebook/react/devsupport/RedBoxDialog;->access$600(Lcom/facebook/react/devsupport/RedBoxDialog;)Lcom/facebook/react/devsupport/interfaces/DevSupportManager;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->handleReloadJS()V
+    invoke-interface {p1}, Lcom/facebook/react/devsupport/interfaces/DevSupportManager;->handleReloadJS()V
 
-    .line 283
     return-void
 .end method

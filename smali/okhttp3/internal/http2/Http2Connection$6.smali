@@ -25,9 +25,6 @@
 # direct methods
 .method varargs constructor <init>(Lokhttp3/internal/http2/Http2Connection;Ljava/lang/String;[Ljava/lang/Object;ILokhttp3/internal/http2/ErrorCode;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/internal/http2/Http2Connection;
-    .param p2, "format"    # Ljava/lang/String;
-    .param p3, "args"    # [Ljava/lang/Object;
 
     .line 910
     iput-object p1, p0, Lokhttp3/internal/http2/Http2Connection$6;->this$0:Lokhttp3/internal/http2/Http2Connection;
@@ -79,10 +76,8 @@
     .line 915
     monitor-exit v0
 
-    .line 916
     return-void
 
-    .line 915
     :catchall_0
     move-exception v1
 

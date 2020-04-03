@@ -69,9 +69,9 @@
 
     sput-object v0, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;->NATIVE:Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
 
-    .line 30
     const/4 v0, 0x3
 
+    .line 30
     new-array v0, v0, [Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
 
     sget-object v4, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;->NONE:Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
@@ -107,18 +107,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 30
     const-class v0, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
+    check-cast p0, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;

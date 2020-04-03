@@ -49,7 +49,6 @@
 
 .method public static beginSection(Ljava/lang/String;)V
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 86
     invoke-static {}, Lcom/facebook/imagepipeline/systrace/FrescoSystrace;->getInstance()Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;
@@ -58,13 +57,11 @@
 
     invoke-interface {v0, p0}, Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;->beginSection(Ljava/lang/String;)V
 
-    .line 87
     return-void
 .end method
 
 .method public static beginSectionWithArgs(Ljava/lang/String;)Lcom/facebook/imagepipeline/systrace/FrescoSystrace$ArgsBuilder;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 90
     invoke-static {}, Lcom/facebook/imagepipeline/systrace/FrescoSystrace;->getInstance()Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;
@@ -73,9 +70,9 @@
 
     invoke-interface {v0, p0}, Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;->beginSectionWithArgs(Ljava/lang/String;)Lcom/facebook/imagepipeline/systrace/FrescoSystrace$ArgsBuilder;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static endSection()V
@@ -88,7 +85,6 @@
 
     invoke-interface {v0}, Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;->endSection()V
 
-    .line 95
     return-void
 .end method
 
@@ -158,11 +154,9 @@
 
 .method public static provide(Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;)V
     .locals 0
-    .param p0, "instance"    # Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;
 
     .line 82
     sput-object p0, Lcom/facebook/imagepipeline/systrace/FrescoSystrace;->sInstance:Lcom/facebook/imagepipeline/systrace/FrescoSystrace$Systrace;
 
-    .line 83
     return-void
 .end method

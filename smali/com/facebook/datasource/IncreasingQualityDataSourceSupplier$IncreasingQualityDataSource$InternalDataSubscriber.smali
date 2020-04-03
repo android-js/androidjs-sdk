@@ -34,10 +34,8 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;I)V
     .locals 0
-    .param p2, "index"    # I
 
     .line 282
-    .local p0, "this":Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier<TT;>.IncreasingQualityDataSource.InternalDataSubscriber;"
     iput-object p1, p0, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;->this$1:Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +43,6 @@
     .line 283
     iput p2, p0, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;->mIndex:I
 
-    .line 284
     return-void
 .end method
 
@@ -61,9 +58,6 @@
         }
     .end annotation
 
-    .line 302
-    .local p0, "this":Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier<TT;>.IncreasingQualityDataSource.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     return-void
 .end method
 
@@ -78,15 +72,12 @@
     .end annotation
 
     .line 297
-    .local p0, "this":Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier<TT;>.IncreasingQualityDataSource.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     iget-object v0, p0, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;->this$1:Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;
 
     iget v1, p0, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;->mIndex:I
 
     invoke-static {v0, v1, p1}, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;->access$300(Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;ILcom/facebook/datasource/DataSource;)V
 
-    .line 298
     return-void
 .end method
 
@@ -101,8 +92,6 @@
     .end annotation
 
     .line 288
-    .local p0, "this":Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier<TT;>.IncreasingQualityDataSource.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->hasResult()Z
 
     move-result v0
@@ -133,14 +122,13 @@
 
     invoke-static {v0, v1, p1}, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;->access$300(Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;ILcom/facebook/datasource/DataSource;)V
 
-    .line 293
     :cond_1
     :goto_0
     return-void
 .end method
 
 .method public onProgressUpdate(Lcom/facebook/datasource/DataSource;)V
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -150,8 +138,6 @@
     .end annotation
 
     .line 306
-    .local p0, "this":Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;, "Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier<TT;>.IncreasingQualityDataSource.InternalDataSubscriber;"
-    .local p1, "dataSource":Lcom/facebook/datasource/DataSource;, "Lcom/facebook/datasource/DataSource<TT;>;"
     iget v0, p0, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource$InternalDataSubscriber;->mIndex:I
 
     if-nez v0, :cond_0
@@ -161,11 +147,10 @@
 
     invoke-interface {p1}, Lcom/facebook/datasource/DataSource;->getProgress()F
 
-    move-result v1
+    move-result p1
 
-    invoke-virtual {v0, v1}, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;->setProgress(F)Z
+    invoke-virtual {v0, p1}, Lcom/facebook/datasource/IncreasingQualityDataSourceSupplier$IncreasingQualityDataSource;->setProgress(F)Z
 
-    .line 309
     :cond_0
     return-void
 .end method

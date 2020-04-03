@@ -22,56 +22,48 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/common/memory/MemoryTrimmableRegistry;Lcom/facebook/imagepipeline/memory/PoolParams;Lcom/facebook/imagepipeline/memory/PoolStatsTracker;)V
-    .locals 4
-    .param p1, "memoryTrimmableRegistry"    # Lcom/facebook/common/memory/MemoryTrimmableRegistry;
-    .param p2, "poolParams"    # Lcom/facebook/imagepipeline/memory/PoolParams;
-    .param p3, "nativeMemoryChunkPoolStatsTracker"    # Lcom/facebook/imagepipeline/memory/PoolStatsTracker;
+    .locals 1
 
     .line 32
     invoke-direct {p0, p1, p2, p3}, Lcom/facebook/imagepipeline/memory/BasePool;-><init>(Lcom/facebook/common/memory/MemoryTrimmableRegistry;Lcom/facebook/imagepipeline/memory/PoolParams;Lcom/facebook/imagepipeline/memory/PoolStatsTracker;)V
 
     .line 33
-    iget-object v0, p2, Lcom/facebook/imagepipeline/memory/PoolParams;->bucketSizes:Landroid/util/SparseIntArray;
+    iget-object p1, p2, Lcom/facebook/imagepipeline/memory/PoolParams;->bucketSizes:Landroid/util/SparseIntArray;
 
     .line 34
-    .local v0, "bucketSizes":Landroid/util/SparseIntArray;
-    invoke-virtual {v0}, Landroid/util/SparseIntArray;->size()I
+    invoke-virtual {p1}, Landroid/util/SparseIntArray;->size()I
 
-    move-result v1
+    move-result p2
 
-    new-array v1, v1, [I
+    new-array p2, p2, [I
 
-    iput-object v1, p0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->mBucketSizes:[I
+    iput-object p2, p0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->mBucketSizes:[I
+
+    const/4 p2, 0x0
 
     .line 35
-    const/4 v1, 0x0
-
-    .local v1, "i":I
     :goto_0
-    iget-object v2, p0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->mBucketSizes:[I
+    iget-object p3, p0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->mBucketSizes:[I
 
-    array-length v3, v2
+    array-length v0, p3
 
-    if-ge v1, v3, :cond_0
+    if-ge p2, v0, :cond_0
 
     .line 36
-    invoke-virtual {v0, v1}, Landroid/util/SparseIntArray;->keyAt(I)I
+    invoke-virtual {p1, p2}, Landroid/util/SparseIntArray;->keyAt(I)I
 
-    move-result v3
+    move-result v0
 
-    aput v3, v2, v1
+    aput v0, p3, p2
 
-    .line 35
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_0
 
     .line 38
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0}, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->initialize()V
 
-    .line 39
     return-void
 .end method
 
@@ -79,7 +71,6 @@
 # virtual methods
 .method protected alloc(I)Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;
     .locals 1
-    .param p1, "bucketedSize"    # I
 
     .line 56
     new-instance v0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;
@@ -102,7 +93,6 @@
 
 .method protected free(Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;)V
     .locals 0
-    .param p1, "value"    # Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;
 
     .line 65
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -110,7 +100,6 @@
     .line 66
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;->close()V
 
-    .line 67
     return-void
 .end method
 
@@ -126,64 +115,51 @@
 .end method
 
 .method protected getBucketedSize(I)I
-    .locals 5
-    .param p1, "requestSize"    # I
+    .locals 4
 
-    .line 91
-    move v0, p1
-
-    .line 92
-    .local v0, "intRequestSize":I
-    if-lez v0, :cond_2
+    if-lez p1, :cond_2
 
     .line 97
-    iget-object v1, p0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->mBucketSizes:[I
+    iget-object v0, p0, Lcom/facebook/imagepipeline/memory/NativeMemoryChunkPool;->mBucketSizes:[I
 
-    array-length v2, v1
+    array-length v1, v0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_1
+    if-ge v2, v1, :cond_1
 
-    aget v4, v1, v3
+    aget v3, v0, v2
 
-    .line 98
-    .local v4, "bucketedSize":I
-    if-lt v4, v0, :cond_0
+    if-lt v3, p1, :cond_0
 
-    .line 99
-    return v4
+    return v3
 
-    .line 97
-    .end local v4    # "bucketedSize":I
     :cond_0
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 105
     :cond_1
     return p1
 
     .line 93
     :cond_2
-    new-instance v1, Lcom/facebook/imagepipeline/memory/BasePool$InvalidSizeException;
+    new-instance v0, Lcom/facebook/imagepipeline/memory/BasePool$InvalidSizeException;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Lcom/facebook/imagepipeline/memory/BasePool$InvalidSizeException;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p1}, Lcom/facebook/imagepipeline/memory/BasePool$InvalidSizeException;-><init>(Ljava/lang/Object;)V
 
-    throw v1
+    throw v0
 
     return-void
 .end method
 
 .method protected getBucketedSizeForValue(Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;)I
-    .locals 1
-    .param p1, "value"    # Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;
+    .locals 0
 
     .line 115
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -191,9 +167,9 @@
     .line 116
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;->getSize()I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method
 
 .method protected bridge synthetic getBucketedSizeForValue(Ljava/lang/Object;)I
@@ -224,15 +200,12 @@
 
 .method protected getSizeInBytes(I)I
     .locals 0
-    .param p1, "bucketedSize"    # I
 
-    .line 76
     return p1
 .end method
 
 .method protected isReusable(Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;)Z
-    .locals 1
-    .param p1, "value"    # Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;
+    .locals 0
 
     .line 128
     invoke-static {p1}, Lcom/facebook/common/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -240,11 +213,11 @@
     .line 129
     invoke-virtual {p1}, Lcom/facebook/imagepipeline/memory/NativeMemoryChunk;->isClosed()Z
 
-    move-result v0
+    move-result p1
 
-    xor-int/lit8 v0, v0, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method protected bridge synthetic isReusable(Ljava/lang/Object;)Z

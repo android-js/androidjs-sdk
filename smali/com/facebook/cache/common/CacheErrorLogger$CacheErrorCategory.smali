@@ -251,9 +251,9 @@
 
     sput-object v0, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->OTHER:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    .line 20
     const/16 v0, 0x11
 
+    .line 20
     new-array v0, v0, [Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
     sget-object v14, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;->READ_DECODE:Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
@@ -353,18 +353,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 20
     const-class v0, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
+    check-cast p0, Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/facebook/cache/common/CacheErrorLogger$CacheErrorCategory;

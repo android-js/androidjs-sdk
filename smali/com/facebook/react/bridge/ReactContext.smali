@@ -76,63 +76,57 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .param p1, "base"    # Landroid/content/Context;
+    .locals 0
 
     .line 51
     invoke-direct {p0, p1}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V
 
     .line 35
-    new-instance v0, Ljava/util/concurrent/CopyOnWriteArraySet;
+    new-instance p1, Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+    iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     .line 37
-    new-instance v0, Ljava/util/concurrent/CopyOnWriteArraySet;
+    new-instance p1, Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
+    invoke-direct {p1}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+    iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     .line 40
-    sget-object v0, Lcom/facebook/react/common/LifecycleState;->BEFORE_CREATE:Lcom/facebook/react/common/LifecycleState;
+    sget-object p1, Lcom/facebook/react/common/LifecycleState;->BEFORE_CREATE:Lcom/facebook/react/common/LifecycleState;
 
-    iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleState:Lcom/facebook/react/common/LifecycleState;
+    iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleState:Lcom/facebook/react/common/LifecycleState;
 
-    .line 52
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/bridge/ReactContext;)Ljava/util/concurrent/CopyOnWriteArraySet;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/bridge/ReactContext;
+    .locals 0
 
     .line 28
-    iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+    iget-object p0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
 .method public addActivityEventListener(Lcom/facebook/react/bridge/ActivityEventListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/facebook/react/bridge/ActivityEventListener;
 
     .line 177
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
 
-    .line 178
     return-void
 .end method
 
 .method public addLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
     .locals 2
-    .param p1, "listener"    # Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 144
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
@@ -176,20 +170,18 @@
 
     invoke-virtual {p0, v0}, Lcom/facebook/react/bridge/ReactContext;->runOnUiQueueThread(Ljava/lang/Runnable;)V
 
-    .line 165
     goto :goto_0
 
     .line 167
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Unhandled lifecycle state."
+    const-string v0, "Unhandled lifecycle state."
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
-    .line 170
     :cond_1
     :goto_0
     return-void
@@ -209,7 +201,6 @@
 
     invoke-interface {v0}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->assertIsOnThread()V
 
-    .line 299
     return-void
 .end method
 
@@ -227,13 +218,11 @@
 
     invoke-interface {v0}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->assertIsOnThread()V
 
-    .line 283
     return-void
 .end method
 
 .method public assertOnNativeModulesQueueThread(Ljava/lang/String;)V
     .locals 1
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 286
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mNativeModulesMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
@@ -246,7 +235,6 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->assertIsOnThread(Ljava/lang/String;)V
 
-    .line 287
     return-void
 .end method
 
@@ -264,7 +252,6 @@
 
     invoke-interface {v0}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->assertIsOnThread()V
 
-    .line 271
     return-void
 .end method
 
@@ -282,7 +269,6 @@
     .line 252
     invoke-interface {v0}, Lcom/facebook/react/bridge/CatalystInstance;->destroy()V
 
-    .line 254
     :cond_0
     return-void
 .end method
@@ -312,7 +298,6 @@
 
     if-nez v0, :cond_0
 
-    .line 347
     const/4 v0, 0x0
 
     return-object v0
@@ -329,7 +314,7 @@
 .end method
 
 .method public getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -341,7 +326,6 @@
     .end annotation
 
     .line 106
-    .local p1, "jsInterface":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCatalystInstance:Lcom/facebook/react/bridge/CatalystInstance;
 
     if-eqz v0, :cond_0
@@ -349,19 +333,19 @@
     .line 109
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/CatalystInstance;->getJSModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/JavaScriptModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 107
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Tried to access a JS module before the React instance was fully set up. Calls to ReactContext#getJSModule should only happen once initialize() has been called on your native module."
+    const-string v0, "Tried to access a JS module before the React instance was fully set up. Calls to ReactContext#getJSModule should only happen once initialize() has been called on your native module."
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getJavaScriptContextHolder()Lcom/facebook/react/bridge/JavaScriptContextHolder;
@@ -387,7 +371,7 @@
 .end method
 
 .method public getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -399,7 +383,6 @@
     .end annotation
 
     .line 124
-    .local p1, "nativeModuleInterface":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCatalystInstance:Lcom/facebook/react/bridge/CatalystInstance;
 
     if-eqz v0, :cond_0
@@ -407,28 +390,27 @@
     .line 128
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/CatalystInstance;->getNativeModule(Ljava/lang/Class;)Lcom/facebook/react/bridge/NativeModule;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 125
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Trying to call native module before CatalystInstance has been set!"
+    const-string v0, "Trying to call native module before CatalystInstance has been set!"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
-    .param p1, "name"    # Ljava/lang/String;
 
-    .line 93
     const-string v0, "layout_inflater"
 
+    .line 93
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -436,30 +418,30 @@
     if-eqz v0, :cond_1
 
     .line 94
-    iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mInflater:Landroid/view/LayoutInflater;
+    iget-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mInflater:Landroid/view/LayoutInflater;
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     .line 95
     invoke-virtual {p0}, Lcom/facebook/react/bridge/ReactContext;->getBaseContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p0}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-virtual {p1, p0}, Landroid/view/LayoutInflater;->cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mInflater:Landroid/view/LayoutInflater;
+    iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mInflater:Landroid/view/LayoutInflater;
 
     .line 97
     :cond_0
-    iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mInflater:Landroid/view/LayoutInflater;
+    iget-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mInflater:Landroid/view/LayoutInflater;
 
-    return-object v0
+    return-object p1
 
     .line 99
     :cond_1
@@ -469,14 +451,13 @@
 
     invoke-virtual {v0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public handleException(Ljava/lang/Exception;)V
     .locals 1
-    .param p1, "e"    # Ljava/lang/Exception;
 
     .line 315
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCatalystInstance:Lcom/facebook/react/bridge/CatalystInstance;
@@ -497,7 +478,6 @@
     .line 318
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/NativeModuleCallExceptionHandler;->handleException(Ljava/lang/Exception;)V
 
-    .line 322
     return-void
 
     .line 320
@@ -560,7 +540,7 @@
 .end method
 
 .method public hasNativeModule(Ljava/lang/Class;)Z
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -572,7 +552,6 @@
     .end annotation
 
     .line 113
-    .local p1, "nativeModuleInterface":Ljava/lang/Class;, "Ljava/lang/Class<TT;>;"
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCatalystInstance:Lcom/facebook/react/bridge/CatalystInstance;
 
     if-eqz v0, :cond_0
@@ -580,26 +559,24 @@
     .line 117
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/CatalystInstance;->hasNativeModule(Ljava/lang/Class;)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 
     .line 114
     :cond_0
-    new-instance v0, Ljava/lang/RuntimeException;
+    new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v1, "Trying to call native module before CatalystInstance has been set!"
+    const-string v0, "Trying to call native module before CatalystInstance has been set!"
 
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public initializeWithInstance(Lcom/facebook/react/bridge/CatalystInstance;)V
-    .locals 2
-    .param p1, "catalystInstance"    # Lcom/facebook/react/bridge/CatalystInstance;
+    .locals 1
 
-    .line 58
     if-eqz p1, :cond_1
 
     .line 61
@@ -613,53 +590,50 @@
     .line 67
     invoke-interface {p1}, Lcom/facebook/react/bridge/CatalystInstance;->getReactQueueConfiguration()Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 68
-    .local v0, "queueConfig":Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;
-    invoke-interface {v0}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->getUIQueueThread()Lcom/facebook/react/bridge/queue/MessageQueueThread;
+    invoke-interface {p1}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->getUIQueueThread()Lcom/facebook/react/bridge/queue/MessageQueueThread;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/facebook/react/bridge/ReactContext;->mUiMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
+    iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mUiMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
 
     .line 69
-    invoke-interface {v0}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->getNativeModulesQueueThread()Lcom/facebook/react/bridge/queue/MessageQueueThread;
+    invoke-interface {p1}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->getNativeModulesQueueThread()Lcom/facebook/react/bridge/queue/MessageQueueThread;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/facebook/react/bridge/ReactContext;->mNativeModulesMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
+    iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mNativeModulesMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
 
     .line 70
-    invoke-interface {v0}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->getJSQueueThread()Lcom/facebook/react/bridge/queue/MessageQueueThread;
+    invoke-interface {p1}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->getJSQueueThread()Lcom/facebook/react/bridge/queue/MessageQueueThread;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/facebook/react/bridge/ReactContext;->mJSMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
+    iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mJSMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
 
-    .line 71
     return-void
 
     .line 62
-    .end local v0    # "queueConfig":Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "ReactContext has been already initialized"
+    const-string v0, "ReactContext has been already initialized"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 59
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "CatalystInstance cannot be null."
+    const-string v0, "CatalystInstance cannot be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public isOnJSQueueThread()Z
@@ -720,11 +694,7 @@
 .end method
 
 .method public onActivityResult(Landroid/app/Activity;IILandroid/content/Intent;)V
-    .locals 3
-    .param p1, "activity"    # Landroid/app/Activity;
-    .param p2, "requestCode"    # I
-    .param p3, "resultCode"    # I
-    .param p4, "data"    # Landroid/content/Intent;
+    .locals 2
 
     .line 260
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
@@ -747,36 +717,27 @@
     check-cast v1, Lcom/facebook/react/bridge/ActivityEventListener;
 
     .line 262
-    .local v1, "listener":Lcom/facebook/react/bridge/ActivityEventListener;
     :try_start_0
     invoke-interface {v1, p1, p2, p3, p4}, Lcom/facebook/react/bridge/ActivityEventListener;->onActivityResult(Landroid/app/Activity;IILandroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 265
-    goto :goto_1
-
-    .line 263
-    :catch_0
-    move-exception v2
-
-    .line 264
-    .local v2, "e":Ljava/lang/RuntimeException;
-    invoke-virtual {p0, v2}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
-
-    .line 266
-    .end local v1    # "listener":Lcom/facebook/react/bridge/ActivityEventListener;
-    .end local v2    # "e":Ljava/lang/RuntimeException;
-    :goto_1
     goto :goto_0
 
-    .line 267
+    :catch_0
+    move-exception v1
+
+    .line 264
+    invoke-virtual {p0, v1}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
+
+    goto :goto_0
+
     :cond_0
     return-void
 .end method
 
 .method public onHostDestroy()V
-    .locals 3
+    .locals 2
 
     .line 233
     invoke-static {}, Lcom/facebook/react/bridge/UiThreadUtil;->assertOnUiThread()V
@@ -807,41 +768,32 @@
     check-cast v1, Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 237
-    .local v1, "listener":Lcom/facebook/react/bridge/LifecycleEventListener;
     :try_start_0
     invoke-interface {v1}, Lcom/facebook/react/bridge/LifecycleEventListener;->onHostDestroy()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 240
-    goto :goto_1
-
-    .line 238
-    :catch_0
-    move-exception v2
-
-    .line 239
-    .local v2, "e":Ljava/lang/RuntimeException;
-    invoke-virtual {p0, v2}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
-
-    .line 241
-    .end local v1    # "listener":Lcom/facebook/react/bridge/LifecycleEventListener;
-    .end local v2    # "e":Ljava/lang/RuntimeException;
-    :goto_1
     goto :goto_0
 
-    .line 242
+    :catch_0
+    move-exception v1
+
+    .line 239
+    invoke-virtual {p0, v1}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
+
+    goto :goto_0
+
     :cond_0
     const/4 v0, 0x0
 
+    .line 242
     iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCurrentActivity:Ljava/lang/ref/WeakReference;
 
-    .line 243
     return-void
 .end method
 
 .method public onHostPause()V
-    .locals 3
+    .locals 2
 
     .line 217
     sget-object v0, Lcom/facebook/react/common/LifecycleState;->BEFORE_RESUME:Lcom/facebook/react/common/LifecycleState;
@@ -874,27 +826,19 @@
     check-cast v1, Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 221
-    .local v1, "listener":Lcom/facebook/react/bridge/LifecycleEventListener;
     :try_start_0
     invoke-interface {v1}, Lcom/facebook/react/bridge/LifecycleEventListener;->onHostPause()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 224
-    goto :goto_1
+    goto :goto_0
 
-    .line 222
     :catch_0
-    move-exception v2
+    move-exception v1
 
     .line 223
-    .local v2, "e":Ljava/lang/RuntimeException;
-    invoke-virtual {p0, v2}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
+    invoke-virtual {p0, v1}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
 
-    .line 225
-    .end local v1    # "listener":Lcom/facebook/react/bridge/LifecycleEventListener;
-    .end local v2    # "e":Ljava/lang/RuntimeException;
-    :goto_1
     goto :goto_0
 
     .line 226
@@ -903,13 +847,12 @@
 
     invoke-static {v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
-    .line 227
     return-void
 .end method
 
 .method public onHostResume(Landroid/app/Activity;)V
-    .locals 3
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 1
+    .param p1    # Landroid/app/Activity;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -927,71 +870,61 @@
     iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCurrentActivity:Ljava/lang/ref/WeakReference;
 
     .line 190
-    sget-object v0, Lcom/facebook/react/bridge/ReactMarkerConstants;->ON_HOST_RESUME_START:Lcom/facebook/react/bridge/ReactMarkerConstants;
+    sget-object p1, Lcom/facebook/react/bridge/ReactMarkerConstants;->ON_HOST_RESUME_START:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    invoke-static {v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
+    invoke-static {p1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
     .line 191
-    iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+    iget-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/facebook/react/bridge/LifecycleEventListener;
+    check-cast v0, Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 193
-    .local v1, "listener":Lcom/facebook/react/bridge/LifecycleEventListener;
     :try_start_0
-    invoke-interface {v1}, Lcom/facebook/react/bridge/LifecycleEventListener;->onHostResume()V
+    invoke-interface {v0}, Lcom/facebook/react/bridge/LifecycleEventListener;->onHostResume()V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 196
-    goto :goto_1
+    goto :goto_0
 
-    .line 194
     :catch_0
-    move-exception v2
+    move-exception v0
 
     .line 195
-    .local v2, "e":Ljava/lang/RuntimeException;
-    invoke-virtual {p0, v2}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
+    invoke-virtual {p0, v0}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
 
-    .line 197
-    .end local v1    # "listener":Lcom/facebook/react/bridge/LifecycleEventListener;
-    .end local v2    # "e":Ljava/lang/RuntimeException;
-    :goto_1
     goto :goto_0
 
     .line 198
     :cond_0
-    sget-object v0, Lcom/facebook/react/bridge/ReactMarkerConstants;->ON_HOST_RESUME_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
+    sget-object p1, Lcom/facebook/react/bridge/ReactMarkerConstants;->ON_HOST_RESUME_END:Lcom/facebook/react/bridge/ReactMarkerConstants;
 
-    invoke-static {v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
+    invoke-static {p1}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
-    .line 199
     return-void
 .end method
 
 .method public onNewIntent(Landroid/app/Activity;Landroid/content/Intent;)V
-    .locals 3
-    .param p1, "activity"    # Landroid/app/Activity;
+    .locals 1
+    .param p1    # Landroid/app/Activity;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "intent"    # Landroid/content/Intent;
 
     .line 202
     invoke-static {}, Lcom/facebook/react/bridge/UiThreadUtil;->assertOnUiThread()V
@@ -1004,77 +937,64 @@
     iput-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mCurrentActivity:Ljava/lang/ref/WeakReference;
 
     .line 204
-    iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
+    iget-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/facebook/react/bridge/ActivityEventListener;
+    check-cast v0, Lcom/facebook/react/bridge/ActivityEventListener;
 
     .line 206
-    .local v1, "listener":Lcom/facebook/react/bridge/ActivityEventListener;
     :try_start_0
-    invoke-interface {v1, p2}, Lcom/facebook/react/bridge/ActivityEventListener;->onNewIntent(Landroid/content/Intent;)V
+    invoke-interface {v0, p2}, Lcom/facebook/react/bridge/ActivityEventListener;->onNewIntent(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 209
-    goto :goto_1
-
-    .line 207
-    :catch_0
-    move-exception v2
-
-    .line 208
-    .local v2, "e":Ljava/lang/RuntimeException;
-    invoke-virtual {p0, v2}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
-
-    .line 210
-    .end local v1    # "listener":Lcom/facebook/react/bridge/ActivityEventListener;
-    .end local v2    # "e":Ljava/lang/RuntimeException;
-    :goto_1
     goto :goto_0
 
-    .line 211
+    :catch_0
+    move-exception v0
+
+    .line 208
+    invoke-virtual {p0, v0}, Lcom/facebook/react/bridge/ReactContext;->handleException(Ljava/lang/Exception;)V
+
+    goto :goto_0
+
     :cond_0
     return-void
 .end method
 
 .method public removeActivityEventListener(Lcom/facebook/react/bridge/ActivityEventListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/facebook/react/bridge/ActivityEventListener;
 
     .line 181
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mActivityEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 182
     return-void
 .end method
 
 .method public removeLifecycleEventListener(Lcom/facebook/react/bridge/LifecycleEventListener;)V
     .locals 1
-    .param p1, "listener"    # Lcom/facebook/react/bridge/LifecycleEventListener;
 
     .line 173
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mLifecycleEventListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->remove(Ljava/lang/Object;)Z
 
-    .line 174
     return-void
 .end method
 
@@ -1098,14 +1018,12 @@
     .line 78
     invoke-interface {v0}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->resetPerfStats()V
 
-    .line 80
     :cond_1
     return-void
 .end method
 
 .method public runOnJSQueueThread(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 306
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mJSMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
@@ -1118,13 +1036,11 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->runOnQueue(Ljava/lang/Runnable;)V
 
-    .line 307
     return-void
 .end method
 
 .method public runOnNativeModulesQueueThread(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 294
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mNativeModulesMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
@@ -1137,13 +1053,11 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->runOnQueue(Ljava/lang/Runnable;)V
 
-    .line 295
     return-void
 .end method
 
 .method public runOnUiQueueThread(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 278
     iget-object v0, p0, Lcom/facebook/react/bridge/ReactContext;->mUiMessageQueueThread:Lcom/facebook/react/bridge/queue/MessageQueueThread;
@@ -1156,13 +1070,12 @@
 
     invoke-interface {v0, p1}, Lcom/facebook/react/bridge/queue/MessageQueueThread;->runOnQueue(Ljava/lang/Runnable;)V
 
-    .line 279
     return-void
 .end method
 
 .method public setNativeModuleCallExceptionHandler(Lcom/facebook/react/bridge/NativeModuleCallExceptionHandler;)V
     .locals 0
-    .param p1, "nativeModuleCallExceptionHandler"    # Lcom/facebook/react/bridge/NativeModuleCallExceptionHandler;
+    .param p1    # Lcom/facebook/react/bridge/NativeModuleCallExceptionHandler;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -1170,15 +1083,11 @@
     .line 84
     iput-object p1, p0, Lcom/facebook/react/bridge/ReactContext;->mNativeModuleCallExceptionHandler:Lcom/facebook/react/bridge/NativeModuleCallExceptionHandler;
 
-    .line 85
     return-void
 .end method
 
 .method public startActivityForResult(Landroid/content/Intent;ILandroid/os/Bundle;)Z
-    .locals 2
-    .param p1, "intent"    # Landroid/content/Intent;
-    .param p2, "code"    # I
-    .param p3, "bundle"    # Landroid/os/Bundle;
+    .locals 1
 
     .line 334
     invoke-virtual {p0}, Lcom/facebook/react/bridge/ReactContext;->getCurrentActivity()Landroid/app/Activity;
@@ -1186,14 +1095,12 @@
     move-result-object v0
 
     .line 335
-    .local v0, "activity":Landroid/app/Activity;
     invoke-static {v0}, Lcom/facebook/infer/annotation/Assertions;->assertNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 336
     invoke-virtual {v0, p1, p2, p3}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;ILandroid/os/Bundle;)V
 
-    .line 337
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
-    return v1
+    return p1
 .end method

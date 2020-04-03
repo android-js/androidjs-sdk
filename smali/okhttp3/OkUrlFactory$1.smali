@@ -23,7 +23,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/OkUrlFactory;Ljava/lang/String;)V
     .locals 0
-    .param p1, "this$0"    # Lokhttp3/OkUrlFactory;
 
     .line 92
     iput-object p1, p0, Lokhttp3/OkUrlFactory$1;->this$0:Lokhttp3/OkUrlFactory;
@@ -82,29 +81,26 @@
 
 .method protected openConnection(Ljava/net/URL;)Ljava/net/URLConnection;
     .locals 1
-    .param p1, "url"    # Ljava/net/URL;
 
     .line 94
     iget-object v0, p0, Lokhttp3/OkUrlFactory$1;->this$0:Lokhttp3/OkUrlFactory;
 
     invoke-virtual {v0, p1}, Lokhttp3/OkUrlFactory;->open(Ljava/net/URL;)Ljava/net/HttpURLConnection;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method protected openConnection(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;
     .locals 1
-    .param p1, "url"    # Ljava/net/URL;
-    .param p2, "proxy"    # Ljava/net/Proxy;
 
     .line 98
     iget-object v0, p0, Lokhttp3/OkUrlFactory$1;->this$0:Lokhttp3/OkUrlFactory;
 
     invoke-virtual {v0, p1, p2}, Lokhttp3/OkUrlFactory;->open(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/HttpURLConnection;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

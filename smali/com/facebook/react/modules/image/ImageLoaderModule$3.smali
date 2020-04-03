@@ -34,8 +34,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/modules/image/ImageLoaderModule;Lcom/facebook/react/bridge/ReactContext;Lcom/facebook/react/bridge/ReadableArray;Lcom/facebook/react/bridge/Promise;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/modules/image/ImageLoaderModule;
-    .param p2, "reactContext"    # Lcom/facebook/react/bridge/ReactContext;
 
     .line 185
     iput-object p1, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->this$0:Lcom/facebook/react/modules/image/ImageLoaderModule;
@@ -63,91 +61,80 @@
 .end method
 
 .method protected varargs doInBackgroundGuarded([Ljava/lang/Void;)V
-    .locals 6
-    .param p1, "params"    # [Ljava/lang/Void;
+    .locals 5
 
     .line 188
     invoke-static {}, Lcom/facebook/react/bridge/Arguments;->createMap()Lcom/facebook/react/bridge/WritableMap;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 189
-    .local v0, "result":Lcom/facebook/react/bridge/WritableMap;
     invoke-static {}, Lcom/facebook/drawee/backends/pipeline/Fresco;->getImagePipeline()Lcom/facebook/imagepipeline/core/ImagePipeline;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
 
     .line 190
-    .local v1, "imagePipeline":Lcom/facebook/imagepipeline/core/ImagePipeline;
-    const/4 v2, 0x0
-
-    .local v2, "i":I
     :goto_0
-    iget-object v3, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->val$uris:Lcom/facebook/react/bridge/ReadableArray;
+    iget-object v2, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->val$uris:Lcom/facebook/react/bridge/ReadableArray;
 
-    invoke-interface {v3}, Lcom/facebook/react/bridge/ReadableArray;->size()I
+    invoke-interface {v2}, Lcom/facebook/react/bridge/ReadableArray;->size()I
 
-    move-result v3
+    move-result v2
 
-    if-ge v2, v3, :cond_2
+    if-ge v1, v2, :cond_2
 
     .line 191
-    iget-object v3, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->val$uris:Lcom/facebook/react/bridge/ReadableArray;
+    iget-object v2, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->val$uris:Lcom/facebook/react/bridge/ReadableArray;
 
-    invoke-interface {v3, v2}, Lcom/facebook/react/bridge/ReadableArray;->getString(I)Ljava/lang/String;
+    invoke-interface {v2, v1}, Lcom/facebook/react/bridge/ReadableArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 192
+    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v3
 
-    .line 192
-    .local v3, "uriString":Ljava/lang/String;
-    invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v4
-
     .line 193
-    .local v4, "uri":Landroid/net/Uri;
-    invoke-virtual {v1, v4}, Lcom/facebook/imagepipeline/core/ImagePipeline;->isInBitmapMemoryCache(Landroid/net/Uri;)Z
+    invoke-virtual {v0, v3}, Lcom/facebook/imagepipeline/core/ImagePipeline;->isInBitmapMemoryCache(Landroid/net/Uri;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_0
+    if-eqz v4, :cond_0
+
+    const-string v3, "memory"
 
     .line 194
-    const-string v5, "memory"
-
-    invoke-interface {v0, v3, v5}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p1, v2, v3}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 
     .line 195
     :cond_0
-    invoke-virtual {v1, v4}, Lcom/facebook/imagepipeline/core/ImagePipeline;->isInDiskCacheSync(Landroid/net/Uri;)Z
+    invoke-virtual {v0, v3}, Lcom/facebook/imagepipeline/core/ImagePipeline;->isInDiskCacheSync(Landroid/net/Uri;)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_1
+    if-eqz v3, :cond_1
+
+    const-string v3, "disk"
 
     .line 196
-    const-string v5, "disk"
+    invoke-interface {p1, v2, v3}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-interface {v0, v3, v5}, Lcom/facebook/react/bridge/WritableMap;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 190
-    .end local v3    # "uriString":Ljava/lang/String;
-    .end local v4    # "uri":Landroid/net/Uri;
     :cond_1
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 199
-    .end local v2    # "i":I
     :cond_2
-    iget-object v2, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->val$promise:Lcom/facebook/react/bridge/Promise;
+    iget-object v0, p0, Lcom/facebook/react/modules/image/ImageLoaderModule$3;->val$promise:Lcom/facebook/react/bridge/Promise;
 
-    invoke-interface {v2, v0}, Lcom/facebook/react/bridge/Promise;->resolve(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/facebook/react/bridge/Promise;->resolve(Ljava/lang/Object;)V
 
-    .line 200
     return-void
 .end method

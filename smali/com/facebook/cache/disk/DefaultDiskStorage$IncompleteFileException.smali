@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(JJ)V
     .locals 2
-    .param p1, "expected"    # J
-    .param p3, "actual"    # J
 
     .line 207
     new-instance v0, Ljava/lang/StringBuilder;
@@ -55,6 +53,5 @@
     .line 209
     iput-wide p3, p0, Lcom/facebook/cache/disk/DefaultDiskStorage$IncompleteFileException;->actual:J
 
-    .line 210
     return-void
 .end method

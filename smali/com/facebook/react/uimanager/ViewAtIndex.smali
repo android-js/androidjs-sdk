@@ -37,8 +37,6 @@
 
 .method public constructor <init>(II)V
     .locals 0
-    .param p1, "tag"    # I
-    .param p2, "index"    # I
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,21 +47,19 @@
     .line 29
     iput p2, p0, Lcom/facebook/react/uimanager/ViewAtIndex;->mIndex:I
 
-    .line 30
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
-    .line 34
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
+    .line 34
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v1
@@ -78,32 +74,24 @@
 
     .line 37
     :cond_0
-    move-object v1, p1
-
-    check-cast v1, Lcom/facebook/react/uimanager/ViewAtIndex;
+    check-cast p1, Lcom/facebook/react/uimanager/ViewAtIndex;
 
     .line 38
-    .local v1, "other":Lcom/facebook/react/uimanager/ViewAtIndex;
-    iget v2, p0, Lcom/facebook/react/uimanager/ViewAtIndex;->mIndex:I
+    iget v1, p0, Lcom/facebook/react/uimanager/ViewAtIndex;->mIndex:I
 
-    iget v3, v1, Lcom/facebook/react/uimanager/ViewAtIndex;->mIndex:I
+    iget v2, p1, Lcom/facebook/react/uimanager/ViewAtIndex;->mIndex:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
-    iget v2, p0, Lcom/facebook/react/uimanager/ViewAtIndex;->mTag:I
+    iget v1, p0, Lcom/facebook/react/uimanager/ViewAtIndex;->mTag:I
 
-    iget v3, v1, Lcom/facebook/react/uimanager/ViewAtIndex;->mTag:I
+    iget p1, p1, Lcom/facebook/react/uimanager/ViewAtIndex;->mTag:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, p1, :cond_1
 
     const/4 v0, 0x1
 
     :cond_1
-    return v0
-
-    .line 35
-    .end local v1    # "other":Lcom/facebook/react/uimanager/ViewAtIndex;
-    :cond_2
     :goto_0
     return v0
 .end method

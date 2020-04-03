@@ -32,14 +32,14 @@
     .line 94
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 96
     const/4 v0, 0x0
 
+    .line 96
     iput-boolean v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mInitialized:Z
 
-    .line 97
     const-wide/16 v0, -0x1
 
+    .line 97
     iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mSize:J
 
     .line 98
@@ -65,7 +65,6 @@
 
     return-wide v0
 
-    .end local p0    # "this":Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
     :catchall_0
     move-exception v0
 
@@ -89,7 +88,6 @@
 
     return-wide v0
 
-    .end local p0    # "this":Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
     :catchall_0
     move-exception v0
 
@@ -100,8 +98,6 @@
 
 .method public declared-synchronized increment(JJ)V
     .locals 2
-    .param p1, "sizeIncrement"    # J
-    .param p3, "countIncrement"    # J
 
     monitor-enter p0
 
@@ -119,24 +115,20 @@
     iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mSize:J
 
     .line 119
-    iget-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mCount:J
+    iget-wide p1, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mCount:J
 
-    add-long/2addr v0, p3
+    add-long/2addr p1, p3
 
-    iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mCount:J
+    iput-wide p1, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mCount:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 121
-    .end local p0    # "this":Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
     :cond_0
     monitor-exit p0
 
     return-void
 
-    .line 116
-    .end local p1    # "sizeIncrement":J
-    .end local p3    # "countIncrement":J
     :catchall_0
     move-exception p1
 
@@ -160,7 +152,6 @@
 
     return v0
 
-    .end local p0    # "this":Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
     :catchall_0
     move-exception v0
 
@@ -174,15 +165,15 @@
 
     monitor-enter p0
 
-    .line 105
     const/4 v0, 0x0
 
+    .line 105
     :try_start_0
     iput-boolean v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mInitialized:Z
 
-    .line 106
     const-wide/16 v0, -0x1
 
+    .line 106
     iput-wide v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mCount:J
 
     .line 107
@@ -195,8 +186,6 @@
 
     return-void
 
-    .line 104
-    .end local p0    # "this":Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
     :catchall_0
     move-exception v0
 
@@ -206,9 +195,7 @@
 .end method
 
 .method public declared-synchronized set(JJ)V
-    .locals 1
-    .param p1, "size"    # J
-    .param p3, "count"    # J
+    .locals 0
 
     monitor-enter p0
 
@@ -219,10 +206,10 @@
     .line 112
     iput-wide p1, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mSize:J
 
-    .line 113
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    iput-boolean v0, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mInitialized:Z
+    .line 113
+    iput-boolean p1, p0, Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;->mInitialized:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -231,10 +218,6 @@
 
     return-void
 
-    .line 110
-    .end local p0    # "this":Lcom/facebook/cache/disk/DiskStorageCache$CacheStats;
-    .end local p1    # "size":J
-    .end local p3    # "count":J
     :catchall_0
     move-exception p1
 

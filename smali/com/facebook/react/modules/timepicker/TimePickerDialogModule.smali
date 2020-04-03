@@ -39,52 +39,46 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
     .locals 0
-    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 52
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
-    .line 53
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;)Lcom/facebook/react/bridge/ReactApplicationContext;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;
+    .locals 0
 
     .line 37
     invoke-virtual {p0}, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static synthetic access$100(Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;)Lcom/facebook/react/bridge/ReactApplicationContext;
-    .locals 1
-    .param p0, "x0"    # Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;
+    .locals 0
 
     .line 37
     invoke-virtual {p0}, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;->getReactApplicationContext()Lcom/facebook/react/bridge/ReactApplicationContext;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private createFragmentArguments(Lcom/facebook/react/bridge/ReadableMap;)Landroid/os/Bundle;
     .locals 3
-    .param p1, "options"    # Lcom/facebook/react/bridge/ReadableMap;
 
     .line 121
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 122
-    .local v0, "args":Landroid/os/Bundle;
     const-string v1, "hour"
 
+    .line 122
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -104,10 +98,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 125
     :cond_0
     const-string v1, "minute"
 
+    .line 125
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -127,10 +121,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 128
     :cond_1
     const-string v1, "is24Hour"
 
+    .line 128
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -150,10 +144,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 131
     :cond_2
     const-string v1, "mode"
 
+    .line 131
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->hasKey(Ljava/lang/String;)Z
 
     move-result v2
@@ -169,11 +163,10 @@
     .line 132
     invoke-interface {p1, v1}, Lcom/facebook/react/bridge/ReadableMap;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 134
     :cond_3
     return-object v0
 .end method
@@ -183,19 +176,17 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
-    .line 57
     const-string v0, "TimePickerAndroid"
 
     return-object v0
 .end method
 
 .method public open(Lcom/facebook/react/bridge/ReadableMap;Lcom/facebook/react/bridge/Promise;)V
-    .locals 6
-    .param p1, "options"    # Lcom/facebook/react/bridge/ReadableMap;
+    .locals 3
+    .param p1    # Lcom/facebook/react/bridge/ReadableMap;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "promise"    # Lcom/facebook/react/bridge/Promise;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -206,79 +197,67 @@
 
     check-cast v0, Landroid/support/v4/app/FragmentActivity;
 
-    .line 96
-    .local v0, "activity":Landroid/support/v4/app/FragmentActivity;
     if-nez v0, :cond_0
 
+    const-string p1, "E_NO_ACTIVITY"
+
+    const-string v0, "Tried to open a TimePicker dialog while not attached to an Activity"
+
     .line 97
-    const-string v1, "E_NO_ACTIVITY"
+    invoke-interface {p2, p1, v0}, Lcom/facebook/react/bridge/Promise;->reject(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "Tried to open a TimePicker dialog while not attached to an Activity"
-
-    invoke-interface {p2, v1, v2}, Lcom/facebook/react/bridge/Promise;->reject(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 100
     return-void
 
     .line 104
     :cond_0
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v0
+
+    const-string v1, "TimePickerAndroid"
 
     .line 105
-    .local v1, "fragmentManager":Landroid/support/v4/app/FragmentManager;
-    const-string v2, "TimePickerAndroid"
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    move-result-object v2
 
-    move-result-object v3
+    check-cast v2, Landroid/support/v4/app/DialogFragment;
 
-    check-cast v3, Landroid/support/v4/app/DialogFragment;
-
-    .line 106
-    .local v3, "oldFragment":Landroid/support/v4/app/DialogFragment;
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
     .line 107
-    invoke-virtual {v3}, Landroid/support/v4/app/DialogFragment;->dismiss()V
+    invoke-virtual {v2}, Landroid/support/v4/app/DialogFragment;->dismiss()V
 
     .line 109
     :cond_1
-    new-instance v4, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;
+    new-instance v2, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;
 
-    invoke-direct {v4}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;-><init>()V
+    invoke-direct {v2}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;-><init>()V
 
-    .line 110
-    .local v4, "fragment":Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;
     if-eqz p1, :cond_2
 
     .line 111
     invoke-direct {p0, p1}, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;->createFragmentArguments(Lcom/facebook/react/bridge/ReadableMap;)Landroid/os/Bundle;
 
-    move-result-object v5
+    move-result-object p1
 
     .line 112
-    .local v5, "args":Landroid/os/Bundle;
-    invoke-virtual {v4, v5}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {v2, p1}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
     .line 114
-    .end local v5    # "args":Landroid/os/Bundle;
     :cond_2
-    new-instance v5, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule$TimePickerDialogListener;
+    new-instance p1, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule$TimePickerDialogListener;
 
-    invoke-direct {v5, p0, p2}, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule$TimePickerDialogListener;-><init>(Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;Lcom/facebook/react/bridge/Promise;)V
+    invoke-direct {p1, p0, p2}, Lcom/facebook/react/modules/timepicker/TimePickerDialogModule$TimePickerDialogListener;-><init>(Lcom/facebook/react/modules/timepicker/TimePickerDialogModule;Lcom/facebook/react/bridge/Promise;)V
 
     .line 115
-    .local v5, "listener":Lcom/facebook/react/modules/timepicker/TimePickerDialogModule$TimePickerDialogListener;
-    invoke-virtual {v4, v5}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v2, p1}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     .line 116
-    invoke-virtual {v4, v5}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->setOnTimeSetListener(Landroid/app/TimePickerDialog$OnTimeSetListener;)V
+    invoke-virtual {v2, p1}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->setOnTimeSetListener(Landroid/app/TimePickerDialog$OnTimeSetListener;)V
 
     .line 117
-    invoke-virtual {v4, v1, v2}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v1}, Lcom/facebook/react/modules/timepicker/TimePickerDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
 
-    .line 118
     return-void
 .end method

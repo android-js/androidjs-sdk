@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 662
     return-void
 .end method
 
@@ -59,7 +58,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnected()V
 
-    .line 670
     return-void
 .end method
 
@@ -86,7 +84,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnectionFailed()V
 
-    .line 686
     return-void
 .end method
 
@@ -113,6 +110,5 @@
 
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnectionSuspended()V
 
-    .line 678
     return-void
 .end method

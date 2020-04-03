@@ -31,7 +31,6 @@
 # direct methods
 .method constructor <init>(Lokhttp3/internal/http1/Http1Codec;Lokhttp3/HttpUrl;)V
     .locals 2
-    .param p2, "url"    # Lokhttp3/HttpUrl;
 
     .line 439
     iput-object p1, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->this$0:Lokhttp3/internal/http1/Http1Codec;
@@ -40,20 +39,19 @@
 
     invoke-direct {p0, p1, v0}, Lokhttp3/internal/http1/Http1Codec$AbstractSource;-><init>(Lokhttp3/internal/http1/Http1Codec;Lokhttp3/internal/http1/Http1Codec$1;)V
 
-    .line 436
     const-wide/16 v0, -0x1
 
+    .line 436
     iput-wide v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
 
-    .line 437
     const/4 p1, 0x1
 
+    .line 437
     iput-boolean p1, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->hasMoreChunks:Z
 
     .line 440
     iput-object p2, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->url:Lokhttp3/HttpUrl;
 
-    .line 441
     return-void
 .end method
 
@@ -108,7 +106,6 @@
     move-result-object v0
 
     .line 471
-    .local v0, "extensions":Ljava/lang/String;
     iget-wide v1, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
 
     const-wide/16 v3, 0x0
@@ -133,21 +130,17 @@
 
     if-eqz v1, :cond_3
 
-    .line 477
-    .end local v0    # "extensions":Ljava/lang/String;
-    :cond_1
-    nop
-
     .line 478
+    :cond_1
     iget-wide v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
 
     cmp-long v2, v0, v3
 
     if-nez v2, :cond_2
 
-    .line 479
     const/4 v0, 0x0
 
+    .line 479
     iput-boolean v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->hasMoreChunks:Z
 
     .line 480
@@ -169,19 +162,17 @@
 
     invoke-static {v0, v1, v2}, Lokhttp3/internal/http/HttpHeaders;->receiveHeaders(Lokhttp3/CookieJar;Lokhttp3/HttpUrl;Lokhttp3/Headers;)V
 
-    .line 481
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 481
     invoke-virtual {p0, v0, v1}, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->endOfInput(ZLjava/io/IOException;)V
 
-    .line 483
     :cond_2
     return-void
 
     .line 472
-    .restart local v0    # "extensions":Ljava/lang/String;
     :cond_3
     :try_start_1
     new-instance v1, Ljava/net/ProtocolException;
@@ -200,34 +191,31 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "\""
+    const-string v0, "\""
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
     throw v1
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 475
-    .end local v0    # "extensions":Ljava/lang/String;
     :catch_0
     move-exception v0
 
     .line 476
-    .local v0, "e":Ljava/lang/NumberFormatException;
     new-instance v1, Ljava/net/ProtocolException;
 
     invoke-virtual {v0}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-direct {v1, v2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
     throw v1
 .end method
@@ -265,34 +253,30 @@
 
     if-nez v0, :cond_1
 
-    .line 488
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
+    .line 488
     invoke-virtual {p0, v0, v1}, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->endOfInput(ZLjava/io/IOException;)V
 
-    .line 490
     :cond_1
     const/4 v0, 0x1
 
+    .line 490
     iput-boolean v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->closed:Z
 
-    .line 491
     return-void
 .end method
 
 .method public read(Lokio/Buffer;J)J
     .locals 7
-    .param p1, "sink"    # Lokio/Buffer;
-    .param p2, "byteCount"    # J
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    .line 444
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
@@ -342,76 +326,70 @@
 
     invoke-static {p2, p3, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v0
+    move-result-wide p2
 
-    invoke-super {p0, p1, v0, v1}, Lokhttp3/internal/http1/Http1Codec$AbstractSource;->read(Lokio/Buffer;J)J
+    invoke-super {p0, p1, p2, p3}, Lokhttp3/internal/http1/Http1Codec$AbstractSource;->read(Lokio/Buffer;J)J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    .line 454
-    .local v0, "read":J
-    cmp-long v2, v0, v3
+    cmp-long p3, p1, v3
 
-    if-eqz v2, :cond_3
+    if-eqz p3, :cond_3
 
     .line 459
-    iget-wide v2, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
+    iget-wide v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
 
-    sub-long/2addr v2, v0
+    sub-long/2addr v0, p1
 
-    iput-wide v2, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
+    iput-wide v0, p0, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->bytesRemainingInChunk:J
 
-    .line 460
-    return-wide v0
+    return-wide p1
 
     .line 455
     :cond_3
-    new-instance v2, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    const-string v3, "unexpected end of stream"
+    const-string p2, "unexpected end of stream"
 
-    invoke-direct {v2, v3}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+
+    const/4 p2, 0x0
 
     .line 456
-    .local v2, "e":Ljava/net/ProtocolException;
-    const/4 v3, 0x0
-
-    invoke-virtual {p0, v3, v2}, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->endOfInput(ZLjava/io/IOException;)V
+    invoke-virtual {p0, p2, p1}, Lokhttp3/internal/http1/Http1Codec$ChunkedSource;->endOfInput(ZLjava/io/IOException;)V
 
     .line 457
-    throw v2
+    throw p1
 
     .line 445
-    .end local v0    # "read":J
-    .end local v2    # "e":Ljava/net/ProtocolException;
     :cond_4
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 444
     :cond_5
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

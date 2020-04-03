@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/bridge/CatalystInstanceImpl$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/facebook/react/bridge/CatalystInstanceImpl$1;
 
     .line 356
     iput-object p1, p0, Lcom/facebook/react/bridge/CatalystInstanceImpl$1$1;->this$1:Lcom/facebook/react/bridge/CatalystInstanceImpl$1;
@@ -72,11 +71,11 @@
 
     invoke-interface {v0}, Lcom/facebook/react/bridge/queue/ReactQueueConfiguration;->destroy()V
 
-    .line 369
     const-string v0, "ReactNative"
 
     const-string v1, "CatalystInstanceImpl.destroy() end"
 
+    .line 369
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 370
@@ -84,6 +83,5 @@
 
     invoke-static {v0}, Lcom/facebook/react/bridge/ReactMarker;->logMarker(Lcom/facebook/react/bridge/ReactMarkerConstants;)V
 
-    .line 371
     return-void
 .end method

@@ -23,18 +23,16 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
+    .locals 0
 
     .line 46
     invoke-direct {p0, p1}, Lcom/facebook/drawee/drawable/ForwardingDrawable;-><init>(Landroid/graphics/drawable/Drawable;)V
 
+    const/4 p1, 0x0
+
     .line 38
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/facebook/drawee/generic/RootDrawable;->mControllerOverlay:Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Lcom/facebook/drawee/generic/RootDrawable;->mControllerOverlay:Landroid/graphics/drawable/Drawable;
-
-    .line 47
     return-void
 .end method
 
@@ -42,7 +40,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongCall"
@@ -56,7 +53,6 @@
 
     if-nez v0, :cond_0
 
-    .line 76
     return-void
 
     .line 78
@@ -89,7 +85,6 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 86
     :cond_2
     return-void
 .end method
@@ -97,7 +92,6 @@
 .method public getIntrinsicHeight()I
     .locals 1
 
-    .line 56
     const/4 v0, -0x1
 
     return v0
@@ -106,7 +100,6 @@
 .method public getIntrinsicWidth()I
     .locals 1
 
-    .line 51
     const/4 v0, -0x1
 
     return v0
@@ -114,7 +107,7 @@
 
 .method public setControllerOverlay(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "controllerOverlay"    # Landroid/graphics/drawable/Drawable;
+    .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -125,13 +118,12 @@
     .line 90
     invoke-virtual {p0}, Lcom/facebook/drawee/generic/RootDrawable;->invalidateSelf()V
 
-    .line 91
     return-void
 .end method
 
 .method public setVisibilityCallback(Lcom/facebook/drawee/drawable/VisibilityCallback;)V
     .locals 0
-    .param p1, "visibilityCallback"    # Lcom/facebook/drawee/drawable/VisibilityCallback;
+    .param p1    # Lcom/facebook/drawee/drawable/VisibilityCallback;
         .annotation runtime Ljavax/annotation/Nullable;
         .end annotation
     .end param
@@ -139,14 +131,11 @@
     .line 61
     iput-object p1, p0, Lcom/facebook/drawee/generic/RootDrawable;->mVisibilityCallback:Lcom/facebook/drawee/drawable/VisibilityCallback;
 
-    .line 62
     return-void
 .end method
 
 .method public setVisible(ZZ)Z
     .locals 1
-    .param p1, "visible"    # Z
-    .param p2, "restart"    # Z
 
     .line 66
     iget-object v0, p0, Lcom/facebook/drawee/generic/RootDrawable;->mVisibilityCallback:Lcom/facebook/drawee/drawable/VisibilityCallback;
@@ -160,7 +149,7 @@
     :cond_0
     invoke-super {p0, p1, p2}, Lcom/facebook/drawee/drawable/ForwardingDrawable;->setVisible(ZZ)Z
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

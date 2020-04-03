@@ -21,8 +21,6 @@
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/view/animation/Animation$AnimationListener;)V
     .locals 0
-    .param p1, "v"    # Landroid/view/View;
-    .param p2, "listener"    # Landroid/view/animation/Animation$AnimationListener;
 
     .line 4004
     invoke-direct {p0, p2}, Landroid/support/v4/app/FragmentManagerImpl$AnimationListenerWrapper;-><init>(Landroid/view/animation/Animation$AnimationListener;)V
@@ -30,7 +28,6 @@
     .line 4005
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimateOnHWLayerIfNeededListener;->mView:Landroid/view/View;
 
-    .line 4006
     return-void
 .end method
 
@@ -38,7 +35,6 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 3
-    .param p1, "animation"    # Landroid/view/animation/Animation;
     .annotation build Landroid/support/annotation/CallSuper;
     .end annotation
 
@@ -86,6 +82,5 @@
     :goto_1
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentManagerImpl$AnimationListenerWrapper;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
-    .line 4032
     return-void
 .end method

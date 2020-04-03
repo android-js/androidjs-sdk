@@ -35,13 +35,12 @@
 
 # virtual methods
 .method public destroyItem(Landroid/view/View;ILjava/lang/Object;)V
-    .locals 2
-    .param p1, "container"    # Landroid/view/View;
+    .locals 0
+    .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "position"    # I
-    .param p3, "object"    # Ljava/lang/Object;
+    .param p3    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -49,23 +48,22 @@
     .end annotation
 
     .line 202
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Required method destroyItem was not overridden"
+    const-string p2, "Required method destroyItem was not overridden"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/ViewGroup;
+    .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "position"    # I
-    .param p3, "object"    # Ljava/lang/Object;
+    .param p3    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -73,26 +71,24 @@
     .line 129
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/view/PagerAdapter;->destroyItem(Landroid/view/View;ILjava/lang/Object;)V
 
-    .line 130
     return-void
 .end method
 
 .method public finishUpdate(Landroid/view/View;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/View;
+    .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 231
     return-void
 .end method
 
 .method public finishUpdate(Landroid/view/ViewGroup;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/ViewGroup;
+    .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -100,7 +96,6 @@
     .line 154
     invoke-virtual {p0, p1}, Landroid/support/v4/view/PagerAdapter;->finishUpdate(Landroid/view/View;)V
 
-    .line 155
     return-void
 .end method
 
@@ -108,47 +103,41 @@
 .end method
 
 .method public getItemPosition(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "object"    # Ljava/lang/Object;
+    .locals 0
+    .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    .line 281
-    const/4 v0, -0x1
+    const/4 p1, -0x1
 
-    return v0
+    return p1
 .end method
 
 .method public getPageTitle(I)Ljava/lang/CharSequence;
-    .locals 1
-    .param p1, "position"    # I
+    .locals 0
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    .line 332
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getPageWidth(I)F
-    .locals 1
-    .param p1, "position"    # I
+    .locals 0
 
-    .line 343
-    const/high16 v0, 0x3f800000    # 1.0f
+    const/high16 p1, 0x3f800000    # 1.0f
 
-    return v0
+    return p1
 .end method
 
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
-    .locals 2
-    .param p1, "container"    # Landroid/view/View;
+    .locals 0
+    .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "position"    # I
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -156,31 +145,30 @@
     .end annotation
 
     .line 184
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    new-instance p1, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "Required method instantiateItem was not overridden"
+    const-string p2, "Required method instantiateItem was not overridden"
 
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
-    .locals 1
-    .param p1, "container"    # Landroid/view/ViewGroup;
+    .locals 0
+    .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "position"    # I
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
     .line 115
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/view/PagerAdapter;->instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public abstract isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
@@ -222,13 +210,12 @@
 
     invoke-virtual {v0}, Landroid/database/DataSetObservable;->notifyChanged()V
 
-    .line 295
     return-void
 
-    .line 293
     :catchall_0
     move-exception v0
 
+    .line 293
     :try_start_1
     monitor-exit p0
     :try_end_1
@@ -239,7 +226,7 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .param p1, "observer"    # Landroid/database/DataSetObserver;
+    .param p1    # Landroid/database/DataSetObserver;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -249,22 +236,20 @@
 
     invoke-virtual {v0, p1}, Landroid/database/DataSetObservable;->registerObserver(Ljava/lang/Object;)V
 
-    .line 304
     return-void
 .end method
 
 .method public restoreState(Landroid/os/Parcelable;Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1, "state"    # Landroid/os/Parcelable;
+    .param p1    # Landroid/os/Parcelable;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
-    .param p2, "loader"    # Ljava/lang/ClassLoader;
+    .param p2    # Ljava/lang/ClassLoader;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    .line 263
     return-void
 .end method
 
@@ -273,7 +258,6 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    .line 252
     const/4 v0, 0x0
 
     return-object v0
@@ -281,30 +265,27 @@
 
 .method public setPrimaryItem(Landroid/view/View;ILjava/lang/Object;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/View;
+    .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "position"    # I
-    .param p3, "object"    # Ljava/lang/Object;
+    .param p3    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 218
     return-void
 .end method
 
 .method public setPrimaryItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/ViewGroup;
+    .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
-    .param p2, "position"    # I
-    .param p3, "object"    # Ljava/lang/Object;
+    .param p3    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -312,13 +293,11 @@
     .line 143
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/view/PagerAdapter;->setPrimaryItem(Landroid/view/View;ILjava/lang/Object;)V
 
-    .line 144
     return-void
 .end method
 
 .method setViewPagerObserver(Landroid/database/DataSetObserver;)V
-    .locals 1
-    .param p1, "observer"    # Landroid/database/DataSetObserver;
+    .locals 0
 
     .line 316
     monitor-enter p0
@@ -330,36 +309,33 @@
     .line 318
     monitor-exit p0
 
-    .line 319
     return-void
 
-    .line 318
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public startUpdate(Landroid/view/View;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/View;
+    .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    .line 166
     return-void
 .end method
 
 .method public startUpdate(Landroid/view/ViewGroup;)V
     .locals 0
-    .param p1, "container"    # Landroid/view/ViewGroup;
+    .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -367,13 +343,12 @@
     .line 99
     invoke-virtual {p0, p1}, Landroid/support/v4/view/PagerAdapter;->startUpdate(Landroid/view/View;)V
 
-    .line 100
     return-void
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .param p1, "observer"    # Landroid/database/DataSetObserver;
+    .param p1    # Landroid/database/DataSetObserver;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
@@ -383,6 +358,5 @@
 
     invoke-virtual {v0, p1}, Landroid/database/DataSetObservable;->unregisterObserver(Ljava/lang/Object;)V
 
-    .line 313
     return-void
 .end method

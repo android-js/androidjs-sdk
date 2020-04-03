@@ -40,8 +40,6 @@
 # virtual methods
 .method public compare(Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;)I
     .locals 4
-    .param p1, "a"    # Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
-    .param p2, "b"    # Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;
 
     .line 62
     iget v0, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->start:I
@@ -52,7 +50,6 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 63
     return v2
 
     .line 66
@@ -65,7 +62,6 @@
 
     if-le v0, v1, :cond_1
 
-    .line 67
     return v3
 
     .line 70
@@ -76,25 +72,22 @@
 
     if-ge v0, v1, :cond_2
 
-    .line 71
     return v3
 
     .line 74
     :cond_2
-    iget v0, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
+    iget p1, p1, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
 
-    iget v1, p2, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
+    iget p2, p2, Landroid/support/v4/text/util/LinkifyCompat$LinkSpec;->end:I
 
-    if-le v0, v1, :cond_3
+    if-le p1, p2, :cond_3
 
-    .line 75
     return v2
 
-    .line 78
     :cond_3
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return v0
+    return p1
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

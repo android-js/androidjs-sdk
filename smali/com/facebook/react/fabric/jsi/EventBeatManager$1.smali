@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/facebook/react/fabric/jsi/EventBeatManager;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/facebook/react/fabric/jsi/EventBeatManager;
 
     .line 53
     iput-object p1, p0, Lcom/facebook/react/fabric/jsi/EventBeatManager$1;->this$0:Lcom/facebook/react/fabric/jsi/EventBeatManager;
@@ -44,6 +43,5 @@
 
     invoke-static {v0}, Lcom/facebook/react/fabric/jsi/EventBeatManager;->access$000(Lcom/facebook/react/fabric/jsi/EventBeatManager;)V
 
-    .line 57
     return-void
 .end method

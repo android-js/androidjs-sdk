@@ -37,7 +37,6 @@
 
 .method synthetic constructor <init>(Lcom/facebook/react/devsupport/BundleDeltaClient$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/facebook/react/devsupport/BundleDeltaClient$1;
 
     .line 189
     invoke-direct {p0}, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;-><init>()V
@@ -49,28 +48,25 @@
 # virtual methods
 .method public canHandle(Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;)Z
     .locals 1
-    .param p1, "type"    # Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
 
     .line 194
     sget-object v0, Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;->NATIVE:Lcom/facebook/react/devsupport/BundleDeltaClient$ClientType;
 
     if-ne p1, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method protected processDelta(Lokio/BufferedSource;Ljava/io/File;)Landroid/util/Pair;
-    .locals 2
-    .param p1, "body"    # Lokio/BufferedSource;
-    .param p2, "outputFile"    # Ljava/io/File;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,20 +87,20 @@
     .end annotation
 
     .line 201
-    iget-object v0, p0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;->nativeClient:Lcom/facebook/react/bridge/NativeDeltaClient;
+    iget-object p2, p0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;->nativeClient:Lcom/facebook/react/bridge/NativeDeltaClient;
 
-    invoke-virtual {v0, p1}, Lcom/facebook/react/bridge/NativeDeltaClient;->processDelta(Ljava/nio/channels/ReadableByteChannel;)V
+    invoke-virtual {p2, p1}, Lcom/facebook/react/bridge/NativeDeltaClient;->processDelta(Ljava/nio/channels/ReadableByteChannel;)V
 
     .line 202
-    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    sget-object p1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    iget-object v1, p0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;->nativeClient:Lcom/facebook/react/bridge/NativeDeltaClient;
+    iget-object p2, p0, Lcom/facebook/react/devsupport/BundleDeltaClient$BundleDeltaNativeClient;->nativeClient:Lcom/facebook/react/bridge/NativeDeltaClient;
 
-    invoke-static {v0, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public reset()V
@@ -118,6 +114,5 @@
 
     invoke-virtual {v0}, Lcom/facebook/react/bridge/NativeDeltaClient;->reset()V
 
-    .line 209
     return-void
 .end method

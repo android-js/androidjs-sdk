@@ -23,8 +23,6 @@
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/uimanager/UIViewOperationQueue;ILjava/lang/Object;)V
     .locals 0
-    .param p2, "tag"    # I
-    .param p3, "extraData"    # Ljava/lang/Object;
 
     .line 258
     iput-object p1, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdateViewExtraData;->this$0:Lcom/facebook/react/uimanager/UIViewOperationQueue;
@@ -35,7 +33,6 @@
     .line 260
     iput-object p3, p0, Lcom/facebook/react/uimanager/UIViewOperationQueue$UpdateViewExtraData;->mExtraData:Ljava/lang/Object;
 
-    .line 261
     return-void
 .end method
 
@@ -57,6 +54,5 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/facebook/react/uimanager/NativeViewHierarchyManager;->updateViewExtraData(ILjava/lang/Object;)V
 
-    .line 266
     return-void
 .end method
