@@ -154,12 +154,12 @@
 
     :array_1
     .array-data 4
-        0x7f020088
-        0x7f020089
-        0x7f02008a
-        0x7f02008b
-        0x7f02008c
-        0x7f02008d
+        0x7f0200bd
+        0x7f0200be
+        0x7f0200bf
+        0x7f0200c0
+        0x7f0200c1
+        0x7f0200c2
     .end array-data
 
     :array_2
@@ -169,11 +169,11 @@
         0x101053f
         0x101056f
         0x1010570
-        0x7f020086
-        0x7f02008e
-        0x7f02008f
-        0x7f020090
-        0x7f020163
+        0x7f0200bb
+        0x7f0200c3
+        0x7f0200c4
+        0x7f0200c5
+        0x7f0201dc
     .end array-data
 
     :array_3

@@ -51,6 +51,7 @@
     <item type="id" name="list_item" />
     <item type="id" name="media_actions" />
     <item type="id" name="message" />
+    <item type="id" name="motion_base" />
     <item type="id" name="notification_background" />
     <item type="id" name="notification_main_column" />
     <item type="id" name="notification_main_column_container" />
