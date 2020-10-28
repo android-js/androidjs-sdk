@@ -207,18 +207,16 @@
 
 .field public static final notify_panel_notification_icon_bg:I = 0x7f06005f
 
-.field public static final redbox_top_border_background:I = 0x7f060060
+.field public static final tooltip_frame_dark:I = 0x7f060060
 
-.field public static final tooltip_frame_dark:I = 0x7f060061
-
-.field public static final tooltip_frame_light:I = 0x7f060062
+.field public static final tooltip_frame_light:I = 0x7f060061
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .line 4603
+    .line 4272
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

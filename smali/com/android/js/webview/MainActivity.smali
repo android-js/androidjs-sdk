@@ -41,7 +41,7 @@
     .line 25
     invoke-virtual {p0, p0}, Lcom/android/js/webview/MainActivity;->start_node(Landroid/app/Activity;)V
 
-    const p1, 0x7f0700ef
+    const p1, 0x7f0700d3
 
     .line 29
     invoke-virtual {p0, p1}, Lcom/android/js/webview/MainActivity;->findViewById(I)Landroid/view/View;

@@ -75,7 +75,7 @@
 
     const-string v0, " ################# init"
 
-    .line 139
+    .line 140
     invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
@@ -86,7 +86,7 @@
 .method protected generateDefaultLayoutParams()Landroid/support/constraint/Constraints$LayoutParams;
     .locals 2
 
-    .line 135
+    .line 136
     new-instance v0, Landroid/support/constraint/Constraints$LayoutParams;
 
     const/4 v1, -0x2
@@ -136,7 +136,7 @@
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
 
-    .line 147
+    .line 148
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     invoke-direct {v0, p1}, Landroid/support/constraint/ConstraintLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
@@ -147,25 +147,25 @@
 .method public getConstraintSet()Landroid/support/constraint/ConstraintSet;
     .locals 1
 
-    .line 151
+    .line 152
     iget-object v0, p0, Landroid/support/constraint/Constraints;->myConstraintSet:Landroid/support/constraint/ConstraintSet;
 
     if-nez v0, :cond_0
 
-    .line 152
+    .line 153
     new-instance v0, Landroid/support/constraint/ConstraintSet;
 
     invoke-direct {v0}, Landroid/support/constraint/ConstraintSet;-><init>()V
 
     iput-object v0, p0, Landroid/support/constraint/Constraints;->myConstraintSet:Landroid/support/constraint/ConstraintSet;
 
-    .line 155
+    .line 156
     :cond_0
     iget-object v0, p0, Landroid/support/constraint/Constraints;->myConstraintSet:Landroid/support/constraint/ConstraintSet;
 
     invoke-virtual {v0, p0}, Landroid/support/constraint/ConstraintSet;->clone(Landroid/support/constraint/Constraints;)V
 
-    .line 156
+    .line 157
     iget-object v0, p0, Landroid/support/constraint/Constraints;->myConstraintSet:Landroid/support/constraint/ConstraintSet;
 
     return-object v0

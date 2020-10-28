@@ -34,19 +34,19 @@
 .method constructor <init>(Landroid/support/constraint/motion/MotionLayout;)V
     .locals 0
 
-    .line 1971
+    .line 1974
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1972
+    .line 1975
     new-instance p1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-direct {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>()V
 
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    .line 1973
+    .line 1976
     new-instance p1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-direct {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>()V
@@ -55,10 +55,10 @@
 
     const/4 p1, 0x0
 
-    .line 1974
+    .line 1977
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
-    .line 1975
+    .line 1978
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mEnd:Landroid/support/constraint/ConstraintSet;
 
     return-void
@@ -67,14 +67,14 @@
 .method private debugLayout(Ljava/lang/String;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;)V
     .locals 10
 
-    .line 2162
+    .line 2165
     invoke-virtual {p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/View;
 
-    .line 2163
+    .line 2166
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    .line 2164
+    .line 2167
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -116,7 +116,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2165
+    .line 2168
     invoke-virtual {p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
     move-result-object v1
@@ -130,7 +130,7 @@
     :goto_0
     if-ge v3, v1, :cond_5
 
-    .line 2167
+    .line 2170
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -151,7 +151,7 @@
 
     move-result-object v4
 
-    .line 2168
+    .line 2171
     invoke-virtual {p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
     move-result-object v5
@@ -162,7 +162,7 @@
 
     check-cast v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 2170
+    .line 2173
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -193,7 +193,7 @@
 
     move-result-object v6
 
-    .line 2171
+    .line 2174
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -220,7 +220,7 @@
 
     move-result-object v6
 
-    .line 2172
+    .line 2175
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -247,7 +247,7 @@
 
     move-result-object v6
 
-    .line 2173
+    .line 2176
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -269,24 +269,24 @@
 
     move-result-object v6
 
-    .line 2174
+    .line 2177
     invoke-virtual {v5}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Landroid/view/View;
 
-    .line 2175
+    .line 2178
     invoke-static {v7}, Landroid/support/constraint/motion/Debug;->getName(Landroid/view/View;)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 2176
+    .line 2179
     instance-of v9, v7, Landroid/widget/TextView;
 
     if-eqz v9, :cond_4
 
-    .line 2177
+    .line 2180
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -313,7 +313,7 @@
 
     move-result-object v8
 
-    .line 2179
+    .line 2182
     :cond_4
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -345,7 +345,7 @@
 
     goto/16 :goto_0
 
-    .line 2181
+    .line 2184
     :cond_5
     new-instance p1, Ljava/lang/StringBuilder;
 
@@ -369,7 +369,7 @@
 .method private debugLayoutParam(Ljava/lang/String;Landroid/support/constraint/ConstraintLayout$LayoutParams;)V
     .locals 4
 
-    .line 2137
+    .line 2140
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -398,7 +398,7 @@
 
     move-result-object v0
 
-    .line 2138
+    .line 2141
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -425,7 +425,7 @@
 
     move-result-object v0
 
-    .line 2139
+    .line 2142
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -450,7 +450,7 @@
 
     move-result-object v0
 
-    .line 2140
+    .line 2143
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -475,7 +475,7 @@
 
     move-result-object v0
 
-    .line 2141
+    .line 2144
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -500,7 +500,7 @@
 
     move-result-object v0
 
-    .line 2142
+    .line 2145
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -525,7 +525,7 @@
 
     move-result-object v0
 
-    .line 2143
+    .line 2146
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -550,7 +550,7 @@
 
     move-result-object v0
 
-    .line 2144
+    .line 2147
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -575,7 +575,7 @@
 
     move-result-object v0
 
-    .line 2145
+    .line 2148
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -600,7 +600,7 @@
 
     move-result-object v0
 
-    .line 2146
+    .line 2149
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -625,7 +625,7 @@
 
     move-result-object v0
 
-    .line 2147
+    .line 2150
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -650,7 +650,7 @@
 
     move-result-object v0
 
-    .line 2148
+    .line 2151
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -670,7 +670,7 @@
 
     move-result-object p2
 
-    .line 2149
+    .line 2152
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -693,7 +693,7 @@
 .method private debugWidget(Ljava/lang/String;Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
     .locals 7
 
-    .line 2154
+    .line 2157
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -756,7 +756,7 @@
 
     move-result-object v0
 
-    .line 2155
+    .line 2158
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -806,7 +806,7 @@
 
     move-result-object v0
 
-    .line 2156
+    .line 2159
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -865,7 +865,7 @@
 
     move-result-object v0
 
-    .line 2157
+    .line 2160
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -910,7 +910,7 @@
 
     move-result-object v0
 
-    .line 2158
+    .line 2161
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -939,27 +939,27 @@
 .method private setupConstraintWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/ConstraintSet;)V
     .locals 12
 
-    .line 2064
+    .line 2067
     new-instance v6, Landroid/util/SparseArray;
 
     invoke-direct {v6}, Landroid/util/SparseArray;-><init>()V
 
-    .line 2065
+    .line 2068
     new-instance v7, Landroid/support/constraint/Constraints$LayoutParams;
 
     const/4 v0, -0x2
 
     invoke-direct {v7, v0, v0}, Landroid/support/constraint/Constraints$LayoutParams;-><init>(II)V
 
-    .line 2067
+    .line 2070
     invoke-virtual {v6}, Landroid/util/SparseArray;->clear()V
 
     const/4 v8, 0x0
 
-    .line 2068
+    .line 2071
     invoke-virtual {v6, v8, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 2069
+    .line 2072
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-virtual {v0}, Landroid/support/constraint/motion/MotionLayout;->getId()I
@@ -968,7 +968,7 @@
 
     invoke-virtual {v6, v0, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 2072
+    .line 2075
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
     move-result-object v0
@@ -990,14 +990,14 @@
 
     check-cast v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 2073
+    .line 2076
     invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/view/View;
 
-    .line 2074
+    .line 2077
     invoke-virtual {v2}, Landroid/view/View;->getId()I
 
     move-result v2
@@ -1006,7 +1006,7 @@
 
     goto :goto_0
 
-    .line 2077
+    .line 2080
     :cond_0
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
@@ -1031,7 +1031,7 @@
 
     check-cast v10, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 2078
+    .line 2081
     invoke-virtual {v10}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v0
@@ -1040,14 +1040,14 @@
 
     check-cast v11, Landroid/view/View;
 
-    .line 2079
+    .line 2082
     invoke-virtual {v11}, Landroid/view/View;->getId()I
 
     move-result v0
 
     invoke-virtual {p2, v0, v7}, Landroid/support/constraint/ConstraintSet;->applyToLayoutParams(ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
 
-    .line 2081
+    .line 2084
     invoke-virtual {v11}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1058,7 +1058,7 @@
 
     invoke-virtual {v10, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setWidth(I)V
 
-    .line 2082
+    .line 2085
     invoke-virtual {v11}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1069,31 +1069,31 @@
 
     invoke-virtual {v10, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHeight(I)V
 
-    .line 2083
+    .line 2086
     instance-of v0, v11, Landroid/support/constraint/ConstraintHelper;
 
     if-eqz v0, :cond_1
 
-    .line 2084
+    .line 2087
     move-object v0, v11
 
     check-cast v0, Landroid/support/constraint/ConstraintHelper;
 
     invoke-virtual {p2, v0, v10, v7, v6}, Landroid/support/constraint/ConstraintSet;->applyToHelper(Landroid/support/constraint/ConstraintHelper;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
 
-    .line 2085
+    .line 2088
     instance-of v0, v11, Landroid/support/constraint/Barrier;
 
     if-eqz v0, :cond_1
 
-    .line 2086
+    .line 2089
     move-object v0, v11
 
     check-cast v0, Landroid/support/constraint/Barrier;
 
     invoke-virtual {v0}, Landroid/support/constraint/Barrier;->validateParams()V
 
-    .line 2096
+    .line 2099
     :cond_1
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -1101,7 +1101,7 @@
 
     if-lt v0, v1, :cond_2
 
-    .line 2097
+    .line 2100
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-virtual {v0}, Landroid/support/constraint/motion/MotionLayout;->getLayoutDirection()I
@@ -1112,11 +1112,11 @@
 
     goto :goto_2
 
-    .line 2099
+    .line 2102
     :cond_2
     invoke-virtual {v7, v8}, Landroid/support/constraint/Constraints$LayoutParams;->resolveLayoutDirection(I)V
 
-    .line 2101
+    .line 2104
     :goto_2
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -1132,7 +1132,7 @@
 
     invoke-static/range {v0 .. v5}, Landroid/support/constraint/motion/MotionLayout;->access$800(Landroid/support/constraint/motion/MotionLayout;ZLandroid/view/View;Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
 
-    .line 2102
+    .line 2105
     invoke-virtual {v11}, Landroid/view/View;->getId()I
 
     move-result v0
@@ -1145,7 +1145,7 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 2103
+    .line 2106
     invoke-virtual {v11}, Landroid/view/View;->getVisibility()I
 
     move-result v0
@@ -1154,7 +1154,7 @@
 
     goto :goto_1
 
-    .line 2105
+    .line 2108
     :cond_3
     invoke-virtual {v11}, Landroid/view/View;->getId()I
 
@@ -1168,7 +1168,7 @@
 
     goto/16 :goto_1
 
-    .line 2108
+    .line 2111
     :cond_4
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
@@ -1192,28 +1192,28 @@
 
     check-cast v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 2109
+    .line 2112
     instance-of v1, v0, Landroid/support/constraint/solver/widgets/VirtualLayout;
 
     if-eqz v1, :cond_5
 
-    .line 2110
+    .line 2113
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/support/constraint/ConstraintHelper;
 
-    .line 2111
+    .line 2114
     check-cast v0, Landroid/support/constraint/solver/widgets/Helper;
 
-    .line 2112
+    .line 2115
     invoke-virtual {v1, p1, v0, v6}, Landroid/support/constraint/ConstraintHelper;->updatePreLayout(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/widgets/Helper;Landroid/util/SparseArray;)V
 
-    .line 2113
+    .line 2116
     check-cast v0, Landroid/support/constraint/solver/widgets/VirtualLayout;
 
-    .line 2114
+    .line 2117
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/VirtualLayout;->captureWidgets()V
 
     goto :goto_3
@@ -1227,14 +1227,14 @@
 .method public build()V
     .locals 10
 
-    .line 2265
+    .line 2268
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-virtual {v0}, Landroid/support/constraint/motion/MotionLayout;->getChildCount()I
 
     move-result v0
 
-    .line 2266
+    .line 2269
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, v1, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
@@ -1248,19 +1248,19 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 2269
+    .line 2272
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-virtual {v3, v2}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 2270
+    .line 2273
     new-instance v4, Landroid/support/constraint/motion/MotionController;
 
     invoke-direct {v4, v3}, Landroid/support/constraint/motion/MotionController;-><init>(Landroid/view/View;)V
 
-    .line 2272
+    .line 2275
     iget-object v5, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v5, v5, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
@@ -1275,14 +1275,14 @@
     :goto_1
     if-ge v1, v0, :cond_6
 
-    .line 2275
+    .line 2278
     iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-virtual {v2, v1}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
-    .line 2276
+    .line 2279
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v3, v3, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
@@ -1297,7 +1297,7 @@
 
     goto/16 :goto_3
 
-    .line 2280
+    .line 2283
     :cond_1
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
@@ -1311,7 +1311,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 2281
+    .line 2284
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p0, v4, v2}, Landroid/support/constraint/motion/MotionLayout$Model;->getWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/view/View;)Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -1320,14 +1320,14 @@
 
     if-eqz v4, :cond_2
 
-    .line 2283
+    .line 2286
     iget-object v9, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
     invoke-virtual {v3, v4, v9}, Landroid/support/constraint/motion/MotionController;->setStartState(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintSet;)V
 
     goto :goto_2
 
-    .line 2285
+    .line 2288
     :cond_2
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -1335,7 +1335,7 @@
 
     if-eqz v4, :cond_3
 
-    .line 2286
+    .line 2289
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1374,14 +1374,14 @@
 
     invoke-static {v8, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2290
+    .line 2293
     :cond_3
     :goto_2
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mEnd:Landroid/support/constraint/ConstraintSet;
 
     if-eqz v4, :cond_5
 
-    .line 2291
+    .line 2294
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p0, v4, v2}, Landroid/support/constraint/motion/MotionLayout$Model;->getWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/view/View;)Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -1390,14 +1390,14 @@
 
     if-eqz v4, :cond_4
 
-    .line 2293
+    .line 2296
     iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mEnd:Landroid/support/constraint/ConstraintSet;
 
     invoke-virtual {v3, v4, v2}, Landroid/support/constraint/motion/MotionController;->setEndState(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/ConstraintSet;)V
 
     goto :goto_3
 
-    .line 2295
+    .line 2298
     :cond_4
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -1405,7 +1405,7 @@
 
     if-eqz v3, :cond_5
 
-    .line 2296
+    .line 2299
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1457,30 +1457,30 @@
 .method copy(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;)V
     .locals 4
 
-    .line 1980
+    .line 1983
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 1981
+    .line 1984
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 1982
+    .line 1985
     invoke-virtual {v1, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1983
+    .line 1986
     invoke-virtual {p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 1984
+    .line 1987
     invoke-virtual {p2, p1, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->copy(Landroid/support/constraint/solver/widgets/ConstraintWidget;Ljava/util/HashMap;)V
 
-    .line 1985
+    .line 1988
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -1498,73 +1498,73 @@
 
     check-cast v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 1987
+    .line 1990
     instance-of v3, v2, Landroid/support/constraint/solver/widgets/Barrier;
 
     if-eqz v3, :cond_0
 
-    .line 1988
+    .line 1991
     new-instance v3, Landroid/support/constraint/solver/widgets/Barrier;
 
     invoke-direct {v3}, Landroid/support/constraint/solver/widgets/Barrier;-><init>()V
 
     goto :goto_1
 
-    .line 1989
+    .line 1992
     :cond_0
     instance-of v3, v2, Landroid/support/constraint/solver/widgets/Guideline;
 
     if-eqz v3, :cond_1
 
-    .line 1990
+    .line 1993
     new-instance v3, Landroid/support/constraint/solver/widgets/Guideline;
 
     invoke-direct {v3}, Landroid/support/constraint/solver/widgets/Guideline;-><init>()V
 
     goto :goto_1
 
-    .line 1991
+    .line 1994
     :cond_1
     instance-of v3, v2, Landroid/support/constraint/solver/widgets/Flow;
 
     if-eqz v3, :cond_2
 
-    .line 1992
+    .line 1995
     new-instance v3, Landroid/support/constraint/solver/widgets/Flow;
 
     invoke-direct {v3}, Landroid/support/constraint/solver/widgets/Flow;-><init>()V
 
     goto :goto_1
 
-    .line 1993
+    .line 1996
     :cond_2
     instance-of v3, v2, Landroid/support/constraint/solver/widgets/Helper;
 
     if-eqz v3, :cond_3
 
-    .line 1994
+    .line 1997
     new-instance v3, Landroid/support/constraint/solver/widgets/HelperWidget;
 
     invoke-direct {v3}, Landroid/support/constraint/solver/widgets/HelperWidget;-><init>()V
 
     goto :goto_1
 
-    .line 1996
+    .line 1999
     :cond_3
     new-instance v3, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     invoke-direct {v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;-><init>()V
 
-    .line 1998
+    .line 2001
     :goto_1
     invoke-virtual {p2, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
 
-    .line 1999
+    .line 2002
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 2001
+    .line 2004
     :cond_4
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -1583,7 +1583,7 @@
 
     check-cast p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 2002
+    .line 2005
     invoke-virtual {v1, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1601,7 +1601,7 @@
 .method getWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/view/View;)Landroid/support/constraint/solver/widgets/ConstraintWidget;
     .locals 4
 
-    .line 2120
+    .line 2123
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v0
@@ -1610,13 +1610,13 @@
 
     return-object p1
 
-    .line 2123
+    .line 2126
     :cond_0
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getChildren()Ljava/util/ArrayList;
 
     move-result-object p1
 
-    .line 2124
+    .line 2127
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result v0
@@ -1626,14 +1626,14 @@
     :goto_0
     if-ge v1, v0, :cond_2
 
-    .line 2126
+    .line 2129
     invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 2127
+    .line 2130
     invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getCompanionWidget()Ljava/lang/Object;
 
     move-result-object v3
@@ -1656,27 +1656,27 @@
 .method initFrom(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/ConstraintSet;Landroid/support/constraint/ConstraintSet;)V
     .locals 4
 
-    .line 2007
+    .line 2010
     iput-object p2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
-    .line 2008
+    .line 2011
     iput-object p3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mEnd:Landroid/support/constraint/ConstraintSet;
 
-    .line 2009
+    .line 2012
     new-instance p1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-direct {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>()V
 
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    .line 2010
+    .line 2013
     new-instance p1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-direct {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>()V
 
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    .line 2011
+    .line 2014
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -1691,7 +1691,7 @@
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setMeasurer(Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
 
-    .line 2012
+    .line 2015
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -1706,17 +1706,17 @@
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setMeasurer(Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
 
-    .line 2013
+    .line 2016
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->removeAllChildren()V
 
-    .line 2014
+    .line 2017
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->removeAllChildren()V
 
-    .line 2015
+    .line 2018
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-static {p1}, Landroid/support/constraint/motion/MotionLayout;->access$400(Landroid/support/constraint/motion/MotionLayout;)Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -1727,7 +1727,7 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/support/constraint/motion/MotionLayout$Model;->copy(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;)V
 
-    .line 2016
+    .line 2019
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-static {p1}, Landroid/support/constraint/motion/MotionLayout;->access$500(Landroid/support/constraint/motion/MotionLayout;)Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -1738,7 +1738,7 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/support/constraint/motion/MotionLayout$Model;->copy(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;)V
 
-    .line 2017
+    .line 2020
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget p1, p1, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
@@ -1753,12 +1753,12 @@
 
     if-eqz p2, :cond_0
 
-    .line 2019
+    .line 2022
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/motion/MotionLayout$Model;->setupConstraintWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/ConstraintSet;)V
 
-    .line 2021
+    .line 2024
     :cond_0
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
@@ -1766,7 +1766,7 @@
 
     goto :goto_0
 
-    .line 2023
+    .line 2026
     :cond_1
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
@@ -1774,12 +1774,12 @@
 
     if-eqz p2, :cond_2
 
-    .line 2025
+    .line 2028
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/motion/MotionLayout$Model;->setupConstraintWidget(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;Landroid/support/constraint/ConstraintSet;)V
 
-    .line 2032
+    .line 2035
     :cond_2
     :goto_0
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -1792,12 +1792,12 @@
 
     invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setRtl(Z)V
 
-    .line 2033
+    .line 2036
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->updateHierarchy()V
 
-    .line 2042
+    .line 2045
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     iget-object p2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -1808,12 +1808,12 @@
 
     invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setRtl(Z)V
 
-    .line 2043
+    .line 2046
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->updateHierarchy()V
 
-    .line 2050
+    .line 2053
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1822,41 +1822,41 @@
 
     if-eqz p1, :cond_4
 
-    .line 2052
+    .line 2055
     iget p2, p1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     const/4 p3, -0x2
 
     if-ne p2, p3, :cond_3
 
-    .line 2053
+    .line 2056
     iget-object p2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     sget-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     invoke-virtual {p2, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    .line 2054
+    .line 2057
     iget-object p2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     sget-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     invoke-virtual {p2, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    .line 2056
+    .line 2059
     :cond_3
     iget p1, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     if-ne p1, p3, :cond_4
 
-    .line 2057
+    .line 2060
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setVerticalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    .line 2058
+    .line 2061
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     sget-object p2, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -1870,7 +1870,7 @@
 .method public isNotConfiguredWith(II)Z
     .locals 1
 
-    .line 2309
+    .line 2312
     iget v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStartId:I
 
     if-ne p1, v0, :cond_1
@@ -1897,30 +1897,30 @@
 .method public measure(II)V
     .locals 13
 
-    .line 2190
+    .line 2193
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v0
 
-    .line 2191
+    .line 2194
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
 
-    .line 2193
+    .line 2196
     iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iput v0, v2, Landroid/support/constraint/motion/MotionLayout;->mWidthMeasureMode:I
 
-    .line 2194
+    .line 2197
     iput v1, v2, Landroid/support/constraint/motion/MotionLayout;->mHeightMeasureMode:I
 
-    .line 2195
+    .line 2198
     invoke-virtual {v2}, Landroid/support/constraint/motion/MotionLayout;->getOptimizationLevel()I
 
     move-result v2
 
-    .line 2197
+    .line 2200
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget v3, v3, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
@@ -1933,19 +1933,19 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 2198
+    .line 2201
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-static {v3, v4, v2, p1, p2}, Landroid/support/constraint/motion/MotionLayout;->access$1200(Landroid/support/constraint/motion/MotionLayout;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;III)V
 
-    .line 2199
+    .line 2202
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
     if-eqz v3, :cond_2
 
-    .line 2200
+    .line 2203
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -1954,20 +1954,20 @@
 
     goto :goto_0
 
-    .line 2203
+    .line 2206
     :cond_0
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
     if-eqz v3, :cond_1
 
-    .line 2204
+    .line 2207
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-static {v3, v4, v2, p1, p2}, Landroid/support/constraint/motion/MotionLayout;->access$1400(Landroid/support/constraint/motion/MotionLayout;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;III)V
 
-    .line 2206
+    .line 2209
     :cond_1
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -1975,7 +1975,7 @@
 
     invoke-static {v3, v4, v2, p1, p2}, Landroid/support/constraint/motion/MotionLayout;->access$1500(Landroid/support/constraint/motion/MotionLayout;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;III)V
 
-    .line 2215
+    .line 2218
     :cond_2
     :goto_0
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -2008,15 +2008,15 @@
     :goto_1
     if-eqz v3, :cond_9
 
-    .line 2219
+    .line 2222
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iput v0, v3, Landroid/support/constraint/motion/MotionLayout;->mWidthMeasureMode:I
 
-    .line 2220
+    .line 2223
     iput v1, v3, Landroid/support/constraint/motion/MotionLayout;->mHeightMeasureMode:I
 
-    .line 2221
+    .line 2224
     iget v0, v3, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -2027,19 +2027,19 @@
 
     if-ne v0, v1, :cond_4
 
-    .line 2222
+    .line 2225
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-static {v0, v1, v2, p1, p2}, Landroid/support/constraint/motion/MotionLayout;->access$1600(Landroid/support/constraint/motion/MotionLayout;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;III)V
 
-    .line 2223
+    .line 2226
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
     if-eqz v0, :cond_6
 
-    .line 2224
+    .line 2227
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -2048,20 +2048,20 @@
 
     goto :goto_2
 
-    .line 2227
+    .line 2230
     :cond_4
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStart:Landroid/support/constraint/ConstraintSet;
 
     if-eqz v0, :cond_5
 
-    .line 2228
+    .line 2231
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-static {v0, v1, v2, p1, p2}, Landroid/support/constraint/motion/MotionLayout;->access$1800(Landroid/support/constraint/motion/MotionLayout;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;III)V
 
-    .line 2230
+    .line 2233
     :cond_5
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -2069,7 +2069,7 @@
 
     invoke-static {v0, v1, v2, p1, p2}, Landroid/support/constraint/motion/MotionLayout;->access$1900(Landroid/support/constraint/motion/MotionLayout;Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;III)V
 
-    .line 2233
+    .line 2236
     :cond_6
     :goto_2
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -2082,7 +2082,7 @@
 
     iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mStartWrapWidth:I
 
-    .line 2234
+    .line 2237
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -2093,7 +2093,7 @@
 
     iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mStartWrapHeight:I
 
-    .line 2235
+    .line 2238
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -2104,7 +2104,7 @@
 
     iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mEndWrapWidth:I
 
-    .line 2236
+    .line 2239
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -2115,7 +2115,7 @@
 
     iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mEndWrapHeight:I
 
-    .line 2237
+    .line 2240
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mStartWrapWidth:I
@@ -2150,18 +2150,18 @@
     :goto_4
     iput-boolean v1, v0, Landroid/support/constraint/motion/MotionLayout;->mMeasureDuringTransition:Z
 
-    .line 2241
+    .line 2244
     :cond_9
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget v0, v0, Landroid/support/constraint/motion/MotionLayout;->mStartWrapWidth:I
 
-    .line 2242
+    .line 2245
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget v1, v1, Landroid/support/constraint/motion/MotionLayout;->mStartWrapHeight:I
 
-    .line 2243
+    .line 2246
     iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget v2, v2, Landroid/support/constraint/motion/MotionLayout;->mWidthMeasureMode:I
@@ -2176,7 +2176,7 @@
 
     if-nez v2, :cond_b
 
-    .line 2244
+    .line 2247
     :cond_a
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -2209,7 +2209,7 @@
     :cond_b
     move v9, v0
 
-    .line 2246
+    .line 2249
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     iget v0, v0, Landroid/support/constraint/motion/MotionLayout;->mHeightMeasureMode:I
@@ -2222,7 +2222,7 @@
 
     if-nez v0, :cond_d
 
-    .line 2247
+    .line 2250
     :cond_c
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -2255,7 +2255,7 @@
     :cond_d
     move v10, v1
 
-    .line 2250
+    .line 2253
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->isWidthMeasuredTooSmall()Z
@@ -2266,7 +2266,7 @@
 
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    .line 2251
+    .line 2254
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->isWidthMeasuredTooSmall()Z
 
     move-result v0
@@ -2284,7 +2284,7 @@
     :goto_5
     const/4 v11, 0x1
 
-    .line 2252
+    .line 2255
     :goto_6
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutStart:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
@@ -2296,7 +2296,7 @@
 
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mLayoutEnd:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    .line 2253
+    .line 2256
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->isHeightMeasuredTooSmall()Z
 
     move-result v0
@@ -2314,7 +2314,7 @@
     :goto_7
     const/4 v12, 0x1
 
-    .line 2254
+    .line 2257
     :goto_8
     iget-object v6, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
@@ -2330,7 +2330,7 @@
 .method public reEvaluateState()V
     .locals 2
 
-    .line 2185
+    .line 2188
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-static {v0}, Landroid/support/constraint/motion/MotionLayout;->access$900(Landroid/support/constraint/motion/MotionLayout;)I
@@ -2345,7 +2345,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/support/constraint/motion/MotionLayout$Model;->measure(II)V
 
-    .line 2186
+    .line 2189
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-static {v0}, Landroid/support/constraint/motion/MotionLayout;->access$1100(Landroid/support/constraint/motion/MotionLayout;)V
@@ -2356,10 +2356,10 @@
 .method public setMeasuredId(II)V
     .locals 0
 
-    .line 2304
+    .line 2307
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mStartId:I
 
-    .line 2305
+    .line 2308
     iput p2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->mEndId:I
 
     return-void

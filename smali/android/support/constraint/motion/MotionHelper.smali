@@ -80,7 +80,7 @@
 .method public getProgress()F
     .locals 1
 
-    .line 75
+    .line 76
     iget v0, p0, Landroid/support/constraint/motion/MotionHelper;->mProgress:F
 
     return v0
@@ -92,7 +92,7 @@
     .line 40
     invoke-super {p0, p1}, Landroid/support/constraint/ConstraintHelper;->init(Landroid/util/AttributeSet;)V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     .line 42
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionHelper;->getContext()Landroid/content/Context;
@@ -157,14 +157,18 @@
 
     goto :goto_0
 
+    .line 52
     :cond_2
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+
+    :cond_3
     return-void
 .end method
 
 .method public isUseOnHide()Z
     .locals 1
 
-    .line 70
+    .line 71
     iget-boolean v0, p0, Landroid/support/constraint/motion/MotionHelper;->mUseOnHide:Z
 
     return v0
@@ -173,7 +177,7 @@
 .method public isUsedOnShow()Z
     .locals 1
 
-    .line 61
+    .line 62
     iget-boolean v0, p0, Landroid/support/constraint/motion/MotionHelper;->mUseOnShow:Z
 
     return v0
@@ -206,17 +210,17 @@
 .method public setProgress(F)V
     .locals 5
 
-    .line 80
+    .line 81
     iput p1, p0, Landroid/support/constraint/motion/MotionHelper;->mProgress:F
 
-    .line 81
+    .line 82
     iget v0, p0, Landroid/support/constraint/motion/MotionHelper;->mCount:I
 
     const/4 v1, 0x0
 
     if-lez v0, :cond_0
 
-    .line 82
+    .line 83
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionHelper;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -229,25 +233,25 @@
 
     iput-object v0, p0, Landroid/support/constraint/motion/MotionHelper;->views:[Landroid/view/View;
 
-    .line 84
+    .line 85
     :goto_0
     iget v0, p0, Landroid/support/constraint/motion/MotionHelper;->mCount:I
 
     if-ge v1, v0, :cond_2
 
-    .line 85
+    .line 86
     iget-object v0, p0, Landroid/support/constraint/motion/MotionHelper;->views:[Landroid/view/View;
 
     aget-object v0, v0, v1
 
-    .line 86
+    .line 87
     invoke-virtual {p0, v0, p1}, Landroid/support/constraint/motion/MotionHelper;->setProgress(Landroid/view/View;F)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 89
+    .line 90
     :cond_0
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionHelper;->getParent()Landroid/view/ViewParent;
 
@@ -255,7 +259,7 @@
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 90
+    .line 91
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v2
@@ -263,19 +267,19 @@
     :goto_1
     if-ge v1, v2, :cond_2
 
-    .line 93
+    .line 94
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v3
 
-    .line 94
+    .line 95
     instance-of v4, v3, Landroid/support/constraint/motion/MotionHelper;
 
     if-eqz v4, :cond_1
 
     goto :goto_2
 
-    .line 97
+    .line 98
     :cond_1
     invoke-virtual {p0, v3, p1}, Landroid/support/constraint/motion/MotionHelper;->setProgress(Landroid/view/View;F)V
 

@@ -1,53 +1,30 @@
 .class public Lcom/android/js/api/MobileData;
-.super Lcom/facebook/react/bridge/ReactContextBaseJavaModule;
+.super Ljava/lang/Object;
 .source "MobileData.java"
 
 
 # instance fields
 .field private activity:Landroid/app/Activity;
 
-.field private reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
 .field private telephonyManager:Landroid/telephony/TelephonyManager;
 
 
 # direct methods
-.method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 0
-    .param p1    # Landroid/app/Activity;
-        .annotation runtime Ljavax/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
-        .annotation runtime Ljavax/annotation/Nullable;
-        .end annotation
-    .end param
+.method public constructor <init>(Landroid/app/Activity;)V
+    .locals 1
 
-    .line 19
-    invoke-direct {p0, p2}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    .line 11
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 20
+    .line 12
     iput-object p1, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
 
-    .line 21
-    iput-object p2, p0, Lcom/android/js/api/MobileData;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
-    if-nez p1, :cond_0
-
-    .line 22
-    invoke-virtual {p2}, Lcom/facebook/react/bridge/ReactApplicationContext;->getCurrentActivity()Landroid/app/Activity;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
-
-    .line 23
-    :cond_0
+    .line 13
     iget-object p1, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
 
-    const-string p2, "phone"
+    const-string v0, "phone"
 
-    invoke-virtual {p1, p2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -60,21 +37,10 @@
 
 
 # virtual methods
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "MobileData"
-
-    return-object v0
-.end method
-
 .method public isEnabled()Z
     .locals 5
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-        isBlockingSynchronousMethod = true
-    .end annotation
 
-    .line 29
+    .line 18
     iget-object v0, p0, Lcom/android/js/api/MobileData;->telephonyManager:Landroid/telephony/TelephonyManager;
 
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getSimState()I
@@ -87,7 +53,7 @@
 
     if-ne v0, v2, :cond_1
 
-    .line 30
+    .line 19
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x11
@@ -98,7 +64,7 @@
 
     if-lt v0, v2, :cond_0
 
-    .line 31
+    .line 20
     iget-object v0, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
@@ -116,7 +82,7 @@
 
     goto :goto_1
 
-    .line 33
+    .line 22
     :cond_0
     iget-object v0, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
 

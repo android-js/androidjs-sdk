@@ -39,18 +39,6 @@
 
 .field public static final abc_tooltip_exit:I = 0x7f01000b
 
-.field public static final catalyst_fade_in:I = 0x7f01000c
-
-.field public static final catalyst_fade_out:I = 0x7f01000d
-
-.field public static final catalyst_push_up_in:I = 0x7f01000e
-
-.field public static final catalyst_push_up_out:I = 0x7f01000f
-
-.field public static final catalyst_slide_down:I = 0x7f010010
-
-.field public static final catalyst_slide_up:I = 0x7f010011
-
 
 # direct methods
 .method public constructor <init>()V

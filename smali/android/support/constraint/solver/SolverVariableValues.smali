@@ -1073,9 +1073,11 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_5
 
-    return v1
+    if-nez p1, :cond_0
+
+    goto :goto_1
 
     .line 102
     :cond_0
@@ -1153,6 +1155,7 @@
     return p1
 
     :cond_5
+    :goto_1
     return v1
 .end method
 

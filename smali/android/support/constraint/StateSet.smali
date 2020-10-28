@@ -144,10 +144,13 @@
 
     goto :goto_0
 
+    .line 80
     :cond_1
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
     const/4 v0, 0x0
 
-    .line 86
+    .line 87
     :try_start_0
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
@@ -175,7 +178,7 @@
 
     goto/16 :goto_3
 
-    .line 118
+    .line 119
     :cond_2
     :try_start_1
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
@@ -190,7 +193,7 @@
 
     return-void
 
-    .line 95
+    .line 96
     :cond_3
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
@@ -198,7 +201,7 @@
 
     const/4 v7, -0x1
 
-    .line 96
+    .line 97
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v8
@@ -267,7 +270,7 @@
 
     const-string v3, "ConstraintLayoutStates"
 
-    .line 113
+    .line 114
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -286,7 +289,7 @@
 
     goto :goto_3
 
-    .line 106
+    .line 107
     :cond_5
     new-instance v1, Landroid/support/constraint/StateSet$Variant;
 
@@ -294,18 +297,18 @@
 
     if-eqz v0, :cond_8
 
-    .line 108
+    .line 109
     invoke-virtual {v0, v1}, Landroid/support/constraint/StateSet$State;->add(Landroid/support/constraint/StateSet$Variant;)V
 
     goto :goto_3
 
-    .line 102
+    .line 103
     :cond_6
     new-instance v0, Landroid/support/constraint/StateSet$State;
 
     invoke-direct {v0, p1, p2}, Landroid/support/constraint/StateSet$State;-><init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
 
-    .line 103
+    .line 104
     iget-object v1, p0, Landroid/support/constraint/StateSet;->mStateList:Landroid/util/SparseArray;
 
     iget v3, v0, Landroid/support/constraint/StateSet$State;->mId:I
@@ -314,11 +317,11 @@
 
     goto :goto_3
 
-    .line 92
+    .line 93
     :cond_7
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    .line 88
+    .line 89
     :cond_8
     :goto_3
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
@@ -333,7 +336,7 @@
     :catch_0
     move-exception p1
 
-    .line 135
+    .line 136
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
@@ -341,12 +344,14 @@
     :catch_1
     move-exception p1
 
-    .line 133
+    .line 134
     invoke-virtual {p1}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
 
     :cond_9
     :goto_4
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -362,7 +367,7 @@
 .method public convertToConstraintSet(IIFF)I
     .locals 4
 
-    .line 176
+    .line 177
     iget-object v0, p0, Landroid/support/constraint/StateSet;->mStateList:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -391,7 +396,7 @@
     :cond_1
     const/4 p2, 0x0
 
-    .line 192
+    .line 193
     iget-object v1, v0, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -412,14 +417,14 @@
 
     check-cast v2, Landroid/support/constraint/StateSet$Variant;
 
-    .line 193
+    .line 194
     invoke-virtual {v2, p3, p4}, Landroid/support/constraint/StateSet$Variant;->match(FF)Z
 
     move-result v3
 
     if-eqz v3, :cond_2
 
-    .line 194
+    .line 195
     iget p2, v2, Landroid/support/constraint/StateSet$Variant;->mConstraintID:I
 
     if-ne p1, p2, :cond_3
@@ -434,18 +439,18 @@
     :cond_4
     if-eqz p2, :cond_5
 
-    .line 201
+    .line 202
     iget p1, p2, Landroid/support/constraint/StateSet$Variant;->mConstraintID:I
 
     return p1
 
-    .line 204
+    .line 205
     :cond_5
     iget p1, v0, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
     return p1
 
-    .line 181
+    .line 182
     :cond_6
     :goto_1
     iget p2, v0, Landroid/support/constraint/StateSet$State;->mConstraintID:I
@@ -454,7 +459,7 @@
 
     return p1
 
-    .line 184
+    .line 185
     :cond_7
     iget-object p2, v0, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
@@ -475,14 +480,14 @@
 
     check-cast p3, Landroid/support/constraint/StateSet$Variant;
 
-    .line 185
+    .line 186
     iget p3, p3, Landroid/support/constraint/StateSet$Variant;->mConstraintID:I
 
     if-ne p1, p3, :cond_8
 
     return p1
 
-    .line 189
+    .line 190
     :cond_9
     iget p1, v0, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
@@ -492,7 +497,7 @@
 .method public needsToChange(IFF)Z
     .locals 4
 
-    .line 140
+    .line 141
     iget v0, p0, Landroid/support/constraint/StateSet;->mCurrentStateId:I
 
     const/4 v1, 0x1
@@ -508,7 +513,7 @@
 
     if-ne p1, v2, :cond_1
 
-    .line 144
+    .line 145
     iget-object p1, p0, Landroid/support/constraint/StateSet;->mStateList:Landroid/util/SparseArray;
 
     invoke-virtual {p1, v3}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -527,12 +532,12 @@
     :goto_0
     check-cast p1, Landroid/support/constraint/StateSet$State;
 
-    .line 146
+    .line 147
     iget v0, p0, Landroid/support/constraint/StateSet;->mCurrentConstraintNumber:I
 
     if-eq v0, v2, :cond_2
 
-    .line 147
+    .line 148
     iget-object v0, p1, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
     iget v2, p0, Landroid/support/constraint/StateSet;->mCurrentConstraintNumber:I
@@ -551,7 +556,7 @@
 
     return v3
 
-    .line 152
+    .line 153
     :cond_2
     iget v0, p0, Landroid/support/constraint/StateSet;->mCurrentConstraintNumber:I
 
@@ -570,7 +575,7 @@
 .method public setOnConstraintsChanged(Landroid/support/constraint/ConstraintsChangedListener;)V
     .locals 0
 
-    .line 159
+    .line 160
     iput-object p1, p0, Landroid/support/constraint/StateSet;->mConstraintsChangedListener:Landroid/support/constraint/ConstraintsChangedListener;
 
     return-void
@@ -585,7 +590,7 @@
 
     const/4 v0, -0x1
 
-    .line 163
+    .line 164
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/support/constraint/StateSet;->updateConstraints(IIFF)I
 
     move-result p1
@@ -602,7 +607,7 @@
 
     if-ne p2, v0, :cond_0
 
-    .line 212
+    .line 213
     iget-object p2, p0, Landroid/support/constraint/StateSet;->mStateList:Landroid/util/SparseArray;
 
     const/4 v1, 0x0
@@ -615,7 +620,7 @@
 
     goto :goto_0
 
-    .line 214
+    .line 215
     :cond_0
     iget-object p2, p0, Landroid/support/constraint/StateSet;->mStateList:Landroid/util/SparseArray;
 
@@ -632,13 +637,13 @@
 
     return v0
 
-    .line 220
+    .line 221
     :cond_1
     iget v1, p0, Landroid/support/constraint/StateSet;->mCurrentConstraintNumber:I
 
     if-eq v1, v0, :cond_2
 
-    .line 221
+    .line 222
     iget-object v1, p2, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -655,7 +660,7 @@
 
     return p1
 
-    .line 225
+    .line 226
     :cond_2
     invoke-virtual {p2, p3, p4}, Landroid/support/constraint/StateSet$State;->findMatch(FF)I
 
@@ -668,7 +673,7 @@
     :cond_3
     if-ne p3, v0, :cond_4
 
-    .line 230
+    .line 231
     iget p1, p2, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
     goto :goto_1
@@ -687,7 +692,7 @@
     :goto_1
     return p1
 
-    .line 233
+    .line 234
     :cond_5
     iget-object p1, p0, Landroid/support/constraint/StateSet;->mStateList:Landroid/util/SparseArray;
 
@@ -701,7 +706,7 @@
 
     return v0
 
-    .line 237
+    .line 238
     :cond_6
     invoke-virtual {p1, p3, p4}, Landroid/support/constraint/StateSet$State;->findMatch(FF)I
 
@@ -709,7 +714,7 @@
 
     if-ne p2, v0, :cond_7
 
-    .line 238
+    .line 239
     iget p1, p1, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
     goto :goto_2

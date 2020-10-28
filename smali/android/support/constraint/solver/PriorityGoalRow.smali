@@ -87,7 +87,7 @@
 .method private final addToGoal(Landroid/support/constraint/solver/SolverVariable;)V
     .locals 5
 
-    .line 198
+    .line 203
     iget v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     const/4 v1, 0x1
@@ -100,7 +100,7 @@
 
     if-le v0, v3, :cond_0
 
-    .line 199
+    .line 204
     array-length v0, v2
 
     mul-int/lit8 v0, v0, 0x2
@@ -113,7 +113,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
-    .line 200
+    .line 205
     iget-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     array-length v2, v0
@@ -128,7 +128,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->sortArray:[Landroid/support/constraint/solver/SolverVariable;
 
-    .line 202
+    .line 207
     :cond_0
     iget-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
@@ -138,10 +138,10 @@
 
     add-int/2addr v2, v1
 
-    .line 203
+    .line 208
     iput v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
-    .line 205
+    .line 210
     iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     if-le v2, v1, :cond_2
@@ -160,13 +160,13 @@
 
     const/4 v2, 0x0
 
-    .line 206
+    .line 211
     :goto_0
     iget v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     if-ge v2, v3, :cond_1
 
-    .line 207
+    .line 212
     iget-object v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->sortArray:[Landroid/support/constraint/solver/SolverVariable;
 
     iget-object v4, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
@@ -179,7 +179,7 @@
 
     goto :goto_0
 
-    .line 209
+    .line 214
     :cond_1
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->sortArray:[Landroid/support/constraint/solver/SolverVariable;
 
@@ -189,13 +189,13 @@
 
     invoke-static {v2, v0, v3, v4}, Ljava/util/Arrays;->sort([Ljava/lang/Object;IILjava/util/Comparator;)V
 
-    .line 215
+    .line 220
     :goto_1
     iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     if-ge v0, v2, :cond_2
 
-    .line 216
+    .line 221
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     iget-object v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->sortArray:[Landroid/support/constraint/solver/SolverVariable;
@@ -208,11 +208,11 @@
 
     goto :goto_1
 
-    .line 220
+    .line 225
     :cond_2
     iput-boolean v1, p1, Landroid/support/constraint/solver/SolverVariable;->inGoal:Z
 
-    .line 221
+    .line 226
     invoke-virtual {p1, p0}, Landroid/support/constraint/solver/SolverVariable;->addToRow(Landroid/support/constraint/solver/ArrayRow;)V
 
     return-void
@@ -225,20 +225,20 @@
 
     const/4 v1, 0x0
 
-    .line 225
+    .line 230
     :goto_0
     iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     if-ge v1, v2, :cond_2
 
-    .line 226
+    .line 231
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     aget-object v2, v2, v1
 
     if-ne v2, p1, :cond_1
 
-    .line 227
+    .line 232
     :goto_1
     iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
@@ -246,7 +246,7 @@
 
     if-ge v1, v3, :cond_0
 
-    .line 228
+    .line 233
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     add-int/lit8 v3, v1, 0x1
@@ -262,10 +262,10 @@
     :cond_0
     add-int/lit8 v2, v2, -0x1
 
-    .line 230
+    .line 235
     iput v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
-    .line 231
+    .line 236
     iput-boolean v0, p1, Landroid/support/constraint/solver/SolverVariable;->inGoal:Z
 
     return-void
@@ -284,17 +284,17 @@
 .method public addError(Landroid/support/constraint/solver/SolverVariable;)V
     .locals 3
 
-    .line 191
+    .line 196
     iget-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
 
     invoke-virtual {v0, p1}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->init(Landroid/support/constraint/solver/SolverVariable;)V
 
-    .line 192
+    .line 197
     iget-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
 
     invoke-virtual {v0}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->reset()V
 
-    .line 193
+    .line 198
     iget-object v0, p1, Landroid/support/constraint/solver/SolverVariable;->goalStrengthVector:[F
 
     iget v1, p1, Landroid/support/constraint/solver/SolverVariable;->strength:I
@@ -303,7 +303,7 @@
 
     aput v2, v0, v1
 
-    .line 194
+    .line 199
     invoke-direct {p0, p1}, Landroid/support/constraint/solver/PriorityGoalRow;->addToGoal(Landroid/support/constraint/solver/SolverVariable;)V
 
     return-void
@@ -334,18 +334,18 @@
 
     const/4 v1, -0x1
 
-    .line 169
+    .line 174
     :goto_0
     iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     if-ge v0, v2, :cond_3
 
-    .line 170
+    .line 175
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     aget-object v2, v2, v0
 
-    .line 171
+    .line 176
     iget v3, v2, Landroid/support/constraint/solver/SolverVariable;->id:I
 
     aget-boolean v3, p2, v3
@@ -354,7 +354,7 @@
 
     goto :goto_2
 
-    .line 174
+    .line 179
     :cond_0
     iget-object v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
 
@@ -362,7 +362,7 @@
 
     if-ne v1, p1, :cond_1
 
-    .line 176
+    .line 181
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
 
     invoke-virtual {v2}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->isNegative()Z
@@ -373,7 +373,7 @@
 
     goto :goto_1
 
-    .line 179
+    .line 184
     :cond_1
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
 
@@ -403,7 +403,7 @@
 
     return-object p1
 
-    .line 186
+    .line 191
     :cond_4
     iget-object p1, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
@@ -412,10 +412,29 @@
     return-object p1
 .end method
 
+.method public isEmpty()Z
+    .locals 1
+
+    .line 166
+    iget v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .line 261
+    .line 266
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -442,23 +461,23 @@
 
     const/4 v1, 0x0
 
-    .line 262
+    .line 267
     :goto_0
     iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
     if-ge v1, v2, :cond_0
 
-    .line 263
+    .line 268
     iget-object v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     aget-object v2, v2, v1
 
-    .line 264
+    .line 269
     iget-object v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
 
     invoke-virtual {v3, v2}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->init(Landroid/support/constraint/solver/SolverVariable;)V
 
-    .line 265
+    .line 270
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -485,76 +504,76 @@
     return-object v0
 .end method
 
-.method public updateFromRow(Landroid/support/constraint/solver/ArrayRow;Z)V
-    .locals 6
+.method public updateFromRow(Landroid/support/constraint/solver/LinearSystem;Landroid/support/constraint/solver/ArrayRow;Z)V
+    .locals 5
 
-    .line 239
-    iget-object p2, p1, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
+    .line 244
+    iget-object p1, p2, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
-    if-nez p2, :cond_0
+    if-nez p1, :cond_0
 
     return-void
 
-    .line 244
+    .line 249
     :cond_0
-    iget-object v0, p1, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;
+    iget-object p3, p2, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;
 
-    .line 245
-    invoke-interface {v0}, Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;->getCurrentSize()I
+    .line 250
+    invoke-interface {p3}, Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;->getCurrentSize()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v1, v0, :cond_2
 
-    .line 247
-    invoke-interface {v0, v2}, Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;->getVariable(I)Landroid/support/constraint/solver/SolverVariable;
+    .line 252
+    invoke-interface {p3, v1}, Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;->getVariable(I)Landroid/support/constraint/solver/SolverVariable;
 
-    move-result-object v3
+    move-result-object v2
 
-    .line 248
-    invoke-interface {v0, v2}, Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;->getVariableValue(I)F
+    .line 253
+    invoke-interface {p3, v1}, Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;->getVariableValue(I)F
+
+    move-result v3
+
+    .line 254
+    iget-object v4, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
+
+    invoke-virtual {v4, v2}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->init(Landroid/support/constraint/solver/SolverVariable;)V
+
+    .line 255
+    iget-object v4, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
+
+    invoke-virtual {v4, p1, v3}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->addToGoal(Landroid/support/constraint/solver/SolverVariable;F)Z
 
     move-result v4
 
-    .line 249
-    iget-object v5, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
+    if-eqz v4, :cond_1
 
-    invoke-virtual {v5, v3}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->init(Landroid/support/constraint/solver/SolverVariable;)V
+    .line 256
+    invoke-direct {p0, v2}, Landroid/support/constraint/solver/PriorityGoalRow;->addToGoal(Landroid/support/constraint/solver/SolverVariable;)V
 
-    .line 250
-    iget-object v5, p0, Landroid/support/constraint/solver/PriorityGoalRow;->accessor:Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;
-
-    invoke-virtual {v5, p2, v4}, Landroid/support/constraint/solver/PriorityGoalRow$GoalVariableAccessor;->addToGoal(Landroid/support/constraint/solver/SolverVariable;F)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    .line 251
-    invoke-direct {p0, v3}, Landroid/support/constraint/solver/PriorityGoalRow;->addToGoal(Landroid/support/constraint/solver/SolverVariable;)V
-
-    .line 253
+    .line 258
     :cond_1
-    iget v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->constantValue:F
+    iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->constantValue:F
 
-    iget v5, p1, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
+    iget v4, p2, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    mul-float v5, v5, v4
+    mul-float v4, v4, v3
 
-    add-float/2addr v3, v5
+    add-float/2addr v2, v4
 
-    iput v3, p0, Landroid/support/constraint/solver/PriorityGoalRow;->constantValue:F
+    iput v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->constantValue:F
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 255
+    .line 260
     :cond_2
-    invoke-direct {p0, p2}, Landroid/support/constraint/solver/PriorityGoalRow;->removeGoal(Landroid/support/constraint/solver/SolverVariable;)V
+    invoke-direct {p0, p1}, Landroid/support/constraint/solver/PriorityGoalRow;->removeGoal(Landroid/support/constraint/solver/SolverVariable;)V
 
     return-void
 .end method

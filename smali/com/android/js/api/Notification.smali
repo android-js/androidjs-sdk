@@ -1,10 +1,12 @@
 .class public Lcom/android/js/api/Notification;
-.super Lcom/facebook/react/bridge/ReactContextBaseJavaModule;
+.super Ljava/lang/Object;
 .source "Notification.java"
 
 
 # instance fields
 .field private activity:Landroid/app/Activity;
+
+.field private className:Ljava/lang/String;
 
 .field private iconId:I
 
@@ -18,59 +20,28 @@
 
 .field private notification_manager:Landroid/app/NotificationManager;
 
-.field private reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
 
 # direct methods
-.method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;I)V
+.method public constructor <init>(Landroid/app/Activity;ILjava/lang/String;)V
     .locals 1
-    .param p1    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "PrivateApi"
         }
     .end annotation
 
-    .line 32
-    invoke-direct {p0, p2}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    .line 25
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 33
+    .line 26
     iput-object p1, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
 
-    .line 34
-    iput-object p2, p0, Lcom/android/js/api/Notification;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
-    if-nez p1, :cond_0
-
-    .line 35
-    invoke-virtual {p0}, Lcom/android/js/api/Notification;->getCurrentActivity()Landroid/app/Activity;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
-
-    .line 36
-    :cond_0
+    .line 27
     iget-object p1, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
 
-    if-eqz p1, :cond_1
+    const-string v0, "notification"
 
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/js/api/Notification;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
-    :goto_0
-    const-string p2, "notification"
-
-    invoke-virtual {p1, p2}, Landroid/content/ContextWrapper;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -78,16 +49,19 @@
 
     iput-object p1, p0, Lcom/android/js/api/Notification;->notification_manager:Landroid/app/NotificationManager;
 
-    .line 37
-    iput p3, p0, Lcom/android/js/api/Notification;->iconId:I
+    .line 28
+    iput p2, p0, Lcom/android/js/api/Notification;->iconId:I
 
-    .line 39
+    .line 29
+    iput-object p3, p0, Lcom/android/js/api/Notification;->className:Ljava/lang/String;
+
+    .line 31
     :try_start_0
     new-instance p1, Landroid/content/Intent;
 
     iget-object p2, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
 
-    const-string p3, "com.android.js.webview.MainActivity"
+    iget-object p3, p0, Lcom/android/js/api/Notification;->className:Ljava/lang/String;
 
     invoke-static {p3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
@@ -99,30 +73,30 @@
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception p1
 
-    .line 41
+    .line 33
     invoke-virtual {p1}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
 
-    .line 43
-    :goto_1
+    .line 35
+    :goto_0
     iget-object p1, p0, Lcom/android/js/api/Notification;->intent:Landroid/content/Intent;
 
     const p2, 0x10008000
 
     invoke-virtual {p1, p2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 45
+    .line 37
     sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 p2, 0x1a
 
-    if-lt p1, p2, :cond_2
+    if-lt p1, p2, :cond_0
 
-    .line 46
+    .line 38
     new-instance p1, Landroid/app/NotificationChannel;
 
     const/4 p2, 0x3
@@ -135,54 +109,44 @@
 
     iput-object p1, p0, Lcom/android/js/api/Notification;->notification_channel:Landroid/app/NotificationChannel;
 
-    .line 47
+    .line 39
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_channel:Landroid/app/NotificationChannel;
 
     const-string p2, "androidjs.notification.channel"
 
     invoke-virtual {p1, p2}, Landroid/app/NotificationChannel;->setDescription(Ljava/lang/String;)V
 
-    .line 48
+    .line 40
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_manager:Landroid/app/NotificationManager;
 
     iget-object p2, p0, Lcom/android/js/api/Notification;->notification_channel:Landroid/app/NotificationChannel;
 
     invoke-virtual {p1, p2}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
 
-    :cond_2
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "Notification"
-
-    return-object v0
-.end method
-
 .method public initBigNotification(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 2
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-    .end annotation
 
-    .line 77
+    .line 66
     new-instance v0, Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
     invoke-direct {v0}, Landroid/support/v4/app/NotificationCompat$InboxStyle;-><init>()V
 
     iput-object v0, p0, Lcom/android/js/api/Notification;->inbox_style:Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
-    .line 78
+    .line 67
     iget-object v0, p0, Lcom/android/js/api/Notification;->inbox_style:Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/app/NotificationCompat$InboxStyle;->setBigContentTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
     const/4 p1, 0x0
 
-    .line 79
+    .line 68
     :goto_0
     array-length v0, p2
 
@@ -192,7 +156,7 @@
 
     if-ge p1, v0, :cond_0
 
-    .line 80
+    .line 69
     iget-object v0, p0, Lcom/android/js/api/Notification;->inbox_style:Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
     aget-object v1, p2, p1
@@ -203,7 +167,7 @@
 
     goto :goto_0
 
-    .line 82
+    .line 71
     :cond_0
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
@@ -216,10 +180,8 @@
 
 .method public initNotification(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-    .end annotation
 
-    .line 57
+    .line 48
     iget-object v0, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
 
     iget-object v1, p0, Lcom/android/js/api/Notification;->intent:Landroid/content/Intent;
@@ -230,53 +192,45 @@
 
     move-result-object v0
 
-    .line 59
+    .line 50
     new-instance v1, Landroid/support/v4/app/NotificationCompat$Builder;
 
     iget-object v3, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
 
-    if-eqz v3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/js/api/Notification;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
-    :goto_0
     const-string v4, "androidjs"
 
     invoke-direct {v1, v3, v4}, Landroid/support/v4/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     iput-object v1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 60
+    .line 51
     iget-object v1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     invoke-virtual {v1, p1}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 61
+    .line 52
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     invoke-virtual {p1, p2}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 62
+    .line 53
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     iget p2, p0, Lcom/android/js/api/Notification;->iconId:I
 
     invoke-virtual {p1, p2}, Landroid/support/v4/app/NotificationCompat$Builder;->setSmallIcon(I)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 63
+    .line 54
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     invoke-virtual {p1, v2}, Landroid/support/v4/app/NotificationCompat$Builder;->setPriority(I)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 64
+    .line 55
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     invoke-virtual {p1, v0}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/support/v4/app/NotificationCompat$Builder;
 
-    .line 65
+    .line 56
     iget-object p1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     const/4 p2, 0x1
@@ -288,10 +242,8 @@
 
 .method public showNotification(I)V
     .locals 2
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-    .end annotation
 
-    .line 72
+    .line 62
     iget-object v0, p0, Lcom/android/js/api/Notification;->notification_manager:Landroid/app/NotificationManager;
 
     iget-object v1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;

@@ -22,12 +22,12 @@
 .method public constructor <init>(Landroid/support/constraint/solver/LinearSystem;Landroid/support/constraint/solver/Cache;)V
     .locals 0
 
-    .line 83
+    .line 89
     iput-object p1, p0, Landroid/support/constraint/solver/LinearSystem$ValuesRow;->this$0:Landroid/support/constraint/solver/LinearSystem;
 
     invoke-direct {p0}, Landroid/support/constraint/solver/ArrayRow;-><init>()V
 
-    .line 84
+    .line 90
     new-instance p1, Landroid/support/constraint/solver/SolverVariableValues;
 
     invoke-direct {p1, p0, p2}, Landroid/support/constraint/solver/SolverVariableValues;-><init>(Landroid/support/constraint/solver/ArrayRow;Landroid/support/constraint/solver/Cache;)V

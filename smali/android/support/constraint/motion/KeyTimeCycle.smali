@@ -50,11 +50,7 @@
 
 .field private mWaveOffset:F
 
-.field private mWaveOffsetSpline:Landroid/support/constraint/motion/utils/CurveFit;
-
 .field private mWavePeriod:F
-
-.field private mWavePeriodSpline:Landroid/support/constraint/motion/utils/CurveFit;
 
 .field private mWaveShape:I
 
@@ -124,10 +120,10 @@
 
     const/4 v0, 0x3
 
-    .line 63
+    .line 61
     iput v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mType:I
 
-    .line 64
+    .line 62
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -448,7 +444,7 @@
         }
     .end annotation
 
-    .line 181
+    .line 176
     invoke-virtual {p1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -471,7 +467,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 182
+    .line 177
     invoke-virtual {p1, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
@@ -482,7 +478,7 @@
 
     const-string v2, "CUSTOM"
 
-    .line 183
+    .line 178
     invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v2
@@ -491,12 +487,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 184
+    .line 179
     invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 185
+    .line 180
     iget-object v2, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCustomConstraints:Ljava/util/HashMap;
 
     invoke-virtual {v2, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -509,7 +505,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 187
+    .line 182
     move-object v4, v3
 
     check-cast v4, Landroid/support/constraint/motion/TimeCycleSplineSet$CustomSet;
@@ -529,7 +525,7 @@
     :cond_1
     const/4 v2, -0x1
 
-    .line 191
+    .line 186
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v5
@@ -699,7 +695,7 @@
     :goto_2
     packed-switch v4, :pswitch_data_0
 
-    .line 253
+    .line 248
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -724,7 +720,7 @@
 
     goto/16 :goto_0
 
-    .line 248
+    .line 243
     :pswitch_0
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mProgress:F
 
@@ -734,7 +730,7 @@
 
     if-nez v1, :cond_0
 
-    .line 249
+    .line 244
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mProgress:F
@@ -749,7 +745,7 @@
 
     goto/16 :goto_0
 
-    .line 243
+    .line 238
     :pswitch_1
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationZ:F
 
@@ -759,7 +755,7 @@
 
     if-nez v1, :cond_0
 
-    .line 244
+    .line 239
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationZ:F
@@ -774,7 +770,7 @@
 
     goto/16 :goto_0
 
-    .line 238
+    .line 233
     :pswitch_2
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationY:F
 
@@ -784,7 +780,7 @@
 
     if-nez v1, :cond_0
 
-    .line 239
+    .line 234
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationY:F
@@ -799,7 +795,7 @@
 
     goto/16 :goto_0
 
-    .line 233
+    .line 228
     :pswitch_3
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationX:F
 
@@ -809,7 +805,7 @@
 
     if-nez v1, :cond_0
 
-    .line 234
+    .line 229
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationX:F
@@ -824,7 +820,7 @@
 
     goto/16 :goto_0
 
-    .line 228
+    .line 223
     :pswitch_4
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleY:F
 
@@ -834,7 +830,7 @@
 
     if-nez v1, :cond_0
 
-    .line 229
+    .line 224
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleY:F
@@ -849,7 +845,7 @@
 
     goto/16 :goto_0
 
-    .line 223
+    .line 218
     :pswitch_5
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleX:F
 
@@ -859,7 +855,7 @@
 
     if-nez v1, :cond_0
 
-    .line 224
+    .line 219
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleX:F
@@ -874,7 +870,7 @@
 
     goto/16 :goto_0
 
-    .line 218
+    .line 213
     :pswitch_6
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTransitionPathRotate:F
 
@@ -884,7 +880,7 @@
 
     if-nez v1, :cond_0
 
-    .line 219
+    .line 214
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTransitionPathRotate:F
@@ -899,7 +895,7 @@
 
     goto/16 :goto_0
 
-    .line 213
+    .line 208
     :pswitch_7
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationY:F
 
@@ -909,7 +905,7 @@
 
     if-nez v1, :cond_0
 
-    .line 214
+    .line 209
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationY:F
@@ -924,7 +920,7 @@
 
     goto/16 :goto_0
 
-    .line 208
+    .line 203
     :pswitch_8
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationX:F
 
@@ -934,7 +930,7 @@
 
     if-nez v1, :cond_0
 
-    .line 209
+    .line 204
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationX:F
@@ -949,7 +945,7 @@
 
     goto/16 :goto_0
 
-    .line 203
+    .line 198
     :pswitch_9
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotation:F
 
@@ -959,7 +955,7 @@
 
     if-nez v1, :cond_0
 
-    .line 204
+    .line 199
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotation:F
@@ -974,7 +970,7 @@
 
     goto/16 :goto_0
 
-    .line 198
+    .line 193
     :pswitch_a
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mElevation:F
 
@@ -984,7 +980,7 @@
 
     if-nez v1, :cond_0
 
-    .line 199
+    .line 194
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mElevation:F
@@ -999,7 +995,7 @@
 
     goto/16 :goto_0
 
-    .line 193
+    .line 188
     :pswitch_b
     iget v1, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mAlpha:F
 
@@ -1009,7 +1005,7 @@
 
     if-nez v1, :cond_0
 
-    .line 194
+    .line 189
     iget v4, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mFramePosition:I
 
     iget v5, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mAlpha:F
@@ -1074,7 +1070,7 @@
         }
     .end annotation
 
-    .line 177
+    .line 172
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     const-string v0, " KeyTimeCycles do not support SplineSet"
@@ -1095,7 +1091,7 @@
         }
     .end annotation
 
-    .line 84
+    .line 78
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mAlpha:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
@@ -1106,10 +1102,10 @@
 
     const-string v0, "alpha"
 
-    .line 85
+    .line 79
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 87
+    .line 81
     :cond_0
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mElevation:F
 
@@ -1121,10 +1117,10 @@
 
     const-string v0, "elevation"
 
-    .line 88
+    .line 82
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 90
+    .line 84
     :cond_1
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotation:F
 
@@ -1136,10 +1132,10 @@
 
     const-string v0, "rotation"
 
-    .line 91
+    .line 85
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 93
+    .line 87
     :cond_2
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationX:F
 
@@ -1151,10 +1147,10 @@
 
     const-string v0, "rotationX"
 
-    .line 94
+    .line 88
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 96
+    .line 90
     :cond_3
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationY:F
 
@@ -1166,10 +1162,10 @@
 
     const-string v0, "rotationY"
 
-    .line 97
+    .line 91
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 99
+    .line 93
     :cond_4
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationX:F
 
@@ -1181,10 +1177,10 @@
 
     const-string v0, "translationX"
 
-    .line 100
+    .line 94
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 102
+    .line 96
     :cond_5
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationY:F
 
@@ -1196,10 +1192,10 @@
 
     const-string v0, "translationY"
 
-    .line 103
+    .line 97
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 105
+    .line 99
     :cond_6
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationZ:F
 
@@ -1211,10 +1207,10 @@
 
     const-string v0, "translationZ"
 
-    .line 106
+    .line 100
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 108
+    .line 102
     :cond_7
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTransitionPathRotate:F
 
@@ -1226,10 +1222,10 @@
 
     const-string v0, "transitionPathRotate"
 
-    .line 109
+    .line 103
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 111
+    .line 105
     :cond_8
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleX:F
 
@@ -1241,10 +1237,10 @@
 
     const-string v0, "scaleX"
 
-    .line 112
+    .line 106
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 114
+    .line 108
     :cond_9
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleY:F
 
@@ -1256,10 +1252,10 @@
 
     const-string v0, "scaleY"
 
-    .line 115
+    .line 109
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 117
+    .line 111
     :cond_a
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mProgress:F
 
@@ -1271,10 +1267,10 @@
 
     const-string v0, "progress"
 
-    .line 118
+    .line 112
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    .line 120
+    .line 114
     :cond_b
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCustomConstraints:Ljava/util/HashMap;
 
@@ -1284,7 +1280,7 @@
 
     if-lez v0, :cond_c
 
-    .line 121
+    .line 115
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCustomConstraints:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -1308,7 +1304,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 122
+    .line 116
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1331,26 +1327,17 @@
     return-void
 .end method
 
-.method getCurveFit()I
-    .locals 1
-
-    .line 79
-    iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
-
-    return v0
-.end method
-
 .method public load(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    .line 69
+    .line 67
     sget-object v0, Landroid/support/constraint/R$styleable;->KeyTimeCycle:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
-    .line 70
+    .line 68
     invoke-static {p0, p1}, Landroid/support/constraint/motion/KeyTimeCycle$Loader;->read(Landroid/support/constraint/motion/KeyTimeCycle;Landroid/content/res/TypedArray;)V
 
     return-void
@@ -1368,7 +1355,7 @@
         }
     .end annotation
 
-    .line 128
+    .line 122
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     const/4 v1, -0x1
@@ -1377,7 +1364,7 @@
 
     return-void
 
-    .line 131
+    .line 125
     :cond_0
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mAlpha:F
 
@@ -1387,7 +1374,7 @@
 
     if-nez v0, :cond_1
 
-    .line 132
+    .line 126
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1398,7 +1385,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 134
+    .line 128
     :cond_1
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mElevation:F
 
@@ -1408,7 +1395,7 @@
 
     if-nez v0, :cond_2
 
-    .line 135
+    .line 129
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1419,7 +1406,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 137
+    .line 131
     :cond_2
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotation:F
 
@@ -1429,7 +1416,7 @@
 
     if-nez v0, :cond_3
 
-    .line 138
+    .line 132
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1440,7 +1427,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 140
+    .line 134
     :cond_3
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationX:F
 
@@ -1450,7 +1437,7 @@
 
     if-nez v0, :cond_4
 
-    .line 141
+    .line 135
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1461,7 +1448,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 143
+    .line 137
     :cond_4
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mRotationY:F
 
@@ -1471,7 +1458,7 @@
 
     if-nez v0, :cond_5
 
-    .line 144
+    .line 138
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1482,7 +1469,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 146
+    .line 140
     :cond_5
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationX:F
 
@@ -1492,7 +1479,7 @@
 
     if-nez v0, :cond_6
 
-    .line 147
+    .line 141
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1503,7 +1490,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 149
+    .line 143
     :cond_6
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationY:F
 
@@ -1513,7 +1500,7 @@
 
     if-nez v0, :cond_7
 
-    .line 150
+    .line 144
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1524,7 +1511,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 152
+    .line 146
     :cond_7
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTranslationZ:F
 
@@ -1534,7 +1521,7 @@
 
     if-nez v0, :cond_8
 
-    .line 153
+    .line 147
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1545,7 +1532,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 155
+    .line 149
     :cond_8
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mTransitionPathRotate:F
 
@@ -1555,7 +1542,7 @@
 
     if-nez v0, :cond_9
 
-    .line 156
+    .line 150
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1566,7 +1553,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 158
+    .line 152
     :cond_9
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleX:F
 
@@ -1576,7 +1563,7 @@
 
     if-nez v0, :cond_a
 
-    .line 159
+    .line 153
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1587,7 +1574,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 161
+    .line 155
     :cond_a
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mScaleX:F
 
@@ -1597,7 +1584,7 @@
 
     if-nez v0, :cond_b
 
-    .line 162
+    .line 156
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1608,7 +1595,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 164
+    .line 158
     :cond_b
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mProgress:F
 
@@ -1618,7 +1605,7 @@
 
     if-nez v0, :cond_c
 
-    .line 165
+    .line 159
     iget v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCurveFit:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1629,7 +1616,7 @@
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 167
+    .line 161
     :cond_c
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCustomConstraints:Ljava/util/HashMap;
 
@@ -1639,7 +1626,7 @@
 
     if-lez v0, :cond_d
 
-    .line 168
+    .line 162
     iget-object v0, p0, Landroid/support/constraint/motion/KeyTimeCycle;->mCustomConstraints:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -1663,7 +1650,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    .line 169
+    .line 163
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1695,7 +1682,7 @@
 .method public setValue(Ljava/lang/String;Ljava/lang/Object;)V
     .locals 1
 
-    .line 260
+    .line 255
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v0
@@ -1895,7 +1882,7 @@
 
     goto :goto_2
 
-    .line 301
+    .line 296
     :pswitch_0
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1905,7 +1892,7 @@
 
     goto :goto_2
 
-    .line 298
+    .line 293
     :pswitch_1
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1915,7 +1902,7 @@
 
     goto :goto_2
 
-    .line 295
+    .line 290
     :pswitch_2
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1925,7 +1912,7 @@
 
     goto :goto_2
 
-    .line 292
+    .line 287
     :pswitch_3
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1935,7 +1922,7 @@
 
     goto :goto_2
 
-    .line 289
+    .line 284
     :pswitch_4
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -1945,7 +1932,7 @@
 
     goto :goto_2
 
-    .line 286
+    .line 281
     :pswitch_5
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1955,7 +1942,7 @@
 
     goto :goto_2
 
-    .line 283
+    .line 278
     :pswitch_6
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1965,7 +1952,7 @@
 
     goto :goto_2
 
-    .line 280
+    .line 275
     :pswitch_7
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1975,7 +1962,7 @@
 
     goto :goto_2
 
-    .line 277
+    .line 272
     :pswitch_8
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1985,7 +1972,7 @@
 
     goto :goto_2
 
-    .line 274
+    .line 269
     :pswitch_9
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -1995,7 +1982,7 @@
 
     goto :goto_2
 
-    .line 271
+    .line 266
     :pswitch_a
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -2005,7 +1992,7 @@
 
     goto :goto_2
 
-    .line 268
+    .line 263
     :pswitch_b
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 
@@ -2015,7 +2002,7 @@
 
     goto :goto_2
 
-    .line 265
+    .line 260
     :pswitch_c
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toInt(Ljava/lang/Object;)I
 
@@ -2025,7 +2012,7 @@
 
     goto :goto_2
 
-    .line 262
+    .line 257
     :pswitch_d
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyTimeCycle;->toFloat(Ljava/lang/Object;)F
 

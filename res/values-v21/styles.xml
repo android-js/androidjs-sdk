@@ -93,15 +93,6 @@
     <style name="Base.Widget.AppCompat.Spinner" parent="@android:style/Widget.Material.Spinner" />
     <style name="Base.Widget.AppCompat.TextView.SpinnerItem" parent="@android:style/Widget.Material.TextView.SpinnerItem" />
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation" parent="@android:style/Widget.Material.Toolbar.Button.Navigation" />
-    <style name="CalendarDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
-        <item name="android:datePickerMode">calendar</item>
-    </style>
-    <style name="ClockTimePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog">
-        <item name="android:timePickerStyle">@style/ClockTimePickerStyle</item>
-    </style>
-    <style name="ClockTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
-        <item name="android:timePickerMode">clock</item>
-    </style>
     <style name="Platform.AppCompat" parent="@style/Platform.V21.AppCompat" />
     <style name="Platform.AppCompat.Light" parent="@style/Platform.V21.AppCompat.Light" />
     <style name="Platform.ThemeOverlay.AppCompat" parent="">
@@ -115,38 +106,10 @@
     </style>
     <style name="Platform.ThemeOverlay.AppCompat.Dark" parent="@style/Platform.ThemeOverlay.AppCompat" />
     <style name="Platform.ThemeOverlay.AppCompat.Light" parent="@style/Platform.ThemeOverlay.AppCompat" />
-    <style name="SpinnerDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
-        <item name="android:datePickerMode">spinner</item>
-    </style>
-    <style name="SpinnerTimePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog">
-        <item name="android:timePickerStyle">@style/SpinnerTimePickerStyle</item>
-    </style>
-    <style name="SpinnerTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
-        <item name="android:timePickerMode">spinner</item>
-    </style>
     <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.Material.Notification" />
     <style name="TextAppearance.Compat.Notification.Info" parent="@android:style/TextAppearance.Material.Notification.Info" />
-    <style name="TextAppearance.Compat.Notification.Info.Media" parent="@style/TextAppearance.Compat.Notification.Info">
-        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
-    </style>
-    <style name="TextAppearance.Compat.Notification.Media" parent="@style/TextAppearance.Compat.Notification">
-        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
-    </style>
     <style name="TextAppearance.Compat.Notification.Time" parent="@android:style/TextAppearance.Material.Notification.Time" />
-    <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time">
-        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
-    </style>
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.Material.Notification.Title" />
-    <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title">
-        <item name="android:textColor">@color/primary_text_default_material_dark</item>
-    </style>
-    <style name="Theme.FullScreenDialog" parent="@style/Theme">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
     <style name="Widget.Compat.NotificationActionContainer" parent="">
         <item name="android:background">@drawable/notification_action_background</item>
     </style>

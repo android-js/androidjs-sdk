@@ -27,7 +27,7 @@
 .method constructor <init>(Landroid/support/constraint/motion/MotionScene;Landroid/support/constraint/motion/utils/Easing;)V
     .locals 0
 
-    .line 1368
+    .line 1398
     iput-object p1, p0, Landroid/support/constraint/motion/MotionScene$1;->this$0:Landroid/support/constraint/motion/MotionScene;
 
     iput-object p2, p0, Landroid/support/constraint/motion/MotionScene$1;->val$easing:Landroid/support/constraint/motion/utils/Easing;
@@ -42,7 +42,7 @@
 .method public getInterpolation(F)F
     .locals 3
 
-    .line 1371
+    .line 1401
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$1;->val$easing:Landroid/support/constraint/motion/utils/Easing;
 
     float-to-double v1, p1

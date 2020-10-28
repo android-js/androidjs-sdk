@@ -22,7 +22,7 @@
 .method constructor <init>(Landroid/support/constraint/utils/ImageFilterButton;)V
     .locals 0
 
-    .line 332
+    .line 336
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
@@ -35,21 +35,21 @@
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 6
 
-    .line 335
+    .line 339
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterButton;->getWidth()I
 
     move-result v3
 
-    .line 336
+    .line 340
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterButton;->getHeight()I
 
     move-result v4
 
-    .line 337
+    .line 341
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-static {p1}, Landroid/support/constraint/utils/ImageFilterButton;->access$100(Landroid/support/constraint/utils/ImageFilterButton;)F

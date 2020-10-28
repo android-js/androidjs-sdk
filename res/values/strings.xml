@@ -39,40 +39,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="adjustable_description">Adjustable</string>
     <string name="app_name">Sample Android js</string>
-    <string name="catalyst_copy_button">"Copy
-"</string>
-    <string name="catalyst_debugjs">Debug JS Remotely</string>
-    <string name="catalyst_debugjs_nuclide">Debug JS in Nuclide</string>
-    <string name="catalyst_debugjs_nuclide_failure">The request to attach Nuclide could not reach Metro Bundler!</string>
-    <string name="catalyst_debugjs_off">Stop Remote JS Debugging</string>
-    <string name="catalyst_dismiss_button">"Dismiss
-(ESC)"</string>
-    <string name="catalyst_element_inspector">Toggle Inspector</string>
-    <string name="catalyst_heap_capture">Capture Heap</string>
-    <string name="catalyst_hot_module_replacement">Enable Hot Reloading</string>
-    <string name="catalyst_hot_module_replacement_off">Disable Hot Reloading</string>
-    <string name="catalyst_jsload_error">Unable to download JS bundle. Did you forget to start the development server or connect your device?</string>
-    <string name="catalyst_live_reload">Enable Live Reload</string>
-    <string name="catalyst_live_reload_off">Disable Live Reload</string>
-    <string name="catalyst_loading_from_url">Loading from %1$s…</string>
-    <string name="catalyst_perf_monitor">Show Perf Monitor</string>
-    <string name="catalyst_perf_monitor_off">Hide Perf Monitor</string>
-    <string name="catalyst_poke_sampling_profiler">Start/Stop Sampling Profiler</string>
-    <string name="catalyst_reload_button">"Reload
-(R, R)"</string>
-    <string name="catalyst_reloadjs">Reload</string>
-    <string name="catalyst_remotedbg_error">Unable to connect with remote debugger</string>
-    <string name="catalyst_remotedbg_message">Connecting to remote debugger</string>
-    <string name="catalyst_report_button">Report</string>
-    <string name="catalyst_settings">Dev Settings</string>
-    <string name="catalyst_settings_title">Catalyst Dev Settings</string>
-    <string name="header_description">Heading</string>
-    <string name="image_button_description">Button, Image</string>
-    <string name="image_description">Image</string>
-    <string name="link_description">Link</string>
-    <string name="search_description">Search Field</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
 </resources>

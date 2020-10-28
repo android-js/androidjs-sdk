@@ -22,7 +22,7 @@
 .method constructor <init>(Landroid/support/constraint/utils/ImageFilterButton;)V
     .locals 0
 
-    .line 274
+    .line 278
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$1;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
@@ -35,21 +35,21 @@
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 6
 
-    .line 277
+    .line 281
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$1;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterButton;->getWidth()I
 
     move-result v3
 
-    .line 278
+    .line 282
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$1;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
     invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterButton;->getHeight()I
 
     move-result v4
 
-    .line 279
+    .line 283
     invoke-static {v3, v4}, Ljava/lang/Math;->min(II)I
 
     move-result p1
@@ -74,7 +74,7 @@
 
     move-object v0, p2
 
-    .line 280
+    .line 284
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
 
     return-void

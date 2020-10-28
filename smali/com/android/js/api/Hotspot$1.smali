@@ -22,7 +22,7 @@
 .method constructor <init>(Lcom/android/js/api/Hotspot;)V
     .locals 0
 
-    .line 38
+    .line 41
     iput-object p1, p0, Lcom/android/js/api/Hotspot$1;->this$0:Lcom/android/js/api/Hotspot;
 
     invoke-direct {p0}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;-><init>()V
@@ -35,7 +35,7 @@
 .method public onFailed(I)V
     .locals 0
 
-    .line 58
+    .line 61
     invoke-super {p0, p1}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;->onFailed(I)V
 
     return-void
@@ -49,15 +49,15 @@
         }
     .end annotation
 
-    .line 42
+    .line 45
     invoke-super {p0, p1}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;->onStarted(Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;)V
 
-    .line 44
+    .line 47
     iget-object v0, p0, Lcom/android/js/api/Hotspot$1;->this$0:Lcom/android/js/api/Hotspot;
 
     invoke-static {v0, p1}, Lcom/android/js/api/Hotspot;->access$002(Lcom/android/js/api/Hotspot;Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;)Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;
 
-    .line 45
+    .line 48
     iget-object p1, p0, Lcom/android/js/api/Hotspot$1;->this$0:Lcom/android/js/api/Hotspot;
 
     invoke-static {p1}, Lcom/android/js/api/Hotspot;->access$000(Lcom/android/js/api/Hotspot;)Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;
@@ -70,7 +70,7 @@
 
     iget-object p1, p1, Landroid/net/wifi/WifiConfiguration;->preSharedKey:Ljava/lang/String;
 
-    .line 46
+    .line 49
     iget-object p1, p0, Lcom/android/js/api/Hotspot$1;->this$0:Lcom/android/js/api/Hotspot;
 
     invoke-static {p1}, Lcom/android/js/api/Hotspot;->access$000(Lcom/android/js/api/Hotspot;)Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;
@@ -89,7 +89,7 @@
 .method public onStopped()V
     .locals 0
 
-    .line 52
+    .line 55
     invoke-super {p0}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;->onStopped()V
 
     return-void

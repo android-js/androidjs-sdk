@@ -93,78 +93,18 @@
 
 .field public static final abc_toolbar_collapse_description:I = 0x7f0b0026
 
-.field public static final adjustable_description:I = 0x7f0b0027
+.field public static final app_name:I = 0x7f0b0027
 
-.field public static final app_name:I = 0x7f0b0028
+.field public static final search_menu_title:I = 0x7f0b0028
 
-.field public static final catalyst_copy_button:I = 0x7f0b0029
-
-.field public static final catalyst_debugjs:I = 0x7f0b002a
-
-.field public static final catalyst_debugjs_nuclide:I = 0x7f0b002b
-
-.field public static final catalyst_debugjs_nuclide_failure:I = 0x7f0b002c
-
-.field public static final catalyst_debugjs_off:I = 0x7f0b002d
-
-.field public static final catalyst_dismiss_button:I = 0x7f0b002e
-
-.field public static final catalyst_element_inspector:I = 0x7f0b002f
-
-.field public static final catalyst_heap_capture:I = 0x7f0b0030
-
-.field public static final catalyst_hot_module_replacement:I = 0x7f0b0031
-
-.field public static final catalyst_hot_module_replacement_off:I = 0x7f0b0032
-
-.field public static final catalyst_jsload_error:I = 0x7f0b0033
-
-.field public static final catalyst_live_reload:I = 0x7f0b0034
-
-.field public static final catalyst_live_reload_off:I = 0x7f0b0035
-
-.field public static final catalyst_loading_from_url:I = 0x7f0b0036
-
-.field public static final catalyst_perf_monitor:I = 0x7f0b0037
-
-.field public static final catalyst_perf_monitor_off:I = 0x7f0b0038
-
-.field public static final catalyst_poke_sampling_profiler:I = 0x7f0b0039
-
-.field public static final catalyst_reload_button:I = 0x7f0b003a
-
-.field public static final catalyst_reloadjs:I = 0x7f0b003b
-
-.field public static final catalyst_remotedbg_error:I = 0x7f0b003c
-
-.field public static final catalyst_remotedbg_message:I = 0x7f0b003d
-
-.field public static final catalyst_report_button:I = 0x7f0b003e
-
-.field public static final catalyst_settings:I = 0x7f0b003f
-
-.field public static final catalyst_settings_title:I = 0x7f0b0040
-
-.field public static final header_description:I = 0x7f0b0041
-
-.field public static final image_button_description:I = 0x7f0b0042
-
-.field public static final image_description:I = 0x7f0b0043
-
-.field public static final link_description:I = 0x7f0b0044
-
-.field public static final search_description:I = 0x7f0b0045
-
-.field public static final search_menu_title:I = 0x7f0b0046
-
-.field public static final status_bar_notification_info_overflow:I = 0x7f0b0047
+.field public static final status_bar_notification_info_overflow:I = 0x7f0b0029
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    .line 5015
+    .line 4641
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -22,7 +22,7 @@
 .method constructor <init>(Landroid/support/constraint/utils/ImageFilterView;)V
     .locals 0
 
-    .line 543
+    .line 547
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$2;->this$0:Landroid/support/constraint/utils/ImageFilterView;
 
     invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
@@ -35,21 +35,21 @@
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 6
 
-    .line 546
+    .line 550
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$2;->this$0:Landroid/support/constraint/utils/ImageFilterView;
 
     invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterView;->getWidth()I
 
     move-result v3
 
-    .line 547
+    .line 551
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$2;->this$0:Landroid/support/constraint/utils/ImageFilterView;
 
     invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterView;->getHeight()I
 
     move-result v4
 
-    .line 548
+    .line 552
     iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$2;->this$0:Landroid/support/constraint/utils/ImageFilterView;
 
     invoke-static {p1}, Landroid/support/constraint/utils/ImageFilterView;->access$100(Landroid/support/constraint/utils/ImageFilterView;)F

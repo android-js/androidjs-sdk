@@ -392,7 +392,10 @@
 
     goto/16 :goto_0
 
+    .line 126
     :cond_c
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+
     return-void
 .end method
 

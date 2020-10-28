@@ -15,13 +15,13 @@
 
 
 # static fields
-.field public static final notification_action_color_filter:I = 0x7f040040
+.field public static final notification_action_color_filter:I = 0x7f04003f
 
-.field public static final notification_icon_bg_color:I = 0x7f040041
+.field public static final notification_icon_bg_color:I = 0x7f040040
 
-.field public static final ripple_material_light:I = 0x7f04004c
+.field public static final ripple_material_light:I = 0x7f04004a
 
-.field public static final secondary_text_default_material_light:I = 0x7f04004e
+.field public static final secondary_text_default_material_light:I = 0x7f04004c
 
 
 # direct methods

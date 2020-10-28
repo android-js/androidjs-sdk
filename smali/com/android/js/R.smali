@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/js/R$xml;,
         Lcom/android/js/R$styleable;,
         Lcom/android/js/R$style;,
         Lcom/android/js/R$string;,

@@ -5,10 +5,6 @@
     <style name="Animation.AppCompat.Dialog" parent="@style/Base.Animation.AppCompat.Dialog" />
     <style name="Animation.AppCompat.DropDownUp" parent="@style/Base.Animation.AppCompat.DropDownUp" />
     <style name="Animation.AppCompat.Tooltip" parent="@style/Base.Animation.AppCompat.Tooltip" />
-    <style name="Animation.Catalyst.RedBox" parent="@android:style/Animation">
-        <item name="android:windowEnterAnimation">@anim/catalyst_push_up_in</item>
-        <item name="android:windowExitAnimation">@anim/catalyst_push_up_out</item>
-    </style>
     <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -935,20 +931,6 @@
         <item name="android:scaleType">center</item>
         <item name="android:minWidth">56.0dip</item>
     </style>
-    <style name="CalendarDatePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog">
-        <item name="android:datePickerStyle">@style/CalendarDatePickerStyle</item>
-    </style>
-    <style name="CalendarDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker" />
-    <style name="ClockTimePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog" />
-    <style name="ClockTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker" />
-    <style name="DialogAnimationFade">
-        <item name="android:windowEnterAnimation">@anim/catalyst_fade_in</item>
-        <item name="android:windowExitAnimation">@anim/catalyst_fade_out</item>
-    </style>
-    <style name="DialogAnimationSlide">
-        <item name="android:windowEnterAnimation">@anim/catalyst_slide_up</item>
-        <item name="android:windowExitAnimation">@anim/catalyst_slide_down</item>
-    </style>
     <style name="Platform.AppCompat" parent="@android:style/Theme.Holo">
         <item name="android:colorForeground">@color/foreground_material_dark</item>
         <item name="android:colorBackground">@color/background_material_dark</item>
@@ -1119,12 +1101,6 @@
         <item name="android:paddingStart">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingEnd">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
-    <style name="SpinnerDatePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog">
-        <item name="android:datePickerStyle">@style/SpinnerDatePickerStyle</item>
-    </style>
-    <style name="SpinnerDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker" />
-    <style name="SpinnerTimePickerDialog" parent="@style/Theme.AppCompat.Light.Dialog" />
-    <style name="SpinnerTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker" />
     <style name="TextAppearance.AppCompat" parent="@style/Base.TextAppearance.AppCompat" />
     <style name="TextAppearance.AppCompat.Body1" parent="@style/Base.TextAppearance.AppCompat.Body1" />
     <style name="TextAppearance.AppCompat.Body2" parent="@style/Base.TextAppearance.AppCompat.Body2" />
@@ -1181,21 +1157,15 @@
         <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
-    <style name="TextAppearance.Compat.Notification.Info.Media" parent="@style/TextAppearance.Compat.Notification.Info" />
     <style name="TextAppearance.Compat.Notification.Line2" parent="@style/TextAppearance.Compat.Notification.Info" />
-    <style name="TextAppearance.Compat.Notification.Line2.Media" parent="@style/TextAppearance.Compat.Notification.Info.Media" />
-    <style name="TextAppearance.Compat.Notification.Media" parent="@style/TextAppearance.Compat.Notification" />
     <style name="TextAppearance.Compat.Notification.Time" parent="@style/TextAppearance.Compat.Notification">
         <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
-    <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time" />
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title" />
-    <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title" />
     <style name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="@style/Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item" />
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Subtitle" parent="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle" />
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title" />
-    <style name="Theme" />
     <style name="Theme.AppCompat" parent="@style/Base.Theme.AppCompat" />
     <style name="Theme.AppCompat.CompactMenu" parent="@style/Base.Theme.AppCompat.CompactMenu" />
     <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat.Light" />
@@ -1222,34 +1192,6 @@
     <style name="Theme.AppCompat.NoActionBar" parent="@style/Theme.AppCompat">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-    </style>
-    <style name="Theme.Catalyst" parent="@style/Theme" />
-    <style name="Theme.Catalyst.RedBox" parent="@style/Theme.Catalyst">
-        <item name="android:windowBackground">@color/catalyst_redbox_background</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:windowAnimationStyle">@style/Animation.Catalyst.RedBox</item>
-        <item name="android:inAnimation">@android:anim/fade_in</item>
-        <item name="android:outAnimation">@android:anim/fade_out</item>
-    </style>
-    <style name="Theme.FullScreenDialog" parent="@style/Theme">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">false</item>
-    </style>
-    <style name="Theme.FullScreenDialogAnimatedFade" parent="@style/Theme.FullScreenDialog">
-        <item name="android:windowAnimationStyle">@style/DialogAnimationFade</item>
-    </style>
-    <style name="Theme.FullScreenDialogAnimatedSlide" parent="@style/Theme.FullScreenDialog">
-        <item name="android:windowAnimationStyle">@style/DialogAnimationSlide</item>
-    </style>
-    <style name="Theme.ReactNative.AppCompat.Light" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-    <style name="Theme.ReactNative.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.ReactNative.AppCompat.Light">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowFullscreen">true</item>
-        <item name="windowActionBar">false</item>
     </style>
     <style name="ThemeOverlay.AppCompat" parent="@style/Base.ThemeOverlay.AppCompat" />
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="@style/Base.ThemeOverlay.AppCompat.ActionBar" />
@@ -1336,15 +1278,5 @@
     <style name="Widget.Compat.NotificationActionText" parent="" />
     <style name="Widget.Support.CoordinatorLayout" parent="@android:style/Widget">
         <item name="statusBarBackground">#ff000000</item>
-    </style>
-    <style name="redboxButton">
-        <item name="android:textSize">14.0sp</item>
-        <item name="android:textColor">#ffdddddd</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@null</item>
-        <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">4.0dip</item>
-        <item name="android:layout_weight">1.0</item>
     </style>
 </resources>

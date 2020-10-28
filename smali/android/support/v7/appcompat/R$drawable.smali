@@ -207,9 +207,9 @@
 
 .field public static final notify_panel_notification_icon_bg:I = 0x7f06005f
 
-.field public static final tooltip_frame_dark:I = 0x7f060061
+.field public static final tooltip_frame_dark:I = 0x7f060060
 
-.field public static final tooltip_frame_light:I = 0x7f060062
+.field public static final tooltip_frame_light:I = 0x7f060061
 
 
 # direct methods

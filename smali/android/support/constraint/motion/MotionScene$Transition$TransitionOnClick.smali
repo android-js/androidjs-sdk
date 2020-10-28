@@ -41,23 +41,23 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/support/constraint/motion/MotionScene$Transition;Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 2
 
-    .line 625
+    .line 648
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, -0x1
 
-    .line 617
+    .line 640
     iput v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTargetId:I
 
     const/16 v0, 0x11
 
-    .line 618
+    .line 641
     iput v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
-    .line 626
+    .line 649
     iput-object p2, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
-    .line 627
+    .line 650
     invoke-static {p3}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object p2
@@ -68,7 +68,7 @@
 
     move-result-object p1
 
-    .line 628
+    .line 651
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result p2
@@ -78,17 +78,17 @@
     :goto_0
     if-ge p3, p2, :cond_2
 
-    .line 630
+    .line 653
     invoke-virtual {p1, p3}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v0
 
-    .line 631
+    .line 654
     sget v1, Landroid/support/constraint/R$styleable;->OnClick_targetId:I
 
     if-ne v0, v1, :cond_0
 
-    .line 632
+    .line 655
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTargetId:I
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -99,13 +99,13 @@
 
     goto :goto_1
 
-    .line 633
+    .line 656
     :cond_0
     sget v1, Landroid/support/constraint/R$styleable;->OnClick_clickAction:I
 
     if-ne v0, v1, :cond_1
 
-    .line 634
+    .line 657
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -120,7 +120,7 @@
 
     goto :goto_0
 
-    .line 637
+    .line 660
     :cond_2
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -132,7 +132,7 @@
 .method public addOnClickListeners(Landroid/support/constraint/motion/MotionLayout;ILandroid/support/constraint/motion/MotionScene$Transition;)V
     .locals 5
 
-    .line 641
+    .line 664
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTargetId:I
 
     const/4 v1, -0x1
@@ -149,7 +149,7 @@
     :goto_0
     if-nez p1, :cond_1
 
-    .line 643
+    .line 666
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -172,25 +172,25 @@
 
     return-void
 
-    .line 646
+    .line 669
     :cond_1
     invoke-static {p3}, Landroid/support/constraint/motion/MotionScene$Transition;->access$100(Landroid/support/constraint/motion/MotionScene$Transition;)I
 
     move-result v0
 
-    .line 647
+    .line 670
     invoke-static {p3}, Landroid/support/constraint/motion/MotionScene$Transition;->access$000(Landroid/support/constraint/motion/MotionScene$Transition;)I
 
     move-result p3
 
     if-ne v0, v1, :cond_2
 
-    .line 649
+    .line 672
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 
-    .line 653
+    .line 676
     :cond_2
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
@@ -211,7 +211,7 @@
     :cond_3
     const/4 v1, 0x0
 
-    .line 654
+    .line 677
     :goto_1
     iget v4, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
@@ -231,7 +231,7 @@
     :goto_2
     or-int/2addr v1, v4
 
-    .line 655
+    .line 678
     iget v4, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/2addr v4, v2
@@ -250,7 +250,7 @@
     :goto_3
     or-int/2addr v0, v1
 
-    .line 656
+    .line 679
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit8 v1, v1, 0x10
@@ -269,7 +269,7 @@
     :goto_4
     or-int/2addr v0, v1
 
-    .line 657
+    .line 680
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit16 v1, v1, 0x1000
@@ -288,7 +288,7 @@
 
     if-eqz p2, :cond_8
 
-    .line 660
+    .line 683
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_8
@@ -298,7 +298,7 @@
 .method isTransitionViable(Landroid/support/constraint/motion/MotionScene$Transition;Landroid/support/constraint/motion/MotionLayout;)Z
     .locals 4
 
-    .line 677
+    .line 700
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     const/4 v1, 0x1
@@ -307,13 +307,13 @@
 
     return v1
 
-    .line 680
+    .line 703
     :cond_0
     invoke-static {v0}, Landroid/support/constraint/motion/MotionScene$Transition;->access$000(Landroid/support/constraint/motion/MotionScene$Transition;)I
 
     move-result p1
 
-    .line 681
+    .line 704
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-static {v0}, Landroid/support/constraint/motion/MotionScene$Transition;->access$100(Landroid/support/constraint/motion/MotionScene$Transition;)I
@@ -326,7 +326,7 @@
 
     if-ne v0, v2, :cond_2
 
-    .line 683
+    .line 706
     iget p2, p2, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     if-eq p2, p1, :cond_1
@@ -339,7 +339,7 @@
     :goto_0
     return v1
 
-    .line 685
+    .line 708
     :cond_2
     iget v2, p2, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
@@ -362,7 +362,7 @@
 .method public onClick(Landroid/view/View;)V
     .locals 7
 
-    .line 691
+    .line 714
     iget-object p1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-static {p1}, Landroid/support/constraint/motion/MotionScene$Transition;->access$700(Landroid/support/constraint/motion/MotionScene$Transition;)Landroid/support/constraint/motion/MotionScene;
@@ -373,7 +373,7 @@
 
     move-result-object p1
 
-    .line 692
+    .line 715
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->isInteractionEnabled()Z
 
     move-result v0
@@ -382,7 +382,7 @@
 
     return-void
 
-    .line 695
+    .line 718
     :cond_0
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
@@ -394,14 +394,14 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 696
+    .line 719
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->getCurrentState()I
 
     move-result v0
 
     if-ne v0, v1, :cond_1
 
-    .line 698
+    .line 721
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-static {v0}, Landroid/support/constraint/motion/MotionScene$Transition;->access$000(Landroid/support/constraint/motion/MotionScene$Transition;)I
@@ -412,7 +412,7 @@
 
     return-void
 
-    .line 701
+    .line 724
     :cond_1
     new-instance v1, Landroid/support/constraint/motion/MotionScene$Transition;
 
@@ -426,10 +426,10 @@
 
     invoke-direct {v1, v2, v3}, Landroid/support/constraint/motion/MotionScene$Transition;-><init>(Landroid/support/constraint/motion/MotionScene;Landroid/support/constraint/motion/MotionScene$Transition;)V
 
-    .line 702
+    .line 725
     invoke-static {v1, v0}, Landroid/support/constraint/motion/MotionScene$Transition;->access$102(Landroid/support/constraint/motion/MotionScene$Transition;I)I
 
-    .line 703
+    .line 726
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-static {v0}, Landroid/support/constraint/motion/MotionScene$Transition;->access$000(Landroid/support/constraint/motion/MotionScene$Transition;)I
@@ -438,15 +438,15 @@
 
     invoke-static {v1, v0}, Landroid/support/constraint/motion/MotionScene$Transition;->access$002(Landroid/support/constraint/motion/MotionScene$Transition;I)I
 
-    .line 704
+    .line 727
     invoke-virtual {p1, v1}, Landroid/support/constraint/motion/MotionLayout;->setTransition(Landroid/support/constraint/motion/MotionScene$Transition;)V
 
-    .line 705
+    .line 728
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToEnd()V
 
     return-void
 
-    .line 708
+    .line 731
     :cond_2
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
@@ -456,7 +456,7 @@
 
     iget-object v0, v0, Landroid/support/constraint/motion/MotionScene;->mCurrentTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
-    .line 709
+    .line 732
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit8 v2, v1, 0x1
@@ -482,7 +482,7 @@
     :goto_0
     const/4 v1, 0x1
 
-    .line 710
+    .line 733
     :goto_1
     iget v2, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
@@ -520,7 +520,7 @@
     :goto_4
     if-eqz v5, :cond_b
 
-    .line 713
+    .line 736
     iget-object v5, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-static {v5}, Landroid/support/constraint/motion/MotionScene$Transition;->access$700(Landroid/support/constraint/motion/MotionScene$Transition;)Landroid/support/constraint/motion/MotionScene;
@@ -533,10 +533,10 @@
 
     if-eq v5, v6, :cond_8
 
-    .line 714
+    .line 737
     invoke-virtual {p1, v6}, Landroid/support/constraint/motion/MotionLayout;->setTransition(Landroid/support/constraint/motion/MotionScene$Transition;)V
 
-    .line 716
+    .line 739
     :cond_8
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->getCurrentState()I
 
@@ -569,7 +569,7 @@
     :goto_5
     const/4 v1, 0x0
 
-    .line 722
+    .line 745
     :cond_b
     :goto_6
     invoke-virtual {p0, v0, p1}, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->isTransitionViable(Landroid/support/constraint/motion/MotionScene$Transition;Landroid/support/constraint/motion/MotionLayout;)Z
@@ -580,19 +580,19 @@
 
     if-eqz v1, :cond_c
 
-    .line 723
+    .line 746
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/2addr v0, v4
 
     if-eqz v0, :cond_c
 
-    .line 724
+    .line 747
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setTransition(Landroid/support/constraint/motion/MotionScene$Transition;)V
 
-    .line 725
+    .line 748
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToEnd()V
 
     goto :goto_7
@@ -600,19 +600,19 @@
     :cond_c
     if-eqz v2, :cond_d
 
-    .line 726
+    .line 749
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit8 v0, v0, 0x10
 
     if-eqz v0, :cond_d
 
-    .line 727
+    .line 750
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setTransition(Landroid/support/constraint/motion/MotionScene$Transition;)V
 
-    .line 728
+    .line 751
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToStart()V
 
     goto :goto_7
@@ -620,21 +620,21 @@
     :cond_d
     if-eqz v1, :cond_e
 
-    .line 729
+    .line 752
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit16 v0, v0, 0x100
 
     if-eqz v0, :cond_e
 
-    .line 730
+    .line 753
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setTransition(Landroid/support/constraint/motion/MotionScene$Transition;)V
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    .line 731
+    .line 754
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
     goto :goto_7
@@ -642,21 +642,21 @@
     :cond_e
     if-eqz v2, :cond_f
 
-    .line 732
+    .line 755
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit16 v0, v0, 0x1000
 
     if-eqz v0, :cond_f
 
-    .line 733
+    .line 756
     iget-object v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setTransition(Landroid/support/constraint/motion/MotionScene$Transition;)V
 
     const/4 v0, 0x0
 
-    .line 734
+    .line 757
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
     :cond_f
@@ -667,7 +667,7 @@
 .method public removeOnClickListeners(Landroid/support/constraint/motion/MotionLayout;)V
     .locals 2
 
-    .line 665
+    .line 688
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTargetId:I
 
     const/4 v1, -0x1
@@ -676,7 +676,7 @@
 
     return-void
 
-    .line 668
+    .line 691
     :cond_0
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->findViewById(I)Landroid/view/View;
 
@@ -684,7 +684,7 @@
 
     if-nez p1, :cond_1
 
-    .line 670
+    .line 693
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -710,7 +710,7 @@
     :cond_1
     const/4 v0, 0x0
 
-    .line 673
+    .line 696
     invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void

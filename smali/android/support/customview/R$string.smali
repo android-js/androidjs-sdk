@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final status_bar_notification_info_overflow:I = 0x7f0b0047
+.field public static final status_bar_notification_info_overflow:I = 0x7f0b0029
 
 
 # direct methods

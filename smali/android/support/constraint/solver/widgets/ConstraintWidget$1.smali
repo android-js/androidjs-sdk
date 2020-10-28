@@ -24,7 +24,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
-    .line 2378
+    .line 2644
     invoke-static {}, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->values()[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     move-result-object v0
@@ -98,7 +98,7 @@
     :try_end_3
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
 
-    .line 946
+    .line 1125
     :catch_3
     invoke-static {}, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->values()[Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 

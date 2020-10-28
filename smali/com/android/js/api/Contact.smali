@@ -1,5 +1,5 @@
 .class public Lcom/android/js/api/Contact;
-.super Lcom/facebook/react/bridge/ReactContextBaseJavaModule;
+.super Ljava/lang/Object;
 .source "Contact.java"
 
 
@@ -10,41 +10,18 @@
 
 .field private cursor:Landroid/database/Cursor;
 
-.field private reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
 
 # direct methods
-.method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+.method public constructor <init>(Landroid/app/Activity;)V
     .locals 0
-    .param p1    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
-    .line 28
-    invoke-direct {p0, p2}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    .line 21
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
+    .line 22
     iput-object p1, p0, Lcom/android/js/api/Contact;->activity:Landroid/app/Activity;
 
-    .line 30
-    iput-object p2, p0, Lcom/android/js/api/Contact;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
-    if-nez p1, :cond_0
-
-    .line 31
-    invoke-virtual {p2}, Lcom/facebook/react/bridge/ReactApplicationContext;->getCurrentActivity()Landroid/app/Activity;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/js/api/Contact;->activity:Landroid/app/Activity;
-
-    .line 32
-    :cond_0
+    .line 23
     new-instance p1, Lorg/json/JSONArray;
 
     invoke-direct {p1}, Lorg/json/JSONArray;-><init>()V
@@ -58,15 +35,13 @@
 # virtual methods
 .method public addContact(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 8
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-    .end annotation
 
-    .line 62
+    .line 51
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 63
+    .line 52
     sget-object v1, Landroid/provider/ContactsContract$RawContacts;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v1}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
@@ -77,24 +52,24 @@
 
     const-string v3, "account_type"
 
-    .line 64
+    .line 53
     invoke-virtual {v1, v3, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v1
 
     const-string v3, "account_name"
 
-    .line 65
+    .line 54
     invoke-virtual {v1, v3, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v1
 
-    .line 66
+    .line 55
     invoke-virtual {v1}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
     move-result-object v1
 
-    .line 63
+    .line 52
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const-string v1, "data1"
@@ -107,26 +82,26 @@
 
     if-eqz p1, :cond_0
 
-    .line 68
+    .line 57
     sget-object v5, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v5}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v5
 
-    .line 70
+    .line 59
     invoke-virtual {v5, v4, v3}, Landroid/content/ContentProviderOperation$Builder;->withValueBackReference(Ljava/lang/String;I)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v5
 
     const-string v6, "vnd.android.cursor.item/name"
 
-    .line 71
+    .line 60
     invoke-virtual {v5, v2, v6}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v5
 
-    .line 72
+    .line 61
     invoke-virtual {v5, v1, p1}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object p1
@@ -135,7 +110,7 @@
 
     move-result-object p1
 
-    .line 68
+    .line 57
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_0
@@ -145,32 +120,32 @@
 
     if-eqz p2, :cond_1
 
-    .line 75
+    .line 64
     sget-object v6, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
-    .line 76
+    .line 65
     invoke-static {v6}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v6
 
-    .line 77
+    .line 66
     invoke-virtual {v6, v4, v3}, Landroid/content/ContentProviderOperation$Builder;->withValueBackReference(Ljava/lang/String;I)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v6
 
     const-string v7, "vnd.android.cursor.item/phone_v2"
 
-    .line 78
+    .line 67
     invoke-virtual {v6, v2, v7}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v6
 
-    .line 79
+    .line 68
     invoke-virtual {v6, v1, p2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object p2
 
-    .line 80
+    .line 69
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
@@ -179,42 +154,42 @@
 
     move-result-object p2
 
-    .line 81
+    .line 70
     invoke-virtual {p2}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
     move-result-object p2
 
-    .line 75
+    .line 64
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_1
     if-eqz p3, :cond_2
 
-    .line 84
+    .line 73
     sget-object p2, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {p2}, Landroid/content/ContentProviderOperation;->newInsert(Landroid/net/Uri;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object p2
 
-    .line 85
+    .line 74
     invoke-virtual {p2, v4, v3}, Landroid/content/ContentProviderOperation$Builder;->withValueBackReference(Ljava/lang/String;I)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object p2
 
     const-string v3, "vnd.android.cursor.item/email_v2"
 
-    .line 86
+    .line 75
     invoke-virtual {p2, v2, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object p2
 
-    .line 87
+    .line 76
     invoke-virtual {p2, v1, p3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object p2
 
-    .line 88
+    .line 77
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p1
@@ -223,15 +198,15 @@
 
     move-result-object p1
 
-    .line 89
+    .line 78
     invoke-virtual {p1}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
 
     move-result-object p1
 
-    .line 84
+    .line 73
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 93
+    .line 82
     :cond_2
     :try_start_0
     iget-object p1, p0, Lcom/android/js/api/Contact;->activity:Landroid/app/Activity;
@@ -246,7 +221,7 @@
 
     const/4 p1, 0x1
 
-    .line 94
+    .line 83
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p1
@@ -262,10 +237,10 @@
     :catch_0
     move-exception p1
 
-    .line 97
+    .line 86
     invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 98
+    .line 87
     new-instance p2, Ljava/lang/StringBuilder;
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
@@ -293,17 +268,13 @@
 
 .method public getAllContacts(Ljava/lang/Boolean;)Ljava/lang/String;
     .locals 9
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-        isBlockingSynchronousMethod = true
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/json/JSONException;
         }
     .end annotation
 
-    .line 37
+    .line 27
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
@@ -318,7 +289,7 @@
 
     if-eqz p1, :cond_3
 
-    .line 38
+    .line 28
     :cond_0
     iget-object p1, p0, Lcom/android/js/api/Contact;->activity:Landroid/app/Activity;
 
@@ -342,7 +313,7 @@
 
     iput-object p1, p0, Lcom/android/js/api/Contact;->cursor:Landroid/database/Cursor;
 
-    .line 39
+    .line 29
     :goto_0
     iget-object p1, p0, Lcom/android/js/api/Contact;->cursor:Landroid/database/Cursor;
 
@@ -352,12 +323,12 @@
 
     if-eqz p1, :cond_2
 
-    .line 40
+    .line 30
     new-instance p1, Lorg/json/JSONObject;
 
     invoke-direct {p1}, Lorg/json/JSONObject;-><init>()V
 
-    .line 41
+    .line 31
     iget-object v0, p0, Lcom/android/js/api/Contact;->cursor:Landroid/database/Cursor;
 
     const-string v1, "display_name"
@@ -374,7 +345,7 @@
 
     invoke-virtual {p1, v1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 42
+    .line 32
     iget-object v0, p0, Lcom/android/js/api/Contact;->cursor:Landroid/database/Cursor;
 
     const-string v1, "data1"
@@ -391,7 +362,7 @@
 
     invoke-virtual {p1, v2, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 44
+    .line 34
     iget-object v0, p0, Lcom/android/js/api/Contact;->cursor:Landroid/database/Cursor;
 
     const-string v2, "_id"
@@ -404,7 +375,7 @@
 
     move-result-object v0
 
-    .line 46
+    .line 36
     iget-object v2, p0, Lcom/android/js/api/Contact;->activity:Landroid/app/Activity;
 
     invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
@@ -433,14 +404,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 49
+    .line 39
     invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 50
+    .line 40
     invoke-interface {v0, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v1
@@ -453,10 +424,10 @@
 
     invoke-virtual {p1, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 51
+    .line 41
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
 
-    .line 53
+    .line 43
     :cond_1
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
@@ -464,13 +435,13 @@
 
     goto :goto_0
 
-    .line 55
+    .line 45
     :cond_2
     iget-object p1, p0, Lcom/android/js/api/Contact;->cursor:Landroid/database/Cursor;
 
     invoke-interface {p1}, Landroid/database/Cursor;->close()V
 
-    .line 57
+    .line 47
     :cond_3
     iget-object p1, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
@@ -483,17 +454,13 @@
 
 .method public getContactByName(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-        isBlockingSynchronousMethod = true
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/json/JSONException;
         }
     .end annotation
 
-    .line 104
+    .line 92
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
@@ -510,7 +477,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/js/api/Contact;->getAllContacts(Ljava/lang/Boolean;)Ljava/lang/String;
 
-    .line 105
+    .line 93
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
@@ -521,7 +488,7 @@
 
     if-ge v1, v0, :cond_2
 
-    .line 106
+    .line 94
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
     invoke-virtual {v0, v1}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -565,17 +532,13 @@
 
 .method public getContactsCount()I
     .locals 1
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-        isBlockingSynchronousMethod = true
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/json/JSONException;
         }
     .end annotation
 
-    .line 113
+    .line 100
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
@@ -592,7 +555,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/js/api/Contact;->getAllContacts(Ljava/lang/Boolean;)Ljava/lang/String;
 
-    .line 114
+    .line 101
     :cond_0
     iget-object v0, p0, Lcom/android/js/api/Contact;->contacts:Lorg/json/JSONArray;
 
@@ -601,12 +564,4 @@
     move-result v0
 
     return v0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "Contact"
-
-    return-object v0
 .end method

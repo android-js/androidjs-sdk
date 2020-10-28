@@ -1,48 +1,25 @@
 .class public Lcom/android/js/api/SMS;
-.super Lcom/facebook/react/bridge/ReactContextBaseJavaModule;
+.super Ljava/lang/Object;
 .source "SMS.java"
 
 
 # instance fields
 .field private activity:Landroid/app/Activity;
 
-.field private reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
 .field private smsManager:Landroid/telephony/SmsManager;
 
 
 # direct methods
-.method public constructor <init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+.method public constructor <init>(Landroid/app/Activity;)V
     .locals 0
-    .param p1    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Lcom/facebook/react/bridge/ReactApplicationContext;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
-    .line 19
-    invoke-direct {p0, p2}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    .line 12
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 20
+    .line 13
     iput-object p1, p0, Lcom/android/js/api/SMS;->activity:Landroid/app/Activity;
 
-    .line 21
-    iput-object p2, p0, Lcom/android/js/api/SMS;->reactContext:Lcom/facebook/react/bridge/ReactApplicationContext;
-
-    if-nez p1, :cond_0
-
-    .line 22
-    invoke-virtual {p0}, Lcom/android/js/api/SMS;->getCurrentActivity()Landroid/app/Activity;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/js/api/SMS;->activity:Landroid/app/Activity;
-
-    .line 23
-    :cond_0
+    .line 14
     invoke-static {}, Landroid/telephony/SmsManager;->getDefault()Landroid/telephony/SmsManager;
 
     move-result-object p1
@@ -54,21 +31,10 @@
 
 
 # virtual methods
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    const-string v0, "SMS"
-
-    return-object v0
-.end method
-
 .method public sendSMS(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
-        isBlockingSynchronousMethod = true
-    .end annotation
 
-    .line 29
+    .line 19
     :try_start_0
     iget-object v0, p0, Lcom/android/js/api/SMS;->smsManager:Landroid/telephony/SmsManager;
 
@@ -76,7 +42,7 @@
 
     move-result-object v4
 
-    .line 30
+    .line 20
     iget-object v1, p0, Lcom/android/js/api/SMS;->smsManager:Landroid/telephony/SmsManager;
 
     const/4 v3, 0x0
@@ -98,10 +64,10 @@
     :catch_0
     move-exception p1
 
-    .line 33
+    .line 23
     invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 34
+    .line 24
     new-instance p2, Ljava/lang/StringBuilder;
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V

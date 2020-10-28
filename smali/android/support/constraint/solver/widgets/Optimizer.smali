@@ -12,17 +12,21 @@
 
 .field public static final OPTIMIZATION_BARRIER:I = 0x2
 
+.field public static final OPTIMIZATION_CACHE_MEASURES:I = 0x100
+
 .field public static final OPTIMIZATION_CHAIN:I = 0x4
+
+.field public static final OPTIMIZATION_DEPENDENCY_ORDERING:I = 0x200
 
 .field public static final OPTIMIZATION_DIMENSIONS:I = 0x8
 
 .field public static final OPTIMIZATION_DIRECT:I = 0x1
 
-.field public static final OPTIMIZATION_ENGINE:I = 0x100
-
 .field public static final OPTIMIZATION_GRAPH:I = 0x40
 
 .field public static final OPTIMIZATION_GRAPH_WRAP:I = 0x80
+
+.field public static final OPTIMIZATION_GROUPING:I = 0x400
 
 .field public static final OPTIMIZATION_GROUPS:I = 0x20
 
@@ -30,7 +34,7 @@
 
 .field public static final OPTIMIZATION_RATIO:I = 0x10
 
-.field public static final OPTIMIZATION_STANDARD:I = 0x107
+.field public static final OPTIMIZATION_STANDARD:I = 0x101
 
 .field static flags:[Z
 
@@ -41,7 +45,7 @@
 
     const/4 v0, 0x3
 
-    .line 51
+    .line 52
     new-array v0, v0, [Z
 
     sput-object v0, Landroid/support/constraint/solver/widgets/Optimizer;->flags:[Z
@@ -63,13 +67,13 @@
 
     const/4 v0, -0x1
 
-    .line 64
+    .line 65
     iput v0, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalResolution:I
 
-    .line 65
+    .line 66
     iput v0, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalResolution:I
 
-    .line 66
+    .line 67
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     const/4 v1, 0x0
@@ -90,12 +94,12 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 69
+    .line 70
     iget-object v0, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mLeft:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget v0, v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mMargin:I
 
-    .line 70
+    .line 71
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getWidth()I
 
     move-result v1
@@ -106,7 +110,7 @@
 
     sub-int/2addr v1, v2
 
-    .line 72
+    .line 73
     iget-object v2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mLeft:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v4, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mLeft:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -117,7 +121,7 @@
 
     iput-object v4, v2, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
-    .line 73
+    .line 74
     iget-object v2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mRight:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v4, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mRight:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -128,27 +132,27 @@
 
     iput-object v4, v2, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
-    .line 74
+    .line 75
     iget-object v2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mLeft:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v2, v2, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
     invoke-virtual {p1, v2, v0}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;I)V
 
-    .line 75
+    .line 76
     iget-object v2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mRight:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v2, v2, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
     invoke-virtual {p1, v2, v1}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;I)V
 
-    .line 76
+    .line 77
     iput v3, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mHorizontalResolution:I
 
-    .line 77
+    .line 78
     invoke-virtual {p2, v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHorizontalDimension(II)V
 
-    .line 79
+    .line 80
     :cond_0
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
@@ -168,12 +172,12 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 82
+    .line 83
     iget-object v0, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mTop:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget v0, v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mMargin:I
 
-    .line 83
+    .line 84
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getHeight()I
 
     move-result p0
@@ -184,7 +188,7 @@
 
     sub-int/2addr p0, v1
 
-    .line 85
+    .line 86
     iget-object v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mTop:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mTop:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -195,7 +199,7 @@
 
     iput-object v2, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
-    .line 86
+    .line 87
     iget-object v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBottom:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBottom:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -206,21 +210,21 @@
 
     iput-object v2, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
-    .line 87
+    .line 88
     iget-object v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mTop:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
     invoke-virtual {p1, v1, v0}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;I)V
 
-    .line 88
+    .line 89
     iget-object v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBottom:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
     invoke-virtual {p1, v1, p0}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;I)V
 
-    .line 89
+    .line 90
     iget v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaselineDistance:I
 
     if-gtz v1, :cond_1
@@ -233,7 +237,7 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 90
+    .line 91
     :cond_1
     iget-object v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaseline:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
@@ -245,7 +249,7 @@
 
     iput-object v2, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
 
-    .line 91
+    .line 92
     iget-object v1, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mBaseline:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mSolverVariable:Landroid/support/constraint/solver/SolverVariable;
@@ -256,11 +260,11 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/support/constraint/solver/LinearSystem;->addEquality(Landroid/support/constraint/solver/SolverVariable;I)V
 
-    .line 93
+    .line 94
     :cond_2
     iput v3, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mVerticalResolution:I
 
-    .line 94
+    .line 95
     invoke-virtual {p2, v0, p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setVerticalDimension(II)V
 
     :cond_3

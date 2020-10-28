@@ -36,10 +36,10 @@
 .method public constructor <init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 5
 
-    .line 251
+    .line 252
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 248
+    .line 249
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -48,27 +48,27 @@
 
     const/4 v0, -0x1
 
-    .line 249
+    .line 250
     iput v0, p0, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
     const/4 v0, 0x0
 
-    .line 250
+    .line 251
     iput-boolean v0, p0, Landroid/support/constraint/StateSet$State;->mIsLayout:Z
 
-    .line 252
+    .line 253
     invoke-static {p2}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object p2
 
-    .line 253
+    .line 254
     sget-object v1, Landroid/support/constraint/R$styleable;->State:[I
 
     invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
-    .line 254
+    .line 255
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v1
@@ -76,17 +76,17 @@
     :goto_0
     if-ge v0, v1, :cond_2
 
-    .line 256
+    .line 257
     invoke-virtual {p2, v0}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v2
 
-    .line 257
+    .line 258
     sget v3, Landroid/support/constraint/R$styleable;->State_android_id:I
 
     if-ne v2, v3, :cond_0
 
-    .line 258
+    .line 259
     iget v3, p0, Landroid/support/constraint/StateSet$State;->mId:I
 
     invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -97,13 +97,13 @@
 
     goto :goto_1
 
-    .line 259
+    .line 260
     :cond_0
     sget v3, Landroid/support/constraint/R$styleable;->State_constraints:I
 
     if-ne v2, v3, :cond_1
 
-    .line 260
+    .line 261
     iget v3, p0, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
     invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -112,7 +112,7 @@
 
     iput v2, p0, Landroid/support/constraint/StateSet$State;->mConstraintID:I
 
-    .line 261
+    .line 262
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -123,7 +123,7 @@
 
     move-result-object v2
 
-    .line 262
+    .line 263
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -134,7 +134,7 @@
 
     const-string v3, "layout"
 
-    .line 264
+    .line 265
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
@@ -143,7 +143,7 @@
 
     const/4 v2, 0x1
 
-    .line 265
+    .line 266
     iput-boolean v2, p0, Landroid/support/constraint/StateSet$State;->mIsLayout:Z
 
     :cond_1
@@ -152,7 +152,7 @@
 
     goto :goto_0
 
-    .line 269
+    .line 270
     :cond_2
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -164,7 +164,7 @@
 .method add(Landroid/support/constraint/StateSet$Variant;)V
     .locals 1
 
-    .line 273
+    .line 274
     iget-object v0, p0, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -177,7 +177,7 @@
 
     const/4 v0, 0x0
 
-    .line 277
+    .line 278
     :goto_0
     iget-object v1, p0, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
@@ -187,7 +187,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 278
+    .line 279
     iget-object v1, p0, Landroid/support/constraint/StateSet$State;->mVariants:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;

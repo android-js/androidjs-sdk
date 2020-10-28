@@ -28,11 +28,15 @@
 
 .field public graphSolved:J
 
+.field public grouping:J
+
 .field public infeasibleDetermineGroups:J
 
 .field public iterations:J
 
 .field public lastTableSize:J
+
+.field public layouts:J
 
 .field public linearSolved:J
 
@@ -119,100 +123,100 @@
 
     const-wide/16 v0, 0x0
 
-    .line 113
+    .line 115
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->measures:J
 
-    .line 114
+    .line 116
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->widgets:J
 
-    .line 115
+    .line 117
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->additionalMeasures:J
 
-    .line 116
+    .line 118
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->resolutions:J
 
-    .line 117
+    .line 119
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->tableSizeIncrease:J
 
-    .line 118
+    .line 120
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->maxTableSize:J
 
-    .line 119
+    .line 121
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->lastTableSize:J
 
-    .line 120
+    .line 122
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->maxVariables:J
 
-    .line 121
+    .line 123
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->maxRows:J
 
-    .line 122
+    .line 124
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->minimize:J
 
-    .line 123
+    .line 125
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->minimizeGoal:J
 
-    .line 124
+    .line 126
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->constraints:J
 
-    .line 125
+    .line 127
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->simpleconstraints:J
 
-    .line 126
+    .line 128
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->optimize:J
 
-    .line 127
+    .line 129
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->iterations:J
 
-    .line 128
+    .line 130
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->pivots:J
 
-    .line 129
+    .line 131
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->bfs:J
 
-    .line 130
+    .line 132
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->variables:J
 
-    .line 131
+    .line 133
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->errors:J
 
-    .line 132
+    .line 134
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->slackvariables:J
 
-    .line 133
+    .line 135
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->extravariables:J
 
-    .line 134
+    .line 136
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->fullySolved:J
 
-    .line 135
+    .line 137
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->graphOptimizer:J
 
-    .line 136
+    .line 138
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->graphSolved:J
 
-    .line 137
+    .line 139
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->resolvedWidgets:J
 
-    .line 138
+    .line 140
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->oldresolvedWidgets:J
 
-    .line 139
+    .line 141
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->nonresolvedWidgets:J
 
-    .line 140
+    .line 142
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->centerConnectionResolved:J
 
-    .line 141
+    .line 143
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->matchConnectionResolved:J
 
-    .line 142
+    .line 144
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->chainConnectionResolved:J
 
-    .line 143
+    .line 145
     iput-wide v0, p0, Landroid/support/constraint/solver/Metrics;->barrierConnectionResolved:J
 
-    .line 144
+    .line 146
     iget-object v0, p0, Landroid/support/constraint/solver/Metrics;->problematicLayouts:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
@@ -223,7 +227,7 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
-    .line 69
+    .line 71
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

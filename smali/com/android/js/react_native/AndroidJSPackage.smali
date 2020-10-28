@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public createNativeModules(Lcom/facebook/react/bridge/ReactApplicationContext;)Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,83 +44,81 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 43
-    new-instance v1, Lcom/android/js/api/App;
+    new-instance v1, Lcom/android/js/react_native/api/App;
 
-    const/4 v2, 0x0
-
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/App;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/App;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 44
-    new-instance v1, Lcom/android/js/api/Call;
+    new-instance v1, Lcom/android/js/react_native/api/Call;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/Call;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/Call;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 45
-    new-instance v1, Lcom/android/js/api/Hotspot;
+    new-instance v1, Lcom/android/js/react_native/api/Hotspot;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/Hotspot;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/Hotspot;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 46
-    new-instance v1, Lcom/android/js/api/Notification;
+    new-instance v1, Lcom/android/js/react_native/api/Notification;
 
-    iget v3, p0, Lcom/android/js/react_native/AndroidJSPackage;->iconId:I
+    iget v2, p0, Lcom/android/js/react_native/AndroidJSPackage;->iconId:I
 
-    invoke-direct {v1, v2, p1, v3}, Lcom/android/js/api/Notification;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;I)V
+    invoke-direct {v1, p1, v2}, Lcom/android/js/react_native/api/Notification;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;I)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 47
-    new-instance v1, Lcom/android/js/api/Toast;
+    new-instance v1, Lcom/android/js/react_native/api/Toast;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/Toast;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/Toast;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 48
-    new-instance v1, Lcom/android/js/api/Wifi;
+    new-instance v1, Lcom/android/js/react_native/api/Wifi;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/Wifi;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/Wifi;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 49
-    new-instance v1, Lcom/android/js/api/Contact;
+    new-instance v1, Lcom/android/js/react_native/api/Contact;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/Contact;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/Contact;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 50
-    new-instance v1, Lcom/android/js/api/DeepLink;
+    new-instance v1, Lcom/android/js/react_native/api/DeepLink;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/DeepLink;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/DeepLink;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 51
-    new-instance v1, Lcom/android/js/api/SMS;
+    new-instance v1, Lcom/android/js/react_native/api/SMS;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/SMS;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/SMS;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 52
-    new-instance v1, Lcom/android/js/api/Location;
+    new-instance v1, Lcom/android/js/react_native/api/Location;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/Location;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/Location;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 53
-    new-instance v1, Lcom/android/js/api/MobileData;
+    new-instance v1, Lcom/android/js/react_native/api/MobileData;
 
-    invoke-direct {v1, v2, p1}, Lcom/android/js/api/MobileData;-><init>(Landroid/app/Activity;Lcom/facebook/react/bridge/ReactApplicationContext;)V
+    invoke-direct {v1, p1}, Lcom/android/js/react_native/api/MobileData;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 

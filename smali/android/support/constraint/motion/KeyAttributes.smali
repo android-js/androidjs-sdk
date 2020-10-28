@@ -1212,7 +1212,7 @@
 
     .line 119
     :cond_b
-    iget v0, p0, Landroid/support/constraint/motion/KeyAttributes;->mScaleX:F
+    iget v0, p0, Landroid/support/constraint/motion/KeyAttributes;->mScaleY:F
 
     invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
 

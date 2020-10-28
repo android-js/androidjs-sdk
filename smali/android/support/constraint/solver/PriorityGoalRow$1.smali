@@ -34,7 +34,7 @@
 .method constructor <init>(Landroid/support/constraint/solver/PriorityGoalRow;)V
     .locals 0
 
-    .line 209
+    .line 214
     iput-object p1, p0, Landroid/support/constraint/solver/PriorityGoalRow$1;->this$0:Landroid/support/constraint/solver/PriorityGoalRow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .method public compare(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;)I
     .locals 0
 
-    .line 212
+    .line 217
     iget p1, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
     iget p2, p2, Landroid/support/constraint/solver/SolverVariable;->id:I
@@ -60,7 +60,7 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
-    .line 209
+    .line 214
     check-cast p1, Landroid/support/constraint/solver/SolverVariable;
 
     check-cast p2, Landroid/support/constraint/solver/SolverVariable;

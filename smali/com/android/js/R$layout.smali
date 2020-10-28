@@ -71,60 +71,32 @@
 
 .field public static final abc_tooltip:I = 0x7f09001b
 
-.field public static final dev_loading_view:I = 0x7f09001d
+.field public static final notification_action:I = 0x7f09001d
 
-.field public static final fps_view:I = 0x7f09001e
+.field public static final notification_action_tombstone:I = 0x7f09001e
 
-.field public static final notification_action:I = 0x7f09001f
+.field public static final notification_template_custom_big:I = 0x7f09001f
 
-.field public static final notification_action_tombstone:I = 0x7f090020
+.field public static final notification_template_icon_group:I = 0x7f090020
 
-.field public static final notification_media_action:I = 0x7f090021
+.field public static final notification_template_part_chronometer:I = 0x7f090021
 
-.field public static final notification_media_cancel_action:I = 0x7f090022
+.field public static final notification_template_part_time:I = 0x7f090022
 
-.field public static final notification_template_big_media:I = 0x7f090023
+.field public static final select_dialog_item_material:I = 0x7f090023
 
-.field public static final notification_template_big_media_custom:I = 0x7f090024
+.field public static final select_dialog_multichoice_material:I = 0x7f090024
 
-.field public static final notification_template_big_media_narrow:I = 0x7f090025
+.field public static final select_dialog_singlechoice_material:I = 0x7f090025
 
-.field public static final notification_template_big_media_narrow_custom:I = 0x7f090026
-
-.field public static final notification_template_custom_big:I = 0x7f090027
-
-.field public static final notification_template_icon_group:I = 0x7f090028
-
-.field public static final notification_template_lines_media:I = 0x7f090029
-
-.field public static final notification_template_media:I = 0x7f09002a
-
-.field public static final notification_template_media_custom:I = 0x7f09002b
-
-.field public static final notification_template_part_chronometer:I = 0x7f09002c
-
-.field public static final notification_template_part_time:I = 0x7f09002d
-
-.field public static final redbox_item_frame:I = 0x7f09002e
-
-.field public static final redbox_item_title:I = 0x7f09002f
-
-.field public static final redbox_view:I = 0x7f090030
-
-.field public static final select_dialog_item_material:I = 0x7f090031
-
-.field public static final select_dialog_multichoice_material:I = 0x7f090032
-
-.field public static final select_dialog_singlechoice_material:I = 0x7f090033
-
-.field public static final support_simple_spinner_dropdown_item:I = 0x7f090034
+.field public static final support_simple_spinner_dropdown_item:I = 0x7f090026
 
 
 # direct methods
 .method private constructor <init>()V
     .locals 0
 
-    .line 829
+    .line 739
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

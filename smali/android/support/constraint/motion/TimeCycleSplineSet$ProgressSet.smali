@@ -22,12 +22,12 @@
 .method constructor <init>()V
     .locals 1
 
-    .line 381
+    .line 389
     invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet;-><init>()V
 
     const/4 v0, 0x0
 
-    .line 382
+    .line 390
     iput-boolean v0, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;->mNoMethod:Z
 
     return-void
@@ -46,12 +46,12 @@
 
     const-string v9, "SplineSet"
 
-    .line 386
+    .line 394
     instance-of v1, v0, Landroid/support/constraint/motion/MotionLayout;
 
     if-eqz v1, :cond_0
 
-    .line 387
+    .line 395
     move-object v8, v0
 
     check-cast v8, Landroid/support/constraint/motion/MotionLayout;
@@ -74,7 +74,7 @@
 
     goto :goto_1
 
-    .line 389
+    .line 397
     :cond_0
     iget-boolean v1, v7, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;->mNoMethod:Z
 
@@ -89,7 +89,7 @@
 
     const/4 v2, 0x1
 
-    .line 394
+    .line 402
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -111,7 +111,7 @@
 
     goto :goto_0
 
-    .line 396
+    .line 404
     :catch_0
     iput-boolean v2, v7, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;->mNoMethod:Z
 
@@ -120,7 +120,7 @@
 
     if-eqz v11, :cond_2
 
-    .line 400
+    .line 408
     :try_start_1
     new-array v12, v2, [Ljava/lang/Object;
 
@@ -154,7 +154,7 @@
     :catch_1
     move-exception v0
 
-    .line 404
+    .line 412
     invoke-static {v9, v8, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
@@ -162,10 +162,10 @@
     :catch_2
     move-exception v0
 
-    .line 402
+    .line 410
     invoke-static {v9, v8, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 408
+    .line 416
     :cond_2
     :goto_1
     iget-boolean v0, v7, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;->mContinue:Z

@@ -36,20 +36,6 @@
     <attr name="actionProviderClass" format="string" />
     <attr name="actionViewClass" format="string" />
     <attr name="activityChooserViewStyle" format="reference" />
-    <attr name="actualImageResource" format="reference" />
-    <attr name="actualImageScaleType">
-        <enum name="center" value="4" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="5" />
-        <enum name="fitBottomStart" value="8" />
-        <enum name="fitCenter" value="2" />
-        <enum name="fitEnd" value="3" />
-        <enum name="fitStart" value="1" />
-        <enum name="fitXY" value="0" />
-        <enum name="focusCrop" value="7" />
-        <enum name="none" value="-1" />
-    </attr>
-    <attr name="actualImageUri" format="string" />
     <attr name="alertDialogButtonGroupStyle" format="reference" />
     <attr name="alertDialogCenterButtons" format="boolean" />
     <attr name="alertDialogStyle" format="reference" />
@@ -92,7 +78,6 @@
         <enum name="none" value="0" />
     </attr>
     <attr name="background" format="reference" />
-    <attr name="backgroundImage" format="reference" />
     <attr name="backgroundSplit" format="reference|color" />
     <attr name="backgroundStacked" format="reference|color" />
     <attr name="backgroundTint" format="color" />
@@ -247,25 +232,6 @@
     <attr name="editTextStyle" format="reference" />
     <attr name="elevation" format="dimension" />
     <attr name="expandActivityOverflowButtonDrawable" format="reference" />
-    <attr name="fadeDuration" format="integer" />
-    <attr name="failureImage" format="reference" />
-    <attr name="failureImageScaleType">
-        <enum name="center" value="4" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="5" />
-        <enum name="fitBottomStart" value="8" />
-        <enum name="fitCenter" value="2" />
-        <enum name="fitEnd" value="3" />
-        <enum name="fitStart" value="1" />
-        <enum name="fitXY" value="0" />
-        <enum name="focusCrop" value="7" />
-        <enum name="none" value="-1" />
-    </attr>
-    <attr name="fastScrollEnabled" format="boolean" />
-    <attr name="fastScrollHorizontalThumbDrawable" format="reference" />
-    <attr name="fastScrollHorizontalTrackDrawable" format="reference" />
-    <attr name="fastScrollVerticalThumbDrawable" format="reference" />
-    <attr name="fastScrollVerticalTrackDrawable" format="reference" />
     <attr name="firstBaselineToTopHeight" format="dimension" />
     <attr name="flow_firstHorizontalBias" format="float" />
     <attr name="flow_firstHorizontalStyle">
@@ -279,7 +245,7 @@
         <enum name="spread" value="0" />
         <enum name="spread_inside" value="1" />
     </attr>
-    <attr name="flow_horizontalAlign" format="float">
+    <attr name="flow_horizontalAlign">
         <enum name="center" value="2" />
         <enum name="end" value="1" />
         <enum name="start" value="0" />
@@ -378,7 +344,6 @@
         <enum name="honorRequest" value="1" />
         <enum name="ignoreRequest" value="0" />
     </attr>
-    <attr name="layoutManager" format="string" />
     <attr name="layout_anchor" format="reference" />
     <attr name="layout_anchorGravity">
         <flag name="bottom" value="0x00000050" />
@@ -519,15 +484,18 @@
     <attr name="layout_keyline" format="integer" />
     <attr name="layout_optimizationLevel">
         <flag name="barrier" value="0x00000002" />
+        <flag name="cache_measures" value="0x00000100" />
         <flag name="chains" value="0x00000004" />
+        <flag name="dependency_ordering" value="0x00000200" />
         <flag name="dimensions" value="0x00000008" />
         <flag name="direct" value="0x00000001" />
         <flag name="graph" value="0x00000040" />
         <flag name="graph_wrap" value="0x00000080" />
+        <flag name="grouping" value="0x00000400" />
         <flag name="groups" value="0x00000020" />
         <flag name="none" value="0x00000000" />
         <flag name="ratio" value="0x00000010" />
-        <flag name="standard" value="0x00000007" />
+        <flag name="standard" value="0x00000101" />
     </attr>
     <attr name="limitBoundsTo" format="reference" />
     <attr name="lineHeight" format="dimension" />
@@ -614,7 +582,6 @@
     </attr>
     <attr name="overlapAnchor" format="boolean" />
     <attr name="overlay" format="boolean" />
-    <attr name="overlayImage" format="reference" />
     <attr name="paddingBottomNoButtons" format="dimension" />
     <attr name="paddingEnd" format="dimension" />
     <attr name="paddingStart" format="dimension" />
@@ -637,19 +604,6 @@
     <attr name="pivotAnchor" format="reference">
         <enum name="parent" value="0" />
     </attr>
-    <attr name="placeholderImage" format="reference" />
-    <attr name="placeholderImageScaleType">
-        <enum name="center" value="4" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="5" />
-        <enum name="fitBottomStart" value="8" />
-        <enum name="fitCenter" value="2" />
-        <enum name="fitEnd" value="3" />
-        <enum name="fitStart" value="1" />
-        <enum name="fitXY" value="0" />
-        <enum name="focusCrop" value="7" />
-        <enum name="none" value="-1" />
-    </attr>
     <attr name="placeholder_emptyVisibility">
         <enum name="gone" value="8" />
         <enum name="invisible" value="4" />
@@ -659,21 +613,6 @@
     <attr name="popupTheme" format="reference" />
     <attr name="popupWindowStyle" format="reference" />
     <attr name="preserveIconSpacing" format="boolean" />
-    <attr name="pressedStateOverlayImage" format="reference" />
-    <attr name="progressBarAutoRotateInterval" format="integer" />
-    <attr name="progressBarImage" format="reference" />
-    <attr name="progressBarImageScaleType">
-        <enum name="center" value="4" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="5" />
-        <enum name="fitBottomStart" value="8" />
-        <enum name="fitCenter" value="2" />
-        <enum name="fitEnd" value="3" />
-        <enum name="fitStart" value="1" />
-        <enum name="fitXY" value="0" />
-        <enum name="focusCrop" value="7" />
-        <enum name="none" value="-1" />
-    </attr>
     <attr name="progressBarPadding" format="dimension" />
     <attr name="progressBarStyle" format="reference" />
     <attr name="queryBackground" format="reference" />
@@ -686,36 +625,8 @@
     <attr name="region_heightMoreThan" format="dimension" />
     <attr name="region_widthLessThan" format="dimension" />
     <attr name="region_widthMoreThan" format="dimension" />
-    <attr name="retryImage" format="reference" />
-    <attr name="retryImageScaleType">
-        <enum name="center" value="4" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="5" />
-        <enum name="fitBottomStart" value="8" />
-        <enum name="fitCenter" value="2" />
-        <enum name="fitEnd" value="3" />
-        <enum name="fitStart" value="1" />
-        <enum name="fitXY" value="0" />
-        <enum name="focusCrop" value="7" />
-        <enum name="none" value="-1" />
-    </attr>
-    <attr name="reverseLayout" format="boolean" />
     <attr name="round" format="dimension" />
-    <attr name="roundAsCircle" format="boolean" />
-    <attr name="roundBottomEnd" format="boolean" />
-    <attr name="roundBottomLeft" format="boolean" />
-    <attr name="roundBottomRight" format="boolean" />
-    <attr name="roundBottomStart" format="boolean" />
     <attr name="roundPercent" format="float" />
-    <attr name="roundTopEnd" format="boolean" />
-    <attr name="roundTopLeft" format="boolean" />
-    <attr name="roundTopRight" format="boolean" />
-    <attr name="roundTopStart" format="boolean" />
-    <attr name="roundWithOverlayColor" format="color" />
-    <attr name="roundedCornerRadius" format="dimension" />
-    <attr name="roundingBorderColor" format="color" />
-    <attr name="roundingBorderPadding" format="dimension" />
-    <attr name="roundingBorderWidth" format="dimension" />
     <attr name="saturation" format="float" />
     <attr name="searchHintIcon" format="reference" />
     <attr name="searchIcon" format="reference" />
@@ -741,13 +652,11 @@
     <attr name="showTitle" format="boolean" />
     <attr name="singleChoiceItemLayout" format="reference" />
     <attr name="sizePercent" format="float" />
-    <attr name="spanCount" format="integer" />
     <attr name="spinBars" format="boolean" />
     <attr name="spinnerDropDownItemStyle" format="reference" />
     <attr name="spinnerStyle" format="reference" />
     <attr name="splitTrack" format="boolean" />
     <attr name="srcCompat" format="reference" />
-    <attr name="stackFromEnd" format="boolean" />
     <attr name="staggered" format="float" />
     <attr name="state_above_anchor" format="boolean" />
     <attr name="statusBarBackground" format="reference|color" />
@@ -865,7 +774,6 @@
     <attr name="triggerReceiver" format="reference" />
     <attr name="triggerSlack" format="float" />
     <attr name="ttcIndex" format="integer" />
-    <attr name="viewAspectRatio" format="float" />
     <attr name="viewInflaterClass" format="string" />
     <attr name="visibilityMode">
         <enum name="ignore" value="1" />

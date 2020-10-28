@@ -36,7 +36,7 @@
 .method public abstract updateFromFinalVariable(Landroid/support/constraint/solver/LinearSystem;Landroid/support/constraint/solver/SolverVariable;Z)V
 .end method
 
-.method public abstract updateFromRow(Landroid/support/constraint/solver/ArrayRow;Z)V
+.method public abstract updateFromRow(Landroid/support/constraint/solver/LinearSystem;Landroid/support/constraint/solver/ArrayRow;Z)V
 .end method
 
 .method public abstract updateFromSystem(Landroid/support/constraint/solver/LinearSystem;)V
