@@ -35,21 +35,23 @@
 
     sput-object v0, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$State:[I
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     :try_start_0
+    sget-object v1, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$State:[I
+
     sget-object v2, Landroid/arch/lifecycle/Lifecycle$State;->INITIALIZED:Landroid/arch/lifecycle/Lifecycle$State;
 
     invoke-virtual {v2}, Landroid/arch/lifecycle/Lifecycle$State;->ordinal()I
 
     move-result v2
 
-    aput v1, v0, v2
+    aput v0, v1, v2
     :try_end_0
     .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
     :try_start_1
     sget-object v2, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$State:[I
@@ -60,7 +62,7 @@
 
     move-result v3
 
-    aput v0, v2, v3
+    aput v1, v2, v3
     :try_end_1
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -125,19 +127,21 @@
     sput-object v5, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$Event:[I
 
     :try_start_5
+    sget-object v5, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$Event:[I
+
     sget-object v6, Landroid/arch/lifecycle/Lifecycle$Event;->ON_CREATE:Landroid/arch/lifecycle/Lifecycle$Event;
 
     invoke-virtual {v6}, Landroid/arch/lifecycle/Lifecycle$Event;->ordinal()I
 
     move-result v6
 
-    aput v1, v5, v6
+    aput v0, v5, v6
     :try_end_5
     .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
 
     :catch_5
     :try_start_6
-    sget-object v1, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$Event:[I
+    sget-object v0, Landroid/arch/lifecycle/LifecycleRegistry$1;->$SwitchMap$android$arch$lifecycle$Lifecycle$Event:[I
 
     sget-object v5, Landroid/arch/lifecycle/Lifecycle$Event;->ON_STOP:Landroid/arch/lifecycle/Lifecycle$Event;
 
@@ -145,7 +149,7 @@
 
     move-result v5
 
-    aput v0, v1, v5
+    aput v1, v0, v5
     :try_end_6
     .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
 

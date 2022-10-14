@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroidx/versionedparcelable/VersionedParcel$ParcelException;
@@ -226,13 +232,13 @@
 
     const/4 v1, 0x2
 
+    .line 1486
     new-array v1, v1, [Ljava/lang/Object;
 
     const/4 v2, 0x0
 
     aput-object v0, v1, v2
 
-    .line 1486
     invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
     move-result-object v0
@@ -261,6 +267,12 @@
 
 .method protected static getRootCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
     .locals 1
+    .param p0    # Ljava/lang/Throwable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 1114
     :goto_0
@@ -544,35 +556,37 @@
     .end annotation
 
     .line 1438
+    :try_start_0
     const-class v0, Landroidx/versionedparcelable/VersionedParcel;
 
-    :try_start_0
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {p0, v2, v1}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
+    invoke-static {p0, v1, v0}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object p0
 
-    const-string v1, "read"
+    const-string v0, "read"
 
-    new-array v3, v2, [Ljava/lang/Class;
+    .line 1439
+    new-array v2, v1, [Ljava/lang/Class;
+
+    const-class v3, Landroidx/versionedparcelable/VersionedParcel;
 
     const/4 v4, 0x0
 
-    aput-object v0, v3, v4
+    aput-object v3, v2, v4
 
-    .line 1439
-    invoke-virtual {p0, v1, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {p0, v0, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object p0
 
     const/4 v0, 0x0
 
-    new-array v1, v2, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
     aput-object p1, v1, v4
 
@@ -960,9 +974,9 @@
 
     const/4 v2, 0x2
 
+    .line 1461
     new-array v3, v2, [Ljava/lang/Class;
 
-    .line 1461
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v4
@@ -2115,6 +2129,9 @@
 
 .method public readSize(Landroid/util/Size;I)Landroid/util/Size;
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        api = 0x15
+    .end annotation
 
     .line 1162
     invoke-virtual {p0, p2}, Landroidx/versionedparcelable/VersionedParcel;->readField(I)Z
@@ -2158,6 +2175,9 @@
 
 .method public readSizeF(Landroid/util/SizeF;I)Landroid/util/SizeF;
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        api = 0x15
+    .end annotation
 
     .line 1178
     invoke-virtual {p0, p2}, Landroidx/versionedparcelable/VersionedParcel;->readField(I)Z
@@ -3173,6 +3193,9 @@
 
 .method public writeSize(Landroid/util/Size;I)V
     .locals 0
+    .annotation build Landroid/support/annotation/RequiresApi;
+        api = 0x15
+    .end annotation
 
     .line 478
     invoke-virtual {p0, p2}, Landroidx/versionedparcelable/VersionedParcel;->setOutputField(I)V
@@ -3212,6 +3235,9 @@
 
 .method public writeSizeF(Landroid/util/SizeF;I)V
     .locals 0
+    .annotation build Landroid/support/annotation/RequiresApi;
+        api = 0x15
+    .end annotation
 
     .line 492
     invoke-virtual {p0, p2}, Landroidx/versionedparcelable/VersionedParcel;->setOutputField(I)V

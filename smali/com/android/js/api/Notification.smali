@@ -24,6 +24,11 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;ILjava/lang/String;)V
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "PrivateApi"
+        }
+    .end annotation
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,9 +36,11 @@
     .line 26
     iput-object p1, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
 
+    .line 27
+    iget-object p1, p0, Lcom/android/js/api/Notification;->activity:Landroid/app/Activity;
+
     const-string v0, "notification"
 
-    .line 27
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
@@ -102,9 +109,11 @@
 
     iput-object p1, p0, Lcom/android/js/api/Notification;->notification_channel:Landroid/app/NotificationChannel;
 
+    .line 39
+    iget-object p1, p0, Lcom/android/js/api/Notification;->notification_channel:Landroid/app/NotificationChannel;
+
     const-string p2, "androidjs.notification.channel"
 
-    .line 39
     invoke-virtual {p1, p2}, Landroid/app/NotificationChannel;->setDescription(Ljava/lang/String;)V
 
     .line 40
@@ -131,6 +140,8 @@
     iput-object v0, p0, Lcom/android/js/api/Notification;->inbox_style:Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
     .line 67
+    iget-object v0, p0, Lcom/android/js/api/Notification;->inbox_style:Landroid/support/v4/app/NotificationCompat$InboxStyle;
+
     invoke-virtual {v0, p1}, Landroid/support/v4/app/NotificationCompat$InboxStyle;->setBigContentTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$InboxStyle;
 
     const/4 p1, 0x0
@@ -193,6 +204,8 @@
     iput-object v1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     .line 51
+    iget-object v1, p0, Lcom/android/js/api/Notification;->notification_builder:Landroid/support/v4/app/NotificationCompat$Builder;
+
     invoke-virtual {v1, p1}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$Builder;
 
     .line 52

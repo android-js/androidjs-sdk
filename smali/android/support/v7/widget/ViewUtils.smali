@@ -3,6 +3,14 @@
 .source "ViewUtils.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ViewUtils"
 
@@ -49,6 +57,8 @@
     sput-object v0, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
 
     .line 46
+    sget-object v0, Landroid/support/v7/widget/ViewUtils;->sComputeFitSystemWindowsMethod:Ljava/lang/reflect/Method;
+
     invoke-virtual {v0}, Ljava/lang/reflect/Method;->isAccessible()Z
 
     move-result v0
@@ -96,6 +106,7 @@
 
     const/4 v1, 0x2
 
+    .line 68
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -107,7 +118,6 @@
 
     aput-object p2, v1, p1
 
-    .line 68
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -192,10 +202,10 @@
     .line 86
     invoke-virtual {v2, v3}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
+    .line 88
     :cond_0
     new-array v3, v4, [Ljava/lang/Object;
 
-    .line 88
     invoke-virtual {v2, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_2

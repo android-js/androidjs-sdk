@@ -27,6 +27,21 @@
 
 .method public static getColor(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)I
     .locals 2
+    .param p0    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorRes;
+        .end annotation
+    .end param
+    .param p2    # Landroid/content/res/Resources$Theme;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -58,6 +73,21 @@
 
 .method public static getColorStateList(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
     .locals 2
+    .param p0    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorRes;
+        .end annotation
+    .end param
+    .param p2    # Landroid/content/res/Resources$Theme;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -89,6 +119,21 @@
 
 .method public static getDrawable(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 2
+    .param p0    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p2    # Landroid/content/res/Resources$Theme;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -120,6 +165,21 @@
 
 .method public static getDrawableForDensity(Landroid/content/res/Resources;IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 2
+    .param p0    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p3    # Landroid/content/res/Resources$Theme;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -166,6 +226,17 @@
 
 .method public static getFont(Landroid/content/Context;I)Landroid/graphics/Typeface;
     .locals 7
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/FontRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -210,6 +281,24 @@
 
 .method public static getFont(Landroid/content/Context;ILandroid/util/TypedValue;ILandroid/support/v4/content/res/ResourcesCompat$FontCallback;)Landroid/graphics/Typeface;
     .locals 7
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/FontRes;
+        .end annotation
+    .end param
+    .param p4    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -252,6 +341,22 @@
 
 .method public static getFont(Landroid/content/Context;ILandroid/support/v4/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;)V
     .locals 7
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/FontRes;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -300,6 +405,18 @@
 
 .method private static loadFont(Landroid/content/Context;ILandroid/util/TypedValue;ILandroid/support/v4/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;Z)Landroid/graphics/Typeface;
     .locals 8
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p4    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p5    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 336
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -374,6 +491,18 @@
 
 .method private static loadFont(Landroid/content/Context;Landroid/content/res/Resources;Landroid/util/TypedValue;IILandroid/support/v4/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;Z)Landroid/graphics/Typeface;
     .locals 15
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p5    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p6    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     move-object/from16 v0, p1
 

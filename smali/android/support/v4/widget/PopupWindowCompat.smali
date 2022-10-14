@@ -31,6 +31,10 @@
 
 .method public static getOverlapAnchor(Landroid/widget/PopupWindow;)Z
     .locals 4
+    .param p0    # Landroid/widget/PopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 119
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -76,6 +80,8 @@
     sput-object v2, Landroid/support/v4/widget/PopupWindowCompat;->sOverlapAnchorField:Ljava/lang/reflect/Field;
 
     .line 126
+    sget-object v2, Landroid/support/v4/widget/PopupWindowCompat;->sOverlapAnchorField:Ljava/lang/reflect/Field;
+
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -132,6 +138,10 @@
 
 .method public static getWindowLayoutType(Landroid/widget/PopupWindow;)I
     .locals 5
+    .param p0    # Landroid/widget/PopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 183
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -172,6 +182,8 @@
     sput-object v2, Landroid/support/v4/widget/PopupWindowCompat;->sGetWindowLayoutTypeMethod:Ljava/lang/reflect/Method;
 
     .line 191
+    sget-object v2, Landroid/support/v4/widget/PopupWindowCompat;->sGetWindowLayoutTypeMethod:Ljava/lang/reflect/Method;
+
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -186,10 +198,10 @@
 
     if-eqz v0, :cond_2
 
+    .line 199
     :try_start_1
     new-array v2, v1, [Ljava/lang/Object;
 
-    .line 199
     invoke-virtual {v0, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -211,6 +223,10 @@
 
 .method public static setOverlapAnchor(Landroid/widget/PopupWindow;Z)V
     .locals 4
+    .param p0    # Landroid/widget/PopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 90
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -254,6 +270,8 @@
     sput-object v2, Landroid/support/v4/widget/PopupWindowCompat;->sOverlapAnchorField:Ljava/lang/reflect/Field;
 
     .line 96
+    sget-object v2, Landroid/support/v4/widget/PopupWindowCompat;->sOverlapAnchorField:Ljava/lang/reflect/Field;
+
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -305,6 +323,10 @@
 
 .method public static setWindowLayoutType(Landroid/widget/PopupWindow;I)V
     .locals 6
+    .param p0    # Landroid/widget/PopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 153
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -347,6 +369,8 @@
     sput-object v0, Landroid/support/v4/widget/PopupWindowCompat;->sSetWindowLayoutTypeMethod:Ljava/lang/reflect/Method;
 
     .line 162
+    sget-object v0, Landroid/support/v4/widget/PopupWindowCompat;->sSetWindowLayoutTypeMethod:Ljava/lang/reflect/Method;
+
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -361,10 +385,10 @@
 
     if-eqz v0, :cond_2
 
+    .line 170
     :try_start_1
     new-array v2, v2, [Ljava/lang/Object;
 
-    .line 170
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p1
@@ -382,6 +406,14 @@
 
 .method public static showAsDropDown(Landroid/widget/PopupWindow;Landroid/view/View;III)V
     .locals 2
+    .param p0    # Landroid/widget/PopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 68
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

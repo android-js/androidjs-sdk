@@ -183,7 +183,7 @@
 .end method
 
 .method public constructor <init>(Landroid/app/Notification;)V
-    .locals 12
+    .locals 11
 
     .line 3869
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -270,59 +270,62 @@
 
     move-result v6
 
-    new-array v8, v6, [Landroid/support/v4/app/NotificationCompat$Action;
+    new-array v6, v6, [Landroid/support/v4/app/NotificationCompat$Action;
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
+    .line 3878
     :goto_1
-    if-ge v9, v6, :cond_3
+    array-length v9, v6
+
+    if-ge v8, v9, :cond_3
 
     .line 3879
-    sget v10, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v9, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v11, 0x14
+    const/16 v10, 0x14
 
-    if-lt v10, v11, :cond_1
+    if-lt v9, v10, :cond_1
 
     .line 3881
-    invoke-virtual {v5, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v9
 
-    check-cast v10, Landroid/app/Notification$Action;
+    check-cast v9, Landroid/app/Notification$Action;
 
     .line 3880
-    invoke-static {v10}, Landroid/support/v4/app/NotificationCompat;->getActionCompatFromAction(Landroid/app/Notification$Action;)Landroid/support/v4/app/NotificationCompat$Action;
+    invoke-static {v9}, Landroid/support/v4/app/NotificationCompat;->getActionCompatFromAction(Landroid/app/Notification$Action;)Landroid/support/v4/app/NotificationCompat$Action;
 
-    move-result-object v10
+    move-result-object v9
 
-    aput-object v10, v8, v9
+    aput-object v9, v6, v8
 
     goto :goto_2
 
     .line 3882
     :cond_1
-    sget v10, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v9, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v10, v7, :cond_2
+    if-lt v9, v7, :cond_2
 
     .line 3884
-    invoke-virtual {v5, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v9
 
-    check-cast v10, Landroid/os/Bundle;
+    check-cast v9, Landroid/os/Bundle;
 
     .line 3883
-    invoke-static {v10}, Landroid/support/v4/app/NotificationCompatJellybean;->getActionFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
+    invoke-static {v9}, Landroid/support/v4/app/NotificationCompatJellybean;->getActionFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
 
-    move-result-object v10
+    move-result-object v9
 
-    aput-object v10, v8, v9
+    aput-object v9, v6, v8
 
     :cond_2
     :goto_2
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_1
 
@@ -330,9 +333,9 @@
     :cond_3
     iget-object v5, p0, Landroid/support/v4/app/NotificationCompat$WearableExtender;->mActions:Ljava/util/ArrayList;
 
-    check-cast v8, [Landroid/support/v4/app/NotificationCompat$Action;
+    check-cast v6, [Landroid/support/v4/app/NotificationCompat$Action;
 
-    invoke-static {v5, v8}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
+    invoke-static {v5, v6}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
     :cond_4
     const-string v5, "flags"
@@ -468,6 +471,9 @@
 
 .method private static getActionFromActionCompat(Landroid/support/v4/app/NotificationCompat$Action;)Landroid/app/Notification$Action;
     .locals 4
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x14
+    .end annotation
 
     .line 3988
     new-instance v0, Landroid/app/Notification$Action$Builder;

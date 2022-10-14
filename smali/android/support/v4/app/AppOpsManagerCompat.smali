@@ -25,6 +25,18 @@
 
 .method public static noteOp(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)I
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 104
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -57,6 +69,18 @@
 
 .method public static noteOpNoThrow(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)I
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 124
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -89,6 +113,18 @@
 
 .method public static noteProxyOp(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 156
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -121,6 +157,18 @@
 
 .method public static noteProxyOpNoThrow(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 175
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -153,6 +201,12 @@
 
 .method public static permissionToOp(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
+    .param p0    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 75
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

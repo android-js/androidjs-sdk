@@ -15,6 +15,12 @@
 
 .method public static getDragToOpenListener(Ljava/lang/Object;)Landroid/view/View$OnTouchListener;
     .locals 2
+    .param p0    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 55
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

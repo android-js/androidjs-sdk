@@ -120,6 +120,7 @@
 
     if-eqz v11, :cond_2
 
+    .line 408
     :try_start_1
     new-array v12, v2, [Ljava/lang/Object;
 
@@ -133,7 +134,6 @@
 
     move-object/from16 v6, p5
 
-    .line 408
     invoke-virtual/range {v1 .. v6}, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;->get(FJLandroid/view/View;Landroid/support/constraint/motion/KeyCache;)F
 
     move-result v1

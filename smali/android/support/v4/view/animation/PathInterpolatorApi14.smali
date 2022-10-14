@@ -83,6 +83,7 @@
 
     const/4 v4, 0x2
 
+    .line 45
     new-array v4, v4, [F
 
     const/4 v5, 0x0
@@ -249,9 +250,9 @@
 
     aget v4, v3, v2
 
-    aget v3, v3, v1
+    aget v5, v3, v1
 
-    sub-float/2addr v4, v3
+    sub-float/2addr v4, v5
 
     cmpl-float v0, v4, v0
 
@@ -264,8 +265,11 @@
 
     return p1
 
+    .line 89
     :cond_4
-    sub-float/2addr p1, v3
+    aget v0, v3, v1
+
+    sub-float/2addr p1, v0
 
     div-float/2addr p1, v4
 

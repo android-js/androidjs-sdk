@@ -3,6 +3,14 @@
 .source "Lifecycling.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static final GENERATED_CALLBACK:I = 0x2
 
@@ -81,6 +89,7 @@
 
     const/4 v0, 0x1
 
+    .line 79
     :try_start_0
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -88,7 +97,6 @@
 
     aput-object p1, v0, v1
 
-    .line 79
     invoke-virtual {p0, v0}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -134,6 +142,9 @@
 
 .method private static generatedConstructor(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
     .locals 4
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -231,6 +242,7 @@
 
     move-result-object v0
 
+    .line 101
     new-array v1, v3, [Ljava/lang/Class;
 
     const/4 v2, 0x0
@@ -305,6 +317,8 @@
 
 .method static getCallback(Ljava/lang/Object;)Landroid/arch/lifecycle/GenericLifecycleObserver;
     .locals 4
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 48
     instance-of v0, p0, Landroid/arch/lifecycle/FullLifecycleObserver;

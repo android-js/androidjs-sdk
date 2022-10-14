@@ -184,11 +184,11 @@
 
     iget-object v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
 
-    add-int/lit8 v2, v0, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    aget v1, v1, v2
+    aget v0, v1, v0
 
-    if-gt p1, v1, :cond_0
+    if-gt p1, v0, :cond_0
 
     .line 389
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/util/SparseArrayCompat;->put(ILjava/lang/Object;)V
@@ -197,9 +197,11 @@
 
     .line 393
     :cond_0
-    iget-boolean v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mGarbage:Z
+    iget-boolean v0, p0, Landroid/support/v4/util/SparseArrayCompat;->mGarbage:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
+
+    iget v0, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
 
     iget-object v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
 
@@ -465,6 +467,9 @@
 
 .method public get(I)Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -482,7 +487,7 @@
 .end method
 
 .method public get(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"
@@ -503,15 +508,18 @@
     .line 121
     iget-object v0, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
 
-    aget-object p1, v0, p1
+    aget-object v1, v0, p1
 
-    sget-object v0, Landroid/support/v4/util/SparseArrayCompat;->DELETED:Ljava/lang/Object;
+    sget-object v2, Landroid/support/v4/util/SparseArrayCompat;->DELETED:Ljava/lang/Object;
 
-    if-ne p1, v0, :cond_0
+    if-ne v1, v2, :cond_0
 
     goto :goto_0
 
+    .line 124
     :cond_0
+    aget-object p1, v0, p1
+
     return-object p1
 
     :cond_1
@@ -663,29 +671,31 @@
 
     if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
+    iget-object v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mValues:[Ljava/lang/Object;
 
-    aget-object v3, v2, v0
+    aget-object v2, v1, v0
 
-    sget-object v4, Landroid/support/v4/util/SparseArrayCompat;->DELETED:Ljava/lang/Object;
+    sget-object v3, Landroid/support/v4/util/SparseArrayCompat;->DELETED:Ljava/lang/Object;
 
-    if-ne v3, v4, :cond_1
+    if-ne v2, v3, :cond_1
 
     .line 214
-    iget-object v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
+    iget-object v2, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
 
-    aput p1, v1, v0
+    aput p1, v2, v0
 
     .line 215
-    aput-object p2, v2, v0
+    aput-object p2, v1, v0
 
     return-void
 
     .line 219
     :cond_1
-    iget-boolean v2, p0, Landroid/support/v4/util/SparseArrayCompat;->mGarbage:Z
+    iget-boolean v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mGarbage:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
+
+    iget v1, p0, Landroid/support/v4/util/SparseArrayCompat;->mSize:I
 
     iget-object v2, p0, Landroid/support/v4/util/SparseArrayCompat;->mKeys:[I
 
@@ -802,6 +812,10 @@
 
 .method public putAll(Landroid/support/v4/util/SparseArrayCompat;)V
     .locals 4
+    .param p1    # Landroid/support/v4/util/SparseArrayCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

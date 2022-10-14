@@ -86,6 +86,8 @@
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 0
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 p1, 0x0
 
@@ -94,6 +96,9 @@
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
     .locals 0
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,6 +117,8 @@
 
 .method public findFocus(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 0
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 p1, 0x0
 

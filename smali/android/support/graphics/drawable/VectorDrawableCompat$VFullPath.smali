@@ -366,19 +366,19 @@
 
     const/16 v0, 0x8
 
-    const-string v1, "strokeLineCap"
+    const/4 v1, -0x1
 
-    const/4 v2, -0x1
+    const-string v2, "strokeLineCap"
 
     .line 1912
-    invoke-static {p1, p2, v1, v0, v2}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {p1, p2, v2, v0, v1}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v0
 
     .line 1914
-    iget-object v1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeLineCap:Landroid/graphics/Paint$Cap;
+    iget-object v2, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeLineCap:Landroid/graphics/Paint$Cap;
 
-    invoke-direct {p0, v0, v1}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->getStrokeLineCap(ILandroid/graphics/Paint$Cap;)Landroid/graphics/Paint$Cap;
+    invoke-direct {p0, v0, v2}, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->getStrokeLineCap(ILandroid/graphics/Paint$Cap;)Landroid/graphics/Paint$Cap;
 
     move-result-object v0
 
@@ -386,10 +386,10 @@
 
     const/16 v0, 0x9
 
-    const-string v1, "strokeLineJoin"
+    const-string v2, "strokeLineJoin"
 
     .line 1915
-    invoke-static {p1, p2, v1, v0, v2}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {p1, p2, v2, v0, v1}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v0
 
@@ -516,6 +516,12 @@
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 0
 
+    .line 1954
+    iget-object p1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mThemeAttrs:[I
+
+    if-nez p1, :cond_0
+
+    :cond_0
     return-void
 .end method
 
@@ -549,6 +555,8 @@
 
 .method getFillColor()I
     .locals 1
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     .line 2000
     iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mFillColor:Landroid/support/v4/content/res/ComplexColorCompat;
@@ -571,6 +579,8 @@
 
 .method getStrokeColor()I
     .locals 1
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     .line 1969
     iget-object v0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VFullPath;->mStrokeColor:Landroid/support/v4/content/res/ComplexColorCompat;

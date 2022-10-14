@@ -110,7 +110,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     if-eq v2, v4, :cond_1
 
@@ -120,7 +120,7 @@
 
     if-eq v2, v6, :cond_0
 
-    goto :goto_2
+    goto :goto_0
 
     .line 1796
     :cond_0
@@ -129,13 +129,13 @@
     .line 1797
     iput-boolean v5, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateTargeted:Z
 
-    goto :goto_0
+    goto :goto_1
 
     .line 1788
     :cond_1
     iget-boolean v2, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateTargeted:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_4
 
     .line 1790
     iget-object v6, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mSlopBounds:Landroid/graphics/Rect;
@@ -144,48 +144,38 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_4
 
-    move v4, v2
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
-
-    goto :goto_3
-
-    :cond_2
-    :goto_0
-    move v4, v2
-
-    :goto_1
-    const/4 v2, 0x1
-
-    goto :goto_3
+    goto :goto_1
 
     .line 1781
-    :cond_3
+    :cond_2
     iget-object v2, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mTargetBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v2, v0, v1}, Landroid/graphics/Rect;->contains(II)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     .line 1782
     iput-boolean v4, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateTargeted:Z
 
-    goto :goto_1
-
-    :cond_4
-    :goto_2
     const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    goto :goto_1
 
-    :goto_3
-    if-eqz v4, :cond_6
+    :cond_3
+    :goto_0
+    const/4 v2, 0x0
 
-    if-eqz v2, :cond_5
+    :cond_4
+    :goto_1
+    if-eqz v2, :cond_6
+
+    if-eqz v4, :cond_5
 
     .line 1801
     iget-object v2, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mActualBounds:Landroid/graphics/Rect;
@@ -221,7 +211,7 @@
     .line 1805
     invoke-virtual {p1, v0, v1}, Landroid/view/MotionEvent;->setLocation(FF)V
 
-    goto :goto_4
+    goto :goto_2
 
     .line 1809
     :cond_5
@@ -244,7 +234,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/view/MotionEvent;->setLocation(FF)V
 
     .line 1812
-    :goto_4
+    :goto_2
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$UpdatableTouchDelegate;->mDelegateView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z

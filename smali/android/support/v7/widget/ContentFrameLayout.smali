@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/ContentFrameLayout$OnAttachListener;
@@ -72,6 +78,11 @@
 # virtual methods
 .method public dispatchFitSystemWindows(Landroid/graphics/Rect;)V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 76
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ContentFrameLayout;->fitSystemWindows(Landroid/graphics/Rect;)Z
@@ -384,12 +395,16 @@
 
     move-result p1
 
-    const/4 v10, 0x1
+    move v10, p1
+
+    const/4 p1, 0x1
 
     goto :goto_4
 
     :cond_4
-    const/4 v10, 0x0
+    move v10, p1
+
+    const/4 p1, 0x0
 
     :goto_4
     if-ne v5, v8, :cond_8
@@ -484,102 +499,102 @@
 
     .line 143
     :cond_8
-    invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
+    invoke-super {p0, v10, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
     .line 145
     invoke-virtual {p0}, Landroid/support/v7/widget/ContentFrameLayout;->getMeasuredWidth()I
 
-    move-result p1
-
-    .line 148
-    invoke-static {p1, v9}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
     move-result v5
 
-    if-nez v10, :cond_d
+    .line 148
+    invoke-static {v5, v9}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v10
+
+    if-nez p1, :cond_d
 
     if-ne v2, v8, :cond_d
 
     if-eqz v1, :cond_9
 
     .line 151
-    iget-object v1, p0, Landroid/support/v7/widget/ContentFrameLayout;->mMinWidthMinor:Landroid/util/TypedValue;
+    iget-object p1, p0, Landroid/support/v7/widget/ContentFrameLayout;->mMinWidthMinor:Landroid/util/TypedValue;
 
     goto :goto_8
 
     :cond_9
-    iget-object v1, p0, Landroid/support/v7/widget/ContentFrameLayout;->mMinWidthMajor:Landroid/util/TypedValue;
+    iget-object p1, p0, Landroid/support/v7/widget/ContentFrameLayout;->mMinWidthMajor:Landroid/util/TypedValue;
 
     :goto_8
-    if-eqz v1, :cond_d
+    if-eqz p1, :cond_d
 
     .line 152
-    iget v2, v1, Landroid/util/TypedValue;->type:I
+    iget v1, p1, Landroid/util/TypedValue;->type:I
 
-    if-eqz v2, :cond_d
+    if-eqz v1, :cond_d
 
     .line 154
-    iget v2, v1, Landroid/util/TypedValue;->type:I
+    iget v1, p1, Landroid/util/TypedValue;->type:I
 
-    if-ne v2, v7, :cond_a
+    if-ne v1, v7, :cond_a
 
     .line 155
-    invoke-virtual {v1, v0}, Landroid/util/TypedValue;->getDimension(Landroid/util/DisplayMetrics;)F
+    invoke-virtual {p1, v0}, Landroid/util/TypedValue;->getDimension(Landroid/util/DisplayMetrics;)F
 
-    move-result v0
+    move-result p1
 
     :goto_9
-    float-to-int v0, v0
+    float-to-int p1, p1
 
     goto :goto_a
 
     .line 156
     :cond_a
-    iget v2, v1, Landroid/util/TypedValue;->type:I
+    iget v1, p1, Landroid/util/TypedValue;->type:I
 
-    if-ne v2, v6, :cond_b
+    if-ne v1, v6, :cond_b
 
     .line 157
-    iget v2, v0, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v1, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    int-to-float v2, v2
+    int-to-float v1, v1
 
     iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
     int-to-float v0, v0
 
-    invoke-virtual {v1, v2, v0}, Landroid/util/TypedValue;->getFraction(FF)F
+    invoke-virtual {p1, v1, v0}, Landroid/util/TypedValue;->getFraction(FF)F
 
-    move-result v0
+    move-result p1
 
     goto :goto_9
 
     :cond_b
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_a
-    if-lez v0, :cond_c
+    if-lez p1, :cond_c
 
     .line 160
+    iget-object v0, p0, Landroid/support/v7/widget/ContentFrameLayout;->mDecorPadding:Landroid/graphics/Rect;
+
+    iget v0, v0, Landroid/graphics/Rect;->left:I
+
     iget-object v1, p0, Landroid/support/v7/widget/ContentFrameLayout;->mDecorPadding:Landroid/graphics/Rect;
 
-    iget v1, v1, Landroid/graphics/Rect;->left:I
+    iget v1, v1, Landroid/graphics/Rect;->right:I
 
-    iget-object v2, p0, Landroid/support/v7/widget/ContentFrameLayout;->mDecorPadding:Landroid/graphics/Rect;
+    add-int/2addr v0, v1
 
-    iget v2, v2, Landroid/graphics/Rect;->right:I
-
-    add-int/2addr v1, v2
-
-    sub-int/2addr v0, v1
+    sub-int/2addr p1, v0
 
     :cond_c
-    if-ge p1, v0, :cond_d
+    if-ge v5, p1, :cond_d
 
     .line 163
-    invoke-static {v0, v9}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {p1, v9}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result v5
+    move-result v10
 
     goto :goto_b
 
@@ -590,7 +605,7 @@
     if-eqz v3, :cond_e
 
     .line 170
-    invoke-super {p0, v5, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
+    invoke-super {p0, v10, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
     :cond_e
     return-void
@@ -607,6 +622,11 @@
 
 .method public setDecorPadding(IIII)V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 91
     iget-object v0, p0, Landroid/support/v7/widget/ContentFrameLayout;->mDecorPadding:Landroid/graphics/Rect;

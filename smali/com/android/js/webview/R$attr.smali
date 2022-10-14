@@ -1,5 +1,6 @@
 .class public final Lcom/android/js/webview/R$attr;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -845,6 +846,9 @@
 .field public static final titleMarginTop:I = 0x7f02019e
 
 .field public static final titleMargins:I = 0x7f02019f
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final titleTextAppearance:I = 0x7f0201a0
 
@@ -930,9 +934,10 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
+    .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

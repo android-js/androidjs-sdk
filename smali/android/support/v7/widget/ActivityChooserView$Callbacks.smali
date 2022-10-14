@@ -143,8 +143,6 @@
     iput-boolean v0, p1, Landroid/support/v7/widget/ActivityChooserView;->mIsSelectingDefaultActivity:Z
 
     .line 624
-    iget-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$Callbacks;->this$0:Landroid/support/v7/widget/ActivityChooserView;
-
     iget v0, p1, Landroid/support/v7/widget/ActivityChooserView;->mInitialActivityCount:I
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ActivityChooserView;->showPopupUnchecked(I)V
@@ -344,8 +342,6 @@
     iput-boolean v0, p1, Landroid/support/v7/widget/ActivityChooserView;->mIsSelectingDefaultActivity:Z
 
     .line 636
-    iget-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$Callbacks;->this$0:Landroid/support/v7/widget/ActivityChooserView;
-
     iget v1, p1, Landroid/support/v7/widget/ActivityChooserView;->mInitialActivityCount:I
 
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/ActivityChooserView;->showPopupUnchecked(I)V

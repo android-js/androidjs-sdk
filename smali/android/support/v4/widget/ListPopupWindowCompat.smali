@@ -15,6 +15,16 @@
 
 .method public static createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
     .locals 2
+    .param p0    # Landroid/widget/ListPopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 97
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

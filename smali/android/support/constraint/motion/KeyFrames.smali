@@ -47,10 +47,12 @@
 
     sput-object v0, Landroid/support/constraint/motion/KeyFrames;->sKeyMakers:Ljava/util/HashMap;
 
+    .line 49
     :try_start_0
+    sget-object v0, Landroid/support/constraint/motion/KeyFrames;->sKeyMakers:Ljava/util/HashMap;
+
     const-string v1, "KeyAttribute"
 
-    .line 49
     const-class v2, Landroid/support/constraint/motion/KeyAttributes;
 
     const/4 v3, 0x0
@@ -167,6 +169,8 @@
 
     if-eq v1, v2, :cond_4
 
+    if-eqz v1, :cond_3
+
     const/4 v2, 0x2
 
     if-eq v1, v2, :cond_1
@@ -175,7 +179,7 @@
 
     if-eq v1, v2, :cond_0
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_0
     const-string v1, "KeyFrameSet"
@@ -250,21 +254,23 @@
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_3
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
+    move-object v0, v1
+
     goto :goto_2
 
     :catch_0
     move-exception v0
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v1
 
     move-object v4, v1
 
     move-object v1, v0
 
     move-object v0, v4
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v1
 
     :goto_1
     :try_start_3
@@ -273,12 +279,9 @@
     const-string v3, "unable to create "
 
     .line 86
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_2
-    move-object v0, v1
-
-    goto :goto_3
+    goto :goto_2
 
     :cond_2
     const-string v2, "CustomAttribute"
@@ -304,7 +307,7 @@
 
     .line 73
     :cond_3
-    :goto_3
+    :goto_2
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v1
@@ -320,7 +323,7 @@
     .line 106
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_3
     move-exception p1
@@ -329,7 +332,7 @@
     invoke-virtual {p1}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
 
     :cond_4
-    :goto_4
+    :goto_3
     return-void
 .end method
 
@@ -405,7 +408,7 @@
 
 # virtual methods
 .method public addFrames(Landroid/support/constraint/motion/MotionController;)V
-    .locals 4
+    .locals 3
 
     .line 111
     iget-object v0, p0, Landroid/support/constraint/motion/KeyFrames;->mFramesMap:Ljava/util/HashMap;
@@ -473,9 +476,7 @@
 
     check-cast v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    move-object v3, v2
-
-    check-cast v3, Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    check-cast v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iget-object v2, v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;->constraintTag:Ljava/lang/String;
 

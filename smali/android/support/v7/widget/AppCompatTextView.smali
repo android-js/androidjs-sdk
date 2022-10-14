@@ -11,6 +11,9 @@
 .field private final mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
 
 .field private mPrecomputedTextFuture:Ljava/util/concurrent/Future;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/Future<",
@@ -64,6 +67,8 @@
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextView;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
 
     .line 90
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatTextView;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
+
     invoke-virtual {p1, p2, p3}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     .line 92
@@ -74,9 +79,13 @@
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     .line 93
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
+
     invoke-virtual {p1, p2, p3}, Landroid/support/v7/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     .line 94
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
+
     invoke-virtual {p1}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     return-void
@@ -144,6 +153,11 @@
 
 .method public getAutoSizeMaxTextSize()I
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 349
     sget-boolean v0, Landroid/support/v7/widget/AppCompatTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -178,6 +192,11 @@
 
 .method public getAutoSizeMinTextSize()I
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 330
     sget-boolean v0, Landroid/support/v7/widget/AppCompatTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -212,6 +231,11 @@
 
 .method public getAutoSizeStepGranularity()I
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 311
     sget-boolean v0, Landroid/support/v7/widget/AppCompatTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -246,6 +270,11 @@
 
 .method public getAutoSizeTextAvailableSizes()[I
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 368
     sget-boolean v0, Landroid/support/v7/widget/AppCompatTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -275,6 +304,7 @@
     :cond_1
     const/4 v0, 0x0
 
+    .line 375
     new-array v0, v0, [I
 
     return-object v0
@@ -282,6 +312,11 @@
 
 .method public getAutoSizeTextType()I
     .locals 3
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 290
     sget-boolean v0, Landroid/support/v7/widget/AppCompatTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -345,6 +380,14 @@
 
 .method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 137
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextView;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -367,6 +410,14 @@
 
 .method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 165
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextView;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -403,6 +454,8 @@
 
 .method public getTextMetricsParamsCompat()Landroid/support/v4/text/PrecomputedTextCompat$Params;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 437
     invoke-static {p0}, Landroid/support/v4/widget/TextViewCompat;->getTextMetricsParams(Landroid/widget/TextView;)Landroid/support/v4/text/PrecomputedTextCompat$Params;
@@ -501,6 +554,12 @@
 
 .method public setAutoSizeTextTypeUniformWithConfiguration(IIII)V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -533,6 +592,16 @@
 
 .method public setAutoSizeTextTypeUniformWithPresetSizes([II)V
     .locals 1
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -565,6 +634,11 @@
 
 .method public setAutoSizeTextTypeWithDefaults(I)V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 226
     sget-boolean v0, Landroid/support/v7/widget/AppCompatTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -610,6 +684,10 @@
 
 .method public setBackgroundResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     .line 99
     invoke-super {p0, p1}, Landroid/widget/TextView;->setBackgroundResource(I)V
@@ -642,6 +720,14 @@
 
 .method public setFirstBaselineToTopHeight(I)V
     .locals 2
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 386
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -665,6 +751,14 @@
 
 .method public setLastBaselineToBottomHeight(I)V
     .locals 2
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 396
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -688,6 +782,14 @@
 
 .method public setLineHeight(I)V
     .locals 0
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 416
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->setLineHeight(Landroid/widget/TextView;I)V
@@ -697,6 +799,10 @@
 
 .method public setPrecomputedText(Landroid/support/v4/text/PrecomputedTextCompat;)V
     .locals 0
+    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 460
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->setPrecomputedText(Landroid/widget/TextView;Landroid/support/v4/text/PrecomputedTextCompat;)V
@@ -706,6 +812,15 @@
 
 .method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
     .locals 1
+    .param p1    # Landroid/content/res/ColorStateList;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 122
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextView;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -721,6 +836,15 @@
 
 .method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
+    .param p1    # Landroid/graphics/PorterDuff$Mode;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 150
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextView;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -754,6 +878,10 @@
 
 .method public setTextFuture(Ljava/util/concurrent/Future;)V
     .locals 0
+    .param p1    # Ljava/util/concurrent/Future;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -774,6 +902,10 @@
 
 .method public setTextMetricsParamsCompat(Landroid/support/v4/text/PrecomputedTextCompat$Params;)V
     .locals 0
+    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 447
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->setTextMetricsParams(Landroid/widget/TextView;Landroid/support/v4/text/PrecomputedTextCompat$Params;)V

@@ -25,6 +25,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,6 +50,8 @@
 # virtual methods
 .method public getDropDownViewInflater()Landroid/view/LayoutInflater;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 152
     iget-object v0, p0, Landroid/support/v7/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
@@ -63,6 +69,8 @@
 
 .method public getDropDownViewTheme()Landroid/content/res/Resources$Theme;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 140
     iget-object v0, p0, Landroid/support/v7/widget/ThemedSpinnerAdapter$Helper;->mDropDownInflater:Landroid/view/LayoutInflater;
@@ -88,6 +96,10 @@
 
 .method public setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
     .locals 2
+    .param p1    # Landroid/content/res/Resources$Theme;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-nez p1, :cond_0
 

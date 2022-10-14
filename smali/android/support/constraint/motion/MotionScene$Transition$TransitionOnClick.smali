@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public addOnClickListeners(Landroid/support/constraint/motion/MotionLayout;ILandroid/support/constraint/motion/MotionScene$Transition;)V
-    .locals 6
+    .locals 5
 
     .line 664
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTargetId:I
@@ -194,43 +194,49 @@
     :cond_2
     iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
-    and-int/lit8 v2, v1, 0x1
+    const/4 v2, 0x1
+
+    and-int/2addr v1, v2
 
     const/4 v3, 0x0
 
-    const/4 v4, 0x1
-
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     if-ne p2, v0, :cond_3
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     goto :goto_1
 
     :cond_3
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
+    .line 677
     :goto_1
-    and-int/lit16 v5, v1, 0x100
+    iget v4, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
-    if-eqz v5, :cond_4
+    and-int/lit16 v4, v4, 0x100
+
+    if-eqz v4, :cond_4
 
     if-ne p2, v0, :cond_4
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     goto :goto_2
 
     :cond_4
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     :goto_2
-    or-int/2addr v2, v5
+    or-int/2addr v1, v4
 
-    and-int/lit8 v5, v1, 0x1
+    .line 678
+    iget v4, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
-    if-eqz v5, :cond_5
+    and-int/2addr v4, v2
+
+    if-eqz v4, :cond_5
 
     if-ne p2, v0, :cond_5
 
@@ -242,23 +248,29 @@
     const/4 v0, 0x0
 
     :goto_3
-    or-int/2addr v0, v2
+    or-int/2addr v0, v1
 
-    and-int/lit8 v2, v1, 0x10
+    .line 679
+    iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
-    if-eqz v2, :cond_6
+    and-int/lit8 v1, v1, 0x10
+
+    if-eqz v1, :cond_6
 
     if-ne p2, p3, :cond_6
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
     goto :goto_4
 
     :cond_6
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_4
-    or-int/2addr v0, v2
+    or-int/2addr v0, v1
+
+    .line 680
+    iget v1, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
 
     and-int/lit16 v1, v1, 0x1000
 
@@ -266,10 +278,13 @@
 
     if-ne p2, p3, :cond_7
 
-    const/4 v3, 0x1
+    goto :goto_5
 
     :cond_7
-    or-int p2, v0, v3
+    const/4 v2, 0x0
+
+    :goto_5
+    or-int p2, v0, v2
 
     if-eqz p2, :cond_8
 
@@ -452,45 +467,48 @@
 
     if-nez v2, :cond_4
 
-    and-int/lit16 v2, v1, 0x100
+    and-int/lit16 v1, v1, 0x100
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
     goto :goto_0
 
     :cond_3
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     goto :goto_1
 
     :cond_4
     :goto_0
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
+    .line 733
     :goto_1
-    and-int/lit8 v5, v1, 0x10
+    iget v2, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
+
+    and-int/lit8 v5, v2, 0x10
 
     if-nez v5, :cond_6
 
-    and-int/lit16 v1, v1, 0x1000
+    and-int/lit16 v2, v2, 0x1000
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
     goto :goto_2
 
     :cond_5
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_3
 
     :cond_6
     :goto_2
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :goto_3
-    if-eqz v2, :cond_7
-
     if-eqz v1, :cond_7
+
+    if-eqz v2, :cond_7
 
     const/4 v5, 0x1
 
@@ -500,7 +518,7 @@
     const/4 v5, 0x0
 
     :goto_4
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     .line 736
     iget-object v5, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mTransition:Landroid/support/constraint/motion/MotionScene$Transition;
@@ -528,7 +546,7 @@
 
     move-result v6
 
-    if-eq v5, v6, :cond_b
+    if-eq v5, v6, :cond_a
 
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->getProgress()F
 
@@ -543,25 +561,24 @@
     goto :goto_5
 
     :cond_9
-    move v3, v2
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
-
-    goto :goto_5
+    goto :goto_6
 
     :cond_a
-    move v3, v2
+    :goto_5
+    const/4 v1, 0x0
 
     .line 745
     :cond_b
-    :goto_5
+    :goto_6
     invoke-virtual {p0, v0, p1}, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->isTransitionViable(Landroid/support/constraint/motion/MotionScene$Transition;Landroid/support/constraint/motion/MotionLayout;)Z
 
     move-result v0
 
     if-eqz v0, :cond_f
 
-    if-eqz v3, :cond_c
+    if-eqz v1, :cond_c
 
     .line 746
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
@@ -578,10 +595,10 @@
     .line 748
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToEnd()V
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_c
-    if-eqz v1, :cond_d
+    if-eqz v2, :cond_d
 
     .line 749
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
@@ -598,10 +615,10 @@
     .line 751
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionLayout;->transitionToStart()V
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_d
-    if-eqz v3, :cond_e
+    if-eqz v1, :cond_e
 
     .line 752
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
@@ -620,10 +637,10 @@
     .line 754
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_e
-    if-eqz v1, :cond_f
+    if-eqz v2, :cond_f
 
     .line 755
     iget v0, p0, Landroid/support/constraint/motion/MotionScene$Transition$TransitionOnClick;->mMode:I
@@ -643,7 +660,7 @@
     invoke-virtual {p1, v0}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
     :cond_f
-    :goto_6
+    :goto_7
     return-void
 .end method
 

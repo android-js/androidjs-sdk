@@ -16,6 +16,10 @@
 
 # virtual methods
 .method public abstract onChanged(Ljava/lang/Object;)V
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

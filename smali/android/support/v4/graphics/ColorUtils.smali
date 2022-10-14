@@ -53,6 +53,12 @@
 
 .method public static HSLToColor([F)I
     .locals 6
+    .param p0    # [F
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -333,6 +339,26 @@
 
 .method public static LABToColor(DDD)I
     .locals 8
+    .param p0    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 100.0
+        .end annotation
+    .end param
+    .param p2    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = -128.0
+            to = 127.0
+        .end annotation
+    .end param
+    .param p4    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = -128.0
+            to = 127.0
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     .line 570
     invoke-static {}, Landroid/support/v4/graphics/ColorUtils;->getTempDouble3Array()[D
@@ -372,6 +398,28 @@
 
 .method public static LABToXYZ(DDD[D)V
     .locals 19
+    .param p0    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 100.0
+        .end annotation
+    .end param
+    .param p2    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = -128.0
+            to = 127.0
+        .end annotation
+    .end param
+    .param p4    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = -128.0
+            to = 127.0
+        .end annotation
+    .end param
+    .param p6    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const-wide/high16 v0, 0x4030000000000000L    # 16.0
 
@@ -486,6 +534,28 @@
 
 .method public static RGBToHSL(III[F)V
     .locals 7
+    .param p0    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p3    # [F
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     int-to-float p0, p0
 
@@ -535,9 +605,9 @@
 
     if-nez v1, :cond_0
 
-    const/4 p1, 0x0
+    const/4 p0, 0x0
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     goto :goto_1
 
@@ -554,6 +624,8 @@
 
     rem-float/2addr p1, p0
 
+    move p0, p1
+
     goto :goto_0
 
     :cond_1
@@ -565,7 +637,9 @@
 
     div-float/2addr p2, v2
 
-    add-float p1, p2, v4
+    add-float/2addr p2, v4
+
+    move p0, p2
 
     goto :goto_0
 
@@ -576,7 +650,7 @@
 
     const/high16 p1, 0x40800000    # 4.0f
 
-    add-float/2addr p1, p0
+    add-float/2addr p0, p1
 
     :goto_0
     mul-float v4, v4, v3
@@ -586,41 +660,41 @@
     .line 264
     invoke-static {v4}, Ljava/lang/Math;->abs(F)F
 
-    move-result p0
+    move-result p1
 
-    sub-float p0, v5, p0
+    sub-float p1, v5, p1
 
-    div-float/2addr v2, p0
+    div-float p1, v2, p1
 
     :goto_1
-    const/high16 p0, 0x42700000    # 60.0f
+    const/high16 p2, 0x42700000    # 60.0f
 
-    mul-float p1, p1, p0
+    mul-float p0, p0, p2
 
-    const/high16 p0, 0x43b40000    # 360.0f
+    const/high16 p2, 0x43b40000    # 360.0f
 
-    rem-float/2addr p1, p0
+    rem-float/2addr p0, p2
 
-    cmpg-float p2, p1, v6
+    cmpg-float v0, p0, v6
 
-    if-gez p2, :cond_3
+    if-gez v0, :cond_3
 
-    add-float/2addr p1, p0
+    add-float/2addr p0, p2
 
     :cond_3
-    const/4 p2, 0x0
+    const/4 v0, 0x0
 
     .line 272
-    invoke-static {p1, v6, p0}, Landroid/support/v4/graphics/ColorUtils;->constrain(FFF)F
+    invoke-static {p0, v6, p2}, Landroid/support/v4/graphics/ColorUtils;->constrain(FFF)F
 
     move-result p0
 
-    aput p0, p3, p2
+    aput p0, p3, v0
 
     const/4 p0, 0x1
 
     .line 273
-    invoke-static {v2, v6, v5}, Landroid/support/v4/graphics/ColorUtils;->constrain(FFF)F
+    invoke-static {p1, v6, v5}, Landroid/support/v4/graphics/ColorUtils;->constrain(FFF)F
 
     move-result p1
 
@@ -640,6 +714,28 @@
 
 .method public static RGBToLAB(III[D)V
     .locals 7
+    .param p0    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p3    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 399
     invoke-static {p0, p1, p2, p3}, Landroid/support/v4/graphics/ColorUtils;->RGBToXYZ(III[D)V
@@ -665,7 +761,29 @@
 .end method
 
 .method public static RGBToXYZ(III[D)V
-    .locals 16
+    .locals 19
+    .param p0    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .param p3    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     move-object/from16 v0, p3
 
@@ -716,89 +834,87 @@
     move-result-wide v1
 
     :goto_0
-    move/from16 v15, p1
+    move-wide v15, v1
 
-    int-to-double v7, v15
+    move/from16 v1, p1
+
+    int-to-double v1, v1
 
     .line 450
-    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
 
-    div-double/2addr v7, v3
+    div-double/2addr v1, v3
 
-    cmpg-double v15, v7, v13
+    cmpg-double v17, v1, v13
 
-    if-gez v15, :cond_1
+    if-gez v17, :cond_1
 
-    div-double/2addr v7, v5
+    div-double/2addr v1, v5
 
     goto :goto_1
 
     :cond_1
-    add-double/2addr v7, v11
+    add-double/2addr v1, v11
 
-    div-double/2addr v7, v9
-
-    const-wide v9, 0x4003333333333333L    # 2.4
+    div-double/2addr v1, v9
 
     .line 451
-    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v1, v2, v7, v8}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v7
+    move-result-wide v1
 
     :goto_1
-    move/from16 v15, p2
+    move-wide/from16 v17, v1
 
-    int-to-double v9, v15
+    move/from16 v1, p2
+
+    int-to-double v1, v1
 
     .line 452
-    invoke-static {v9, v10}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v1, v2}, Ljava/lang/Double;->isNaN(D)Z
 
-    div-double/2addr v9, v3
+    div-double/2addr v1, v3
 
-    cmpg-double v3, v9, v13
+    cmpg-double v3, v1, v13
 
     if-gez v3, :cond_2
 
-    div-double/2addr v9, v5
+    div-double/2addr v1, v5
 
     goto :goto_2
 
     :cond_2
-    add-double/2addr v9, v11
+    add-double/2addr v1, v11
 
-    const-wide v3, 0x3ff0e147ae147ae1L    # 1.055
-
-    div-double/2addr v9, v3
-
-    const-wide v3, 0x4003333333333333L    # 2.4
+    div-double/2addr v1, v9
 
     .line 453
-    invoke-static {v9, v10, v3, v4}, Ljava/lang/Math;->pow(DD)D
+    invoke-static {v1, v2, v7, v8}, Ljava/lang/Math;->pow(DD)D
 
-    move-result-wide v9
+    move-result-wide v1
 
     :goto_2
     const/4 v3, 0x0
 
     const-wide v4, 0x3fda64c2f837b4a2L    # 0.4124
 
-    mul-double v4, v4, v1
+    mul-double v4, v4, v15
 
-    const-wide v11, 0x3fd6e2eb1c432ca5L    # 0.3576
+    const-wide v6, 0x3fd6e2eb1c432ca5L    # 0.3576
 
-    mul-double v11, v11, v7
+    mul-double v6, v6, v17
 
-    add-double/2addr v4, v11
+    add-double/2addr v4, v6
 
-    const-wide v11, 0x3fc71a9fbe76c8b4L    # 0.1805
+    const-wide v6, 0x3fc71a9fbe76c8b4L    # 0.1805
 
-    mul-double v11, v11, v9
+    mul-double v6, v6, v1
 
-    add-double/2addr v4, v11
+    add-double/2addr v4, v6
 
-    const-wide/high16 v11, 0x4059000000000000L    # 100.0
+    const-wide/high16 v6, 0x4059000000000000L    # 100.0
 
-    mul-double v4, v4, v11
+    mul-double v4, v4, v6
 
     .line 455
     aput-wide v4, v0, v3
@@ -807,21 +923,21 @@
 
     const-wide v4, 0x3fcb367a0f9096bcL    # 0.2126
 
-    mul-double v4, v4, v1
+    mul-double v4, v4, v15
 
-    const-wide v13, 0x3fe6e2eb1c432ca5L    # 0.7152
+    const-wide v8, 0x3fe6e2eb1c432ca5L    # 0.7152
 
-    mul-double v13, v13, v7
+    mul-double v8, v8, v17
 
-    add-double/2addr v4, v13
+    add-double/2addr v4, v8
 
-    const-wide v13, 0x3fb27bb2fec56d5dL    # 0.0722
+    const-wide v8, 0x3fb27bb2fec56d5dL    # 0.0722
 
-    mul-double v13, v13, v9
+    mul-double v8, v8, v1
 
-    add-double/2addr v4, v13
+    add-double/2addr v4, v8
 
-    mul-double v4, v4, v11
+    mul-double v4, v4, v6
 
     .line 456
     aput-wide v4, v0, v3
@@ -830,24 +946,24 @@
 
     const-wide v4, 0x3f93c36113404ea5L    # 0.0193
 
-    mul-double v1, v1, v4
+    mul-double v15, v15, v4
 
     const-wide v4, 0x3fbe83e425aee632L    # 0.1192
 
-    mul-double v7, v7, v4
+    mul-double v17, v17, v4
 
-    add-double/2addr v1, v7
+    add-double v15, v15, v17
 
     const-wide v4, 0x3fee6a7ef9db22d1L    # 0.9505
 
-    mul-double v9, v9, v4
+    mul-double v1, v1, v4
 
-    add-double/2addr v1, v9
+    add-double/2addr v15, v1
 
-    mul-double v1, v1, v11
+    mul-double v15, v15, v6
 
     .line 457
-    aput-wide v1, v0, v3
+    aput-wide v15, v0, v3
 
     return-void
 
@@ -864,6 +980,26 @@
 
 .method public static XYZToColor(DDD)I
     .locals 17
+    .param p0    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 95.047
+        .end annotation
+    .end param
+    .param p2    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 100.0
+        .end annotation
+    .end param
+    .param p4    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 108.883
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     const-wide v0, 0x4009ecbfb15b573fL    # 3.2406
 
@@ -999,11 +1135,11 @@
 
     long-to-int v1, v0
 
-    const/4 v0, 0x0
+    const/16 v0, 0xff
 
-    const/16 v8, 0xff
+    const/4 v8, 0x0
 
-    invoke-static {v1, v0, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
+    invoke-static {v1, v8, v0}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
 
     move-result v1
 
@@ -1016,7 +1152,7 @@
 
     long-to-int v5, v4
 
-    invoke-static {v5, v0, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
+    invoke-static {v5, v8, v0}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
 
     move-result v4
 
@@ -1029,7 +1165,7 @@
 
     long-to-int v3, v2
 
-    invoke-static {v3, v0, v8}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
+    invoke-static {v3, v8, v0}, Landroid/support/v4/graphics/ColorUtils;->constrain(III)I
 
     move-result v0
 
@@ -1043,6 +1179,28 @@
 
 .method public static XYZToLAB(DDD[D)V
     .locals 7
+    .param p0    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 95.047
+        .end annotation
+    .end param
+    .param p2    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 100.0
+        .end annotation
+    .end param
+    .param p4    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 108.883
+        .end annotation
+    .end param
+    .param p6    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 481
     array-length v0, p6
@@ -1134,6 +1292,22 @@
 
 .method public static blendARGB(IIF)I
     .locals 5
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p2    # F
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 1.0
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -1233,6 +1407,24 @@
 
 .method public static blendHSL([F[FF[F)V
     .locals 4
+    .param p0    # [F
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [F
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # F
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 1.0
+        .end annotation
+    .end param
+    .param p3    # [F
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 633
     array-length v0, p3
@@ -1303,6 +1495,24 @@
 
 .method public static blendLAB([D[DD[D)V
     .locals 7
+    .param p0    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # D
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 1.0
+        .end annotation
+    .end param
+    .param p4    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 656
     array-length v0, p4
@@ -1375,6 +1585,14 @@
 
 .method public static calculateContrast(II)D
     .locals 4
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 159
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
@@ -1457,6 +1675,14 @@
 
 .method public static calculateLuminance(I)D
     .locals 5
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/FloatRange;
+        from = 0.0
+        to = 1.0
+    .end annotation
 
     .line 145
     invoke-static {}, Landroid/support/v4/graphics/ColorUtils;->getTempDouble3Array()[D
@@ -1480,6 +1706,14 @@
 
 .method public static calculateMinimumAlpha(IIF)I
     .locals 8
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 187
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
@@ -1585,17 +1819,15 @@
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw p0
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method
 
 .method static circularInterpolate(FFF)F
     .locals 3
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
 
     sub-float v0, p1, p0
 
@@ -1638,6 +1870,14 @@
 
 .method public static colorToHSL(I[F)V
     .locals 2
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # [F
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 289
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
@@ -1659,6 +1899,14 @@
 
 .method public static colorToLAB(I[D)V
     .locals 2
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 378
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
@@ -1680,6 +1928,14 @@
 
 .method public static colorToXYZ(I[D)V
     .locals 2
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 421
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
@@ -1718,6 +1974,14 @@
 
 .method public static compositeColors(II)I
     .locals 6
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 53
     invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
@@ -1789,6 +2053,20 @@
 
 .method public static compositeColors(Landroid/graphics/Color;Landroid/graphics/Color;)Landroid/graphics/Color;
     .locals 7
+    .param p0    # Landroid/graphics/Color;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/graphics/Color;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1a
+    .end annotation
 
     .line 92
     invoke-virtual {p0}, Landroid/graphics/Color;->getModel()Landroid/graphics/ColorSpace$Model;
@@ -1871,13 +2149,22 @@
     .line 114
     aput v4, v1, v3
 
+    .line 117
+    aget v4, v1, v3
+
     const/4 v5, 0x0
 
-    cmpl-float v5, v4, v5
+    cmpl-float v4, v4, v5
 
-    if-lez v5, :cond_1
+    if-lez v4, :cond_1
+
+    .line 118
+    aget v4, v1, v3
 
     div-float/2addr p0, v4
+
+    .line 119
+    aget v4, v1, v3
 
     div-float/2addr v2, v4
 
@@ -1956,13 +2243,9 @@
 
     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw v0
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method
 
 .method private static compositeComponent(IIIII)I
@@ -2039,6 +2322,14 @@
 
 .method public static distanceEuclidean([D[D)D
     .locals 9
+    .param p0    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [D
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -2101,21 +2392,24 @@
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, [D
+    check-cast v0, [D
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    const/4 v1, 0x3
+    const/4 v0, 0x3
 
-    new-array v1, v1, [D
+    .line 680
+    new-array v0, v0, [D
 
     .line 681
-    invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+    sget-object v1, Landroid/support/v4/graphics/ColorUtils;->TEMP_ARRAY:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     :cond_0
-    return-object v1
+    return-object v0
 .end method
 
 .method private static pivotXyzComponent(D)D
@@ -2155,6 +2449,18 @@
 
 .method public static setAlphaComponent(II)I
     .locals 1
+    .param p0    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+            to = 0xffL
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/ColorInt;
+    .end annotation
 
     if-ltz p1, :cond_0
 

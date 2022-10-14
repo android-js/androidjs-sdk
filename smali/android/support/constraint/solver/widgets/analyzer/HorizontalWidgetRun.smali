@@ -13,9 +13,9 @@
 
     const/4 v0, 0x2
 
+    .line 37
     new-array v0, v0, [I
 
-    .line 37
     sput-object v0, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->tempDimensions:[I
 
     return-void
@@ -125,6 +125,8 @@
 
     if-gt p2, p3, :cond_3
 
+    if-gt p5, p5, :cond_3
+
     .line 280
     aput p2, p1, p4
 
@@ -134,6 +136,8 @@
     goto :goto_0
 
     :cond_3
+    if-gt p3, p3, :cond_4
+
     if-gt p6, p5, :cond_4
 
     .line 283

@@ -34,6 +34,8 @@
     sput-object v0, Landroid/support/constraint/ConstraintAttribute$1;->$SwitchMap$android$support$constraint$ConstraintAttribute$AttributeType:[I
 
     :try_start_0
+    sget-object v0, Landroid/support/constraint/ConstraintAttribute$1;->$SwitchMap$android$support$constraint$ConstraintAttribute$AttributeType:[I
+
     sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     invoke-virtual {v1}, Landroid/support/constraint/ConstraintAttribute$AttributeType;->ordinal()I

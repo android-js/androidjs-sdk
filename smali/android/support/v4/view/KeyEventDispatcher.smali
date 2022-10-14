@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/view/KeyEventDispatcher$Component;
@@ -81,12 +87,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 106
     :try_start_1
     new-array v1, v1, [Ljava/lang/Object;
 
     aput-object p1, v1, v2
 
-    .line 106
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -280,6 +286,14 @@
 
 .method public static dispatchBeforeHierarchy(Landroid/view/View;Landroid/view/KeyEvent;)Z
     .locals 0
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/KeyEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 63
     invoke-static {p0, p1}, Landroid/support/v4/view/ViewCompat;->dispatchUnhandledKeyEventBeforeHierarchy(Landroid/view/View;Landroid/view/KeyEvent;)Z
@@ -291,6 +305,22 @@
 
 .method public static dispatchKeyEvent(Landroid/support/v4/view/KeyEventDispatcher$Component;Landroid/view/View;Landroid/view/Window$Callback;Landroid/view/KeyEvent;)Z
     .locals 3
+    .param p0    # Landroid/support/v4/view/KeyEventDispatcher$Component;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/view/Window$Callback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/view/KeyEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -391,6 +421,8 @@
     sput-object v1, Landroid/support/v4/view/KeyEventDispatcher;->sDialogKeyListenerField:Ljava/lang/reflect/Field;
 
     .line 145
+    sget-object v1, Landroid/support/v4/view/KeyEventDispatcher;->sDialogKeyListenerField:Ljava/lang/reflect/Field;
+
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0

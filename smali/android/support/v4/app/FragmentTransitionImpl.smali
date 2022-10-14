@@ -3,6 +3,14 @@
 .source "FragmentTransitionImpl.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -403,10 +411,11 @@
 .end method
 
 .method protected getBoundsOnScreen(Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 5
+    .locals 6
 
     const/4 v0, 0x2
 
+    .line 75
     new-array v0, v0, [I
 
     .line 76
@@ -414,20 +423,22 @@
 
     const/4 v1, 0x0
 
+    .line 77
+    aget v2, v0, v1
+
+    const/4 v3, 0x1
+
+    aget v4, v0, v3
+
     aget v1, v0, v1
 
-    const/4 v2, 0x1
-
-    aget v3, v0, v2
-
-    .line 77
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    move-result v4
+    move-result v5
 
-    add-int/2addr v4, v1
+    add-int/2addr v1, v5
 
-    aget v0, v0, v2
+    aget v0, v0, v3
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
@@ -435,7 +446,7 @@
 
     add-int/2addr v0, p1
 
-    invoke-virtual {p2, v1, v3, v4, v0}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p2, v2, v4, v1, v0}, Landroid/graphics/Rect;->set(IIII)V
 
     return-void
 .end method

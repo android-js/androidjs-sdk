@@ -184,13 +184,13 @@
 
     iget-object v1, p0, Landroid/support/v4/util/LongSparseArray;->mKeys:[J
 
-    add-int/lit8 v2, v0, -0x1
+    add-int/lit8 v0, v0, -0x1
 
-    aget-wide v2, v1, v2
+    aget-wide v0, v1, v0
 
-    cmp-long v1, p1, v2
+    cmp-long v2, p1, v0
 
-    if-gtz v1, :cond_0
+    if-gtz v2, :cond_0
 
     .line 370
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/util/LongSparseArray;->put(JLjava/lang/Object;)V
@@ -199,9 +199,11 @@
 
     .line 374
     :cond_0
-    iget-boolean v1, p0, Landroid/support/v4/util/LongSparseArray;->mGarbage:Z
+    iget-boolean v0, p0, Landroid/support/v4/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
+
+    iget v0, p0, Landroid/support/v4/util/LongSparseArray;->mSize:I
 
     iget-object v1, p0, Landroid/support/v4/util/LongSparseArray;->mKeys:[J
 
@@ -467,6 +469,9 @@
 
 .method public get(J)Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(J)TE;"
@@ -505,15 +510,18 @@
     .line 117
     iget-object p2, p0, Landroid/support/v4/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
-    aget-object p1, p2, p1
+    aget-object v0, p2, p1
 
-    sget-object p2, Landroid/support/v4/util/LongSparseArray;->DELETED:Ljava/lang/Object;
+    sget-object v1, Landroid/support/v4/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-ne p1, p2, :cond_0
+    if-ne v0, v1, :cond_0
 
     goto :goto_0
 
+    .line 120
     :cond_0
+    aget-object p1, p2, p1
+
     return-object p1
 
     :cond_1
@@ -665,29 +673,31 @@
 
     if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Landroid/support/v4/util/LongSparseArray;->mValues:[Ljava/lang/Object;
+    iget-object v1, p0, Landroid/support/v4/util/LongSparseArray;->mValues:[Ljava/lang/Object;
 
-    aget-object v3, v2, v0
+    aget-object v2, v1, v0
 
-    sget-object v4, Landroid/support/v4/util/LongSparseArray;->DELETED:Ljava/lang/Object;
+    sget-object v3, Landroid/support/v4/util/LongSparseArray;->DELETED:Ljava/lang/Object;
 
-    if-ne v3, v4, :cond_1
+    if-ne v2, v3, :cond_1
 
     .line 197
-    iget-object v1, p0, Landroid/support/v4/util/LongSparseArray;->mKeys:[J
+    iget-object v2, p0, Landroid/support/v4/util/LongSparseArray;->mKeys:[J
 
-    aput-wide p1, v1, v0
+    aput-wide p1, v2, v0
 
     .line 198
-    aput-object p3, v2, v0
+    aput-object p3, v1, v0
 
     return-void
 
     .line 202
     :cond_1
-    iget-boolean v2, p0, Landroid/support/v4/util/LongSparseArray;->mGarbage:Z
+    iget-boolean v1, p0, Landroid/support/v4/util/LongSparseArray;->mGarbage:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v1, :cond_2
+
+    iget v1, p0, Landroid/support/v4/util/LongSparseArray;->mSize:I
 
     iget-object v2, p0, Landroid/support/v4/util/LongSparseArray;->mKeys:[J
 
@@ -804,6 +814,10 @@
 
 .method public putAll(Landroid/support/v4/util/LongSparseArray;)V
     .locals 5
+    .param p1    # Landroid/support/v4/util/LongSparseArray;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

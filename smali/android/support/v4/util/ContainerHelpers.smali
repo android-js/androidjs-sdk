@@ -17,19 +17,19 @@
 
     const/4 v0, 0x0
 
+    .line 20
     new-array v1, v0, [I
 
-    .line 20
     sput-object v1, Landroid/support/v4/util/ContainerHelpers;->EMPTY_INTS:[I
 
+    .line 21
     new-array v1, v0, [J
 
-    .line 21
     sput-object v1, Landroid/support/v4/util/ContainerHelpers;->EMPTY_LONGS:[J
 
+    .line 22
     new-array v0, v0, [Ljava/lang/Object;
 
-    .line 22
     sput-object v0, Landroid/support/v4/util/ContainerHelpers;->EMPTY_OBJECTS:[Ljava/lang/Object;
 
     return-void

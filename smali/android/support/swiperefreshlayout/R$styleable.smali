@@ -1,5 +1,6 @@
 .class public final Landroid/support/swiperefreshlayout/R$styleable;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -92,11 +93,12 @@
 
 
 # direct methods
-.method public static constructor <clinit>()V
+.method static constructor <clinit>()V
     .locals 1
 
     const/4 v0, 0x3
 
+    .line 144
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
@@ -105,6 +107,7 @@
 
     const/4 v0, 0x6
 
+    .line 148
     new-array v0, v0, [I
 
     fill-array-data v0, :array_1
@@ -113,6 +116,7 @@
 
     const/16 v0, 0xa
 
+    .line 155
     new-array v0, v0, [I
 
     fill-array-data v0, :array_2
@@ -121,6 +125,7 @@
 
     const/16 v0, 0xc
 
+    .line 166
     new-array v0, v0, [I
 
     fill-array-data v0, :array_3
@@ -129,6 +134,7 @@
 
     const/4 v0, 0x2
 
+    .line 179
     new-array v0, v0, [I
 
     fill-array-data v0, :array_4
@@ -196,6 +202,7 @@
 .method private constructor <init>()V
     .locals 0
 
+    .line 142
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -41,14 +41,14 @@
 
     const/4 v0, 0x1
 
+    .line 241
     new-array v0, v0, [Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    const-class v1, Landroid/view/MenuItem;
 
-    .line 241
-    const-class v2, Landroid/view/MenuItem;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
     sput-object v0, Landroid/support/v7/view/SupportMenuInflater$InflatedOnMenuItemClickListener;->PARAM_TYPES:[Ljava/lang/Class;
 

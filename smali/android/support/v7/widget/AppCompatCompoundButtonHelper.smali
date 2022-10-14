@@ -224,8 +224,10 @@
     .line 63
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mView:Landroid/widget/CompoundButton;
 
+    iget-object v1, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mView:Landroid/widget/CompoundButton;
+
     .line 64
-    invoke-virtual {v0}, Landroid/widget/CompoundButton;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/widget/CompoundButton;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -353,6 +355,10 @@
 
 .method setSupportButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 0
+    .param p1    # Landroid/graphics/PorterDuff$Mode;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 94
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatCompoundButtonHelper;->mButtonTintMode:Landroid/graphics/PorterDuff$Mode;

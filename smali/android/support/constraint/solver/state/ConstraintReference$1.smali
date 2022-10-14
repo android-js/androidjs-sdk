@@ -34,6 +34,8 @@
     sput-object v0, Landroid/support/constraint/solver/state/ConstraintReference$1;->$SwitchMap$android$support$constraint$solver$state$State$Constraint:[I
 
     :try_start_0
+    sget-object v0, Landroid/support/constraint/solver/state/ConstraintReference$1;->$SwitchMap$android$support$constraint$solver$state$State$Constraint:[I
+
     sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->LEFT_TO_LEFT:Landroid/support/constraint/solver/state/State$Constraint;
 
     invoke-virtual {v1}, Landroid/support/constraint/solver/state/State$Constraint;->ordinal()I

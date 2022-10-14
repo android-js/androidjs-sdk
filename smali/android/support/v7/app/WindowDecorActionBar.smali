@@ -7,6 +7,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/app/WindowDecorActionBar$TabImpl;,
@@ -302,6 +308,11 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 189
     invoke-direct {p0}, Landroid/support/v7/app/ActionBar;-><init>()V
@@ -484,13 +495,9 @@
 
     invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p1
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method private ensureTabsExist()V
@@ -682,6 +689,9 @@
 
     iput-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar;->mOverlayLayout:Landroid/support/v7/widget/ActionBarOverlayLayout;
 
+    .line 196
+    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar;->mOverlayLayout:Landroid/support/v7/widget/ActionBarOverlayLayout;
+
     if-eqz v0, :cond_0
 
     .line 197
@@ -724,18 +734,20 @@
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mContainerView:Landroid/support/v7/widget/ActionBarContainer;
 
     .line 205
-    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar;->mDecorToolbar:Landroid/support/v7/widget/DecorToolbar;
-
-    if-eqz v0, :cond_7
-
-    iget-object v1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mContextView:Landroid/support/v7/widget/ActionBarContextView;
-
-    if-eqz v1, :cond_7
+    iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mDecorToolbar:Landroid/support/v7/widget/DecorToolbar;
 
     if-eqz p1, :cond_7
 
+    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar;->mContextView:Landroid/support/v7/widget/ActionBarContextView;
+
+    if-eqz v0, :cond_7
+
+    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar;->mContainerView:Landroid/support/v7/widget/ActionBarContainer;
+
+    if-eqz v0, :cond_7
+
     .line 210
-    invoke-interface {v0}, Landroid/support/v7/widget/DecorToolbar;->getContext()Landroid/content/Context;
+    invoke-interface {p1}, Landroid/support/v7/widget/DecorToolbar;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
@@ -893,6 +905,9 @@
 
     .line 263
     iput-boolean p1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mHasEmbeddedTabs:Z
+
+    .line 265
+    iget-boolean p1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mHasEmbeddedTabs:Z
 
     const/4 v0, 0x0
 
@@ -1469,9 +1484,9 @@
 
     const/4 p1, 0x2
 
+    .line 847
     new-array p1, p1, [I
 
-    .line 847
     fill-array-data p1, :array_0
 
     .line 848
@@ -1479,6 +1494,7 @@
 
     invoke-virtual {v3, p1}, Landroid/support/v7/widget/ActionBarContainer;->getLocationInWindow([I)V
 
+    .line 849
     aget p1, p1, v1
 
     int-to-float p1, p1
@@ -1622,9 +1638,9 @@
 
     const/4 p1, 0x2
 
+    .line 798
     new-array p1, p1, [I
 
-    .line 798
     fill-array-data p1, :array_0
 
     .line 799
@@ -1634,6 +1650,7 @@
 
     const/4 v2, 0x1
 
+    .line 800
     aget p1, p1, v2
 
     int-to-float p1, p1
@@ -2649,6 +2666,9 @@
     check-cast p1, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;
 
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mSelectedTab:Landroid/support/v7/app/WindowDecorActionBar$TabImpl;
+
+    .line 652
+    iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar;->mSelectedTab:Landroid/support/v7/app/WindowDecorActionBar$TabImpl;
 
     if-eqz p1, :cond_6
 

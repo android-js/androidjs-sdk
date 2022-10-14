@@ -26,6 +26,14 @@
 # direct methods
 .method public constructor <init>(Landroid/arch/lifecycle/ViewModelStore;Landroid/arch/lifecycle/ViewModelProvider$Factory;)V
     .locals 0
+    .param p1    # Landroid/arch/lifecycle/ViewModelStore;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/arch/lifecycle/ViewModelProvider$Factory;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +49,14 @@
 
 .method public constructor <init>(Landroid/arch/lifecycle/ViewModelStoreOwner;Landroid/arch/lifecycle/ViewModelProvider$Factory;)V
     .locals 0
+    .param p1    # Landroid/arch/lifecycle/ViewModelStoreOwner;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/arch/lifecycle/ViewModelProvider$Factory;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 66
     invoke-interface {p1}, Landroid/arch/lifecycle/ViewModelStoreOwner;->getViewModelStore()Landroid/arch/lifecycle/ViewModelStore;
@@ -56,6 +72,16 @@
 # virtual methods
 .method public get(Ljava/lang/Class;)Landroid/arch/lifecycle/ViewModel;
     .locals 3
+    .param p1    # Ljava/lang/Class;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -107,6 +133,20 @@
 
 .method public get(Ljava/lang/String;Ljava/lang/Class;)Landroid/arch/lifecycle/ViewModel;
     .locals 2
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Class;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

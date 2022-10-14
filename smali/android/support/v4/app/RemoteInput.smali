@@ -305,6 +305,7 @@
 
     const/4 v5, 0x1
 
+    .line 356
     new-array v5, v5, [Landroid/support/v4/app/RemoteInput;
 
     aput-object v3, v5, v2
@@ -430,6 +431,9 @@
 
 .method static fromCompat(Landroid/support/v4/app/RemoteInput;)Landroid/app/RemoteInput;
     .locals 2
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x14
+    .end annotation
 
     .line 442
     new-instance v0, Landroid/app/RemoteInput$Builder;
@@ -486,6 +490,9 @@
 
 .method static fromCompat([Landroid/support/v4/app/RemoteInput;)[Landroid/app/RemoteInput;
     .locals 3
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x14
+    .end annotation
 
     if-nez p0, :cond_0
 
@@ -526,6 +533,9 @@
 
 .method private static getClipDataIntentFromIntent(Landroid/content/Intent;)Landroid/content/Intent;
     .locals 3
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x10
+    .end annotation
 
     .line 452
     invoke-virtual {p0}, Landroid/content/Intent;->getClipData()Landroid/content/ClipData;
@@ -733,13 +743,10 @@
 
     if-eqz p0, :cond_6
 
-    goto :goto_1
+    move-object v0, v2
 
     :cond_6
-    move-object v2, v0
-
-    :goto_1
-    return-object v2
+    return-object v0
 
     :cond_7
     const-string p0, "RemoteInput"

@@ -25,6 +25,10 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Application;)V
     .locals 0
+    .param p1    # Landroid/app/Application;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 189
     invoke-direct {p0}, Landroid/arch/lifecycle/ViewModelProvider$NewInstanceFactory;-><init>()V
@@ -37,6 +41,12 @@
 
 .method public static getInstance(Landroid/app/Application;)Landroid/arch/lifecycle/ViewModelProvider$AndroidViewModelFactory;
     .locals 1
+    .param p0    # Landroid/app/Application;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 176
     sget-object v0, Landroid/arch/lifecycle/ViewModelProvider$AndroidViewModelFactory;->sInstance:Landroid/arch/lifecycle/ViewModelProvider$AndroidViewModelFactory;
@@ -61,6 +71,13 @@
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroid/arch/lifecycle/ViewModel;
     .locals 5
+    .param p1    # Ljava/lang/Class;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -84,10 +101,10 @@
 
     const/4 v1, 0x1
 
+    .line 199
     :try_start_0
     new-array v2, v1, [Ljava/lang/Class;
 
-    .line 199
     const-class v3, Landroid/app/Application;
 
     const/4 v4, 0x0

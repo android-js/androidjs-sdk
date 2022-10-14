@@ -69,15 +69,16 @@
 
     const/4 v0, 0x4
 
+    .line 73
     new-array v0, v0, [I
 
-    .line 73
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->ATTRS:[I
 
     const/4 v0, 0x1
 
+    .line 80
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -86,7 +87,6 @@
 
     aput v2, v0, v1
 
-    .line 80
     sput-object v0, Landroid/support/v4/view/PagerTitleStrip;->TEXT_ATTRS:[I
 
     return-void
@@ -102,6 +102,10 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -113,6 +117,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 113
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -719,6 +731,12 @@
 
 .method public setNonPrimaryAlpha(F)V
     .locals 2
+    .param p1    # F
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+            to = 1.0
+        .end annotation
+    .end param
 
     const/high16 v0, 0x437f0000    # 255.0f
 
@@ -731,9 +749,11 @@
     .line 190
     iput p1, p0, Landroid/support/v4/view/PagerTitleStrip;->mNonPrimaryAlpha:I
 
+    .line 191
+    iget p1, p0, Landroid/support/v4/view/PagerTitleStrip;->mNonPrimaryAlpha:I
+
     shl-int/lit8 p1, p1, 0x18
 
-    .line 191
     iget v0, p0, Landroid/support/v4/view/PagerTitleStrip;->mTextColor:I
 
     const v1, 0xffffff
@@ -757,6 +777,10 @@
 
 .method public setTextColor(I)V
     .locals 2
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 203
     iput p1, p0, Landroid/support/v4/view/PagerTitleStrip;->mTextColor:I

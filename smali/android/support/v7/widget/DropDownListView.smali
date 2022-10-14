@@ -98,9 +98,11 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/DropDownListView;->mIsChildViewEnabled:Ljava/lang/reflect/Field;
 
+    .line 124
+    iget-object p1, p0, Landroid/support/v7/widget/DropDownListView;->mIsChildViewEnabled:Ljava/lang/reflect/Field;
+
     const/4 p2, 0x1
 
-    .line 124
     invoke-virtual {p1, p2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -935,19 +937,21 @@
 
     const/4 v3, 0x0
 
+    move v4, p2
+
     move-object v6, v3
 
-    const/4 v4, 0x0
+    const/4 p2, 0x0
 
     const/4 v5, 0x0
 
     const/4 v7, 0x0
 
     :goto_1
-    if-ge v4, v1, :cond_9
+    if-ge p2, v1, :cond_9
 
     .line 316
-    invoke-interface {v2, v4}, Landroid/widget/ListAdapter;->getItemViewType(I)I
+    invoke-interface {v2, p2}, Landroid/widget/ListAdapter;->getItemViewType(I)I
 
     move-result v8
 
@@ -959,7 +963,7 @@
 
     .line 321
     :cond_2
-    invoke-interface {v2, v4, v6, p0}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    invoke-interface {v2, p2, v6, p0}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v6
 
@@ -1008,9 +1012,9 @@
     .line 342
     invoke-virtual {v6}, Landroid/view/View;->forceLayout()V
 
-    if-lez v4, :cond_5
+    if-lez p2, :cond_5
 
-    add-int/2addr p2, v0
+    add-int/2addr v4, v0
 
     .line 349
     :cond_5
@@ -1018,17 +1022,17 @@
 
     move-result v8
 
-    add-int/2addr p2, v8
+    add-int/2addr v4, v8
 
-    if-lt p2, p4, :cond_7
+    if-lt v4, p4, :cond_7
 
     if-ltz p5, :cond_6
 
-    if-le v4, p5, :cond_6
+    if-le p2, p5, :cond_6
 
     if-lez v7, :cond_6
 
-    if-eq p2, p4, :cond_6
+    if-eq v4, p4, :cond_6
 
     move p4, v7
 
@@ -1038,17 +1042,17 @@
     :cond_7
     if-ltz p5, :cond_8
 
-    if-lt v4, p5, :cond_8
+    if-lt p2, p5, :cond_8
 
-    move v7, p2
+    move v7, v4
 
     :cond_8
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 p2, p2, 0x1
 
     goto :goto_1
 
     :cond_9
-    return p2
+    return v4
 .end method
 
 .method protected onDetachedFromWindow()V
@@ -1228,6 +1232,10 @@
 
 .method public onHoverEvent(Landroid/view/MotionEvent;)Z
     .locals 4
+    .param p1    # Landroid/view/MotionEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 430
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1266,6 +1274,8 @@
     iput-object v1, p0, Landroid/support/v7/widget/DropDownListView;->mResolveHoverRunnable:Landroid/support/v7/widget/DropDownListView$ResolveHoverRunnable;
 
     .line 442
+    iget-object v1, p0, Landroid/support/v7/widget/DropDownListView;->mResolveHoverRunnable:Landroid/support/v7/widget/DropDownListView$ResolveHoverRunnable;
+
     invoke-virtual {v1}, Landroid/support/v7/widget/DropDownListView$ResolveHoverRunnable;->post()V
 
     .line 446
@@ -1438,6 +1448,8 @@
     iput-object v0, p0, Landroid/support/v7/widget/DropDownListView;->mSelector:Landroid/support/v7/widget/DropDownListView$GateKeeperDrawable;
 
     .line 170
+    iget-object v0, p0, Landroid/support/v7/widget/DropDownListView;->mSelector:Landroid/support/v7/widget/DropDownListView$GateKeeperDrawable;
+
     invoke-super {p0, v0}, Landroid/widget/ListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
 
     .line 172

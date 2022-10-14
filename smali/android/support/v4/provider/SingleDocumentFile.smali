@@ -3,6 +3,12 @@
 .source "SingleDocumentFile.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x13
+.end annotation
+
+
 # instance fields
 .field private mContext:Landroid/content/Context;
 
@@ -12,6 +18,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
     .locals 0
+    .param p1    # Landroid/support/v4/provider/DocumentFile;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 32
     invoke-direct {p0, p1}, Landroid/support/v4/provider/DocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;)V
@@ -123,6 +133,8 @@
 
 .method public getName()Ljava/lang/String;
     .locals 2
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 55
     iget-object v0, p0, Landroid/support/v4/provider/SingleDocumentFile;->mContext:Landroid/content/Context;
@@ -138,6 +150,8 @@
 
 .method public getType()Ljava/lang/String;
     .locals 2
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 61
     iget-object v0, p0, Landroid/support/v4/provider/SingleDocumentFile;->mContext:Landroid/content/Context;

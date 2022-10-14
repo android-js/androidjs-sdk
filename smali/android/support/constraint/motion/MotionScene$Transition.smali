@@ -748,6 +748,9 @@
 
     iput v3, p0, Landroid/support/constraint/motion/MotionScene$Transition;->mDefaultInterpolatorID:I
 
+    .line 841
+    iget v3, p0, Landroid/support/constraint/motion/MotionScene$Transition;->mDefaultInterpolatorID:I
+
     if-eq v3, v4, :cond_d
 
     .line 842
@@ -770,9 +773,11 @@
 
     iput-object v3, p0, Landroid/support/constraint/motion/MotionScene$Transition;->mDefaultInterpolatorString:Ljava/lang/String;
 
+    .line 846
+    iget-object v3, p0, Landroid/support/constraint/motion/MotionScene$Transition;->mDefaultInterpolatorString:Ljava/lang/String;
+
     const-string v6, "/"
 
-    .line 846
     invoke-virtual {v3, v6}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v3

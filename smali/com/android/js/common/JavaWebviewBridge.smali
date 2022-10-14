@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Landroid/webkit/WebView;ILjava/lang/String;)V
-    .locals 1
+    .locals 0
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,46 +49,46 @@
     iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->myWebView:Landroid/webkit/WebView;
 
     .line 42
-    new-instance v0, Lcom/android/js/api/Notification;
+    new-instance p2, Lcom/android/js/api/Notification;
 
-    invoke-direct {v0, p1, p3, p4}, Lcom/android/js/api/Notification;-><init>(Landroid/app/Activity;ILjava/lang/String;)V
+    invoke-direct {p2, p1, p3, p4}, Lcom/android/js/api/Notification;-><init>(Landroid/app/Activity;ILjava/lang/String;)V
 
-    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->notification:Lcom/android/js/api/Notification;
+    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->notification:Lcom/android/js/api/Notification;
 
     .line 43
-    new-instance v0, Lcom/android/js/api/Call;
+    new-instance p2, Lcom/android/js/api/Call;
 
-    invoke-direct {v0, p1}, Lcom/android/js/api/Call;-><init>(Landroid/app/Activity;)V
+    invoke-direct {p2, p1}, Lcom/android/js/api/Call;-><init>(Landroid/app/Activity;)V
 
-    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->call:Lcom/android/js/api/Call;
+    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->call:Lcom/android/js/api/Call;
 
     .line 44
-    new-instance v0, Lcom/android/js/api/Wifi;
+    new-instance p2, Lcom/android/js/api/Wifi;
 
-    invoke-direct {v0, p1}, Lcom/android/js/api/Wifi;-><init>(Landroid/app/Activity;)V
+    invoke-direct {p2, p1}, Lcom/android/js/api/Wifi;-><init>(Landroid/app/Activity;)V
 
-    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
+    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->wifi:Lcom/android/js/api/Wifi;
 
     .line 45
-    new-instance v0, Lcom/android/js/api/Hotspot;
+    new-instance p2, Lcom/android/js/api/Hotspot;
 
-    invoke-direct {v0, p1}, Lcom/android/js/api/Hotspot;-><init>(Landroid/app/Activity;)V
+    invoke-direct {p2, p1}, Lcom/android/js/api/Hotspot;-><init>(Landroid/app/Activity;)V
 
-    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->hotspot:Lcom/android/js/api/Hotspot;
+    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->hotspot:Lcom/android/js/api/Hotspot;
 
     .line 46
-    new-instance v0, Lcom/android/js/api/Toast;
+    new-instance p2, Lcom/android/js/api/Toast;
 
-    invoke-direct {v0, p1}, Lcom/android/js/api/Toast;-><init>(Landroid/app/Activity;)V
+    invoke-direct {p2, p1}, Lcom/android/js/api/Toast;-><init>(Landroid/app/Activity;)V
 
-    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->toast:Lcom/android/js/api/Toast;
+    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->toast:Lcom/android/js/api/Toast;
 
     .line 47
-    new-instance v0, Lcom/android/js/api/App;
+    new-instance p2, Lcom/android/js/api/App;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/js/api/App;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
+    invoke-direct {p2, p1}, Lcom/android/js/api/App;-><init>(Landroid/app/Activity;)V
 
-    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->app:Lcom/android/js/api/App;
+    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->app:Lcom/android/js/api/App;
 
     .line 48
     new-instance p2, Lcom/android/js/api/Contact;
@@ -127,6 +127,9 @@
 
     .line 53
     iput p3, p0, Lcom/android/js/common/JavaWebviewBridge;->iconId:I
+
+    .line 54
+    iput-object p4, p0, Lcom/android/js/common/JavaWebviewBridge;->className:Ljava/lang/String;
 
     .line 55
     iput-object p4, p0, Lcom/android/js/common/JavaWebviewBridge;->className:Ljava/lang/String;
@@ -517,19 +520,6 @@
     move-result-object p1
 
     return-object p1
-.end method
-
-.method public setDefaultFontSize(I)V
-    .locals 1
-    .annotation runtime Landroid/webkit/JavascriptInterface;
-    .end annotation
-
-    .line 190
-    iget-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->app:Lcom/android/js/api/App;
-
-    invoke-virtual {v0, p1}, Lcom/android/js/api/App;->setDefaultFontSize(I)V
-
-    return-void
 .end method
 
 .method public showNotification(I)V

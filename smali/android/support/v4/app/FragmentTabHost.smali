@@ -85,6 +85,16 @@
 
 .method private doTabChanged(Ljava/lang/String;Landroid/support/v4/app/FragmentTransaction;)Landroid/support/v4/app/FragmentTransaction;
     .locals 3
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/app/FragmentTransaction;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 335
     invoke-direct {p0, p1}, Landroid/support/v4/app/FragmentTabHost;->getTabInfoForTag(Ljava/lang/String;)Landroid/support/v4/app/FragmentTabHost$TabInfo;
@@ -194,6 +204,9 @@
     check-cast v0, Landroid/widget/FrameLayout;
 
     iput-object v0, p0, Landroid/support/v4/app/FragmentTabHost;->mRealTabContent:Landroid/widget/FrameLayout;
+
+    .line 220
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTabHost;->mRealTabContent:Landroid/widget/FrameLayout;
 
     if-eqz v0, :cond_0
 
@@ -308,9 +321,11 @@
     iput-object v2, p0, Landroid/support/v4/app/FragmentTabHost;->mRealTabContent:Landroid/widget/FrameLayout;
 
     .line 176
-    iget p1, p0, Landroid/support/v4/app/FragmentTabHost;->mContainerId:I
+    iget-object p1, p0, Landroid/support/v4/app/FragmentTabHost;->mRealTabContent:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v2, p1}, Landroid/widget/FrameLayout;->setId(I)V
+    iget v4, p0, Landroid/support/v4/app/FragmentTabHost;->mContainerId:I
+
+    invoke-virtual {p1, v4}, Landroid/widget/FrameLayout;->setId(I)V
 
     .line 177
     new-instance p1, Landroid/widget/LinearLayout$LayoutParams;
@@ -327,6 +342,8 @@
 
 .method private getTabInfoForTag(Ljava/lang/String;)Landroid/support/v4/app/FragmentTabHost$TabInfo;
     .locals 4
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 365
     iget-object v0, p0, Landroid/support/v4/app/FragmentTabHost;->mTabs:Ljava/util/ArrayList;
@@ -376,21 +393,21 @@
 
     const/4 v0, 0x1
 
+    .line 146
     new-array v0, v0, [I
 
-    const v1, 0x10100f3
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const v2, 0x10100f3
 
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    .line 146
-    invoke-virtual {p1, p2, v0, v2, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, v0, v1, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
     .line 148
-    invoke-virtual {p1, v2, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, v1, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result p2
 
@@ -409,6 +426,18 @@
 # virtual methods
 .method public addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
     .locals 2
+    .param p1    # Landroid/widget/TabHost$TabSpec;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Class;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

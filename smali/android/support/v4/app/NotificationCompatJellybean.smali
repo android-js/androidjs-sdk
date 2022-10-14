@@ -3,6 +3,12 @@
 .source "NotificationCompatJellybean.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x10
+.end annotation
+
+
 # static fields
 .field static final EXTRA_ALLOW_GENERATED_REPLIES:Ljava/lang/String; = "android.support.allowGeneratedReplies"
 
@@ -183,9 +189,11 @@
 
     sput-object v3, Landroid/support/v4/app/NotificationCompatJellybean;->sActionClass:Ljava/lang/Class;
 
+    .line 214
+    sget-object v3, Landroid/support/v4/app/NotificationCompatJellybean;->sActionClass:Ljava/lang/Class;
+
     const-string v4, "icon"
 
-    .line 214
     invoke-virtual {v3, v4}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v3
@@ -226,6 +234,8 @@
     sput-object v3, Landroid/support/v4/app/NotificationCompatJellybean;->sActionsField:Ljava/lang/reflect/Field;
 
     .line 218
+    sget-object v3, Landroid/support/v4/app/NotificationCompatJellybean;->sActionsField:Ljava/lang/reflect/Field;
+
     invoke-virtual {v3, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_1

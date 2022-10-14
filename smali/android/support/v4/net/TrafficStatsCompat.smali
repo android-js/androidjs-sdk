@@ -72,6 +72,10 @@
 
 .method public static tagDatagramSocket(Ljava/net/DatagramSocket;)V
     .locals 3
+    .param p0    # Ljava/net/DatagramSocket;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -133,6 +137,10 @@
 
 .method public static untagDatagramSocket(Ljava/net/DatagramSocket;)V
     .locals 3
+    .param p0    # Ljava/net/DatagramSocket;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;

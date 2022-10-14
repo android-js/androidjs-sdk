@@ -90,13 +90,9 @@
 
     invoke-direct {v0, p1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw v0
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method public abstract notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V

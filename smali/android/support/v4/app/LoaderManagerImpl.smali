@@ -21,8 +21,14 @@
 
 # instance fields
 .field private final mLifecycleOwner:Landroid/arch/lifecycle/LifecycleOwner;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mLoaderViewModel:Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -34,6 +40,14 @@
 
 .method constructor <init>(Landroid/arch/lifecycle/LifecycleOwner;Landroid/arch/lifecycle/ViewModelStore;)V
     .locals 0
+    .param p1    # Landroid/arch/lifecycle/LifecycleOwner;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/arch/lifecycle/ViewModelStore;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 371
     invoke-direct {p0}, Landroid/support/v4/app/LoaderManager;-><init>()V
@@ -53,6 +67,24 @@
 
 .method private createAndInstallLoader(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;Landroid/support/v4/content/Loader;)Landroid/support/v4/content/Loader;
     .locals 2
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p4    # Landroid/support/v4/content/Loader;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",
@@ -211,6 +243,8 @@
 # virtual methods
 .method public destroyLoader(I)V
     .locals 2
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
 
     .line 453
     iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl;->mLoaderViewModel:Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
@@ -320,6 +354,9 @@
 
 .method public getLoader(I)Landroid/support/v4/content/Loader;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",
@@ -387,6 +424,20 @@
 
 .method public initLoader(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;
     .locals 4
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",
@@ -534,6 +585,20 @@
 
 .method public restartLoader(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;
     .locals 2
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",

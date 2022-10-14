@@ -92,7 +92,10 @@
     :goto_0
     iput-boolean v2, v0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
 
-    if-eqz v2, :cond_1
+    .line 2463
+    iget-boolean v1, v0, Landroid/support/v7/app/AppCompatDelegateImpl$PanelFeatureState$SavedState;->isOpen:Z
+
+    if-eqz v1, :cond_1
 
     .line 2464
     invoke-virtual {p0, p1}, Landroid/os/Parcel;->readBundle(Ljava/lang/ClassLoader;)Landroid/os/Bundle;

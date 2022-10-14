@@ -19,9 +19,9 @@
 
     const/4 v0, 0x0
 
+    .line 71
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 71
     sput-object v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
 
     return-void
@@ -40,6 +40,8 @@
 
 .method public static getContentMimeTypes(Landroid/view/inputmethod/EditorInfo;)[Ljava/lang/String;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 111
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -97,6 +99,14 @@
 
 .method public static setContentMimeTypes(Landroid/view/inputmethod/EditorInfo;[Ljava/lang/String;)V
     .locals 2
+    .param p0    # Landroid/view/inputmethod/EditorInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 89
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

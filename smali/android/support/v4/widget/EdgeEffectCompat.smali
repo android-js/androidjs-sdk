@@ -28,6 +28,10 @@
 
 .method public static onPull(Landroid/widget/EdgeEffect;FF)V
     .locals 2
+    .param p0    # Landroid/widget/EdgeEffect;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 152
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

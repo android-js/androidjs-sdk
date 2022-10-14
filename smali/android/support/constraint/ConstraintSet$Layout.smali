@@ -260,6 +260,8 @@
     sput-object v0, Landroid/support/constraint/ConstraintSet$Layout;->mapToConstant:Landroid/util/SparseIntArray;
 
     .line 709
+    sget-object v0, Landroid/support/constraint/ConstraintSet$Layout;->mapToConstant:Landroid/util/SparseIntArray;
+
     sget v1, Landroid/support/constraint/R$styleable;->Layout_layout_constraintLeft_toLeftOf:I
 
     const/16 v2, 0x18
@@ -1323,7 +1325,7 @@
 
     if-eqz v4, :cond_0
 
-    goto :goto_2
+    goto :goto_1
 
     .line 990
     :cond_0
@@ -1383,19 +1385,16 @@
 
     if-nez v2, :cond_1
 
-    goto :goto_1
-
-    :cond_1
-    move-object v4, v2
+    move-object v2, v4
 
     .line 999
-    :goto_1
-    invoke-virtual {p2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    :cond_1
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 1000
     invoke-virtual {p2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_1
 
     .line 1002
     :cond_2
@@ -1434,7 +1433,7 @@
     :try_end_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
     move-exception v2
@@ -1443,7 +1442,7 @@
     invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     :cond_3
-    :goto_2
+    :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0

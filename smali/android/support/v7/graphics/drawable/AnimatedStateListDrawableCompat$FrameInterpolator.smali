@@ -72,6 +72,9 @@
 
     if-lt p1, v3, :cond_0
 
+    .line 765
+    aget v3, v1, v2
+
     sub-int/2addr p1, v3
 
     add-int/lit8 v2, v2, 0x1

@@ -7,6 +7,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x1a
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/widget/TextViewCompat;
 .end annotation
@@ -324,9 +328,11 @@
 
     iput-object v2, p0, Landroid/support/v4/widget/TextViewCompat$OreoCallback;->mMenuBuilderClass:Ljava/lang/Class;
 
+    .line 583
+    iget-object v2, p0, Landroid/support/v4/widget/TextViewCompat$OreoCallback;->mMenuBuilderClass:Ljava/lang/Class;
+
     new-array v6, v5, [Ljava/lang/Class;
 
-    .line 583
     sget-object v7, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     aput-object v7, v6, v4
@@ -436,9 +442,9 @@
 
     if-eqz v6, :cond_2
 
+    .line 603
     new-array v6, v5, [Ljava/lang/Object;
 
-    .line 603
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7

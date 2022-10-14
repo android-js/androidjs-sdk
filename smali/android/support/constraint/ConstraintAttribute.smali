@@ -223,9 +223,9 @@
 
     move-result-object v5
 
+    .line 262
     new-array v6, v6, [Ljava/lang/Object;
 
-    .line 262
     invoke-virtual {v5, p1, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v5
@@ -310,13 +310,15 @@
 
     move-object v4, v3
 
-    const/4 v5, 0x0
+    move-object v5, v4
+
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v5, v0, :cond_9
+    if-ge v1, v0, :cond_9
 
     .line 406
-    invoke-virtual {p1, v5}, Landroid/content/res/TypedArray;->getIndex(I)I
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v6
 
@@ -330,12 +332,12 @@
     .line 408
     invoke-virtual {p1, v6}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    if-eqz v1, :cond_8
+    if-eqz v3, :cond_8
 
     .line 409
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
     move-result v6
 
@@ -346,7 +348,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v3, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v7
 
@@ -356,15 +358,15 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v3, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
     goto/16 :goto_2
 
@@ -377,14 +379,14 @@
     .line 413
     invoke-virtual {p1, v6, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v3
+    move-result-object v4
 
     .line 414
-    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v5, Landroid/support/constraint/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     goto/16 :goto_2
 
@@ -395,23 +397,23 @@
     if-ne v6, v7, :cond_2
 
     .line 416
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 417
     invoke-virtual {p1, v6, v2}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v5
 
     :goto_1
-    move-object v10, v4
+    move-object v10, v5
 
-    move-object v4, v3
+    move-object v5, v4
 
-    move-object v3, v10
+    move-object v4, v10
 
     goto :goto_2
 
@@ -422,16 +424,16 @@
     if-ne v6, v7, :cond_3
 
     .line 419
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 420
     invoke-virtual {p1, v6, v2}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_1
 
@@ -444,12 +446,12 @@
     if-ne v6, v7, :cond_4
 
     .line 422
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 425
     invoke-virtual {p1, v6, v9}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v4
+    move-result v5
 
     .line 426
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -461,13 +463,13 @@
     move-result-object v6
 
     .line 423
-    invoke-static {v8, v4, v6}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+    invoke-static {v8, v5, v6}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_1
 
@@ -478,16 +480,16 @@
     if-ne v6, v7, :cond_5
 
     .line 428
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 429
     invoke-virtual {p1, v6, v9}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_1
 
@@ -498,18 +500,18 @@
     if-ne v6, v7, :cond_6
 
     .line 431
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/high16 v4, 0x7fc00000    # Float.NaN
+    const/high16 v5, 0x7fc00000    # Float.NaN
 
     .line 432
-    invoke-virtual {p1, v6, v4}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p1, v6, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_1
 
@@ -520,18 +522,18 @@
     if-ne v6, v7, :cond_7
 
     .line 434
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->INT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->INT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v4, -0x1
+    const/4 v5, -0x1
 
     .line 435
-    invoke-virtual {p1, v6, v4}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {p1, v6, v5}, Landroid/content/res/TypedArray;->getInteger(II)I
 
-    move-result v4
+    move-result v5
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_1
 
@@ -542,32 +544,32 @@
     if-ne v6, v7, :cond_8
 
     .line 437
-    sget-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sget-object v4, Landroid/support/constraint/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 438
     invoke-virtual {p1, v6}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
     goto :goto_1
 
     :cond_8
     :goto_2
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_0
 
     :cond_9
-    if-eqz v1, :cond_a
-
     if-eqz v3, :cond_a
+
+    if-eqz v4, :cond_a
 
     .line 442
     new-instance p0, Landroid/support/constraint/ConstraintAttribute;
 
-    invoke-direct {p0, v1, v4, v3}, Landroid/support/constraint/ConstraintAttribute;-><init>(Ljava/lang/String;Landroid/support/constraint/ConstraintAttribute$AttributeType;Ljava/lang/Object;)V
+    invoke-direct {p0, v3, v5, v4}, Landroid/support/constraint/ConstraintAttribute;-><init>(Ljava/lang/String;Landroid/support/constraint/ConstraintAttribute$AttributeType;Ljava/lang/Object;)V
 
-    invoke-virtual {p2, v1, p0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v3, p0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 444
     :cond_a
@@ -664,10 +666,10 @@
 
     goto :goto_0
 
+    .line 312
     :pswitch_0
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 312
     sget-object v11, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     aput-object v11, v8, v9
@@ -676,9 +678,9 @@
 
     move-result-object v8
 
+    .line 313
     new-array v10, v10, [Ljava/lang/Object;
 
-    .line 313
     iget v6, v6, Landroid/support/constraint/ConstraintAttribute;->mFloatValue:F
 
     invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -691,10 +693,10 @@
 
     goto :goto_0
 
+    .line 308
     :pswitch_1
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 308
     sget-object v11, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
     aput-object v11, v8, v9
@@ -703,9 +705,9 @@
 
     move-result-object v8
 
+    .line 309
     new-array v10, v10, [Ljava/lang/Object;
 
-    .line 309
     iget-boolean v6, v6, Landroid/support/constraint/ConstraintAttribute;->mBooleanValue:Z
 
     invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -718,10 +720,10 @@
 
     goto :goto_0
 
+    .line 304
     :pswitch_2
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 304
     const-class v11, Ljava/lang/CharSequence;
 
     aput-object v11, v8, v9
@@ -730,9 +732,9 @@
 
     move-result-object v8
 
+    .line 305
     new-array v10, v10, [Ljava/lang/Object;
 
-    .line 305
     iget-object v6, v6, Landroid/support/constraint/ConstraintAttribute;->mStringValue:Ljava/lang/String;
 
     aput-object v6, v10, v9
@@ -741,10 +743,10 @@
 
     goto :goto_0
 
+    .line 290
     :pswitch_3
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 290
     sget-object v11, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     aput-object v11, v8, v9
@@ -753,9 +755,9 @@
 
     move-result-object v8
 
+    .line 291
     new-array v10, v10, [Ljava/lang/Object;
 
-    .line 291
     iget v6, v6, Landroid/support/constraint/ConstraintAttribute;->mFloatValue:F
 
     invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -768,10 +770,10 @@
 
     goto/16 :goto_0
 
+    .line 286
     :pswitch_4
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 286
     sget-object v11, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     aput-object v11, v8, v9
@@ -780,9 +782,9 @@
 
     move-result-object v8
 
+    .line 287
     new-array v10, v10, [Ljava/lang/Object;
 
-    .line 287
     iget v6, v6, Landroid/support/constraint/ConstraintAttribute;->mIntegerValue:I
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -795,10 +797,10 @@
 
     goto/16 :goto_0
 
+    .line 294
     :pswitch_5
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 294
     const-class v11, Landroid/graphics/drawable/Drawable;
 
     aput-object v11, v8, v9
@@ -817,19 +819,19 @@
 
     invoke-virtual {v11, v6}, Landroid/graphics/drawable/ColorDrawable;->setColor(I)V
 
+    .line 297
     new-array v6, v10, [Ljava/lang/Object;
 
     aput-object v11, v6, v9
 
-    .line 297
     invoke-virtual {v8, p0, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_0
 
+    .line 300
     :pswitch_6
     new-array v8, v10, [Ljava/lang/Class;
 
-    .line 300
     sget-object v11, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     aput-object v11, v8, v9
@@ -838,9 +840,9 @@
 
     move-result-object v8
 
+    .line 301
     new-array v10, v10, [Ljava/lang/Object;
 
-    .line 301
     iget v6, v6, Landroid/support/constraint/ConstraintAttribute;->mColorValue:I
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1520,10 +1522,10 @@
 
     goto/16 :goto_1
 
+    .line 383
     :pswitch_0
     new-array v7, v13, [Ljava/lang/Class;
 
-    .line 383
     sget-object v8, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     aput-object v8, v7, v14
@@ -1532,9 +1534,9 @@
 
     move-result-object v0
 
+    .line 384
     new-array v7, v13, [Ljava/lang/Object;
 
-    .line 384
     aget v8, p2, v14
 
     invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -1547,10 +1549,10 @@
 
     goto/16 :goto_1
 
+    .line 379
     :pswitch_1
     new-array v7, v13, [Ljava/lang/Class;
 
-    .line 379
     sget-object v8, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
     aput-object v8, v7, v14
@@ -1559,9 +1561,9 @@
 
     move-result-object v0
 
+    .line 380
     new-array v7, v13, [Ljava/lang/Object;
 
-    .line 380
     aget v8, p2, v14
 
     const/high16 v9, 0x3f000000    # 0.5f
@@ -1610,10 +1612,10 @@
 
     throw v0
 
+    .line 351
     :pswitch_3
     new-array v7, v13, [Ljava/lang/Class;
 
-    .line 351
     sget-object v8, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
     aput-object v8, v7, v14
@@ -1622,9 +1624,9 @@
 
     move-result-object v0
 
+    .line 352
     new-array v7, v13, [Ljava/lang/Object;
 
-    .line 352
     aget v8, p2, v14
 
     invoke-static {v8}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -1637,10 +1639,10 @@
 
     goto/16 :goto_1
 
+    .line 347
     :pswitch_4
     new-array v7, v13, [Ljava/lang/Class;
 
-    .line 347
     sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     aput-object v8, v7, v14
@@ -1649,9 +1651,9 @@
 
     move-result-object v0
 
+    .line 348
     new-array v7, v13, [Ljava/lang/Object;
 
-    .line 348
     aget v8, p2, v14
 
     float-to-int v8, v8
@@ -1666,10 +1668,10 @@
 
     goto/16 :goto_1
 
+    .line 355
     :pswitch_5
     new-array v7, v13, [Ljava/lang/Class;
 
-    .line 355
     const-class v15, Landroid/graphics/drawable/Drawable;
 
     aput-object v15, v7, v14
@@ -1770,13 +1772,13 @@
 
     const/4 v7, 0x1
 
+    .line 363
     new-array v7, v7, [Ljava/lang/Object;
 
     const/4 v9, 0x0
 
     aput-object v8, v7, v9
 
-    .line 363
     invoke-virtual {v0, v2, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_1
@@ -1784,9 +1786,9 @@
     :pswitch_6
     const/4 v7, 0x1
 
+    .line 367
     new-array v13, v7, [Ljava/lang/Class;
 
-    .line 367
     sget-object v7, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     const/4 v14, 0x0
@@ -1883,9 +1885,9 @@
 
     const/4 v8, 0x1
 
+    .line 373
     new-array v8, v8, [Ljava/lang/Object;
 
-    .line 373
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
@@ -2186,6 +2188,9 @@
 
     iput v0, p0, Landroid/support/constraint/ConstraintAttribute;->mColorValue:I
 
+    .line 165
+    iget v0, p0, Landroid/support/constraint/ConstraintAttribute;->mColorValue:I
+
     const v1, 0xffffff
 
     and-int/2addr v0, v1
@@ -2194,7 +2199,6 @@
 
     const/4 v2, 0x3
 
-    .line 165
     aget p1, p1, v2
 
     mul-float p1, p1, v1

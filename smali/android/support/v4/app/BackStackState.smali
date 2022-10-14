@@ -364,13 +364,9 @@
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw p1
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method
 
 
@@ -492,33 +488,27 @@
 
     add-int/lit8 v5, v4, 0x1
 
-    aget v1, v1, v4
+    aget v4, v1, v4
 
-    iput v1, v3, Landroid/support/v4/app/BackStackRecord$Op;->enterAnim:I
-
-    .line 111
-    iget-object v1, p0, Landroid/support/v4/app/BackStackState;->mOps:[I
+    iput v4, v3, Landroid/support/v4/app/BackStackRecord$Op;->enterAnim:I
 
     add-int/lit8 v4, v5, 0x1
 
-    aget v1, v1, v5
+    .line 111
+    aget v5, v1, v5
 
-    iput v1, v3, Landroid/support/v4/app/BackStackRecord$Op;->exitAnim:I
-
-    .line 112
-    iget-object v1, p0, Landroid/support/v4/app/BackStackState;->mOps:[I
+    iput v5, v3, Landroid/support/v4/app/BackStackRecord$Op;->exitAnim:I
 
     add-int/lit8 v5, v4, 0x1
 
-    aget v1, v1, v4
+    .line 112
+    aget v4, v1, v4
 
-    iput v1, v3, Landroid/support/v4/app/BackStackRecord$Op;->popEnterAnim:I
-
-    .line 113
-    iget-object v1, p0, Landroid/support/v4/app/BackStackState;->mOps:[I
+    iput v4, v3, Landroid/support/v4/app/BackStackRecord$Op;->popEnterAnim:I
 
     add-int/lit8 v4, v5, 0x1
 
+    .line 113
     aget v1, v1, v5
 
     iput v1, v3, Landroid/support/v4/app/BackStackRecord$Op;->popExitAnim:I

@@ -39,6 +39,10 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 140
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,6 +88,12 @@
 # virtual methods
 .method public addExtras(Landroid/os/Bundle;)Landroid/support/v4/app/RemoteInput$Builder;
     .locals 1
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -98,6 +108,8 @@
 
 .method public build()Landroid/support/v4/app/RemoteInput;
     .locals 8
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 244
     new-instance v7, Landroid/support/v4/app/RemoteInput;
@@ -123,6 +135,8 @@
 
 .method public getExtras()Landroid/os/Bundle;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 235
     iget-object v0, p0, Landroid/support/v4/app/RemoteInput$Builder;->mExtras:Landroid/os/Bundle;
@@ -132,6 +146,12 @@
 
 .method public setAllowDataType(Ljava/lang/String;Z)Landroid/support/v4/app/RemoteInput$Builder;
     .locals 0
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     if-eqz p2, :cond_0
 
@@ -154,6 +174,8 @@
 
 .method public setAllowFreeFormInput(Z)Landroid/support/v4/app/RemoteInput$Builder;
     .locals 0
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 209
     iput-boolean p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mAllowFreeFormTextInput:Z
@@ -163,6 +185,12 @@
 
 .method public setChoices([Ljava/lang/CharSequence;)Landroid/support/v4/app/RemoteInput$Builder;
     .locals 0
+    .param p1    # [Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 173
     iput-object p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mChoices:[Ljava/lang/CharSequence;
@@ -172,6 +200,12 @@
 
 .method public setLabel(Ljava/lang/CharSequence;)Landroid/support/v4/app/RemoteInput$Builder;
     .locals 0
+    .param p1    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 155
     iput-object p1, p0, Landroid/support/v4/app/RemoteInput$Builder;->mLabel:Ljava/lang/CharSequence;

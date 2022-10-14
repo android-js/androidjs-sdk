@@ -8,6 +8,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/ActionBarOverlayLayout$ActionBarVisibilityCallback;,
@@ -86,9 +92,9 @@
 
     const/4 v0, 0x2
 
+    .line 129
     new-array v0, v0, [I
 
-    .line 129
     sget v1, Landroid/support/v7/appcompat/R$attr;->actionBarSize:I
 
     const/4 v2, 0x0
@@ -307,13 +313,10 @@
 
     iput p2, p1, Landroid/support/v7/widget/ActionBarOverlayLayout$LayoutParams;->bottomMargin:I
 
-    goto :goto_1
+    const/4 p3, 0x1
 
     :cond_3
-    move v0, p3
-
-    :goto_1
-    return v0
+    return p3
 .end method
 
 .method private getDecorToolbar(Landroid/view/View;)Landroid/support/v7/widget/DecorToolbar;
@@ -412,6 +415,9 @@
 
     iput-object v3, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mWindowContentOverlay:Landroid/graphics/drawable/Drawable;
 
+    .line 151
+    iget-object v3, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mWindowContentOverlay:Landroid/graphics/drawable/Drawable;
+
     if-nez v3, :cond_0
 
     const/4 v3, 0x1
@@ -421,7 +427,6 @@
     :cond_0
     const/4 v3, 0x0
 
-    .line 151
     :goto_0
     invoke-virtual {p0, v3}, Landroid/support/v7/widget/ActionBarOverlayLayout;->setWillNotDraw(Z)V
 
@@ -676,7 +681,7 @@
 .end method
 
 .method protected fitSystemWindows(Landroid/graphics/Rect;)Z
-    .locals 7
+    .locals 8
 
     .line 287
     invoke-virtual {p0}, Landroid/support/v7/widget/ActionBarOverlayLayout;->pullChildren()V
@@ -684,22 +689,26 @@
     .line 289
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->getWindowSystemUiVisibility(Landroid/view/View;)I
 
-    .line 294
-    iget-object v1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mActionBarTop:Landroid/support/v7/widget/ActionBarContainer;
+    move-result v0
 
-    const/4 v3, 0x1
+    and-int/lit16 v0, v0, 0x100
+
+    .line 294
+    iget-object v2, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mActionBarTop:Landroid/support/v7/widget/ActionBarContainer;
 
     const/4 v4, 0x1
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
-    move-object v0, p0
+    const/4 v7, 0x1
 
-    move-object v2, p1
+    move-object v1, p0
 
-    invoke-direct/range {v0 .. v6}, Landroid/support/v7/widget/ActionBarOverlayLayout;->applyInsets(Landroid/view/View;Landroid/graphics/Rect;ZZZZ)Z
+    move-object v3, p1
+
+    invoke-direct/range {v1 .. v7}, Landroid/support/v7/widget/ActionBarOverlayLayout;->applyInsets(Landroid/view/View;Landroid/graphics/Rect;ZZZZ)Z
 
     move-result v0
 
@@ -1635,6 +1644,8 @@
     iput p1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mHideOnContentScrollReference:I
 
     .line 489
+    iget p1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout;->mHideOnContentScrollReference:I
+
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ActionBarOverlayLayout;->setActionBarHideOffset(I)V
 
     return-void

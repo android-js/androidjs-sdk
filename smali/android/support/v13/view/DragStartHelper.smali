@@ -220,6 +220,9 @@
 
     iput-boolean p1, p0, Landroid/support/v13/view/DragStartHelper;->mDragging:Z
 
+    .line 154
+    iget-boolean p1, p0, Landroid/support/v13/view/DragStartHelper;->mDragging:Z
+
     return p1
 
     .line 158

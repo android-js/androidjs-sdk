@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x15
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/app/ActivityCompat;
 .end annotation
@@ -153,6 +157,10 @@
 
 .method public onSharedElementsArrived(Ljava/util/List;Ljava/util/List;Landroid/app/SharedElementCallback$OnSharedElementsReadyListener;)V
     .locals 2
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

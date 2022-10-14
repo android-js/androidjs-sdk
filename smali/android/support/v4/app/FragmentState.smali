@@ -349,58 +349,42 @@
 
     iput-boolean p3, p2, Landroid/support/v4/app/Fragment;->mFromLayout:Z
 
-    .line 91
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     const/4 p3, 0x1
 
+    .line 91
     iput-boolean p3, p2, Landroid/support/v4/app/Fragment;->mRestored:Z
 
     .line 92
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget p3, p0, Landroid/support/v4/app/FragmentState;->mFragmentId:I
 
     iput p3, p2, Landroid/support/v4/app/Fragment;->mFragmentId:I
 
     .line 93
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget p3, p0, Landroid/support/v4/app/FragmentState;->mContainerId:I
 
     iput p3, p2, Landroid/support/v4/app/Fragment;->mContainerId:I
 
     .line 94
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget-object p3, p0, Landroid/support/v4/app/FragmentState;->mTag:Ljava/lang/String;
 
     iput-object p3, p2, Landroid/support/v4/app/Fragment;->mTag:Ljava/lang/String;
 
     .line 95
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget-boolean p3, p0, Landroid/support/v4/app/FragmentState;->mRetainInstance:Z
 
     iput-boolean p3, p2, Landroid/support/v4/app/Fragment;->mRetainInstance:Z
 
     .line 96
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget-boolean p3, p0, Landroid/support/v4/app/FragmentState;->mDetached:Z
 
     iput-boolean p3, p2, Landroid/support/v4/app/Fragment;->mDetached:Z
 
     .line 97
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget-boolean p3, p0, Landroid/support/v4/app/FragmentState;->mHidden:Z
 
     iput-boolean p3, p2, Landroid/support/v4/app/Fragment;->mHidden:Z
 
     .line 98
-    iget-object p2, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iget-object p1, p1, Landroid/support/v4/app/FragmentHostCallback;->mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
     iput-object p1, p2, Landroid/support/v4/app/Fragment;->mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
@@ -438,12 +422,7 @@
     iput-object p4, p1, Landroid/support/v4/app/Fragment;->mChildNonConfig:Landroid/support/v4/app/FragmentManagerNonConfig;
 
     .line 105
-    iget-object p1, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
-
     iput-object p5, p1, Landroid/support/v4/app/Fragment;->mViewModelStore:Landroid/arch/lifecycle/ViewModelStore;
-
-    .line 106
-    iget-object p1, p0, Landroid/support/v4/app/FragmentState;->mInstance:Landroid/support/v4/app/Fragment;
 
     return-object p1
 .end method

@@ -206,6 +206,8 @@
 
 .method public getTheme()I
     .locals 1
+    .annotation build Landroid/support/annotation/StyleRes;
+    .end annotation
 
     .line 235
     iget v0, p0, Landroid/support/v4/app/DialogFragment;->mTheme:I
@@ -224,6 +226,10 @@
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 401
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
@@ -347,6 +353,10 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 310
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
@@ -427,6 +437,12 @@
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 381
     new-instance p1, Landroid/app/Dialog;
@@ -515,6 +531,12 @@
 
 .method public onGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
     .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 326
     iget-boolean v0, p0, Landroid/support/v4/app/DialogFragment;->mShowsDialog:Z
@@ -535,6 +557,9 @@
     move-result-object p1
 
     iput-object p1, p0, Landroid/support/v4/app/DialogFragment;->mDialog:Landroid/app/Dialog;
+
+    .line 332
+    iget-object p1, p0, Landroid/support/v4/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
     const-string v0, "layout_inflater"
 
@@ -579,6 +604,10 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 442
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
@@ -730,9 +759,16 @@
 
 .method public setStyle(II)V
     .locals 1
+    .param p2    # I
+        .annotation build Landroid/support/annotation/StyleRes;
+        .end annotation
+    .end param
 
     .line 119
     iput p1, p0, Landroid/support/v4/app/DialogFragment;->mStyle:I
+
+    .line 120
+    iget p1, p0, Landroid/support/v4/app/DialogFragment;->mStyle:I
 
     const/4 v0, 0x2
 
@@ -760,6 +796,11 @@
 
 .method public setupDialog(Landroid/app/Dialog;I)V
     .locals 2
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -818,6 +859,9 @@
     move-result p1
 
     iput p1, p0, Landroid/support/v4/app/DialogFragment;->mBackStackId:I
+
+    .line 162
+    iget p1, p0, Landroid/support/v4/app/DialogFragment;->mBackStackId:I
 
     return p1
 .end method

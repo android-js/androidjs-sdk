@@ -54,6 +54,8 @@
     sput-object v0, Landroid/support/constraint/motion/KeyPosition$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     .line 262
+    sget-object v0, Landroid/support/constraint/motion/KeyPosition$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
     sget v1, Landroid/support/constraint/R$styleable;->KeyPosition_motionTarget:I
 
     const/4 v2, 0x1

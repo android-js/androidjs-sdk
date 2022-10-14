@@ -26,8 +26,14 @@
 
 # instance fields
 .field private mConversationTitle:Ljava/lang/CharSequence;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field private mIsGroupConversation:Ljava/lang/Boolean;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field private final mMessages:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -61,6 +67,10 @@
 
 .method public constructor <init>(Landroid/support/v4/app/Person;)V
     .locals 1
+    .param p1    # Landroid/support/v4/app/Person;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 2196
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$Style;-><init>()V
@@ -101,6 +111,10 @@
 
 .method public constructor <init>(Ljava/lang/CharSequence;)V
     .locals 1
+    .param p1    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -134,6 +148,8 @@
 
 .method public static extractMessagingStyleFromNotification(Landroid/app/Notification;)Landroid/support/v4/app/NotificationCompat$MessagingStyle;
     .locals 2
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2359
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompat;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
@@ -184,6 +200,8 @@
 
 .method private findLatestIncomingMessage()Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
     .locals 3
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2481
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->mMessages:Ljava/util/List;
@@ -326,6 +344,8 @@
 
 .method private makeFontColorSpan(I)Landroid/text/style/TextAppearanceSpan;
     .locals 7
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 2532
     new-instance v6, Landroid/text/style/TextAppearanceSpan;
@@ -704,6 +724,11 @@
 
 .method public apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
     .locals 10
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 2385
     invoke-virtual {p0}, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->isGroupConversation()Z
@@ -1144,6 +1169,8 @@
 
 .method public getConversationTitle()Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2241
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->mConversationTitle:Ljava/lang/CharSequence;
@@ -1247,6 +1274,11 @@
 
 .method protected restoreFromCompatExtras(Landroid/os/Bundle;)V
     .locals 2
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 2560
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->mMessages:Ljava/util/List;
@@ -1309,6 +1341,9 @@
 
     iput-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->mConversationTitle:Ljava/lang/CharSequence;
 
+    .line 2573
+    iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->mConversationTitle:Ljava/lang/CharSequence;
+
     if-nez v0, :cond_1
 
     const-string v0, "android.hiddenConversationTitle"
@@ -1366,6 +1401,10 @@
 
 .method public setConversationTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$MessagingStyle;
     .locals 0
+    .param p1    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 2232
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle;->mConversationTitle:Ljava/lang/CharSequence;

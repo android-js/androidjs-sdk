@@ -42,13 +42,11 @@
     const/4 p6, 0x0
 
     :goto_0
+    check-cast p6, Landroid/os/CancellationSignal;
+
     move-object v6, p6
 
     check-cast v6, Landroid/os/CancellationSignal;
-
-    move-object p6, v6
-
-    check-cast p6, Landroid/os/CancellationSignal;
 
     move-object v0, p0
 

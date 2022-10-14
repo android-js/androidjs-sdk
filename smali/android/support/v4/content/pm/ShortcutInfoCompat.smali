@@ -104,13 +104,8 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
-
     :catch_0
-    nop
-
     :cond_0
-    :goto_0
     if-nez v0, :cond_1
 
     .line 91
@@ -138,6 +133,8 @@
 
 .method public getActivity()Landroid/content/ComponentName;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 122
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
@@ -147,6 +144,8 @@
 
 .method public getDisabledMessage()Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 153
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
@@ -156,6 +155,8 @@
 
 .method public getId()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 108
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mId:Ljava/lang/String;
@@ -165,6 +166,8 @@
 
 .method public getIntent()Landroid/content/Intent;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 164
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -180,6 +183,8 @@
 
 .method public getIntents()[Landroid/content/Intent;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 174
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -197,6 +202,8 @@
 
 .method public getLongLabel()Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 142
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
@@ -206,6 +213,8 @@
 
 .method public getShortLabel()Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 132
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLabel:Ljava/lang/CharSequence;
@@ -215,6 +224,9 @@
 
 .method public toShortcutInfo()Landroid/content/pm/ShortcutInfo;
     .locals 3
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x19
+    .end annotation
 
     .line 58
     new-instance v0, Landroid/content/pm/ShortcutInfo$Builder;

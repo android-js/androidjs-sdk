@@ -45,14 +45,16 @@
     .line 29
     iput v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->TABLE_SIZE:I
 
+    .line 30
+    iget v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->TABLE_SIZE:I
+
     new-array v1, v0, [Landroid/support/constraint/solver/SolverVariable;
 
-    .line 30
     iput-object v1, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
+    .line 31
     new-array v0, v0, [Landroid/support/constraint/solver/SolverVariable;
 
-    .line 31
     iput-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->sortArray:[Landroid/support/constraint/solver/SolverVariable;
 
     const/4 v0, 0x0
@@ -112,6 +114,8 @@
     iput-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
 
     .line 205
+    iget-object v0, p0, Landroid/support/constraint/solver/PriorityGoalRow;->arrayGoals:[Landroid/support/constraint/solver/SolverVariable;
+
     array-length v2, v0
 
     mul-int/lit8 v2, v2, 0x2
@@ -137,11 +141,13 @@
     .line 208
     iput v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
 
+    .line 210
+    iget v2, p0, Landroid/support/constraint/solver/PriorityGoalRow;->numGoals:I
+
     if-le v2, v1, :cond_2
 
     sub-int/2addr v2, v1
 
-    .line 210
     aget-object v0, v0, v2
 
     iget v0, v0, Landroid/support/constraint/solver/SolverVariable;->id:I

@@ -15,6 +15,9 @@
 .field private mAsyncFontPending:Z
 
 .field private final mAutoSizeTextHelper:Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private mDrawableBottomTint:Landroid/support/v7/widget/TintInfo;
 
@@ -51,11 +54,13 @@
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mView:Landroid/widget/TextView;
 
     .line 66
-    new-instance v0, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
+    new-instance p1, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
 
-    invoke-direct {v0, p1}, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;-><init>(Landroid/widget/TextView;)V
+    iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mView:Landroid/widget/TextView;
 
-    iput-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAutoSizeTextHelper:Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
+    invoke-direct {p1, v0}, Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;-><init>(Landroid/widget/TextView;)V
+
+    iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAutoSizeTextHelper:Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
 
     return-void
 .end method
@@ -271,11 +276,13 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
 
+    .line 267
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mFontTypeface:Landroid/graphics/Typeface;
+
     if-nez p1, :cond_7
 
     const/4 v1, 0x1
 
-    .line 267
     :cond_7
     iput-boolean v1, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAsyncFontPending:Z
     :try_end_0
@@ -425,6 +432,11 @@
 
 .method autoSizeText()V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 408
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAutoSizeTextHelper:Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
@@ -501,6 +513,11 @@
 
 .method isAutoSizeEnabled()Z
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 414
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper;->mAutoSizeTextHelper:Landroid/support/v7/widget/AppCompatTextViewAutoSizeHelper;
@@ -514,6 +531,11 @@
 
 .method loadFromAttributes(Landroid/util/AttributeSet;I)V
     .locals 17
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     move-object/from16 v0, p0
 
@@ -754,7 +776,9 @@
 
     move-result v11
 
-    const/4 v12, 0x1
+    move v12, v11
+
+    const/4 v11, 0x1
 
     goto :goto_0
 
@@ -885,18 +909,18 @@
 
     invoke-virtual {v7, v11, v6}, Landroid/support/v7/widget/TintTypedArray;->getBoolean(IZ)Z
 
-    move-result v11
+    move-result v12
 
     goto :goto_5
 
     :cond_c
-    move v5, v12
+    move v5, v11
 
     .line 154
     :goto_5
-    sget v12, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v11, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-ge v12, v9, :cond_f
+    if-ge v11, v9, :cond_f
 
     .line 157
     sget v9, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_textColor:I
@@ -952,9 +976,9 @@
     :cond_f
     sget v9, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v12, 0x1c
+    const/16 v11, 0x1c
 
-    if-lt v9, v12, :cond_10
+    if-lt v9, v11, :cond_10
 
     sget v9, Landroid/support/v7/appcompat/R$styleable;->TextAppearance_android_textSize:I
 
@@ -977,9 +1001,9 @@
     .line 173
     iget-object v9, v0, Landroid/support/v7/widget/AppCompatTextHelper;->mView:Landroid/widget/TextView;
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
-    invoke-virtual {v9, v6, v12}, Landroid/widget/TextView;->setTextSize(IF)V
+    invoke-virtual {v9, v6, v11}, Landroid/widget/TextView;->setTextSize(IF)V
 
     .line 177
     :cond_10
@@ -1017,7 +1041,7 @@
     if-eqz v5, :cond_14
 
     .line 190
-    invoke-virtual {v0, v11}, Landroid/support/v7/widget/AppCompatTextHelper;->setAllCaps(Z)V
+    invoke-virtual {v0, v12}, Landroid/support/v7/widget/AppCompatTextHelper;->setAllCaps(Z)V
 
     .line 192
     :cond_14
@@ -1216,6 +1240,11 @@
 
 .method onLayout(ZIIII)V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 390
     sget-boolean p1, Landroid/support/v4/widget/AutoSizeableTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z
@@ -1371,6 +1400,10 @@
 
 .method setAutoSizeTextTypeUniformWithPresetSizes([II)V
     .locals 1
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1398,6 +1431,11 @@
 
 .method setTextSize(IF)V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 398
     sget-boolean v0, Landroid/support/v4/widget/AutoSizeableTextView;->PLATFORM_SUPPORTS_AUTOSIZE:Z

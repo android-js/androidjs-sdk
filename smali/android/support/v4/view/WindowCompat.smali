@@ -23,6 +23,17 @@
 
 .method public static requireViewById(Landroid/view/Window;I)Landroid/view/View;
     .locals 2
+    .param p0    # Landroid/view/Window;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IdRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

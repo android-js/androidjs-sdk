@@ -94,11 +94,14 @@
 
     if-ne v0, v1, :cond_0
 
-    iget v2, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
+    iget v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
 
-    if-eq v2, v1, :cond_3
+    if-eq v0, v1, :cond_3
 
+    .line 1354
     :cond_0
+    iget v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->startState:I
+
     if-ne v0, v1, :cond_1
 
     .line 1355

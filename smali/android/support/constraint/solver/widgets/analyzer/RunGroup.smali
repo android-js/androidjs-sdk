@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;I)V
-    .locals 1
+    .locals 2
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,20 +52,23 @@
     .line 34
     iput-boolean v0, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->dual:Z
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 36
-    iput-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->firstRun:Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;
+    iput-object v1, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->firstRun:Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;
 
     .line 37
-    iput-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->lastRun:Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;
+    iput-object v1, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->lastRun:Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;
 
     .line 38
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->runs:Ljava/util/ArrayList;
+    iput-object v1, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->runs:Ljava/util/ArrayList;
+
+    .line 40
+    iput v0, p0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->groupIndex:I
 
     .line 44
     sget v0, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->index:I

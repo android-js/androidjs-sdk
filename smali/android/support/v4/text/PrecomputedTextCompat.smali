@@ -19,18 +19,37 @@
 .field private static final LINE_FEED:C = '\n'
 
 .field private static sExecutor:Ljava/util/concurrent/Executor;
+    .annotation build Landroid/support/annotation/GuardedBy;
+        value = "sLock"
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private static final sLock:Ljava/lang/Object;
 
 
 # instance fields
 .field private final mParagraphEnds:[I
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mParams:Landroid/support/v4/text/PrecomputedTextCompat$Params;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mText:Landroid/text/Spannable;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mWrapped:Landroid/text/PrecomputedText;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -44,11 +63,27 @@
 
     sput-object v0, Landroid/support/v4/text/PrecomputedTextCompat;->sLock:Ljava/lang/Object;
 
+    const/4 v0, 0x0
+
+    .line 73
+    sput-object v0, Landroid/support/v4/text/PrecomputedTextCompat;->sExecutor:Ljava/util/concurrent/Executor;
+
     return-void
 .end method
 
 .method private constructor <init>(Landroid/text/PrecomputedText;Landroid/support/v4/text/PrecomputedTextCompat$Params;)V
     .locals 0
+    .param p1    # Landroid/text/PrecomputedText;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1c
+    .end annotation
 
     .line 485
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,6 +107,18 @@
 
 .method private constructor <init>(Ljava/lang/CharSequence;Landroid/support/v4/text/PrecomputedTextCompat$Params;[I)V
     .locals 1
+    .param p1    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 477
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,6 +146,14 @@
 
 .method public static create(Ljava/lang/CharSequence;Landroid/support/v4/text/PrecomputedTextCompat$Params;)Landroid/support/v4/text/PrecomputedTextCompat;
     .locals 11
+    .param p0    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 419
     invoke-static {p0}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -325,17 +380,18 @@
 
     invoke-static {}, Landroid/support/v4/os/TraceCompat;->endSection()V
 
-    goto :goto_5
-
-    :goto_4
     throw p0
 
-    :goto_5
-    goto :goto_4
+    return-void
 .end method
 
 .method private findParaIndex(I)I
     .locals 4
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -393,17 +449,28 @@
 
     invoke-direct {v0, p1}, Ljava/lang/IndexOutOfBoundsException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw v0
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method public static getTextFuture(Ljava/lang/CharSequence;Landroid/support/v4/text/PrecomputedTextCompat$Params;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/Future;
     .locals 1
+    .param p0    # Ljava/lang/CharSequence;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/util/concurrent/Executor;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/UiThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -487,6 +554,9 @@
 
 .method public getParagraphCount()I
     .locals 2
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x0L
+    .end annotation
 
     .line 517
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -515,6 +585,14 @@
 
 .method public getParagraphEnd(I)I
     .locals 3
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x0L
+    .end annotation
 
     .line 540
     invoke-virtual {p0}, Landroid/support/v4/text/PrecomputedTextCompat;->getParagraphCount()I
@@ -554,6 +632,14 @@
 
 .method public getParagraphStart(I)I
     .locals 3
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x0L
+    .end annotation
 
     .line 528
     invoke-virtual {p0}, Landroid/support/v4/text/PrecomputedTextCompat;->getParagraphCount()I
@@ -601,6 +687,8 @@
 
 .method public getParams()Landroid/support/v4/text/PrecomputedTextCompat$Params;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 510
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mParams:Landroid/support/v4/text/PrecomputedTextCompat$Params;
@@ -610,6 +698,18 @@
 
 .method public getPrecomputedText()Landroid/text/PrecomputedText;
     .locals 2
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1c
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 499
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat;->mText:Landroid/text/Spannable;

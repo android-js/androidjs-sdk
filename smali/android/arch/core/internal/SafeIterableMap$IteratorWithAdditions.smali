@@ -187,6 +187,10 @@
 
 .method public supportRemove(Landroid/arch/core/internal/SafeIterableMap$Entry;)V
     .locals 1
+    .param p1    # Landroid/arch/core/internal/SafeIterableMap$Entry;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,6 +209,9 @@
 
     iput-object p1, p0, Landroid/arch/core/internal/SafeIterableMap$IteratorWithAdditions;->mCurrent:Landroid/arch/core/internal/SafeIterableMap$Entry;
 
+    .line 309
+    iget-object p1, p0, Landroid/arch/core/internal/SafeIterableMap$IteratorWithAdditions;->mCurrent:Landroid/arch/core/internal/SafeIterableMap$Entry;
+
     if-nez p1, :cond_0
 
     const/4 p1, 0x1
@@ -214,7 +221,6 @@
     :cond_0
     const/4 p1, 0x0
 
-    .line 309
     :goto_0
     iput-boolean p1, p0, Landroid/arch/core/internal/SafeIterableMap$IteratorWithAdditions;->mBeforeStart:Z
 

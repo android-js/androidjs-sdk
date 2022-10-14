@@ -39,9 +39,9 @@
 
     const/4 p2, 0x2
 
+    .line 640
     new-array p2, p2, [F
 
-    .line 640
     iput-object p2, p0, Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;->mTempPts:[F
 
     const/4 p2, 0x1

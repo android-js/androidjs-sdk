@@ -6,6 +6,14 @@
 .implements Landroid/support/v4/internal/view/SupportMenuItem;
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static final CHECKABLE:I = 0x1
 
@@ -131,6 +139,9 @@
 
     .line 99
     iput v1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
+
+    .line 107
+    iput v0, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mShowAsAction:I
 
     .line 112
     iput-boolean v0, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mIsActionViewExpanded:Z
@@ -379,6 +390,9 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
+
+    .line 768
+    iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mActionView:Landroid/view/View;
 
     return-object v0
 
@@ -1490,6 +1504,9 @@
     .line 596
     iput p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
 
+    .line 597
+    iget p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
+
     if-eq v0, p1, :cond_0
 
     .line 598
@@ -1552,6 +1569,9 @@
 
     .line 632
     iput p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
+
+    .line 633
+    iget p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
 
     if-eq v0, p1, :cond_1
 
@@ -1701,6 +1721,10 @@
 
 .method public setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
     .locals 1
+    .param p1    # Landroid/content/res/ColorStateList;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 539
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mIconTintList:Landroid/content/res/ColorStateList;
@@ -2099,7 +2123,13 @@
     .line 486
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mTitleCondensed:Ljava/lang/CharSequence;
 
+    if-nez p1, :cond_0
+
+    .line 490
+    iget-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mTitle:Ljava/lang/CharSequence;
+
     .line 493
+    :cond_0
     iget-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     const/4 v0, 0x0
@@ -2178,6 +2208,9 @@
 
     .line 656
     iput p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
+
+    .line 657
+    iget p1, p0, Landroid/support/v7/view/menu/MenuItemImpl;->mFlags:I
 
     if-eq v0, p1, :cond_1
 

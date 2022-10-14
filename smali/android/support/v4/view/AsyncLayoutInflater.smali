@@ -31,6 +31,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 75
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,6 +76,20 @@
 # virtual methods
 .method public inflate(ILandroid/view/ViewGroup;Landroid/support/v4/view/AsyncLayoutInflater$OnInflateFinishedListener;)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/LayoutRes;
+        .end annotation
+    .end param
+    .param p2    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/view/AsyncLayoutInflater$OnInflateFinishedListener;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/UiThread;
+    .end annotation
 
     if-eqz p3, :cond_0
 

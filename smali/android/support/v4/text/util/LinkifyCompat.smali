@@ -32,9 +32,9 @@
 
     const/4 v0, 0x0
 
+    .line 57
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 57
     sput-object v0, Landroid/support/v4/text/util/LinkifyCompat;->EMPTY_STRING:[Ljava/lang/String;
 
     .line 59
@@ -58,6 +58,10 @@
 
 .method private static addLinkMovementMethod(Landroid/widget/TextView;)V
     .locals 1
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 380
     invoke-virtual {p0}, Landroid/widget/TextView;->getMovementMethod()Landroid/text/method/MovementMethod;
@@ -92,6 +96,18 @@
 
 .method public static addLinks(Landroid/widget/TextView;Ljava/util/regex/Pattern;Ljava/lang/String;)V
     .locals 7
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/regex/Pattern;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 207
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -126,6 +142,26 @@
 
 .method public static addLinks(Landroid/widget/TextView;Ljava/util/regex/Pattern;Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
     .locals 7
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/regex/Pattern;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/text/util/Linkify$MatchFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Landroid/text/util/Linkify$TransformFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 231
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -160,6 +196,35 @@
 
 .method public static addLinks(Landroid/widget/TextView;Ljava/util/regex/Pattern;Ljava/lang/String;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)V
     .locals 7
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/regex/Pattern;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Landroid/text/util/Linkify$MatchFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p5    # Landroid/text/util/Linkify$TransformFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     .line 259
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -214,6 +279,10 @@
 
 .method public static addLinks(Landroid/text/Spannable;I)Z
     .locals 10
+    .param p0    # Landroid/text/Spannable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 102
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -399,6 +468,18 @@
 
 .method public static addLinks(Landroid/text/Spannable;Ljava/util/regex/Pattern;Ljava/lang/String;)Z
     .locals 6
+    .param p0    # Landroid/text/Spannable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/regex/Pattern;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 284
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -437,6 +518,26 @@
 
 .method public static addLinks(Landroid/text/Spannable;Ljava/util/regex/Pattern;Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)Z
     .locals 6
+    .param p0    # Landroid/text/Spannable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/regex/Pattern;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/text/util/Linkify$MatchFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Landroid/text/util/Linkify$TransformFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 308
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -475,6 +576,35 @@
 
 .method public static addLinks(Landroid/text/Spannable;Ljava/util/regex/Pattern;Ljava/lang/String;[Ljava/lang/String;Landroid/text/util/Linkify$MatchFilter;Landroid/text/util/Linkify$TransformFilter;)Z
     .locals 6
+    .param p0    # Landroid/text/Spannable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/util/regex/Pattern;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Landroid/text/util/Linkify$MatchFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p5    # Landroid/text/util/Linkify$TransformFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     .line 335
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -626,6 +756,10 @@
 
 .method public static addLinks(Landroid/widget/TextView;I)Z
     .locals 4
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 164
     invoke-static {}, Landroid/support/v4/text/util/LinkifyCompat;->shouldAddLinksFallbackToFramework()Z
@@ -944,6 +1078,18 @@
 
 .method private static makeUrl(Ljava/lang/String;[Ljava/lang/String;Ljava/util/regex/Matcher;Landroid/text/util/Linkify$TransformFilter;)Ljava/lang/String;
     .locals 7
+    .param p0    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/text/util/Linkify$TransformFilter;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-eqz p3, :cond_0
 
@@ -974,7 +1120,9 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    aget-object v0, p1, p3
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v5
 
@@ -995,7 +1143,9 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    aget-object v0, p1, p3
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v5
 

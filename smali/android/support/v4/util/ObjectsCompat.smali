@@ -15,6 +15,14 @@
 
 .method public static equals(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 2
+    .param p0    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 50
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -59,6 +67,10 @@
 
 .method public static varargs hash([Ljava/lang/Object;)I
     .locals 2
+    .param p0    # [Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 92
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -85,6 +97,10 @@
 
 .method public static hashCode(Ljava/lang/Object;)I
     .locals 0
+    .param p0    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-eqz p0, :cond_0
 

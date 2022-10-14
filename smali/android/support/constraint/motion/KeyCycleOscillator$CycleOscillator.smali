@@ -391,109 +391,107 @@
 
     const/4 v0, 0x2
 
-    new-array v1, v0, [I
+    filled-new-array {p1, v0}, [I
 
-    const/4 v2, 0x1
+    move-result-object p1
 
-    aput v0, v1, v2
+    const-class v0, D
 
-    const/4 v0, 0x0
-
-    aput p1, v1, v0
-
-    sget-object p1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
-
-    invoke-static {p1, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v0, p1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, [[D
 
     .line 495
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mValues:[F
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mValues:[F
 
-    array-length v3, v1
+    array-length v1, v0
 
-    add-int/2addr v3, v2
-
-    new-array v3, v3, [D
-
-    iput-object v3, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mSplineValueCache:[D
-
-    .line 496
-    array-length v1, v1
+    const/4 v2, 0x1
 
     add-int/2addr v1, v2
 
     new-array v1, v1, [D
 
-    iput-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mSplineSlopeCache:[D
+    iput-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mSplineValueCache:[D
+
+    .line 496
+    array-length v0, v0
+
+    add-int/2addr v0, v2
+
+    new-array v0, v0, [D
+
+    iput-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mSplineSlopeCache:[D
 
     .line 497
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
 
-    aget-wide v3, v1, v0
+    const/4 v1, 0x0
+
+    aget-wide v3, v0, v1
 
     const-wide/16 v5, 0x0
 
-    cmpl-double v1, v3, v5
+    cmpl-double v0, v3, v5
 
-    if-lez v1, :cond_0
+    if-lez v0, :cond_0
 
     .line 498
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOscillator:Landroid/support/constraint/motion/utils/Oscillator;
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOscillator:Landroid/support/constraint/motion/utils/Oscillator;
 
     iget-object v3, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPeriod:[F
 
-    aget v3, v3, v0
+    aget v3, v3, v1
 
-    invoke-virtual {v1, v5, v6, v3}, Landroid/support/constraint/motion/utils/Oscillator;->addPoint(DF)V
+    invoke-virtual {v0, v5, v6, v3}, Landroid/support/constraint/motion/utils/Oscillator;->addPoint(DF)V
 
     .line 500
     :cond_0
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
 
-    array-length v3, v1
+    array-length v3, v0
 
     sub-int/2addr v3, v2
 
     .line 501
-    aget-wide v4, v1, v3
+    aget-wide v4, v0, v3
 
     const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
 
-    cmpg-double v1, v4, v6
+    cmpg-double v0, v4, v6
 
-    if-gez v1, :cond_1
+    if-gez v0, :cond_1
 
     .line 502
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOscillator:Landroid/support/constraint/motion/utils/Oscillator;
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOscillator:Landroid/support/constraint/motion/utils/Oscillator;
 
     iget-object v4, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPeriod:[F
 
     aget v3, v4, v3
 
-    invoke-virtual {v1, v6, v7, v3}, Landroid/support/constraint/motion/utils/Oscillator;->addPoint(DF)V
+    invoke-virtual {v0, v6, v7, v3}, Landroid/support/constraint/motion/utils/Oscillator;->addPoint(DF)V
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 504
     :goto_0
     array-length v3, p1
 
-    if-ge v1, v3, :cond_3
+    if-ge v0, v3, :cond_3
 
     .line 505
-    aget-object v3, p1, v1
+    aget-object v3, p1, v0
 
     iget-object v4, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOffset:[F
 
-    aget v4, v4, v1
+    aget v4, v4, v0
 
     float-to-double v4, v4
 
-    aput-wide v4, v3, v0
+    aput-wide v4, v3, v1
 
     const/4 v3, 0x0
 
@@ -524,33 +522,33 @@
 
     iget-object v4, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
 
-    aget-wide v5, v4, v1
+    aget-wide v5, v4, v0
 
     iget-object v4, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPeriod:[F
 
-    aget v4, v4, v1
+    aget v4, v4, v0
 
     invoke-virtual {v3, v5, v6, v4}, Landroid/support/constraint/motion/utils/Oscillator;->addPoint(DF)V
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 512
     :cond_3
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOscillator:Landroid/support/constraint/motion/utils/Oscillator;
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mOscillator:Landroid/support/constraint/motion/utils/Oscillator;
 
-    invoke-virtual {v1}, Landroid/support/constraint/motion/utils/Oscillator;->normalize()V
+    invoke-virtual {v0}, Landroid/support/constraint/motion/utils/Oscillator;->normalize()V
 
     .line 513
-    iget-object v1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
+    iget-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CycleOscillator;->mPosition:[D
 
-    array-length v3, v1
+    array-length v3, v0
 
     if-le v3, v2, :cond_4
 
     .line 514
-    invoke-static {v0, v1, p1}, Landroid/support/constraint/motion/utils/CurveFit;->get(I[D[[D)Landroid/support/constraint/motion/utils/CurveFit;
+    invoke-static {v1, v0, p1}, Landroid/support/constraint/motion/utils/CurveFit;->get(I[D[[D)Landroid/support/constraint/motion/utils/CurveFit;
 
     move-result-object p1
 

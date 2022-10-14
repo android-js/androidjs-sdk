@@ -862,37 +862,42 @@
 
     iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProviderClassName:Ljava/lang/String;
 
+    .line 421
+    iget-object v0, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProviderClassName:Ljava/lang/String;
+
     if-eqz v0, :cond_1
 
-    const/4 v3, 0x1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
     :goto_1
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    if-eqz v3, :cond_2
+    if-eqz v0, :cond_2
 
     .line 422
-    iget v5, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionViewLayout:I
+    iget v4, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionViewLayout:I
 
-    if-nez v5, :cond_2
+    if-nez v4, :cond_2
 
-    iget-object v5, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionViewClassName:Ljava/lang/String;
+    iget-object v4, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionViewClassName:Ljava/lang/String;
 
-    if-nez v5, :cond_2
+    if-nez v4, :cond_2
 
     .line 423
-    sget-object v3, Landroid/support/v7/view/SupportMenuInflater;->ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
+    iget-object v0, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProviderClassName:Ljava/lang/String;
+
+    sget-object v4, Landroid/support/v7/view/SupportMenuInflater;->ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
 
     iget-object v5, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->this$0:Landroid/support/v7/view/SupportMenuInflater;
 
     iget-object v5, v5, Landroid/support/v7/view/SupportMenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
 
-    invoke-direct {p0, v0, v3, v5}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->newInstance(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-direct {p0, v0, v4, v5}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->newInstance(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -903,18 +908,18 @@
     goto :goto_2
 
     :cond_2
-    if-eqz v3, :cond_3
+    if-eqz v0, :cond_3
 
     const-string v0, "SupportMenuInflater"
 
-    const-string v3, "Ignoring attribute \'actionProviderClass\'. Action view already specified."
+    const-string v4, "Ignoring attribute \'actionProviderClass\'. Action view already specified."
 
     .line 428
-    invoke-static {v0, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 431
     :cond_3
-    iput-object v4, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
+    iput-object v3, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
 
     .line 434
     :goto_2
@@ -963,7 +968,7 @@
 
     .line 442
     :cond_4
-    iput-object v4, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemIconTintMode:Landroid/graphics/PorterDuff$Mode;
+    iput-object v3, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemIconTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 444
     :goto_3
@@ -988,7 +993,7 @@
 
     .line 448
     :cond_5
-    iput-object v4, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemIconTintList:Landroid/content/res/ColorStateList;
+    iput-object v3, p0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemIconTintList:Landroid/content/res/ColorStateList;
 
     .line 451
     :goto_4

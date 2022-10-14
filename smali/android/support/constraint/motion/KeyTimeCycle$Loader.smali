@@ -68,6 +68,8 @@
     sput-object v0, Landroid/support/constraint/motion/KeyTimeCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     .line 324
+    sget-object v0, Landroid/support/constraint/motion/KeyTimeCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
     sget v1, Landroid/support/constraint/R$styleable;->KeyTimeCycle_android_alpha:I
 
     const/4 v2, 0x1

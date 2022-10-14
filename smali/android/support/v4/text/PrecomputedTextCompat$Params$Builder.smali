@@ -20,6 +20,9 @@
 .field private mHyphenationFrequency:I
 
 .field private final mPaint:Landroid/text/TextPaint;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private mTextDir:Landroid/text/TextDirectionHeuristic;
 
@@ -27,6 +30,10 @@
 # direct methods
 .method public constructor <init>(Landroid/text/TextPaint;)V
     .locals 1
+    .param p1    # Landroid/text/TextPaint;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 115
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,6 +95,8 @@
 # virtual methods
 .method public build()Landroid/support/v4/text/PrecomputedTextCompat$Params;
     .locals 5
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 190
     new-instance v0, Landroid/support/v4/text/PrecomputedTextCompat$Params;
@@ -107,6 +116,9 @@
 
 .method public setBreakStrategy(I)Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;
     .locals 0
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     .line 144
     iput p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mBreakStrategy:I
@@ -116,6 +128,9 @@
 
 .method public setHyphenationFrequency(I)Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;
     .locals 0
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     .line 162
     iput p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mHyphenationFrequency:I
@@ -125,6 +140,13 @@
 
 .method public setTextDirection(Landroid/text/TextDirectionHeuristic;)Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;
     .locals 0
+    .param p1    # Landroid/text/TextDirectionHeuristic;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x12
+    .end annotation
 
     .line 180
     iput-object p1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params$Builder;->mTextDir:Landroid/text/TextDirectionHeuristic;

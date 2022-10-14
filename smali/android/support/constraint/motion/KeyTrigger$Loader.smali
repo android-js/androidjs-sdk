@@ -50,6 +50,8 @@
     sput-object v0, Landroid/support/constraint/motion/KeyTrigger$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     .line 265
+    sget-object v0, Landroid/support/constraint/motion/KeyTrigger$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
     sget v1, Landroid/support/constraint/R$styleable;->KeyTrigger_framePosition:I
 
     const/16 v2, 0x8

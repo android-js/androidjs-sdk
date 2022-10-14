@@ -68,34 +68,36 @@
     .line 31
     iput v1, p0, Landroid/support/constraint/solver/SolverVariableValues;->HASH_SIZE:I
 
+    .line 33
+    iget v1, p0, Landroid/support/constraint/solver/SolverVariableValues;->SIZE:I
+
     new-array v2, v1, [I
 
-    .line 33
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->keys:[I
 
+    .line 34
     new-array v2, v1, [I
 
-    .line 34
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->nextKeys:[I
 
+    .line 36
     new-array v2, v1, [I
 
-    .line 36
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
 
+    .line 37
     new-array v2, v1, [F
 
-    .line 37
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->values:[F
 
+    .line 38
     new-array v2, v1, [I
 
-    .line 38
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->previous:[I
 
+    .line 39
     new-array v1, v1, [I
 
-    .line 39
     iput-object v1, p0, Landroid/support/constraint/solver/SolverVariableValues;->next:[I
 
     const/4 v1, 0x0
@@ -151,7 +153,8 @@
 
     if-eq v0, v2, :cond_1
 
-    move v1, v0
+    .line 225
+    aget v1, p1, v1
 
     goto :goto_0
 
@@ -218,7 +221,7 @@
 .end method
 
 .method private displayHash()V
-    .locals 7
+    .locals 8
 
     const/4 v0, 0x0
 
@@ -269,53 +272,58 @@
 
     aget v4, v4, v1
 
-    const/4 v5, 0x0
+    move v5, v4
+
+    move-object v4, v2
+
+    const/4 v2, 0x0
 
     :goto_1
-    if-nez v5, :cond_1
+    if-nez v2, :cond_1
 
     .line 245
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " "
+    const-string v4, " "
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
+    iget-object v4, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
 
-    aget v2, v2, v4
+    aget v4, v4, v5
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
     .line 246
     iget-object v6, p0, Landroid/support/constraint/solver/SolverVariableValues;->nextKeys:[I
 
-    aget v6, v6, v4
+    aget v7, v6, v5
 
-    if-eq v6, v3, :cond_0
+    if-eq v7, v3, :cond_0
 
-    move v4, v6
+    .line 247
+    aget v5, v6, v5
 
     goto :goto_1
 
     :cond_0
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
     goto :goto_1
 
     .line 252
     :cond_1
-    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v3, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v2, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     :cond_2
     add-int/lit8 v1, v1, 0x1
@@ -504,12 +512,14 @@
     :goto_0
     iget-object p1, p0, Landroid/support/constraint/solver/SolverVariableValues;->next:[I
 
-    aget p1, p1, v0
+    aget v1, p1, v0
 
-    if-eq p1, p3, :cond_2
+    if-eq v1, p3, :cond_2
 
     .line 324
     iget-object p3, p0, Landroid/support/constraint/solver/SolverVariableValues;->previous:[I
+
+    aget p1, p1, v0
 
     aput v0, p3, p1
 
@@ -575,17 +585,25 @@
 
     if-eq v3, v2, :cond_2
 
-    iget-object v4, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
+    iget-object v3, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
 
-    aget v4, v4, v3
+    aget v4, v0, v1
 
-    if-eq v4, p1, :cond_2
+    aget v3, v3, v4
 
-    move v1, v3
+    if-eq v3, p1, :cond_2
+
+    .line 275
+    aget v1, v0, v1
 
     goto :goto_0
 
+    .line 277
     :cond_2
+    iget-object v0, p0, Landroid/support/constraint/solver/SolverVariableValues;->nextKeys:[I
+
+    aget v3, v0, v1
+
     if-eq v3, v2, :cond_3
 
     .line 278
@@ -654,15 +672,19 @@
     aput v2, v1, v0
 
     .line 418
-    sget p2, Landroid/support/constraint/solver/SolverVariableValues;->epsilon:F
+    aget p2, v1, v0
 
-    neg-float v3, p2
+    sget v2, Landroid/support/constraint/solver/SolverVariableValues;->epsilon:F
 
-    cmpl-float v3, v2, v3
+    neg-float v3, v2
 
-    if-lez v3, :cond_2
+    cmpl-float p2, p2, v3
 
-    cmpg-float p2, v2, p2
+    if-lez p2, :cond_2
+
+    aget p2, v1, v0
+
+    cmpg-float p2, p2, v2
 
     if-gez p2, :cond_2
 
@@ -1044,7 +1066,7 @@
 .end method
 
 .method public indexOf(Landroid/support/constraint/solver/SolverVariable;)I
-    .locals 3
+    .locals 5
 
     .line 99
     iget v0, p0, Landroid/support/constraint/solver/SolverVariableValues;->mCount:I
@@ -1090,32 +1112,47 @@
     :goto_0
     iget-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->nextKeys:[I
 
+    aget v3, v2, v0
+
+    if-eq v3, v1, :cond_3
+
+    iget-object v3, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
+
+    aget v4, v2, v0
+
+    aget v3, v3, v4
+
+    if-eq v3, p1, :cond_3
+
+    .line 112
     aget v0, v2, v0
-
-    if-eq v0, v1, :cond_3
-
-    iget-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
-
-    aget v2, v2, v0
-
-    if-eq v2, p1, :cond_3
 
     goto :goto_0
 
+    .line 114
     :cond_3
-    if-ne v0, v1, :cond_4
+    iget-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->nextKeys:[I
+
+    aget v3, v2, v0
+
+    if-ne v3, v1, :cond_4
 
     return v1
 
     .line 117
     :cond_4
-    iget-object v2, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
+    iget-object v3, p0, Landroid/support/constraint/solver/SolverVariableValues;->variables:[I
 
-    aget v2, v2, v0
+    aget v4, v2, v0
 
-    if-ne v2, p1, :cond_5
+    aget v3, v3, v4
 
-    return v0
+    if-ne v3, p1, :cond_5
+
+    .line 118
+    aget p1, v2, v0
+
+    return p1
 
     :cond_5
     :goto_1
@@ -1305,7 +1342,7 @@
 .end method
 
 .method public remove(Landroid/support/constraint/solver/SolverVariable;Z)F
-    .locals 7
+    .locals 6
 
     .line 381
     invoke-virtual {p0, p1}, Landroid/support/constraint/solver/SolverVariableValues;->indexOf(Landroid/support/constraint/solver/SolverVariable;)I
@@ -1355,24 +1392,30 @@
     if-eq v4, v1, :cond_2
 
     .line 392
-    iget-object v5, p0, Landroid/support/constraint/solver/SolverVariableValues;->next:[I
+    iget-object v4, p0, Landroid/support/constraint/solver/SolverVariableValues;->next:[I
 
-    aget v6, v5, v0
+    aget v3, v3, v0
 
-    aput v6, v5, v4
+    aget v5, v4, v0
+
+    aput v5, v4, v3
 
     .line 394
     :cond_2
-    iget-object v4, p0, Landroid/support/constraint/solver/SolverVariableValues;->next:[I
+    iget-object v3, p0, Landroid/support/constraint/solver/SolverVariableValues;->next:[I
 
-    aget v4, v4, v0
+    aget v4, v3, v0
 
     if-eq v4, v1, :cond_3
 
     .line 395
-    aget v0, v3, v0
+    iget-object v1, p0, Landroid/support/constraint/solver/SolverVariableValues;->previous:[I
 
-    aput v0, v3, v4
+    aget v3, v3, v0
+
+    aget v0, v1, v0
+
+    aput v0, v1, v3
 
     .line 397
     :cond_3

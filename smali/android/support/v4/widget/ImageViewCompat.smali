@@ -15,6 +15,12 @@
 
 .method public static getImageTintList(Landroid/widget/ImageView;)Landroid/content/res/ColorStateList;
     .locals 2
+    .param p0    # Landroid/widget/ImageView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 37
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -54,6 +60,12 @@
 
 .method public static getImageTintMode(Landroid/widget/ImageView;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
+    .param p0    # Landroid/widget/ImageView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 76
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -93,6 +105,14 @@
 
 .method public static setImageTintList(Landroid/widget/ImageView;Landroid/content/res/ColorStateList;)V
     .locals 2
+    .param p0    # Landroid/widget/ImageView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/content/res/ColorStateList;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 50
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -178,6 +198,14 @@
 
 .method public static setImageTintMode(Landroid/widget/ImageView;Landroid/graphics/PorterDuff$Mode;)V
     .locals 2
+    .param p0    # Landroid/widget/ImageView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/graphics/PorterDuff$Mode;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 90
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

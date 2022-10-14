@@ -76,6 +76,14 @@
 # virtual methods
 .method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 2
+    .param p1    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 133
     check-cast p3, Landroid/support/v4/app/Fragment;
@@ -155,6 +163,10 @@
 
 .method public finishUpdate(Landroid/view/ViewGroup;)V
     .locals 0
+    .param p1    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 167
     iget-object p1, p0, Landroid/support/v4/app/FragmentStatePagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
@@ -178,6 +190,12 @@
 
 .method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
     .locals 3
+    .param p1    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 101
     iget-object v0, p0, Landroid/support/v4/app/FragmentStatePagerAdapter;->mFragments:Ljava/util/ArrayList;
@@ -293,6 +311,14 @@
 
 .method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
     .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 175
     check-cast p2, Landroid/support/v4/app/Fragment;
@@ -588,6 +614,14 @@
 
 .method public setPrimaryItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 0
+    .param p1    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 153
     check-cast p3, Landroid/support/v4/app/Fragment;
@@ -627,6 +661,10 @@
 
 .method public startUpdate(Landroid/view/ViewGroup;)V
     .locals 2
+    .param p1    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 88
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getId()I

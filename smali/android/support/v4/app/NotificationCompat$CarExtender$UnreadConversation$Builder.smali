@@ -91,9 +91,9 @@
 
     const/4 v0, 0x1
 
+    .line 5007
     new-array v6, v0, [Ljava/lang/String;
 
-    .line 5007
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$CarExtender$UnreadConversation$Builder;->mParticipant:Ljava/lang/String;
 
     const/4 v1, 0x0

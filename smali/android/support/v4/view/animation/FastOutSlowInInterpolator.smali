@@ -13,9 +13,9 @@
 
     const/16 v0, 0xc9
 
+    .line 34
     new-array v0, v0, [F
 
-    .line 34
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v4/view/animation/FastOutSlowInInterpolator;->VALUES:[F

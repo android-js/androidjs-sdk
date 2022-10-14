@@ -127,6 +127,18 @@
 
 .method public static enqueueWork(Landroid/content/Context;Landroid/content/ComponentName;ILandroid/content/Intent;)V
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/content/ComponentName;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     if-eqz p3, :cond_0
 
@@ -176,6 +188,18 @@
 
 .method public static enqueueWork(Landroid/content/Context;Ljava/lang/Class;ILandroid/content/Intent;)V
     .locals 1
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/Class;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 501
     new-instance v0, Landroid/content/ComponentName;
@@ -188,25 +212,25 @@
 .end method
 
 .method static getWorkEnqueuer(Landroid/content/Context;Landroid/content/ComponentName;ZI)Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
-    .locals 3
+    .locals 2
 
     .line 529
     sget-object v0, Landroid/support/v4/app/JobIntentService;->sClassWorkEnqueuer:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
+    check-cast v0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     .line 531
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v2, 0x1a
+    const/16 v1, 0x1a
 
-    if-lt v1, v2, :cond_1
+    if-lt v0, v1, :cond_1
 
     if-eqz p2, :cond_0
 
@@ -234,13 +258,15 @@
     invoke-direct {p2, p0, p1}, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
 
     :goto_0
-    move-object v1, p2
+    move-object v0, p2
 
     .line 539
-    invoke-virtual {v0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object p0, Landroid/support/v4/app/JobIntentService;->sClassWorkEnqueuer:Ljava/util/HashMap;
+
+    invoke-virtual {p0, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_2
-    return-object v1
+    return-object v0
 .end method
 
 
@@ -389,6 +415,10 @@
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 0
+    .param p1    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 465
     iget-object p1, p0, Landroid/support/v4/app/JobIntentService;->mJobImpl:Landroid/support/v4/app/JobIntentService$CompatJobEngine;
@@ -506,10 +536,18 @@
 .end method
 
 .method protected abstract onHandleWork(Landroid/content/Intent;)V
+    .param p1    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 .end method
 
 .method public onStartCommand(Landroid/content/Intent;II)I
     .locals 2
+    .param p1    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 444
     iget-object p2, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
@@ -602,6 +640,8 @@
     iget-object v1, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 

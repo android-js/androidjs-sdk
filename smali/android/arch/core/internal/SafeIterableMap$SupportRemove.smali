@@ -27,6 +27,10 @@
 
 # virtual methods
 .method public abstract supportRemove(Landroid/arch/core/internal/SafeIterableMap$Entry;)V
+    .param p1    # Landroid/arch/core/internal/SafeIterableMap$Entry;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -38,6 +38,10 @@
 
 .method private static getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
     .locals 3
+    .param p0    # Ljava/util/Locale;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 119
     invoke-virtual {p0, p0}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
@@ -70,6 +74,10 @@
 
 .method public static getLayoutDirectionFromLocale(Ljava/util/Locale;)I
     .locals 2
+    .param p0    # Ljava/util/Locale;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 90
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -143,6 +151,12 @@
 
 .method public static htmlEncode(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
+    .param p0    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 45
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

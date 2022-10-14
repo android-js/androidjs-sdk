@@ -131,9 +131,9 @@
 
     const/4 v0, 0x1
 
+    .line 99
     new-array v0, v0, [D
 
-    .line 99
     iget-wide v1, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mTime:D
 
     const/4 v3, 0x0

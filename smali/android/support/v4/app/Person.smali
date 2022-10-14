@@ -27,16 +27,28 @@
 
 # instance fields
 .field mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field mIsBot:Z
 
 .field mIsImportant:Z
 
 .field mKey:Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field mName:Ljava/lang/CharSequence;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field mUri:Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -81,6 +93,22 @@
 
 .method public static fromAndroidPerson(Landroid/app/Person;)Landroid/support/v4/app/Person;
     .locals 2
+    .param p0    # Landroid/app/Person;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1c
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 68
     new-instance v0, Landroid/support/v4/app/Person$Builder;
@@ -169,6 +197,12 @@
 
 .method public static fromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/Person;
     .locals 3
+    .param p0    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     const-string v0, "icon"
 
@@ -266,6 +300,8 @@
 # virtual methods
 .method public getIcon()Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 157
     iget-object v0, p0, Landroid/support/v4/app/Person;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
@@ -275,6 +311,8 @@
 
 .method public getKey()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 184
     iget-object v0, p0, Landroid/support/v4/app/Person;->mKey:Ljava/lang/String;
@@ -284,6 +322,8 @@
 
 .method public getName()Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 151
     iget-object v0, p0, Landroid/support/v4/app/Person;->mName:Ljava/lang/CharSequence;
@@ -293,6 +333,8 @@
 
 .method public getUri()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 175
     iget-object v0, p0, Landroid/support/v4/app/Person;->mUri:Ljava/lang/String;
@@ -320,6 +362,18 @@
 
 .method public toAndroidPerson()Landroid/app/Person;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1c
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 135
     new-instance v0, Landroid/app/Person$Builder;
@@ -406,6 +460,8 @@
 
 .method public toBuilder()Landroid/support/v4/app/Person$Builder;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 123
     new-instance v0, Landroid/support/v4/app/Person$Builder;
@@ -417,6 +473,8 @@
 
 .method public toBundle()Landroid/os/Bundle;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 110
     new-instance v0, Landroid/os/Bundle;

@@ -15,6 +15,11 @@
 
 .method public static setGroupDividerEnabled(Landroid/view/Menu;Z)V
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     .line 48
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenu;

@@ -93,13 +93,13 @@
 
     const/4 v0, 0x7
 
+    .line 59
     new-array v0, v0, [[F
 
     const/4 v1, 0x2
 
     new-array v2, v1, [F
 
-    .line 59
     fill-array-data v2, :array_0
 
     const/4 v3, 0x0
@@ -154,11 +154,11 @@
 
     sput-object v0, Landroid/support/constraint/motion/TouchResponse;->TOUCH_SIDES:[[F
 
+    .line 68
     new-array v0, v8, [[F
 
     new-array v2, v1, [F
 
-    .line 68
     fill-array-data v2, :array_7
 
     aput-object v2, v0, v3
@@ -327,9 +327,9 @@
 
     const/4 v2, 0x2
 
+    .line 56
     new-array v2, v2, [F
 
-    .line 56
     iput-object v2, p0, Landroid/support/constraint/motion/TouchResponse;->mAnchorDpDt:[F
 
     const/high16 v2, 0x40800000    # 4.0f
@@ -372,7 +372,7 @@
 .end method
 
 .method private fill(Landroid/content/res/TypedArray;)V
-    .locals 6
+    .locals 7
 
     .line 130
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
@@ -425,15 +425,19 @@
     iput v3, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorSide:I
 
     .line 137
-    sget-object v4, Landroid/support/constraint/motion/TouchResponse;->TOUCH_SIDES:[[F
+    sget-object v3, Landroid/support/constraint/motion/TouchResponse;->TOUCH_SIDES:[[F
 
-    aget-object v3, v4, v3
+    iget v4, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorSide:I
 
-    aget v4, v3, v1
+    aget-object v6, v3, v4
 
-    iput v4, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorX:F
+    aget v6, v6, v1
+
+    iput v6, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorX:F
 
     .line 138
+    aget-object v3, v3, v4
+
     aget v3, v3, v5
 
     iput v3, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorY:F
@@ -456,15 +460,19 @@
     iput v3, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchSide:I
 
     .line 141
-    sget-object v4, Landroid/support/constraint/motion/TouchResponse;->TOUCH_DIRECTION:[[F
+    sget-object v3, Landroid/support/constraint/motion/TouchResponse;->TOUCH_DIRECTION:[[F
 
-    aget-object v3, v4, v3
+    iget v4, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchSide:I
 
-    aget v4, v3, v1
+    aget-object v6, v3, v4
 
-    iput v4, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionX:F
+    aget v6, v6, v1
+
+    iput v6, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionX:F
 
     .line 142
+    aget-object v3, v3, v4
+
     aget v3, v3, v5
 
     iput v3, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
@@ -805,29 +813,33 @@
 
     const/4 v2, 0x0
 
-    cmpl-float v3, v0, v2
+    cmpl-float v0, v0, v2
 
-    if-eqz v3, :cond_1
+    if-eqz v0, :cond_1
 
     .line 331
     iget-object p2, p0, Landroid/support/constraint/motion/TouchResponse;->mAnchorDpDt:[F
 
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    aget v4, p2, v3
+    aget v3, p2, v0
 
-    cmpl-float v2, v4, v2
+    cmpl-float v2, v3, v2
 
     if-nez v2, :cond_0
 
     .line 332
-    aput v1, p2, v3
-
-    :cond_0
-    mul-float p1, p1, v0
+    aput v1, p2, v0
 
     .line 334
-    aget p2, p2, v3
+    :cond_0
+    iget p2, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionX:F
+
+    mul-float p1, p1, p2
+
+    iget-object p2, p0, Landroid/support/constraint/motion/TouchResponse;->mAnchorDpDt:[F
+
+    aget p2, p2, v0
 
     div-float/2addr p1, p2
 
@@ -850,9 +862,11 @@
 
     .line 339
     :cond_2
-    iget v1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
+    iget p1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
 
-    mul-float p2, p2, v1
+    mul-float p2, p2, p1
+
+    iget-object p1, p0, Landroid/support/constraint/motion/TouchResponse;->mAnchorDpDt:[F
 
     aget p1, p1, v0
 
@@ -1343,20 +1357,28 @@
 
     iget-object v6, v0, Landroid/support/constraint/motion/TouchResponse;->mAnchorDpDt:[F
 
-    aget v4, v6, v4
+    aget v10, v6, v4
 
-    aget v6, v6, v9
+    iget v10, v0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
+
+    aget v10, v6, v9
 
     cmpl-float v5, v5, v8
 
     if-eqz v5, :cond_a
 
-    div-float/2addr v2, v4
+    .line 289
+    aget v1, v6, v4
+
+    div-float/2addr v2, v1
 
     goto :goto_5
 
+    .line 291
     :cond_a
-    div-float v2, v1, v6
+    aget v2, v6, v9
+
+    div-float v2, v1, v2
 
     .line 299
     :goto_5
@@ -1476,6 +1498,11 @@
 
 .method scrollMove(FF)V
     .locals 8
+
+    .line 366
+    iget v0, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionX:F
+
+    iget v0, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
 
     .line 368
     iget-object v0, p0, Landroid/support/constraint/motion/TouchResponse;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
@@ -1661,28 +1688,34 @@
 
     aget v4, v3, v0
 
-    iget v5, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
+    iget v4, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    aget v3, v3, v6
+    aget v6, v3, v5
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    cmpl-float v8, v2, v7
+    cmpl-float v7, v2, v6
 
-    if-eqz v8, :cond_0
+    if-eqz v7, :cond_0
 
     mul-float p1, p1, v2
 
-    div-float/2addr p1, v4
+    .line 352
+    aget p2, v3, v0
+
+    div-float/2addr p1, p2
 
     goto :goto_0
 
     :cond_0
-    mul-float p2, p2, v5
+    mul-float p2, p2, v4
 
-    div-float p1, p2, v3
+    .line 354
+    aget p1, v3, v5
+
+    div-float p1, p2, p1
 
     .line 356
     :goto_0
@@ -1699,7 +1732,7 @@
     add-float/2addr v1, p2
 
     :cond_1
-    cmpl-float p2, v1, v7
+    cmpl-float p2, v1, v6
 
     if-eqz p2, :cond_5
 
@@ -1734,21 +1767,20 @@
     .line 360
     iget-object v0, p0, Landroid/support/constraint/motion/TouchResponse;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
 
-    float-to-double v1, v1
+    iget v2, p0, Landroid/support/constraint/motion/TouchResponse;->mOnTouchUp:I
 
-    const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
+    float-to-double v3, v1
 
-    cmpg-double v6, v1, v4
+    const-wide/high16 v7, 0x3fe0000000000000L    # 0.5
 
-    if-gez v6, :cond_4
+    cmpg-double v1, v3, v7
 
-    goto :goto_2
+    if-gez v1, :cond_4
+
+    const/4 p2, 0x0
 
     :cond_4
-    const/high16 v7, 0x3f800000    # 1.0f
-
-    :goto_2
-    invoke-virtual {v0, v3, v7, p1}, Landroid/support/constraint/motion/MotionLayout;->touchAnimateTo(IFF)V
+    invoke-virtual {v0, v2, p2, p1}, Landroid/support/constraint/motion/MotionLayout;->touchAnimateTo(IFF)V
 
     :cond_5
     return-void
@@ -1867,15 +1899,17 @@
 
     iget v0, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorSide:I
 
-    aget-object p1, p1, v0
+    aget-object v1, p1, v0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    aget v1, p1, v0
+    aget v1, v1, v2
 
     iput v1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorX:F
 
     .line 119
+    aget-object p1, p1, v0
+
     aget p1, p1, v3
 
     iput p1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchAnchorY:F
@@ -1883,15 +1917,17 @@
     .line 120
     sget-object p1, Landroid/support/constraint/motion/TouchResponse;->TOUCH_DIRECTION:[[F
 
-    iget v1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchSide:I
+    iget v0, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchSide:I
 
-    aget-object p1, p1, v1
+    aget-object v1, p1, v0
 
-    aget v0, p1, v0
+    aget v1, v1, v2
 
-    iput v0, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionX:F
+    iput v1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionX:F
 
     .line 121
+    aget-object p1, p1, v0
+
     aget p1, p1, v3
 
     iput p1, p0, Landroid/support/constraint/motion/TouchResponse;->mTouchDirectionY:F

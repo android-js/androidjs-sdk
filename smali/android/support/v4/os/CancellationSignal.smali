@@ -229,14 +229,14 @@
     iput-object v0, p0, Landroid/support/v4/os/CancellationSignal;->mCancellationSignalObj:Ljava/lang/Object;
 
     .line 141
-    iget-boolean v1, p0, Landroid/support/v4/os/CancellationSignal;->mIsCanceled:Z
+    iget-boolean v0, p0, Landroid/support/v4/os/CancellationSignal;->mIsCanceled:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 142
-    move-object v1, v0
+    iget-object v0, p0, Landroid/support/v4/os/CancellationSignal;->mCancellationSignalObj:Ljava/lang/Object;
 
-    check-cast v1, Landroid/os/CancellationSignal;
+    check-cast v0, Landroid/os/CancellationSignal;
 
     invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
 

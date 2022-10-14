@@ -7,7 +7,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    .line 11
+    .line 10
     invoke-direct {p0}, Lcom/android/js/webview/AndroidJSActivity;-><init>()V
 
     return-void
@@ -18,15 +18,15 @@
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 1
 
-    .line 17
+    .line 16
     invoke-super {p0, p1}, Lcom/android/js/webview/AndroidJSActivity;->onCreate(Landroid/os/Bundle;)V
 
     const p1, 0x7f09001c
 
-    .line 18
+    .line 17
     invoke-virtual {p0, p1}, Lcom/android/js/webview/MainActivity;->setContentView(I)V
 
-    .line 21
+    .line 20
     sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     invoke-static {}, Landroid/os/Environment;->getRootDirectory()Ljava/io/File;
@@ -35,15 +35,15 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintStream;->println(Ljava/lang/Object;)V
 
-    .line 22
+    .line 21
     invoke-static {p0, p0}, Lcom/android/js/other/PermissionRequest;->checkAndAskForPermissions(Landroid/app/Activity;Landroid/content/Context;)V
 
-    .line 26
+    .line 25
     invoke-virtual {p0, p0}, Lcom/android/js/webview/MainActivity;->start_node(Landroid/app/Activity;)V
 
     const p1, 0x7f0700d3
 
-    .line 30
+    .line 29
     invoke-virtual {p0, p1}, Lcom/android/js/webview/MainActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
@@ -54,7 +54,7 @@
 
     const/high16 p1, 0x7f0a0000
 
-    .line 32
+    .line 31
     invoke-virtual {p0, p1}, Lcom/android/js/webview/MainActivity;->configureWebview(I)V
 
     return-void

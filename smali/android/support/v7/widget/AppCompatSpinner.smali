@@ -53,6 +53,7 @@
 
     const/4 v0, 0x1
 
+    .line 71
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -61,7 +62,6 @@
 
     aput v2, v0, v1
 
-    .line 71
     sput-object v0, Landroid/support/v7/widget/AppCompatSpinner;->ATTRS_ANDROID_SPINNERMODE:[I
 
     return-void
@@ -269,6 +269,8 @@
     :catchall_0
     move-exception p1
 
+    move-object p5, v2
+
     goto :goto_4
 
     :catch_1
@@ -294,13 +296,11 @@
     :catchall_1
     move-exception p1
 
-    move-object v2, p5
-
     :goto_4
-    if-eqz v2, :cond_4
+    if-eqz p5, :cond_4
 
     .line 229
-    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {p5}, Landroid/content/res/TypedArray;->recycle()V
 
     :cond_4
     throw p1
@@ -484,17 +484,15 @@
 
     const/4 v5, 0x0
 
-    move v6, v3
-
     move-object v7, v5
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
     :goto_0
-    if-ge v6, v4, :cond_3
+    if-ge v3, v4, :cond_3
 
     .line 562
-    invoke-interface {p1, v6}, Landroid/widget/SpinnerAdapter;->getItemViewType(I)I
+    invoke-interface {p1, v3}, Landroid/widget/SpinnerAdapter;->getItemViewType(I)I
 
     move-result v8
 
@@ -506,7 +504,7 @@
 
     .line 567
     :cond_1
-    invoke-interface {p1, v6, v7, p0}, Landroid/widget/SpinnerAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    invoke-interface {p1, v3, v7, p0}, Landroid/widget/SpinnerAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v7
 
@@ -535,11 +533,11 @@
 
     move-result v8
 
-    invoke-static {v3, v8}, Ljava/lang/Math;->max(II)I
+    invoke-static {v6, v8}, Ljava/lang/Math;->max(II)I
 
-    move-result v3
+    move-result v6
 
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
@@ -562,10 +560,10 @@
 
     add-int/2addr p1, p2
 
-    add-int/2addr v3, p1
+    add-int/2addr v6, p1
 
     :cond_4
-    return v3
+    return v6
 .end method
 
 .method protected drawableStateChanged()V
@@ -787,6 +785,14 @@
 
 .method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 501
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -809,6 +815,14 @@
 
 .method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 530
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -1060,6 +1074,10 @@
 
 .method public setBackgroundResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     .line 462
     invoke-super {p0, p1}, Landroid/widget/Spinner;->setBackgroundResource(I)V
@@ -1194,6 +1212,10 @@
 
 .method public setPopupBackgroundResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     .line 309
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatSpinner;->getPopupContext()Landroid/content/Context;
@@ -1232,6 +1254,15 @@
 
 .method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
     .locals 1
+    .param p1    # Landroid/content/res/ColorStateList;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 486
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -1247,6 +1278,15 @@
 
 .method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
+    .param p1    # Landroid/graphics/PorterDuff$Mode;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 515
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;

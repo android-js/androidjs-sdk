@@ -24,6 +24,9 @@
 
 # instance fields
 .field mCollections:Landroid/support/v4/util/MapCollections;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/MapCollections<",
@@ -94,6 +97,10 @@
 # virtual methods
 .method public containsAll(Ljava/util/Collection;)Z
     .locals 0
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,6 +224,10 @@
 
 .method public removeAll(Ljava/util/Collection;)Z
     .locals 0
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -235,6 +246,10 @@
 
 .method public retainAll(Ljava/util/Collection;)Z
     .locals 0
+    .param p1    # Ljava/util/Collection;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

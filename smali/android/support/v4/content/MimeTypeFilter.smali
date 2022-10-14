@@ -15,6 +15,16 @@
 
 .method public static matches(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
     .locals 6
+    .param p0    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p1    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -65,6 +75,16 @@
 
 .method public static matches([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
+    .param p0    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -115,6 +135,14 @@
 
 .method public static matches(Ljava/lang/String;Ljava/lang/String;)Z
     .locals 1
+    .param p0    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     if-nez p0, :cond_0
 
@@ -145,11 +173,22 @@
 
 .method public static matchesMany([Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
     .locals 6
+    .param p0    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
+    .line 138
     new-array p0, v0, [Ljava/lang/String;
 
     return-object p0
@@ -214,6 +253,14 @@
 
 .method private static mimeTypeAgainstFilter([Ljava/lang/String;[Ljava/lang/String;)Z
     .locals 5
+    .param p0    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 48
     array-length v0, p1

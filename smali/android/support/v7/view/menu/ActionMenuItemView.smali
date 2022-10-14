@@ -9,6 +9,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/view/menu/ActionMenuItemView$PopupCallback;,
@@ -773,7 +779,10 @@
 
     move v0, v2
 
+    .line 224
     :cond_0
+    iget v2, p0, Landroid/support/v7/view/menu/ActionMenuItemView;->mMaxIconSize:I
+
     if-le v1, v2, :cond_1
 
     int-to-float v3, v2
@@ -788,16 +797,13 @@
 
     float-to-int v0, v0
 
-    goto :goto_0
+    move v1, v2
 
     :cond_1
-    move v2, v1
-
-    :goto_0
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     .line 229
-    invoke-virtual {p1, v1, v1, v0, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p1, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     :cond_2
     const/4 v0, 0x0

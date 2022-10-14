@@ -79,10 +79,10 @@
 
     const/4 v1, 0x0
 
+    .line 108
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
-    .line 108
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -151,6 +151,14 @@
 
 .method public static getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
     .locals 2
+    .param p0    # Landroid/view/ViewConfiguration;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 81
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -218,6 +226,14 @@
 
 .method public static getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
     .locals 2
+    .param p0    # Landroid/view/ViewConfiguration;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -257,6 +273,10 @@
 
 .method public static shouldShowMenuShortcutsWhenKeyboardPresent(Landroid/view/ViewConfiguration;Landroid/content/Context;)Z
     .locals 2
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 141
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

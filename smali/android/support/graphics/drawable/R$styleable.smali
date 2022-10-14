@@ -1,5 +1,6 @@
 .class public final Landroid/support/graphics/drawable/R$styleable;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -114,11 +115,12 @@
 
 
 # direct methods
-.method public static constructor <clinit>()V
+.method static constructor <clinit>()V
     .locals 2
 
     const/4 v0, 0x3
 
+    .line 161
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
@@ -127,6 +129,7 @@
 
     const/4 v0, 0x2
 
+    .line 165
     new-array v1, v0, [I
 
     fill-array-data v1, :array_1
@@ -135,6 +138,7 @@
 
     const/4 v1, 0x7
 
+    .line 168
     new-array v1, v1, [I
 
     fill-array-data v1, :array_2
@@ -143,6 +147,7 @@
 
     const/4 v1, 0x6
 
+    .line 176
     new-array v1, v1, [I
 
     fill-array-data v1, :array_3
@@ -151,6 +156,7 @@
 
     const/16 v1, 0xa
 
+    .line 183
     new-array v1, v1, [I
 
     fill-array-data v1, :array_4
@@ -159,12 +165,14 @@
 
     const/16 v1, 0xc
 
+    .line 194
     new-array v1, v1, [I
 
     fill-array-data v1, :array_5
 
     sput-object v1, Landroid/support/graphics/drawable/R$styleable;->GradientColor:[I
 
+    .line 207
     new-array v0, v0, [I
 
     fill-array-data v0, :array_6
@@ -247,6 +255,7 @@
 .method private constructor <init>()V
     .locals 0
 
+    .line 159
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

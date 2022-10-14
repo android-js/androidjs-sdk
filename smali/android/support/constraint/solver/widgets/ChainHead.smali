@@ -69,6 +69,11 @@
     .line 42
     iput v0, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalWeight:F
 
+    const/4 v0, 0x0
+
+    .line 48
+    iput-boolean v0, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mIsRtl:Z
+
     .line 64
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mFirst:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
@@ -103,10 +108,12 @@
 
     move-object v5, v2
 
-    const/4 v6, 0x0
+    move-object v6, v5
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-nez v6, :cond_15
+    if-nez v2, :cond_15
 
     .line 93
     iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mWidgetsCount:I
@@ -116,7 +123,7 @@
     iput v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mWidgetsCount:I
 
     .line 94
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     iget v8, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -125,14 +132,14 @@
     aput-object v9, v7, v8
 
     .line 95
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListNextMatchConstraintsWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     iget v8, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
     aput-object v9, v7, v8
 
     .line 96
-    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVisibility()I
+    invoke-virtual {v5}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVisibility()I
 
     move-result v7
 
@@ -150,7 +157,7 @@
     .line 98
     iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
-    invoke-virtual {v2, v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDimensionBehaviour(I)Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    invoke-virtual {v5, v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDimensionBehaviour(I)Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     move-result-object v7
 
@@ -163,7 +170,7 @@
 
     iget v8, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
-    invoke-virtual {v2, v8}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getLength(I)I
+    invoke-virtual {v5, v8}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getLength(I)I
 
     move-result v8
 
@@ -175,7 +182,7 @@
     :cond_0
     iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
 
-    iget-object v8, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v8, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     aget-object v8, v8, v0
 
@@ -188,7 +195,9 @@
     iput v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
 
     .line 102
-    iget-object v8, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
+
+    iget-object v8, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     add-int/lit8 v10, v0, 0x1
 
@@ -205,7 +214,7 @@
     .line 103
     iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalMargins:I
 
-    iget-object v8, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v8, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     aget-object v8, v8, v0
 
@@ -218,7 +227,9 @@
     iput v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalMargins:I
 
     .line 104
-    iget-object v8, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalMargins:I
+
+    iget-object v8, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     aget-object v8, v8, v10
 
@@ -236,14 +247,14 @@
     if-nez v7, :cond_1
 
     .line 107
-    iput-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mFirstVisibleWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mFirstVisibleWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 109
     :cond_1
-    iput-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLastVisibleWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLastVisibleWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 112
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     iget v8, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -254,7 +265,7 @@
     if-ne v7, v8, :cond_10
 
     .line 113
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
 
     iget v8, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -264,7 +275,7 @@
 
     if-eqz v7, :cond_2
 
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
 
     iget v10, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -274,7 +285,7 @@
 
     if-eq v7, v10, :cond_2
 
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mResolvedMatchConstraintDefault:[I
 
     iget v10, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -291,7 +302,7 @@
     iput v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mWidgetsMatchCount:I
 
     .line 117
-    iget-object v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
+    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
 
     iget v10, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -304,7 +315,7 @@
     .line 119
     iget v10, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalWeight:F
 
-    iget-object v11, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
+    iget-object v11, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mWeight:[F
 
     iget v12, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
@@ -318,7 +329,7 @@
     :cond_3
     iget v10, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
-    invoke-static {v2, v10}, Landroid/support/constraint/solver/widgets/ChainHead;->isMatchConstraintEqualityCandidate(Landroid/support/constraint/solver/widgets/ConstraintWidget;I)Z
+    invoke-static {v5, v10}, Landroid/support/constraint/solver/widgets/ChainHead;->isMatchConstraintEqualityCandidate(Landroid/support/constraint/solver/widgets/ConstraintWidget;I)Z
 
     move-result v10
 
@@ -354,7 +365,7 @@
     :cond_5
     iget-object v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mWeightedMatchConstraintsWidgets:Ljava/util/ArrayList;
 
-    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 134
     :cond_6
@@ -363,7 +374,7 @@
     if-nez v7, :cond_7
 
     .line 135
-    iput-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mFirstMatchConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mFirstMatchConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 137
     :cond_7
@@ -376,11 +387,11 @@
 
     iget v10, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
-    aput-object v2, v7, v10
+    aput-object v5, v7, v10
 
     .line 140
     :cond_8
-    iput-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLastMatchConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLastMatchConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 142
     :cond_9
@@ -389,7 +400,7 @@
     if-nez v7, :cond_c
 
     .line 143
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintDefaultWidth:I
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintDefaultWidth:I
 
     if-eqz v7, :cond_a
 
@@ -400,11 +411,11 @@
 
     .line 145
     :cond_a
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMinWidth:I
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMinWidth:I
 
     if-nez v7, :cond_b
 
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMaxWidth:I
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMaxWidth:I
 
     if-eqz v7, :cond_f
 
@@ -416,7 +427,7 @@
 
     .line 149
     :cond_c
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintDefaultHeight:I
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintDefaultHeight:I
 
     if-eqz v7, :cond_d
 
@@ -427,11 +438,11 @@
 
     .line 151
     :cond_d
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMinHeight:I
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMinHeight:I
 
     if-nez v7, :cond_e
 
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMaxHeight:I
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintMaxHeight:I
 
     if-eqz v7, :cond_f
 
@@ -442,7 +453,7 @@
     .line 155
     :cond_f
     :goto_2
-    iget v7, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mDimensionRatio:F
+    iget v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mDimensionRatio:F
 
     cmpl-float v7, v7, v8
 
@@ -455,32 +466,32 @@
     iput-boolean v3, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mHasRatio:Z
 
     :cond_10
-    if-eq v5, v2, :cond_11
+    if-eq v6, v5, :cond_11
 
     .line 163
-    iget-object v5, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v6, v6, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mNextChainWidget:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     iget v7, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
 
-    aput-object v2, v5, v7
+    aput-object v5, v6, v7
 
     .line 168
     :cond_11
-    iget-object v5, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v6, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     add-int/lit8 v7, v0, 0x1
 
-    aget-object v5, v5, v7
+    aget-object v6, v6, v7
 
-    iget-object v5, v5, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v6, v6, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    if-eqz v5, :cond_13
+    if-eqz v6, :cond_13
 
     .line 170
-    iget-object v5, v5, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mOwner:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v6, v6, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mOwner:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 171
-    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v7, v6, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     aget-object v7, v7, v0
 
@@ -488,7 +499,7 @@
 
     if-eqz v7, :cond_13
 
-    iget-object v7, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v7, v6, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     aget-object v7, v7, v0
 
@@ -496,12 +507,12 @@
 
     iget-object v7, v7, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mOwner:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    if-eq v7, v2, :cond_12
+    if-eq v7, v5, :cond_12
 
     goto :goto_3
 
     :cond_12
-    move-object v9, v5
+    move-object v9, v6
 
     :cond_13
     :goto_3
@@ -510,14 +521,14 @@
     goto :goto_4
 
     :cond_14
-    move-object v9, v2
+    move-object v9, v5
 
-    const/4 v6, 0x1
+    const/4 v2, 0x1
 
     :goto_4
-    move-object v5, v2
+    move-object v6, v5
 
-    move-object v2, v9
+    move-object v5, v9
 
     goto/16 :goto_0
 
@@ -528,7 +539,7 @@
     if-eqz v1, :cond_16
 
     .line 185
-    iget v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
+    iget v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
@@ -538,9 +549,9 @@
 
     move-result v1
 
-    sub-int/2addr v5, v1
+    sub-int/2addr v2, v1
 
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
+    iput v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
 
     .line 187
     :cond_16
@@ -549,7 +560,7 @@
     if-eqz v1, :cond_17
 
     .line 188
-    iget v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
+    iget v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
 
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
@@ -561,13 +572,13 @@
 
     move-result v0
 
-    sub-int/2addr v5, v0
+    sub-int/2addr v2, v0
 
-    iput v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
+    iput v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mTotalSize:I
 
     .line 190
     :cond_17
-    iput-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLast:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iput-object v5, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLast:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 192
     iget v0, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mOrientation:I
@@ -579,7 +590,9 @@
     if-eqz v0, :cond_18
 
     .line 193
-    iput-object v2, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mHead:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v0, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mLast:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    iput-object v0, p0, Landroid/support/constraint/solver/widgets/ChainHead;->mHead:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     goto :goto_5
 

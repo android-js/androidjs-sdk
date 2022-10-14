@@ -69,6 +69,8 @@
 
 .method static getInstance(Landroid/arch/lifecycle/ViewModelStore;)Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 292
     new-instance v0, Landroid/arch/lifecycle/ViewModelProvider;
@@ -354,6 +356,10 @@
 
 .method putLoader(ILandroid/support/v4/app/LoaderManagerImpl$LoaderInfo;)V
     .locals 1
+    .param p2    # Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 311
     iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;

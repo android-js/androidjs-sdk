@@ -3,6 +3,14 @@
 .source "Preconditions.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 0
@@ -410,6 +418,9 @@
 
 .method public static checkArgumentNonnegative(I)I
     .locals 0
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x0L
+    .end annotation
 
     if-ltz p0, :cond_0
 
@@ -426,6 +437,9 @@
 
 .method public static checkArgumentNonnegative(ILjava/lang/String;)I
     .locals 0
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x0L
+    .end annotation
 
     if-ltz p0, :cond_0
 
@@ -755,17 +769,16 @@
 
     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method public static checkCollectionElementsNotNull(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
     .locals 5
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<C::",
@@ -862,13 +875,9 @@
 
     invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method public static checkCollectionNotEmpty(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
@@ -997,6 +1006,9 @@
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1005,14 +1017,24 @@
         }
     .end annotation
 
-    .line 99
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    if-eqz p0, :cond_0
 
     return-object p0
+
+    .line 99
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
+
+    throw p0
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1069,6 +1091,9 @@
 
 .method public static checkStringNotEmpty(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1097,6 +1122,9 @@
 
 .method public static checkStringNotEmpty(Ljava/lang/CharSequence;Ljava/lang/Object;)Ljava/lang/CharSequence;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",

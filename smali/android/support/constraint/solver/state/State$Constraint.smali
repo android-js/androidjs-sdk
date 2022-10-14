@@ -58,239 +58,241 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 18
+    .locals 16
 
     .line 53
     new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v1, "LEFT_TO_LEFT"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "LEFT_TO_LEFT"
 
-    invoke-direct {v0, v1, v2}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v2, v1}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->LEFT_TO_LEFT:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 54
-    new-instance v1, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
+
+    const/4 v2, 0x1
 
     const-string v3, "LEFT_TO_RIGHT"
 
-    const/4 v4, 0x1
+    invoke-direct {v0, v3, v2}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v1, v3, v4}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
-
-    sput-object v1, Landroid/support/constraint/solver/state/State$Constraint;->LEFT_TO_RIGHT:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->LEFT_TO_RIGHT:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 55
-    new-instance v3, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v5, "RIGHT_TO_LEFT"
+    const/4 v3, 0x2
 
-    const/4 v6, 0x2
+    const-string v4, "RIGHT_TO_LEFT"
 
-    invoke-direct {v3, v5, v6}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v4, v3}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v3, Landroid/support/constraint/solver/state/State$Constraint;->RIGHT_TO_LEFT:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->RIGHT_TO_LEFT:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 56
-    new-instance v5, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v7, "RIGHT_TO_RIGHT"
+    const/4 v4, 0x3
 
-    const/4 v8, 0x3
+    const-string v5, "RIGHT_TO_RIGHT"
 
-    invoke-direct {v5, v7, v8}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v5, v4}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v5, Landroid/support/constraint/solver/state/State$Constraint;->RIGHT_TO_RIGHT:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->RIGHT_TO_RIGHT:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 57
-    new-instance v7, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v9, "START_TO_START"
+    const/4 v5, 0x4
 
-    const/4 v10, 0x4
+    const-string v6, "START_TO_START"
 
-    invoke-direct {v7, v9, v10}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v6, v5}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v7, Landroid/support/constraint/solver/state/State$Constraint;->START_TO_START:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->START_TO_START:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 58
-    new-instance v9, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v11, "START_TO_END"
+    const/4 v6, 0x5
 
-    const/4 v12, 0x5
+    const-string v7, "START_TO_END"
 
-    invoke-direct {v9, v11, v12}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v7, v6}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v9, Landroid/support/constraint/solver/state/State$Constraint;->START_TO_END:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->START_TO_END:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 59
-    new-instance v11, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v13, "END_TO_START"
+    const/4 v7, 0x6
 
-    const/4 v14, 0x6
+    const-string v8, "END_TO_START"
 
-    invoke-direct {v11, v13, v14}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v8, v7}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v11, Landroid/support/constraint/solver/state/State$Constraint;->END_TO_START:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->END_TO_START:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 60
-    new-instance v13, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v15, "END_TO_END"
+    const/4 v8, 0x7
 
-    const/4 v14, 0x7
+    const-string v9, "END_TO_END"
 
-    invoke-direct {v13, v15, v14}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v9, v8}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v13, Landroid/support/constraint/solver/state/State$Constraint;->END_TO_END:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->END_TO_END:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 61
-    new-instance v15, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v14, "TOP_TO_TOP"
+    const/16 v9, 0x8
 
-    const/16 v12, 0x8
+    const-string v10, "TOP_TO_TOP"
 
-    invoke-direct {v15, v14, v12}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v10, v9}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v15, Landroid/support/constraint/solver/state/State$Constraint;->TOP_TO_TOP:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->TOP_TO_TOP:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 62
-    new-instance v14, Landroid/support/constraint/solver/state/State$Constraint;
-
-    const-string v12, "TOP_TO_BOTTOM"
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
     const/16 v10, 0x9
 
-    invoke-direct {v14, v12, v10}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    const-string v11, "TOP_TO_BOTTOM"
 
-    sput-object v14, Landroid/support/constraint/solver/state/State$Constraint;->TOP_TO_BOTTOM:Landroid/support/constraint/solver/state/State$Constraint;
+    invoke-direct {v0, v11, v10}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->TOP_TO_BOTTOM:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 63
-    new-instance v12, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v10, "BOTTOM_TO_TOP"
+    const/16 v11, 0xa
 
-    const/16 v8, 0xa
+    const-string v12, "BOTTOM_TO_TOP"
 
-    invoke-direct {v12, v10, v8}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v12, v11}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v12, Landroid/support/constraint/solver/state/State$Constraint;->BOTTOM_TO_TOP:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->BOTTOM_TO_TOP:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 64
-    new-instance v10, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v8, "BOTTOM_TO_BOTTOM"
+    const/16 v12, 0xb
 
-    const/16 v6, 0xb
+    const-string v13, "BOTTOM_TO_BOTTOM"
 
-    invoke-direct {v10, v8, v6}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v13, v12}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v10, Landroid/support/constraint/solver/state/State$Constraint;->BOTTOM_TO_BOTTOM:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->BOTTOM_TO_BOTTOM:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 65
-    new-instance v8, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v6, "BASELINE_TO_BASELINE"
+    const/16 v13, 0xc
 
-    const/16 v4, 0xc
+    const-string v14, "BASELINE_TO_BASELINE"
 
-    invoke-direct {v8, v6, v4}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v14, v13}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
 
-    sput-object v8, Landroid/support/constraint/solver/state/State$Constraint;->BASELINE_TO_BASELINE:Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->BASELINE_TO_BASELINE:Landroid/support/constraint/solver/state/State$Constraint;
 
     .line 66
-    new-instance v6, Landroid/support/constraint/solver/state/State$Constraint;
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
 
-    const-string v4, "CENTER_HORIZONTALLY"
+    const/16 v14, 0xd
+
+    const-string v15, "CENTER_HORIZONTALLY"
+
+    invoke-direct {v0, v15, v14}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->CENTER_HORIZONTALLY:Landroid/support/constraint/solver/state/State$Constraint;
+
+    .line 67
+    new-instance v0, Landroid/support/constraint/solver/state/State$Constraint;
+
+    const/16 v15, 0xe
+
+    const-string v14, "CENTER_VERTICALLY"
+
+    invoke-direct {v0, v14, v15}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->CENTER_VERTICALLY:Landroid/support/constraint/solver/state/State$Constraint;
+
+    const/16 v0, 0xf
+
+    .line 52
+    new-array v0, v0, [Landroid/support/constraint/solver/state/State$Constraint;
+
+    sget-object v14, Landroid/support/constraint/solver/state/State$Constraint;->LEFT_TO_LEFT:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v14, v0, v1
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->LEFT_TO_RIGHT:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->RIGHT_TO_LEFT:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v3
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->RIGHT_TO_RIGHT:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v4
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->START_TO_START:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v5
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->START_TO_END:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v6
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->END_TO_START:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v7
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->END_TO_END:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v8
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->TOP_TO_TOP:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v9
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->TOP_TO_BOTTOM:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v10
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->BOTTOM_TO_TOP:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v11
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->BOTTOM_TO_BOTTOM:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v12
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->BASELINE_TO_BASELINE:Landroid/support/constraint/solver/state/State$Constraint;
+
+    aput-object v1, v0, v13
+
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->CENTER_HORIZONTALLY:Landroid/support/constraint/solver/state/State$Constraint;
 
     const/16 v2, 0xd
 
-    invoke-direct {v6, v4, v2}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
+    aput-object v1, v0, v2
 
-    sput-object v6, Landroid/support/constraint/solver/state/State$Constraint;->CENTER_HORIZONTALLY:Landroid/support/constraint/solver/state/State$Constraint;
+    sget-object v1, Landroid/support/constraint/solver/state/State$Constraint;->CENTER_VERTICALLY:Landroid/support/constraint/solver/state/State$Constraint;
 
-    .line 67
-    new-instance v4, Landroid/support/constraint/solver/state/State$Constraint;
+    aput-object v1, v0, v15
 
-    const-string v2, "CENTER_VERTICALLY"
-
-    move-object/from16 v17, v6
-
-    const/16 v6, 0xe
-
-    invoke-direct {v4, v2, v6}, Landroid/support/constraint/solver/state/State$Constraint;-><init>(Ljava/lang/String;I)V
-
-    sput-object v4, Landroid/support/constraint/solver/state/State$Constraint;->CENTER_VERTICALLY:Landroid/support/constraint/solver/state/State$Constraint;
-
-    const/16 v2, 0xf
-
-    new-array v2, v2, [Landroid/support/constraint/solver/state/State$Constraint;
-
-    const/16 v16, 0x0
-
-    aput-object v0, v2, v16
-
-    const/4 v0, 0x1
-
-    aput-object v1, v2, v0
-
-    const/4 v0, 0x2
-
-    aput-object v3, v2, v0
-
-    const/4 v0, 0x3
-
-    aput-object v5, v2, v0
-
-    const/4 v0, 0x4
-
-    aput-object v7, v2, v0
-
-    const/4 v0, 0x5
-
-    aput-object v9, v2, v0
-
-    const/4 v0, 0x6
-
-    aput-object v11, v2, v0
-
-    const/4 v0, 0x7
-
-    aput-object v13, v2, v0
-
-    const/16 v0, 0x8
-
-    aput-object v15, v2, v0
-
-    const/16 v0, 0x9
-
-    aput-object v14, v2, v0
-
-    const/16 v0, 0xa
-
-    aput-object v12, v2, v0
-
-    const/16 v0, 0xb
-
-    aput-object v10, v2, v0
-
-    const/16 v0, 0xc
-
-    aput-object v8, v2, v0
-
-    const/16 v0, 0xd
-
-    aput-object v17, v2, v0
-
-    aput-object v4, v2, v6
-
-    .line 52
-    sput-object v2, Landroid/support/constraint/solver/state/State$Constraint;->$VALUES:[Landroid/support/constraint/solver/state/State$Constraint;
+    sput-object v0, Landroid/support/constraint/solver/state/State$Constraint;->$VALUES:[Landroid/support/constraint/solver/state/State$Constraint;
 
     return-void
 .end method

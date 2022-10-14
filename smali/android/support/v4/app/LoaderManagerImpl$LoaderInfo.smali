@@ -31,12 +31,18 @@
 
 # instance fields
 .field private final mArgs:Landroid/os/Bundle;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field private final mId:I
 
 .field private mLifecycleOwner:Landroid/arch/lifecycle/LifecycleOwner;
 
 .field private final mLoader:Landroid/support/v4/content/Loader;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/content/Loader<",
@@ -67,6 +73,18 @@
 # direct methods
 .method constructor <init>(ILandroid/os/Bundle;Landroid/support/v4/content/Loader;Landroid/support/v4/content/Loader;)V
     .locals 0
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/content/Loader;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p4    # Landroid/support/v4/content/Loader;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -94,7 +112,9 @@
     iput-object p4, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->mPriorLoader:Landroid/support/v4/content/Loader;
 
     .line 66
-    invoke-virtual {p3, p1, p0}, Landroid/support/v4/content/Loader;->registerListener(ILandroid/support/v4/content/Loader$OnLoadCompleteListener;)V
+    iget-object p2, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->mLoader:Landroid/support/v4/content/Loader;
+
+    invoke-virtual {p2, p1, p0}, Landroid/support/v4/content/Loader;->registerListener(ILandroid/support/v4/content/Loader$OnLoadCompleteListener;)V
 
     return-void
 .end method
@@ -103,6 +123,9 @@
 # virtual methods
 .method destroy(Z)Landroid/support/v4/content/Loader;
     .locals 2
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -324,6 +347,9 @@
 
 .method getLoader()Landroid/support/v4/content/Loader;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -465,6 +491,14 @@
 
 .method public onLoadComplete(Landroid/support/v4/content/Loader;Ljava/lang/Object;)V
     .locals 2
+    .param p1    # Landroid/support/v4/content/Loader;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -534,6 +568,10 @@
 
 .method public removeObserver(Landroid/arch/lifecycle/Observer;)V
     .locals 0
+    .param p1    # Landroid/arch/lifecycle/Observer;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -558,6 +596,20 @@
 
 .method setCallback(Landroid/arch/lifecycle/LifecycleOwner;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;
     .locals 2
+    .param p1    # Landroid/arch/lifecycle/LifecycleOwner;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

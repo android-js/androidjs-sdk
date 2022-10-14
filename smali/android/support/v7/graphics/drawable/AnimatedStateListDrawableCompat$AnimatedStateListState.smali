@@ -45,6 +45,18 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;Landroid/content/res/Resources;)V
     .locals 0
+    .param p1    # Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat$AnimatedStateListState;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 633
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;-><init>(Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;Landroid/support/v7/graphics/drawable/StateListDrawable;Landroid/content/res/Resources;)V
@@ -102,6 +114,14 @@
 # virtual methods
 .method addStateSet([ILandroid/graphics/drawable/Drawable;I)I
     .locals 0
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 666
     invoke-super {p0, p1, p2}, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->addStateSet([ILandroid/graphics/drawable/Drawable;)I
@@ -122,6 +142,10 @@
 
 .method addTransition(IILandroid/graphics/drawable/Drawable;Z)I
     .locals 9
+    .param p3    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 651
     invoke-super {p0, p3}, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->addChild(Landroid/graphics/drawable/Drawable;)I
@@ -215,6 +239,10 @@
 
 .method indexOfKeyframe([I)I
     .locals 0
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 672
     invoke-super {p0, p1}, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->indexOfStateSet([I)I
@@ -342,6 +370,8 @@
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 701
     new-instance v0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;
@@ -355,6 +385,8 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 707
     new-instance v0, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;

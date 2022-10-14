@@ -636,6 +636,11 @@
 
 .method protected onMeasure(II)V
     .locals 1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongCall"
+        }
+    .end annotation
 
     .line 150
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;

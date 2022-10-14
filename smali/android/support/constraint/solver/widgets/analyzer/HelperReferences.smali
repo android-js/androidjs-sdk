@@ -511,7 +511,9 @@
 
     const/4 v3, 0x0
 
-    const/4 v4, -0x1
+    const/4 v3, -0x1
+
+    const/4 v4, 0x0
 
     :cond_0
     :goto_0
@@ -530,17 +532,17 @@
     .line 128
     iget v5, v5, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->value:I
 
-    if-eq v4, v2, :cond_1
+    if-eq v3, v2, :cond_1
 
-    if-ge v5, v4, :cond_2
+    if-ge v5, v3, :cond_2
 
     :cond_1
-    move v4, v5
+    move v3, v5
 
     :cond_2
-    if-ge v3, v5, :cond_0
+    if-ge v4, v5, :cond_0
 
-    move v3, v5
+    move v4, v5
 
     goto :goto_0
 
@@ -561,9 +563,9 @@
 
     move-result p1
 
-    add-int/2addr v3, p1
+    add-int/2addr v4, p1
 
-    invoke-virtual {v0, v3}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
+    invoke-virtual {v0, v4}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
 
     goto :goto_2
 
@@ -576,9 +578,9 @@
 
     move-result p1
 
-    add-int/2addr v4, p1
+    add-int/2addr v3, p1
 
-    invoke-virtual {v0, v4}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
+    invoke-virtual {v0, v3}, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolve(I)V
 
     :goto_2
     return-void

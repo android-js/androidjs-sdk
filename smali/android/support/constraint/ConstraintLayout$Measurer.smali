@@ -211,6 +211,11 @@
 
 .method public final measure(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;)V
     .locals 19
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongCall"
+        }
+    .end annotation
 
     move-object/from16 v0, p0
 
@@ -916,9 +921,9 @@
     :cond_20
     const/4 v0, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, -0x1
 
-    const/4 v4, -0x1
+    const/4 v5, 0x0
 
     const/4 v15, 0x0
 
@@ -1140,7 +1145,7 @@
 
     float-to-int v0, v4
 
-    move v8, v0
+    move v5, v0
 
     goto :goto_17
 
@@ -1163,37 +1168,39 @@
     move v9, v0
 
     :cond_2a
+    move v5, v8
+
     :goto_17
-    if-ne v11, v8, :cond_2c
+    if-ne v11, v5, :cond_2c
 
     if-eq v12, v9, :cond_2b
 
     goto :goto_19
 
     :cond_2b
-    move v0, v8
-
-    move v3, v9
+    move v0, v9
 
     :goto_18
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
     goto :goto_1b
 
     :cond_2c
     :goto_19
+    if-eq v11, v5, :cond_2d
+
     const/high16 v0, 0x40000000    # 2.0f
 
-    if-eq v11, v8, :cond_2d
-
     .line 846
-    invoke-static {v8, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {v5, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v6
 
     goto :goto_1a
 
     :cond_2d
+    const/high16 v0, 0x40000000    # 2.0f
+
     move/from16 v6, v17
 
     :goto_1a
@@ -1214,70 +1221,65 @@
     .line 853
     invoke-virtual {v10}, Landroid/view/View;->getMeasuredWidth()I
 
-    move-result v0
+    move-result v5
 
     .line 854
     invoke-virtual {v10}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-result v3
+    move-result v0
 
     .line 855
     invoke-virtual {v10}, Landroid/view/View;->getBaseline()I
 
-    move-result v4
+    move-result v3
 
-    move v15, v4
+    move v15, v3
 
     goto :goto_18
 
     :goto_1b
-    if-eq v15, v4, :cond_2f
+    if-eq v15, v3, :cond_2f
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     goto :goto_1c
 
     :cond_2f
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     .line 866
     :goto_1c
-    iget v5, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalDimension:I
+    iget v4, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalDimension:I
 
-    if-ne v0, v5, :cond_31
+    if-ne v5, v4, :cond_31
 
-    iget v5, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalDimension:I
+    iget v4, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalDimension:I
 
-    if-eq v3, v5, :cond_30
+    if-eq v0, v4, :cond_30
 
     goto :goto_1d
 
     :cond_30
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     goto :goto_1e
 
     :cond_31
     :goto_1d
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     :goto_1e
-    iput-boolean v5, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredNeedsSolverPass:Z
+    iput-boolean v4, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredNeedsSolverPass:Z
 
     .line 868
-    iget-boolean v5, v14, Landroid/support/constraint/ConstraintLayout$LayoutParams;->needsBaseline:Z
+    iget-boolean v4, v14, Landroid/support/constraint/ConstraintLayout$LayoutParams;->needsBaseline:Z
 
-    if-eqz v5, :cond_32
+    if-eqz v4, :cond_32
 
-    const/4 v9, 0x1
-
-    goto :goto_1f
+    const/4 v3, 0x1
 
     :cond_32
-    move v9, v4
-
-    :goto_1f
-    if-eqz v9, :cond_33
+    if-eqz v3, :cond_33
 
     const/4 v4, -0x1
 
@@ -1297,13 +1299,13 @@
 
     .line 874
     :cond_33
-    iput v0, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredWidth:I
+    iput v5, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredWidth:I
 
     .line 875
-    iput v3, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredHeight:I
+    iput v0, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredHeight:I
 
     .line 876
-    iput-boolean v9, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredHasBaseline:Z
+    iput-boolean v3, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredHasBaseline:Z
 
     .line 877
     iput v15, v2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->measuredBaseline:I

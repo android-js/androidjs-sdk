@@ -32,6 +32,9 @@
 
 # instance fields
 .field final mKey:Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TK;"
@@ -58,6 +61,9 @@
 .end field
 
 .field final mValue:Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TV;"
@@ -69,6 +75,14 @@
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)V"
@@ -144,6 +158,9 @@
 
 .method public getKey()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"
@@ -158,6 +175,9 @@
 
 .method public getValue()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TV;"

@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/graphics/PathParser$PathDataNode;,
@@ -619,6 +625,7 @@
 
     throw v1
 
+    .line 211
     :cond_4
     :goto_1
     new-array p0, v0, [F

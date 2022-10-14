@@ -87,43 +87,49 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 10
 
     .line 60
-    new-instance v7, Landroid/support/v4/content/ModernAsyncTask$1;
+    new-instance v0, Landroid/support/v4/content/ModernAsyncTask$1;
 
-    invoke-direct {v7}, Landroid/support/v4/content/ModernAsyncTask$1;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/content/ModernAsyncTask$1;-><init>()V
 
-    sput-object v7, Landroid/support/v4/content/ModernAsyncTask;->sThreadFactory:Ljava/util/concurrent/ThreadFactory;
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sThreadFactory:Ljava/util/concurrent/ThreadFactory;
 
     .line 69
-    new-instance v6, Ljava/util/concurrent/LinkedBlockingQueue;
+    new-instance v0, Ljava/util/concurrent/LinkedBlockingQueue;
 
-    const/16 v0, 0xa
+    const/16 v1, 0xa
 
-    invoke-direct {v6, v0}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
+    invoke-direct {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
 
-    sput-object v6, Landroid/support/v4/content/ModernAsyncTask;->sPoolWorkQueue:Ljava/util/concurrent/BlockingQueue;
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sPoolWorkQueue:Ljava/util/concurrent/BlockingQueue;
 
     .line 75
-    new-instance v8, Ljava/util/concurrent/ThreadPoolExecutor;
+    new-instance v0, Ljava/util/concurrent/ThreadPoolExecutor;
 
-    sget-object v5, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+    sget-object v7, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    const/4 v1, 0x5
+    sget-object v8, Landroid/support/v4/content/ModernAsyncTask;->sPoolWorkQueue:Ljava/util/concurrent/BlockingQueue;
 
-    const/16 v2, 0x80
+    sget-object v9, Landroid/support/v4/content/ModernAsyncTask;->sThreadFactory:Ljava/util/concurrent/ThreadFactory;
 
-    const-wide/16 v3, 0x1
+    const/4 v3, 0x5
 
-    move-object v0, v8
+    const/16 v4, 0x80
 
-    invoke-direct/range {v0 .. v7}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
+    const-wide/16 v5, 0x1
 
-    sput-object v8, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v9}, Ljava/util/concurrent/ThreadPoolExecutor;-><init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V
+
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
     .line 84
-    sput-object v8, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
+    sget-object v0, Landroid/support/v4/content/ModernAsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+
+    sput-object v0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;
 
     return-void
 .end method
@@ -161,11 +167,13 @@
     iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
 
     .line 153
-    new-instance v1, Landroid/support/v4/content/ModernAsyncTask$3;
+    new-instance v0, Landroid/support/v4/content/ModernAsyncTask$3;
 
-    invoke-direct {v1, p0, v0}, Landroid/support/v4/content/ModernAsyncTask$3;-><init>(Landroid/support/v4/content/ModernAsyncTask;Ljava/util/concurrent/Callable;)V
+    iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask;->mWorker:Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;
 
-    iput-object v1, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
+    invoke-direct {v0, p0, v1}, Landroid/support/v4/content/ModernAsyncTask$3;-><init>(Landroid/support/v4/content/ModernAsyncTask;Ljava/util/concurrent/Callable;)V
+
+    iput-object v0, p0, Landroid/support/v4/content/ModernAsyncTask;->mFuture:Ljava/util/concurrent/FutureTask;
 
     return-void
 .end method
@@ -223,6 +231,11 @@
 
 .method public static setDefaultExecutor(Ljava/util/concurrent/Executor;)V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 126
     sput-object p0, Landroid/support/v4/content/ModernAsyncTask;->sDefaultExecutor:Ljava/util/concurrent/Executor;

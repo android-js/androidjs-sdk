@@ -69,9 +69,9 @@
 
     const/16 v0, 0x20
 
+    .line 25
     new-array v0, v0, [Landroid/support/constraint/solver/SolverVariable;
 
-    .line 25
     iput-object v0, p0, Landroid/support/constraint/solver/Cache;->mIndexedVariables:[Landroid/support/constraint/solver/SolverVariable;
 
     return-void

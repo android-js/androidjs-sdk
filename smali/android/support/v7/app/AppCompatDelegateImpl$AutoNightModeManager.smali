@@ -4,6 +4,9 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v7/app/AppCompatDelegateImpl;
 .end annotation
@@ -29,6 +32,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImpl;Landroid/support/v7/app/TwilightManager;)V
     .locals 0
+    .param p1    # Landroid/support/v7/app/AppCompatDelegateImpl;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 2673
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -115,6 +122,9 @@
 
     iput-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mIsNight:Z
 
+    .line 2681
+    iget-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mIsNight:Z
+
     if-eqz v0, :cond_0
 
     const/4 v0, 0x2
@@ -159,9 +169,11 @@
 
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mAutoTimeChangeReceiverFilter:Landroid/content/IntentFilter;
 
+    .line 2711
+    iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AutoNightModeManager;->mAutoTimeChangeReceiverFilter:Landroid/content/IntentFilter;
+
     const-string v1, "android.intent.action.TIME_SET"
 
-    .line 2711
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     .line 2712

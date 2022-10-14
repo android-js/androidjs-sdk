@@ -34,6 +34,8 @@
     sput-object v0, Landroid/support/constraint/motion/MotionLayout$2;->$SwitchMap$android$support$constraint$motion$MotionLayout$TransitionState:[I
 
     :try_start_0
+    sget-object v0, Landroid/support/constraint/motion/MotionLayout$2;->$SwitchMap$android$support$constraint$motion$MotionLayout$TransitionState:[I
+
     sget-object v1, Landroid/support/constraint/motion/MotionLayout$TransitionState;->UNDEFINED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
     invoke-virtual {v1}, Landroid/support/constraint/motion/MotionLayout$TransitionState;->ordinal()I

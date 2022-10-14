@@ -66,6 +66,8 @@
     sput-object v0, Landroid/support/constraint/motion/KeyAttributes$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     .line 355
+    sget-object v0, Landroid/support/constraint/motion/KeyAttributes$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
     sget v1, Landroid/support/constraint/R$styleable;->KeyAttribute_android_alpha:I
 
     const/4 v2, 0x1

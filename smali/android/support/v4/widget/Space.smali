@@ -11,6 +11,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -24,6 +28,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -37,6 +49,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -76,6 +96,8 @@
 
     if-eq v0, v1, :cond_1
 
+    if-eqz v0, :cond_2
+
     const/high16 v1, 0x40000000    # 2.0f
 
     if-eq v0, v1, :cond_0
@@ -93,6 +115,7 @@
 
     move-result p0
 
+    :cond_2
     :goto_0
     return p0
 .end method
@@ -101,6 +124,12 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 0
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "MissingSuperCall"
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

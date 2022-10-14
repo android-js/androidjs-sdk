@@ -70,6 +70,8 @@
     sput-object v0, Landroid/support/constraint/motion/KeyCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     .line 238
+    sget-object v0, Landroid/support/constraint/motion/KeyCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
     sget v1, Landroid/support/constraint/R$styleable;->KeyCycle_motionTarget:I
 
     const/4 v2, 0x1

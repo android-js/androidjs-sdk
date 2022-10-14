@@ -122,17 +122,17 @@
 
     move-result-object v0
 
-    const/16 v1, 0x2f
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/16 v2, 0x2f
 
     .line 761
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->indexOf(II)I
+    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->indexOf(II)I
 
-    move-result v1
+    move-result v2
 
     .line 762
-    invoke-virtual {v0, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
@@ -140,10 +140,10 @@
 
     move-result-object v3
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
     .line 763
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -479,11 +479,7 @@
 
     invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw v0
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method

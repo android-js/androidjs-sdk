@@ -46,79 +46,79 @@
 
     const/4 v0, 0x1
 
+    .line 30
     new-array v1, v0, [I
 
-    const v2, -0x101009e
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const v3, -0x101009e
 
-    aput v2, v1, v3
+    aput v3, v1, v2
 
-    .line 30
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->DISABLED_STATE_SET:[I
 
+    .line 31
     new-array v1, v0, [I
 
-    const v2, 0x101009c
+    const v3, 0x101009c
 
-    aput v2, v1, v3
+    aput v3, v1, v2
 
-    .line 31
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->FOCUSED_STATE_SET:[I
 
+    .line 32
     new-array v1, v0, [I
 
-    const v2, 0x10102fe
+    const v3, 0x10102fe
 
-    aput v2, v1, v3
+    aput v3, v1, v2
 
-    .line 32
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->ACTIVATED_STATE_SET:[I
 
+    .line 33
     new-array v1, v0, [I
 
-    const v2, 0x10100a7
+    const v3, 0x10100a7
 
-    aput v2, v1, v3
+    aput v3, v1, v2
 
-    .line 33
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->PRESSED_STATE_SET:[I
 
+    .line 34
     new-array v1, v0, [I
 
-    const v2, 0x10100a0
+    const v3, 0x10100a0
 
-    aput v2, v1, v3
+    aput v3, v1, v2
 
-    .line 34
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->CHECKED_STATE_SET:[I
 
+    .line 35
     new-array v1, v0, [I
 
-    const v2, 0x10100a1
+    const v3, 0x10100a1
 
-    aput v2, v1, v3
+    aput v3, v1, v2
 
-    .line 35
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->SELECTED_STATE_SET:[I
 
     const/4 v1, 0x2
 
+    .line 36
     new-array v1, v1, [I
 
-    .line 36
     fill-array-data v1, :array_0
 
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->NOT_PRESSED_OR_FOCUSED_STATE_SET:[I
 
-    new-array v1, v3, [I
-
     .line 38
+    new-array v1, v2, [I
+
     sput-object v1, Landroid/support/v7/widget/ThemeUtils;->EMPTY_STATE_SET:[I
 
+    .line 40
     new-array v0, v0, [I
 
-    .line 40
     sput-object v0, Landroid/support/v7/widget/ThemeUtils;->TEMP_ARRAY:[I
 
     return-void
@@ -144,8 +144,10 @@
 
     const/4 v0, 0x2
 
+    .line 45
     new-array v1, v0, [[I
 
+    .line 46
     new-array v0, v0, [I
 
     .line 50
@@ -347,20 +349,22 @@
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/util/TypedValue;
+    check-cast v0, Landroid/util/TypedValue;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 102
-    new-instance v1, Landroid/util/TypedValue;
+    new-instance v0, Landroid/util/TypedValue;
 
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
     .line 103
-    invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+    sget-object v1, Landroid/support/v7/widget/ThemeUtils;->TL_TYPED_VALUE:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     :cond_0
-    return-object v1
+    return-object v0
 .end method

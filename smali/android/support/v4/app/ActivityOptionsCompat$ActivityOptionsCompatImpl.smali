@@ -4,6 +4,10 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x10
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/app/ActivityOptionsCompat;
 .end annotation
@@ -79,6 +83,10 @@
 
 .method public setLaunchBounds(Landroid/graphics/Rect;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p1    # Landroid/graphics/Rect;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 283
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

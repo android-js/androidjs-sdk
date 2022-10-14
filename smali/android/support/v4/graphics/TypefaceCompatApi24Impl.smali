@@ -3,6 +3,18 @@
 .source "TypefaceCompatApi24Impl.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RequiresApi;
+    value = 0x18
+.end annotation
+
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static final ADD_FONT_WEIGHT_STYLE_METHOD:Ljava/lang/String; = "addFontWeightStyle"
 
@@ -37,9 +49,9 @@
 
     const/4 v2, 0x0
 
+    .line 70
     new-array v3, v2, [Ljava/lang/Class;
 
-    .line 70
     invoke-virtual {v1, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v3
@@ -48,9 +60,9 @@
 
     const/4 v5, 0x5
 
+    .line 71
     new-array v5, v5, [Ljava/lang/Class;
 
-    .line 71
     const-class v6, Ljava/nio/ByteBuffer;
 
     aput-object v6, v5, v2
@@ -305,21 +317,24 @@
 .end method
 
 .method public static isUsable()Z
-    .locals 3
+    .locals 2
 
     .line 94
     sget-object v0, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sAddFontWeightStyle:Ljava/lang/reflect/Method;
 
     if-nez v0, :cond_0
 
-    const-string v1, "TypefaceCompatApi24Impl"
+    const-string v0, "TypefaceCompatApi24Impl"
 
-    const-string v2, "Unable to collect necessary private methods.Fallback to legacy implementation."
+    const-string v1, "Unable to collect necessary private methods.Fallback to legacy implementation."
 
     .line 95
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 98
     :cond_0
+    sget-object v0, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->sAddFontWeightStyle:Ljava/lang/reflect/Method;
+
     if-eqz v0, :cond_1
 
     const/4 v0, 0x1
@@ -453,6 +468,14 @@
 
 .method public createFromFontInfo(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;I)Landroid/graphics/Typeface;
     .locals 8
+    .param p2    # Landroid/os/CancellationSignal;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # [Landroid/support/v4/provider/FontsContractCompat$FontInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 134
     invoke-static {}, Landroid/support/v4/graphics/TypefaceCompatApi24Impl;->newFamily()Ljava/lang/Object;

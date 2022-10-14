@@ -193,16 +193,16 @@
 
     if-ne p2, v2, :cond_2
 
+    const/4 v2, 0x1
+
     goto :goto_1
 
     :cond_2
-    const/4 v3, 0x0
-
-    :goto_1
-    move v2, v3
+    const/4 v2, 0x0
 
     .line 227
     :cond_3
+    :goto_1
     iget-boolean p2, p0, Landroid/support/constraint/solver/widgets/Guideline;->resolved:Z
 
     const/4 v3, -0x1

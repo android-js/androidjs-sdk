@@ -560,6 +560,9 @@
 
     iput-object p1, p0, Landroid/support/constraint/Placeholder;->mContent:Landroid/view/View;
 
+    .line 154
+    iget-object p1, p0, Landroid/support/constraint/Placeholder;->mContent:Landroid/view/View;
+
     if-eqz p1, :cond_1
 
     .line 156

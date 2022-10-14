@@ -15,8 +15,20 @@
 
 # static fields
 .field public static final COLOR_MODE_COLOR:I = 0x2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "InlinedApi"
+        }
+    .end annotation
+.end field
 
 .field public static final COLOR_MODE_MONOCHROME:I = 0x1
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "InlinedApi"
+        }
+    .end annotation
+.end field
 
 .field static final IS_MIN_MARGINS_HANDLING_CORRECT:Z
 
@@ -99,6 +111,10 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 162
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -200,6 +216,9 @@
 
 .method private static copyAttributes(Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes$Builder;
     .locals 3
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x13
+    .end annotation
 
     .line 558
     new-instance v0, Landroid/print/PrintAttributes$Builder;
@@ -644,6 +663,8 @@
     iput-object v2, p0, Landroid/support/v4/print/PrintHelper;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
 
     .line 778
+    iget-object v2, p0, Landroid/support/v4/print/PrintHelper;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
+
     iput-boolean v1, v2, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
 
     .line 779
@@ -742,17 +763,21 @@
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw p1
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method
 
 .method public printBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;)V
     .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/Bitmap;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -764,6 +789,18 @@
 
 .method public printBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;)V
     .locals 9
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/Bitmap;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 258
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -854,6 +891,14 @@
 
 .method public printBitmap(Ljava/lang/String;Landroid/net/Uri;)V
     .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -870,6 +915,18 @@
 
 .method public printBitmap(Ljava/lang/String;Landroid/net/Uri;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;)V
     .locals 8
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -997,6 +1054,9 @@
 
 .method writeBitmap(Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
     .locals 11
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x13
+    .end annotation
 
     .line 626
     sget-boolean v0, Landroid/support/v4/print/PrintHelper;->IS_MIN_MARGINS_HANDLING_CORRECT:Z

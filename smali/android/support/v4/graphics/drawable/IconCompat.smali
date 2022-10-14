@@ -47,22 +47,64 @@
 
 # instance fields
 .field public mData:[B
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field public mInt1:I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field public mInt2:I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field mObj1:Ljava/lang/Object;
 
 .field public mParcelable:Landroid/os/Parcelable;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field public mTintList:Landroid/content/res/ColorStateList;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field mTintMode:Landroid/graphics/PorterDuff$Mode;
 
 .field public mTintModeStr:Ljava/lang/String;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field public mType:I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 
 # direct methods
@@ -79,6 +121,11 @@
 
 .method public constructor <init>()V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 307
     invoke-direct {p0}, Landroidx/versionedparcelable/CustomVersionedParcelable;-><init>()V
@@ -120,6 +167,12 @@
 
 .method public static createFromBundle(Landroid/os/Bundle;)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 4
+    .param p0    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const-string v0, "type"
 
@@ -275,6 +328,20 @@
 
 .method public static createFromIcon(Landroid/content/Context;Landroid/graphics/drawable/Icon;)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/graphics/drawable/Icon;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     .line 840
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -355,6 +422,22 @@
 
 .method public static createFromIcon(Landroid/graphics/drawable/Icon;)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 2
+    .param p0    # Landroid/graphics/drawable/Icon;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 866
     invoke-static {p0}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
@@ -417,6 +500,8 @@
 
 .method static createLegacyIconFromAdaptiveIcon(Landroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;
     .locals 9
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
 
     .line 999
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -719,6 +804,10 @@
 
 .method public static createWithResource(Landroid/content/Context;I)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     if-eqz p0, :cond_0
 
@@ -750,6 +839,15 @@
 
 .method public static createWithResource(Landroid/content/res/Resources;Ljava/lang/String;I)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 2
+    .param p2    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     if-eqz p1, :cond_2
 
@@ -819,6 +917,19 @@
 
 .method private static getResId(Landroid/graphics/drawable/Icon;)I
     .locals 6
+    .param p0    # Landroid/graphics/drawable/Icon;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/DrawableRes;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/IdRes;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     const-string v0, "Unable to get icon resource"
 
@@ -900,6 +1011,16 @@
 
 .method private static getResPackage(Landroid/graphics/drawable/Icon;)Ljava/lang/String;
     .locals 7
+    .param p0    # Landroid/graphics/drawable/Icon;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     const-string v0, "Unable to get icon package"
 
@@ -1031,6 +1152,7 @@
 
     const/4 v0, 0x1
 
+    .line 575
     new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v2, 0x0
@@ -1039,7 +1161,6 @@
 
     const-string p1, "Unable to find pkg=%s for icon"
 
-    .line 575
     invoke-static {p1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1
@@ -1053,6 +1174,13 @@
 
 .method private static getType(Landroid/graphics/drawable/Icon;)I
     .locals 7
+    .param p0    # Landroid/graphics/drawable/Icon;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     const-string v0, "Unable to get icon type "
 
@@ -1172,6 +1300,16 @@
 
 .method private static getUri(Landroid/graphics/drawable/Icon;)Landroid/net/Uri;
     .locals 7
+    .param p0    # Landroid/graphics/drawable/Icon;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     const-string v0, "Unable to get icon uri"
 
@@ -1356,6 +1494,8 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-object v0, v1
+
     goto :goto_2
 
     :catch_0
@@ -1390,7 +1530,7 @@
 
     invoke-virtual {v1, v0}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -1417,26 +1557,26 @@
     invoke-static {v5, v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
-    move-object v1, v3
+    move-object v0, v3
 
     :goto_2
-    if-eqz v1, :cond_7
+    if-eqz v0, :cond_7
 
     .line 553
-    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
+    new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
     .line 554
-    invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, p1, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    invoke-direct {v1, p1, v0}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    return-object v0
+    return-object v1
 
     .line 531
     :cond_4
@@ -1508,9 +1648,9 @@
     :catch_2
     move-exception p1
 
+    .line 524
     new-array v0, v4, [Ljava/lang/Object;
 
-    .line 524
     iget v4, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mInt1:I
 
     .line 525
@@ -1611,6 +1751,23 @@
 # virtual methods
 .method public addToShortcutIntent(Landroid/content/Intent;Landroid/graphics/drawable/Drawable;Landroid/content/Context;)V
     .locals 4
+    .param p1    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 590
     invoke-virtual {p0, p3}, Landroid/support/v4/graphics/drawable/IconCompat;->checkResource(Landroid/content/Context;)V
@@ -1852,6 +2009,11 @@
 
 .method public checkResource(Landroid/content/Context;)V
     .locals 8
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 461
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
@@ -1960,6 +2122,8 @@
 
 .method public getResId()I
     .locals 3
+    .annotation build Landroid/support/annotation/IdRes;
+    .end annotation
 
     .line 356
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
@@ -2023,6 +2187,8 @@
 
 .method public getResPackage()Ljava/lang/String;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 338
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
@@ -2132,6 +2298,8 @@
 
 .method public getUri()Landroid/net/Uri;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 374
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
@@ -2511,6 +2679,10 @@
 
 .method public setTint(I)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 0
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 387
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
@@ -2687,6 +2859,9 @@
 
 .method public toIcon()Landroid/graphics/drawable/Icon;
     .locals 3
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x17
+    .end annotation
 
     .line 420
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I

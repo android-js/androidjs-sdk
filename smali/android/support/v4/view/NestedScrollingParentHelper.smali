@@ -12,6 +12,10 @@
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
     .locals 0
+    .param p1    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,6 +39,14 @@
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
     .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -46,6 +58,14 @@
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
     .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 77
     iput p3, p0, Landroid/support/v4/view/NestedScrollingParentHelper;->mNestedScrollAxes:I
@@ -55,6 +75,10 @@
 
 .method public onStopNestedScroll(Landroid/view/View;)V
     .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -66,6 +90,10 @@
 
 .method public onStopNestedScroll(Landroid/view/View;I)V
     .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 p1, 0x0
 

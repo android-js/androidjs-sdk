@@ -58,6 +58,10 @@
 # virtual methods
 .method public onChanged(Ljava/lang/Object;)V
     .locals 2
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TX;)V"
@@ -91,6 +95,9 @@
     .line 140
     :cond_1
     iput-object p1, p0, Landroid/arch/lifecycle/Transformations$2;->mSource:Landroid/arch/lifecycle/LiveData;
+
+    .line 141
+    iget-object p1, p0, Landroid/arch/lifecycle/Transformations$2;->mSource:Landroid/arch/lifecycle/LiveData;
 
     if-eqz p1, :cond_2
 

@@ -1,5 +1,6 @@
 .class public final Lcom/android/js/webview/R$id;
 .super Ljava/lang/Object;
+.source "R.java"
 
 
 # annotations
@@ -446,9 +447,10 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
+    .line 4372
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

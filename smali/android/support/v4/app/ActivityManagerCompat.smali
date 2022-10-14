@@ -15,6 +15,10 @@
 
 .method public static isLowRamDevice(Landroid/app/ActivityManager;)Z
     .locals 2
+    .param p0    # Landroid/app/ActivityManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 40
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

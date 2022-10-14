@@ -23,6 +23,16 @@
 
 .method public static getBinder(Landroid/os/Bundle;Ljava/lang/String;)Landroid/os/IBinder;
     .locals 2
+    .param p0    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 105
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -49,6 +59,18 @@
 
 .method public static putBinder(Landroid/os/Bundle;Ljava/lang/String;Landroid/os/IBinder;)V
     .locals 2
+    .param p0    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/os/IBinder;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 121
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

@@ -46,6 +46,14 @@
 
 .method public static hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
     .locals 9
+    .param p0    # Landroid/graphics/Paint;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 45
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -217,7 +225,7 @@
 .end method
 
 .method private static obtainEmptyRects()Landroid/support/v4/util/Pair;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -233,45 +241,47 @@
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/support/v4/util/Pair;
+    check-cast v0, Landroid/support/v4/util/Pair;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 110
-    new-instance v1, Landroid/support/v4/util/Pair;
+    new-instance v0, Landroid/support/v4/util/Pair;
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    new-instance v3, Landroid/graphics/Rect;
-
-    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
-
-    invoke-direct {v1, v2, v3}, Landroid/support/v4/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v0, v1, v2}, Landroid/support/v4/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 111
-    invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+    sget-object v1, Landroid/support/v4/graphics/PaintCompat;->sRectThreadLocal:Ljava/lang/ThreadLocal;
+
+    invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     goto :goto_0
 
     .line 113
     :cond_0
-    iget-object v0, v1, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
+    iget-object v1, v0, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v0, Landroid/graphics/Rect;
+    check-cast v1, Landroid/graphics/Rect;
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
 
     .line 114
-    iget-object v0, v1, Landroid/support/v4/util/Pair;->second:Ljava/lang/Object;
+    iget-object v1, v0, Landroid/support/v4/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v0, Landroid/graphics/Rect;
+    check-cast v1, Landroid/graphics/Rect;
 
-    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method

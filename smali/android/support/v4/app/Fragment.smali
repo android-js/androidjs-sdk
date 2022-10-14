@@ -115,6 +115,9 @@
 .field mSavedFragmentState:Landroid/os/Bundle;
 
 .field mSavedUserVisibleHint:Ljava/lang/Boolean;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field mSavedViewState:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -261,6 +264,10 @@
 
 .method public static instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/support/v4/app/Fragment;
     .locals 5
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     const-string v0, " empty constructor that is public"
 
@@ -274,11 +281,11 @@
 
     invoke-virtual {v3, p1}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Ljava/lang/Class;
+    check-cast v3, Ljava/lang/Class;
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
     .line 440
     invoke-virtual {p0}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
@@ -287,18 +294,20 @@
 
     invoke-virtual {p0, p1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v4
+    move-result-object v3
 
     .line 441
-    invoke-virtual {v3, p1, v4}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object p0, Landroid/support/v4/app/Fragment;->sClassMap:Landroid/support/v4/util/SimpleArrayMap;
+
+    invoke-virtual {p0, p1, v3}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
     const/4 p0, 0x0
 
-    new-array v3, p0, [Ljava/lang/Class;
-
     .line 443
-    invoke-virtual {v4, v3}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
+    new-array v4, p0, [Ljava/lang/Class;
+
+    invoke-virtual {v3, v4}, Ljava/lang/Class;->getConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v3
 
@@ -467,7 +476,7 @@
 .end method
 
 .method static isSupportFragmentClass(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 2
+    .locals 1
 
     .line 480
     :try_start_0
@@ -475,11 +484,11 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/lang/Class;
+    check-cast v0, Ljava/lang/Class;
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
     .line 483
     invoke-virtual {p0}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
@@ -488,16 +497,18 @@
 
     invoke-virtual {p0, p1}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 484
-    invoke-virtual {v0, p1, v1}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object p0, Landroid/support/v4/app/Fragment;->sClassMap:Landroid/support/v4/util/SimpleArrayMap;
+
+    invoke-virtual {p0, p1, v0}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 486
     :cond_0
     const-class p0, Landroid/support/v4/app/Fragment;
 
-    invoke-virtual {p0, v1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result p0
     :try_end_0
@@ -523,6 +534,8 @@
 
     if-nez v0, :cond_0
 
+    move-object v0, v1
+
     goto :goto_0
 
     :cond_0
@@ -532,8 +545,6 @@
     iput-boolean v2, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mEnterTransitionPostponed:Z
 
     .line 2276
-    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
-
     iget-object v0, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mStartEnterTransitionListener:Landroid/support/v4/app/Fragment$OnStartEnterTransitionListener;
 
     .line 2277
@@ -541,13 +552,11 @@
 
     iput-object v1, v2, Landroid/support/v4/app/Fragment$AnimationInfo;->mStartEnterTransitionListener:Landroid/support/v4/app/Fragment$OnStartEnterTransitionListener;
 
-    move-object v1, v0
-
     :goto_0
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     .line 2280
-    invoke-interface {v1}, Landroid/support/v4/app/Fragment$OnStartEnterTransitionListener;->onStartEnterTransition()V
+    invoke-interface {v0}, Landroid/support/v4/app/Fragment$OnStartEnterTransitionListener;->onStartEnterTransition()V
 
     :cond_1
     return-void
@@ -1096,6 +1105,8 @@
 
 .method public final getActivity()Landroid/support/v4/app/FragmentActivity;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 710
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -1225,6 +1236,8 @@
 
 .method public final getArguments()Landroid/os/Bundle;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 592
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mArguments:Landroid/os/Bundle;
@@ -1234,6 +1247,8 @@
 
 .method public final getChildFragmentManager()Landroid/support/v4/app/FragmentManager;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 844
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
@@ -1301,6 +1316,8 @@
 
 .method public getContext()Landroid/content/Context;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 683
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -1322,6 +1339,8 @@
 
 .method public getEnterTransition()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 1961
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -1360,6 +1379,8 @@
 
 .method public getExitTransition()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2040
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -1398,6 +1419,8 @@
 
 .method public final getFragmentManager()Landroid/support/v4/app/FragmentManager;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 812
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
@@ -1407,6 +1430,8 @@
 
 .method public final getHost()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 737
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -1456,6 +1481,19 @@
 
 .method public getLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
     .locals 1
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1575,6 +1613,8 @@
 
 .method public final getParentFragment()Landroid/support/v4/app/Fragment;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 874
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mParentFragment:Landroid/support/v4/app/Fragment;
@@ -1619,6 +1659,8 @@
 
 .method public final getResources()Landroid/content/res/Resources;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 760
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->requireContext()Landroid/content/Context;
@@ -1643,6 +1685,8 @@
 
 .method public getReturnTransition()Ljava/lang/Object;
     .locals 2
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2000
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -1678,6 +1722,8 @@
 
 .method public getSharedElementEnterTransition()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2111
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -1697,6 +1743,8 @@
 
 .method public getSharedElementReturnTransition()Ljava/lang/Object;
     .locals 2
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 2149
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -1752,6 +1800,12 @@
 
 .method public final getString(I)Ljava/lang/String;
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 782
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getResources()Landroid/content/res/Resources;
@@ -1767,6 +1821,12 @@
 
 .method public final varargs getString(I[Ljava/lang/Object;)Ljava/lang/String;
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 795
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getResources()Landroid/content/res/Resources;
@@ -1782,6 +1842,8 @@
 
 .method public final getTag()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 569
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mTag:Ljava/lang/String;
@@ -1791,6 +1853,8 @@
 
 .method public final getTargetFragment()Landroid/support/v4/app/Fragment;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 666
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mTarget:Landroid/support/v4/app/Fragment;
@@ -1809,6 +1873,12 @@
 
 .method public final getText(I)Ljava/lang/CharSequence;
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 771
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getResources()Landroid/content/res/Resources;
@@ -1833,6 +1903,8 @@
 
 .method public getView()Landroid/view/View;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 1577
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
@@ -1842,6 +1914,11 @@
 
 .method public getViewLifecycleOwner()Landroid/arch/lifecycle/LifecycleOwner;
     .locals 2
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 296
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mViewLifecycleOwner:Landroid/arch/lifecycle/LifecycleOwner;
@@ -1863,6 +1940,9 @@
 
 .method public getViewLifecycleOwnerLiveData()Landroid/arch/lifecycle/LiveData;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1880,6 +1960,8 @@
 
 .method public getViewModelStore()Landroid/arch/lifecycle/ViewModelStore;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 327
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getContext()Landroid/content/Context;
@@ -1919,6 +2001,11 @@
 
 .method public final hasOptionsMenu()Z
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 945
     iget-boolean v0, p0, Landroid/support/v4/app/Fragment;->mHasMenu:Z
@@ -2016,6 +2103,8 @@
     iput-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
     .line 2386
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
+
     iget-object v1, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
 
     new-instance v2, Landroid/support/v4/app/Fragment$2;
@@ -2127,6 +2216,11 @@
 
 .method public final isMenuVisible()Z
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 951
     iget-boolean v0, p0, Landroid/support/v4/app/Fragment;->mMenuVisible:Z
@@ -2267,6 +2361,12 @@
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 0
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 p1, 0x1
 
@@ -2284,6 +2384,9 @@
 
 .method public onAttach(Landroid/app/Activity;)V
     .locals 0
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2297,6 +2400,8 @@
 
 .method public onAttach(Landroid/content/Context;)V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 p1, 0x1
 
@@ -2340,6 +2445,8 @@
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 p1, 0x1
 
@@ -2359,6 +2466,12 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 1
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2426,6 +2539,20 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
+    .param p1    # Landroid/view/LayoutInflater;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 p1, 0x0
 
@@ -2434,6 +2561,8 @@
 
 .method public onDestroy()V
     .locals 2
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2482,6 +2611,8 @@
 
 .method public onDestroyView()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2493,6 +2624,8 @@
 
 .method public onDetach()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2504,6 +2637,12 @@
 
 .method public onGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
     .locals 0
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 1277
     invoke-virtual {p0, p1}, Landroid/support/v4/app/Fragment;->getLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
@@ -2521,6 +2660,9 @@
 
 .method public onInflate(Landroid/app/Activity;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
     .locals 0
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
+
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2534,6 +2676,8 @@
 
 .method public onInflate(Landroid/content/Context;Landroid/util/AttributeSet;Landroid/os/Bundle;)V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 p1, 0x1
 
@@ -2571,6 +2715,8 @@
 
 .method public onLowMemory()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2602,6 +2748,8 @@
 
 .method public onPause()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2625,12 +2773,22 @@
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
     .locals 0
+    .param p2    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method public onResume()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2642,12 +2800,18 @@
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 0
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method public onStart()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2659,6 +2823,8 @@
 
 .method public onStop()V
     .locals 1
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 v0, 0x1
 
@@ -2670,12 +2836,26 @@
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
     .locals 0
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method public onViewStateRestored(Landroid/os/Bundle;)V
     .locals 0
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
 
     const/4 p1, 0x1
 
@@ -2687,6 +2867,8 @@
 
 .method peekChildFragmentManager()Landroid/support/v4/app/FragmentManager;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 865
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
@@ -2934,6 +3116,18 @@
 
 .method performCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)V
     .locals 1
+    .param p1    # Landroid/view/LayoutInflater;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/view/ViewGroup;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 2425
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
@@ -2967,6 +3161,9 @@
     move-result-object p1
 
     iput-object p1, p0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
+
+    .line 2440
+    iget-object p1, p0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
 
     if-eqz p1, :cond_1
 
@@ -3263,6 +3460,12 @@
 
 .method performGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
     .locals 0
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 1308
     invoke-virtual {p0, p1}, Landroid/support/v4/app/Fragment;->onGetLayoutInflater(Landroid/os/Bundle;)Landroid/view/LayoutInflater;
@@ -3271,6 +3474,9 @@
 
     .line 1309
     iput-object p1, p0, Landroid/support/v4/app/Fragment;->mLayoutInflater:Landroid/view/LayoutInflater;
+
+    .line 1310
+    iget-object p1, p0, Landroid/support/v4/app/Fragment;->mLayoutInflater:Landroid/view/LayoutInflater;
 
     return-object p1
 .end method
@@ -3856,6 +4062,10 @@
 
 .method public final requestPermissions([Ljava/lang/String;I)V
     .locals 1
+    .param p1    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 1211
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -3896,6 +4106,8 @@
 
 .method public final requireActivity()Landroid/support/v4/app/FragmentActivity;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 722
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -3935,6 +4147,8 @@
 
 .method public final requireContext()Landroid/content/Context;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 694
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getContext()Landroid/content/Context;
@@ -3974,6 +4188,8 @@
 
 .method public final requireFragmentManager()Landroid/support/v4/app/FragmentManager;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 830
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
@@ -4013,6 +4229,8 @@
 
 .method public final requireHost()Ljava/lang/Object;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 748
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getHost()Ljava/lang/Object;
@@ -4052,6 +4270,10 @@
 
 .method restoreChildFragmentState(Landroid/os/Bundle;)V
     .locals 2
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-eqz p1, :cond_1
 
@@ -4230,6 +4452,10 @@
 
 .method public setArguments(Landroid/os/Bundle;)V
     .locals 1
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 580
     iget v0, p0, Landroid/support/v4/app/Fragment;->mIndex:I
@@ -4277,6 +4503,10 @@
 
 .method public setEnterTransition(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 1947
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;->ensureAnimationInfo()Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -4303,6 +4533,10 @@
 
 .method public setExitTransition(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 2023
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;->ensureAnimationInfo()Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -4419,6 +4653,10 @@
 
 .method public setInitialSavedState(Landroid/support/v4/app/Fragment$SavedState;)V
     .locals 1
+    .param p1    # Landroid/support/v4/app/Fragment$SavedState;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 619
     iget v0, p0, Landroid/support/v4/app/Fragment;->mIndex:I
@@ -4539,9 +4777,7 @@
     iput p1, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mNextTransition:I
 
     .line 2780
-    iget-object p1, p0, Landroid/support/v4/app/Fragment;->mAnimationInfo:Landroid/support/v4/app/Fragment$AnimationInfo;
-
-    iput p2, p1, Landroid/support/v4/app/Fragment$AnimationInfo;->mNextTransitionStyle:I
+    iput p2, v0, Landroid/support/v4/app/Fragment$AnimationInfo;->mNextTransitionStyle:I
 
     return-void
 .end method
@@ -4621,6 +4857,10 @@
 
 .method public setReenterTransition(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 2062
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;->ensureAnimationInfo()Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -4643,6 +4883,10 @@
 
 .method public setReturnTransition(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 1983
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;->ensureAnimationInfo()Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -4656,6 +4900,10 @@
 
 .method public setSharedElementEnterTransition(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 2097
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;->ensureAnimationInfo()Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -4669,6 +4917,10 @@
 
 .method public setSharedElementReturnTransition(Ljava/lang/Object;)V
     .locals 1
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 2132
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;->ensureAnimationInfo()Landroid/support/v4/app/Fragment$AnimationInfo;
@@ -4695,6 +4947,10 @@
 
 .method public setTargetFragment(Landroid/support/v4/app/Fragment;I)V
     .locals 2
+    .param p1    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 643
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
@@ -4881,6 +5137,10 @@
 
 .method public shouldShowRequestPermissionRationale(Ljava/lang/String;)Z
     .locals 1
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 1260
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -4913,6 +5173,10 @@
 
 .method public startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 2
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 1081
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -4966,6 +5230,10 @@
 
 .method public startActivityForResult(Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 1
+    .param p3    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 1100
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -5006,6 +5274,10 @@
 
 .method public startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 10
+    .param p3    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;

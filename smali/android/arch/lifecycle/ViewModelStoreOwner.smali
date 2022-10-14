@@ -5,4 +5,6 @@
 
 # virtual methods
 .method public abstract getViewModelStore()Landroid/arch/lifecycle/ViewModelStore;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 .end method

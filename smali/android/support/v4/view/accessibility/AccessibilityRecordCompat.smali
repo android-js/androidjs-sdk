@@ -142,6 +142,10 @@
 
 .method public static setSource(Landroid/view/accessibility/AccessibilityRecord;Landroid/view/View;I)V
     .locals 2
+    .param p0    # Landroid/view/accessibility/AccessibilityRecord;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 137
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

@@ -24,6 +24,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/accessibility/AccessibilityManagerCompat$AccessibilityStateChangeListener;)V
     .locals 0
+    .param p1    # Landroid/support/v4/view/accessibility/AccessibilityManagerCompat$AccessibilityStateChangeListener;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -19,15 +19,36 @@
 
 # instance fields
 .field private final mContentUri:Landroid/net/Uri;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mDescription:Landroid/content/ClipDescription;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mLinkUri:Landroid/net/Uri;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
     .locals 0
+    .param p1    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/content/ClipDescription;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,6 +69,8 @@
 # virtual methods
 .method public getContentUri()Landroid/net/Uri;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 71
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;->mContentUri:Landroid/net/Uri;
@@ -57,6 +80,8 @@
 
 .method public getDescription()Landroid/content/ClipDescription;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 77
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;->mDescription:Landroid/content/ClipDescription;
@@ -66,6 +91,8 @@
 
 .method public getInputContentInfo()Ljava/lang/Object;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -74,6 +101,8 @@
 
 .method public getLinkUri()Landroid/net/Uri;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 83
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatBaseImpl;->mLinkUri:Landroid/net/Uri;

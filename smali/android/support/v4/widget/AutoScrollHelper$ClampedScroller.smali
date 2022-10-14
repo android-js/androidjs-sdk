@@ -72,7 +72,7 @@
 .end method
 
 .method private getValueAt(J)F
-    .locals 9
+    .locals 7
 
     .line 800
     iget-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
@@ -87,29 +87,29 @@
 
     .line 802
     :cond_0
-    iget-wide v3, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
+    iget-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
-    const-wide/16 v5, 0x0
+    const-wide/16 v3, 0x0
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    cmp-long v8, v3, v5
+    cmp-long v6, v0, v3
 
-    if-ltz v8, :cond_2
+    if-ltz v6, :cond_2
 
-    cmp-long v5, p1, v3
+    cmp-long v3, p1, v0
 
-    if-gez v5, :cond_1
+    if-gez v3, :cond_1
 
     goto :goto_0
 
     :cond_1
-    sub-long/2addr p1, v3
+    sub-long/2addr p1, v0
 
     .line 807
     iget v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
 
-    sub-float v1, v7, v0
+    sub-float v1, v5, v0
 
     long-to-float p1, p1
 
@@ -120,7 +120,7 @@
     div-float/2addr p1, p2
 
     .line 808
-    invoke-static {p1, v2, v7}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
+    invoke-static {p1, v2, v5}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
 
     move-result p1
 
@@ -130,8 +130,11 @@
 
     return v1
 
+    .line 803
     :cond_2
     :goto_0
+    iget-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
+
     sub-long/2addr p1, v0
 
     const/high16 v0, 0x3f000000    # 0.5f
@@ -145,7 +148,7 @@
 
     div-float/2addr p1, p2
 
-    invoke-static {p1, v2, v7}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
+    invoke-static {p1, v2, v5}, Landroid/support/v4/widget/AutoScrollHelper;->constrain(FFF)F
 
     move-result p1
 
@@ -405,7 +408,7 @@
 .end method
 
 .method public start()V
-    .locals 4
+    .locals 2
 
     .line 776
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
@@ -414,12 +417,14 @@
 
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
-    const-wide/16 v2, -0x1
+    const-wide/16 v0, -0x1
 
     .line 777
-    iput-wide v2, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
+    iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
 
     .line 778
+    iget-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
+
     iput-wide v0, p0, Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;->mDeltaTime:J
 
     const/high16 v0, 0x3f000000    # 0.5f

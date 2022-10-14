@@ -50,6 +50,10 @@
 
 .method public static getAutoSizeMaxTextSize(Landroid/widget/TextView;)I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 454
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -88,6 +92,10 @@
 
 .method public static getAutoSizeMinTextSize(Landroid/widget/TextView;)I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 437
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -126,6 +134,10 @@
 
 .method public static getAutoSizeStepGranularity(Landroid/widget/TextView;)I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 420
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -164,6 +176,12 @@
 
 .method public static getAutoSizeTextAvailableSizes(Landroid/widget/TextView;)[I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 471
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -197,6 +215,7 @@
     :cond_1
     const/4 p0, 0x0
 
+    .line 477
     new-array p0, p0, [I
 
     return-object p0
@@ -204,6 +223,10 @@
 
 .method public static getAutoSizeTextType(Landroid/widget/TextView;)I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 404
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -242,6 +265,12 @@
 
 .method public static getCompoundDrawablesRelative(Landroid/widget/TextView;)[Landroid/graphics/drawable/Drawable;
     .locals 4
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 293
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -317,6 +346,10 @@
 
 .method public static getFirstBaselineToTopHeight(Landroid/widget/TextView;)I
     .locals 1
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 766
     invoke-virtual {p0}, Landroid/widget/TextView;->getPaddingTop()I
@@ -340,6 +373,10 @@
 
 .method public static getLastBaselineToBottomHeight(Landroid/widget/TextView;)I
     .locals 1
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 776
     invoke-virtual {p0}, Landroid/widget/TextView;->getPaddingBottom()I
@@ -363,6 +400,10 @@
 
 .method public static getMaxLines(Landroid/widget/TextView;)I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 224
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -448,6 +489,10 @@
 
 .method public static getMinLines(Landroid/widget/TextView;)I
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 250
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -533,6 +578,13 @@
 
 .method private static getTextDirection(Landroid/text/TextDirectionHeuristic;)I
     .locals 2
+    .param p0    # Landroid/text/TextDirectionHeuristic;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x12
+    .end annotation
 
     .line 961
     sget-object v0, Landroid/text/TextDirectionHeuristics;->FIRSTSTRONG_RTL:Landroid/text/TextDirectionHeuristic;
@@ -617,6 +669,13 @@
 
 .method private static getTextDirectionHeuristic(Landroid/widget/TextView;)Landroid/text/TextDirectionHeuristic;
     .locals 4
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x12
+    .end annotation
 
     .line 905
     invoke-virtual {p0}, Landroid/widget/TextView;->getTransformationMethod()Landroid/text/method/TransformationMethod;
@@ -783,6 +842,12 @@
 
 .method public static getTextMetricsParams(Landroid/widget/TextView;)Landroid/support/v4/text/PrecomputedTextCompat$Params;
     .locals 3
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 813
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -960,6 +1025,10 @@
 
 .method public static setAutoSizeTextTypeUniformWithConfiguration(Landroid/widget/TextView;IIII)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -996,6 +1065,14 @@
 
 .method public static setAutoSizeTextTypeUniformWithPresetSizes(Landroid/widget/TextView;[II)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1032,6 +1109,10 @@
 
 .method public static setAutoSizeTextTypeWithDefaults(Landroid/widget/TextView;I)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 324
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1063,6 +1144,26 @@
 
 .method public static setCompoundDrawablesRelative(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 149
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1132,6 +1233,26 @@
 
 .method public static setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;IIII)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p2    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p3    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
 
     .line 208
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1201,6 +1322,26 @@
 
 .method public static setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p4    # Landroid/graphics/drawable/Drawable;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 176
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1270,6 +1411,14 @@
 
 .method public static setCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)V
     .locals 0
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/ActionMode$Callback;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 505
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
@@ -1284,6 +1433,18 @@
 
 .method public static setFirstBaselineToTopHeight(Landroid/widget/TextView;I)V
     .locals 3
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 691
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkArgumentNonnegative(I)I
@@ -1372,6 +1533,18 @@
 
 .method public static setLastBaselineToBottomHeight(Landroid/widget/TextView;I)V
     .locals 3
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 736
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkArgumentNonnegative(I)I
@@ -1445,6 +1618,18 @@
 
 .method public static setLineHeight(Landroid/widget/TextView;I)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/IntRange;
+            from = 0x0L
+        .end annotation
+
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 794
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkArgumentNonnegative(I)I
@@ -1477,6 +1662,14 @@
 
 .method public static setPrecomputedText(Landroid/widget/TextView;Landroid/support/v4/text/PrecomputedTextCompat;)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 882
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1530,6 +1723,14 @@
 
 .method public static setTextAppearance(Landroid/widget/TextView;I)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # I
+        .annotation build Landroid/support/annotation/StyleRes;
+        .end annotation
+    .end param
 
     .line 281
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1557,6 +1758,14 @@
 
 .method public static setTextMetricsParams(Landroid/widget/TextView;Landroid/support/v4/text/PrecomputedTextCompat$Params;)V
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 840
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1662,6 +1871,22 @@
 
 .method public static wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
     .locals 2
+    .param p0    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/ActionMode$Callback;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 517
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

@@ -158,6 +158,11 @@
     .line 40
     iput v1, p0, Landroid/support/constraint/solver/state/Dimension;->mRatio:F
 
+    .line 41
+    sget-object v1, Landroid/support/constraint/solver/state/Dimension;->WRAP_DIMENSION:Ljava/lang/Object;
+
+    iput-object v1, p0, Landroid/support/constraint/solver/state/Dimension;->mInitialValue:Ljava/lang/Object;
+
     .line 42
     iput-boolean v0, p0, Landroid/support/constraint/solver/state/Dimension;->mIsSuggested:Z
 

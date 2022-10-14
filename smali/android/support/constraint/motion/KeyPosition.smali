@@ -542,7 +542,9 @@
     if-eqz v3, :cond_1
 
     .line 220
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object p5, p5, v2
+
+    invoke-virtual {v4, p5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p5
 
@@ -708,6 +710,8 @@
     if-eqz v0, :cond_1
 
     .line 173
+    aget-object v0, p5, v8
+
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
@@ -786,7 +790,9 @@
     if-eqz v0, :cond_1
 
     .line 197
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object p6, p6, p3
+
+    invoke-virtual {v1, p6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p6
 
@@ -853,16 +859,12 @@
 .end method
 
 .method public setValue(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
 
     .line 346
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
     move-result v0
-
-    const/4 v1, -0x1
 
     sparse-switch v0, :sswitch_data_0
 
@@ -875,14 +877,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    const/4 p1, 0x6
 
-    :cond_0
-    const/4 v1, 0x6
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_1
     const-string v0, "percentX"
@@ -891,14 +890,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    const/4 p1, 0x5
 
-    :cond_1
-    const/4 v1, 0x5
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_2
     const-string v0, "sizePercent"
@@ -907,14 +903,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    const/4 p1, 0x4
 
-    :cond_2
-    const/4 v1, 0x4
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_3
     const-string v0, "drawPath"
@@ -923,14 +916,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    const/4 p1, 0x1
 
-    :cond_3
-    const/4 v1, 0x3
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_4
     const-string v0, "percentHeight"
@@ -939,14 +929,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_4
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    const/4 p1, 0x3
 
-    :cond_4
-    const/4 v1, 0x2
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_5
     const-string v0, "percentWidth"
@@ -955,14 +942,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_5
+    if-eqz p1, :cond_0
 
-    goto :goto_0
+    const/4 p1, 0x2
 
-    :cond_5
-    const/4 v1, 0x1
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_6
     const-string v0, "transitionEasing"
@@ -971,17 +955,20 @@
 
     move-result p1
 
-    if-nez p1, :cond_6
+    if-eqz p1, :cond_0
 
-    goto :goto_0
-
-    :cond_6
-    const/4 v1, 0x0
-
-    :goto_0
-    packed-switch v1, :pswitch_data_0
+    const/4 p1, 0x0
 
     goto :goto_1
+
+    :cond_0
+    :goto_0
+    const/4 p1, -0x1
+
+    :goto_1
+    packed-switch p1, :pswitch_data_0
+
+    goto :goto_2
 
     .line 366
     :pswitch_0
@@ -991,7 +978,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
-    goto :goto_1
+    goto :goto_2
 
     .line 363
     :pswitch_1
@@ -1001,7 +988,7 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    goto :goto_1
+    goto :goto_2
 
     .line 360
     :pswitch_2
@@ -1013,37 +1000,37 @@
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
 
-    goto :goto_1
-
-    .line 351
-    :pswitch_3
-    invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toInt(Ljava/lang/Object;)I
-
-    move-result p1
-
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mDrawPath:I
-
-    goto :goto_1
+    goto :goto_2
 
     .line 357
-    :pswitch_4
+    :pswitch_3
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
 
     move-result p1
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
 
-    goto :goto_1
+    goto :goto_2
 
     .line 354
-    :pswitch_5
+    :pswitch_4
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
 
     move-result p1
 
     iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
 
-    goto :goto_1
+    goto :goto_2
+
+    .line 351
+    :pswitch_5
+    invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toInt(Ljava/lang/Object;)I
+
+    move-result p1
+
+    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mDrawPath:I
+
+    goto :goto_2
 
     .line 348
     :pswitch_6
@@ -1053,10 +1040,8 @@
 
     iput-object p1, p0, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
 
-    :goto_1
+    :goto_2
     return-void
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

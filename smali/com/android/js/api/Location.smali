@@ -30,9 +30,11 @@
     .line 21
     iput-object p1, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
 
+    .line 22
+    iget-object p1, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
+
     const-string v0, "location"
 
-    .line 22
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
@@ -122,15 +124,20 @@
 
     if-eqz v1, :cond_1
 
+    .line 43
     :try_start_1
+    iget-object v1, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
+
     const-string v3, "gps"
 
-    .line 43
     invoke-virtual {v1, v3}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
+
+    .line 44
+    iget-object v1, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
     if-eqz v1, :cond_1
 

@@ -78,6 +78,8 @@
 
 .method public getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 96
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -121,6 +123,9 @@
 
 .method public indexOf(Ljava/util/Locale;)I
     .locals 1
+    .annotation build Landroid/support/annotation/IntRange;
+        from = -0x1L
+    .end annotation
 
     .line 70
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -147,6 +152,10 @@
 
 .method public varargs setLocaleList([Ljava/util/Locale;)V
     .locals 1
+    .param p1    # [Ljava/util/Locale;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 43
     new-instance v0, Landroid/support/v4/os/LocaleListHelper;
@@ -160,6 +169,9 @@
 
 .method public size()I
     .locals 1
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x0L
+    .end annotation
 
     .line 64
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;

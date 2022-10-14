@@ -44,6 +44,14 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Landroid/support/v4/widget/DrawerLayout;II)V
     .locals 7
+    .param p3    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
 
     const/4 v2, 0x0
 
@@ -67,6 +75,14 @@
 
 .method public constructor <init>(Landroid/app/Activity;Landroid/support/v4/widget/DrawerLayout;Landroid/support/v7/widget/Toolbar;II)V
     .locals 7
+    .param p4    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .param p5    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
 
     const/4 v4, 0x0
 
@@ -90,6 +106,14 @@
 
 .method constructor <init>(Landroid/app/Activity;Landroid/support/v7/widget/Toolbar;Landroid/support/v4/widget/DrawerLayout;Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;II)V
     .locals 1
+    .param p5    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .param p6    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
 
     .line 195
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -238,6 +262,8 @@
 # virtual methods
 .method public getDrawerArrowDrawable()Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 371
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle;->mSlider:Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;
@@ -471,6 +497,10 @@
 
 .method public setDrawerArrowDrawable(Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;)V
     .locals 0
+    .param p1    # Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 380
     iput-object p1, p0, Landroid/support/v7/app/ActionBarDrawerToggle;->mSlider:Landroid/support/v7/graphics/drawable/DrawerArrowDrawable;

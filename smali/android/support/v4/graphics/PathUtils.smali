@@ -15,6 +15,17 @@
 
 .method public static flatten(Landroid/graphics/Path;)Ljava/util/Collection;
     .locals 1
+    .param p0    # Landroid/graphics/Path;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1a
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,6 +49,22 @@
 
 .method public static flatten(Landroid/graphics/Path;F)Ljava/util/Collection;
     .locals 10
+    .param p0    # Landroid/graphics/Path;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # F
+        .annotation build Landroid/support/annotation/FloatRange;
+            from = 0.0
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x1a
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

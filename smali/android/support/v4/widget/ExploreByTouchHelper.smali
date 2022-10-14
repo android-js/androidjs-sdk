@@ -73,11 +73,11 @@
     .line 100
     new-instance v0, Landroid/graphics/Rect;
 
-    const v1, 0x7fffffff
+    const/high16 v1, -0x80000000
 
-    const/high16 v2, -0x80000000
+    const v2, 0x7fffffff
 
-    invoke-direct {v0, v1, v1, v2, v2}, Landroid/graphics/Rect;-><init>(IIII)V
+    invoke-direct {v0, v2, v2, v1, v1}, Landroid/graphics/Rect;-><init>(IIII)V
 
     sput-object v0, Landroid/support/v4/widget/ExploreByTouchHelper;->INVALID_PARENT_BOUNDS:Landroid/graphics/Rect;
 
@@ -100,6 +100,10 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 2
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 135
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat;-><init>()V
@@ -127,9 +131,9 @@
 
     const/4 v0, 0x2
 
+    .line 107
     new-array v0, v0, [I
 
-    .line 107
     iput-object v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempGlobalRect:[I
 
     const/high16 v0, -0x80000000
@@ -419,6 +423,8 @@
 
 .method private createNodeForChild(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 7
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 791
     invoke-static {}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->obtain()Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
@@ -444,12 +450,14 @@
     invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBoundsInParent(Landroid/graphics/Rect;)V
 
     .line 798
+    sget-object v2, Landroid/support/v4/widget/ExploreByTouchHelper;->INVALID_PARENT_BOUNDS:Landroid/graphics/Rect;
+
     invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBoundsInScreen(Landroid/graphics/Rect;)V
 
     .line 799
-    iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
-    invoke-virtual {v0, v3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setParent(Landroid/view/View;)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setParent(Landroid/view/View;)V
 
     .line 802
     invoke-virtual {p0, p1, v0}, Landroid/support/v4/widget/ExploreByTouchHelper;->onPopulateNodeForVirtualView(ILandroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -457,15 +465,15 @@
     .line 805
     invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
     invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getContentDescription()Ljava/lang/CharSequence;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     goto :goto_0
 
@@ -482,81 +490,83 @@
     .line 810
     :cond_1
     :goto_0
-    iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getBoundsInParent(Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getBoundsInParent(Landroid/graphics/Rect;)V
 
     .line 811
-    iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
+    iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v3, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+    sget-object v3, Landroid/support/v4/widget/ExploreByTouchHelper;->INVALID_PARENT_BOUNDS:Landroid/graphics/Rect;
 
-    move-result v3
+    invoke-virtual {v2, v3}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
-    if-nez v3, :cond_c
+    move-result v2
+
+    if-nez v2, :cond_c
 
     .line 816
     invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->getActions()I
 
-    move-result v3
+    move-result v2
 
-    and-int/lit8 v4, v3, 0x40
+    and-int/lit8 v3, v2, 0x40
 
-    if-nez v4, :cond_b
+    if-nez v3, :cond_b
 
-    const/16 v4, 0x80
+    const/16 v3, 0x80
 
-    and-int/2addr v3, v4
+    and-int/2addr v2, v3
 
-    if-nez v3, :cond_a
+    if-nez v2, :cond_a
 
     .line 827
-    iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
-    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v0, v3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setPackageName(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setPackageName(Ljava/lang/CharSequence;)V
 
     .line 828
-    iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
-    invoke-virtual {v0, v3, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setSource(Landroid/view/View;I)V
+    invoke-virtual {v0, v2, p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setSource(Landroid/view/View;I)V
 
     .line 831
-    iget v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
+    iget v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    if-ne v3, p1, :cond_2
+    if-ne v2, p1, :cond_2
 
     .line 832
     invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setAccessibilityFocused(Z)V
 
     .line 833
-    invoke-virtual {v0, v4}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
+    invoke-virtual {v0, v3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     goto :goto_1
 
     .line 835
     :cond_2
-    invoke-virtual {v0, v5}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setAccessibilityFocused(Z)V
+    invoke-virtual {v0, v4}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setAccessibilityFocused(Z)V
 
-    const/16 v3, 0x40
+    const/16 v2, 0x40
 
     .line 836
-    invoke-virtual {v0, v3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     .line 840
     :goto_1
-    iget v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
+    iget v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
-    if-ne v3, p1, :cond_3
+    if-ne v2, p1, :cond_3
 
     const/4 p1, 0x1
 
@@ -568,10 +578,10 @@
     :goto_2
     if-eqz p1, :cond_4
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
     .line 842
-    invoke-virtual {v0, v3}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     goto :goto_3
 
@@ -579,9 +589,9 @@
     :cond_4
     invoke-virtual {v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->isFocusable()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_5
+    if-eqz v2, :cond_5
 
     .line 844
     invoke-virtual {v0, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
@@ -594,9 +604,9 @@
     .line 848
     iget-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
-    iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempGlobalRect:[I
+    iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempGlobalRect:[I
 
-    invoke-virtual {p1, v3}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {p1, v2}, Landroid/view/View;->getLocationOnScreen([I)V
 
     .line 852
     iget-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempScreenRect:Landroid/graphics/Rect;
@@ -605,6 +615,8 @@
 
     .line 853
     iget-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempScreenRect:Landroid/graphics/Rect;
+
+    sget-object v2, Landroid/support/v4/widget/ExploreByTouchHelper;->INVALID_PARENT_BOUNDS:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v2}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
@@ -636,14 +648,14 @@
     if-eq v3, v2, :cond_6
 
     .line 864
-    iget-object v4, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
+    iget-object v5, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
-    invoke-virtual {p1, v4, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setParent(Landroid/view/View;I)V
+    invoke-virtual {p1, v5, v2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setParent(Landroid/view/View;I)V
 
     .line 865
-    sget-object v4, Landroid/support/v4/widget/ExploreByTouchHelper;->INVALID_PARENT_BOUNDS:Landroid/graphics/Rect;
+    sget-object v5, Landroid/support/v4/widget/ExploreByTouchHelper;->INVALID_PARENT_BOUNDS:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v4}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBoundsInParent(Landroid/graphics/Rect;)V
+    invoke-virtual {p1, v5}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setBoundsInParent(Landroid/graphics/Rect;)V
 
     .line 867
     invoke-virtual {p0, v3, p1}, Landroid/support/v4/widget/ExploreByTouchHelper;->onPopulateNodeForVirtualView(ILandroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -656,15 +668,15 @@
     .line 869
     iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempScreenRect:Landroid/graphics/Rect;
 
-    iget-object v4, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
+    iget-object v5, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
 
-    iget v4, v4, Landroid/graphics/Rect;->left:I
+    iget v5, v5, Landroid/graphics/Rect;->left:I
 
     iget-object v6, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempParentRect:Landroid/graphics/Rect;
 
     iget v6, v6, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v3, v4, v6}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {v3, v5, v6}, Landroid/graphics/Rect;->offset(II)V
 
     .line 862
     iget v3, p1, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->mParentVirtualDescendantId:I
@@ -681,7 +693,7 @@
 
     iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempGlobalRect:[I
 
-    aget v2, v2, v5
+    aget v2, v2, v4
 
     iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
@@ -695,14 +707,14 @@
 
     aget v3, v3, v1
 
-    iget-object v4, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
+    iget-object v5, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
     .line 875
-    invoke-virtual {v4}, Landroid/view/View;->getScrollY()I
+    invoke-virtual {v5}, Landroid/view/View;->getScrollY()I
 
-    move-result v4
+    move-result v5
 
-    sub-int/2addr v3, v4
+    sub-int/2addr v3, v5
 
     .line 874
     invoke-virtual {p1, v2, v3}, Landroid/graphics/Rect;->offset(II)V
@@ -724,7 +736,7 @@
 
     iget-object v2, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mTempGlobalRect:[I
 
-    aget v2, v2, v5
+    aget v2, v2, v4
 
     iget-object v3, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
 
@@ -809,17 +821,15 @@
 
     invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_6
-
-    :goto_5
     throw p1
 
-    :goto_6
-    goto :goto_5
+    return-void
 .end method
 
 .method private createNodeForHost()Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 6
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 734
     iget-object v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mHost:Landroid/view/View;
@@ -968,6 +978,14 @@
 
 .method private static guessPreviouslyFocusedRect(Landroid/view/View;ILandroid/graphics/Rect;)Landroid/graphics/Rect;
     .locals 4
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/graphics/Rect;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 450
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
@@ -1157,6 +1175,10 @@
 
 .method private moveFocus(ILandroid/graphics/Rect;)Z
     .locals 9
+    .param p2    # Landroid/graphics/Rect;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 372
     invoke-direct {p0}, Landroid/support/v4/widget/ExploreByTouchHelper;->getAllNodes()Landroid/support/v4/util/SparseArrayCompat;
@@ -1527,6 +1549,10 @@
 
 .method public final dispatchHoverEvent(Landroid/view/MotionEvent;)Z
     .locals 5
+    .param p1    # Landroid/view/MotionEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 182
     iget-object v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mManager:Landroid/view/accessibility/AccessibilityManager;
@@ -1615,6 +1641,10 @@
 
 .method public final dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 6
+    .param p1    # Landroid/view/KeyEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 218
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
@@ -1895,6 +1925,8 @@
 
 .method obtainAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     const/4 v0, -0x1
 
@@ -1918,6 +1950,10 @@
 
 .method public final onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 2
+    .param p3    # Landroid/graphics/Rect;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 275
     iget v0, p0, Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
@@ -1964,27 +2000,47 @@
 .end method
 
 .method protected abstract onPerformActionForVirtualView(IILandroid/os/Bundle;)Z
+    .param p3    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 .end method
 
 .method protected onPopulateEventForHost(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 0
+    .param p1    # Landroid/view/accessibility/AccessibilityEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method protected onPopulateEventForVirtualView(ILandroid/view/accessibility/AccessibilityEvent;)V
     .locals 0
+    .param p2    # Landroid/view/accessibility/AccessibilityEvent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method protected onPopulateNodeForHost(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 0
+    .param p1    # Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method protected abstract onPopulateNodeForVirtualView(ILandroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
+    .param p2    # Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 .end method
 
 .method protected onVirtualViewKeyboardFocusChanged(IZ)V

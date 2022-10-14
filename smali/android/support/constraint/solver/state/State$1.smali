@@ -34,6 +34,8 @@
     sput-object v0, Landroid/support/constraint/solver/state/State$1;->$SwitchMap$android$support$constraint$solver$state$State$Helper:[I
 
     :try_start_0
+    sget-object v0, Landroid/support/constraint/solver/state/State$1;->$SwitchMap$android$support$constraint$solver$state$State$Helper:[I
+
     sget-object v1, Landroid/support/constraint/solver/state/State$Helper;->HORIZONTAL_CHAIN:Landroid/support/constraint/solver/state/State$Helper;
 
     invoke-virtual {v1}, Landroid/support/constraint/solver/state/State$Helper;->ordinal()I

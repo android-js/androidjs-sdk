@@ -6,6 +6,14 @@
 .implements Landroid/support/v7/widget/DecorToolbar;
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static final AFFECTS_LOGO_MASK:I = 0x3
 
@@ -1083,16 +1091,18 @@
     if-eqz p1, :cond_1
 
     .line 544
-    iget v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mDisplayOpts:I
+    iget p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mDisplayOpts:I
 
-    and-int/lit8 v0, v0, 0x10
+    and-int/lit8 p1, p1, 0x10
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     .line 545
-    iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/support/v7/widget/Toolbar;
+    iget-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
-    invoke-virtual {v0, p1}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;)V
+    iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mCustomView:Landroid/view/View;
+
+    invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;)V
 
     :cond_1
     return-void
@@ -1303,7 +1313,7 @@
 .end method
 
 .method public setEmbeddedTabView(Landroid/support/v7/widget/ScrollingTabContainerView;)V
-    .locals 2
+    .locals 3
 
     .line 422
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mTabView:Landroid/view/View;
@@ -1339,9 +1349,11 @@
     .line 427
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mTabView:Landroid/view/View;
 
-    invoke-virtual {v0, p1, v1}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;I)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;I)V
 
     .line 428
     iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mTabView:Landroid/view/View;
@@ -1476,6 +1488,8 @@
     iput-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mActionMenuPresenter:Landroid/support/v7/widget/ActionMenuPresenter;
 
     .line 367
+    iget-object v0, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mActionMenuPresenter:Landroid/support/v7/widget/ActionMenuPresenter;
+
     sget v1, Landroid/support/v7/appcompat/R$id;->action_menu_presenter:I
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/ActionMenuPresenter;->setId(I)V

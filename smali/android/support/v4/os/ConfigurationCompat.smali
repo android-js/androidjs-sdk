@@ -37,11 +37,11 @@
     :cond_0
     const/4 v0, 0x1
 
+    .line 40
     new-array v0, v0, [Ljava/util/Locale;
 
     const/4 v1, 0x0
 
-    .line 40
     iget-object p0, p0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     aput-object p0, v0, v1

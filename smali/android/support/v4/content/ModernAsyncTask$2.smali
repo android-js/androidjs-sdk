@@ -82,6 +82,7 @@
     .line 142
     invoke-static {}, Landroid/os/Binder;->flushPendingCommands()V
     :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
@@ -92,6 +93,11 @@
     return-object v2
 
     :catchall_0
+    move-exception v0
+
+    goto :goto_0
+
+    :catch_0
     move-exception v0
 
     .line 144
@@ -105,12 +111,10 @@
     .line 145
     throw v0
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    :catchall_1
-    move-exception v0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 147
+    :goto_0
     iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
     invoke-virtual {v1, v2}, Landroid/support/v4/content/ModernAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;

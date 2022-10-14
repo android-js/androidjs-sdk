@@ -63,6 +63,10 @@
 
 .method private isInPool(Ljava/lang/Object;)Z
     .locals 3
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -139,6 +143,10 @@
 
 .method public release(Ljava/lang/Object;)Z
     .locals 3
+    .param p1    # Ljava/lang/Object;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"

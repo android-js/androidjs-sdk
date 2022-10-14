@@ -26,6 +26,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -37,6 +41,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -122,15 +134,18 @@
 
     sub-long/2addr v1, v3
 
-    const-wide/16 v5, 0x1f4
+    const-wide/16 v3, 0x1f4
 
-    cmp-long v7, v1, v5
+    cmp-long v5, v1, v3
 
-    if-gez v7, :cond_1
+    if-gez v5, :cond_1
+
+    .line 102
+    iget-wide v5, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
 
     const-wide/16 v7, -0x1
 
-    cmp-long v9, v3, v7
+    cmp-long v9, v5, v7
 
     if-nez v9, :cond_0
 
@@ -138,16 +153,16 @@
 
     .line 111
     :cond_0
-    iget-boolean v3, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
+    iget-boolean v5, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
 
-    if-nez v3, :cond_2
+    if-nez v5, :cond_2
 
     .line 112
-    iget-object v3, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
+    iget-object v5, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDelayedHide:Ljava/lang/Runnable;
 
-    sub-long/2addr v5, v1
+    sub-long/2addr v3, v1
 
-    invoke-virtual {p0, v3, v5, v6}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0, v5, v3, v4}, Landroid/support/v4/widget/ContentLoadingProgressBar;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 113
     iput-boolean v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z

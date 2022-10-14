@@ -3,18 +3,38 @@
 .source "ArchTaskExecutor.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # static fields
 .field private static final sIOThreadExecutor:Ljava/util/concurrent/Executor;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private static volatile sInstance:Landroid/arch/core/executor/ArchTaskExecutor;
 
 .field private static final sMainThreadExecutor:Ljava/util/concurrent/Executor;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 
 # instance fields
 .field private mDefaultTaskExecutor:Landroid/arch/core/executor/TaskExecutor;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private mDelegate:Landroid/arch/core/executor/TaskExecutor;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -52,6 +72,8 @@
     iput-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDefaultTaskExecutor:Landroid/arch/core/executor/TaskExecutor;
 
     .line 59
+    iget-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDefaultTaskExecutor:Landroid/arch/core/executor/TaskExecutor;
+
     iput-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroid/arch/core/executor/TaskExecutor;
 
     return-void
@@ -59,6 +81,8 @@
 
 .method public static getIOThreadExecutor()Ljava/util/concurrent/Executor;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 111
     sget-object v0, Landroid/arch/core/executor/ArchTaskExecutor;->sIOThreadExecutor:Ljava/util/concurrent/Executor;
@@ -68,6 +92,8 @@
 
 .method public static getInstance()Landroid/arch/core/executor/ArchTaskExecutor;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 69
     sget-object v0, Landroid/arch/core/executor/ArchTaskExecutor;->sInstance:Landroid/arch/core/executor/ArchTaskExecutor;
@@ -123,6 +149,8 @@
 
 .method public static getMainThreadExecutor()Ljava/util/concurrent/Executor;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 106
     sget-object v0, Landroid/arch/core/executor/ArchTaskExecutor;->sMainThreadExecutor:Ljava/util/concurrent/Executor;
@@ -169,6 +197,10 @@
 
 .method public setDelegate(Landroid/arch/core/executor/TaskExecutor;)V
     .locals 0
+    .param p1    # Landroid/arch/core/executor/TaskExecutor;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-nez p1, :cond_0
 

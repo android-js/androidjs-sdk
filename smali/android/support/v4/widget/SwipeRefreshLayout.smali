@@ -26,8 +26,14 @@
 .field private static final CIRCLE_BG_LIGHT:I = -0x50506
 
 .field static final CIRCLE_DIAMETER:I = 0x28
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
+.end field
 
 .field static final CIRCLE_DIAMETER_LARGE:I = 0x38
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
+.end field
 
 .field private static final DECELERATE_INTERPOLATION_FACTOR:F = 2.0f
 
@@ -144,6 +150,7 @@
 
     const/4 v0, 0x1
 
+    .line 140
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -152,7 +159,6 @@
 
     aput v2, v0, v1
 
-    .line 140
     sput-object v0, Landroid/support/v4/widget/SwipeRefreshLayout;->LAYOUT_ATTRS:[I
 
     return-void
@@ -160,6 +166,10 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v0, 0x0
 
@@ -171,6 +181,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 350
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -187,14 +205,14 @@
 
     const/4 v1, 0x2
 
+    .line 122
     new-array v2, v1, [I
 
-    .line 122
     iput-object v2, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mParentScrollConsumed:[I
 
+    .line 123
     new-array v1, v1, [I
 
-    .line 123
     iput-object v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mParentOffsetInWindow:[I
 
     const/4 v1, -0x1
@@ -301,9 +319,11 @@
 
     iput v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mSpinnerOffsetEnd:I
 
+    .line 367
+    iget v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mSpinnerOffsetEnd:I
+
     int-to-float v1, v1
 
-    .line 367
     iput v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalDragDistance:F
 
     .line 368
@@ -492,9 +512,11 @@
 
     iput-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/CircularProgressDrawable;
 
+    .line 400
+    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/CircularProgressDrawable;
+
     const/4 v1, 0x1
 
-    .line 400
     invoke-virtual {v0, v1}, Landroid/support/v4/widget/CircularProgressDrawable;->setStyle(I)V
 
     .line 401
@@ -1030,6 +1052,9 @@
     .line 468
     iput-boolean p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mRefreshing:Z
 
+    .line 469
+    iget-boolean p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mRefreshing:Z
+
     if-eqz p1, :cond_0
 
     .line 470
@@ -1193,9 +1218,11 @@
 
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mScaleDownToStartAnimation:Landroid/view/animation/Animation;
 
+    .line 1160
+    iget-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mScaleDownToStartAnimation:Landroid/view/animation/Animation;
+
     const-wide/16 v0, 0x96
 
-    .line 1160
     invoke-virtual {p1, v0, v1}, Landroid/view/animation/Animation;->setDuration(J)V
 
     if-eqz p2, :cond_0
@@ -1246,6 +1273,8 @@
     iput-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mScaleAnimation:Landroid/view/animation/Animation;
 
     .line 447
+    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mScaleAnimation:Landroid/view/animation/Animation;
+
     iget v1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mMediumAnimationDuration:I
 
     int-to-long v1, v1
@@ -1680,6 +1709,8 @@
     iput-boolean v2, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mIsBeingDragged:Z
 
     .line 713
+    iget v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mActivePointerId:I
+
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result v0
@@ -2152,6 +2183,8 @@
     iput p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
 
     .line 845
+    iget p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mTotalUnconsumed:F
+
     invoke-direct {p0, p1}, Landroid/support/v4/widget/SwipeRefreshLayout;->moveSpinner(F)V
 
     :cond_0
@@ -2605,6 +2638,10 @@
 
 .method public varargs setColorScheme([I)V
     .locals 0
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/ColorRes;
+        .end annotation
+    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2616,6 +2653,10 @@
 
 .method public varargs setColorSchemeColors([I)V
     .locals 1
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 572
     invoke-direct {p0}, Landroid/support/v4/widget/SwipeRefreshLayout;->ensureTarget()V
@@ -2630,6 +2671,10 @@
 
 .method public varargs setColorSchemeResources([I)V
     .locals 4
+    .param p1    # [I
+        .annotation build Landroid/support/annotation/ColorRes;
+        .end annotation
+    .end param
 
     .line 556
     invoke-virtual {p0}, Landroid/support/v4/widget/SwipeRefreshLayout;->getContext()Landroid/content/Context;
@@ -2708,6 +2753,10 @@
 
 .method public setOnChildScrollUpCallback(Landroid/support/v4/widget/SwipeRefreshLayout$OnChildScrollUpCallback;)V
     .locals 0
+    .param p1    # Landroid/support/v4/widget/SwipeRefreshLayout$OnChildScrollUpCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 687
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mChildScrollUpCallback:Landroid/support/v4/widget/SwipeRefreshLayout$OnChildScrollUpCallback;
@@ -2717,6 +2766,10 @@
 
 .method public setOnRefreshListener(Landroid/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;)V
     .locals 0
+    .param p1    # Landroid/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 411
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mListener:Landroid/support/v4/widget/SwipeRefreshLayout$OnRefreshListener;
@@ -2737,6 +2790,10 @@
 
 .method public setProgressBackgroundColorSchemeColor(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorInt;
+        .end annotation
+    .end param
 
     .line 537
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mCircleView:Landroid/support/v4/widget/CircleImageView;
@@ -2748,6 +2805,10 @@
 
 .method public setProgressBackgroundColorSchemeResource(I)V
     .locals 1
+    .param p1    # I
+        .annotation build Landroid/support/annotation/ColorRes;
+        .end annotation
+    .end param
 
     .line 528
     invoke-virtual {p0}, Landroid/support/v4/widget/SwipeRefreshLayout;->getContext()Landroid/content/Context;
@@ -2940,6 +3001,10 @@
 
 .method public setSlingshotDistance(I)V
     .locals 0
+    .param p1    # I
+        .annotation build Landroid/support/annotation/Px;
+        .end annotation
+    .end param
 
     .line 310
     iput p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mCustomSlingshotDistance:I
@@ -2995,9 +3060,11 @@
 
     iput-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mScaleDownAnimation:Landroid/view/animation/Animation;
 
+    .line 484
+    iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout;->mScaleDownAnimation:Landroid/view/animation/Animation;
+
     const-wide/16 v1, 0x96
 
-    .line 484
     invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
 
     .line 485

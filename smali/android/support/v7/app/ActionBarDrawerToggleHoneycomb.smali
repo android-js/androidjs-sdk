@@ -23,6 +23,7 @@
 
     const/4 v0, 0x1
 
+    .line 45
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -31,7 +32,6 @@
 
     aput v2, v0, v1
 
-    .line 45
     sput-object v0, Landroid/support/v7/app/ActionBarDrawerToggleHoneycomb;->THEME_ATTRS:[I
 
     return-void

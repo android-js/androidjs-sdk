@@ -65,6 +65,7 @@
 
     const/4 p2, 0x2
 
+    .line 397
     new-array p2, p2, [I
 
     aput v2, p2, v1

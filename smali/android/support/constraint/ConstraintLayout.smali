@@ -116,6 +116,10 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 563
     invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V
@@ -235,6 +239,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 568
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -354,6 +366,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 573
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -473,6 +493,17 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 2
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/util/AttributeSet;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x15
+    .end annotation
 
     .line 579
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
@@ -927,6 +958,8 @@
     iput-object v3, p0, Landroid/support/constraint/ConstraintLayout;->mConstraintSet:Landroid/support/constraint/ConstraintSet;
 
     .line 968
+    iget-object v3, p0, Landroid/support/constraint/ConstraintLayout;->mConstraintSet:Landroid/support/constraint/ConstraintSet;
+
     invoke-virtual {p0}, Landroid/support/constraint/ConstraintLayout;->getContext()Landroid/content/Context;
 
     move-result-object v4
@@ -1652,11 +1685,11 @@
 
     move v6, v3
 
-    move v3, v2
-
     goto :goto_2
 
     :cond_a
+    move v2, v3
+
     move v15, v13
 
     move v13, v4
@@ -1669,9 +1702,9 @@
     move/from16 v5, v18
 
     .line 1344
-    iget v2, v8, Landroid/support/constraint/ConstraintLayout$LayoutParams;->circleConstraint:I
+    iget v3, v8, Landroid/support/constraint/ConstraintLayout$LayoutParams;->circleConstraint:I
 
-    if-eq v2, v12, :cond_b
+    if-eq v3, v12, :cond_b
 
     .line 1345
     iget v1, v8, Landroid/support/constraint/ConstraintLayout$LayoutParams;->circleConstraint:I
@@ -1734,10 +1767,10 @@
     :cond_d
     move/from16 v17, v5
 
-    if-eq v3, v12, :cond_e
+    if-eq v2, v12, :cond_e
 
     .line 1359
-    invoke-virtual {v9, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -3103,9 +3136,9 @@
 
     if-ne v0, p1, :cond_0
 
-    iget v1, p0, Landroid/support/constraint/ConstraintLayout;->mOnMeasureHeightMeasureSpec:I
+    iget v0, p0, Landroid/support/constraint/ConstraintLayout;->mOnMeasureHeightMeasureSpec:I
 
-    if-ne v1, p2, :cond_0
+    if-ne v0, p2, :cond_0
 
     .line 1650
     iget-object v0, p0, Landroid/support/constraint/ConstraintLayout;->mLayoutWidget:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
@@ -3144,7 +3177,10 @@
 
     return-void
 
+    .line 1654
     :cond_0
+    iget v0, p0, Landroid/support/constraint/ConstraintLayout;->mOnMeasureWidthMeasureSpec:I
+
     if-ne v0, p1, :cond_1
 
     .line 1655

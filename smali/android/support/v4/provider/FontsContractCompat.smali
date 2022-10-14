@@ -19,10 +19,28 @@
 .field private static final BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS:I = 0x2710
 
 .field public static final PARCEL_FONT_RESULTS:Ljava/lang/String; = "font_results"
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field static final RESULT_CODE_PROVIDER_NOT_FOUND:I = -0x1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field static final RESULT_CODE_WRONG_CERTIFICATES:I = -0x2
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field private static final TAG:Ljava/lang/String; = "FontsContractCompat"
 
@@ -40,6 +58,10 @@
 .field static final sLock:Ljava/lang/Object;
 
 .field static final sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+    .annotation build Landroid/support/annotation/GuardedBy;
+        value = "sLock"
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/SimpleArrayMap<",
@@ -125,6 +147,20 @@
 
 .method public static buildTypeface(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;)Landroid/graphics/Typeface;
     .locals 1
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/os/CancellationSignal;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # [Landroid/support/v4/provider/FontsContractCompat$FontInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -250,6 +286,21 @@
 
 .method public static fetchFonts(Landroid/content/Context;Landroid/os/CancellationSignal;Landroid/support/v4/provider/FontRequest;)Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult;
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/os/CancellationSignal;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/provider/FontRequest;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -345,6 +396,11 @@
 
 .method static getFontFromProvider(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Ljava/lang/String;Landroid/os/CancellationSignal;)[Landroid/support/v4/provider/FontsContractCompat$FontInfo;
     .locals 20
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
 
     move-object/from16 v0, p2
 
@@ -686,10 +742,10 @@
     .line 870
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
+    .line 873
     :cond_8
     new-array v0, v12, [Landroid/support/v4/provider/FontsContractCompat$FontInfo;
 
-    .line 873
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
@@ -707,17 +763,15 @@
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
     :cond_9
-    goto :goto_8
-
-    :goto_7
     throw v0
 
-    :goto_8
-    goto :goto_7
+    return-void
 .end method
 
 .method static getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;I)Landroid/support/v4/provider/FontsContractCompat$TypefaceResult;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -793,6 +847,19 @@
 
 .method public static getFontSync(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Landroid/support/v4/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;ZII)Landroid/graphics/Typeface;
     .locals 2
+    .param p2    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 234
     new-instance v0, Ljava/lang/StringBuilder;
@@ -925,13 +992,15 @@
 
     invoke-virtual {p3, v0}, Landroid/support/v4/util/SimpleArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result p4
+    move-result p3
 
-    if-eqz p4, :cond_8
+    if-eqz p3, :cond_8
 
     if-eqz p1, :cond_7
 
     .line 294
+    sget-object p3, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+
     invoke-virtual {p3, v0}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p3
@@ -950,15 +1019,17 @@
     if-eqz p1, :cond_9
 
     .line 299
-    new-instance p4, Ljava/util/ArrayList;
+    new-instance p3, Ljava/util/ArrayList;
 
-    invoke-direct {p4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
     .line 300
-    invoke-virtual {p4, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 301
-    invoke-virtual {p3, v0, p4}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    sget-object p1, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+
+    invoke-virtual {p1, v0, p3}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 303
     :cond_9
@@ -991,6 +1062,30 @@
 
 .method public static getProvider(Landroid/content/pm/PackageManager;Landroid/support/v4/provider/FontRequest;Landroid/content/res/Resources;)Landroid/content/pm/ProviderInfo;
     .locals 5
+    .param p0    # Landroid/content/pm/PackageManager;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/support/v4/provider/FontRequest;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/content/res/Resources;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/pm/PackageManager$NameNotFoundException;
@@ -1146,17 +1241,23 @@
 
     invoke-direct {p0, p1}, Landroid/content/pm/PackageManager$NameNotFoundException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :goto_1
     throw p0
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method public static prepareFontData(Landroid/content/Context;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;Landroid/os/CancellationSignal;)Ljava/util/Map;
     .locals 5
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x13
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1236,6 +1337,22 @@
 
 .method public static requestFont(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Landroid/support/v4/provider/FontsContractCompat$FontRequestCallback;Landroid/os/Handler;)V
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/support/v4/provider/FontRequest;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v4/provider/FontsContractCompat$FontRequestCallback;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 532
     new-instance v0, Landroid/os/Handler;
@@ -1254,6 +1371,11 @@
 
 .method public static resetCache()V
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 225
     sget-object v0, Landroid/support/v4/provider/FontsContractCompat;->sTypefaceCache:Landroid/support/v4/util/LruCache;

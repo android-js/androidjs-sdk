@@ -96,6 +96,9 @@
 
 .method public onPermissionRequest(Landroid/webkit/PermissionRequest;)V
     .locals 1
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x15
+    .end annotation
 
     .line 100
     invoke-virtual {p1}, Landroid/webkit/PermissionRequest;->getResources()[Ljava/lang/String;

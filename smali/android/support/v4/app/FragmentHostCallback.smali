@@ -16,12 +16,21 @@
 
 # instance fields
 .field private final mActivity:Landroid/app/Activity;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 .field private final mContext:Landroid/content/Context;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field final mFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
 .field private final mHandler:Landroid/os/Handler;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+.end field
 
 .field private final mWindowAnimations:I
 
@@ -29,6 +38,18 @@
 # direct methods
 .method constructor <init>(Landroid/app/Activity;Landroid/content/Context;Landroid/os/Handler;I)V
     .locals 1
+    .param p1    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p2    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 61
     invoke-direct {p0}, Landroid/support/v4/app/FragmentContainer;-><init>()V
@@ -73,6 +94,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;I)V
     .locals 1
+    .param p1    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/os/Handler;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 52
     instance-of v0, p1, Landroid/app/Activity;
@@ -96,6 +125,10 @@
 
 .method constructor <init>(Landroid/support/v4/app/FragmentActivity;)V
     .locals 2
+    .param p1    # Landroid/support/v4/app/FragmentActivity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 57
     iget-object v0, p1, Landroid/support/v4/app/FragmentActivity;->mHandler:Landroid/os/Handler;
@@ -111,6 +144,8 @@
 # virtual methods
 .method getActivity()Landroid/app/Activity;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 190
     iget-object v0, p0, Landroid/support/v4/app/FragmentHostCallback;->mActivity:Landroid/app/Activity;
@@ -120,6 +155,8 @@
 
 .method getContext()Landroid/content/Context;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 195
     iget-object v0, p0, Landroid/support/v4/app/FragmentHostCallback;->mContext:Landroid/content/Context;
@@ -138,6 +175,8 @@
 
 .method getHandler()Landroid/os/Handler;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 200
     iget-object v0, p0, Landroid/support/v4/app/FragmentHostCallback;->mHandler:Landroid/os/Handler;
@@ -159,6 +198,8 @@
 
 .method public onFindViewById(I)Landroid/view/View;
     .locals 0
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 p1, 0x0
 
@@ -166,6 +207,9 @@
 .end method
 
 .method public abstract onGetHost()Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TE;"
@@ -175,6 +219,8 @@
 
 .method public onGetLayoutInflater()Landroid/view/LayoutInflater;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 93
     iget-object v0, p0, Landroid/support/v4/app/FragmentHostCallback;->mContext:Landroid/content/Context;
@@ -213,6 +259,14 @@
 
 .method public onRequestPermissionsFromFragment(Landroid/support/v4/app/Fragment;[Ljava/lang/String;I)V
     .locals 0
+    .param p1    # Landroid/support/v4/app/Fragment;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # [Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
@@ -227,6 +281,10 @@
 
 .method public onShouldShowRequestPermissionRationale(Ljava/lang/String;)Z
     .locals 0
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 p1, 0x0
 
@@ -246,6 +304,10 @@
 
 .method public onStartActivityFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 0
+    .param p4    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     const/4 p1, -0x1
 
@@ -271,6 +333,10 @@
 
 .method public onStartIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 9
+    .param p4    # Landroid/content/Intent;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;

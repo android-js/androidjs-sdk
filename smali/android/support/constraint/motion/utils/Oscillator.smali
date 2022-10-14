@@ -50,14 +50,14 @@
 
     const/4 v0, 0x0
 
+    .line 27
     new-array v1, v0, [F
 
-    .line 27
     iput-object v1, p0, Landroid/support/constraint/motion/utils/Oscillator;->mPeriod:[F
 
+    .line 28
     new-array v1, v0, [D
 
-    .line 28
     iput-object v1, p0, Landroid/support/constraint/motion/utils/Oscillator;->mPosition:[D
 
     const-wide v1, 0x401921fb54442d18L    # 6.283185307179586
@@ -198,9 +198,9 @@
 
     add-int/lit8 v3, v0, -0x1
 
-    aget v1, v1, v3
+    aget v4, v1, v3
 
-    sub-float/2addr v2, v1
+    sub-float/2addr v2, v4
 
     float-to-double v4, v2
 
@@ -218,11 +218,15 @@
 
     mul-double p1, p1, v4
 
-    float-to-double v0, v1
-
-    mul-double v4, v4, v8
-
     .line 152
+    aget v0, v1, v3
+
+    float-to-double v0, v0
+
+    aget-wide v6, v2, v3
+
+    mul-double v4, v4, v6
+
     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
     sub-double/2addr v0, v4
@@ -282,9 +286,9 @@
 
     add-int/lit8 v3, v0, -0x1
 
-    aget v1, v1, v3
+    aget v4, v1, v3
 
-    sub-float/2addr v2, v1
+    sub-float/2addr v2, v4
 
     float-to-double v4, v2
 
@@ -303,27 +307,37 @@
     .line 109
     iget-object v0, p0, Landroid/support/constraint/motion/utils/Oscillator;->mArea:[D
 
-    aget-wide v2, v0, v3
+    aget-wide v6, v0, v3
 
-    float-to-double v0, v1
+    aget v0, v1, v3
 
-    mul-double v6, v4, v8
+    float-to-double v0, v0
+
+    aget-wide v8, v2, v3
+
+    mul-double v8, v8, v4
 
     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
-    sub-double/2addr v0, v6
+    sub-double/2addr v0, v8
 
-    sub-double v6, p1, v8
+    aget-wide v8, v2, v3
 
-    mul-double v0, v0, v6
+    sub-double v8, p1, v8
 
-    add-double/2addr v2, v0
+    mul-double v0, v0, v8
+
+    add-double/2addr v6, v0
 
     mul-double p1, p1, p1
 
-    mul-double v8, v8, v8
+    aget-wide v0, v2, v3
 
-    sub-double/2addr p1, v8
+    aget-wide v8, v2, v3
+
+    mul-double v0, v0, v8
+
+    sub-double/2addr p1, v0
 
     mul-double v4, v4, p1
 
@@ -331,7 +345,7 @@
 
     div-double/2addr v4, p1
 
-    add-double v0, v2, v4
+    add-double v0, v6, v4
 
     goto :goto_1
 

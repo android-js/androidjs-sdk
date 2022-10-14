@@ -62,6 +62,7 @@
 
     const/4 v0, 0x1
 
+    .line 120
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -70,7 +71,6 @@
 
     aput v2, v0, v1
 
-    .line 120
     sput-object v0, Landroid/support/v4/app/ActionBarDrawerToggle;->THEME_ATTRS:[I
 
     return-void
@@ -78,6 +78,18 @@
 
 .method public constructor <init>(Landroid/app/Activity;Landroid/support/v4/widget/DrawerLayout;III)V
     .locals 8
+    .param p3    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p4    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .param p5    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
 
     .line 167
     invoke-static {p1}, Landroid/support/v4/app/ActionBarDrawerToggle;->assumeMaterial(Landroid/content/Context;)Z
@@ -105,6 +117,18 @@
 
 .method public constructor <init>(Landroid/app/Activity;Landroid/support/v4/widget/DrawerLayout;ZIII)V
     .locals 1
+    .param p4    # I
+        .annotation build Landroid/support/annotation/DrawableRes;
+        .end annotation
+    .end param
+    .param p5    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+    .param p6    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
 
     .line 199
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -177,6 +201,9 @@
 
     iput-object p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle;->mSlider:Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;
 
+    .line 217
+    iget-object p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle;->mSlider:Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;
+
     if-eqz p3, :cond_1
 
     const p2, 0x3eaaaaab
@@ -186,7 +213,6 @@
     :cond_1
     const/4 p2, 0x0
 
-    .line 217
     :goto_1
     invoke-virtual {p1, p2}, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->setOffset(F)V
 

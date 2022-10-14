@@ -224,6 +224,8 @@
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     .line 223
+    iget-object p1, p0, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+
     iget-object p4, p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mDependents:Ljava/util/HashSet;
 
     if-nez p4, :cond_2
@@ -1082,20 +1084,26 @@
 
     if-eqz p1, :cond_8
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_7
 
     .line 292
     sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->CENTER_Y:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    if-ne v1, p1, :cond_7
+    if-ne v1, p1, :cond_6
+
+    goto :goto_2
 
     :cond_6
-    const/4 v0, 0x1
+    const/4 v2, 0x0
+
+    goto :goto_3
 
     :cond_7
-    move v2, v0
+    :goto_2
+    const/4 v2, 0x1
 
     :cond_8
+    :goto_3
     return v2
 
     .line 282
@@ -1108,19 +1116,19 @@
 
     if-ne v1, v2, :cond_9
 
-    goto :goto_2
+    goto :goto_4
 
     :cond_9
     const/4 v2, 0x0
 
-    goto :goto_3
+    goto :goto_5
 
     :cond_a
-    :goto_2
+    :goto_4
     const/4 v2, 0x1
 
     .line 283
-    :goto_3
+    :goto_5
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getOwner()Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     move-result-object p1
@@ -1129,20 +1137,26 @@
 
     if-eqz p1, :cond_d
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_c
 
     .line 284
     sget-object p1, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->CENTER_X:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
-    if-ne v1, p1, :cond_c
+    if-ne v1, p1, :cond_b
+
+    goto :goto_6
 
     :cond_b
-    const/4 v0, 0x1
+    const/4 v2, 0x0
+
+    goto :goto_7
 
     :cond_c
-    move v2, v0
+    :goto_6
+    const/4 v2, 0x1
 
     :cond_d
+    :goto_7
     return v2
 
     .line 277

@@ -12,6 +12,10 @@
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
     .locals 2
+    .param p1    # Ljava/io/File;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,6 +53,10 @@
 
 .method private static sync(Ljava/io/FileOutputStream;)Z
     .locals 0
+    .param p0    # Ljava/io/FileOutputStream;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 212
     :try_start_0
@@ -90,6 +98,10 @@
 
 .method public failWrite(Ljava/io/FileOutputStream;)V
     .locals 2
+    .param p1    # Ljava/io/FileOutputStream;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-eqz p1, :cond_0
 
@@ -133,6 +145,10 @@
 
 .method public finishWrite(Ljava/io/FileOutputStream;)V
     .locals 2
+    .param p1    # Ljava/io/FileOutputStream;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     if-eqz p1, :cond_0
 
@@ -169,6 +185,8 @@
 
 .method public getBaseFile()Ljava/io/File;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 65
     iget-object v0, p0, Landroid/support/v4/util/AtomicFile;->mBaseName:Ljava/io/File;
@@ -178,6 +196,9 @@
 
 .method public openRead()Ljava/io/FileInputStream;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -218,6 +239,9 @@
 
 .method public readFully()[B
     .locals 6
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -298,17 +322,16 @@
     .line 206
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
-    goto :goto_2
-
-    :goto_1
     throw v1
 
-    :goto_2
-    goto :goto_1
+    return-void
 .end method
 
 .method public startWrite()Ljava/io/FileOutputStream;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -36,66 +36,74 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 6
 
     .line 953
     new-instance v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
-    const-string v1, "UNDEFINED"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "UNDEFINED"
 
-    invoke-direct {v0, v1, v2}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v2, v1}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;->UNDEFINED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
     .line 954
-    new-instance v1, Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    new-instance v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;
+
+    const/4 v2, 0x1
 
     const-string v3, "SETUP"
 
-    const/4 v4, 0x1
+    invoke-direct {v0, v3, v2}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
 
-    invoke-direct {v1, v3, v4}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
-
-    sput-object v1, Landroid/support/constraint/motion/MotionLayout$TransitionState;->SETUP:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    sput-object v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;->SETUP:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
     .line 955
-    new-instance v3, Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    new-instance v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
-    const-string v5, "MOVING"
+    const/4 v3, 0x2
 
-    const/4 v6, 0x2
+    const-string v4, "MOVING"
 
-    invoke-direct {v3, v5, v6}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v4, v3}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
 
-    sput-object v3, Landroid/support/constraint/motion/MotionLayout$TransitionState;->MOVING:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    sput-object v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;->MOVING:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
     .line 956
-    new-instance v5, Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    new-instance v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
-    const-string v7, "FINISHED"
+    const/4 v4, 0x3
 
-    const/4 v8, 0x3
+    const-string v5, "FINISHED"
 
-    invoke-direct {v5, v7, v8}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v5, v4}, Landroid/support/constraint/motion/MotionLayout$TransitionState;-><init>(Ljava/lang/String;I)V
 
-    sput-object v5, Landroid/support/constraint/motion/MotionLayout$TransitionState;->FINISHED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    sput-object v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;->FINISHED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
-    const/4 v7, 0x4
-
-    new-array v7, v7, [Landroid/support/constraint/motion/MotionLayout$TransitionState;
-
-    aput-object v0, v7, v2
-
-    aput-object v1, v7, v4
-
-    aput-object v3, v7, v6
-
-    aput-object v5, v7, v8
+    const/4 v0, 0x4
 
     .line 952
-    sput-object v7, Landroid/support/constraint/motion/MotionLayout$TransitionState;->$VALUES:[Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    new-array v0, v0, [Landroid/support/constraint/motion/MotionLayout$TransitionState;
+
+    sget-object v5, Landroid/support/constraint/motion/MotionLayout$TransitionState;->UNDEFINED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+
+    aput-object v5, v0, v1
+
+    sget-object v1, Landroid/support/constraint/motion/MotionLayout$TransitionState;->SETUP:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Landroid/support/constraint/motion/MotionLayout$TransitionState;->MOVING:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+
+    aput-object v1, v0, v3
+
+    sget-object v1, Landroid/support/constraint/motion/MotionLayout$TransitionState;->FINISHED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+
+    aput-object v1, v0, v4
+
+    sput-object v0, Landroid/support/constraint/motion/MotionLayout$TransitionState;->$VALUES:[Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
     return-void
 .end method

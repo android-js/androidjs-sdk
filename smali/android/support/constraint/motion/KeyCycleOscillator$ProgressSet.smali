@@ -102,10 +102,10 @@
     :goto_0
     if-eqz v2, :cond_2
 
+    .line 311
     :try_start_1
     new-array v4, v4, [Ljava/lang/Object;
 
-    .line 311
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyCycleOscillator$ProgressSet;->get(F)F
 
     move-result p2

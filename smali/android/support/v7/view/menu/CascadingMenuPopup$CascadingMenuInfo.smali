@@ -25,6 +25,14 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/MenuPopupWindow;Landroid/support/v7/view/menu/MenuBuilder;I)V
     .locals 0
+    .param p1    # Landroid/support/v7/widget/MenuPopupWindow;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Landroid/support/v7/view/menu/MenuBuilder;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 800
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

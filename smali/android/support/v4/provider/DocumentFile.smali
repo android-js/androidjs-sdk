@@ -9,11 +9,18 @@
 
 # instance fields
 .field private final mParent:Landroid/support/v4/provider/DocumentFile;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
 
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/DocumentFile;)V
     .locals 0
+    .param p1    # Landroid/support/v4/provider/DocumentFile;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,6 +33,12 @@
 
 .method public static fromFile(Ljava/io/File;)Landroid/support/v4/provider/DocumentFile;
     .locals 2
+    .param p0    # Ljava/io/File;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 102
     new-instance v0, Landroid/support/v4/provider/RawDocumentFile;
@@ -39,6 +52,16 @@
 
 .method public static fromSingleUri(Landroid/content/Context;Landroid/net/Uri;)Landroid/support/v4/provider/DocumentFile;
     .locals 3
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 117
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -62,6 +85,16 @@
 
 .method public static fromTreeUri(Landroid/content/Context;Landroid/net/Uri;)Landroid/support/v4/provider/DocumentFile;
     .locals 3
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 135
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -95,6 +128,14 @@
 
 .method public static isDocumentUri(Landroid/content/Context;Landroid/net/Uri;)Z
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/net/Uri;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     .line 149
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -125,9 +166,25 @@
 .end method
 
 .method public abstract createDirectory(Ljava/lang/String;)Landroid/support/v4/provider/DocumentFile;
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract createFile(Ljava/lang/String;Ljava/lang/String;)Landroid/support/v4/provider/DocumentFile;
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract delete()Z
@@ -138,6 +195,12 @@
 
 .method public findFile(Ljava/lang/String;)Landroid/support/v4/provider/DocumentFile;
     .locals 5
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 338
     invoke-virtual {p0}, Landroid/support/v4/provider/DocumentFile;->listFiles()[Landroid/support/v4/provider/DocumentFile;
@@ -178,10 +241,14 @@
 .end method
 
 .method public abstract getName()Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public getParentFile()Landroid/support/v4/provider/DocumentFile;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 229
     iget-object v0, p0, Landroid/support/v4/provider/DocumentFile;->mParent:Landroid/support/v4/provider/DocumentFile;
@@ -190,9 +257,13 @@
 .end method
 
 .method public abstract getType()Ljava/lang/String;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 .end method
 
 .method public abstract getUri()Landroid/net/Uri;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 .end method
 
 .method public abstract isDirectory()Z
@@ -211,7 +282,13 @@
 .end method
 
 .method public abstract listFiles()[Landroid/support/v4/provider/DocumentFile;
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 .end method
 
 .method public abstract renameTo(Ljava/lang/String;)Z
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 .end method

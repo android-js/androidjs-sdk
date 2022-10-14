@@ -23,6 +23,8 @@
     iput-object p1, p0, Landroid/support/v4/view/animation/LookupTableInterpolator;->mValues:[F
 
     .line 32
+    iget-object p1, p0, Landroid/support/v4/view/animation/LookupTableInterpolator;->mValues:[F
+
     array-length p1, p1
 
     add-int/lit8 p1, p1, -0x1
@@ -41,7 +43,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 3
+    .locals 4
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -98,13 +100,15 @@
 
     aget v2, v1, v0
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v0, 0x1
+
+    aget v3, v1, v3
 
     aget v0, v1, v0
 
-    sub-float/2addr v0, v2
+    sub-float/2addr v3, v0
 
-    mul-float p1, p1, v0
+    mul-float p1, p1, v3
 
     add-float/2addr v2, p1
 

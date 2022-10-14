@@ -33,10 +33,12 @@
     .line 206
     iput-object p2, p0, Landroid/arch/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
 
-    const/4 p1, 0x1
-
     .line 207
-    invoke-virtual {p2, p1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
+    iget-object p1, p0, Landroid/arch/lifecycle/ClassesInfoCache$MethodReference;->mMethod:Ljava/lang/reflect/Method;
+
+    const/4 p2, 0x1
+
+    invoke-virtual {p1, p2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     return-void
 .end method

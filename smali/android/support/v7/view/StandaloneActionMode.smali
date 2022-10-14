@@ -6,6 +6,14 @@
 .implements Landroid/support/v7/view/menu/MenuBuilder$Callback;
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
 .field private mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
@@ -64,6 +72,8 @@
     iput-object p1, p0, Landroid/support/v7/view/StandaloneActionMode;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     .line 57
+    iget-object p1, p0, Landroid/support/v7/view/StandaloneActionMode;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
+
     invoke-virtual {p1, p0}, Landroid/support/v7/view/menu/MenuBuilder;->setCallback(Landroid/support/v7/view/menu/MenuBuilder$Callback;)V
 
     .line 58

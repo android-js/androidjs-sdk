@@ -23,20 +23,24 @@
 
 .method public static hasStartedFromLauncher(Landroid/content/Context;)Z
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    const-string v0, "android.support.AppLaunchChecker"
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const-string v1, "android.support.AppLaunchChecker"
 
     .line 51
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object p0
 
-    const-string v0, "startedFromLauncher"
+    const-string v1, "startedFromLauncher"
 
     .line 52
-    invoke-interface {p0, v0, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {p0, v1, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result p0
 
@@ -45,24 +49,28 @@
 
 .method public static onActivityCreate(Landroid/app/Activity;)V
     .locals 4
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
-    const-string v0, "android.support.AppLaunchChecker"
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const-string v1, "android.support.AppLaunchChecker"
 
     .line 67
-    invoke-virtual {p0, v0, v1}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v1, v0}, Landroid/app/Activity;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v0
+    move-result-object v1
 
     const-string v2, "startedFromLauncher"
 
     .line 68
-    invoke-interface {v0, v2, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     return-void
 
@@ -80,29 +88,29 @@
     :cond_1
     invoke-virtual {p0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     const-string v3, "android.intent.action.MAIN"
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    const-string v1, "android.intent.category.LAUNCHER"
+    const-string v0, "android.intent.category.LAUNCHER"
 
     .line 78
-    invoke-virtual {p0, v1}, Landroid/content/Intent;->hasCategory(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->hasCategory(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
-    const-string v1, "android.intent.category.LEANBACK_LAUNCHER"
+    const-string v0, "android.intent.category.LEANBACK_LAUNCHER"
 
     .line 79
-    invoke-virtual {p0, v1}, Landroid/content/Intent;->hasCategory(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->hasCategory(Ljava/lang/String;)Z
 
     move-result p0
 
@@ -110,7 +118,7 @@
 
     .line 80
     :cond_2
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object p0
 

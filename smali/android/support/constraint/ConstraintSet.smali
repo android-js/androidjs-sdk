@@ -277,9 +277,9 @@
 
     const/4 v0, 0x3
 
+    .line 220
     new-array v1, v0, [I
 
-    .line 220
     fill-array-data v1, :array_0
 
     sput-object v1, Landroid/support/constraint/ConstraintSet;->VISIBILITY_FLAGS:[I
@@ -292,6 +292,8 @@
     sput-object v1, Landroid/support/constraint/ConstraintSet;->mapToConstant:Landroid/util/SparseIntArray;
 
     .line 311
+    sget-object v1, Landroid/support/constraint/ConstraintSet;->mapToConstant:Landroid/util/SparseIntArray;
+
     sget v2, Landroid/support/constraint/R$styleable;->Constraint_layout_constraintLeft_toLeftOf:I
 
     const/16 v3, 0x19
@@ -1269,8 +1271,6 @@
     goto :goto_1
 
     :catch_0
-    nop
-
     const/4 v6, 0x0
 
     :goto_1
@@ -1460,11 +1460,13 @@
     if-ge v10, v0, :cond_4
 
     .line 1984
+    aget v0, v7, v10
+
+    .line 1985
     aget v1, v7, v10
 
     add-int/lit8 v11, v10, -0x1
 
-    .line 1985
     aget v3, v7, v11
 
     const/4 v5, -0x1
@@ -1536,13 +1538,9 @@
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw v0
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method
 
 .method private fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -1699,13 +1697,13 @@
 
     move-result v3
 
-    const-string v5, "   "
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    const/high16 v6, 0x3f800000    # 1.0f
+    const/16 v6, 0x15
 
-    const/16 v7, 0x15
+    const/16 v7, 0x11
 
-    const/16 v8, 0x11
+    const-string v8, "   "
 
     const-string v9, "ConstraintSet"
 
@@ -1727,7 +1725,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     sget-object v4, Landroid/support/constraint/ConstraintSet;->mapToConstant:Landroid/util/SparseIntArray;
 
@@ -1763,7 +1761,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     sget-object v4, Landroid/support/constraint/ConstraintSet;->mapToConstant:Landroid/util/SparseIntArray;
 
@@ -1946,7 +1944,7 @@
     :pswitch_c
     iget-object v3, p2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
 
-    invoke-virtual {p3, v2, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p3, v2, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
     move-result v2
 
@@ -1958,7 +1956,7 @@
     :pswitch_d
     iget-object v3, p2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
 
-    invoke-virtual {p3, v2, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p3, v2, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
     move-result v2
 
@@ -2230,7 +2228,7 @@
     :pswitch_1d
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v7, :cond_2
+    if-lt v3, v6, :cond_2
 
     .line 3666
     iget-object v3, p2, Landroid/support/constraint/ConstraintSet$Constraint;->transform:Landroid/support/constraint/ConstraintSet$Transform;
@@ -2379,7 +2377,7 @@
     :pswitch_26
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v7, :cond_2
+    if-lt v3, v6, :cond_2
 
     .line 3633
     iget-object v3, p2, Landroid/support/constraint/ConstraintSet$Constraint;->transform:Landroid/support/constraint/ConstraintSet$Transform;
@@ -2593,7 +2591,7 @@
     :pswitch_33
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v8, :cond_2
+    if-lt v3, v7, :cond_2
 
     .line 3577
     iget-object v3, p2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
@@ -2979,7 +2977,7 @@
     :pswitch_4a
     sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v8, :cond_2
+    if-lt v3, v7, :cond_2
 
     .line 3582
     iget-object v3, p2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
@@ -3305,7 +3303,10 @@
 
     goto :goto_1
 
+    .line 3216
     :cond_0
+    aget-char v4, p0, v1
+
     const/16 v5, 0x22
 
     if-ne v4, v5, :cond_1
@@ -7340,13 +7341,15 @@
     if-ge v10, v0, :cond_4
 
     .line 1919
+    aget v0, v7, v10
+
+    .line 1920
     aget v1, v7, v10
 
     const/4 v2, 0x3
 
     add-int/lit8 v11, v10, -0x1
 
-    .line 1920
     aget v3, v7, v11
 
     const/4 v4, 0x4
@@ -7416,13 +7419,9 @@
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_3
-
-    :goto_2
     throw v0
 
-    :goto_3
-    goto :goto_2
+    return-void
 .end method
 
 .method public varargs dump(Landroid/support/constraint/motion/MotionScene;[I)V
@@ -7440,7 +7439,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     .line 3845
     new-instance v0, Ljava/util/HashSet;
@@ -7453,7 +7452,7 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_1
+    if-ge v3, v1, :cond_0
 
     aget v4, p2, v3
 
@@ -7468,23 +7467,26 @@
 
     goto :goto_0
 
-    .line 3850
     :cond_0
+    move-object p2, v0
+
+    goto :goto_1
+
+    .line 3850
+    :cond_1
     new-instance p2, Ljava/util/HashSet;
 
     invoke-direct {p2, v0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    move-object v0, p2
-
     .line 3852
-    :cond_1
-    sget-object p2, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    :goto_1
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0}, Ljava/util/HashSet;->size()I
+    invoke-virtual {p2}, Ljava/util/HashSet;->size()I
 
     move-result v3
 
@@ -7498,28 +7500,28 @@
 
     move-result-object v1
 
-    invoke-virtual {p2, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 3853
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    new-array v1, v2, [Ljava/lang/Integer;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 3855
-    invoke-virtual {v0, v1}, Ljava/util/HashSet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    new-array v1, v2, [Ljava/lang/Integer;
 
-    move-result-object v0
+    invoke-virtual {p2, v1}, Ljava/util/HashSet;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    check-cast v0, [Ljava/lang/Integer;
+    move-result-object p2
 
-    array-length v1, v0
+    check-cast p2, [Ljava/lang/Integer;
 
-    :goto_1
+    array-length v1, p2
+
+    :goto_2
     if-ge v2, v1, :cond_2
 
-    aget-object v3, v0, v2
+    aget-object v3, p2, v2
 
     .line 3856
     iget-object v4, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -7533,35 +7535,35 @@
     const-string v5, "<Constraint id="
 
     .line 3858
-    invoke-virtual {p2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 3859
-    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     const-string v3, " \n"
 
     .line 3860
-    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 3861
     iget-object v3, v4, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
 
-    invoke-virtual {v3, p1, p2}, Landroid/support/constraint/ConstraintSet$Layout;->dump(Landroid/support/constraint/motion/MotionScene;Ljava/lang/StringBuilder;)V
+    invoke-virtual {v3, p1, v0}, Landroid/support/constraint/ConstraintSet$Layout;->dump(Landroid/support/constraint/motion/MotionScene;Ljava/lang/StringBuilder;)V
 
     const-string v3, "/>\n"
 
     .line 3862
-    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
     .line 3864
     :cond_2
     sget-object p1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -7656,7 +7658,7 @@
 .end method
 
 .method public getKnownIds()[I
-    .locals 5
+    .locals 4
 
     .line 3799
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -7678,26 +7680,29 @@
     .line 3800
     array-length v2, v0
 
-    new-array v3, v2, [I
+    new-array v2, v2, [I
 
+    .line 3801
     :goto_0
-    if-ge v1, v2, :cond_0
+    array-length v3, v2
+
+    if-ge v1, v3, :cond_0
 
     .line 3802
-    aget-object v4, v0, v1
+    aget-object v3, v0, v1
 
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
-    move-result v4
+    move-result v3
 
-    aput v4, v3, v1
+    aput v3, v2, v1
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object v3
+    return-object v2
 .end method
 
 .method public getParameters(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -7728,6 +7733,7 @@
 
     const/4 p1, 0x0
 
+    .line 3104
     new-array p1, p1, [I
 
     return-object p1
@@ -7834,6 +7840,8 @@
     const/4 v2, 0x2
 
     if-eq v0, v2, :cond_0
+
+    const/4 v1, 0x3
 
     goto :goto_1
 
@@ -7947,7 +7955,7 @@
 
     if-eq v0, v5, :cond_0
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 3388
     :cond_0
@@ -7988,7 +7996,7 @@
 
     move-object v2, v1
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 3330
     :cond_2
@@ -8014,7 +8022,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x0
+    const/4 v0, 0x0
 
     goto :goto_2
 
@@ -8027,7 +8035,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x7
+    const/4 v0, 0x7
 
     goto :goto_2
 
@@ -8040,7 +8048,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x2
+    const/4 v0, 0x2
 
     goto :goto_2
 
@@ -8053,7 +8061,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x1
+    const/4 v0, 0x1
 
     goto :goto_2
 
@@ -8066,7 +8074,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x4
+    const/4 v0, 0x4
 
     goto :goto_2
 
@@ -8079,6 +8087,8 @@
 
     if-eqz v0, :cond_3
 
+    const/4 v0, 0x3
+
     goto :goto_2
 
     :sswitch_6
@@ -8090,7 +8100,7 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x6
+    const/4 v0, 0x6
 
     goto :goto_2
 
@@ -8106,20 +8116,20 @@
 
     if-eqz v0, :cond_3
 
-    const/4 v5, 0x5
+    const/4 v0, 0x5
 
     goto :goto_2
 
     :cond_3
     :goto_1
-    const/4 v5, -0x1
+    const/4 v0, -0x1
 
     :goto_2
-    const-string v0, "XML parser error must be within a Constraint "
+    const-string v4, "XML parser error must be within a Constraint "
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_0
     if-eqz v2, :cond_4
@@ -8130,25 +8140,25 @@
 
     invoke-static {p1, p2, v0}, Landroid/support/constraint/ConstraintAttribute;->parse(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Ljava/util/HashMap;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 3373
     :cond_4
     new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getLineNumber()I
 
     move-result p2
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -8168,25 +8178,25 @@
 
     invoke-virtual {v0, p1, v3}, Landroid/support/constraint/ConstraintSet$Motion;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 3367
     :cond_5
     new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getLineNumber()I
 
     move-result p2
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -8206,25 +8216,25 @@
 
     invoke-virtual {v0, p1, v3}, Landroid/support/constraint/ConstraintSet$Layout;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .line 3361
     :cond_6
     new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getLineNumber()I
 
     move-result p2
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -8244,25 +8254,25 @@
 
     invoke-virtual {v0, p1, v3}, Landroid/support/constraint/ConstraintSet$Transform;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    goto :goto_4
+    goto :goto_3
 
     .line 3355
     :cond_7
     new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getLineNumber()I
 
     move-result p2
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -8282,25 +8292,25 @@
 
     invoke-virtual {v0, p1, v3}, Landroid/support/constraint/ConstraintSet$PropertySet;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    goto :goto_4
+    goto :goto_3
 
     .line 3349
     :cond_8
     new-instance p1, Ljava/lang/RuntimeException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getLineNumber()I
 
     move-result p2
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p2
 
@@ -8316,12 +8326,12 @@
 
     invoke-direct {p0, p1, v0}, Landroid/support/constraint/ConstraintSet;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/support/constraint/ConstraintSet$Constraint;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 3345
-    iget-object v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
+    iget-object v0, v2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
 
-    iput v3, v2, Landroid/support/constraint/ConstraintSet$Layout;->mHelperType:I
+    iput v3, v0, Landroid/support/constraint/ConstraintSet$Layout;->mHelperType:I
 
     goto :goto_3
 
@@ -8333,17 +8343,17 @@
 
     invoke-direct {p0, p1, v0}, Landroid/support/constraint/ConstraintSet;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/support/constraint/ConstraintSet$Constraint;
 
-    move-result-object v0
+    move-result-object v2
 
     .line 3340
-    iget-object v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
+    iget-object v0, v2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
 
-    iput-boolean v3, v2, Landroid/support/constraint/ConstraintSet$Layout;->mIsGuideline:Z
+    iput-boolean v3, v0, Landroid/support/constraint/ConstraintSet$Layout;->mIsGuideline:Z
 
     .line 3341
-    iget-object v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
+    iget-object v0, v2, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
 
-    iput-boolean v3, v2, Landroid/support/constraint/ConstraintSet$Layout;->mApply:Z
+    iput-boolean v3, v0, Landroid/support/constraint/ConstraintSet$Layout;->mApply:Z
 
     goto :goto_3
 
@@ -8355,12 +8365,9 @@
 
     invoke-direct {p0, p1, v0}, Landroid/support/constraint/ConstraintSet;->fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/support/constraint/ConstraintSet$Constraint;
 
-    move-result-object v0
+    move-result-object v2
 
-    :goto_3
-    move-object v2, v0
-
-    goto :goto_4
+    goto :goto_3
 
     .line 3326
     :cond_9
@@ -8368,7 +8375,7 @@
 
     .line 3323
     :cond_a
-    :goto_4
+    :goto_3
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v0
@@ -8384,7 +8391,7 @@
     .line 3404
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_5
+    goto :goto_4
 
     :catch_1
     move-exception p1
@@ -8393,7 +8400,7 @@
     invoke-virtual {p1}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
 
     :cond_b
-    :goto_5
+    :goto_4
     return-void
 
     nop

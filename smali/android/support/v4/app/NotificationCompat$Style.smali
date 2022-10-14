@@ -18,6 +18,12 @@
 .field mBigContentTitle:Ljava/lang/CharSequence;
 
 .field protected mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field mSummaryText:Ljava/lang/CharSequence;
 
@@ -302,18 +308,33 @@
 # virtual methods
 .method public addCompatExtras(Landroid/os/Bundle;)V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     return-void
 .end method
 
 .method public apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     return-void
 .end method
 
 .method public applyStandardTemplate(ZIZ)Landroid/widget/RemoteViews;
     .locals 12
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 1742
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Style;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
@@ -959,26 +980,24 @@
 
     invoke-virtual {v7, p2, p3, v0, v1}, Landroid/widget/RemoteViews;->setLong(ILjava/lang/String;J)V
 
-    goto :goto_b
-
-    :cond_13
-    move v8, p2
+    :goto_b
+    const/4 p2, 0x1
 
     .line 1879
-    :goto_b
-    sget p2, Landroid/support/compat/R$id;->right_side:I
+    :cond_13
+    sget p3, Landroid/support/compat/R$id;->right_side:I
 
-    if-eqz v8, :cond_14
+    if-eqz p2, :cond_14
 
-    const/4 p3, 0x0
+    const/4 p2, 0x0
 
     goto :goto_c
 
     :cond_14
-    const/16 p3, 0x8
+    const/16 p2, 0x8
 
     :goto_c
-    invoke-virtual {v7, p2, p3}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
+    invoke-virtual {v7, p3, p2}, Landroid/widget/RemoteViews;->setViewVisibility(II)V
 
     .line 1880
     sget p2, Landroid/support/compat/R$id;->line3:I
@@ -1020,6 +1039,11 @@
 
 .method public buildIntoRemoteViews(Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;)V
     .locals 7
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     .line 1929
     invoke-direct {p0, p1}, Landroid/support/v4/app/NotificationCompat$Style;->hideNormalContent(Landroid/widget/RemoteViews;)V
@@ -1077,6 +1101,11 @@
 
 .method public createColoredBitmap(II)Landroid/graphics/Bitmap;
     .locals 1
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -1090,6 +1119,11 @@
 
 .method public makeBigContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/widget/RemoteViews;
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     const/4 p1, 0x0
 
@@ -1098,6 +1132,11 @@
 
 .method public makeContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/widget/RemoteViews;
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     const/4 p1, 0x0
 
@@ -1106,6 +1145,11 @@
 
 .method public makeHeadsUpContentView(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)Landroid/widget/RemoteViews;
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     const/4 p1, 0x0
 
@@ -1114,6 +1158,11 @@
 
 .method protected restoreFromCompatExtras(Landroid/os/Bundle;)V
     .locals 0
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
 
     return-void
 .end method
@@ -1128,6 +1177,9 @@
 
     .line 1670
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Style;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
+
+    .line 1671
+    iget-object p1, p0, Landroid/support/v4/app/NotificationCompat$Style;->mBuilder:Landroid/support/v4/app/NotificationCompat$Builder;
 
     if-eqz p1, :cond_0
 

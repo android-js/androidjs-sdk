@@ -31,7 +31,13 @@
 
 # virtual methods
 .method public abstract api()I
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x1L
+    .end annotation
 .end method
 
 .method public abstract value()I
+    .annotation build Landroid/support/annotation/IntRange;
+        from = 0x1L
+    .end annotation
 .end method

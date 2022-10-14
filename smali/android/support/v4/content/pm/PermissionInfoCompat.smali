@@ -24,6 +24,15 @@
 
 .method public static getProtection(Landroid/content/pm/PermissionInfo;)I
     .locals 2
+    .param p0    # Landroid/content/pm/PermissionInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongConstant"
+        }
+    .end annotation
 
     .line 73
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -50,6 +59,15 @@
 
 .method public static getProtectionFlags(Landroid/content/pm/PermissionInfo;)I
     .locals 2
+    .param p0    # Landroid/content/pm/PermissionInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongConstant"
+        }
+    .end annotation
 
     .line 87
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

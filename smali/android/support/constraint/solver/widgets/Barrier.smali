@@ -414,17 +414,23 @@
     if-nez v6, :cond_14
 
     :cond_11
+    iget v8, p0, Landroid/support/constraint/solver/widgets/Barrier;->mBarrierType:I
+
     if-ne v8, v2, :cond_12
 
     if-nez v7, :cond_14
 
     :cond_12
+    iget v8, p0, Landroid/support/constraint/solver/widgets/Barrier;->mBarrierType:I
+
     if-ne v8, v3, :cond_13
 
     if-nez v6, :cond_14
 
     :cond_13
-    if-ne v8, v4, :cond_15
+    iget v6, p0, Landroid/support/constraint/solver/widgets/Barrier;->mBarrierType:I
+
+    if-ne v6, v4, :cond_15
 
     if-eqz v7, :cond_15
 

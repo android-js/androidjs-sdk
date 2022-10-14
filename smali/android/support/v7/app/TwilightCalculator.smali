@@ -347,11 +347,13 @@
 
     iput-wide v3, v0, Landroid/support/v7/app/TwilightCalculator;->sunrise:J
 
-    cmp-long v1, v3, p1
-
-    if-gez v1, :cond_2
-
     .line 133
+    iget-wide v1, v0, Landroid/support/v7/app/TwilightCalculator;->sunrise:J
+
+    cmp-long v3, v1, p1
+
+    if-gez v3, :cond_2
+
     iget-wide v1, v0, Landroid/support/v7/app/TwilightCalculator;->sunset:J
 
     cmp-long v3, v1, p1

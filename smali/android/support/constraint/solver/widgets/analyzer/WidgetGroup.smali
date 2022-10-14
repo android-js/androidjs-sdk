@@ -67,17 +67,23 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->widgets:Ljava/util/ArrayList;
 
-    const/4 v0, 0x0
+    const/4 v0, -0x1
+
+    .line 37
+    iput v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->id:I
+
+    const/4 v1, 0x0
 
     .line 38
-    iput-boolean v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->authoritative:Z
+    iput-boolean v1, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->authoritative:Z
 
-    const/4 v0, 0x0
+    .line 39
+    iput v1, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->orientation:I
+
+    const/4 v1, 0x0
 
     .line 40
-    iput-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->results:Ljava/util/ArrayList;
-
-    const/4 v0, -0x1
+    iput-object v1, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->results:Ljava/util/ArrayList;
 
     .line 41
     iput v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->moveTo:I

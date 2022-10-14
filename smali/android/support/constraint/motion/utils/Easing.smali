@@ -81,7 +81,7 @@
 .end method
 
 .method public static getInterpolator(Ljava/lang/String;)Landroid/support/constraint/motion/utils/Easing;
-    .locals 2
+    .locals 5
 
     if-nez p0, :cond_0
 
@@ -106,15 +106,19 @@
 
     return-object v0
 
-    .line 49
     :cond_1
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
     const/4 v0, -0x1
 
+    .line 49
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
     move-result v1
+
+    const/4 v2, 0x3
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
 
     sparse-switch v1, :sswitch_data_0
 
@@ -127,12 +131,9 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-eqz p0, :cond_2
 
-    goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x3
+    const/4 v0, 0x0
 
     goto :goto_0
 
@@ -143,12 +144,9 @@
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-eqz p0, :cond_2
 
-    goto :goto_0
-
-    :cond_3
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
     goto :goto_0
 
@@ -159,12 +157,9 @@
 
     move-result p0
 
-    if-nez p0, :cond_4
+    if-eqz p0, :cond_2
 
-    goto :goto_0
-
-    :cond_4
-    const/4 v0, 0x1
+    const/4 v0, 0x2
 
     goto :goto_0
 
@@ -175,15 +170,19 @@
 
     move-result p0
 
-    if-nez p0, :cond_5
+    if-eqz p0, :cond_2
 
-    goto :goto_0
+    const/4 v0, 0x1
 
-    :cond_5
-    const/4 v0, 0x0
-
+    :cond_2
     :goto_0
-    packed-switch v0, :pswitch_data_0
+    if-eqz v0, :cond_6
+
+    if-eq v0, v4, :cond_5
+
+    if-eq v0, v3, :cond_4
+
+    if-eq v0, v2, :cond_3
 
     .line 59
     new-instance p0, Ljava/lang/StringBuilder;
@@ -217,18 +216,8 @@
 
     return-object p0
 
-    .line 51
-    :pswitch_0
-    new-instance p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;
-
-    const-string v0, "cubic(0.4, 0.0, 0.2, 1)"
-
-    invoke-direct {p0, v0}, Landroid/support/constraint/motion/utils/Easing$CubicEasing;-><init>(Ljava/lang/String;)V
-
-    return-object p0
-
     .line 57
-    :pswitch_1
+    :cond_3
     new-instance p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;
 
     const-string v0, "cubic(1, 1, 0, 0)"
@@ -238,7 +227,7 @@
     return-object p0
 
     .line 55
-    :pswitch_2
+    :cond_4
     new-instance p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;
 
     const-string v0, "cubic(0.0, 0.0, 0.2, 0.95)"
@@ -248,7 +237,7 @@
     return-object p0
 
     .line 53
-    :pswitch_3
+    :cond_5
     new-instance p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;
 
     const-string v0, "cubic(0.4, 0.05, 0.8, 0.7)"
@@ -257,7 +246,15 @@
 
     return-object p0
 
-    nop
+    .line 51
+    :cond_6
+    new-instance p0, Landroid/support/constraint/motion/utils/Easing$CubicEasing;
+
+    const-string v0, "cubic(0.4, 0.0, 0.2, 1)"
+
+    invoke-direct {p0, v0}, Landroid/support/constraint/motion/utils/Easing$CubicEasing;-><init>(Ljava/lang/String;)V
+
+    return-object p0
 
     :sswitch_data_0
     .sparse-switch
@@ -266,14 +263,6 @@
         -0x41b970db -> :sswitch_1
         0x4e3d1ebd -> :sswitch_0
     .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 

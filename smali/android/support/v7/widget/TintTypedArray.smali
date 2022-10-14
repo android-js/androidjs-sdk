@@ -3,6 +3,14 @@
 .source "TintTypedArray.java"
 
 
+# annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
+
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
@@ -90,6 +98,9 @@
 
 .method public getChangingConfigurations()I
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x15
+    .end annotation
 
     .line 250
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;
@@ -301,6 +312,16 @@
 
 .method public getFont(IILandroid/support/v4/content/res/ResourcesCompat$FontCallback;)Landroid/graphics/Typeface;
     .locals 2
+    .param p1    # I
+        .annotation build Landroid/support/annotation/StyleableRes;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/content/res/ResourcesCompat$FontCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     .line 112
     iget-object v0, p0, Landroid/support/v7/widget/TintTypedArray;->mWrapped:Landroid/content/res/TypedArray;

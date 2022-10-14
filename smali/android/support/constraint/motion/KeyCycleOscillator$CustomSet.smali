@@ -27,9 +27,9 @@
 
     const/4 v0, 0x1
 
+    .line 283
     new-array v0, v0, [F
 
-    .line 283
     iput-object v0, p0, Landroid/support/constraint/motion/KeyCycleOscillator$CustomSet;->value:[F
 
     return-void

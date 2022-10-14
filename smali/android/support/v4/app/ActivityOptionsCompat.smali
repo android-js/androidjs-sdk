@@ -29,6 +29,8 @@
 
 .method public static makeBasic()Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 246
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -59,6 +61,12 @@
 
 .method public static makeClipRevealAnimation(Landroid/view/View;IIII)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 122
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -89,6 +97,12 @@
 
 .method public static makeCustomAnimation(Landroid/content/Context;II)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0    # Landroid/content/Context;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 68
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -119,6 +133,12 @@
 
 .method public static makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -149,6 +169,20 @@
 
 .method public static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p2    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 179
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -179,6 +213,13 @@
 
 .method public static varargs makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/support/v4/util/Pair;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 4
+    .param p0    # Landroid/app/Activity;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -259,6 +300,8 @@
 
 .method public static makeTaskLaunchBehind()Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 234
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -289,6 +332,16 @@
 
 .method public static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;II)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p1    # Landroid/graphics/Bitmap;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 151
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -321,6 +374,8 @@
 # virtual methods
 .method public getLaunchBounds()Landroid/graphics/Rect;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -329,18 +384,30 @@
 
 .method public requestUsageTimeReport(Landroid/app/PendingIntent;)V
     .locals 0
+    .param p1    # Landroid/app/PendingIntent;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method
 
 .method public setLaunchBounds(Landroid/graphics/Rect;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 0
+    .param p1    # Landroid/graphics/Rect;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     return-object p0
 .end method
 
 .method public toBundle()Landroid/os/Bundle;
     .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
 
     const/4 v0, 0x0
 
@@ -349,6 +416,10 @@
 
 .method public update(Landroid/support/v4/app/ActivityOptionsCompat;)V
     .locals 0
+    .param p1    # Landroid/support/v4/app/ActivityOptionsCompat;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     return-void
 .end method

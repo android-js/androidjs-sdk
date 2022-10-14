@@ -103,6 +103,10 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 3
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 210
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -123,37 +127,37 @@
 
     const/4 v0, 0x2
 
+    .line 150
     new-array v1, v0, [F
 
-    .line 150
     fill-array-data v1, :array_0
 
     iput-object v1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mRelativeEdges:[F
 
+    .line 153
     new-array v1, v0, [F
 
-    .line 153
     fill-array-data v1, :array_1
 
     iput-object v1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mMaximumEdges:[F
 
+    .line 162
     new-array v1, v0, [F
 
-    .line 162
     fill-array-data v1, :array_2
 
     iput-object v1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mRelativeVelocity:[F
 
+    .line 165
     new-array v1, v0, [F
 
-    .line 165
     fill-array-data v1, :array_3
 
     iput-object v1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mMinimumVelocity:[F
 
+    .line 168
     new-array v0, v0, [F
 
-    .line 168
     fill-array-data v0, :array_4
 
     iput-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mMaximumVelocity:[F
@@ -379,7 +383,7 @@
 .end method
 
 .method private constrainEdgeValue(FF)F
-    .locals 5
+    .locals 4
 
     const/4 v0, 0x0
 
@@ -417,21 +421,21 @@
     return p1
 
     :cond_2
-    cmpg-float v3, p1, p2
+    cmpg-float v1, p1, p2
 
-    if-gez v3, :cond_4
+    if-gez v1, :cond_4
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    cmpl-float v4, p1, v0
+    cmpl-float v3, p1, v0
 
-    if-ltz v4, :cond_3
+    if-ltz v3, :cond_3
 
     div-float/2addr p1, p2
 
-    sub-float/2addr v3, p1
+    sub-float/2addr v1, p1
 
-    return v3
+    return v1
 
     .line 645
     :cond_3
@@ -439,9 +443,11 @@
 
     if-eqz p1, :cond_4
 
-    if-ne v1, v2, :cond_4
+    iget p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mEdgeType:I
 
-    return v3
+    if-ne p1, v2, :cond_4
+
+    return v1
 
     :cond_4
     :goto_0
@@ -798,6 +804,8 @@
 
 .method public setActivationDelay(I)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 0
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 420
     iput p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mActivationDelay:I
@@ -807,6 +815,8 @@
 
 .method public setEdgeType(I)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 0
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 359
     iput p1, p0, Landroid/support/v4/widget/AutoScrollHelper;->mEdgeType:I
@@ -845,6 +855,8 @@
 
 .method public setMaximumEdges(FF)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 402
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mMaximumEdges:[F
@@ -863,6 +875,8 @@
 
 .method public setMaximumVelocity(FF)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 296
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mMaximumVelocity:[F
@@ -887,6 +901,8 @@
 
 .method public setMinimumVelocity(FF)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 315
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mMinimumVelocity:[F
@@ -911,6 +927,8 @@
 
 .method public setRampDownDuration(I)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 452
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
@@ -922,6 +940,8 @@
 
 .method public setRampUpDuration(I)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 436
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mScroller:Landroid/support/v4/widget/AutoScrollHelper$ClampedScroller;
@@ -933,6 +953,8 @@
 
 .method public setRelativeEdges(FF)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 2
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 379
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mRelativeEdges:[F
@@ -951,6 +973,8 @@
 
 .method public setRelativeVelocity(FF)Landroid/support/v4/widget/AutoScrollHelper;
     .locals 3
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
 
     .line 337
     iget-object v0, p0, Landroid/support/v4/widget/AutoScrollHelper;->mRelativeVelocity:[F

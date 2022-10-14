@@ -15,6 +15,10 @@
 
 .method public static getLongVersionCode(Landroid/content/pm/PackageInfo;)J
     .locals 2
+    .param p0    # Landroid/content/pm/PackageInfo;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 34
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

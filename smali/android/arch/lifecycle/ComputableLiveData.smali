@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation build Landroid/support/annotation/RestrictTo;
+    value = {
+        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
@@ -22,6 +28,9 @@
 .field private mInvalid:Ljava/util/concurrent/atomic/AtomicBoolean;
 
 .field final mInvalidationRunnable:Ljava/lang/Runnable;
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
+.end field
 
 .field private final mLiveData:Landroid/arch/lifecycle/LiveData;
     .annotation system Ldalvik/annotation/Signature;
@@ -33,6 +42,9 @@
 .end field
 
 .field final mRefreshRunnable:Ljava/lang/Runnable;
+    .annotation build Landroid/support/annotation/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # direct methods
@@ -51,6 +63,10 @@
 
 .method public constructor <init>(Ljava/util/concurrent/Executor;)V
     .locals 2
+    .param p1    # Ljava/util/concurrent/Executor;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -139,6 +155,9 @@
 
 # virtual methods
 .method protected abstract compute()Ljava/lang/Object;
+    .annotation build Landroid/support/annotation/WorkerThread;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -148,6 +167,9 @@
 
 .method public getLiveData()Landroid/arch/lifecycle/LiveData;
     .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

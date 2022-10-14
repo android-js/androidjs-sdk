@@ -16,12 +16,24 @@
 .field private mCursorToStringConverter:Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;
 
 .field protected mFrom:[I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field mOriginalFrom:[Ljava/lang/String;
 
 .field private mStringConversionColumn:I
 
 .field protected mTo:[I
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+.end field
 
 .field private mViewBinder:Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;
 
@@ -269,6 +281,8 @@
     iput-object p3, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mTo:[I
 
     .line 356
+    iget-object p2, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mOriginalFrom:[Ljava/lang/String;
+
     invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/SimpleCursorAdapter;->findColumns(Landroid/database/Cursor;[Ljava/lang/String;)V
 
     .line 357

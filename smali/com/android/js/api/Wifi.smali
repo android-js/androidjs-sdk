@@ -20,6 +20,8 @@
     iput-object p1, p0, Lcom/android/js/api/Wifi;->activity:Landroid/app/Activity;
 
     .line 21
+    iget-object p1, p0, Lcom/android/js/api/Wifi;->activity:Landroid/app/Activity;
+
     invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
@@ -68,6 +70,7 @@
 
     const/4 v1, 0x1
 
+    .line 72
     new-array v2, v1, [Ljava/lang/Object;
 
     const/4 v3, 0x0
@@ -76,7 +79,6 @@
 
     const-string p1, "\"%s\""
 
-    .line 72
     invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
@@ -99,12 +101,12 @@
 
     goto :goto_0
 
+    .line 76
     :cond_0
     new-array v2, v1, [Ljava/lang/Object;
 
     aput-object p2, v2, v3
 
-    .line 76
     invoke-static {p1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p1

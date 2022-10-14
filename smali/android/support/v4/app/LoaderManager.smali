@@ -32,6 +32,13 @@
 
 .method public static getInstance(Landroid/arch/lifecycle/LifecycleOwner;)Landroid/support/v4/app/LoaderManager;
     .locals 2
+    .param p0    # Landroid/arch/lifecycle/LifecycleOwner;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -62,6 +69,8 @@
 
 # virtual methods
 .method public abstract destroyLoader(I)V
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
 .end method
 
 .method public abstract dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
@@ -70,6 +79,9 @@
 .end method
 
 .method public abstract getLoader(I)Landroid/support/v4/content/Loader;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",
@@ -90,6 +102,20 @@
 .end method
 
 .method public abstract initLoader(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",
@@ -108,6 +134,20 @@
 .end method
 
 .method public abstract restartLoader(ILandroid/os/Bundle;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)Landroid/support/v4/content/Loader;
+    .param p2    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation build Landroid/support/annotation/MainThread;
+    .end annotation
+
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",

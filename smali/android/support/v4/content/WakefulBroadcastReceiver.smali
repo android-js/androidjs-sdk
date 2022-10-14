@@ -55,18 +55,18 @@
 .method public static completeWakefulIntent(Landroid/content/Intent;)Z
     .locals 5
 
-    const-string v0, "android.support.content.wakelockid"
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const-string v1, "android.support.content.wakelockid"
 
     .line 126
-    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p0
 
     if-nez p0, :cond_0
 
-    return v1
+    return v0
 
     .line 130
     :cond_0
@@ -76,7 +76,9 @@
 
     .line 131
     :try_start_0
-    invoke-virtual {v0, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    sget-object v1, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -90,7 +92,9 @@
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 134
-    invoke-virtual {v0, p0}, Landroid/util/SparseArray;->remove(I)V
+    sget-object v1, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p0}, Landroid/util/SparseArray;->remove(I)V
 
     .line 135
     monitor-exit v0
@@ -145,12 +149,17 @@
     :try_start_0
     sget v1, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
-    add-int/lit8 v2, v1, 0x1
-
     .line 96
-    sput v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
+    sget v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
     const/4 v3, 0x1
+
+    add-int/2addr v2, v3
+
+    sput v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
+
+    .line 97
+    sget v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mNextId:I
 
     if-gtz v2, :cond_0
 
@@ -223,7 +232,9 @@
     invoke-virtual {p0, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     .line 112
-    invoke-virtual {v0, v1, p0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, v1, p0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     .line 113
     monitor-exit v0
