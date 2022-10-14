@@ -3,14 +3,6 @@
 .source "AppCompatImageHelper.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
 .field private mImageTint:Landroid/support/v7/widget/TintInfo;
 
@@ -36,10 +28,6 @@
 
 .method private applyFrameworkTintUsingColorFilter(Landroid/graphics/drawable/Drawable;)Z
     .locals 3
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 196
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatImageHelper;->mTmpInfo:Landroid/support/v7/widget/TintInfo;
@@ -505,10 +493,12 @@
 
     iput-object p1, v0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
 
-    const/4 p1, 0x1
-
     .line 166
-    iput-boolean p1, v0, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatImageHelper;->mInternalImageTint:Landroid/support/v7/widget/TintInfo;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p1, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
 
     goto :goto_0
 
@@ -546,10 +536,12 @@
 
     iput-object p1, v0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
 
-    const/4 p1, 0x1
-
     .line 114
-    iput-boolean p1, v0, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatImageHelper;->mImageTint:Landroid/support/v7/widget/TintInfo;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p1, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
 
     .line 115
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatImageHelper;->applySupportImageTint()V
@@ -578,10 +570,12 @@
 
     iput-object p1, v0, Landroid/support/v7/widget/TintInfo;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    const/4 p1, 0x1
-
     .line 127
-    iput-boolean p1, v0, Landroid/support/v7/widget/TintInfo;->mHasTintMode:Z
+    iget-object p1, p0, Landroid/support/v7/widget/AppCompatImageHelper;->mImageTint:Landroid/support/v7/widget/TintInfo;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p1, Landroid/support/v7/widget/TintInfo;->mHasTintMode:Z
 
     .line 129
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatImageHelper;->applySupportImageTint()V

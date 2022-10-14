@@ -91,6 +91,8 @@
     iput-object v0, p1, Landroid/support/v7/app/WindowDecorActionBar;->mCurrentShowAnim:Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;
 
     .line 145
+    iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
+
     invoke-virtual {p1}, Landroid/support/v7/app/WindowDecorActionBar;->completeDeferredDestroyActionMode()V
 
     .line 146

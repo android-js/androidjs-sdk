@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/ViewStubCompat$OnInflateListener;
@@ -122,11 +116,6 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 0
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "MissingSuperCall"
-        }
-    .end annotation
 
     return-void
 .end method

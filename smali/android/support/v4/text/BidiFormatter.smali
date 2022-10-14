@@ -63,47 +63,43 @@
 
     sput-object v0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_TEXT_DIRECTION_HEURISTIC:Landroid/support/v4/text/TextDirectionHeuristicCompat;
 
-    const/16 v0, 0x200e
+    const/16 v1, 0x200e
 
     .line 115
-    invoke-static {v0}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    sput-object v0, Landroid/support/v4/text/BidiFormatter;->LRM_STRING:Ljava/lang/String;
+    sput-object v1, Landroid/support/v4/text/BidiFormatter;->LRM_STRING:Ljava/lang/String;
 
-    const/16 v0, 0x200f
+    const/16 v1, 0x200f
 
     .line 120
-    invoke-static {v0}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    sput-object v0, Landroid/support/v4/text/BidiFormatter;->RLM_STRING:Ljava/lang/String;
+    sput-object v1, Landroid/support/v4/text/BidiFormatter;->RLM_STRING:Ljava/lang/String;
 
     .line 217
-    new-instance v0, Landroid/support/v4/text/BidiFormatter;
+    new-instance v1, Landroid/support/v4/text/BidiFormatter;
 
-    sget-object v1, Landroid/support/v4/text/BidiFormatter;->DEFAULT_TEXT_DIRECTION_HEURISTIC:Landroid/support/v4/text/TextDirectionHeuristicCompat;
+    const/4 v2, 0x0
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    const/4 v3, 0x0
+    invoke-direct {v1, v2, v3, v0}, Landroid/support/v4/text/BidiFormatter;-><init>(ZILandroid/support/v4/text/TextDirectionHeuristicCompat;)V
 
-    invoke-direct {v0, v3, v2, v1}, Landroid/support/v4/text/BidiFormatter;-><init>(ZILandroid/support/v4/text/TextDirectionHeuristicCompat;)V
-
-    sput-object v0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_LTR_INSTANCE:Landroid/support/v4/text/BidiFormatter;
+    sput-object v1, Landroid/support/v4/text/BidiFormatter;->DEFAULT_LTR_INSTANCE:Landroid/support/v4/text/BidiFormatter;
 
     .line 222
-    new-instance v0, Landroid/support/v4/text/BidiFormatter;
+    new-instance v1, Landroid/support/v4/text/BidiFormatter;
 
-    sget-object v1, Landroid/support/v4/text/BidiFormatter;->DEFAULT_TEXT_DIRECTION_HEURISTIC:Landroid/support/v4/text/TextDirectionHeuristicCompat;
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    invoke-direct {v1, v2, v3, v0}, Landroid/support/v4/text/BidiFormatter;-><init>(ZILandroid/support/v4/text/TextDirectionHeuristicCompat;)V
 
-    invoke-direct {v0, v3, v2, v1}, Landroid/support/v4/text/BidiFormatter;-><init>(ZILandroid/support/v4/text/TextDirectionHeuristicCompat;)V
-
-    sput-object v0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_RTL_INSTANCE:Landroid/support/v4/text/BidiFormatter;
+    sput-object v1, Landroid/support/v4/text/BidiFormatter;->DEFAULT_RTL_INSTANCE:Landroid/support/v4/text/BidiFormatter;
 
     return-void
 .end method

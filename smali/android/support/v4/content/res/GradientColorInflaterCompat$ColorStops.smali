@@ -23,21 +23,12 @@
 # direct methods
 .method constructor <init>(II)V
     .locals 3
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
-    .param p2    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
 
     .line 227
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x2
 
-    .line 228
     new-array v1, v0, [I
 
     const/4 v2, 0x0
@@ -48,11 +39,12 @@
 
     aput p2, v1, p1
 
+    .line 228
     iput-object v1, p0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mColors:[I
 
-    .line 229
     new-array p1, v0, [F
 
+    .line 229
     fill-array-data p1, :array_0
 
     iput-object p1, p0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
@@ -68,25 +60,12 @@
 
 .method constructor <init>(III)V
     .locals 3
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
-    .param p2    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
-    .param p3    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
 
     .line 232
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x3
 
-    .line 233
     new-array v1, v0, [I
 
     const/4 v2, 0x0
@@ -101,11 +80,12 @@
 
     aput p3, v1, p1
 
+    .line 233
     iput-object v1, p0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mColors:[I
 
-    .line 234
     new-array p1, v0, [F
 
+    .line 234
     fill-array-data p1, :array_0
 
     iput-object p1, p0, Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;->mOffsets:[F
@@ -124,14 +104,6 @@
 
 .method constructor <init>(Ljava/util/List;Ljava/util/List;)V
     .locals 4
-    .param p1    # Ljava/util/List;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/util/List;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -3,12 +3,6 @@
 .source "RoundedBitmapDrawable21.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x15
-.end annotation
-
-
 # direct methods
 .method protected constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
     .locals 0

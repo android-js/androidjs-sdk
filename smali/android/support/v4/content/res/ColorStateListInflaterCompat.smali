@@ -3,14 +3,6 @@
 .source "ColorStateListInflaterCompat.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final DEFAULT_COLOR:I = -0x10000
 
@@ -27,21 +19,6 @@
 
 .method public static createFromXml(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
     .locals 4
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -88,32 +65,17 @@
 
     invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :goto_1
     throw p0
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method
 
 .method public static createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
     .locals 2
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -174,22 +136,6 @@
 
 .method private static inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
     .locals 17
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -210,13 +156,9 @@
 
     const/16 v3, 0x14
 
-    .line 112
-    new-array v3, v3, [[I
+    new-array v4, v3, [[I
 
-    .line 113
-    array-length v4, v3
-
-    new-array v4, v4, [I
+    new-array v3, v3, [I
 
     const/4 v5, 0x0
 
@@ -403,18 +345,18 @@
 
     .line 159
     :cond_7
-    invoke-static {v4, v6, v7}, Landroid/support/v4/content/res/GrowingArrayUtils;->append([III)[I
+    invoke-static {v3, v6, v7}, Landroid/support/v4/content/res/GrowingArrayUtils;->append([III)[I
 
-    move-result-object v4
+    move-result-object v3
 
     .line 160
-    invoke-static {v3, v6, v2}, Landroid/support/v4/content/res/GrowingArrayUtils;->append([Ljava/lang/Object;ILjava/lang/Object;)[Ljava/lang/Object;
+    invoke-static {v4, v6, v2}, Landroid/support/v4/content/res/GrowingArrayUtils;->append([Ljava/lang/Object;ILjava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v2
 
-    move-object v3, v2
+    move-object v4, v2
 
-    check-cast v3, [[I
+    check-cast v4, [[I
 
     add-int/lit8 v6, v6, 0x1
 
@@ -439,10 +381,10 @@
     new-array v1, v6, [[I
 
     .line 166
-    invoke-static {v4, v5, v0, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v3, v5, v0, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 167
-    invoke-static {v3, v5, v1, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v4, v5, v1, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 169
     new-instance v2, Landroid/content/res/ColorStateList;
@@ -454,18 +396,6 @@
 
 .method private static modulateColorAlpha(IF)I
     .locals 1
-    .param p0    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
-    .param p1    # F
-        .annotation build Landroid/support/annotation/FloatRange;
-            from = 0.0
-            to = 1.0
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/ColorInt;
-    .end annotation
 
     .line 181
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I

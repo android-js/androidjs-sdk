@@ -165,16 +165,14 @@
     iput v0, p0, Landroid/support/v4/util/CircularIntArray;->mHead:I
 
     .line 86
-    iget-object v0, p0, Landroid/support/v4/util/CircularIntArray;->mElements:[I
+    iget-object v1, p0, Landroid/support/v4/util/CircularIntArray;->mElements:[I
 
-    iget v1, p0, Landroid/support/v4/util/CircularIntArray;->mHead:I
-
-    aput p1, v0, v1
+    aput p1, v1, v0
 
     .line 87
     iget p1, p0, Landroid/support/v4/util/CircularIntArray;->mTail:I
 
-    if-ne v1, p1, :cond_0
+    if-ne v0, p1, :cond_0
 
     .line 88
     invoke-direct {p0}, Landroid/support/v4/util/CircularIntArray;->doubleCapacity()V
@@ -203,8 +201,6 @@
     iput p1, p0, Landroid/support/v4/util/CircularIntArray;->mTail:I
 
     .line 99
-    iget p1, p0, Landroid/support/v4/util/CircularIntArray;->mTail:I
-
     iget v0, p0, Landroid/support/v4/util/CircularIntArray;->mHead:I
 
     if-ne p1, v0, :cond_0

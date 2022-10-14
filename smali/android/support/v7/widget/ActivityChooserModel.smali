@@ -290,7 +290,7 @@
 .end method
 
 .method public static get(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v7/widget/ActivityChooserModel;
-    .locals 2
+    .locals 3
 
     .line 330
     sget-object v0, Landroid/support/v7/widget/ActivityChooserModel;->sRegistryLock:Ljava/lang/Object;
@@ -303,27 +303,25 @@
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/support/v7/widget/ActivityChooserModel;
+    check-cast v2, Landroid/support/v7/widget/ActivityChooserModel;
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     .line 333
-    new-instance v1, Landroid/support/v7/widget/ActivityChooserModel;
+    new-instance v2, Landroid/support/v7/widget/ActivityChooserModel;
 
-    invoke-direct {v1, p0, p1}, Landroid/support/v7/widget/ActivityChooserModel;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-direct {v2, p0, p1}, Landroid/support/v7/widget/ActivityChooserModel;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 334
-    sget-object p0, Landroid/support/v7/widget/ActivityChooserModel;->sDataModelRegistry:Ljava/util/Map;
-
-    invoke-interface {p0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, p1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 336
     :cond_0
     monitor-exit v0
 
-    return-object v1
+    return-object v2
 
     :catchall_0
     move-exception p0
@@ -1143,9 +1141,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    goto :goto_2
+
+    :goto_1
     throw p1
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method
 
 .method public getDefaultActivity()Landroid/content/pm/ResolveInfo;

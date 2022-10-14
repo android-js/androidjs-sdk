@@ -21,9 +21,9 @@
 
     const/4 v0, 0x4
 
-    .line 14
     new-array v0, v0, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
+    .line 14
     iput-object v0, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     const/4 v0, 0x0

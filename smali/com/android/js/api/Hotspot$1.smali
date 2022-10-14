@@ -43,11 +43,6 @@
 
 .method public onStarted(Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;)V
     .locals 1
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "SetTextI18n"
-        }
-    .end annotation
 
     .line 45
     invoke-super {p0, p1}, Landroid/net/wifi/WifiManager$LocalOnlyHotspotCallback;->onStarted(Landroid/net/wifi/WifiManager$LocalOnlyHotspotReservation;)V

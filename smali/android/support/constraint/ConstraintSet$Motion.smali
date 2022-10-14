@@ -58,8 +58,6 @@
     sput-object v0, Landroid/support/constraint/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
 
     .line 1207
-    sget-object v0, Landroid/support/constraint/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
-
     sget v1, Landroid/support/constraint/R$styleable;->Motion_motionPathRotate:I
 
     const/4 v2, 0x1

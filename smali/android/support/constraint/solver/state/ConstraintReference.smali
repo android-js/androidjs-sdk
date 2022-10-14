@@ -1502,8 +1502,6 @@
     iput-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 110
-    iget-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
     iget-object v1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mView:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setCompanionWidget(Ljava/lang/Object;)V
@@ -1924,8 +1922,6 @@
     iput-object p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 103
-    iget-object p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
     iget-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mView:Ljava/lang/Object;
 
     invoke-virtual {p1, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setCompanionWidget(Ljava/lang/Object;)V
@@ -1976,14 +1972,12 @@
     iput-object p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mView:Ljava/lang/Object;
 
     .line 89
-    iget-object p1, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mConstraintWidget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 90
-    iget-object v0, p0, Landroid/support/constraint/solver/state/ConstraintReference;->mView:Ljava/lang/Object;
-
-    invoke-virtual {p1, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setCompanionWidget(Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setCompanionWidget(Ljava/lang/Object;)V
 
     :cond_0
     return-void

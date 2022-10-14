@@ -27,9 +27,6 @@
 
 # instance fields
 .field final mOwner:Landroid/arch/lifecycle/LifecycleOwner;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 .field final synthetic this$0:Landroid/arch/lifecycle/LiveData;
 
@@ -37,10 +34,6 @@
 # direct methods
 .method constructor <init>(Landroid/arch/lifecycle/LiveData;Landroid/arch/lifecycle/LifecycleOwner;Landroid/arch/lifecycle/Observer;)V
     .locals 0
-    .param p1    # Landroid/arch/lifecycle/LiveData;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

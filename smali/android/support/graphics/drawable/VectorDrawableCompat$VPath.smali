@@ -119,84 +119,78 @@
 
     const-string v1, " "
 
-    move-object v2, v1
-
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     .line 1691
     :goto_0
     array-length v3, p1
 
-    if-ge v1, v3, :cond_1
+    if-ge v2, v3, :cond_1
 
     .line 1692
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget-object v2, p1, v1
+    aget-object v1, p1, v2
 
-    iget-char v2, v2, Landroid/support/v4/graphics/PathParser$PathDataNode;->mType:C
+    iget-char v1, v1, Landroid/support/v4/graphics/PathParser$PathDataNode;->mType:C
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-string v2, ":"
+    const-string v1, ":"
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
     .line 1693
-    aget-object v3, p1, v1
+    aget-object v3, p1, v2
 
     iget-object v3, v3, Landroid/support/v4/graphics/PathParser$PathDataNode;->mParams:[F
 
-    move-object v4, v2
-
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     .line 1694
     :goto_1
     array-length v5, v3
 
-    if-ge v2, v5, :cond_0
+    if-ge v4, v5, :cond_0
 
     .line 1695
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget v4, v3, v2
+    aget v1, v3, v4
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v4, ","
+    const-string v1, ","
 
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    move-object v2, v4
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    return-object v2
+    return-object v1
 .end method
 
 .method public printVPath(I)V

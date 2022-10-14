@@ -19,9 +19,9 @@
 
     const/4 v0, 0x2
 
-    .line 38
     new-array v0, v0, [I
 
+    .line 38
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v7/widget/AppCompatProgressBarHelper;->TINT_ATTRS:[I
@@ -54,9 +54,9 @@
 
     const/16 v0, 0x8
 
-    .line 140
     new-array v0, v0, [F
 
+    .line 140
     fill-array-data v0, :array_0
 
     .line 141
@@ -271,10 +271,10 @@
 
     invoke-direct {p1, v2, p2, v1}, Landroid/graphics/drawable/ClipDrawable;-><init>(Landroid/graphics/drawable/Drawable;II)V
 
-    goto :goto_4
+    move-object v2, p1
 
     :cond_7
-    move-object p1, v2
+    return-object v2
 
     :cond_8
     :goto_4

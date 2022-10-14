@@ -39,9 +39,9 @@
 
     const/16 v0, 0x20
 
-    .line 48
     new-array v0, v0, [I
 
+    .line 48
     iput-object v0, p0, Landroid/support/constraint/ConstraintHelper;->mIds:[I
 
     const/4 v0, 0x0
@@ -78,9 +78,9 @@
 
     const/16 v0, 0x20
 
-    .line 48
     new-array v0, v0, [I
 
+    .line 48
     iput-object v0, p0, Landroid/support/constraint/ConstraintHelper;->mIds:[I
 
     const/4 v0, 0x0
@@ -117,9 +117,9 @@
 
     const/16 p3, 0x20
 
-    .line 48
     new-array p3, p3, [I
 
+    .line 48
     iput-object p3, p0, Landroid/support/constraint/ConstraintHelper;->mIds:[I
 
     const/4 p3, 0x0
@@ -373,7 +373,7 @@
 
     if-nez p1, :cond_0
 
-    goto :goto_1
+    goto :goto_2
 
     .line 322
     :cond_0
@@ -426,8 +426,13 @@
     :try_end_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 336
+    goto :goto_1
+
     :catch_0
+    nop
+
+    .line 336
+    :goto_1
     invoke-virtual {p2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
@@ -447,7 +452,7 @@
     goto :goto_0
 
     :cond_3
-    :goto_1
+    :goto_2
     return v0
 .end method
 
@@ -535,8 +540,13 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    goto :goto_1
+
     :catch_0
+    nop
+
     :cond_3
+    :goto_1
     if-nez v3, :cond_4
 
     .line 303
@@ -843,8 +853,6 @@
     iput-object v2, p0, Landroid/support/constraint/ConstraintHelper;->mReferenceIds:Ljava/lang/String;
 
     .line 107
-    iget-object v2, p0, Landroid/support/constraint/ConstraintHelper;->mReferenceIds:Ljava/lang/String;
-
     invoke-virtual {p0, v2}, Landroid/support/constraint/ConstraintHelper;->setIds(Ljava/lang/String;)V
 
     :cond_0

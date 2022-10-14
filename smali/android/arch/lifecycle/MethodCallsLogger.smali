@@ -3,14 +3,6 @@
 .source "MethodCallsLogger.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
 .field private mCalledMethods:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
@@ -45,11 +37,6 @@
 # virtual methods
 .method public approveCall(Ljava/lang/String;I)Z
     .locals 4
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 36
     iget-object v0, p0, Landroid/arch/lifecycle/MethodCallsLogger;->mCalledMethods:Ljava/util/Map;

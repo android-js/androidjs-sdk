@@ -23,10 +23,6 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/Typeface;I)V
     .locals 0
-    .param p1    # Landroid/graphics/Typeface;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 213
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

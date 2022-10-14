@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;
@@ -37,22 +31,6 @@
 
 .method private static checkColors(Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;IIZI)Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;
     .locals 0
-    .param p0    # Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
-    .param p2    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
-    .param p4    # I
-        .annotation build Landroid/support/annotation/ColorInt;
-        .end annotation
-    .end param
 
     if-eqz p0, :cond_0
 
@@ -79,18 +57,6 @@
 
 .method static createFromXml(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;)Landroid/graphics/Shader;
     .locals 4
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -137,29 +103,17 @@
 
     invoke-direct {p0, p1}, Lorg/xmlpull/v1/XmlPullParserException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :goto_1
     throw p0
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method
 
 .method static createFromXmlInner(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/Shader;
     .locals 20
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -199,90 +153,90 @@
     .line 98
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_startX:I
 
-    const/4 v6, 0x0
+    const-string v6, "startX"
 
-    const-string v7, "startX"
+    const/4 v7, 0x0
 
-    invoke-static {v1, v0, v7, v5, v6}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v6, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v9
 
     .line 100
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_startY:I
 
-    const-string v7, "startY"
+    const-string v6, "startY"
 
-    invoke-static {v1, v0, v7, v5, v6}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v6, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v10
 
     .line 102
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_endX:I
 
-    const-string v7, "endX"
+    const-string v6, "endX"
 
-    invoke-static {v1, v0, v7, v5, v6}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v6, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v11
 
     .line 104
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_endY:I
 
-    const-string v7, "endY"
+    const-string v6, "endY"
 
-    invoke-static {v1, v0, v7, v5, v6}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v6, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v12
 
     .line 106
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_centerX:I
 
-    const-string v7, "centerX"
+    const-string v6, "centerX"
 
-    invoke-static {v1, v0, v7, v5, v6}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v6, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v14
 
     .line 108
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_centerY:I
 
-    const-string v7, "centerY"
+    const-string v6, "centerY"
 
-    invoke-static {v1, v0, v7, v5, v6}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v6, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
     move-result v15
 
     .line 110
     sget v5, Landroid/support/compat/R$styleable;->GradientColor_android_type:I
 
-    const/4 v7, 0x0
+    const-string v6, "type"
 
-    const-string v8, "type"
+    const/4 v8, 0x0
 
-    invoke-static {v1, v0, v8, v5, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {v1, v0, v6, v5, v8}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v5
 
     .line 112
-    sget v8, Landroid/support/compat/R$styleable;->GradientColor_android_startColor:I
+    sget v6, Landroid/support/compat/R$styleable;->GradientColor_android_startColor:I
 
     const-string v13, "startColor"
 
-    invoke-static {v1, v0, v13, v8, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {v1, v0, v13, v6, v8}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
-    move-result v8
+    move-result v6
 
     const-string v13, "centerColor"
 
     .line 114
     invoke-static {v0, v13}, Landroid/support/v4/content/res/TypedArrayUtils;->hasAttribute(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v7
 
     .line 115
     sget v2, Landroid/support/compat/R$styleable;->GradientColor_android_centerColor:I
 
-    invoke-static {v1, v0, v13, v2, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {v1, v0, v13, v2, v8}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v2
 
@@ -291,7 +245,7 @@
 
     const-string v3, "endColor"
 
-    invoke-static {v1, v0, v3, v13, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {v1, v0, v3, v13, v8}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedColor(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v3
 
@@ -300,12 +254,12 @@
 
     const-string v4, "tileMode"
 
-    invoke-static {v1, v0, v4, v13, v7}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
+    invoke-static {v1, v0, v4, v13, v8}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result v4
 
     .line 121
-    sget v7, Landroid/support/compat/R$styleable;->GradientColor_android_gradientRadius:I
+    sget v8, Landroid/support/compat/R$styleable;->GradientColor_android_gradientRadius:I
 
     const-string v13, "gradientRadius"
 
@@ -313,9 +267,9 @@
 
     const/4 v14, 0x0
 
-    invoke-static {v1, v0, v13, v7, v14}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
+    invoke-static {v1, v0, v13, v8, v14}, Landroid/support/v4/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
-    move-result v7
+    move-result v8
 
     .line 123
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
@@ -326,7 +280,7 @@
     move-result-object v0
 
     .line 126
-    invoke-static {v0, v8, v3, v6, v2}, Landroid/support/v4/content/res/GradientColorInflaterCompat;->checkColors(Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;IIZI)Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;
+    invoke-static {v0, v6, v3, v7, v2}, Landroid/support/v4/content/res/GradientColorInflaterCompat;->checkColors(Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;IIZI)Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;
 
     move-result-object v0
 
@@ -375,7 +329,7 @@
 
     const/4 v1, 0x0
 
-    cmpg-float v1, v7, v1
+    cmpg-float v1, v8, v1
 
     if-lez v1, :cond_2
 
@@ -395,7 +349,7 @@
 
     move v14, v3
 
-    move/from16 v16, v7
+    move/from16 v16, v8
 
     move-object/from16 v17, v2
 
@@ -447,22 +401,6 @@
 
 .method private static inflateChildElements(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/support/v4/content/res/GradientColorInflaterCompat$ColorStops;
     .locals 8
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,

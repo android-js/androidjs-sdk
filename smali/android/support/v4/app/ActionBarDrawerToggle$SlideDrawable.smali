@@ -67,10 +67,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 5
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 582
     iget-object v0, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mTmpRect:Landroid/graphics/Rect;

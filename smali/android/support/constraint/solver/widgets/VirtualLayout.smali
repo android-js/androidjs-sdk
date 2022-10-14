@@ -91,16 +91,16 @@
 
 # virtual methods
 .method public applyRtl(Z)V
-    .locals 1
+    .locals 2
 
     .line 72
     iget v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingStart:I
 
     if-gtz v0, :cond_0
 
-    iget v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingEnd:I
+    iget v1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingEnd:I
 
-    if-lez v0, :cond_2
+    if-lez v1, :cond_2
 
     :cond_0
     if-eqz p1, :cond_1
@@ -111,17 +111,13 @@
     iput p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingLeft:I
 
     .line 75
-    iget p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingStart:I
-
-    iput p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingRight:I
+    iput v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingRight:I
 
     goto :goto_0
 
     .line 77
     :cond_1
-    iget p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingStart:I
-
-    iput p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingLeft:I
+    iput v0, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mResolvedPaddingLeft:I
 
     .line 78
     iget p1, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mPaddingEnd:I
@@ -263,18 +259,26 @@
     iput-object p2, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 212
-    iput-object p4, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object p2, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    iput-object p4, p2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 213
-    iput p3, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalDimension:I
+    iget-object p2, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    iput p3, p2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalDimension:I
 
     .line 214
-    iput p5, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalDimension:I
+    iget-object p2, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    iput p5, p2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalDimension:I
 
     .line 215
     iget-object p2, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasurer:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;
 
-    invoke-interface {p2, p1, v0}, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;->measure(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;)V
+    iget-object p3, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    invoke-interface {p2, p1, p3}, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;->measure(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;)V
 
     .line 216
     iget-object p2, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
@@ -427,9 +431,13 @@
     iput-object v5, v4, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 191
+    iget-object v4, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
     iput-object v6, v4, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 192
+    iget-object v4, p0, Landroid/support/constraint/solver/widgets/VirtualLayout;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
     invoke-virtual {v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getWidth()I
 
     move-result v5

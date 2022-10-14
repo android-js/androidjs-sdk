@@ -206,10 +206,6 @@
 
 .method public findViewById(I)Landroid/view/View;
     .locals 1
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -232,8 +228,6 @@
 
 .method public getDelegate()Landroid/support/v7/app/AppCompatDelegate;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 519
     iget-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
@@ -256,8 +250,6 @@
 
 .method public getDrawerToggleDelegate()Landroid/support/v7/app/ActionBarDrawerToggle$Delegate;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 483
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -327,8 +319,6 @@
 
 .method public getSupportActionBar()Landroid/support/v7/app/ActionBar;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 110
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -344,8 +334,6 @@
 
 .method public getSupportParentActivityIntent()Landroid/content/Intent;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 431
     invoke-static {p0}, Landroid/support/v4/app/NavUtils;->getParentActivityIntent(Landroid/app/Activity;)Landroid/content/Intent;
@@ -415,10 +403,6 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 3
-    .param p1    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 71
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -478,10 +462,6 @@
 
 .method public onCreateSupportNavigateUpTaskStack(Landroid/support/v4/app/TaskStackBuilder;)V
     .locals 0
-    .param p1    # Landroid/support/v4/app/TaskStackBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 348
     invoke-virtual {p1, p0}, Landroid/support/v4/app/TaskStackBuilder;->addParentStack(Landroid/app/Activity;)Landroid/support/v4/app/TaskStackBuilder;
@@ -603,10 +583,6 @@
 
 .method protected onPostCreate(Landroid/os/Bundle;)V
     .locals 1
-    .param p1    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 97
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onPostCreate(Landroid/os/Bundle;)V
@@ -639,10 +615,6 @@
 
 .method public onPrepareSupportNavigateUpTaskStack(Landroid/support/v4/app/TaskStackBuilder;)V
     .locals 0
-    .param p1    # Landroid/support/v4/app/TaskStackBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     return-void
 .end method
@@ -697,24 +669,12 @@
 
 .method public onSupportActionModeFinished(Landroid/support/v7/view/ActionMode;)V
     .locals 0
-    .param p1    # Landroid/support/v7/view/ActionMode;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     return-void
 .end method
 
 .method public onSupportActionModeStarted(Landroid/support/v7/view/ActionMode;)V
     .locals 0
-    .param p1    # Landroid/support/v7/view/ActionMode;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     return-void
 .end method
@@ -805,12 +765,6 @@
 
 .method public onWindowStartingSupportActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
     .locals 0
-    .param p1    # Landroid/support/v7/view/ActionMode$Callback;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const/4 p1, 0x0
 
@@ -857,10 +811,6 @@
 
 .method public setContentView(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroid/support/annotation/LayoutRes;
-        .end annotation
-    .end param
 
     .line 140
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -900,10 +850,6 @@
 
 .method public setSupportActionBar(Landroid/support/v7/widget/Toolbar;)V
     .locals 1
-    .param p1    # Landroid/support/v7/widget/Toolbar;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 130
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -949,10 +895,6 @@
 
 .method public setTheme(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StyleRes;
-        .end annotation
-    .end param
 
     .line 90
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->setTheme(I)V
@@ -965,12 +907,6 @@
 
 .method public startSupportActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
     .locals 1
-    .param p1    # Landroid/support/v7/view/ActionMode$Callback;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 293
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -999,10 +935,6 @@
 
 .method public supportNavigateUpTo(Landroid/content/Intent;)V
     .locals 0
-    .param p1    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 464
     invoke-static {p0, p1}, Landroid/support/v4/app/NavUtils;->navigateUpTo(Landroid/app/Activity;Landroid/content/Intent;)V
@@ -1027,10 +959,6 @@
 
 .method public supportShouldUpRecreateTask(Landroid/content/Intent;)Z
     .locals 0
-    .param p1    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 448
     invoke-static {p0, p1}, Landroid/support/v4/app/NavUtils;->shouldUpRecreateTask(Landroid/app/Activity;Landroid/content/Intent;)Z

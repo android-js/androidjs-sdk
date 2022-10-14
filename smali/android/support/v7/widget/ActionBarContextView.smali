@@ -3,14 +3,6 @@
 .source "ActionBarContextView.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ActionBarContextView"
 
@@ -168,8 +160,6 @@
     iput-object v0, p0, Landroid/support/v7/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     .line 138
-    iget-object v0, p0, Landroid/support/v7/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
-
     sget v1, Landroid/support/v7/appcompat/R$id;->action_bar_title:I
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
@@ -480,8 +470,6 @@
     iput-object v0, p0, Landroid/support/v7/widget/ActionBarContextView;->mClose:Landroid/view/View;
 
     .line 164
-    iget-object v0, p0, Landroid/support/v7/widget/ActionBarContextView;->mClose:Landroid/view/View;
-
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/ActionBarContextView;->addView(Landroid/view/View;)V
 
     goto :goto_0
@@ -872,15 +860,12 @@
     .line 334
     invoke-static {v8, p5, p1}, Landroid/support/v7/widget/ActionBarContextView;->next(IIZ)I
 
-    move-result p5
-
-    goto :goto_3
+    move-result v0
 
     :cond_3
     move p5, v0
 
     .line 337
-    :goto_3
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarContextView;->mTitleLayout:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_4
@@ -943,7 +928,7 @@
 
     move v3, p2
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_6
     sub-int/2addr p4, p2
@@ -957,7 +942,7 @@
     move v3, p4
 
     .line 347
-    :goto_4
+    :goto_3
     iget-object p2, p0, Landroid/support/v7/widget/ActionBarContextView;->mMenuView:Landroid/support/v7/widget/ActionMenuView;
 
     if-eqz p2, :cond_7
@@ -1368,9 +1353,13 @@
 
     invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_9
+
+    :goto_8
     throw p1
 
-    return-void
+    :goto_9
+    goto :goto_8
 .end method
 
 .method public bridge synthetic onTouchEvent(Landroid/view/MotionEvent;)Z

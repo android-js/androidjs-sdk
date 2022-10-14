@@ -46,6 +46,8 @@
     iput-boolean v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedShow:Z
 
     .line 60
+    iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$2;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
+
     iget-boolean v0, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mDismissed:Z
 
     if-nez v0, :cond_0

@@ -6,14 +6,6 @@
 .implements Landroid/view/animation/Interpolator;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field public static final EPSILON:D = 1.0E-5
 
@@ -150,7 +142,6 @@
 
     const/4 v4, 0x2
 
-    .line 149
     new-array v4, v4, [F
 
     const/4 v5, 0x0
@@ -262,8 +253,6 @@
 
     const/4 p1, 0x0
 
-    const/4 p1, 0x0
-
     const/4 v3, 0x0
 
     :goto_1
@@ -272,46 +261,46 @@
     .line 169
     iget-object v4, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
 
-    add-int/lit8 v5, p1, 0x1
+    add-int/lit8 v5, v3, 0x1
 
-    aget p1, v4, p1
+    aget v3, v4, v3
 
-    cmpg-float v3, p1, v3
+    cmpg-float p1, v3, p1
 
-    if-ltz v3, :cond_1
+    if-ltz p1, :cond_1
 
     .line 173
-    aput p1, v4, v1
+    aput v3, v4, v1
 
     add-int/lit8 v1, v1, 0x1
 
-    move v3, p1
+    move p1, v3
 
-    move p1, v5
+    move v3, v5
 
     goto :goto_1
 
     .line 171
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "The Path cannot loop back on itself, x :"
+    const-string v1, "The Path cannot loop back on itself, x :"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 177
     :cond_2
@@ -409,9 +398,13 @@
 
     invoke-direct {v0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_3
+
+    :goto_2
     throw v0
 
-    return-void
+    :goto_3
+    goto :goto_2
 .end method
 
 .method private initQuad(FF)V
@@ -669,9 +662,9 @@
 
     aget v4, v3, v2
 
-    aget v5, v3, v1
+    aget v3, v3, v1
 
-    sub-float/2addr v4, v5
+    sub-float/2addr v4, v3
 
     cmpl-float v0, v4, v0
 
@@ -684,11 +677,8 @@
 
     return p1
 
-    .line 218
     :cond_4
-    aget v0, v3, v1
-
-    sub-float/2addr p1, v0
+    sub-float/2addr p1, v3
 
     div-float/2addr p1, v4
 

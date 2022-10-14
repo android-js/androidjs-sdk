@@ -62,7 +62,7 @@
 .end method
 
 .method public getInterpolation(F)F
-    .locals 5
+    .locals 4
 
     .line 1688
     iget v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -88,35 +88,36 @@
 
     .line 1692
     :cond_0
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->this$0:Landroid/support/constraint/motion/MotionLayout;
-
-    iget v2, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
-
-    iget v3, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->maxA:F
-
-    mul-float v4, v3, p1
-
-    sub-float v4, v2, v4
-
-    iput v4, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
+    iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     mul-float v2, v2, p1
 
-    mul-float v3, v3, p1
+    sub-float/2addr v0, v2
 
-    mul-float v3, v3, p1
+    iput v0, v3, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
 
-    div-float/2addr v3, v1
+    .line 1693
+    iget v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
 
-    sub-float/2addr v2, v3
+    mul-float v0, v0, p1
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->maxA:F
+
+    mul-float v2, v2, p1
+
+    mul-float v2, v2, p1
+
+    div-float/2addr v2, v1
+
+    sub-float/2addr v0, v2
 
     .line 1694
     iget p1, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->currentP:F
 
     :goto_0
-    add-float/2addr v2, p1
+    add-float/2addr v0, p1
 
-    return v2
+    return v0
 
     :cond_1
     neg-float v2, v0
@@ -136,27 +137,28 @@
 
     .line 1700
     :cond_2
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->this$0:Landroid/support/constraint/motion/MotionLayout;
+    iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
-    iget v2, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
+    mul-float v3, v3, p1
 
-    iget v3, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->maxA:F
+    add-float/2addr v0, v3
 
-    mul-float v4, v3, p1
+    iput v0, v2, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
 
-    add-float/2addr v4, v2
+    .line 1701
+    iget v0, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->initalV:F
 
-    iput v4, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
+    mul-float v0, v0, p1
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->maxA:F
 
     mul-float v2, v2, p1
 
-    mul-float v3, v3, p1
+    mul-float v2, v2, p1
 
-    mul-float v3, v3, p1
+    div-float/2addr v2, v1
 
-    div-float/2addr v3, v1
-
-    add-float/2addr v2, v3
+    add-float/2addr v0, v2
 
     .line 1702
     iget p1, p0, Landroid/support/constraint/motion/MotionLayout$DecelerateInterpolator;->currentP:F

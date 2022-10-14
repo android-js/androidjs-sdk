@@ -37,8 +37,6 @@
 # virtual methods
 .method public run()V
     .locals 5
-    .annotation build Landroid/support/annotation/WorkerThread;
-    .end annotation
 
     .line 94
     :cond_0
@@ -48,11 +46,11 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v2, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     move-result v0
 
@@ -60,9 +58,7 @@
 
     const/4 v0, 0x0
 
-    move-object v3, v0
-
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     .line 98
     :goto_0
@@ -73,7 +69,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
+    invoke-virtual {v4, v2, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->compareAndSet(ZZ)Z
 
     move-result v4
 
@@ -84,56 +80,56 @@
 
     invoke-virtual {v0}, Landroid/arch/lifecycle/ComputableLiveData;->compute()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v0
 
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
     goto :goto_0
 
     :cond_1
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     .line 103
-    iget-object v1, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
+    iget-object v2, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
 
-    invoke-static {v1}, Landroid/arch/lifecycle/ComputableLiveData;->access$300(Landroid/arch/lifecycle/ComputableLiveData;)Landroid/arch/lifecycle/LiveData;
+    invoke-static {v2}, Landroid/arch/lifecycle/ComputableLiveData;->access$300(Landroid/arch/lifecycle/ComputableLiveData;)Landroid/arch/lifecycle/LiveData;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Landroid/arch/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
+    invoke-virtual {v2, v0}, Landroid/arch/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 107
     :cond_2
-    iget-object v1, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
+    iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
 
-    invoke-static {v1}, Landroid/arch/lifecycle/ComputableLiveData;->access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v0}, Landroid/arch/lifecycle/ComputableLiveData;->access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    move v1, v3
 
     goto :goto_1
 
     :catchall_0
     move-exception v0
 
-    iget-object v1, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
+    iget-object v2, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;
 
-    invoke-static {v1}, Landroid/arch/lifecycle/ComputableLiveData;->access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v2}, Landroid/arch/lifecycle/ComputableLiveData;->access$100(Landroid/arch/lifecycle/ComputableLiveData;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v2, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     throw v0
 
     :cond_3
-    const/4 v0, 0x0
-
     :goto_1
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     .line 117
     iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData$2;->this$0:Landroid/arch/lifecycle/ComputableLiveData;

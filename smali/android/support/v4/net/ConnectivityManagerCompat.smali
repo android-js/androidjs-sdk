@@ -31,20 +31,6 @@
 
 .method public static getNetworkInfoFromBroadcast(Landroid/net/ConnectivityManager;Landroid/content/Intent;)Landroid/net/NetworkInfo;
     .locals 1
-    .param p0    # Landroid/net/ConnectivityManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.ACCESS_NETWORK_STATE"
-    .end annotation
 
     const-string v0, "networkInfo"
 
@@ -76,10 +62,6 @@
 
 .method public static getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
     .locals 2
-    .param p0    # Landroid/net/ConnectivityManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 157
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -103,13 +85,6 @@
 
 .method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
     .locals 2
-    .param p0    # Landroid/net/ConnectivityManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.ACCESS_NETWORK_STATE"
-    .end annotation
 
     .line 99
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -143,30 +118,20 @@
 
     move-result p0
 
-    packed-switch p0, :pswitch_data_0
+    if-eq p0, v0, :cond_2
 
-    :pswitch_0
+    const/4 v1, 0x7
+
+    if-eq p0, v1, :cond_2
+
+    const/16 v1, 0x9
+
+    if-eq p0, v1, :cond_2
+
     return v0
 
-    :pswitch_1
+    :cond_2
     const/4 p0, 0x0
 
     return p0
-
-    :pswitch_2
-    return v0
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
 .end method

@@ -16,6 +16,4 @@
 
 # virtual methods
 .method public abstract getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 .end method

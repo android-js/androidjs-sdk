@@ -44,10 +44,6 @@
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;)V
     .locals 2
-    .param p1    # Landroid/graphics/Typeface;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 255
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper$1;->this$0:Landroid/support/v7/widget/AppCompatTextHelper;

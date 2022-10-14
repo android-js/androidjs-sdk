@@ -63,26 +63,24 @@
     .line 48
     iput v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->ROW_SIZE:I
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     .line 50
-    iput-object v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->candidate:Landroid/support/constraint/solver/SolverVariable;
+    iput-object v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->candidate:Landroid/support/constraint/solver/SolverVariable;
+
+    new-array v2, v1, [I
 
     .line 53
-    iget v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->ROW_SIZE:I
-
-    new-array v2, v1, [I
-
     iput-object v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
-    .line 56
     new-array v2, v1, [I
 
+    .line 56
     iput-object v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
 
-    .line 59
     new-array v1, v1, [F
 
+    .line 59
     iput-object v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
 
     const/4 v1, -0x1
@@ -143,16 +141,14 @@
     .line 232
     iget-object p3, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
 
-    iget v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
-
-    aput p2, p3, v0
+    aput p2, p3, v1
 
     .line 233
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     iget p3, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    aput p3, p2, v0
+    aput p3, p2, v1
 
     .line 234
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayNextIndices:[I
@@ -193,8 +189,6 @@
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 241
-    iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
-
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length p3, p2
@@ -240,34 +234,32 @@
     .line 254
     iget-object v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
 
-    aget v1, v1, v0
+    aget v2, v1, v0
 
-    add-float/2addr v1, p2
+    add-float/2addr v2, p2
 
     .line 255
     sget p2, Landroid/support/constraint/solver/ArrayLinkedVariables;->epsilon:F
 
-    neg-float v2, p2
+    neg-float v4, p2
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    cmpl-float v2, v1, v2
+    cmpl-float v4, v2, v4
 
-    if-lez v2, :cond_3
+    if-lez v4, :cond_3
 
-    cmpg-float p2, v1, p2
+    cmpg-float p2, v2, p2
 
     if-gez p2, :cond_3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     .line 258
     :cond_3
-    iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
+    aput v2, v1, v0
 
-    aput v1, p2, v0
-
-    cmpl-float p2, v1, v4
+    cmpl-float p2, v2, v6
 
     if-nez p2, :cond_7
 
@@ -440,17 +432,15 @@
     .line 312
     iput-boolean v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    add-int/lit8 v0, p3, -0x1
+    add-int/lit8 v1, p3, -0x1
 
     .line 313
-    iput v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
+    iput v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 314
-    iget-object v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
+    iget-object v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
 
-    iget v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->ROW_SIZE:I
-
-    invoke-static {v0, v1}, Ljava/util/Arrays;->copyOf([FI)[F
+    invoke-static {v1, v0}, Ljava/util/Arrays;->copyOf([FI)[F
 
     move-result-object v0
 
@@ -1241,8 +1231,6 @@
     .line 125
     iget-object v1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
 
-    iget v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mHead:I
-
     aput p2, v1, v2
 
     .line 126
@@ -1291,8 +1279,6 @@
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 134
-    iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
-
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length v1, p2
@@ -1461,8 +1447,6 @@
     .line 185
     iget-object v2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayValues:[F
 
-    iget v4, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->ROW_SIZE:I
-
     invoke-static {v2, v4}, Ljava/util/Arrays;->copyOf([FI)[F
 
     move-result-object v2
@@ -1550,26 +1534,24 @@
     iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
     .line 203
-    iget-boolean p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
+    iget-boolean p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
 
-    if-nez p1, :cond_c
+    if-nez p2, :cond_c
 
     .line 205
-    iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
+    iget p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
-    add-int/2addr p1, v0
+    add-int/2addr p2, v0
 
-    iput p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
+    iput p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
 
     .line 207
     :cond_c
-    iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
-
     iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
-    array-length p2, p2
+    array-length v1, p2
 
-    if-lt p1, p2, :cond_d
+    if-lt p1, v1, :cond_d
 
     .line 208
     iput-boolean v0, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mDidFillOnce:Z
@@ -1577,8 +1559,6 @@
     .line 210
     :cond_d
     iget p1, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mLast:I
-
-    iget-object p2, p0, Landroid/support/constraint/solver/ArrayLinkedVariables;->mArrayIndices:[I
 
     array-length v1, p2
 

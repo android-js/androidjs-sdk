@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;
@@ -29,26 +23,14 @@
 .field private final mDestructAfterMillisec:I
 
 .field private mGeneration:I
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "mLock"
-    .end annotation
-.end field
 
 .field private mHandler:Landroid/os/Handler;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "mLock"
-    .end annotation
-.end field
 
 .field private final mLock:Ljava/lang/Object;
 
 .field private final mPriority:I
 
 .field private mThread:Landroid/os/HandlerThread;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "mLock"
-    .end annotation
-.end field
 
 .field private final mThreadName:Ljava/lang/String;
 
@@ -119,8 +101,6 @@
     iput-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mThread:Landroid/os/HandlerThread;
 
     .line 110
-    iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mThread:Landroid/os/HandlerThread;
-
     invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
 
     .line 111
@@ -156,9 +136,7 @@
     .line 115
     iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v3, v2, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, v2, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object p1
 
@@ -183,8 +161,6 @@
 # virtual methods
 .method public getGeneration()I
     .locals 2
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
 
     .line 101
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mLock:Ljava/lang/Object;
@@ -212,8 +188,6 @@
 
 .method public isRunning()Z
     .locals 2
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
 
     .line 91
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mLock:Ljava/lang/Object;
@@ -325,9 +299,7 @@
     .line 217
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
@@ -537,7 +509,11 @@
     .line 209
     invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
+    goto :goto_2
+
+    :goto_1
     throw p1
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method

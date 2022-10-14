@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/graphics/TypefaceCompatBaseImpl$StyleExtractor;
@@ -101,16 +95,12 @@
     .line 58
     array-length v5, p0
 
-    move-object v4, v3
-
-    const/4 v3, 0x0
-
-    const v6, 0x7fffffff
+    const/4 v6, 0x0
 
     :goto_2
-    if-ge v3, v5, :cond_5
+    if-ge v6, v5, :cond_5
 
-    aget-object v7, p0, v3
+    aget-object v7, p0, v6
 
     .line 59
     invoke-interface {p2, v7}, Landroid/support/v4/graphics/TypefaceCompatBaseImpl$StyleExtractor;->getWeight(Ljava/lang/Object;)I
@@ -142,30 +132,28 @@
     :goto_3
     add-int/2addr v8, v9
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_3
 
-    if-le v6, v8, :cond_4
+    if-le v4, v8, :cond_4
 
     :cond_3
-    move-object v4, v7
+    move-object v3, v7
 
-    move v6, v8
+    move v4, v8
 
     :cond_4
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
     :cond_5
-    return-object v4
+    return-object v3
 .end method
 
 
 # virtual methods
 .method public createFromFontFamilyFilesResourceEntry(Landroid/content/Context;Landroid/support/v4/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;Landroid/content/res/Resources;I)Landroid/graphics/Typeface;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 140
     invoke-direct {p0, p2, p4}, Landroid/support/v4/graphics/TypefaceCompatBaseImpl;->findBestEntry(Landroid/support/v4/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;I)Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
@@ -198,14 +186,6 @@
 
 .method public createFromFontInfo(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;I)Landroid/graphics/Typeface;
     .locals 2
-    .param p2    # Landroid/os/CancellationSignal;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p3    # [Landroid/support/v4/provider/FontsContractCompat$FontInfo;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 108
     array-length p2, p3
@@ -344,8 +324,6 @@
 
 .method public createFromResourcesFontFile(Landroid/content/Context;Landroid/content/res/Resources;ILjava/lang/String;I)Landroid/graphics/Typeface;
     .locals 0
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 154
     invoke-static {p1}, Landroid/support/v4/graphics/TypefaceCompatUtil;->getTempFile(Landroid/content/Context;)Ljava/io/File;

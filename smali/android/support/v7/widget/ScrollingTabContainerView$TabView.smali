@@ -44,38 +44,36 @@
 
     const/4 p1, 0x1
 
-    .line 381
     new-array p1, p1, [I
 
-    const/4 v1, 0x0
+    const v1, 0x10100d4
 
-    const v2, 0x10100d4
+    const/4 v2, 0x0
 
-    aput v2, p1, v1
+    aput v1, p1, v2
 
+    .line 381
     iput-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->BG_ATTRS:[I
 
     .line 392
     iput-object p3, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTab:Landroid/support/v7/app/ActionBar$Tab;
 
     .line 394
-    iget-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->BG_ATTRS:[I
-
     sget p3, Landroid/support/v7/appcompat/R$attr;->actionBarTabStyle:I
 
-    invoke-static {p2, v0, p1, p3, v1}, Landroid/support/v7/widget/TintTypedArray;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III)Landroid/support/v7/widget/TintTypedArray;
+    invoke-static {p2, v0, p1, p3, v2}, Landroid/support/v7/widget/TintTypedArray;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III)Landroid/support/v7/widget/TintTypedArray;
 
     move-result-object p1
 
     .line 396
-    invoke-virtual {p1, v1}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
+    invoke-virtual {p1, v2}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
 
     move-result p2
 
     if-eqz p2, :cond_0
 
     .line 397
-    invoke-virtual {p1, v1}, Landroid/support/v7/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1, v2}, Landroid/support/v7/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p2
 

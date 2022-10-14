@@ -121,11 +121,9 @@
 
     if-eqz v1, :cond_5
 
-    const/4 v3, 0x3
+    const/4 v3, 0x2
 
-    const/4 v4, 0x2
-
-    if-eq v1, v4, :cond_0
+    if-eq v1, v3, :cond_0
 
     goto/16 :goto_2
 
@@ -135,93 +133,95 @@
 
     move-result-object v1
 
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
     .line 301
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
-    move-result v6
+    move-result v5
 
-    const/4 v7, 0x4
+    const/4 v6, 0x4
 
-    sparse-switch v6, :sswitch_data_0
+    const/4 v7, 0x3
+
+    sparse-switch v5, :sswitch_data_0
 
     goto :goto_1
 
     :sswitch_0
-    const-string v6, "Variant"
+    const-string v5, "Variant"
 
-    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    const/4 v5, 0x3
+    const/4 v4, 0x3
 
     goto :goto_1
 
     :sswitch_1
-    const-string v6, "layoutDescription"
+    const-string v5, "layoutDescription"
 
-    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     goto :goto_1
 
     :sswitch_2
-    const-string v6, "StateSet"
+    const-string v5, "StateSet"
 
-    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     goto :goto_1
 
     :sswitch_3
-    const-string v6, "State"
+    const-string v5, "State"
 
-    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
     goto :goto_1
 
     :sswitch_4
-    const-string v6, "ConstraintSet"
+    const-string v5, "ConstraintSet"
 
-    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
-    const/4 v5, 0x4
+    const/4 v4, 0x4
 
     :cond_1
     :goto_1
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_6
 
-    if-eq v5, v2, :cond_6
+    if-eq v4, v2, :cond_6
 
-    if-eq v5, v4, :cond_4
+    if-eq v4, v3, :cond_4
 
-    if-eq v5, v3, :cond_3
+    if-eq v4, v7, :cond_3
 
-    if-eq v5, v7, :cond_2
+    if-eq v4, v6, :cond_2
 
     const-string v2, "ConstraintLayoutStates"
 
@@ -699,9 +699,7 @@
     .line 109
     iget-object v0, p0, Landroid/support/constraint/ConstraintLayoutStates;->mStateList:Landroid/util/SparseArray;
 
-    iget v2, p0, Landroid/support/constraint/ConstraintLayoutStates;->mCurrentStateId:I
-
-    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 

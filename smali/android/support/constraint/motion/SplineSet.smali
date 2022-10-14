@@ -51,14 +51,14 @@
 
     const/16 v0, 0xa
 
-    .line 40
     new-array v1, v0, [I
 
+    .line 40
     iput-object v1, p0, Landroid/support/constraint/motion/SplineSet;->mTimePoints:[I
 
-    .line 41
     new-array v0, v0, [F
 
+    .line 41
     iput-object v0, p0, Landroid/support/constraint/motion/SplineSet;->mValues:[F
 
     return-void
@@ -86,12 +86,16 @@
 .end method
 
 .method static makeSpline(Ljava/lang/String;)Landroid/support/constraint/motion/SplineSet;
-    .locals 1
+    .locals 2
 
     .line 79
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
     move-result v0
+
+    const/4 v1, -0x1
 
     sparse-switch v0, :sswitch_data_0
 
@@ -104,11 +108,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_0
 
-    const/16 p0, 0xa
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_0
+    const/16 v1, 0xf
+
+    goto/16 :goto_0
 
     :sswitch_1
     const-string v0, "alpha"
@@ -117,11 +124,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
-    const/4 p0, 0x0
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_1
+    const/16 v1, 0xe
+
+    goto/16 :goto_0
 
     :sswitch_2
     const-string v0, "transitionPathRotate"
@@ -130,11 +140,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_2
 
-    const/4 p0, 0x7
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_2
+    const/16 v1, 0xd
+
+    goto/16 :goto_0
 
     :sswitch_3
     const-string v0, "elevation"
@@ -143,11 +156,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_3
 
-    const/4 p0, 0x1
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_3
+    const/16 v1, 0xc
+
+    goto/16 :goto_0
 
     :sswitch_4
     const-string v0, "rotation"
@@ -156,11 +172,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_4
 
-    const/4 p0, 0x2
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_4
+    const/16 v1, 0xb
+
+    goto/16 :goto_0
 
     :sswitch_5
     const-string v0, "transformPivotY"
@@ -169,11 +188,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_5
 
-    const/4 p0, 0x6
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_5
+    const/16 v1, 0xa
+
+    goto/16 :goto_0
 
     :sswitch_6
     const-string v0, "transformPivotX"
@@ -182,11 +204,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_6
 
-    const/4 p0, 0x5
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_6
+    const/16 v1, 0x9
+
+    goto/16 :goto_0
 
     :sswitch_7
     const-string v0, "waveVariesBy"
@@ -195,11 +220,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_7
 
-    const/16 p0, 0xb
+    goto/16 :goto_0
 
-    goto :goto_1
+    :cond_7
+    const/16 v1, 0x8
+
+    goto/16 :goto_0
 
     :sswitch_8
     const-string v0, "scaleY"
@@ -208,11 +236,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_8
 
-    const/16 p0, 0x9
+    goto :goto_0
 
-    goto :goto_1
+    :cond_8
+    const/4 v1, 0x7
+
+    goto :goto_0
 
     :sswitch_9
     const-string v0, "scaleX"
@@ -221,11 +252,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_9
 
-    const/16 p0, 0x8
+    goto :goto_0
 
-    goto :goto_1
+    :cond_9
+    const/4 v1, 0x6
+
+    goto :goto_0
 
     :sswitch_a
     const-string v0, "progress"
@@ -234,11 +268,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_a
 
-    const/16 p0, 0xf
+    goto :goto_0
 
-    goto :goto_1
+    :cond_a
+    const/4 v1, 0x5
+
+    goto :goto_0
 
     :sswitch_b
     const-string v0, "translationZ"
@@ -247,11 +284,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_b
 
-    const/16 p0, 0xe
+    goto :goto_0
 
-    goto :goto_1
+    :cond_b
+    const/4 v1, 0x4
+
+    goto :goto_0
 
     :sswitch_c
     const-string v0, "translationY"
@@ -260,11 +300,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_c
 
-    const/16 p0, 0xd
+    goto :goto_0
 
-    goto :goto_1
+    :cond_c
+    const/4 v1, 0x3
+
+    goto :goto_0
 
     :sswitch_d
     const-string v0, "translationX"
@@ -273,11 +316,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_d
 
-    const/16 p0, 0xc
+    goto :goto_0
 
-    goto :goto_1
+    :cond_d
+    const/4 v1, 0x2
+
+    goto :goto_0
 
     :sswitch_e
     const-string v0, "rotationY"
@@ -286,11 +332,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_e
 
-    const/4 p0, 0x4
+    goto :goto_0
 
-    goto :goto_1
+    :cond_e
+    const/4 v1, 0x1
+
+    goto :goto_0
 
     :sswitch_f
     const-string v0, "rotationX"
@@ -299,97 +348,62 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_f
 
-    const/4 p0, 0x3
+    goto :goto_0
 
-    goto :goto_1
+    :cond_f
+    const/4 v1, 0x0
 
-    :cond_0
     :goto_0
-    const/4 p0, -0x1
-
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     const/4 p0, 0x0
 
     return-object p0
 
-    .line 111
-    :pswitch_0
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$ProgressSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ProgressSet;-><init>()V
-
-    return-object p0
-
-    .line 109
-    :pswitch_1
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$TranslationZset;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$TranslationZset;-><init>()V
-
-    return-object p0
-
-    .line 107
-    :pswitch_2
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$TranslationYset;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$TranslationYset;-><init>()V
-
-    return-object p0
-
-    .line 105
-    :pswitch_3
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$TranslationXset;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$TranslationXset;-><init>()V
-
-    return-object p0
-
-    .line 103
-    :pswitch_4
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$AlphaSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$AlphaSet;-><init>()V
-
-    return-object p0
-
     .line 101
-    :pswitch_5
+    :pswitch_0
     new-instance p0, Landroid/support/constraint/motion/SplineSet$AlphaSet;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$AlphaSet;-><init>()V
 
     return-object p0
 
-    .line 99
-    :pswitch_6
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$ScaleYset;
+    .line 81
+    :pswitch_1
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$AlphaSet;
 
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ScaleYset;-><init>()V
-
-    return-object p0
-
-    .line 97
-    :pswitch_7
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$ScaleXset;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ScaleXset;-><init>()V
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$AlphaSet;-><init>()V
 
     return-object p0
 
     .line 95
-    :pswitch_8
+    :pswitch_2
     new-instance p0, Landroid/support/constraint/motion/SplineSet$PathRotate;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$PathRotate;-><init>()V
 
     return-object p0
 
+    .line 83
+    :pswitch_3
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$ElevationSet;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ElevationSet;-><init>()V
+
+    return-object p0
+
+    .line 85
+    :pswitch_4
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$RotationSet;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$RotationSet;-><init>()V
+
+    return-object p0
+
     .line 93
-    :pswitch_9
+    :pswitch_5
     new-instance p0, Landroid/support/constraint/motion/SplineSet$PivotYset;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$PivotYset;-><init>()V
@@ -397,15 +411,71 @@
     return-object p0
 
     .line 91
-    :pswitch_a
+    :pswitch_6
     new-instance p0, Landroid/support/constraint/motion/SplineSet$PivotXset;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$PivotXset;-><init>()V
 
     return-object p0
 
-    .line 89
+    .line 103
+    :pswitch_7
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$AlphaSet;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$AlphaSet;-><init>()V
+
+    return-object p0
+
+    .line 99
+    :pswitch_8
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$ScaleYset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ScaleYset;-><init>()V
+
+    return-object p0
+
+    .line 97
+    :pswitch_9
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$ScaleXset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ScaleXset;-><init>()V
+
+    return-object p0
+
+    .line 111
+    :pswitch_a
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$ProgressSet;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ProgressSet;-><init>()V
+
+    return-object p0
+
+    .line 109
     :pswitch_b
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$TranslationZset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$TranslationZset;-><init>()V
+
+    return-object p0
+
+    .line 107
+    :pswitch_c
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$TranslationYset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$TranslationYset;-><init>()V
+
+    return-object p0
+
+    .line 105
+    :pswitch_d
+    new-instance p0, Landroid/support/constraint/motion/SplineSet$TranslationXset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$TranslationXset;-><init>()V
+
+    return-object p0
+
+    .line 89
+    :pswitch_e
     new-instance p0, Landroid/support/constraint/motion/SplineSet$RotationYset;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$RotationYset;-><init>()V
@@ -413,36 +483,14 @@
     return-object p0
 
     .line 87
-    :pswitch_c
+    :pswitch_f
     new-instance p0, Landroid/support/constraint/motion/SplineSet$RotationXset;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$RotationXset;-><init>()V
 
     return-object p0
 
-    .line 85
-    :pswitch_d
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$RotationSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$RotationSet;-><init>()V
-
-    return-object p0
-
-    .line 83
-    :pswitch_e
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$ElevationSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$ElevationSet;-><init>()V
-
-    return-object p0
-
-    .line 81
-    :pswitch_f
-    new-instance p0, Landroid/support/constraint/motion/SplineSet$AlphaSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/SplineSet$AlphaSet;-><init>()V
-
-    return-object p0
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -661,14 +709,18 @@
     :cond_2
     new-array v0, v1, [D
 
+    const/4 v2, 0x2
+
+    new-array v2, v2, [I
+
+    aput v3, v2, v3
+
+    aput v1, v2, v4
+
     .line 145
-    filled-new-array {v1, v3}, [I
+    sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    move-result-object v1
-
-    const-class v2, D
-
-    invoke-static {v2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v1, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object v1
 

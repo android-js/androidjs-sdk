@@ -208,14 +208,6 @@
 
 .method public static addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/util/Collection;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -242,14 +234,6 @@
 
 .method public static addOnUnhandledKeyEventListener(Landroid/view/View;Landroid/support/v4/view/ViewCompat$OnUnhandledKeyEventListenerCompat;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/view/ViewCompat$OnUnhandledKeyEventListenerCompat;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3402
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -339,12 +323,6 @@
 
 .method public static animate(Landroid/view/View;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 1754
     sget-object v0, Landroid/support/v4/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
@@ -467,10 +445,6 @@
 
 .method public static cancelDragAndDrop(Landroid/view/View;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3201
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -571,10 +545,6 @@
 
 .method public static dispatchApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2259
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -616,10 +586,6 @@
 
 .method public static dispatchFinishTemporaryDetach(Landroid/view/View;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1609
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -650,10 +616,10 @@
 
     const/4 v1, 0x0
 
-    .line 1617
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
+    .line 1617
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -682,10 +648,6 @@
 
 .method public static dispatchNestedFling(Landroid/view/View;FFZ)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2779
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -724,10 +686,6 @@
 
 .method public static dispatchNestedPreFling(Landroid/view/View;FF)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2822
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -766,18 +724,6 @@
 
 .method public static dispatchNestedPreScroll(Landroid/view/View;II[I[I)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # [I
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p4    # [I
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2597
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -816,18 +762,6 @@
 
 .method public static dispatchNestedPreScroll(Landroid/view/View;II[I[II)Z
     .locals 7
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # [I
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p4    # [I
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2749
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
@@ -873,14 +807,6 @@
 
 .method public static dispatchNestedScroll(Landroid/view/View;IIII[I)Z
     .locals 7
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # [I
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2566
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -931,14 +857,6 @@
 
 .method public static dispatchNestedScroll(Landroid/view/View;IIII[II)Z
     .locals 8
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # [I
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2717
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
@@ -986,10 +904,6 @@
 
 .method public static dispatchStartTemporaryDetach(Landroid/view/View;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1586
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1020,10 +934,10 @@
 
     const/4 v1, 0x0
 
-    .line 1594
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
+    .line 1594
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -1052,8 +966,6 @@
 
 .method static dispatchUnhandledKeyEventBeforeCallback(Landroid/view/View;Landroid/view/KeyEvent;)Z
     .locals 2
-    .annotation build Landroid/support/annotation/UiThread;
-    .end annotation
 
     .line 3505
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1081,8 +993,6 @@
 
 .method static dispatchUnhandledKeyEventBeforeHierarchy(Landroid/view/View;Landroid/view/KeyEvent;)Z
     .locals 2
-    .annotation build Landroid/support/annotation/UiThread;
-    .end annotation
 
     .line 3497
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1109,7 +1019,7 @@
 .end method
 
 .method public static generateViewId()I
-    .locals 3
+    .locals 4
 
     .line 3379
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1131,35 +1041,29 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result v0
+    move-result v1
 
-    add-int/lit8 v1, v0, 0x1
+    add-int/lit8 v2, v1, 0x1
 
-    const v2, 0xffffff
+    const v3, 0xffffff
 
-    if-le v1, v2, :cond_1
+    if-le v2, v3, :cond_1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     .line 3387
     :cond_1
-    sget-object v2, Landroid/support/v4/view/ViewCompat;->sNextGeneratedId:Ljava/util/concurrent/atomic/AtomicInteger;
+    invoke-virtual {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
 
-    invoke-virtual {v2, v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->compareAndSet(II)Z
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
-
-    return v0
+    return v1
 .end method
 
 .method public static getAccessibilityLiveRegion(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1475
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1183,10 +1087,6 @@
 
 .method public static getAccessibilityNodeProvider(Landroid/view/View;)Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1129
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1230,10 +1130,6 @@
 
 .method public static getBackgroundTintList(Landroid/view/View;)Landroid/content/res/ColorStateList;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2355
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1273,10 +1169,6 @@
 
 .method public static getBackgroundTintMode(Landroid/view/View;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2400
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1316,12 +1208,6 @@
 
 .method public static getClipBounds(Landroid/view/View;)Landroid/graphics/Rect;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 3039
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1345,12 +1231,6 @@
 
 .method public static getDisplay(Landroid/view/View;)Landroid/view/Display;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 3160
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1402,10 +1282,6 @@
 
 .method public static getElevation(Landroid/view/View;)F
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2038
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1473,10 +1349,6 @@
 
 .method public static getFitsSystemWindows(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2164
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1500,10 +1372,6 @@
 
 .method public static getImportantForAccessibility(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 999
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1527,15 +1395,6 @@
 
 .method public static getImportantForAutofill(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "InlinedApi"
-        }
-    .end annotation
 
     .line 730
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1559,10 +1418,6 @@
 
 .method public static getLabelFor(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1224
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1599,10 +1454,6 @@
 
 .method public static getLayoutDirection(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1297
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1626,9 +1477,6 @@
 
 .method public static getMatrix(Landroid/view/View;)Landroid/graphics/Matrix;
     .locals 0
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1681,10 +1529,6 @@
 
 .method public static getMinimumHeight(Landroid/view/View;)I
     .locals 3
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1720
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1721,8 +1565,6 @@
     sput-object v1, Landroid/support/v4/view/ViewCompat;->sMinHeightField:Ljava/lang/reflect/Field;
 
     .line 1727
-    sget-object v1, Landroid/support/v4/view/ViewCompat;->sMinHeightField:Ljava/lang/reflect/Field;
-
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1762,10 +1604,6 @@
 
 .method public static getMinimumWidth(Landroid/view/View;)I
     .locals 3
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1686
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1802,8 +1640,6 @@
     sput-object v1, Landroid/support/v4/view/ViewCompat;->sMinWidthField:Ljava/lang/reflect/Field;
 
     .line 1693
-    sget-object v1, Landroid/support/v4/view/ViewCompat;->sMinWidthField:Ljava/lang/reflect/Field;
-
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1843,10 +1679,6 @@
 
 .method public static getNextClusterForwardId(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3222
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1883,12 +1715,6 @@
 
 .method public static getPaddingEnd(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Px;
-    .end annotation
 
     .line 1542
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1915,12 +1741,6 @@
 
 .method public static getPaddingStart(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Px;
-    .end annotation
 
     .line 1526
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1947,10 +1767,6 @@
 
 .method public static getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1335
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2068,10 +1884,6 @@
 
 .method public static getScrollIndicators(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3131
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2095,12 +1907,6 @@
 
 .method public static getTransitionName(Landroid/view/View;)Ljava/lang/String;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2095
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2165,10 +1971,6 @@
 
 .method public static getTranslationZ(Landroid/view/View;)F
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2059
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2192,10 +1994,6 @@
 
 .method public static getWindowSystemUiVisibility(Landroid/view/View;)I
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2108
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2245,10 +2043,6 @@
 
 .method public static getZ(Landroid/view/View;)F
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2886
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2272,10 +2066,6 @@
 
 .method public static hasAccessibilityDelegate(Landroid/view/View;)Z
     .locals 4
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 856
     sget-boolean v0, Landroid/support/v4/view/ViewCompat;->sAccessibilityDelegateCheckFailed:Z
@@ -2308,16 +2098,14 @@
     sput-object v0, Landroid/support/v4/view/ViewCompat;->sAccessibilityDelegateField:Ljava/lang/reflect/Field;
 
     .line 863
-    sget-object v0, Landroid/support/v4/view/ViewCompat;->sAccessibilityDelegateField:Ljava/lang/reflect/Field;
-
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     .line 865
-    :catch_0
+    :catchall_0
     sput-boolean v2, Landroid/support/v4/view/ViewCompat;->sAccessibilityDelegateCheckFailed:Z
 
     return v1
@@ -2332,7 +2120,7 @@
 
     move-result-object p0
     :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     if-eqz p0, :cond_2
 
@@ -2342,7 +2130,7 @@
     return v1
 
     .line 872
-    :catch_1
+    :catchall_1
     sput-boolean v2, Landroid/support/v4/view/ViewCompat;->sAccessibilityDelegateCheckFailed:Z
 
     return v1
@@ -2350,10 +2138,6 @@
 
 .method public static hasExplicitFocusable(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3366
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2380,10 +2164,6 @@
 
 .method public static hasNestedScrollingParent(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2537
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2422,10 +2202,6 @@
 
 .method public static hasNestedScrollingParent(Landroid/view/View;I)Z
     .locals 1
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2682
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
@@ -2458,10 +2234,6 @@
 
 .method public static hasOnClickListeners(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3061
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2485,10 +2257,6 @@
 
 .method public static hasOverlappingRendering(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2315
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2512,10 +2280,6 @@
 
 .method public static hasTransientState(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 886
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2539,10 +2303,6 @@
 
 .method public static isAttachedToWindow(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3049
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2579,10 +2339,6 @@
 
 .method public static isFocusedByDefault(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3277
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2606,10 +2362,6 @@
 
 .method public static isImportantForAccessibility(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1077
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2633,10 +2385,6 @@
 
 .method public static isImportantForAutofill(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 843
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2660,10 +2408,6 @@
 
 .method public static isInLayout(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2844
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2687,10 +2431,6 @@
 
 .method public static isKeyboardNavigationCluster(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3248
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2714,10 +2454,6 @@
 
 .method public static isLaidOut(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2855
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2760,10 +2496,6 @@
 
 .method public static isLayoutDirectionResolved(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2872
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2787,10 +2519,6 @@
 
 .method public static isNestedScrollingEnabled(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2479
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2842,10 +2570,6 @@
 
 .method public static isPaddingRelative(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2328
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2880,10 +2604,6 @@
 
 .method public static keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3314
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2907,10 +2627,6 @@
 
 .method public static offsetLeftAndRight(Landroid/view/View;I)V
     .locals 6
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2964
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3047,10 +2763,6 @@
 
 .method public static offsetTopAndBottom(Landroid/view/View;I)V
     .locals 6
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2916
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3187,10 +2899,6 @@
 
 .method public static onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2234
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3243,10 +2951,6 @@
 
 .method public static onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 0
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 650
     invoke-virtual {p1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
@@ -3271,10 +2975,6 @@
 
 .method public static performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1099
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3298,10 +2998,6 @@
 
 .method public static postInvalidateOnAnimation(Landroid/view/View;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 915
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3325,10 +3021,6 @@
 
 .method public static postInvalidateOnAnimation(Landroid/view/View;IIII)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 937
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3352,10 +3044,6 @@
 
 .method public static postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 955
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3383,10 +3071,6 @@
 
 .method public static postOnAnimationDelayed(Landroid/view/View;Ljava/lang/Runnable;J)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 977
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3416,14 +3100,6 @@
 
 .method public static removeOnUnhandledKeyEventListener(Landroid/view/View;Landroid/support/v4/view/ViewCompat$OnUnhandledKeyEventListenerCompat;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/view/ViewCompat$OnUnhandledKeyEventListenerCompat;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3439
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3494,10 +3170,6 @@
 
 .method public static requestApplyInsets(Landroid/view/View;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2119
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3529,17 +3201,6 @@
 
 .method public static requireViewById(Landroid/view/View;I)Landroid/view/View;
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -3600,10 +3261,6 @@
 
 .method public static restoreDefaultFocus(Landroid/view/View;)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3344
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3630,10 +3287,6 @@
 
 .method public static setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
     .locals 0
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     if-nez p1, :cond_0
 
@@ -3655,10 +3308,6 @@
 
 .method public static setAccessibilityLiveRegion(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1511
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3687,12 +3336,6 @@
 
 .method public static setAlpha(Landroid/view/View;F)V
     .locals 0
-    .param p1    # F
-        .annotation build Landroid/support/annotation/FloatRange;
-            from = 0.0
-            to = 1.0
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -3704,14 +3347,6 @@
 
 .method public static varargs setAutofillHints(Landroid/view/View;[Ljava/lang/String;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # [Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 709
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3729,14 +3364,6 @@
 
 .method public static setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2341
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3760,10 +3387,6 @@
 
 .method public static setBackgroundTintList(Landroid/view/View;Landroid/content/res/ColorStateList;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2371
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3853,10 +3476,6 @@
 
 .method public static setBackgroundTintMode(Landroid/view/View;Landroid/graphics/PorterDuff$Mode;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2418
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4048,10 +3667,6 @@
 
 .method public static setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3024
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4069,10 +3684,6 @@
 
 .method public static setElevation(Landroid/view/View;F)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2027
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4101,10 +3712,6 @@
 
 .method public static setFocusedByDefault(Landroid/view/View;Z)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3296
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4122,10 +3729,6 @@
 
 .method public static setHasTransientState(Landroid/view/View;Z)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 900
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4143,10 +3746,6 @@
 
 .method public static setImportantForAccessibility(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1026
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4185,10 +3784,6 @@
 
 .method public static setImportantForAutofill(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 774
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4206,10 +3801,6 @@
 
 .method public static setKeyboardNavigationCluster(Landroid/view/View;Z)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3262
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4227,14 +3818,6 @@
 
 .method public static setLabelFor(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
 
     .line 1238
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4252,10 +3835,6 @@
 
 .method public static setLayerPaint(Landroid/view/View;Landroid/graphics/Paint;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1274
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4297,10 +3876,6 @@
 
 .method public static setLayoutDirection(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1321
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4318,10 +3893,6 @@
 
 .method public static setNestedScrollingEnabled(Landroid/view/View;Z)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2456
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4353,10 +3924,6 @@
 
 .method public static setNextClusterForwardId(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3236
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4374,10 +3941,6 @@
 
 .method public static setOnApplyWindowInsetsListener(Landroid/view/View;Landroid/support/v4/view/OnApplyWindowInsetsListener;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2203
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4420,26 +3983,6 @@
 
 .method public static setPaddingRelative(Landroid/view/View;IIII)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/Px;
-        .end annotation
-    .end param
-    .param p2    # I
-        .annotation build Landroid/support/annotation/Px;
-        .end annotation
-    .end param
-    .param p3    # I
-        .annotation build Landroid/support/annotation/Px;
-        .end annotation
-    .end param
-    .param p4    # I
-        .annotation build Landroid/support/annotation/Px;
-        .end annotation
-    .end param
 
     .line 1563
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4485,10 +4028,6 @@
 
 .method public static setPointerIcon(Landroid/view/View;Landroid/support/v4/view/PointerIconCompat;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3142
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4512,7 +4051,9 @@
     :goto_0
     check-cast p1, Landroid/view/PointerIcon;
 
-    check-cast p1, Landroid/view/PointerIcon;
+    move-object v0, p1
+
+    check-cast v0, Landroid/view/PointerIcon;
 
     .line 3143
     invoke-virtual {p0, p1}, Landroid/view/View;->setPointerIcon(Landroid/view/PointerIcon;)V
@@ -4589,10 +4130,6 @@
 
 .method public static setScrollIndicators(Landroid/view/View;I)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3079
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4610,10 +4147,6 @@
 
 .method public static setScrollIndicators(Landroid/view/View;II)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3113
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4631,14 +4164,6 @@
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 3180
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4656,10 +4181,6 @@
 
 .method public static setTransitionName(Landroid/view/View;Ljava/lang/String;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2073
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4720,10 +4241,6 @@
 
 .method public static setTranslationZ(Landroid/view/View;F)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2048
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4763,10 +4280,6 @@
 
 .method public static setZ(Landroid/view/View;F)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2905
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4784,10 +4297,6 @@
 
 .method public static startDragAndDrop(Landroid/view/View;Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3190
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4814,10 +4323,6 @@
 
 .method public static startNestedScroll(Landroid/view/View;I)Z
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2501
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4856,10 +4361,6 @@
 
 .method public static startNestedScroll(Landroid/view/View;II)Z
     .locals 1
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2648
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
@@ -4893,10 +4394,6 @@
 
 .method public static stopNestedScroll(Landroid/view/View;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2520
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -4928,10 +4425,6 @@
 
 .method public static stopNestedScroll(Landroid/view/View;I)V
     .locals 1
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 2665
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
@@ -4979,10 +4472,6 @@
 
 .method public static updateDragShadow(Landroid/view/View;Landroid/view/View$DragShadowBuilder;)V
     .locals 2
-    .param p0    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 3210
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

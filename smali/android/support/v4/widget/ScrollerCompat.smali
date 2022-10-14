@@ -19,18 +19,16 @@
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p2, :cond_0
-
     .line 57
     new-instance v0, Landroid/widget/OverScroller;
+
+    if-eqz p2, :cond_0
 
     invoke-direct {v0, p1, p2}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Landroid/widget/OverScroller;
-
     invoke-direct {v0, p1}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;)V
 
     :goto_0

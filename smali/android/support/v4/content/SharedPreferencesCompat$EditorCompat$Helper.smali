@@ -28,10 +28,6 @@
 # virtual methods
 .method public apply(Landroid/content/SharedPreferences$Editor;)V
     .locals 0
-    .param p1    # Landroid/content/SharedPreferences$Editor;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 45
     :try_start_0

@@ -25,10 +25,6 @@
 # direct methods
 .method public constructor <init>(Ljava/security/Signature;)V
     .locals 0
-    .param p1    # Ljava/security/Signature;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 197
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,10 +45,6 @@
 
 .method public constructor <init>(Ljavax/crypto/Cipher;)V
     .locals 0
-    .param p1    # Ljavax/crypto/Cipher;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 204
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -73,10 +65,6 @@
 
 .method public constructor <init>(Ljavax/crypto/Mac;)V
     .locals 0
-    .param p1    # Ljavax/crypto/Mac;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 210
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,8 +87,6 @@
 # virtual methods
 .method public getCipher()Ljavax/crypto/Cipher;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 228
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->mCipher:Ljavax/crypto/Cipher;
@@ -110,8 +96,6 @@
 
 .method public getMac()Ljavax/crypto/Mac;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 235
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->mMac:Ljavax/crypto/Mac;
@@ -121,8 +105,6 @@
 
 .method public getSignature()Ljava/security/Signature;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 221
     iget-object v0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;->mSignature:Ljava/security/Signature;

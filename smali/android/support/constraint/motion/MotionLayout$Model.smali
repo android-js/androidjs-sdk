@@ -1913,9 +1913,13 @@
     iput v0, v2, Landroid/support/constraint/motion/MotionLayout;->mWidthMeasureMode:I
 
     .line 2197
+    iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
+
     iput v1, v2, Landroid/support/constraint/motion/MotionLayout;->mHeightMeasureMode:I
 
     .line 2198
+    iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
+
     invoke-virtual {v2}, Landroid/support/constraint/motion/MotionLayout;->getOptimizationLevel()I
 
     move-result v2
@@ -2014,10 +2018,14 @@
     iput v0, v3, Landroid/support/constraint/motion/MotionLayout;->mWidthMeasureMode:I
 
     .line 2223
-    iput v1, v3, Landroid/support/constraint/motion/MotionLayout;->mHeightMeasureMode:I
+    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
+
+    iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mHeightMeasureMode:I
 
     .line 2224
-    iget v0, v3, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
+    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
+
+    iget v0, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout$Model;->this$0:Landroid/support/constraint/motion/MotionLayout;
 

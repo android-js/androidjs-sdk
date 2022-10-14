@@ -3,12 +3,6 @@
 .source "FragmentTransitionCompat21.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x15
-.end annotation
-
-
 # direct methods
 .method constructor <init>()V
     .locals 0

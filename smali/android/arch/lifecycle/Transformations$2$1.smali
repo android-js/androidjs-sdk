@@ -45,10 +45,6 @@
 # virtual methods
 .method public onChanged(Ljava/lang/Object;)V
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TY;)V"

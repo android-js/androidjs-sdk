@@ -666,6 +666,8 @@
     check-cast p1, Landroid/support/constraint/Barrier;
 
     .line 1312
+    iget-object p2, p0, Landroid/support/constraint/ConstraintSet$Constraint;->layout:Landroid/support/constraint/ConstraintSet$Layout;
+
     invoke-virtual {p1}, Landroid/support/constraint/Barrier;->getType()I
 
     move-result p3

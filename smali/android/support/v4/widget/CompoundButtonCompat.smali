@@ -23,12 +23,6 @@
 
 .method public static getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .param p0    # Landroid/widget/CompoundButton;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 123
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -67,8 +61,6 @@
     sput-object v2, Landroid/support/v4/widget/CompoundButtonCompat;->sButtonDrawableField:Ljava/lang/reflect/Field;
 
     .line 130
-    sget-object v2, Landroid/support/v4/widget/CompoundButtonCompat;->sButtonDrawableField:Ljava/lang/reflect/Field;
-
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -124,12 +116,6 @@
 
 .method public static getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
     .locals 2
-    .param p0    # Landroid/widget/CompoundButton;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 71
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -168,12 +154,6 @@
 
 .method public static getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
-    .param p0    # Landroid/widget/CompoundButton;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 107
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -212,14 +192,6 @@
 
 .method public static setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
     .locals 2
-    .param p0    # Landroid/widget/CompoundButton;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/res/ColorStateList;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 57
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -251,14 +223,6 @@
 
 .method public static setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
     .locals 2
-    .param p0    # Landroid/widget/CompoundButton;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/graphics/PorterDuff$Mode;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 93
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

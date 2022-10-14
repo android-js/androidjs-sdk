@@ -80,8 +80,6 @@
     sput-object v0, Landroid/support/constraint/ConstraintSet$Transform;->mapToConstant:Landroid/util/SparseIntArray;
 
     .line 1071
-    sget-object v0, Landroid/support/constraint/ConstraintSet$Transform;->mapToConstant:Landroid/util/SparseIntArray;
-
     sget v1, Landroid/support/constraint/R$styleable;->Transform_android_rotation:I
 
     const/4 v2, 0x1

@@ -42,9 +42,11 @@
 
     iput-object v0, p1, Landroid/support/v7/widget/ActionBarOverlayLayout;->mCurrentActionBarTopAnimator:Landroid/view/ViewPropertyAnimator;
 
+    .line 106
+    iget-object p1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout$1;->this$0:Landroid/support/v7/widget/ActionBarOverlayLayout;
+
     const/4 v0, 0x0
 
-    .line 106
     iput-boolean v0, p1, Landroid/support/v7/widget/ActionBarOverlayLayout;->mAnimatingForFling:Z
 
     return-void
@@ -60,9 +62,11 @@
 
     iput-object v0, p1, Landroid/support/v7/widget/ActionBarOverlayLayout;->mCurrentActionBarTopAnimator:Landroid/view/ViewPropertyAnimator;
 
+    .line 100
+    iget-object p1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout$1;->this$0:Landroid/support/v7/widget/ActionBarOverlayLayout;
+
     const/4 v0, 0x0
 
-    .line 100
     iput-boolean v0, p1, Landroid/support/v7/widget/ActionBarOverlayLayout;->mAnimatingForFling:Z
 
     return-void

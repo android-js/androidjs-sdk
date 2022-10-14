@@ -41,9 +41,7 @@
     iput p1, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mFieldId:I
 
     .line 513
-    iget p1, p0, Landroidx/versionedparcelable/VersionedParcelStream$InputBuffer;->mSize:I
-
-    new-array p1, p1, [B
+    new-array p1, p2, [B
 
     .line 514
     invoke-virtual {p3, p1}, Ljava/io/DataInputStream;->readFully([B)V

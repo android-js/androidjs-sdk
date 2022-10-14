@@ -56,17 +56,6 @@
 # virtual methods
 .method public addSource(Landroid/arch/lifecycle/LiveData;Landroid/arch/lifecycle/Observer;)V
     .locals 2
-    .param p1    # Landroid/arch/lifecycle/LiveData;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/arch/lifecycle/Observer;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",
@@ -135,8 +124,6 @@
 
 .method protected onActive()V
     .locals 2
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 117
     iget-object v0, p0, Landroid/arch/lifecycle/MediatorLiveData;->mSources:Landroid/arch/core/internal/SafeIterableMap;
@@ -175,8 +162,6 @@
 
 .method protected onInactive()V
     .locals 2
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 125
     iget-object v0, p0, Landroid/arch/lifecycle/MediatorLiveData;->mSources:Landroid/arch/core/internal/SafeIterableMap;
@@ -215,13 +200,6 @@
 
 .method public removeSource(Landroid/arch/lifecycle/LiveData;)V
     .locals 1
-    .param p1    # Landroid/arch/lifecycle/LiveData;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<S:",

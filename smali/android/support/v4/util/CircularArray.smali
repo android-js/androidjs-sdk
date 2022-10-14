@@ -191,16 +191,14 @@
     iput v0, p0, Landroid/support/v4/util/CircularArray;->mHead:I
 
     .line 85
-    iget-object v0, p0, Landroid/support/v4/util/CircularArray;->mElements:[Ljava/lang/Object;
+    iget-object v1, p0, Landroid/support/v4/util/CircularArray;->mElements:[Ljava/lang/Object;
 
-    iget v1, p0, Landroid/support/v4/util/CircularArray;->mHead:I
-
-    aput-object p1, v0, v1
+    aput-object p1, v1, v0
 
     .line 86
     iget p1, p0, Landroid/support/v4/util/CircularArray;->mTail:I
 
-    if-ne v1, p1, :cond_0
+    if-ne v0, p1, :cond_0
 
     .line 87
     invoke-direct {p0}, Landroid/support/v4/util/CircularArray;->doubleCapacity()V
@@ -234,8 +232,6 @@
     iput p1, p0, Landroid/support/v4/util/CircularArray;->mTail:I
 
     .line 98
-    iget p1, p0, Landroid/support/v4/util/CircularArray;->mTail:I
-
     iget v0, p0, Landroid/support/v4/util/CircularArray;->mHead:I
 
     if-ne p1, v0, :cond_0
@@ -544,9 +540,6 @@
 
     iput v0, p0, Landroid/support/v4/util/CircularArray;->mTail:I
 
-    .line 201
-    iget v0, p0, Landroid/support/v4/util/CircularArray;->mTail:I
-
     sub-int/2addr v0, p1
 
     move p1, v0
@@ -579,9 +572,13 @@
 
     invoke-direct {p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
 
+    goto :goto_3
+
+    :goto_2
     throw p1
 
-    return-void
+    :goto_3
+    goto :goto_2
 .end method
 
 .method public removeFromStart(I)V
@@ -613,10 +610,7 @@
 
     add-int v0, v1, p1
 
-    .line 159
     :cond_1
-    iget v1, p0, Landroid/support/v4/util/CircularArray;->mHead:I
-
     :goto_0
     const/4 v2, 0x0
 
@@ -677,9 +671,13 @@
 
     invoke-direct {p1}, Ljava/lang/ArrayIndexOutOfBoundsException;-><init>()V
 
+    goto :goto_3
+
+    :goto_2
     throw p1
 
-    return-void
+    :goto_3
+    goto :goto_2
 .end method
 
 .method public size()I

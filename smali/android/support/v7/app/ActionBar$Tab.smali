@@ -55,10 +55,6 @@
 .end method
 
 .method public abstract setContentDescription(I)Landroid/support/v7/app/ActionBar$Tab;
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract setContentDescription(Ljava/lang/CharSequence;)Landroid/support/v7/app/ActionBar$Tab;
@@ -71,10 +67,6 @@
 .end method
 
 .method public abstract setIcon(I)Landroid/support/v7/app/ActionBar$Tab;
-    .param p1    # I
-        .annotation build Landroid/support/annotation/DrawableRes;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract setIcon(Landroid/graphics/drawable/Drawable;)Landroid/support/v7/app/ActionBar$Tab;

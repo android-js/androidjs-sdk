@@ -63,9 +63,6 @@
 .field public static final CATEGORY_TRANSPORT:Ljava/lang/String; = "transport"
 
 .field public static final COLOR_DEFAULT:I = 0x0
-    .annotation build Landroid/support/annotation/ColorInt;
-    .end annotation
-.end field
 
 .field public static final DEFAULT_ALL:I = -0x1
 
@@ -286,9 +283,6 @@
 
 .method static getActionCompatFromAction(Landroid/app/Notification$Action;)Landroid/support/v4/app/NotificationCompat$Action;
     .locals 14
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x14
-    .end annotation
 
     .line 5093
     invoke-virtual {p0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
@@ -592,9 +586,6 @@
 
 .method public static getContentTitle(Landroid/app/Notification;)Ljava/lang/CharSequence;
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x13
-    .end annotation
 
     .line 5154
     iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
@@ -610,8 +601,6 @@
 
 .method public static getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 5041
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -732,10 +721,6 @@
 
 .method public static getInvisibleActions(Landroid/app/Notification;)Ljava/util/List;
     .locals 3
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

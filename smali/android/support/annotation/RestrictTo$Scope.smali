@@ -41,89 +41,79 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 11
 
     .line 63
     new-instance v0, Landroid/support/annotation/RestrictTo$Scope;
 
-    const/4 v1, 0x0
+    const-string v1, "LIBRARY"
 
-    const-string v2, "LIBRARY"
+    const/4 v2, 0x0
 
-    invoke-direct {v0, v2, v1}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
 
     .line 69
-    new-instance v0, Landroid/support/annotation/RestrictTo$Scope;
-
-    const/4 v2, 0x1
+    new-instance v1, Landroid/support/annotation/RestrictTo$Scope;
 
     const-string v3, "LIBRARY_GROUP"
 
-    invoke-direct {v0, v3, v2}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
+    const/4 v4, 0x1
 
-    sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+    invoke-direct {v1, v3, v4}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
+
+    sput-object v1, Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
 
     .line 77
-    new-instance v0, Landroid/support/annotation/RestrictTo$Scope;
+    new-instance v3, Landroid/support/annotation/RestrictTo$Scope;
 
-    const/4 v3, 0x2
+    const-string v5, "GROUP_ID"
 
-    const-string v4, "GROUP_ID"
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v4, v3}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->GROUP_ID:Landroid/support/annotation/RestrictTo$Scope;
+    sput-object v3, Landroid/support/annotation/RestrictTo$Scope;->GROUP_ID:Landroid/support/annotation/RestrictTo$Scope;
 
     .line 83
-    new-instance v0, Landroid/support/annotation/RestrictTo$Scope;
+    new-instance v5, Landroid/support/annotation/RestrictTo$Scope;
 
-    const/4 v4, 0x3
+    const-string v7, "TESTS"
 
-    const-string v5, "TESTS"
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v5, v4}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->TESTS:Landroid/support/annotation/RestrictTo$Scope;
+    sput-object v5, Landroid/support/annotation/RestrictTo$Scope;->TESTS:Landroid/support/annotation/RestrictTo$Scope;
 
     .line 91
-    new-instance v0, Landroid/support/annotation/RestrictTo$Scope;
+    new-instance v7, Landroid/support/annotation/RestrictTo$Scope;
 
-    const/4 v5, 0x4
+    const-string v9, "SUBCLASSES"
 
-    const-string v6, "SUBCLASSES"
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v6, v5}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroid/support/annotation/RestrictTo$Scope;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->SUBCLASSES:Landroid/support/annotation/RestrictTo$Scope;
+    sput-object v7, Landroid/support/annotation/RestrictTo$Scope;->SUBCLASSES:Landroid/support/annotation/RestrictTo$Scope;
 
-    const/4 v0, 0x5
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Landroid/support/annotation/RestrictTo$Scope;
+
+    aput-object v0, v9, v2
+
+    aput-object v1, v9, v4
+
+    aput-object v3, v9, v6
+
+    aput-object v5, v9, v8
+
+    aput-object v7, v9, v10
 
     .line 58
-    new-array v0, v0, [Landroid/support/annotation/RestrictTo$Scope;
-
-    sget-object v6, Landroid/support/annotation/RestrictTo$Scope;->LIBRARY:Landroid/support/annotation/RestrictTo$Scope;
-
-    aput-object v6, v0, v1
-
-    sget-object v1, Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Landroid/support/annotation/RestrictTo$Scope;->GROUP_ID:Landroid/support/annotation/RestrictTo$Scope;
-
-    aput-object v1, v0, v3
-
-    sget-object v1, Landroid/support/annotation/RestrictTo$Scope;->TESTS:Landroid/support/annotation/RestrictTo$Scope;
-
-    aput-object v1, v0, v4
-
-    sget-object v1, Landroid/support/annotation/RestrictTo$Scope;->SUBCLASSES:Landroid/support/annotation/RestrictTo$Scope;
-
-    aput-object v1, v0, v5
-
-    sput-object v0, Landroid/support/annotation/RestrictTo$Scope;->$VALUES:[Landroid/support/annotation/RestrictTo$Scope;
+    sput-object v9, Landroid/support/annotation/RestrictTo$Scope;->$VALUES:[Landroid/support/annotation/RestrictTo$Scope;
 
     return-void
 .end method

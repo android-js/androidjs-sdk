@@ -75,30 +75,30 @@
 
     iput-object v1, p0, Landroid/support/constraint/utils/MockView;->mTextBounds:Landroid/graphics/Rect;
 
-    const/4 v1, 0x0
+    const/16 v1, 0xff
 
-    const/16 v2, 0xff
+    const/4 v2, 0x0
 
     .line 30
-    invoke-static {v2, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v1, v2, v2, v2}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, p0, Landroid/support/constraint/utils/MockView;->mDiagonalsColor:I
+    iput v2, p0, Landroid/support/constraint/utils/MockView;->mDiagonalsColor:I
 
-    const/16 v1, 0xc8
+    const/16 v2, 0xc8
 
     .line 31
-    invoke-static {v2, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v1, v2, v2, v2}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, p0, Landroid/support/constraint/utils/MockView;->mTextColor:I
+    iput v2, p0, Landroid/support/constraint/utils/MockView;->mTextColor:I
 
-    const/16 v1, 0x32
+    const/16 v2, 0x32
 
     .line 32
-    invoke-static {v2, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v1, v2, v2, v2}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v1
 
@@ -162,30 +162,30 @@
 
     iput-object v0, p0, Landroid/support/constraint/utils/MockView;->mTextBounds:Landroid/graphics/Rect;
 
-    const/4 v0, 0x0
+    const/16 v0, 0xff
 
-    const/16 v1, 0xff
+    const/4 v1, 0x0
 
     .line 30
-    invoke-static {v1, v0, v0, v0}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v0, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/support/constraint/utils/MockView;->mDiagonalsColor:I
+    iput v1, p0, Landroid/support/constraint/utils/MockView;->mDiagonalsColor:I
 
-    const/16 v0, 0xc8
+    const/16 v1, 0xc8
 
     .line 31
-    invoke-static {v1, v0, v0, v0}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v0, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result v0
+    move-result v1
 
-    iput v0, p0, Landroid/support/constraint/utils/MockView;->mTextColor:I
+    iput v1, p0, Landroid/support/constraint/utils/MockView;->mTextColor:I
 
-    const/16 v0, 0x32
+    const/16 v1, 0x32
 
     .line 32
-    invoke-static {v1, v0, v0, v0}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {v0, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v0
 
@@ -249,30 +249,30 @@
 
     iput-object p3, p0, Landroid/support/constraint/utils/MockView;->mTextBounds:Landroid/graphics/Rect;
 
-    const/4 p3, 0x0
+    const/16 p3, 0xff
 
-    const/16 v0, 0xff
+    const/4 v0, 0x0
 
     .line 30
-    invoke-static {v0, p3, p3, p3}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {p3, v0, v0, v0}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result p3
+    move-result v0
 
-    iput p3, p0, Landroid/support/constraint/utils/MockView;->mDiagonalsColor:I
+    iput v0, p0, Landroid/support/constraint/utils/MockView;->mDiagonalsColor:I
 
-    const/16 p3, 0xc8
+    const/16 v0, 0xc8
 
     .line 31
-    invoke-static {v0, p3, p3, p3}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {p3, v0, v0, v0}, Landroid/graphics/Color;->argb(IIII)I
 
-    move-result p3
+    move-result v0
 
-    iput p3, p0, Landroid/support/constraint/utils/MockView;->mTextColor:I
+    iput v0, p0, Landroid/support/constraint/utils/MockView;->mTextColor:I
 
-    const/16 p3, 0x32
+    const/16 v0, 0x32
 
     .line 32
-    invoke-static {v0, p3, p3, p3}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-static {p3, v0, v0, v0}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result p3
 

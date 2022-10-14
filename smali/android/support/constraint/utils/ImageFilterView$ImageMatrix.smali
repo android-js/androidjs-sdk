@@ -39,9 +39,9 @@
 
     const/16 v0, 0x14
 
-    .line 87
     new-array v0, v0, [F
 
+    .line 87
     iput-object v0, p0, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->m:[F
 
     .line 88
@@ -85,104 +85,104 @@
 
     aput p1, v0, v1
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     .line 226
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
     .line 227
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
     .line 228
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
     .line 229
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
     .line 231
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
     .line 232
-    aput p1, v0, v2
+    aput p1, v0, v1
 
-    const/4 v2, 0x7
+    const/4 v1, 0x7
 
     .line 233
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/16 v2, 0x8
+    const/16 v1, 0x8
 
     .line 234
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/16 v2, 0x9
+    const/16 v1, 0x9
 
     .line 235
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/16 v2, 0xa
+    const/16 v1, 0xa
 
     .line 237
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/16 v2, 0xb
+    const/16 v1, 0xb
 
     .line 238
-    aput v1, v0, v2
+    aput v2, v0, v1
 
-    const/16 v2, 0xc
+    const/16 v1, 0xc
 
     .line 239
-    aput p1, v0, v2
+    aput p1, v0, v1
 
     const/16 p1, 0xd
 
     .line 240
-    aput v1, v0, p1
+    aput v2, v0, p1
 
     const/16 p1, 0xe
 
     .line 241
-    aput v1, v0, p1
+    aput v2, v0, p1
 
     const/16 p1, 0xf
 
     .line 243
-    aput v1, v0, p1
+    aput v2, v0, p1
 
     const/16 p1, 0x10
 
     .line 244
-    aput v1, v0, p1
+    aput v2, v0, p1
 
     const/16 p1, 0x11
 
     .line 245
-    aput v1, v0, p1
+    aput v2, v0, p1
 
     const/16 p1, 0x12
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
     .line 246
-    aput v2, v0, p1
+    aput v1, v0, p1
 
     const/16 p1, 0x13
 
     .line 247
-    aput v1, v0, p1
+    aput v2, v0, p1
 
     return-void
 .end method
@@ -225,49 +225,49 @@
     .line 108
     aput v1, v4, v5
 
-    const/4 v5, 0x0
+    const/4 v5, 0x3
 
-    const/4 v6, 0x3
+    const/4 v6, 0x0
 
     .line 109
-    aput v5, v4, v6
+    aput v6, v4, v5
 
-    const/4 v6, 0x4
+    const/4 v5, 0x4
 
     .line 110
-    aput v5, v4, v6
+    aput v6, v4, v5
 
-    const/4 v6, 0x5
+    const/4 v5, 0x5
 
     .line 112
-    aput v2, v4, v6
+    aput v2, v4, v5
 
-    add-float v6, v3, p1
+    add-float v5, v3, p1
 
     const/4 v7, 0x6
 
     .line 113
-    aput v6, v4, v7
+    aput v5, v4, v7
 
-    const/4 v6, 0x7
+    const/4 v5, 0x7
 
     .line 114
-    aput v1, v4, v6
+    aput v1, v4, v5
 
-    const/16 v6, 0x8
+    const/16 v5, 0x8
 
     .line 115
-    aput v5, v4, v6
+    aput v6, v4, v5
 
-    const/16 v6, 0x9
+    const/16 v5, 0x9
 
     .line 116
-    aput v5, v4, v6
+    aput v6, v4, v5
 
-    const/16 v6, 0xa
+    const/16 v5, 0xa
 
     .line 118
-    aput v2, v4, v6
+    aput v2, v4, v5
 
     const/16 v2, 0xb
 
@@ -284,27 +284,27 @@
     const/16 p1, 0xd
 
     .line 121
-    aput v5, v4, p1
+    aput v6, v4, p1
 
     const/16 p1, 0xe
 
     .line 122
-    aput v5, v4, p1
+    aput v6, v4, p1
 
     const/16 p1, 0xf
 
     .line 124
-    aput v5, v4, p1
+    aput v6, v4, p1
 
     const/16 p1, 0x10
 
     .line 125
-    aput v5, v4, p1
+    aput v6, v4, p1
 
     const/16 p1, 0x11
 
     .line 126
-    aput v5, v4, p1
+    aput v6, v4, p1
 
     const/16 p1, 0x12
 
@@ -314,7 +314,7 @@
     const/16 p1, 0x13
 
     .line 128
-    aput v5, v4, p1
+    aput v6, v4, p1
 
     return-void
 .end method
@@ -753,10 +753,13 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
 
-    const/4 v0, 0x1
+    goto :goto_1
 
     :cond_3
-    if-eqz v0, :cond_4
+    move v1, v0
+
+    :goto_1
+    if-eqz v1, :cond_4
 
     .line 277
     new-instance v0, Landroid/graphics/ColorMatrixColorFilter;
@@ -767,12 +770,12 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    goto :goto_1
+    goto :goto_2
 
     .line 279
     :cond_4
     invoke-virtual {p1}, Landroid/widget/ImageView;->clearColorFilter()V
 
-    :goto_1
+    :goto_2
     return-void
 .end method

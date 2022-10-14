@@ -154,14 +154,20 @@
 
     iput-object v4, p0, Landroid/support/constraint/motion/SplineSet$CustomSet;->mTempValues:[F
 
+    const/4 v4, 0x2
+
+    new-array v4, v4, [I
+
+    const/4 v5, 0x1
+
+    aput v1, v4, v5
+
+    aput v0, v4, v2
+
     .line 269
-    filled-new-array {v0, v1}, [I
+    sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    move-result-object v1
-
-    const-class v4, D
-
-    invoke-static {v4, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v1, v4}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object v1
 

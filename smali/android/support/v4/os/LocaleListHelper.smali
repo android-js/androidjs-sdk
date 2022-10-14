@@ -3,14 +3,6 @@
 .source "LocaleListHelper.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final EN_LATN:Ljava/util/Locale;
 
@@ -25,32 +17,16 @@
 .field private static final STRING_EN_XA:Ljava/lang/String; = "en-XA"
 
 .field private static sDefaultAdjustedLocaleList:Landroid/support/v4/os/LocaleListHelper;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sLock"
-    .end annotation
-.end field
 
 .field private static sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sLock"
-    .end annotation
-.end field
 
 .field private static final sEmptyList:[Ljava/util/Locale;
 
 .field private static final sEmptyLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
 .field private static sLastDefaultLocale:Ljava/util/Locale;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sLock"
-    .end annotation
-.end field
 
 .field private static sLastExplicitlySetLocaleList:Landroid/support/v4/os/LocaleListHelper;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sLock"
-    .end annotation
-.end field
 
 .field private static final sLock:Ljava/lang/Object;
 
@@ -59,9 +35,6 @@
 .field private final mList:[Ljava/util/Locale;
 
 .field private final mStringRepresentation:Ljava/lang/String;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 
 # direct methods
@@ -70,9 +43,9 @@
 
     const/4 v0, 0x0
 
-    .line 50
     new-array v1, v0, [Ljava/util/Locale;
 
+    .line 50
     sput-object v1, Landroid/support/v4/os/LocaleListHelper;->sEmptyList:[Ljava/util/Locale;
 
     .line 51
@@ -141,15 +114,6 @@
 
 .method constructor <init>(Ljava/util/Locale;Landroid/support/v4/os/LocaleListHelper;)V
     .locals 8
-    .param p1    # Ljava/util/Locale;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 208
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -353,22 +317,17 @@
 
     invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_9
+
+    :goto_8
     throw p1
 
-    return-void
+    :goto_9
+    goto :goto_8
 .end method
 
 .method varargs constructor <init>([Ljava/util/Locale;)V
     .locals 7
-    .param p1    # [Ljava/util/Locale;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 172
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -707,19 +666,7 @@
 .end method
 
 .method static forLanguageTags(Ljava/lang/String;)Landroid/support/v4/os/LocaleListHelper;
-    .locals 3
-    .param p0    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
+    .locals 4
 
     if-eqz p0, :cond_2
 
@@ -745,26 +692,23 @@
     .line 277
     array-length v0, p0
 
-    new-array v0, v0, [Ljava/util/Locale;
+    new-array v1, v0, [Ljava/util/Locale;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 278
     :goto_0
-    array-length v2, v0
-
-    if-ge v1, v2, :cond_1
+    if-ge v2, v0, :cond_1
 
     .line 279
-    aget-object v2, p0, v1
+    aget-object v3, p0, v2
 
-    invoke-static {v2}, Landroid/support/v4/os/LocaleHelper;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+    invoke-static {v3}, Landroid/support/v4/os/LocaleHelper;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object v2
+    move-result-object v3
 
-    aput-object v2, v0, v1
+    aput-object v3, v1, v2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -772,7 +716,7 @@
     :cond_1
     new-instance p0, Landroid/support/v4/os/LocaleListHelper;
 
-    invoke-direct {p0, v0}, Landroid/support/v4/os/LocaleListHelper;-><init>([Ljava/util/Locale;)V
+    invoke-direct {p0, v1}, Landroid/support/v4/os/LocaleListHelper;-><init>([Ljava/util/Locale;)V
 
     return-object p0
 
@@ -788,12 +732,6 @@
 
 .method static getAdjustedDefault()Landroid/support/v4/os/LocaleListHelper;
     .locals 2
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/Size;
-        min = 0x1L
-    .end annotation
 
     .line 533
     invoke-static {}, Landroid/support/v4/os/LocaleListHelper;->getDefault()Landroid/support/v4/os/LocaleListHelper;
@@ -824,18 +762,6 @@
 
 .method static getDefault()Landroid/support/v4/os/LocaleListHelper;
     .locals 4
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-
-    .annotation build Landroid/support/annotation/Size;
-        min = 0x1L
-    .end annotation
 
     .line 502
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
@@ -864,8 +790,6 @@
     sget-object v2, Landroid/support/v4/os/LocaleListHelper;->sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     if-eqz v2, :cond_0
-
-    sget-object v2, Landroid/support/v4/os/LocaleListHelper;->sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     const/4 v3, 0x0
 
@@ -898,9 +822,7 @@
     sput-object v2, Landroid/support/v4/os/LocaleListHelper;->sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     .line 517
-    sget-object v0, Landroid/support/v4/os/LocaleListHelper;->sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
-
-    sput-object v0, Landroid/support/v4/os/LocaleListHelper;->sDefaultAdjustedLocaleList:Landroid/support/v4/os/LocaleListHelper;
+    sput-object v2, Landroid/support/v4/os/LocaleListHelper;->sDefaultAdjustedLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     .line 523
     :cond_1
@@ -923,14 +845,6 @@
 
 .method static getEmptyLocaleList()Landroid/support/v4/os/LocaleListHelper;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 259
     sget-object v0, Landroid/support/v4/os/LocaleListHelper;->sEmptyLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -1040,15 +954,6 @@
 
 .method static isPseudoLocalesOnly([Ljava/lang/String;)Z
     .locals 6
-    .param p0    # [Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -1105,10 +1010,6 @@
 
 .method private static matchScore(Ljava/util/Locale;Ljava/util/Locale;)I
     .locals 4
-    .annotation build Landroid/support/annotation/IntRange;
-        from = 0x0L
-        to = 0x1L
-    .end annotation
 
     .line 313
     invoke-virtual {p0, p1}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
@@ -1221,19 +1122,6 @@
 
 .method static setDefault(Landroid/support/v4/os/LocaleListHelper;)V
     .locals 1
-    .param p0    # Landroid/support/v4/os/LocaleListHelper;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-
-        .annotation build Landroid/support/annotation/Size;
-            min = 0x1L
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -1245,19 +1133,6 @@
 
 .method static setDefault(Landroid/support/v4/os/LocaleListHelper;I)V
     .locals 2
-    .param p0    # Landroid/support/v4/os/LocaleListHelper;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-
-        .annotation build Landroid/support/annotation/Size;
-            min = 0x1L
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     if-eqz p0, :cond_2
 
@@ -1282,8 +1157,6 @@
     sput-object v1, Landroid/support/v4/os/LocaleListHelper;->sLastDefaultLocale:Ljava/util/Locale;
 
     .line 572
-    sget-object v1, Landroid/support/v4/os/LocaleListHelper;->sLastDefaultLocale:Ljava/util/Locale;
-
     invoke-static {v1}, Ljava/util/Locale;->setDefault(Ljava/util/Locale;)V
 
     .line 573
@@ -1295,23 +1168,19 @@
     if-nez p1, :cond_0
 
     .line 576
-    sget-object p0, Landroid/support/v4/os/LocaleListHelper;->sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
-
     sput-object p0, Landroid/support/v4/os/LocaleListHelper;->sDefaultAdjustedLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     goto :goto_0
 
     .line 578
     :cond_0
-    new-instance p0, Landroid/support/v4/os/LocaleListHelper;
+    new-instance p1, Landroid/support/v4/os/LocaleListHelper;
 
-    sget-object p1, Landroid/support/v4/os/LocaleListHelper;->sLastDefaultLocale:Ljava/util/Locale;
+    sget-object v1, Landroid/support/v4/os/LocaleListHelper;->sLastDefaultLocale:Ljava/util/Locale;
 
-    sget-object v1, Landroid/support/v4/os/LocaleListHelper;->sDefaultLocaleList:Landroid/support/v4/os/LocaleListHelper;
+    invoke-direct {p1, v1, p0}, Landroid/support/v4/os/LocaleListHelper;-><init>(Ljava/util/Locale;Landroid/support/v4/os/LocaleListHelper;)V
 
-    invoke-direct {p0, p1, v1}, Landroid/support/v4/os/LocaleListHelper;-><init>(Ljava/util/Locale;Landroid/support/v4/os/LocaleListHelper;)V
-
-    sput-object p0, Landroid/support/v4/os/LocaleListHelper;->sDefaultAdjustedLocaleList:Landroid/support/v4/os/LocaleListHelper;
+    sput-object p1, Landroid/support/v4/os/LocaleListHelper;->sDefaultAdjustedLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     .line 581
     :goto_0
@@ -1422,11 +1291,6 @@
 
 .method get(I)Ljava/util/Locale;
     .locals 2
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     if-ltz p1, :cond_0
 
@@ -1450,14 +1314,6 @@
 
 .method getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 408
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1475,11 +1331,6 @@
 
 .method getFirstMatchIndex([Ljava/lang/String;)I
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 417
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1497,12 +1348,6 @@
 
 .method getFirstMatchIndexWithEnglishSupported(Ljava/util/Collection;)I
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1524,11 +1369,6 @@
 
 .method getFirstMatchIndexWithEnglishSupported([Ljava/lang/String;)I
     .locals 0
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 445
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1544,14 +1384,6 @@
 
 .method getFirstMatchWithEnglishSupported([Ljava/lang/String;)Ljava/util/Locale;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 428
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1603,15 +1435,6 @@
 
 .method indexOf(Ljava/util/Locale;)I
     .locals 3
-    .annotation build Landroid/support/annotation/IntRange;
-        from = -0x1L
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -1647,11 +1470,6 @@
 
 .method isEmpty()Z
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 74
     iget-object v0, p0, Landroid/support/v4/os/LocaleListHelper;->mList:[Ljava/util/Locale;
@@ -1673,15 +1491,6 @@
 
 .method size()I
     .locals 1
-    .annotation build Landroid/support/annotation/IntRange;
-        from = 0x0L
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 84
     iget-object v0, p0, Landroid/support/v4/os/LocaleListHelper;->mList:[Ljava/util/Locale;
@@ -1693,14 +1502,6 @@
 
 .method toLanguageTags()Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 157
     iget-object v0, p0, Landroid/support/v4/os/LocaleListHelper;->mStringRepresentation:Ljava/lang/String;

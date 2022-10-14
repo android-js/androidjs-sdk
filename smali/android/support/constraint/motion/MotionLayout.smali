@@ -235,10 +235,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 963
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintLayout;-><init>(Landroid/content/Context;)V
@@ -417,14 +413,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 968
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/ConstraintLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -603,14 +591,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 973
     invoke-direct {p0, p1, p2, p3}, Landroid/support/constraint/ConstraintLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -1672,7 +1652,7 @@
 .end method
 
 .method private evaluateLayout()V
-    .locals 13
+    .locals 14
 
     .line 2935
     iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
@@ -1693,150 +1673,147 @@
     .line 2939
     iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    instance-of v3, v3, Landroid/support/constraint/motion/utils/StopLogic;
+    instance-of v4, v3, Landroid/support/constraint/motion/utils/StopLogic;
 
-    const v4, 0x3089705f    # 1.0E-9f
+    const v5, 0x3089705f    # 1.0E-9f
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
     .line 2940
-    iget-wide v6, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
+    iget-wide v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
 
-    sub-long v6, v1, v6
+    sub-long v7, v1, v7
 
-    long-to-float v3, v6
+    long-to-float v4, v7
 
-    mul-float v3, v3, v0
+    mul-float v4, v4, v0
 
-    mul-float v3, v3, v4
+    mul-float v4, v4, v5
 
-    iget v6, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
+    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
 
-    div-float/2addr v3, v6
+    div-float/2addr v4, v7
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     .line 2942
     :goto_0
-    iget v6, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
-    add-float/2addr v6, v3
+    add-float/2addr v7, v4
 
     .line 2945
-    iget-boolean v3, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
+    iget-boolean v4, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     .line 2946
-    iget v6, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
     :cond_1
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    cmpl-float v7, v0, v5
+    cmpl-float v8, v0, v6
 
-    if-lez v7, :cond_2
+    if-lez v8, :cond_2
 
     .line 2949
-    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v8, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpl-float v7, v6, v7
+    cmpl-float v8, v7, v8
 
-    if-gez v7, :cond_3
+    if-gez v8, :cond_3
 
     :cond_2
-    cmpg-float v7, v0, v5
+    cmpg-float v8, v0, v6
 
-    if-gtz v7, :cond_4
+    if-gtz v8, :cond_4
 
-    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v8, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpg-float v7, v6, v7
+    cmpg-float v8, v7, v8
 
-    if-gtz v7, :cond_4
+    if-gtz v8, :cond_4
 
     .line 2951
     :cond_3
-    iget v6, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     goto :goto_1
 
     :cond_4
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    .line 2954
     :goto_1
-    iget-object v8, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    if-eqz v3, :cond_6
 
-    if-eqz v8, :cond_6
-
-    if-nez v7, :cond_6
+    if-nez v8, :cond_6
 
     .line 2955
-    iget-boolean v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTemporalInterpolator:Z
+    iget-boolean v8, p0, Landroid/support/constraint/motion/MotionLayout;->mTemporalInterpolator:Z
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_5
 
     .line 2956
-    iget-wide v6, p0, Landroid/support/constraint/motion/MotionLayout;->mAnimationStartTime:J
+    iget-wide v7, p0, Landroid/support/constraint/motion/MotionLayout;->mAnimationStartTime:J
 
-    sub-long/2addr v1, v6
+    sub-long/2addr v1, v7
 
     long-to-float v1, v1
 
-    mul-float v1, v1, v4
+    mul-float v1, v1, v5
 
     .line 2957
-    invoke-interface {v8, v1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {v3, v1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
-    move-result v6
+    move-result v7
 
     goto :goto_2
 
     .line 2959
     :cond_5
-    invoke-interface {v8, v6}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {v3, v7}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
-    move-result v6
+    move-result v7
 
     :cond_6
     :goto_2
-    cmpl-float v1, v0, v5
+    cmpl-float v1, v0, v6
 
     if-lez v1, :cond_7
 
     .line 2962
     iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpl-float v1, v6, v1
+    cmpl-float v1, v7, v1
 
     if-gez v1, :cond_8
 
     :cond_7
-    cmpg-float v0, v0, v5
+    cmpg-float v0, v0, v6
 
     if-gtz v0, :cond_9
 
     iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpg-float v0, v6, v0
+    cmpg-float v0, v7, v0
 
     if-gtz v0, :cond_9
 
     .line 2964
     :cond_8
-    iget v6, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
     .line 2966
     :cond_9
-    iput v6, p0, Landroid/support/constraint/motion/MotionLayout;->mPostInterpolationPosition:F
+    iput v7, p0, Landroid/support/constraint/motion/MotionLayout;->mPostInterpolationPosition:F
 
     .line 2967
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionLayout;->getChildCount()I
@@ -1849,37 +1826,37 @@
     move-result-wide v1
 
     :goto_3
-    if-ge v3, v0, :cond_b
+    if-ge v4, v0, :cond_b
 
     .line 2970
-    invoke-virtual {p0, v3}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v8
+    move-result-object v9
 
     .line 2971
-    iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
+    iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
 
-    invoke-virtual {v4, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v9}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    move-object v7, v4
+    move-object v8, v3
 
-    check-cast v7, Landroid/support/constraint/motion/MotionController;
+    check-cast v8, Landroid/support/constraint/motion/MotionController;
 
-    if-eqz v7, :cond_a
+    if-eqz v8, :cond_a
 
     .line 2973
-    iget-object v12, p0, Landroid/support/constraint/motion/MotionLayout;->mKeyCache:Landroid/support/constraint/motion/KeyCache;
+    iget-object v13, p0, Landroid/support/constraint/motion/MotionLayout;->mKeyCache:Landroid/support/constraint/motion/KeyCache;
 
-    move v9, v6
+    move v10, v7
 
-    move-wide v10, v1
+    move-wide v11, v1
 
-    invoke-virtual/range {v7 .. v12}, Landroid/support/constraint/motion/MotionController;->interpolate(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
+    invoke-virtual/range {v8 .. v13}, Landroid/support/constraint/motion/MotionController;->interpolate(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
 
     :cond_a
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_3
 
@@ -3090,7 +3067,7 @@
 .end method
 
 .method animateTo(F)V
-    .locals 3
+    .locals 4
 
     .line 1719
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
@@ -3101,52 +3078,50 @@
 
     .line 1723
     :cond_0
-    iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
-    iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionPosition:F
+    iget v2, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionPosition:F
 
-    cmpl-float v0, v0, v1
+    cmpl-float v1, v1, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-boolean v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
+    iget-boolean v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     .line 1726
-    iput v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iput v2, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 1729
     :cond_1
-    iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
-    cmpl-float v1, v0, p1
+    cmpl-float v2, v1, p1
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     return-void
 
     :cond_2
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     .line 1732
-    iput-boolean v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTemporalInterpolator:Z
+    iput-boolean v2, p0, Landroid/support/constraint/motion/MotionLayout;->mTemporalInterpolator:Z
 
     .line 1734
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
     .line 1735
-    iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
-
-    invoke-virtual {p1}, Landroid/support/constraint/motion/MotionScene;->getDuration()I
+    invoke-virtual {v0}, Landroid/support/constraint/motion/MotionScene;->getDuration()I
 
     move-result p1
 
     int-to-float p1, p1
 
-    const/high16 v2, 0x447a0000    # 1000.0f
+    const/high16 v0, 0x447a0000    # 1000.0f
 
-    div-float/2addr p1, v2
+    div-float/2addr p1, v0
 
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
 
@@ -3165,14 +3140,14 @@
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
     .line 1738
-    iput-boolean v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
+    iput-boolean v2, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
 
     .line 1739
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionLayout;->getNanoTime()J
 
-    move-result-wide v1
+    move-result-wide v2
 
-    iput-wide v1, p0, Landroid/support/constraint/motion/MotionLayout;->mAnimationStartTime:J
+    iput-wide v2, p0, Landroid/support/constraint/motion/MotionLayout;->mAnimationStartTime:J
 
     const/4 p1, 0x1
 
@@ -3180,10 +3155,10 @@
     iput-boolean p1, p0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
     .line 1741
-    iput v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionPosition:F
+    iput v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionPosition:F
 
     .line 1745
-    iput v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iput v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 1746
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionLayout;->invalidate()V
@@ -3596,267 +3571,255 @@
 
     if-lez v5, :cond_1
 
-    cmpg-float v1, v1, v3
+    cmpg-float v5, v1, v3
 
-    if-gez v1, :cond_1
+    if-gez v5, :cond_1
 
     .line 2987
     iput v2, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     .line 2991
     :cond_1
-    iget-boolean v1, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
+    iget-boolean v5, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v5, :cond_2
 
-    iget-boolean v1, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iget-boolean v5, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
-    if-eqz v1, :cond_24
+    if-eqz v5, :cond_24
 
     if-nez p1, :cond_2
 
-    iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    cmpl-float v5, v5, v1
 
-    cmpl-float v1, v1, v7
-
-    if-eqz v1, :cond_24
+    if-eqz v5, :cond_24
 
     .line 2992
     :cond_2
-    iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    sub-float/2addr v5, v1
 
-    sub-float/2addr v1, v7
-
-    invoke-static {v1}, Ljava/lang/Math;->signum(F)F
+    invoke-static {v5}, Ljava/lang/Math;->signum(F)F
 
     move-result v1
 
     .line 2993
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/motion/MotionLayout;->getNanoTime()J
 
-    move-result-wide v7
+    move-result-wide v8
 
     .line 2996
-    iget-object v9, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v5, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    instance-of v9, v9, Landroid/support/constraint/motion/MotionInterpolator;
+    instance-of v10, v5, Landroid/support/constraint/motion/MotionInterpolator;
 
-    const v10, 0x3089705f    # 1.0E-9f
+    const v11, 0x3089705f    # 1.0E-9f
 
-    if-nez v9, :cond_3
+    if-nez v10, :cond_3
 
     .line 2997
-    iget-wide v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
+    iget-wide v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
 
-    sub-long v11, v7, v11
+    sub-long v12, v8, v12
 
-    long-to-float v9, v11
+    long-to-float v10, v12
 
-    mul-float v9, v9, v1
+    mul-float v10, v10, v1
 
-    mul-float v9, v9, v10
+    mul-float v10, v10, v11
 
-    iget v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
+    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
 
-    div-float/2addr v9, v11
+    div-float/2addr v10, v12
 
     .line 2998
-    iput v9, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
+    iput v10, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
 
     goto :goto_0
 
     :cond_3
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     .line 3000
     :goto_0
-    iget v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
-    add-float/2addr v11, v9
+    add-float/2addr v12, v10
 
     .line 3003
-    iget-boolean v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
+    iget-boolean v13, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionInstantly:Z
 
-    if-eqz v12, :cond_4
+    if-eqz v13, :cond_4
 
     .line 3004
-    iget v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
     :cond_4
-    cmpl-float v12, v1, v4
+    cmpl-float v13, v1, v4
 
-    if-lez v12, :cond_5
+    if-lez v13, :cond_5
 
     .line 3007
-    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v13, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpl-float v12, v11, v12
+    cmpl-float v13, v12, v13
 
-    if-gez v12, :cond_6
+    if-gez v13, :cond_6
 
     :cond_5
-    cmpg-float v12, v1, v4
+    cmpg-float v13, v1, v4
 
-    if-gtz v12, :cond_7
+    if-gtz v13, :cond_7
 
-    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v13, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpg-float v12, v11, v12
+    cmpg-float v13, v12, v13
 
-    if-gtz v12, :cond_7
+    if-gtz v13, :cond_7
 
     .line 3009
     :cond_6
-    iget v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
     .line 3010
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
     goto :goto_1
 
     :cond_7
-    const/4 v12, 0x0
+    const/4 v13, 0x0
 
     .line 3016
     :goto_1
-    iput v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iput v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 3017
-    iput v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionPosition:F
+    iput v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionPosition:F
 
     .line 3018
-    iput-wide v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
-
-    .line 3020
-    iget-object v13, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    iput-wide v8, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
 
     const v14, 0x3727c5ac    # 1.0E-5f
 
-    if-eqz v13, :cond_d
+    if-eqz v5, :cond_d
 
-    if-nez v12, :cond_d
+    if-nez v13, :cond_d
 
     .line 3021
-    iget-boolean v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTemporalInterpolator:Z
+    iget-boolean v13, v0, Landroid/support/constraint/motion/MotionLayout;->mTemporalInterpolator:Z
 
-    if-eqz v12, :cond_b
+    if-eqz v13, :cond_a
 
     .line 3022
-    iget-wide v11, v0, Landroid/support/constraint/motion/MotionLayout;->mAnimationStartTime:J
+    iget-wide v12, v0, Landroid/support/constraint/motion/MotionLayout;->mAnimationStartTime:J
 
-    sub-long v11, v7, v11
+    sub-long v12, v8, v12
 
-    long-to-float v9, v11
+    long-to-float v10, v12
 
-    mul-float v9, v9, v10
+    mul-float v10, v10, v11
 
     .line 3023
-    invoke-interface {v13, v9}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {v5, v10}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
-    move-result v9
+    move-result v5
 
     .line 3027
-    iput v9, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iput v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 3029
-    iput-wide v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
+    iput-wide v8, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastTime:J
 
     .line 3030
-    iget-object v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v8, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    instance-of v8, v7, Landroid/support/constraint/motion/MotionInterpolator;
+    instance-of v9, v8, Landroid/support/constraint/motion/MotionInterpolator;
 
-    if-eqz v8, :cond_a
+    if-eqz v9, :cond_c
 
     .line 3031
-    check-cast v7, Landroid/support/constraint/motion/MotionInterpolator;
+    check-cast v8, Landroid/support/constraint/motion/MotionInterpolator;
 
-    invoke-virtual {v7}, Landroid/support/constraint/motion/MotionInterpolator;->getVelocity()F
-
-    move-result v7
-
-    .line 3032
-    iput v7, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
-
-    .line 3033
-    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
+    invoke-virtual {v8}, Landroid/support/constraint/motion/MotionInterpolator;->getVelocity()F
 
     move-result v8
 
+    .line 3032
+    iput v8, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
+
+    .line 3033
+    invoke-static {v8}, Ljava/lang/Math;->abs(F)F
+
+    move-result v9
+
     iget v10, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
 
-    mul-float v8, v8, v10
+    mul-float v9, v9, v10
 
-    cmpg-float v8, v8, v14
+    cmpg-float v9, v9, v14
 
-    if-gtz v8, :cond_8
+    if-gtz v9, :cond_8
 
     .line 3034
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
     :cond_8
-    cmpl-float v8, v7, v4
+    cmpl-float v9, v8, v4
 
-    if-lez v8, :cond_9
+    if-lez v9, :cond_9
 
-    cmpl-float v8, v9, v3
+    cmpl-float v9, v5, v3
 
-    if-ltz v8, :cond_9
+    if-ltz v9, :cond_9
 
     .line 3037
     iput v3, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 3038
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
-    const/high16 v9, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
     :cond_9
-    cmpg-float v7, v7, v4
+    cmpg-float v8, v8, v4
 
-    if-gez v7, :cond_a
+    if-gez v8, :cond_c
 
-    cmpg-float v7, v9, v4
+    cmpg-float v8, v5, v4
 
-    if-gtz v7, :cond_a
+    if-gtz v8, :cond_c
 
     .line 3041
     iput v4, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 3042
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
-    const/4 v11, 0x0
-
-    goto :goto_3
-
-    :cond_a
-    move v11, v9
+    const/4 v12, 0x0
 
     goto :goto_3
 
     .line 3049
-    :cond_b
-    invoke-interface {v13, v11}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    :cond_a
+    invoke-interface {v5, v12}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
-    move-result v7
+    move-result v5
 
     .line 3050
     iget-object v8, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    instance-of v10, v8, Landroid/support/constraint/motion/MotionInterpolator;
+    instance-of v9, v8, Landroid/support/constraint/motion/MotionInterpolator;
 
-    if-eqz v10, :cond_c
+    if-eqz v9, :cond_b
 
     .line 3051
     check-cast v8, Landroid/support/constraint/motion/MotionInterpolator;
@@ -3869,100 +3832,101 @@
 
     goto :goto_2
 
-    :cond_c
-    add-float/2addr v11, v9
+    :cond_b
+    add-float/2addr v12, v10
 
     .line 3053
-    invoke-interface {v8, v11}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-interface {v8, v12}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v8
 
-    sub-float/2addr v8, v7
+    sub-float/2addr v8, v5
 
     mul-float v8, v8, v1
 
-    div-float/2addr v8, v9
+    div-float/2addr v8, v10
 
     .line 3054
     iput v8, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
 
+    :cond_c
     :goto_2
-    move v11, v7
+    move v12, v5
 
     .line 3059
     :cond_d
     :goto_3
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
 
-    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v5}, Ljava/lang/Math;->abs(F)F
 
-    move-result v7
+    move-result v5
 
-    cmpl-float v7, v7, v14
+    cmpl-float v5, v5, v14
 
-    if-lez v7, :cond_e
+    if-lez v5, :cond_e
 
     .line 3060
-    sget-object v7, Landroid/support/constraint/motion/MotionLayout$TransitionState;->MOVING:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    sget-object v5, Landroid/support/constraint/motion/MotionLayout$TransitionState;->MOVING:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
-    invoke-virtual {v0, v7}, Landroid/support/constraint/motion/MotionLayout;->setState(Landroid/support/constraint/motion/MotionLayout$TransitionState;)V
+    invoke-virtual {v0, v5}, Landroid/support/constraint/motion/MotionLayout;->setState(Landroid/support/constraint/motion/MotionLayout$TransitionState;)V
 
     :cond_e
-    cmpl-float v7, v1, v4
+    cmpl-float v5, v1, v4
 
-    if-lez v7, :cond_f
+    if-lez v5, :cond_f
 
     .line 3063
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpl-float v7, v11, v7
+    cmpl-float v5, v12, v5
 
-    if-gez v7, :cond_10
+    if-gez v5, :cond_10
 
     :cond_f
-    cmpg-float v7, v1, v4
+    cmpg-float v5, v1, v4
 
-    if-gtz v7, :cond_11
+    if-gtz v5, :cond_11
 
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpg-float v7, v11, v7
+    cmpg-float v5, v12, v5
 
-    if-gtz v7, :cond_11
+    if-gtz v5, :cond_11
 
     .line 3065
     :cond_10
-    iget v11, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v12, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
     .line 3066
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
     :cond_11
-    cmpl-float v7, v11, v3
+    cmpl-float v5, v12, v3
 
-    if-gez v7, :cond_12
+    if-gez v5, :cond_12
 
-    cmpg-float v7, v11, v4
+    cmpg-float v5, v12, v4
 
-    if-gtz v7, :cond_13
+    if-gtz v5, :cond_13
 
     .line 3070
     :cond_12
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mInTransition:Z
 
     .line 3071
-    sget-object v7, Landroid/support/constraint/motion/MotionLayout$TransitionState;->FINISHED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
+    sget-object v5, Landroid/support/constraint/motion/MotionLayout$TransitionState;->FINISHED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
 
-    invoke-virtual {v0, v7}, Landroid/support/constraint/motion/MotionLayout;->setState(Landroid/support/constraint/motion/MotionLayout$TransitionState;)V
+    invoke-virtual {v0, v5}, Landroid/support/constraint/motion/MotionLayout;->setState(Landroid/support/constraint/motion/MotionLayout$TransitionState;)V
 
     .line 3074
     :cond_13
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/motion/MotionLayout;->getChildCount()I
 
-    move-result v7
+    move-result v5
 
     .line 3075
-    iput-boolean v6, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
+    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
 
     .line 3076
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/motion/MotionLayout;->getNanoTime()J
@@ -3970,49 +3934,49 @@
     move-result-wide v8
 
     .line 3080
-    iput v11, v0, Landroid/support/constraint/motion/MotionLayout;->mPostInterpolationPosition:F
+    iput v12, v0, Landroid/support/constraint/motion/MotionLayout;->mPostInterpolationPosition:F
 
     const/4 v10, 0x0
 
     :goto_4
-    if-ge v10, v7, :cond_15
+    if-ge v10, v5, :cond_15
 
     .line 3082
     invoke-virtual {v0, v10}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v13
+    move-result-object v14
 
     .line 3083
-    iget-object v12, v0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
+    iget-object v11, v0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
 
-    invoke-virtual {v12, v13}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v11, v14}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v11
 
-    check-cast v12, Landroid/support/constraint/motion/MotionController;
+    move-object v13, v11
 
-    if-eqz v12, :cond_14
+    check-cast v13, Landroid/support/constraint/motion/MotionController;
+
+    if-eqz v13, :cond_14
 
     .line 3085
-    iget-boolean v15, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
+    iget-boolean v11, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
 
-    iget-object v14, v0, Landroid/support/constraint/motion/MotionLayout;->mKeyCache:Landroid/support/constraint/motion/KeyCache;
+    iget-object v15, v0, Landroid/support/constraint/motion/MotionLayout;->mKeyCache:Landroid/support/constraint/motion/KeyCache;
 
-    move-object/from16 v17, v14
+    move-object/from16 v18, v15
 
-    move v14, v11
+    move v15, v12
 
-    move/from16 v18, v15
+    move-wide/from16 v16, v8
 
-    move-wide v15, v8
+    invoke-virtual/range {v13 .. v18}, Landroid/support/constraint/motion/MotionController;->interpolate(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
 
-    invoke-virtual/range {v12 .. v17}, Landroid/support/constraint/motion/MotionController;->interpolate(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
+    move-result v13
 
-    move-result v12
+    or-int/2addr v11, v13
 
-    or-int v12, v18, v12
-
-    iput-boolean v12, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
+    iput-boolean v11, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
 
     :cond_14
     add-int/lit8 v10, v10, 0x1
@@ -4020,35 +3984,35 @@
     goto :goto_4
 
     :cond_15
-    cmpl-float v7, v1, v4
+    cmpl-float v5, v1, v4
 
-    if-lez v7, :cond_16
+    if-lez v5, :cond_16
 
     .line 3093
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpl-float v7, v11, v7
+    cmpl-float v5, v12, v5
 
-    if-gez v7, :cond_17
+    if-gez v5, :cond_17
 
     :cond_16
-    cmpg-float v7, v1, v4
+    cmpg-float v5, v1, v4
 
-    if-gtz v7, :cond_18
+    if-gtz v5, :cond_18
 
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    cmpg-float v7, v11, v7
+    cmpg-float v5, v12, v5
 
-    if-gtz v7, :cond_18
+    if-gtz v5, :cond_18
 
     :cond_17
-    const/4 v7, 0x1
+    const/4 v5, 0x1
 
     goto :goto_5
 
     :cond_18
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
     .line 3095
     :goto_5
@@ -4060,7 +4024,7 @@
 
     if-nez v8, :cond_19
 
-    if-eqz v7, :cond_19
+    if-eqz v5, :cond_19
 
     .line 3096
     sget-object v8, Landroid/support/constraint/motion/MotionLayout$TransitionState;->FINISHED:Landroid/support/constraint/motion/MotionLayout$TransitionState;
@@ -4080,33 +4044,33 @@
     :cond_1a
     iget-boolean v8, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
 
-    xor-int/2addr v7, v5
+    xor-int/2addr v5, v6
 
-    or-int/2addr v7, v8
+    or-int/2addr v5, v8
 
-    iput-boolean v7, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
+    iput-boolean v5, v0, Landroid/support/constraint/motion/MotionLayout;->mKeepAnimating:Z
 
-    cmpg-float v7, v11, v4
+    cmpg-float v5, v12, v4
 
-    if-gtz v7, :cond_1b
+    if-gtz v5, :cond_1b
 
     .line 3105
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mBeginState:I
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mBeginState:I
 
-    if-eq v7, v2, :cond_1b
+    if-eq v5, v2, :cond_1b
 
     .line 3109
     iget v2, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
-    if-eq v2, v7, :cond_1b
+    if-eq v2, v5, :cond_1b
 
     .line 3111
-    iput v7, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
+    iput v5, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     .line 3112
     iget-object v2, v0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
-    invoke-virtual {v2, v7}, Landroid/support/constraint/motion/MotionScene;->getConstraintSet(I)Landroid/support/constraint/ConstraintSet;
+    invoke-virtual {v2, v5}, Landroid/support/constraint/motion/MotionScene;->getConstraintSet(I)Landroid/support/constraint/ConstraintSet;
 
     move-result-object v2
 
@@ -4118,31 +4082,31 @@
 
     invoke-virtual {v0, v2}, Landroid/support/constraint/motion/MotionLayout;->setState(Landroid/support/constraint/motion/MotionLayout$TransitionState;)V
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     :cond_1b
-    float-to-double v7, v11
+    float-to-double v8, v12
 
-    const-wide/high16 v9, 0x3ff0000000000000L    # 1.0
+    const-wide/high16 v10, 0x3ff0000000000000L    # 1.0
 
-    cmpl-double v2, v7, v9
+    cmpl-double v2, v8, v10
 
     if-ltz v2, :cond_1c
 
     .line 3122
     iget v2, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
-    iget v7, v0, Landroid/support/constraint/motion/MotionLayout;->mEndState:I
+    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mEndState:I
 
-    if-eq v2, v7, :cond_1c
+    if-eq v2, v5, :cond_1c
 
     .line 3124
-    iput v7, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
+    iput v5, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     .line 3125
     iget-object v2, v0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
-    invoke-virtual {v2, v7}, Landroid/support/constraint/motion/MotionScene;->getConstraintSet(I)Landroid/support/constraint/ConstraintSet;
+    invoke-virtual {v2, v5}, Landroid/support/constraint/motion/MotionScene;->getConstraintSet(I)Landroid/support/constraint/ConstraintSet;
 
     move-result-object v2
 
@@ -4154,7 +4118,7 @@
 
     invoke-virtual {v0, v2}, Landroid/support/constraint/motion/MotionLayout;->setState(Landroid/support/constraint/motion/MotionLayout$TransitionState;)V
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
     .line 3131
     :cond_1c
@@ -4173,7 +4137,7 @@
 
     if-lez v2, :cond_1e
 
-    cmpl-float v2, v11, v3
+    cmpl-float v2, v12, v3
 
     if-eqz v2, :cond_1f
 
@@ -4182,7 +4146,7 @@
 
     if-gez v2, :cond_21
 
-    cmpl-float v2, v11, v4
+    cmpl-float v2, v12, v4
 
     if-nez v2, :cond_21
 
@@ -4214,7 +4178,7 @@
 
     if-lez v2, :cond_22
 
-    cmpl-float v2, v11, v3
+    cmpl-float v2, v12, v3
 
     if-eqz v2, :cond_23
 
@@ -4223,7 +4187,7 @@
 
     if-gez v1, :cond_24
 
-    cmpl-float v1, v11, v4
+    cmpl-float v1, v12, v4
 
     if-nez v1, :cond_24
 
@@ -4246,15 +4210,19 @@
 
     if-eq v1, v2, :cond_25
 
-    const/4 v6, 0x1
+    goto :goto_8
+
+    :cond_25
+    move v6, v7
 
     .line 3145
-    :cond_25
-    iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mEndState:I
+    :goto_8
+    iput v2, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
-    iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
+    :goto_9
+    move v7, v6
 
-    goto :goto_8
+    goto :goto_b
 
     :cond_26
     cmpg-float v1, v1, v4
@@ -4268,24 +4236,27 @@
 
     if-eq v1, v2, :cond_27
 
-    const/4 v6, 0x1
+    goto :goto_a
+
+    :cond_27
+    move v6, v7
 
     .line 3150
-    :cond_27
-    iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mBeginState:I
+    :goto_a
+    iput v2, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
-    iput v1, v0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
+    goto :goto_9
 
     .line 3153
     :cond_28
-    :goto_8
+    :goto_b
     iget-boolean v1, v0, Landroid/support/constraint/motion/MotionLayout;->mNeedsFireTransitionCompleted:Z
 
-    or-int/2addr v1, v6
+    or-int/2addr v1, v7
 
     iput-boolean v1, v0, Landroid/support/constraint/motion/MotionLayout;->mNeedsFireTransitionCompleted:Z
 
-    if-eqz v6, :cond_29
+    if-eqz v7, :cond_29
 
     .line 3155
     iget-boolean v1, v0, Landroid/support/constraint/motion/MotionLayout;->mInLayout:Z
@@ -4461,18 +4432,6 @@
     invoke-virtual {v1}, Landroid/view/View;->getY()F
 
     move-result p1
-
-    .line 3561
-    iget p3, p0, Landroid/support/constraint/motion/MotionLayout;->lastPos:F
-
-    sub-float p3, p2, p3
-
-    .line 3562
-    iget p4, p0, Landroid/support/constraint/motion/MotionLayout;->lastY:F
-
-    const/4 p4, 0x0
-
-    cmpl-float p3, p3, p4
 
     .line 3568
     iput p2, p0, Landroid/support/constraint/motion/MotionLayout;->lastPos:F
@@ -4818,91 +4777,86 @@
 .end method
 
 .method public getViewVelocity(Landroid/view/View;FF[FI)V
-    .locals 11
-
-    move-object v0, p0
-
-    move-object v8, p4
-
-    move/from16 v9, p5
+    .locals 8
 
     .line 1942
-    iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
+    iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mLastVelocity:F
 
     .line 1943
-    iget v2, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     .line 1944
-    iget-object v3, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    const v1, 0x3727c5ac    # 1.0E-5f
+    const v0, 0x3727c5ac    # 1.0E-5f
 
     .line 1946
-    iget v3, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
+    iget v2, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
 
-    sub-float/2addr v3, v2
+    sub-float/2addr v2, v1
 
-    invoke-static {v3}, Ljava/lang/Math;->signum(F)F
+    invoke-static {v2}, Ljava/lang/Math;->signum(F)F
+
+    move-result v1
+
+    .line 1947
+    iget-object v2, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    iget v3, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+
+    add-float/2addr v3, v0
+
+    invoke-interface {v2, v3}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v2
 
-    .line 1947
-    iget-object v3, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    .line 1948
+    iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    iget v4, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
-
-    add-float/2addr v4, v1
+    iget v4, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     invoke-interface {v3, v4}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v3
 
-    .line 1948
-    iget-object v4, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    sub-float/2addr v2, v3
 
-    iget v5, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
+    div-float/2addr v2, v0
 
-    invoke-interface {v4, v5}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result v4
-
-    sub-float/2addr v3, v4
-
-    div-float/2addr v3, v1
-
-    mul-float v2, v2, v3
+    mul-float v1, v1, v2
 
     .line 1951
-    iget v1, v0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
+    iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
 
-    div-float v1, v2, v1
+    div-float v0, v1, v0
 
-    move v2, v4
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_0
+    move v2, v1
 
     .line 1954
-    :cond_0
-    iget-object v3, v0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
+    :goto_0
+    iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    instance-of v4, v3, Landroid/support/constraint/motion/MotionInterpolator;
+    instance-of v3, v1, Landroid/support/constraint/motion/MotionInterpolator;
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
 
     .line 1955
-    check-cast v3, Landroid/support/constraint/motion/MotionInterpolator;
+    check-cast v1, Landroid/support/constraint/motion/MotionInterpolator;
 
-    invoke-virtual {v3}, Landroid/support/constraint/motion/MotionInterpolator;->getVelocity()F
+    invoke-virtual {v1}, Landroid/support/constraint/motion/MotionInterpolator;->getVelocity()F
 
-    move-result v1
-
-    :cond_1
-    move v10, v1
+    move-result v0
 
     .line 1958
-    iget-object v1, v0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
-
-    move-object v3, p1
+    :cond_1
+    iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -4910,22 +4864,18 @@
 
     check-cast v1, Landroid/support/constraint/motion/MotionController;
 
-    and-int/lit8 v4, v9, 0x1
+    and-int/lit8 v3, p5, 0x1
 
-    if-nez v4, :cond_2
+    if-nez v3, :cond_2
 
     .line 1961
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
-    move-result v4
+    move-result v3
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
-    move-result v5
-
-    move v3, v4
-
-    move v4, v5
+    move-result v4
 
     move v5, p2
 
@@ -4936,38 +4886,34 @@
     .line 1960
     invoke-virtual/range {v1 .. v7}, Landroid/support/constraint/motion/MotionController;->getPostLayoutDvDp(FIIFF[F)V
 
-    goto :goto_0
-
-    :cond_2
-    move v3, p2
-
-    move v4, p3
+    goto :goto_1
 
     .line 1964
+    :cond_2
     invoke-virtual {v1, v2, p2, p3, p4}, Landroid/support/constraint/motion/MotionController;->getDpDt(FFF[F)V
 
-    :goto_0
-    const/4 v1, 0x2
+    :goto_1
+    const/4 p1, 0x2
 
-    if-ge v9, v1, :cond_3
+    if-ge p5, p1, :cond_3
 
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     .line 1967
-    aget v2, v8, v1
+    aget p2, p4, p1
 
-    mul-float v2, v2, v10
+    mul-float p2, p2, v0
 
-    aput v2, v8, v1
+    aput p2, p4, p1
 
-    const/4 v1, 0x1
+    const/4 p1, 0x1
 
     .line 1968
-    aget v2, v8, v1
+    aget p2, p4, p1
 
-    mul-float v2, v2, v10
+    mul-float p2, p2, v0
 
-    aput v2, v8, v1
+    aput p2, p4, p1
 
     :cond_3
     return-void
@@ -5914,17 +5860,15 @@
     .line 2472
     iget v4, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
-    cmpg-float v4, v4, v3
+    cmpg-float v5, v4, v3
 
-    if-gtz v4, :cond_5
+    if-gtz v5, :cond_5
 
-    cmpg-float v4, p5, v3
+    cmpg-float v5, p5, v3
 
-    if-ltz v4, :cond_6
+    if-ltz v5, :cond_6
 
     :cond_5
-    iget v4, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
-
     cmpl-float v2, v4, v2
 
     if-ltz v2, :cond_8
@@ -6835,8 +6779,6 @@
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
     .line 3261
-    iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
-
     invoke-virtual {p0}, Landroid/support/constraint/motion/MotionLayout;->isRtl()Z
 
     move-result v0
@@ -7007,9 +6949,6 @@
     invoke-virtual {p0, p1}, Landroid/support/constraint/motion/MotionLayout;->getTransition(I)Landroid/support/constraint/motion/MotionScene$Transition;
 
     move-result-object p1
-
-    .line 1168
-    iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
 
     .line 1169
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionScene$Transition;->getStartConstraintSetId()I
@@ -7365,13 +7304,9 @@
     iput v0, p0, Landroid/support/constraint/motion/MotionLayout;->mEndState:I
 
     .line 1234
-    iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
+    iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
-    iget v0, p0, Landroid/support/constraint/motion/MotionLayout;->mBeginState:I
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mEndState:I
-
-    invoke-virtual {p1, v0, v1}, Landroid/support/constraint/motion/MotionScene;->setTransition(II)V
+    invoke-virtual {v1, p1, v0}, Landroid/support/constraint/motion/MotionScene;->setTransition(II)V
 
     .line 1240
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mModel:Landroid/support/constraint/motion/MotionLayout$Model;
@@ -7544,7 +7479,7 @@
 .end method
 
 .method public touchAnimateTo(IFF)V
-    .locals 9
+    .locals 10
 
     .line 1597
     iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
@@ -7587,9 +7522,9 @@
 
     const/high16 v2, 0x447a0000    # 1000.0f
 
-    div-float/2addr v1, v2
+    div-float v7, v1, v2
 
-    iput v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
+    iput v7, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
 
     .line 1608
     iput p2, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionGoalPosition:F
@@ -7606,10 +7541,6 @@
     if-eq p1, v0, :cond_5
 
     if-eq p1, v2, :cond_5
-
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_8
 
     const/4 v0, 0x4
 
@@ -7740,31 +7671,29 @@
     .line 1620
     :cond_7
     :goto_0
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout;->mStopLogic:Landroid/support/constraint/motion/utils/StopLogic;
+    iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout;->mStopLogic:Landroid/support/constraint/motion/utils/StopLogic;
 
-    iget v1, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
-
-    iget v4, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionDuration:F
+    iget v4, p0, Landroid/support/constraint/motion/MotionLayout;->mTransitionLastPosition:F
 
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
     .line 1621
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionScene;->getMaxAcceleration()F
 
-    move-result v5
+    move-result v8
 
     iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
     invoke-virtual {p1}, Landroid/support/constraint/motion/MotionScene;->getMaxVelocity()F
 
-    move-result v6
+    move-result v9
 
-    move v2, p2
+    move v5, p2
 
-    move v3, p3
+    move v6, p3
 
     .line 1620
-    invoke-virtual/range {v0 .. v6}, Landroid/support/constraint/motion/utils/StopLogic;->config(FFFFFF)V
+    invoke-virtual/range {v3 .. v9}, Landroid/support/constraint/motion/utils/StopLogic;->config(FFFFFF)V
 
     .line 1623
     iget p1, p0, Landroid/support/constraint/motion/MotionLayout;->mCurrentState:I
@@ -7780,7 +7709,6 @@
 
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    :cond_8
     :goto_1
     const/4 p1, 0x0
 
@@ -8004,13 +7932,11 @@
     iput v1, p0, Landroid/support/constraint/motion/MotionLayout;->mBeginState:I
 
     .line 1869
-    iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
-
-    iget v3, p0, Landroid/support/constraint/motion/MotionLayout;->mBeginState:I
+    iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
 
     iget v4, p0, Landroid/support/constraint/motion/MotionLayout;->mEndState:I
 
-    invoke-virtual {v1, v3, v4}, Landroid/support/constraint/motion/MotionScene;->setTransition(II)V
+    invoke-virtual {v3, v1, v4}, Landroid/support/constraint/motion/MotionScene;->setTransition(II)V
 
     .line 1871
     iget-object v1, p0, Landroid/support/constraint/motion/MotionLayout;->mScene:Landroid/support/constraint/motion/MotionScene;
@@ -8147,19 +8073,15 @@
 
     const v4, -0x800001
 
-    const/4 p3, 0x0
-
-    const v4, 0x7f7fffff    # Float.MAX_VALUE
-
-    const v5, -0x800001
+    const/4 v5, 0x0
 
     :goto_2
-    if-ge p3, v1, :cond_7
+    if-ge v5, v1, :cond_7
 
     .line 1900
     iget-object v6, p0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
 
-    invoke-virtual {p0, p3}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v5}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v7
 
@@ -8182,16 +8104,16 @@
     add-float/2addr v6, v7
 
     .line 1903
-    invoke-static {v4, v6}, Ljava/lang/Math;->min(FF)F
+    invoke-static {p3, v6}, Ljava/lang/Math;->min(FF)F
+
+    move-result p3
+
+    .line 1904
+    invoke-static {v4, v6}, Ljava/lang/Math;->max(FF)F
 
     move-result v4
 
-    .line 1904
-    invoke-static {v5, v6}, Ljava/lang/Math;->max(FF)F
-
-    move-result v5
-
-    add-int/lit8 p3, p3, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_2
 
@@ -8200,25 +8122,25 @@
     if-ge p2, v1, :cond_8
 
     .line 1908
-    iget-object p3, p0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
+    iget-object v5, p0, Landroid/support/constraint/motion/MotionLayout;->mFrameArrayList:Ljava/util/HashMap;
 
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/MotionLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v6
 
-    invoke-virtual {p3, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p3
+    move-result-object v5
 
-    check-cast p3, Landroid/support/constraint/motion/MotionController;
+    check-cast v5, Landroid/support/constraint/motion/MotionController;
 
     .line 1909
-    invoke-virtual {p3}, Landroid/support/constraint/motion/MotionController;->getFinalX()F
+    invoke-virtual {v5}, Landroid/support/constraint/motion/MotionController;->getFinalX()F
 
     move-result v6
 
     .line 1910
-    invoke-virtual {p3}, Landroid/support/constraint/motion/MotionController;->getFinalY()F
+    invoke-virtual {v5}, Landroid/support/constraint/motion/MotionController;->getFinalY()F
 
     move-result v7
 
@@ -8227,22 +8149,22 @@
     div-float v8, v2, v8
 
     .line 1911
-    iput v8, p3, Landroid/support/constraint/motion/MotionController;->mStaggerScale:F
+    iput v8, v5, Landroid/support/constraint/motion/MotionController;->mStaggerScale:F
 
     add-float/2addr v6, v7
 
-    sub-float/2addr v6, v4
+    sub-float/2addr v6, p3
 
     mul-float v6, v6, p1
 
-    sub-float v7, v5, v4
+    sub-float v7, v4, p3
 
     div-float/2addr v6, v7
 
     sub-float v6, p1, v6
 
     .line 1912
-    iput v6, p3, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
+    iput v6, v5, Landroid/support/constraint/motion/MotionController;->mStaggerOffset:F
 
     add-int/lit8 p2, p2, 0x1
 

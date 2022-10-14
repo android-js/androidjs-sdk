@@ -61,10 +61,6 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
     .locals 1
-    .param p1    # Landroid/os/Parcel;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 v0, 0x0
 
@@ -76,14 +72,6 @@
 
 .method protected constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1    # Landroid/os/Parcel;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/ClassLoader;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,10 +97,6 @@
 
 .method protected constructor <init>(Landroid/os/Parcelable;)V
     .locals 1
-    .param p1    # Landroid/os/Parcelable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -166,8 +150,6 @@
 
 .method public final getSuperState()Landroid/os/Parcelable;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 75
     iget-object v0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;

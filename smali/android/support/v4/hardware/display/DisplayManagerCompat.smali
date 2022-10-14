@@ -49,13 +49,7 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroid/support/v4/hardware/display/DisplayManagerCompat;
-    .locals 3
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
+    .locals 2
 
     .line 62
     sget-object v0, Landroid/support/v4/hardware/display/DisplayManagerCompat;->sInstances:Ljava/util/WeakHashMap;
@@ -64,9 +58,7 @@
 
     .line 63
     :try_start_0
-    sget-object v1, Landroid/support/v4/hardware/display/DisplayManagerCompat;->sInstances:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -80,9 +72,7 @@
     invoke-direct {v1, p0}, Landroid/support/v4/hardware/display/DisplayManagerCompat;-><init>(Landroid/content/Context;)V
 
     .line 66
-    sget-object v2, Landroid/support/v4/hardware/display/DisplayManagerCompat;->sInstances:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v2, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 68
     :cond_0
@@ -105,8 +95,6 @@
 # virtual methods
 .method public getDisplay(I)Landroid/view/Display;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 83
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -167,8 +155,6 @@
 
 .method public getDisplays()[Landroid/view/Display;
     .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 103
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -214,7 +200,6 @@
 
     const/4 v1, 0x1
 
-    .line 110
     new-array v1, v1, [Landroid/view/Display;
 
     const/4 v2, 0x0
@@ -226,12 +211,6 @@
 
 .method public getDisplays(Ljava/lang/String;)[Landroid/view/Display;
     .locals 2
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 131
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -263,7 +242,6 @@
 
     if-nez p1, :cond_1
 
-    .line 136
     new-array p1, v0, [Landroid/view/Display;
 
     return-object p1
@@ -287,7 +265,6 @@
 
     const/4 v1, 0x1
 
-    .line 141
     new-array v1, v1, [Landroid/view/Display;
 
     aput-object p1, v1, v0

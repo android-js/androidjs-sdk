@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/view/SupportMenuInflater$MenuState;,
@@ -66,20 +60,18 @@
 
     const/4 v0, 0x1
 
-    .line 82
     new-array v0, v0, [Ljava/lang/Class;
 
-    const-class v1, Landroid/content/Context;
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 82
+    const-class v2, Landroid/content/Context;
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
     sput-object v0, Landroid/support/v7/view/SupportMenuInflater;->ACTION_VIEW_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
 
     .line 84
-    sget-object v0, Landroid/support/v7/view/SupportMenuInflater;->ACTION_VIEW_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
-
     sput-object v0, Landroid/support/v7/view/SupportMenuInflater;->ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE:[Ljava/lang/Class;
 
     return-void
@@ -96,19 +88,17 @@
 
     const/4 v0, 0x1
 
-    .line 102
     new-array v0, v0, [Ljava/lang/Object;
 
     const/4 v1, 0x0
 
     aput-object p1, v0, v1
 
+    .line 102
     iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
 
     .line 103
-    iget-object p1, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
-
-    iput-object p1, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
+    iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
 
     return-void
 .end method
@@ -226,28 +216,26 @@
 
     const/4 v5, 0x0
 
-    move v6, p3
-
     move-object v8, v4
 
-    const/4 p3, 0x0
+    const/4 v6, 0x0
 
     const/4 v7, 0x0
 
     :goto_1
-    if-nez p3, :cond_f
+    if-nez v6, :cond_f
 
-    if-eq v6, v3, :cond_e
+    if-eq p3, v3, :cond_e
 
     const-string v9, "item"
 
     const-string v10, "group"
 
-    if-eq v6, v1, :cond_8
+    if-eq p3, v1, :cond_8
 
     const/4 v11, 0x3
 
-    if-eq v6, v11, :cond_3
+    if-eq p3, v11, :cond_3
 
     goto/16 :goto_2
 
@@ -255,12 +243,12 @@
     :cond_3
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p3
 
     if-eqz v7, :cond_4
 
     .line 193
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v11
 
@@ -274,7 +262,7 @@
 
     .line 196
     :cond_4
-    invoke-virtual {v6, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
@@ -287,7 +275,7 @@
 
     .line 198
     :cond_5
-    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -296,23 +284,23 @@
     .line 201
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->hasAddedItem()Z
 
-    move-result v6
+    move-result p3
 
-    if-nez v6, :cond_d
+    if-nez p3, :cond_d
 
     .line 202
-    iget-object v6, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
+    iget-object p3, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
 
-    if-eqz v6, :cond_6
+    if-eqz p3, :cond_6
 
-    iget-object v6, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
+    iget-object p3, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
 
     .line 203
-    invoke-virtual {v6}, Landroid/support/v4/view/ActionProvider;->hasSubMenu()Z
+    invoke-virtual {p3}, Landroid/support/v4/view/ActionProvider;->hasSubMenu()Z
 
-    move-result v6
+    move-result p3
 
-    if-eqz v6, :cond_6
+    if-eqz p3, :cond_6
 
     .line 204
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->addSubMenuItem()Landroid/view/SubMenu;
@@ -327,13 +315,13 @@
 
     .line 209
     :cond_7
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result p3
 
-    if-eqz v6, :cond_d
+    if-eqz p3, :cond_d
 
-    const/4 p3, 0x1
+    const/4 v6, 0x1
 
     goto :goto_2
 
@@ -346,10 +334,10 @@
     :cond_9
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object p3
 
     .line 175
-    invoke-virtual {v6, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v10
 
@@ -362,7 +350,7 @@
 
     .line 177
     :cond_a
-    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -375,7 +363,7 @@
 
     .line 179
     :cond_b
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -384,15 +372,15 @@
     .line 181
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->addSubMenuItem()Landroid/view/SubMenu;
 
-    move-result-object v6
+    move-result-object p3
 
     .line 184
-    invoke-direct {p0, p1, p2, v6}, Landroid/support/v7/view/SupportMenuInflater;->parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/view/SupportMenuInflater;->parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
 
     goto :goto_2
 
     :cond_c
-    move-object v8, v6
+    move-object v8, p3
 
     const/4 v7, 0x1
 
@@ -401,7 +389,7 @@
     :goto_2
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v6
+    move-result p3
 
     goto :goto_1
 
@@ -447,10 +435,6 @@
 
 .method public inflate(ILandroid/view/Menu;)V
     .locals 3
-    .param p1    # I
-        .annotation build Landroid/support/annotation/LayoutRes;
-        .end annotation
-    .end param
 
     const-string v0, "Error inflating menu XML"
 

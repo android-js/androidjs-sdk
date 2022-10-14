@@ -155,23 +155,21 @@
     iput v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mIndex:I
 
     .line 68
-    iget v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mSize:I
+    iget v1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mSize:I
 
-    add-int/lit8 v0, v0, -0x1
+    add-int/lit8 v1, v1, -0x1
 
-    iput v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mSize:I
+    iput v1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mSize:I
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 69
-    iput-boolean v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mCanRemove:Z
+    iput-boolean v1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mCanRemove:Z
 
     .line 70
-    iget-object v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->this$0:Landroid/support/v4/util/MapCollections;
+    iget-object v1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->this$0:Landroid/support/v4/util/MapCollections;
 
-    iget v1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mIndex:I
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/util/MapCollections;->colRemoveAt(I)V
+    invoke-virtual {v1, v0}, Landroid/support/v4/util/MapCollections;->colRemoveAt(I)V
 
     return-void
 

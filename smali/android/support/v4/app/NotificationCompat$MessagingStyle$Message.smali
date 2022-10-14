@@ -34,21 +34,12 @@
 
 # instance fields
 .field private mDataMimeType:Ljava/lang/String;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-.end field
 
 .field private mDataUri:Landroid/net/Uri;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-.end field
 
 .field private mExtras:Landroid/os/Bundle;
 
 .field private final mPerson:Landroid/support/v4/app/Person;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-.end field
 
 .field private final mText:Ljava/lang/CharSequence;
 
@@ -58,10 +49,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;JLandroid/support/v4/app/Person;)V
     .locals 1
-    .param p4    # Landroid/support/v4/app/Person;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2614
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -110,9 +97,6 @@
 
 .method static getBundleArrayForMessages(Ljava/util/List;)[Landroid/os/Bundle;
     .locals 4
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -163,8 +147,6 @@
 
 .method static getMessageFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
     .locals 10
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const-string v0, "uri"
 
@@ -355,10 +337,7 @@
 .end method
 
 .method static getMessagesFromBundleArray([Landroid/os/Parcelable;)Ljava/util/List;
-    .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -388,13 +367,11 @@
     .line 2769
     aget-object v2, p0, v1
 
-    instance-of v2, v2, Landroid/os/Bundle;
+    instance-of v3, v2, Landroid/os/Bundle;
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     .line 2770
-    aget-object v2, p0, v1
-
     check-cast v2, Landroid/os/Bundle;
 
     invoke-static {v2}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->getMessageFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
@@ -529,8 +506,6 @@
 # virtual methods
 .method public getDataMimeType()Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2713
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mDataMimeType:Ljava/lang/String;
@@ -540,8 +515,6 @@
 
 .method public getDataUri()Landroid/net/Uri;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2722
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mDataUri:Landroid/net/Uri;
@@ -551,8 +524,6 @@
 
 .method public getExtras()Landroid/os/Bundle;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 2690
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mExtras:Landroid/os/Bundle;
@@ -562,8 +533,6 @@
 
 .method public getPerson()Landroid/support/v4/app/Person;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2707
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mPerson:Landroid/support/v4/app/Person;
@@ -573,9 +542,6 @@
 
 .method public getSender()Ljava/lang/CharSequence;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -599,8 +565,6 @@
 
 .method public getText()Ljava/lang/CharSequence;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 2679
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mText:Ljava/lang/CharSequence;

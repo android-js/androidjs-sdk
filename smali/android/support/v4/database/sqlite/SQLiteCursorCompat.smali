@@ -15,10 +15,6 @@
 
 .method public static setFillWindowForwardOnly(Landroid/database/sqlite/SQLiteCursor;Z)V
     .locals 2
-    .param p0    # Landroid/database/sqlite/SQLiteCursor;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 45
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

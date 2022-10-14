@@ -15,10 +15,6 @@
 
 .method public static getDensityDpi(Landroid/content/res/Resources;)I
     .locals 2
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 41
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

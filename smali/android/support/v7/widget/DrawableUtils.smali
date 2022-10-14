@@ -3,14 +3,6 @@
 .source "DrawableUtils.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field public static final INSETS_NONE:Landroid/graphics/Rect;
 
@@ -74,10 +66,6 @@
 
 .method public static canSafelyMutateDrawable(Landroid/graphics/drawable/Drawable;)Z
     .locals 4
-    .param p0    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 129
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -236,10 +224,6 @@
 
 .method static fixDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .param p0    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 118
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -341,9 +325,9 @@
 
     move-result-object v0
 
-    .line 77
     new-array v1, v2, [Ljava/lang/Object;
 
+    .line 77
     invoke-virtual {v0, p0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0

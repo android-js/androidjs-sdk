@@ -86,14 +86,6 @@
 
 .method public static checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     if-eqz p1, :cond_0
 
@@ -125,12 +117,6 @@
 
 .method public static createDeviceProtectedStorageContext(Landroid/content/Context;)Landroid/content/Context;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 642
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -238,10 +224,6 @@
 
 .method public static getCodeCacheDir(Landroid/content/Context;)Ljava/io/File;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 587
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -281,16 +263,6 @@
 
 .method public static getColor(Landroid/content/Context;I)I
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/ColorInt;
-    .end annotation
 
     .line 522
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -321,16 +293,6 @@
 
 .method public static getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 500
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -361,12 +323,6 @@
 
 .method public static getDataDir(Landroid/content/Context;)Ljava/io/File;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 271
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -408,16 +364,6 @@
 
 .method public static getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     .locals 4
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/DrawableRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 462
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -518,12 +464,6 @@
 
 .method public static getExternalCacheDirs(Landroid/content/Context;)[Ljava/io/File;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 430
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -542,11 +482,11 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 433
     new-array v0, v0, [Ljava/io/File;
 
     const/4 v1, 0x0
 
+    .line 433
     invoke-virtual {p0}, Landroid/content/Context;->getExternalCacheDir()Ljava/io/File;
 
     move-result-object p0
@@ -558,16 +498,6 @@
 
 .method public static getExternalFilesDirs(Landroid/content/Context;Ljava/lang/String;)[Ljava/io/File;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 377
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -586,11 +516,11 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 380
     new-array v0, v0, [Ljava/io/File;
 
     const/4 v1, 0x0
 
+    .line 380
     invoke-virtual {p0, p1}, Landroid/content/Context;->getExternalFilesDir(Ljava/lang/String;)Ljava/io/File;
 
     move-result-object p0
@@ -602,12 +532,6 @@
 
 .method public static getNoBackupFilesDir(Landroid/content/Context;)Ljava/io/File;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 563
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -647,12 +571,6 @@
 
 .method public static getObbDirs(Landroid/content/Context;)[Ljava/io/File;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 324
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -671,11 +589,11 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 327
     new-array v0, v0, [Ljava/io/File;
 
     const/4 v1, 0x0
 
+    .line 327
     invoke-virtual {p0}, Landroid/content/Context;->getObbDir()Ljava/io/File;
 
     move-result-object p0
@@ -687,17 +605,6 @@
 
 .method public static getSystemService(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/Class;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -747,17 +654,6 @@
 
 .method public static getSystemServiceName(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/String;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/Class;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -797,10 +693,6 @@
 
 .method public static isDeviceProtectedStorage(Landroid/content/Context;)Z
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 656
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -824,14 +716,6 @@
 
 .method public static startActivities(Landroid/content/Context;[Landroid/content/Intent;)Z
     .locals 1
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # [Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 v0, 0x0
 
@@ -845,18 +729,6 @@
 
 .method public static startActivities(Landroid/content/Context;[Landroid/content/Intent;Landroid/os/Bundle;)Z
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # [Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 220
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -882,18 +754,6 @@
 
 .method public static startActivity(Landroid/content/Context;Landroid/content/Intent;Landroid/os/Bundle;)V
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 247
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -917,14 +777,6 @@
 
 .method public static startForegroundService(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 674
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

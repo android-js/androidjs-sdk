@@ -16,9 +16,6 @@
 
 # instance fields
 .field private final mFileName:Ljava/lang/String;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 .field private mItalic:Z
 
@@ -34,14 +31,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IZLjava/lang/String;II)V
     .locals 0
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,8 +60,6 @@
 # virtual methods
 .method public getFileName()Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 123
     iget-object v0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mFileName:Ljava/lang/String;
@@ -100,8 +87,6 @@
 
 .method public getVariationSettings()Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 135
     iget-object v0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mVariationSettings:Ljava/lang/String;

@@ -5,14 +5,8 @@
 
 # static fields
 .field static final ACTION_INSTALL_SHORTCUT:Ljava/lang/String; = "com.android.launcher.action.INSTALL_SHORTCUT"
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
-.end field
 
 .field static final INSTALL_SHORTCUT_PERMISSION:Ljava/lang/String; = "com.android.launcher.permission.INSTALL_SHORTCUT"
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
-.end field
 
 
 # direct methods
@@ -27,16 +21,6 @@
 
 .method public static createShortcutResultIntent(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;)Landroid/content/Intent;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/content/pm/ShortcutInfoCompat;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 135
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -87,10 +71,6 @@
 
 .method public static isRequestPinShortcutSupported(Landroid/content/Context;)Z
     .locals 4
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 54
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -190,18 +170,6 @@
 
 .method public static requestPinShortcut(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/IntentSender;)Z
     .locals 10
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/content/pm/ShortcutInfoCompat;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/IntentSender;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 91
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

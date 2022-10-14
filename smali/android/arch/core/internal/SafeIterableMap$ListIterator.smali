@@ -196,10 +196,6 @@
 
 .method public supportRemove(Landroid/arch/core/internal/SafeIterableMap$Entry;)V
     .locals 1
-    .param p1    # Landroid/arch/core/internal/SafeIterableMap$Entry;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -39,9 +39,9 @@
 
     const/4 v0, 0x2
 
-    .line 49
     new-array v0, v0, [F
 
+    .line 49
     iput-object v0, p0, Landroid/support/constraint/utils/MotionTelltales;->velocity:[F
 
     .line 50
@@ -89,9 +89,9 @@
 
     const/4 v0, 0x2
 
-    .line 49
     new-array v0, v0, [F
 
+    .line 49
     iput-object v0, p0, Landroid/support/constraint/utils/MotionTelltales;->velocity:[F
 
     .line 50
@@ -137,9 +137,9 @@
 
     const/4 p3, 0x2
 
-    .line 49
     new-array p3, p3, [F
 
+    .line 49
     iput-object p3, p0, Landroid/support/constraint/utils/MotionTelltales;->velocity:[F
 
     .line 50
@@ -285,7 +285,7 @@
 .end method
 
 .method public onDraw(Landroid/graphics/Canvas;)V
-    .locals 21
+    .locals 22
 
     move-object/from16 v6, p0
 
@@ -336,36 +336,30 @@
 
     move-result v8
 
-    const/4 v0, 0x5
+    const/4 v9, 0x5
+
+    new-array v10, v9, [F
 
     .line 119
-    new-array v9, v0, [F
-
-    fill-array-data v9, :array_0
-
-    const/4 v10, 0x0
+    fill-array-data v10, :array_0
 
     const/4 v11, 0x0
 
-    .line 120
-    :goto_0
-    array-length v0, v9
+    const/4 v12, 0x0
 
-    if-ge v11, v0, :cond_3
+    :goto_0
+    if-ge v12, v9, :cond_3
 
     .line 121
-    aget v12, v9, v11
+    aget v13, v10, v12
 
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
-    .line 122
     :goto_1
-    array-length v0, v9
-
-    if-ge v13, v0, :cond_2
+    if-ge v14, v9, :cond_2
 
     .line 123
-    aget v14, v9, v13
+    aget v15, v10, v14
 
     .line 124
     iget-object v0, v6, Landroid/support/constraint/utils/MotionTelltales;->mMotionLayout:Landroid/support/constraint/motion/MotionLayout;
@@ -376,9 +370,9 @@
 
     move-object/from16 v1, p0
 
-    move v2, v14
+    move v2, v15
 
-    move v3, v12
+    move v3, v13
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/motion/MotionLayout;->getViewVelocity(Landroid/view/View;FF[FI)V
 
@@ -391,22 +385,22 @@
 
     int-to-float v0, v7
 
-    mul-float v16, v0, v14
+    mul-float v17, v0, v15
 
     int-to-float v0, v8
 
-    mul-float v17, v0, v12
+    mul-float v18, v0, v13
 
     .line 129
     iget-object v0, v6, Landroid/support/constraint/utils/MotionTelltales;->velocity:[F
 
-    aget v1, v0, v10
+    aget v1, v0, v11
 
     iget v2, v6, Landroid/support/constraint/utils/MotionTelltales;->mTailScale:F
 
     mul-float v1, v1, v2
 
-    sub-float v18, v16, v1
+    sub-float v19, v17, v1
 
     const/4 v1, 0x1
 
@@ -415,7 +409,7 @@
 
     mul-float v1, v1, v2
 
-    sub-float v19, v17, v1
+    sub-float v20, v18, v1
 
     .line 131
     iget-object v1, v6, Landroid/support/constraint/utils/MotionTelltales;->mInvertMatrix:Landroid/graphics/Matrix;
@@ -425,18 +419,18 @@
     .line 132
     iget-object v0, v6, Landroid/support/constraint/utils/MotionTelltales;->mPaintTelltales:Landroid/graphics/Paint;
 
-    move-object/from16 v15, p1
+    move-object/from16 v16, p1
 
-    move-object/from16 v20, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v15 .. v20}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
+    invoke-virtual/range {v16 .. v21}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    add-int/lit8 v13, v13, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     goto :goto_1
 
     :cond_2
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v12, v12, 0x1
 
     goto :goto_0
 

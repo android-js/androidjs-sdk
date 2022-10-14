@@ -28,10 +28,6 @@
 # virtual methods
 .method public clampViewPositionHorizontal(Landroid/view/View;II)I
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 p1, 0x0
 
@@ -40,10 +36,6 @@
 
 .method public clampViewPositionVertical(Landroid/view/View;II)I
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 p1, 0x0
 
@@ -58,10 +50,6 @@
 
 .method public getViewHorizontalDragRange(Landroid/view/View;)I
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 p1, 0x0
 
@@ -70,10 +58,6 @@
 
 .method public getViewVerticalDragRange(Landroid/view/View;)I
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 p1, 0x0
 
@@ -102,10 +86,6 @@
 
 .method public onViewCaptured(Landroid/view/View;I)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     return-void
 .end method
@@ -118,35 +98,15 @@
 
 .method public onViewPositionChanged(Landroid/view/View;IIII)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # I
-        .annotation build Landroid/support/annotation/Px;
-        .end annotation
-    .end param
-    .param p5    # I
-        .annotation build Landroid/support/annotation/Px;
-        .end annotation
-    .end param
 
     return-void
 .end method
 
 .method public onViewReleased(Landroid/view/View;FF)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     return-void
 .end method
 
 .method public abstract tryCaptureView(Landroid/view/View;I)Z
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 .end method

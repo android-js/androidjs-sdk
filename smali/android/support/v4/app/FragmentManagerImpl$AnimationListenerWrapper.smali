@@ -38,8 +38,6 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 1
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 3983
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimationListenerWrapper;->mWrapped:Landroid/view/animation/Animation$AnimationListener;
@@ -55,8 +53,6 @@
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 1
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 3991
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimationListenerWrapper;->mWrapped:Landroid/view/animation/Animation$AnimationListener;
@@ -72,8 +68,6 @@
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 1
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 3975
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimationListenerWrapper;->mWrapped:Landroid/view/animation/Animation$AnimationListener;

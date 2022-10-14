@@ -32,16 +32,6 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/location/LocationManager;)V
     .locals 1
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/location/LocationManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
 
     .line 69
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,10 +54,6 @@
 
 .method static getInstance(Landroid/content/Context;)Landroid/support/v7/app/TwilightManager;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 50
     sget-object v0, Landroid/support/v7/app/TwilightManager;->sInstance:Landroid/support/v7/app/TwilightManager;
@@ -104,11 +90,6 @@
 
 .method private getLastKnownLocation()Landroid/location/Location;
     .locals 7
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "MissingPermission"
-        }
-    .end annotation
 
     .line 110
     iget-object v0, p0, Landroid/support/v7/app/TwilightManager;->mContext:Landroid/content/Context;
@@ -188,12 +169,6 @@
 
 .method private getLastKnownLocationForProvider(Ljava/lang/String;)Landroid/location/Location;
     .locals 2
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        anyOf = {
-            "android.permission.ACCESS_COARSE_LOCATION",
-            "android.permission.ACCESS_FINE_LOCATION"
-        }
-    .end annotation
 
     .line 134
     :try_start_0
@@ -261,8 +236,6 @@
 
 .method static setInstance(Landroid/support/v7/app/TwilightManager;)V
     .locals 0
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
 
     .line 60
     sput-object p0, Landroid/support/v7/app/TwilightManager;->sInstance:Landroid/support/v7/app/TwilightManager;
@@ -272,10 +245,6 @@
 
 .method private updateState(Landroid/location/Location;)V
     .locals 22
-    .param p1    # Landroid/location/Location;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     move-object/from16 v0, p0
 

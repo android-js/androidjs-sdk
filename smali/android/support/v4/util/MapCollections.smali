@@ -28,9 +28,6 @@
 
 # instance fields
 .field mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/MapCollections<",
@@ -40,9 +37,6 @@
 .end field
 
 .field mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/MapCollections<",
@@ -52,9 +46,6 @@
 .end field
 
 .field mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/MapCollections<",

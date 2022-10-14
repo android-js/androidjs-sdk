@@ -15,10 +15,6 @@
 
 .method public static canScrollList(Landroid/widget/ListView;I)Z
     .locals 4
-    .param p0    # Landroid/widget/ListView;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 67
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -123,10 +119,6 @@
 
 .method public static scrollListBy(Landroid/widget/ListView;I)V
     .locals 2
-    .param p0    # Landroid/widget/ListView;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 37
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

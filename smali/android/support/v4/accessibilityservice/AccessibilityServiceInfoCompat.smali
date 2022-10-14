@@ -39,8 +39,6 @@
 
 .method public static capabilityToString(I)Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -85,8 +83,6 @@
 
 .method public static feedbackTypeToString(I)Ljava/lang/String;
     .locals 4
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 215
     new-instance v0, Ljava/lang/StringBuilder;
@@ -203,8 +199,6 @@
 
 .method public static flagToString(I)Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -267,10 +261,6 @@
 
 .method public static getCapabilities(Landroid/accessibilityservice/AccessibilityServiceInfo;)I
     .locals 2
-    .param p0    # Landroid/accessibilityservice/AccessibilityServiceInfo;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 286
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -306,16 +296,6 @@
 
 .method public static loadDescription(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
     .locals 2
-    .param p0    # Landroid/accessibilityservice/AccessibilityServiceInfo;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/pm/PackageManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 197
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

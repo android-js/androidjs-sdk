@@ -76,10 +76,6 @@
 # virtual methods
 .method public apply(Landroid/content/SharedPreferences$Editor;)V
     .locals 1
-    .param p1    # Landroid/content/SharedPreferences$Editor;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

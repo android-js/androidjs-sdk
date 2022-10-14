@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v7/widget/ActivityChooserView;
 .end annotation
@@ -30,7 +24,6 @@
 
     const/4 v0, 0x1
 
-    .line 864
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -39,6 +32,7 @@
 
     aput v2, v0, v1
 
+    .line 864
     sput-object v0, Landroid/support/v7/widget/ActivityChooserView$InnerLayout;->TINT_ATTRS:[I
 
     return-void

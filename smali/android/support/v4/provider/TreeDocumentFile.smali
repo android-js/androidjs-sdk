@@ -3,12 +3,6 @@
 .source "TreeDocumentFile.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x15
-.end annotation
-
-
 # instance fields
 .field private mContext:Landroid/content/Context;
 
@@ -18,10 +12,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/DocumentFile;Landroid/content/Context;Landroid/net/Uri;)V
     .locals 0
-    .param p1    # Landroid/support/v4/provider/DocumentFile;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 37
     invoke-direct {p0, p1}, Landroid/support/v4/provider/DocumentFile;-><init>(Landroid/support/v4/provider/DocumentFile;)V
@@ -37,10 +27,6 @@
 
 .method private static closeQuietly(Ljava/lang/AutoCloseable;)V
     .locals 0
-    .param p0    # Ljava/lang/AutoCloseable;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     if-eqz p0, :cond_0
 
@@ -67,8 +53,6 @@
 
 .method private static createFile(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
     .locals 0
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 53
     :try_start_0
@@ -124,8 +108,6 @@
 
 .method public createDirectory(Ljava/lang/String;)Landroid/support/v4/provider/DocumentFile;
     .locals 3
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 63
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
@@ -158,8 +140,6 @@
 
 .method public createFile(Ljava/lang/String;Ljava/lang/String;)Landroid/support/v4/provider/DocumentFile;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 45
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
@@ -232,8 +212,6 @@
 
 .method public getName()Ljava/lang/String;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 76
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
@@ -249,8 +227,6 @@
 
 .method public getType()Ljava/lang/String;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 82
     iget-object v0, p0, Landroid/support/v4/provider/TreeDocumentFile;->mContext:Landroid/content/Context;
@@ -512,9 +488,13 @@
     :goto_4
     invoke-static {v8}, Landroid/support/v4/provider/TreeDocumentFile;->closeQuietly(Ljava/lang/AutoCloseable;)V
 
+    goto :goto_6
+
+    :goto_5
     throw v0
 
-    return-void
+    :goto_6
+    goto :goto_5
 .end method
 
 .method public renameTo(Ljava/lang/String;)Z

@@ -3,14 +3,6 @@
 .source "ButtonBarLayout.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final PEEK_BUTTON_DP:I = 0x10
 
@@ -449,11 +441,9 @@
     .line 58
     iput-boolean p1, p0, Landroid/support/v7/widget/ButtonBarLayout;->mAllowStacking:Z
 
-    .line 59
-    iget-boolean p1, p0, Landroid/support/v7/widget/ButtonBarLayout;->mAllowStacking:Z
-
     if-nez p1, :cond_0
 
+    .line 59
     invoke-virtual {p0}, Landroid/support/v7/widget/ButtonBarLayout;->getOrientation()I
 
     move-result p1

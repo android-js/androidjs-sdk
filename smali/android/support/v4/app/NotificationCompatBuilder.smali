@@ -6,14 +6,6 @@
 .implements Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
 .field private final mActionExtrasList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

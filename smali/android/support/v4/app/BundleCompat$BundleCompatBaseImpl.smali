@@ -69,8 +69,6 @@
     sput-object v0, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->sGetIBinderMethod:Ljava/lang/reflect/Method;
 
     .line 51
-    sget-object v0, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->sGetIBinderMethod:Ljava/lang/reflect/Method;
-
     invoke-virtual {v0, v3}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
@@ -97,12 +95,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 60
     :try_start_1
     new-array v3, v3, [Ljava/lang/Object;
 
     aput-object p1, v3, v1
 
+    .line 60
     invoke-virtual {v0, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
@@ -181,8 +179,6 @@
     sput-object v0, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->sPutIBinderMethod:Ljava/lang/reflect/Method;
 
     .line 75
-    sget-object v0, Landroid/support/v4/app/BundleCompat$BundleCompatBaseImpl;->sPutIBinderMethod:Ljava/lang/reflect/Method;
-
     invoke-virtual {v0, v4}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
@@ -207,7 +203,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 84
     :try_start_1
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -215,6 +210,7 @@
 
     aput-object p2, v3, v4
 
+    .line 84
     invoke-virtual {v0, p0, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_3

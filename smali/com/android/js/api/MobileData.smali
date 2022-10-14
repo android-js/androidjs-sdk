@@ -19,11 +19,9 @@
     .line 12
     iput-object p1, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
 
-    .line 13
-    iget-object p1, p0, Lcom/android/js/api/MobileData;->activity:Landroid/app/Activity;
-
     const-string v0, "phone"
 
+    .line 13
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1

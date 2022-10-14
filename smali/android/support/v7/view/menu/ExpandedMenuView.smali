@@ -8,14 +8,6 @@
 .implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final TINT_ATTRS:[I
 
@@ -32,9 +24,9 @@
 
     const/4 v0, 0x2
 
-    .line 42
     new-array v0, v0, [I
 
+    .line 42
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v7/view/menu/ExpandedMenuView;->TINT_ATTRS:[I

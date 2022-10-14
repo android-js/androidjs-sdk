@@ -22,8 +22,6 @@
     iput-object p1, p0, Lcom/android/js/api/Hotspot;->activity:Landroid/app/Activity;
 
     .line 26
-    iget-object p1, p0, Lcom/android/js/api/Hotspot;->activity:Landroid/app/Activity;
-
     invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
@@ -302,8 +300,8 @@
 
     move-result v0
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :catch_0
+    :catchall_0
     return v0
 .end method

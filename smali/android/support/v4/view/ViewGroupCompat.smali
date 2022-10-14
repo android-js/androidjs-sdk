@@ -21,10 +21,6 @@
 
 .method public static getLayoutMode(Landroid/view/ViewGroup;)I
     .locals 2
-    .param p0    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 114
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -48,10 +44,6 @@
 
 .method public static getNestedScrollAxes(Landroid/view/ViewGroup;)I
     .locals 2
-    .param p0    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 181
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -90,10 +82,6 @@
 
 .method public static isTransitionGroup(Landroid/view/ViewGroup;)Z
     .locals 2
-    .param p0    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 157
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -173,10 +161,6 @@
 
 .method public static setLayoutMode(Landroid/view/ViewGroup;I)V
     .locals 2
-    .param p0    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 130
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -205,10 +189,6 @@
 
 .method public static setTransitionGroup(Landroid/view/ViewGroup;Z)V
     .locals 2
-    .param p0    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 144
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

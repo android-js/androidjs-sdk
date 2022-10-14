@@ -1,6 +1,5 @@
 .class public final Lcom/android/js/R$anim;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
 # annotations
@@ -44,7 +43,6 @@
 .method private constructor <init>()V
     .locals 0
 
-    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
