@@ -59,10 +59,6 @@
 # direct methods
 .method public constructor <init>(Landroid/arch/lifecycle/LifecycleOwner;)V
     .locals 1
-    .param p1    # Landroid/arch/lifecycle/LifecycleOwner;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 97
     invoke-direct {p0}, Landroid/arch/lifecycle/Lifecycle;-><init>()V
@@ -578,14 +574,6 @@
 
 .method static min(Landroid/arch/lifecycle/Lifecycle$State;Landroid/arch/lifecycle/Lifecycle$State;)Landroid/arch/lifecycle/Lifecycle$State;
     .locals 1
-    .param p0    # Landroid/arch/lifecycle/Lifecycle$State;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/arch/lifecycle/Lifecycle$State;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     if-eqz p1, :cond_0
 
@@ -874,10 +862,6 @@
 # virtual methods
 .method public addObserver(Landroid/arch/lifecycle/LifecycleObserver;)V
     .locals 6
-    .param p1    # Landroid/arch/lifecycle/LifecycleObserver;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 161
     iget-object v0, p0, Landroid/arch/lifecycle/LifecycleRegistry;->mState:Landroid/arch/lifecycle/Lifecycle$State;
@@ -1024,8 +1008,6 @@
 
 .method public getCurrentState()Landroid/arch/lifecycle/Lifecycle$State;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 231
     iget-object v0, p0, Landroid/arch/lifecycle/LifecycleRegistry;->mState:Landroid/arch/lifecycle/Lifecycle$State;
@@ -1048,10 +1030,6 @@
 
 .method public handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
     .locals 0
-    .param p1    # Landroid/arch/lifecycle/Lifecycle$Event;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 122
     invoke-static {p1}, Landroid/arch/lifecycle/LifecycleRegistry;->getStateAfter(Landroid/arch/lifecycle/Lifecycle$Event;)Landroid/arch/lifecycle/Lifecycle$State;
@@ -1066,12 +1044,6 @@
 
 .method public markState(Landroid/arch/lifecycle/Lifecycle$State;)V
     .locals 0
-    .param p1    # Landroid/arch/lifecycle/Lifecycle$State;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
 
     .line 110
     invoke-direct {p0, p1}, Landroid/arch/lifecycle/LifecycleRegistry;->moveToState(Landroid/arch/lifecycle/Lifecycle$State;)V
@@ -1081,10 +1053,6 @@
 
 .method public removeObserver(Landroid/arch/lifecycle/LifecycleObserver;)V
     .locals 1
-    .param p1    # Landroid/arch/lifecycle/LifecycleObserver;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 215
     iget-object v0, p0, Landroid/arch/lifecycle/LifecycleRegistry;->mObserverMap:Landroid/arch/core/internal/FastSafeIterableMap;

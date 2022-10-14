@@ -102,18 +102,13 @@
     :cond_0
     iput-object p2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 388
-    iget-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
     .line 389
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->computeBitmapSize()V
 
     .line 390
     new-instance p1, Landroid/graphics/BitmapShader;
-
-    iget-object p2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     sget-object v0, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -216,10 +211,6 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 4
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 260
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -281,8 +272,6 @@
 
 .method public final getBitmap()Landroid/graphics/Bitmap;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 80
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -402,8 +391,6 @@
 
 .method public final getPaint()Landroid/graphics/Paint;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 72
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -716,10 +703,6 @@
 
 .method public setTargetDensity(Landroid/graphics/Canvas;)V
     .locals 0
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 99
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getDensity()I
@@ -733,10 +716,6 @@
 
 .method public setTargetDensity(Landroid/util/DisplayMetrics;)V
     .locals 0
-    .param p1    # Landroid/util/DisplayMetrics;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 111
     iget p1, p1, Landroid/util/DisplayMetrics;->densityDpi:I

@@ -1338,129 +1338,129 @@
 
     add-int/2addr v6, v8
 
-    move-object/from16 v2, v17
+    move-object/from16 v1, v17
 
-    const/4 v1, 0x0
+    const/4 v9, 0x0
 
     :goto_7
-    if-nez v1, :cond_21
+    if-nez v9, :cond_21
 
     .line 835
-    iget-object v3, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v2, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    aget-object v3, v3, p3
+    aget-object v2, v2, p3
 
     .line 836
-    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVisibility()I
+    invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVisibility()I
 
-    move-result v3
+    move-result v2
 
-    const/16 v4, 0x8
+    const/16 v3, 0x8
 
-    if-ne v3, v4, :cond_19
+    if-ne v2, v3, :cond_19
 
     if-nez p2, :cond_18
 
     .line 838
-    invoke-virtual {v2, v6, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalHorizontal(II)V
+    invoke-virtual {v1, v6, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalHorizontal(II)V
 
     .line 839
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getMeasurer()Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->horizontalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
+    invoke-static {v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->horizontalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
 
     goto :goto_8
 
     .line 841
     :cond_18
-    invoke-virtual {v2, v6, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalVertical(II)V
+    invoke-virtual {v1, v6, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalVertical(II)V
 
     .line 842
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getMeasurer()Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->verticalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
+    invoke-static {v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->verticalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
 
     :goto_8
-    move-object/from16 v3, p1
+    move-object/from16 v2, p1
 
     goto :goto_a
 
     .line 845
     :cond_19
-    iget-object v3, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v2, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    aget-object v3, v3, p3
+    aget-object v2, v2, p3
 
-    invoke-virtual {v3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
+    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
-    move-result v3
+    move-result v2
 
-    add-int/2addr v6, v3
+    add-int/2addr v6, v2
 
     if-nez p2, :cond_1a
 
     .line 847
-    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getWidth()I
+    invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getWidth()I
 
-    move-result v3
+    move-result v2
 
-    add-int/2addr v3, v6
+    add-int/2addr v2, v6
 
-    invoke-virtual {v2, v6, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalHorizontal(II)V
+    invoke-virtual {v1, v6, v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalHorizontal(II)V
 
     .line 848
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getMeasurer()Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->horizontalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
+    invoke-static {v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->horizontalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
 
     .line 849
-    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getWidth()I
+    invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getWidth()I
 
-    move-result v3
+    move-result v2
 
     goto :goto_9
 
     .line 851
     :cond_1a
-    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHeight()I
+    invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHeight()I
 
-    move-result v3
+    move-result v2
 
-    add-int/2addr v3, v6
+    add-int/2addr v2, v6
 
-    invoke-virtual {v2, v6, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalVertical(II)V
+    invoke-virtual {v1, v6, v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setFinalVertical(II)V
 
     .line 852
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getMeasurer()Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->verticalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
+    invoke-static {v1, v2}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->verticalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
 
     .line 853
-    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHeight()I
+    invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHeight()I
 
-    move-result v3
+    move-result v2
 
     :goto_9
-    add-int/2addr v6, v3
+    add-int/2addr v6, v2
 
     .line 855
-    iget-object v3, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v2, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    aget-object v3, v3, v7
+    aget-object v2, v2, v7
 
-    invoke-virtual {v3}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
+    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->getMargin()I
 
-    move-result v3
+    move-result v2
 
-    add-int/2addr v6, v3
+    add-int/2addr v6, v2
 
     add-int/2addr v6, v8
 
@@ -1468,51 +1468,51 @@
 
     .line 859
     :goto_a
-    invoke-virtual {v2, v3, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->addToSolver(Landroid/support/constraint/solver/LinearSystem;Z)V
+    invoke-virtual {v1, v2, v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->addToSolver(Landroid/support/constraint/solver/LinearSystem;Z)V
 
     .line 862
-    iget-object v5, v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+    iget-object v4, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    aget-object v5, v5, v7
+    aget-object v4, v4, v7
+
+    iget-object v4, v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+
+    if-eqz v4, :cond_1b
+
+    .line 864
+    iget-object v4, v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mOwner:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    .line 865
+    iget-object v5, v4, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+
+    aget-object v5, v5, p3
 
     iget-object v5, v5, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
     if-eqz v5, :cond_1b
 
-    .line 864
+    iget-object v5, v4, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+
+    aget-object v5, v5, p3
+
+    iget-object v5, v5, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
+
     iget-object v5, v5, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mOwner:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 865
-    iget-object v9, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
-
-    aget-object v9, v9, p3
-
-    iget-object v9, v9, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
-
-    if-eqz v9, :cond_1b
-
-    iget-object v9, v5, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mListAnchors:[Landroid/support/constraint/solver/widgets/ConstraintAnchor;
-
-    aget-object v9, v9, p3
-
-    iget-object v9, v9, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mTarget:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
-
-    iget-object v9, v9, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->mOwner:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
-    if-eq v9, v2, :cond_1c
+    if-eq v5, v1, :cond_1c
 
     :cond_1b
-    move-object/from16 v5, v16
+    move-object/from16 v4, v16
 
     :cond_1c
-    if-eqz v5, :cond_1d
+    if-eqz v4, :cond_1d
 
-    move-object v2, v5
+    move-object v1, v4
 
     goto/16 :goto_7
 
     :cond_1d
-    const/4 v1, 0x1
+    const/4 v9, 0x1
 
     goto/16 :goto_7
 
@@ -3462,17 +3462,21 @@
     :try_start_0
     invoke-static {v3, p1}, Landroid/support/constraint/solver/widgets/analyzer/Direct;->verticalSolvingPass(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;)V
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_6
 
     :cond_1e
     return-void
 
-    :catch_0
+    :catchall_0
     move-exception p0
 
+    goto :goto_8
+
+    :goto_7
     throw p0
 
-    return-void
+    :goto_8
+    goto :goto_7
 .end method

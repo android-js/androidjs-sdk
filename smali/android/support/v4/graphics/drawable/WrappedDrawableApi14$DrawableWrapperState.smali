@@ -27,14 +27,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
     .locals 0
-    .param p1    # Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 363
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -124,8 +116,6 @@
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -138,10 +128,4 @@
 .end method
 
 .method public abstract newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .param p1    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 .end method

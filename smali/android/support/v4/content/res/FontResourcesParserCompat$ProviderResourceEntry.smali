@@ -19,9 +19,6 @@
 
 # instance fields
 .field private final mRequest:Landroid/support/v4/provider/FontRequest;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 .field private final mStrategy:I
 
@@ -31,10 +28,6 @@
 # direct methods
 .method public constructor <init>(Landroid/support/v4/provider/FontRequest;II)V
     .locals 0
-    .param p1    # Landroid/support/v4/provider/FontRequest;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,8 +57,6 @@
 
 .method public getRequest()Landroid/support/v4/provider/FontRequest;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 89
     iget-object v0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mRequest:Landroid/support/v4/provider/FontRequest;

@@ -137,7 +137,11 @@
 
     invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :goto_1
     throw p1
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method

@@ -42,119 +42,105 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 15
 
     .line 52
     new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v1, 0x0
+    const-string v1, "INT_TYPE"
 
-    const-string v2, "INT_TYPE"
+    const/4 v2, 0x0
 
-    invoke-direct {v0, v2, v1}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->INT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 53
-    new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    const/4 v2, 0x1
+    new-instance v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     const-string v3, "FLOAT_TYPE"
 
-    invoke-direct {v0, v3, v2}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    const/4 v4, 0x1
 
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    invoke-direct {v1, v3, v4}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+
+    sput-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 54
-    new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    new-instance v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v3, 0x2
+    const-string v5, "COLOR_TYPE"
 
-    const-string v4, "COLOR_TYPE"
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v4, v3}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sput-object v3, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 55
-    new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    new-instance v5, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v4, 0x3
+    const-string v7, "COLOR_DRAWABLE_TYPE"
 
-    const-string v5, "COLOR_DRAWABLE_TYPE"
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v5, v4}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sput-object v5, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 56
-    new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    new-instance v7, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v5, 0x4
+    const-string v9, "STRING_TYPE"
 
-    const-string v6, "STRING_TYPE"
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v6, v5}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sput-object v7, Landroid/support/constraint/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 57
-    new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    new-instance v9, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v6, 0x5
+    const-string v11, "BOOLEAN_TYPE"
 
-    const-string v7, "BOOLEAN_TYPE"
+    const/4 v12, 0x5
 
-    invoke-direct {v0, v7, v6}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v9, v11, v12}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sput-object v9, Landroid/support/constraint/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     .line 58
-    new-instance v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    new-instance v11, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v7, 0x6
+    const-string v13, "DIMENSION_TYPE"
 
-    const-string v8, "DIMENSION_TYPE"
+    const/4 v14, 0x6
 
-    invoke-direct {v0, v8, v7}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v11, v13, v14}, Landroid/support/constraint/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sput-object v11, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    const/4 v0, 0x7
+    const/4 v13, 0x7
+
+    new-array v13, v13, [Landroid/support/constraint/ConstraintAttribute$AttributeType;
+
+    aput-object v0, v13, v2
+
+    aput-object v1, v13, v4
+
+    aput-object v3, v13, v6
+
+    aput-object v5, v13, v8
+
+    aput-object v7, v13, v10
+
+    aput-object v9, v13, v12
+
+    aput-object v11, v13, v14
 
     .line 51
-    new-array v0, v0, [Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    sget-object v8, Landroid/support/constraint/ConstraintAttribute$AttributeType;->INT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v8, v0, v1
-
-    sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v1, v0, v3
-
-    sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v1, v0, v4
-
-    sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v1, v0, v5
-
-    sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v1, v0, v6
-
-    sget-object v1, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
-
-    aput-object v1, v0, v7
-
-    sput-object v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;->$VALUES:[Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    sput-object v13, Landroid/support/constraint/ConstraintAttribute$AttributeType;->$VALUES:[Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     return-void
 .end method

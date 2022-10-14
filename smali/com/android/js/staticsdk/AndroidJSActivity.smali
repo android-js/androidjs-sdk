@@ -65,8 +65,6 @@
     invoke-virtual {p1, v0}, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V
 
     .line 38
-    iget-object p1, p0, Lcom/android/js/staticsdk/AndroidJSActivity;->myWebView:Landroid/webkit/WebView;
-
     invoke-static {v0}, Landroid/webkit/WebView;->setWebContentsDebuggingEnabled(Z)V
 
     .line 39

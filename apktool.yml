@@ -30,53 +30,13 @@ doNotCompress:
 - META-INF/androidx.versionedparcelable_versionedparcelable.version
 - META-INF/androidx.viewpager_viewpager.version
 - png
-- assets/myapp/node_modules/axios/index.js
-- assets/myapp/node_modules/better-assert/Makefile
-- assets/myapp/node_modules/callsite/Makefile
-- assets/myapp/node_modules/engine.io-client/node_modules/debug/node.js
-- assets/myapp/node_modules/engine.io/node_modules/debug/node.js
-- assets/myapp/node_modules/follow-redirects/http.js
-- assets/myapp/node_modules/follow-redirects/https.js
-- assets/myapp/node_modules/follow-redirects/node_modules/debug/node.js
-- assets/myapp/node_modules/localtunnel/node_modules/debug/node.js
-- assets/myapp/node_modules/parseqs/Makefile
-- assets/myapp/node_modules/parseuri/Makefile
-- assets/myapp/node_modules/resolve/test/dotdot/index.js
-- assets/myapp/node_modules/resolve/test/dotdot/abc/index.js
-- assets/myapp/node_modules/resolve/test/module_dir/xmodules/aaa/index.js
-- assets/myapp/node_modules/resolve/test/module_dir/ymodules/aaa/index.js
-- assets/myapp/node_modules/resolve/test/module_dir/zmodules/bbb/main.js
-- assets/myapp/node_modules/resolve/test/node_path/x/aaa/index.js
-- assets/myapp/node_modules/resolve/test/node_path/x/ccc/index.js
-- assets/myapp/node_modules/resolve/test/node_path/y/bbb/index.js
-- assets/myapp/node_modules/resolve/test/node_path/y/ccc/index.js
-- assets/myapp/node_modules/resolve/test/precedence/aaa.js
-- assets/myapp/node_modules/resolve/test/precedence/bbb.js
-- assets/myapp/node_modules/resolve/test/precedence/aaa/index.js
-- assets/myapp/node_modules/resolve/test/precedence/aaa/main.js
-- assets/myapp/node_modules/resolve/test/precedence/bbb/main.js
-- assets/myapp/node_modules/resolve/test/resolver/cup.coffee
-- assets/myapp/node_modules/resolve/test/resolver/foo.js
-- assets/myapp/node_modules/resolve/test/resolver/baz/package.json
-- assets/myapp/node_modules/resolve/test/resolver/baz/quux.js
-- assets/myapp/node_modules/resolve/test/resolver/dot_main/index.js
-- assets/myapp/node_modules/resolve/test/resolver/dot_main/package.json
-- assets/myapp/node_modules/resolve/test/resolver/dot_slash_main/index.js
-- assets/myapp/node_modules/resolve/test/resolver/dot_slash_main/package.json
-- assets/myapp/node_modules/resolve/test/resolver/incorrect_main/package.json
-- assets/myapp/node_modules/resolve/test/resolver/quux/foo/index.js
-- assets/myapp/node_modules/resolve/test/resolver/same_names/foo.js
-- assets/myapp/node_modules/resolve/test/resolver/same_names/foo/index.js
-- assets/myapp/node_modules/socket.io-client/node_modules/debug/node.js
-- assets/myapp/node_modules/socket.io-parser/node_modules/debug/node.js
-- assets/myapp/node_modules/xmlhttprequest-ssl/tests/testdata.txt
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'
   renameManifestPackage: null
 sdkInfo:
   minSdkVersion: '19'
-  targetSdkVersion: '30'
+  targetSdkVersion: '33'
 sharedLibrary: false
 sparseResources: false
 unknownFiles: {}
@@ -84,7 +44,7 @@ usesFramework:
   ids:
   - 1
   tag: null
-version: 2.4.1
+version: 2.6.1
 versionInfo:
   versionCode: '1'
   versionName: '1.0'

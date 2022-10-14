@@ -338,14 +338,12 @@
 
     const/4 p1, 0x2
 
-    .line 343
     new-array p1, p1, [Landroid/graphics/drawable/Drawable;
 
+    .line 343
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mLayers:[Landroid/graphics/drawable/Drawable;
 
     .line 344
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mLayers:[Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {p0}, Landroid/support/constraint/utils/ImageFilterView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object p2
@@ -360,15 +358,15 @@
     aput-object v0, p1, p2
 
     .line 347
-    new-instance v0, Landroid/graphics/drawable/LayerDrawable;
+    new-instance p1, Landroid/graphics/drawable/LayerDrawable;
 
-    invoke-direct {v0, p1}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
+    iget-object v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mLayers:[Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mLayer:Landroid/graphics/drawable/LayerDrawable;
+    invoke-direct {p1, v0}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
+
+    iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mLayer:Landroid/graphics/drawable/LayerDrawable;
 
     .line 348
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mLayer:Landroid/graphics/drawable/LayerDrawable;
-
     invoke-virtual {p1, p2}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
@@ -534,7 +532,9 @@
     iput p1, v0, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->mBrightness:F
 
     .line 457
-    invoke-virtual {v0, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
+    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mImageMatrix:Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;
+
+    invoke-virtual {p1, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
 
     return-void
 .end method
@@ -548,7 +548,9 @@
     iput p1, v0, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->mContrast:F
 
     .line 392
-    invoke-virtual {v0, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
+    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mImageMatrix:Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;
+
+    invoke-virtual {p1, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
 
     return-void
 .end method
@@ -621,9 +623,6 @@
 
 .method public setRound(F)V
     .locals 5
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
 
     .line 528
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
@@ -670,9 +669,6 @@
     .line 536
     :goto_0
     iput p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRound:F
-
-    .line 538
-    iget p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRound:F
 
     const/16 v3, 0x15
 
@@ -726,8 +722,6 @@
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
     .line 555
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
-
     invoke-virtual {p0, p1}, Landroid/support/constraint/utils/ImageFilterView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 557
@@ -799,9 +793,6 @@
 
 .method public setRoundPercent(F)V
     .locals 6
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
 
     .line 477
     iget v0, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
@@ -824,9 +815,6 @@
     .line 478
     :goto_0
     iput p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
-
-    .line 479
-    iget p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mRoundPercent:F
 
     const/16 v3, 0x15
 
@@ -880,8 +868,6 @@
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
 
     .line 497
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
-
     invoke-virtual {p0, p1}, Landroid/support/constraint/utils/ImageFilterView;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     .line 499
@@ -973,7 +959,9 @@
     iput p1, v0, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->mSaturation:F
 
     .line 373
-    invoke-virtual {v0, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
+    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mImageMatrix:Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;
+
+    invoke-virtual {p1, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
 
     return-void
 .end method
@@ -987,7 +975,9 @@
     iput p1, v0, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->mWarmth:F
 
     .line 411
-    invoke-virtual {v0, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
+    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView;->mImageMatrix:Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;
+
+    invoke-virtual {p1, p0}, Landroid/support/constraint/utils/ImageFilterView$ImageMatrix;->updateMatrix(Landroid/widget/ImageView;)V
 
     return-void
 .end method

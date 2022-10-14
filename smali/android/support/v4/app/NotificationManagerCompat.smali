@@ -49,10 +49,6 @@
 .field private static final TAG:Ljava/lang/String; = "NotifManCompat"
 
 .field private static sEnabledNotificationListenerPackages:Ljava/util/Set;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sEnabledNotificationListenersLock"
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -63,20 +59,12 @@
 .end field
 
 .field private static sEnabledNotificationListeners:Ljava/lang/String;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sEnabledNotificationListenersLock"
-    .end annotation
-.end field
 
 .field private static final sEnabledNotificationListenersLock:Ljava/lang/Object;
 
 .field private static final sLock:Ljava/lang/Object;
 
 .field private static sSideChannelManager:Landroid/support/v4/app/NotificationManagerCompat$SideChannelManager;
-    .annotation build Landroid/support/annotation/GuardedBy;
-        value = "sLock"
-    .end annotation
-.end field
 
 
 # instance fields
@@ -122,11 +110,9 @@
     .line 157
     iput-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat;->mContext:Landroid/content/Context;
 
-    .line 158
-    iget-object p1, p0, Landroid/support/v4/app/NotificationManagerCompat;->mContext:Landroid/content/Context;
-
     const-string v0, "notification"
 
+    .line 158
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
@@ -140,12 +126,6 @@
 
 .method public static from(Landroid/content/Context;)Landroid/support/v4/app/NotificationManagerCompat;
     .locals 1
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 153
     new-instance v0, Landroid/support/v4/app/NotificationManagerCompat;
@@ -157,13 +137,6 @@
 
 .method public static getEnabledListenerPackages(Landroid/content/Context;)Ljava/util/Set;
     .locals 6
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -273,9 +246,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    goto :goto_2
+
+    :goto_1
     throw p0
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method
 
 .method private pushSideChannelQueue(Landroid/support/v4/app/NotificationManagerCompat$Task;)V
@@ -436,9 +413,9 @@
 
     const/4 v6, 0x3
 
-    .line 230
     new-array v7, v6, [Ljava/lang/Class;
 
+    .line 230
     sget-object v8, Ljava/lang/Integer;->TYPE:Ljava/lang/Class;
 
     const/4 v9, 0x0
@@ -479,9 +456,9 @@
 
     move-result v4
 
-    .line 234
     new-array v6, v6, [Ljava/lang/Object;
 
+    .line 234
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
@@ -539,10 +516,6 @@
 
 .method public cancel(Ljava/lang/String;I)V
     .locals 2
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 176
     iget-object v0, p0, Landroid/support/v4/app/NotificationManagerCompat;->mNotificationManager:Landroid/app/NotificationManager;
@@ -632,10 +605,6 @@
 
 .method public notify(ILandroid/app/Notification;)V
     .locals 1
-    .param p2    # Landroid/app/Notification;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 v0, 0x0
 
@@ -647,14 +616,6 @@
 
 .method public notify(Ljava/lang/String;ILandroid/app/Notification;)V
     .locals 2
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p3    # Landroid/app/Notification;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 206
     invoke-static {p3}, Landroid/support/v4/app/NotificationManagerCompat;->useSideChannelForNotification(Landroid/app/Notification;)Z

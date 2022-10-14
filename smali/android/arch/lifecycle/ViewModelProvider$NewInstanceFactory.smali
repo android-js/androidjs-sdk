@@ -31,13 +31,6 @@
 # virtual methods
 .method public create(Ljava/lang/Class;)Landroid/arch/lifecycle/ViewModel;
     .locals 4
-    .param p1    # Ljava/lang/Class;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

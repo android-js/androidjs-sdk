@@ -86,8 +86,6 @@
     iput-object v0, p0, Landroid/support/v4/app/ShareCompat$IntentBuilder;->mIntent:Landroid/content/Intent;
 
     .line 217
-    iget-object v0, p0, Landroid/support/v4/app/ShareCompat$IntentBuilder;->mIntent:Landroid/content/Intent;
-
     invoke-virtual {p1}, Landroid/app/Activity;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
@@ -375,10 +373,7 @@
 
     return-object p1
 
-    .line 426
     :cond_0
-    iget-object v2, p0, Landroid/support/v4/app/ShareCompat$IntentBuilder;->mStreams:Ljava/util/ArrayList;
-
     if-nez v2, :cond_1
 
     .line 427
@@ -612,10 +607,6 @@
 
 .method public setChooserTitle(I)Landroid/support/v4/app/ShareCompat$IntentBuilder;
     .locals 1
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 
     .line 343
     iget-object v0, p0, Landroid/support/v4/app/ShareCompat$IntentBuilder;->mActivity:Landroid/app/Activity;

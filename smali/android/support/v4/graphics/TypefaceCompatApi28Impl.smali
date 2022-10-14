@@ -3,18 +3,6 @@
 .source "TypefaceCompatApi28Impl.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x1c
-.end annotation
-
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final CREATE_FROM_FAMILIES_WITH_DEFAULT_METHOD:Ljava/lang/String; = "createFromFamiliesWithDefault"
 

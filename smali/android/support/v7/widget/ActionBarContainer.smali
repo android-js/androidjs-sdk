@@ -3,14 +3,6 @@
 .source "ActionBarContainer.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
 .field private mActionBarView:Landroid/view/View;
 
@@ -133,10 +125,7 @@
 
     if-nez p1, :cond_2
 
-    :goto_0
-    const/4 p2, 0x1
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_1
     iget-object p1, p0, Landroid/support/v7/widget/ActionBarContainer;->mBackground:Landroid/graphics/drawable/Drawable;
@@ -150,8 +139,10 @@
     goto :goto_0
 
     :cond_2
-    :goto_1
-    invoke-virtual {p0, p2}, Landroid/support/v7/widget/ActionBarContainer;->setWillNotDraw(Z)V
+    const/4 v1, 0x0
+
+    :goto_0
+    invoke-virtual {p0, v1}, Landroid/support/v7/widget/ActionBarContainer;->setWillNotDraw(Z)V
 
     return-void
 .end method

@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;
@@ -99,14 +93,6 @@
 
 .method public onItemHoverEnter(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)V
     .locals 1
-    .param p1    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/view/MenuItem;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 113
     iget-object v0, p0, Landroid/support/v7/widget/MenuPopupWindow;->mHoverListener:Landroid/support/v7/widget/MenuItemHoverListener;
@@ -122,14 +108,6 @@
 
 .method public onItemHoverExit(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)V
     .locals 1
-    .param p1    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/view/MenuItem;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 121
     iget-object v0, p0, Landroid/support/v7/widget/MenuPopupWindow;->mHoverListener:Landroid/support/v7/widget/MenuItemHoverListener;

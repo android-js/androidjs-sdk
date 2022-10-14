@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/ScrollingTabContainerView$VisibilityAnimListener;,
@@ -114,8 +108,6 @@
     iput-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView;->mTabLayout:Landroid/support/v7/widget/LinearLayoutCompat;
 
     .line 91
-    iget-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView;->mTabLayout:Landroid/support/v7/widget/LinearLayoutCompat;
-
     new-instance v0, Landroid/view/ViewGroup$LayoutParams;
 
     const/4 v1, -0x2
@@ -504,9 +496,7 @@
     iput-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView;->mTabSelector:Ljava/lang/Runnable;
 
     .line 272
-    iget-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView;->mTabSelector:Ljava/lang/Runnable;
-
-    invoke-virtual {p0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/support/v7/widget/ScrollingTabContainerView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

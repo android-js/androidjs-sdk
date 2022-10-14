@@ -35,14 +35,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/text/PrecomputedTextCompat$Params;Ljava/lang/CharSequence;)V
     .locals 0
-    .param p1    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 569
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

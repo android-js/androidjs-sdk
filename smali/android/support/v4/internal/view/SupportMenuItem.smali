@@ -6,14 +6,6 @@
 .implements Landroid/view/MenuItem;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field public static final SHOW_AS_ACTION_ALWAYS:I = 0x2
 

@@ -30,9 +30,9 @@
 
     const/4 v0, 0x3
 
-    .line 3800
     new-array v0, v0, [I
 
+    .line 3800
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v4/app/FragmentManagerImpl$FragmentTag;->Fragment:[I

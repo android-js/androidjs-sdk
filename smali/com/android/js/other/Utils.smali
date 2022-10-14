@@ -103,14 +103,12 @@
     .line 55
     array-length v3, v2
 
-    const/4 v4, 0x0
-
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
     :goto_0
-    if-ge v4, v3, :cond_1
+    if-ge v5, v3, :cond_1
 
-    aget-object v6, v2, v4
+    aget-object v6, v2, v5
 
     .line 56
     new-instance v7, Ljava/lang/StringBuilder;
@@ -147,14 +145,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    and-int/2addr v5, v6
+    and-int/2addr v4, v6
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_1
-    move p0, v5
+    move p0, v4
 
     :goto_1
     return p0
@@ -178,7 +176,6 @@
 
     const/16 v0, 0x400
 
-    .line 88
     new-array v0, v0, [B
 
     .line 90
@@ -217,14 +214,12 @@
 
     const/4 v3, 0x1
 
-    const/4 v3, 0x0
-
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_1
+    if-ge v4, v2, :cond_1
 
-    aget-object v5, v1, v3
+    aget-object v5, v1, v4
 
     .line 29
     invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
@@ -247,9 +242,9 @@
     move-result v5
 
     :goto_1
-    and-int/2addr v4, v5
+    and-int/2addr v3, v5
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
@@ -261,7 +256,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    and-int/2addr p0, v4
+    and-int/2addr p0, v3
 
     return p0
 
@@ -557,42 +552,42 @@
 .end method
 
 .method public static wasAPKUpdated(Landroid/content/Context;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v0, 0x0
+    const-string v0, "NODEJS_MOBILE_PREFS"
 
-    const-string v1, "NODEJS_MOBILE_PREFS"
+    const/4 v1, 0x0
 
     .line 96
-    invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v1
+    move-result-object v0
 
     const-string v2, "NODEJS_MOBILE_APK_LastUpdateTime"
 
     const-wide/16 v3, 0x0
 
     .line 97
-    invoke-interface {v1, v2, v3, v4}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+    invoke-interface {v0, v2, v3, v4}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
 
-    move-result-wide v1
+    move-result-wide v2
 
     .line 100
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v3
+    move-result-object v0
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v3, p0, v0}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v0, p0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object p0
 
     .line 101
-    iget-wide v3, p0, Landroid/content/pm/PackageInfo;->lastUpdateTime:J
+    iget-wide v4, p0, Landroid/content/pm/PackageInfo;->lastUpdateTime:J
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -604,15 +599,15 @@
     .line 103
     invoke-virtual {p0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
-    const-wide/16 v3, 0x1
+    const-wide/16 v4, 0x1
 
     :goto_0
-    cmp-long p0, v3, v1
+    cmp-long p0, v4, v2
 
     if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     :cond_0
-    return v0
+    return v1
 .end method

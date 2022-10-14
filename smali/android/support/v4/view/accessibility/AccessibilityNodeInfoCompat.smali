@@ -116,12 +116,6 @@
 .field private final mInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
 
 .field public mParentVirtualDescendantId:I
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-.end field
 
 
 # direct methods
@@ -408,12 +402,12 @@
 
     if-eqz v0, :cond_1
 
-    const/4 v1, 0x0
+    const-string v1, "androidx.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_KEY"
 
-    const-string v2, "androidx.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_KEY"
+    const/4 v2, 0x0
 
     .line 3486
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v3
 
@@ -432,7 +426,7 @@
     or-int/2addr p1, v3
 
     .line 3489
-    invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_1
     return-void
@@ -440,10 +434,6 @@
 
 .method public static wrap(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
     .locals 1
-    .param p0    # Landroid/view/accessibility/AccessibilityNodeInfo;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1330
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
@@ -1121,8 +1111,6 @@
 
 .method public getHintText()Ljava/lang/CharSequence;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2577
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1353,8 +1341,6 @@
 
 .method public getPaneTitle()Ljava/lang/CharSequence;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 3237
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1452,8 +1438,6 @@
 
 .method public getRoleDescription()Ljava/lang/CharSequence;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 3375
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1548,8 +1532,6 @@
 
 .method public getTooltipText()Ljava/lang/CharSequence;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 3181
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2699,10 +2681,6 @@
 
 .method public setHintText(Ljava/lang/CharSequence;)V
     .locals 2
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2599
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2956,10 +2934,6 @@
 
 .method public setPaneTitle(Ljava/lang/CharSequence;)V
     .locals 2
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 3223
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3068,10 +3042,6 @@
 
 .method public setRoleDescription(Ljava/lang/CharSequence;)V
     .locals 2
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 3407
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -3233,10 +3203,6 @@
 
 .method public setTooltipText(Ljava/lang/CharSequence;)V
     .locals 2
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 3203
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

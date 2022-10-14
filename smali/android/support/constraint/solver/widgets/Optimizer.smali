@@ -45,9 +45,9 @@
 
     const/4 v0, 0x3
 
-    .line 52
     new-array v0, v0, [Z
 
+    .line 52
     sput-object v0, Landroid/support/constraint/solver/widgets/Optimizer;->flags:[Z
 
     return-void

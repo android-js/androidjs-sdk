@@ -19,18 +19,11 @@
 
 # instance fields
 .field private final mEntries:[Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 
 # direct methods
 .method public constructor <init>([Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;)V
     .locals 0
-    .param p1    # [Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,8 +38,6 @@
 # virtual methods
 .method public getEntries()[Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 158
     iget-object v0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFamilyFilesResourceEntry;->mEntries:[Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;

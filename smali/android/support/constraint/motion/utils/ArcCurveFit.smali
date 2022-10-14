@@ -70,96 +70,90 @@
     :goto_0
     iget-object v7, v0, Landroid/support/constraint/motion/utils/ArcCurveFit;->mArcs:[Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;
 
-    array-length v7, v7
+    array-length v8, v7
 
-    if-ge v4, v7, :cond_5
+    if-ge v4, v8, :cond_5
 
     .line 174
-    aget v7, p1, v4
+    aget v8, p1, v4
 
-    const/4 v8, 0x3
+    const/4 v9, 0x3
 
-    const/4 v9, 0x2
+    const/4 v10, 0x2
 
-    if-eqz v7, :cond_4
+    if-eqz v8, :cond_4
 
-    if-eq v7, v3, :cond_3
+    if-eq v8, v3, :cond_3
 
-    if-eq v7, v9, :cond_2
+    if-eq v8, v10, :cond_2
 
-    if-eq v7, v8, :cond_0
-
-    move v9, v6
+    if-eq v8, v9, :cond_0
 
     goto :goto_2
 
     :cond_0
     if-ne v5, v3, :cond_1
 
+    const/4 v5, 0x2
+
     goto :goto_1
 
     :cond_1
-    const/4 v9, 0x1
+    const/4 v5, 0x1
 
     :goto_1
-    move v5, v9
+    move v6, v5
 
     goto :goto_2
 
     :cond_2
     const/4 v5, 0x2
 
+    const/4 v6, 0x2
+
     goto :goto_2
 
     :cond_3
     const/4 v5, 0x1
 
-    const/4 v9, 0x1
+    const/4 v6, 0x1
 
     goto :goto_2
 
     :cond_4
-    const/4 v9, 0x3
+    const/4 v6, 0x3
 
     .line 188
     :goto_2
-    iget-object v6, v0, Landroid/support/constraint/motion/utils/ArcCurveFit;->mArcs:[Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;
+    new-instance v22, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;
 
-    new-instance v7, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;
+    aget-wide v10, v1, v4
 
-    aget-wide v12, v1, v4
+    add-int/lit8 v23, v4, 0x1
 
-    add-int/lit8 v8, v4, 0x1
+    aget-wide v12, v1, v23
 
-    aget-wide v14, v1, v8
+    aget-object v8, p3, v4
 
-    aget-object v10, p3, v4
+    aget-wide v14, v8, v2
 
-    aget-wide v16, v10, v2
+    aget-wide v16, v8, v3
 
-    aget-object v10, p3, v4
+    aget-object v8, p3, v23
 
-    aget-wide v18, v10, v3
+    aget-wide v18, v8, v2
 
-    aget-object v10, p3, v8
+    aget-wide v20, v8, v3
 
-    aget-wide v20, v10, v2
+    move-object/from16 v8, v22
 
-    aget-object v10, p3, v8
+    move v9, v6
 
-    aget-wide v22, v10, v3
+    invoke-direct/range {v8 .. v21}, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;-><init>(IDDDDDD)V
 
-    move-object v10, v7
+    aput-object v22, v7, v4
 
-    move v11, v9
-
-    invoke-direct/range {v10 .. v23}, Landroid/support/constraint/motion/utils/ArcCurveFit$Arc;-><init>(IDDDDDD)V
-
-    aput-object v7, v6, v4
-
-    move v4, v8
-
-    move v6, v9
+    move/from16 v4, v23
 
     goto :goto_0
 

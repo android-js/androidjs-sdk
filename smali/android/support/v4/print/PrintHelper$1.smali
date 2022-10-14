@@ -134,7 +134,7 @@
 
     move-result v2
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     if-eqz v2, :cond_1
 
@@ -275,18 +275,16 @@
     .line 702
     iget-object p1, p0, Landroid/support/v4/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
     :try_end_2
-    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     if-eqz p1, :cond_4
 
     .line 704
     :try_start_3
-    iget-object p1, p0, Landroid/support/v4/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
-
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     .line 710
     :catch_0
@@ -299,7 +297,7 @@
     .line 711
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
     :try_end_4
-    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_3
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :cond_5
     return-object v0
@@ -330,18 +328,16 @@
     .line 702
     iget-object p1, p0, Landroid/support/v4/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
     :try_end_6
-    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_3
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
     if-eqz p1, :cond_7
 
     .line 704
     :try_start_7
-    iget-object p1, p0, Landroid/support/v4/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
-
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_1
-    .catch Ljava/lang/Throwable; {:try_start_7 .. :try_end_7} :catch_3
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     .line 710
     :catch_1
@@ -366,18 +362,16 @@
     .line 702
     iget-object p1, p0, Landroid/support/v4/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
     :try_end_8
-    .catch Ljava/lang/Throwable; {:try_start_8 .. :try_end_8} :catch_3
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
     if-eqz p1, :cond_9
 
     .line 704
     :try_start_9
-    iget-object p1, p0, Landroid/support/v4/print/PrintHelper$1;->val$fileDescriptor:Landroid/os/ParcelFileDescriptor;
-
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_2
-    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_3
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     .line 710
     :catch_2
@@ -393,9 +387,9 @@
     :cond_a
     throw v0
     :try_end_a
-    .catch Ljava/lang/Throwable; {:try_start_a .. :try_end_a} :catch_3
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
 
-    :catch_3
+    :catchall_1
     move-exception p1
 
     return-object p1

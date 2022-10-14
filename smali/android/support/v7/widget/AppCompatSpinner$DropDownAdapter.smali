@@ -27,14 +27,6 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/SpinnerAdapter;Landroid/content/res/Resources$Theme;)V
     .locals 2
-    .param p1    # Landroid/widget/SpinnerAdapter;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 604
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

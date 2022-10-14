@@ -49,8 +49,6 @@
 
 .method public onFindViewById(I)Landroid/view/View;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2390
     iget-object v0, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;

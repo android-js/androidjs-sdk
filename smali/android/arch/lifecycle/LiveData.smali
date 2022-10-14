@@ -288,10 +288,6 @@
 
 .method private dispatchingValue(Landroid/arch/lifecycle/LiveData$ObserverWrapper;)V
     .locals 3
-    .param p1    # Landroid/arch/lifecycle/LiveData$ObserverWrapper;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -384,9 +380,6 @@
 # virtual methods
 .method public getValue()Ljava/lang/Object;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -462,17 +455,6 @@
 
 .method public observe(Landroid/arch/lifecycle/LifecycleOwner;Landroid/arch/lifecycle/Observer;)V
     .locals 2
-    .param p1    # Landroid/arch/lifecycle/LifecycleOwner;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/arch/lifecycle/Observer;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -552,13 +534,6 @@
 
 .method public observeForever(Landroid/arch/lifecycle/Observer;)V
     .locals 2
-    .param p1    # Landroid/arch/lifecycle/Observer;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -694,13 +669,6 @@
 
 .method public removeObserver(Landroid/arch/lifecycle/Observer;)V
     .locals 1
-    .param p1    # Landroid/arch/lifecycle/Observer;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -741,12 +709,6 @@
 
 .method public removeObservers(Landroid/arch/lifecycle/LifecycleOwner;)V
     .locals 3
-    .param p1    # Landroid/arch/lifecycle/LifecycleOwner;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
 
     const-string v0, "removeObservers"
 
@@ -804,9 +766,6 @@
 
 .method protected setValue(Ljava/lang/Object;)V
     .locals 1
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"

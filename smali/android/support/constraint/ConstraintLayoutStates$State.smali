@@ -146,8 +146,6 @@
     iput-object v2, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintSet:Landroid/support/constraint/ConstraintSet;
 
     .line 160
-    iget-object v2, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintSet:Landroid/support/constraint/ConstraintSet;
-
     iget v3, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
     invoke-virtual {v2, p1, v3}, Landroid/support/constraint/ConstraintSet;->clone(Landroid/content/Context;I)V

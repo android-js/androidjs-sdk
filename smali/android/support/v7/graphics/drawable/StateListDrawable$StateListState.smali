@@ -127,7 +127,7 @@
 .end method
 
 .method mutate()V
-    .locals 4
+    .locals 3
 
     .line 341
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
@@ -147,11 +147,9 @@
     .line 343
     iget-object v2, p0, Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;->mStateSets:[[I
 
-    aget-object v3, v2, v0
-
-    if-eqz v3, :cond_0
-
     aget-object v2, v2, v0
+
+    if-eqz v2, :cond_0
 
     invoke-virtual {v2}, [I->clone()Ljava/lang/Object;
 
@@ -180,8 +178,6 @@
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
     .locals 2
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 368
     new-instance v0, Landroid/support/v7/graphics/drawable/StateListDrawable;
@@ -195,8 +191,6 @@
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 374
     new-instance v0, Landroid/support/v7/graphics/drawable/StateListDrawable;

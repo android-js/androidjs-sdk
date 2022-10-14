@@ -36,9 +36,9 @@
 
     move-result-object v0
 
-    .line 39
     new-array v2, v4, [Ljava/lang/Class;
 
+    .line 39
     const-class v4, Ljava/util/Locale;
 
     aput-object v4, v2, v3
@@ -74,9 +74,9 @@
 
     const-string v2, "getScript"
 
-    .line 48
     new-array v5, v4, [Ljava/lang/Class;
 
+    .line 48
     const-class v6, Ljava/lang/String;
 
     aput-object v6, v5, v3
@@ -87,9 +87,9 @@
 
     sput-object v2, Landroid/support/v4/text/ICUCompat;->sGetScriptMethod:Ljava/lang/reflect/Method;
 
-    .line 50
     new-array v2, v4, [Ljava/lang/Class;
 
+    .line 50
     const-class v4, Ljava/lang/String;
 
     aput-object v4, v2, v3
@@ -150,21 +150,18 @@
 
     if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    .line 128
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object p0, v1, v2
-
-    .line 129
-    sget-object v2, Landroid/support/v4/text/ICUCompat;->sAddLikelySubtagsMethod:Ljava/lang/reflect/Method;
+    new-array v2, v2, [Ljava/lang/Object;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    aput-object p0, v2, v3
+
+    const/4 v3, 0x0
+
+    .line 129
+    invoke-virtual {v1, v3, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -195,7 +192,7 @@
 .end method
 
 .method private static getScript(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     const-string v0, "ICUCompat"
 
@@ -207,19 +204,16 @@
 
     if-eqz v2, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    .line 111
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput-object p0, v2, v3
+    aput-object p0, v3, v4
 
     .line 112
-    sget-object p0, Landroid/support/v4/text/ICUCompat;->sGetScriptMethod:Ljava/lang/reflect/Method;
-
-    invoke-virtual {p0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v1, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -251,8 +245,6 @@
 
 .method public static maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
     .locals 4
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const-string v0, "ICUCompat"
 
@@ -267,7 +259,6 @@
 
     const/4 v1, 0x1
 
-    .line 90
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 

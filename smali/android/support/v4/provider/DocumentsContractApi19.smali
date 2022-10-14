@@ -3,12 +3,6 @@
 .source "DocumentsContractApi19.java"
 
 
-# annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x13
-.end annotation
-
-
 # static fields
 .field private static final FLAG_VIRTUAL_DOCUMENT:I = 0x200
 
@@ -142,10 +136,6 @@
 
 .method private static closeQuietly(Ljava/lang/AutoCloseable;)V
     .locals 0
-    .param p0    # Ljava/lang/AutoCloseable;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     if-eqz p0, :cond_0
 
@@ -278,8 +268,6 @@
 
 .method public static getName(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const-string v0, "_display_name"
 
@@ -295,8 +283,6 @@
 
 .method private static getRawType(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const-string v0, "mime_type"
 
@@ -312,8 +298,6 @@
 
 .method public static getType(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
     .locals 0
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 59
     invoke-static {p0, p1}, Landroid/support/v4/provider/DocumentsContractApi19;->getRawType(Landroid/content/Context;Landroid/net/Uri;)Ljava/lang/String;
@@ -482,7 +466,6 @@
 
     const/4 v6, 0x0
 
-    .line 188
     :try_start_0
     new-array v2, p0, [Ljava/lang/String;
 
@@ -498,6 +481,7 @@
 
     move-object v1, p1
 
+    .line 188
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v6
@@ -576,12 +560,6 @@
 
 .method private static queryForString(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
-    .param p3    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 159
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -592,7 +570,6 @@
 
     const/4 v6, 0x0
 
-    .line 163
     :try_start_0
     new-array v2, p0, [Ljava/lang/String;
 
@@ -608,6 +585,7 @@
 
     move-object v1, p1
 
+    .line 163
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v6

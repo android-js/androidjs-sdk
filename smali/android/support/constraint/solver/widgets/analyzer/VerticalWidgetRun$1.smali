@@ -34,8 +34,6 @@
     sput-object v0, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun$1;->$SwitchMap$android$support$constraint$solver$widgets$analyzer$WidgetRun$RunType:[I
 
     :try_start_0
-    sget-object v0, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun$1;->$SwitchMap$android$support$constraint$solver$widgets$analyzer$WidgetRun$RunType:[I
-
     sget-object v1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun$RunType;->START:Landroid/support/constraint/solver/widgets/analyzer/WidgetRun$RunType;
 
     invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun$RunType;->ordinal()I

@@ -48,19 +48,19 @@
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    const-string v2, "account_type"
 
-    const-string v3, "account_type"
+    const/4 v3, 0x0
 
     .line 53
-    invoke-virtual {v1, v3, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v1, v2, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v1
 
-    const-string v3, "account_name"
+    const-string v2, "account_name"
 
     .line 54
-    invoke-virtual {v1, v3, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
+    invoke-virtual {v1, v2, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     move-result-object v1
 

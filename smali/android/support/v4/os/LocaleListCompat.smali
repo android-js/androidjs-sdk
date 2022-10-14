@@ -68,10 +68,6 @@
 
 .method public static varargs create([Ljava/util/Locale;)Landroid/support/v4/os/LocaleListCompat;
     .locals 1
-    .param p0    # [Ljava/util/Locale;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 206
     new-instance v0, Landroid/support/v4/os/LocaleListCompat;
@@ -85,13 +81,7 @@
 .end method
 
 .method public static forLanguageTags(Ljava/lang/String;)Landroid/support/v4/os/LocaleListCompat;
-    .locals 4
-    .param p0    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
+    .locals 5
 
     if-eqz p0, :cond_3
 
@@ -117,44 +107,41 @@
     .line 293
     array-length v0, p0
 
-    new-array v0, v0, [Ljava/util/Locale;
+    new-array v1, v0, [Ljava/util/Locale;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 294
     :goto_0
-    array-length v2, v0
-
-    if-ge v1, v2, :cond_2
+    if-ge v2, v0, :cond_2
 
     .line 295
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v3, 0x15
+    const/16 v4, 0x15
 
-    if-lt v2, v3, :cond_1
+    if-lt v3, v4, :cond_1
 
-    aget-object v2, p0, v1
+    aget-object v3, p0, v2
 
     .line 296
-    invoke-static {v2}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+    invoke-static {v3}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object v2
+    move-result-object v3
 
     goto :goto_1
 
     :cond_1
-    aget-object v2, p0, v1
+    aget-object v3, p0, v2
 
     .line 297
-    invoke-static {v2}, Landroid/support/v4/os/LocaleHelper;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+    invoke-static {v3}, Landroid/support/v4/os/LocaleHelper;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object v2
+    move-result-object v3
 
     :goto_1
-    aput-object v2, v0, v1
+    aput-object v3, v1, v2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -165,7 +152,7 @@
     invoke-direct {p0}, Landroid/support/v4/os/LocaleListCompat;-><init>()V
 
     .line 300
-    invoke-direct {p0, v0}, Landroid/support/v4/os/LocaleListCompat;->setLocaleListArray([Ljava/util/Locale;)V
+    invoke-direct {p0, v1}, Landroid/support/v4/os/LocaleListCompat;->setLocaleListArray([Ljava/util/Locale;)V
 
     return-object p0
 
@@ -181,12 +168,6 @@
 
 .method public static getAdjustedDefault()Landroid/support/v4/os/LocaleListCompat;
     .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/Size;
-        min = 0x1L
-    .end annotation
 
     .line 311
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -209,11 +190,11 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 314
     new-array v0, v0, [Ljava/util/Locale;
 
     const/4 v1, 0x0
 
+    .line 314
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v2
@@ -229,12 +210,6 @@
 
 .method public static getDefault()Landroid/support/v4/os/LocaleListCompat;
     .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/Size;
-        min = 0x1L
-    .end annotation
 
     .line 331
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -257,11 +232,11 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 334
     new-array v0, v0, [Ljava/util/Locale;
 
     const/4 v1, 0x0
 
+    .line 334
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v2
@@ -277,8 +252,6 @@
 
 .method public static getEmptyLocaleList()Landroid/support/v4/os/LocaleListCompat;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 276
     sget-object v0, Landroid/support/v4/os/LocaleListCompat;->sEmptyLocaleList:Landroid/support/v4/os/LocaleListCompat;
@@ -288,9 +261,6 @@
 
 .method private setLocaleList(Landroid/os/LocaleList;)V
     .locals 4
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x18
-    .end annotation
 
     .line 355
     invoke-virtual {p1}, Landroid/os/LocaleList;->size()I
@@ -341,9 +311,6 @@
 
 .method public static wrap(Ljava/lang/Object;)Landroid/support/v4/os/LocaleListCompat;
     .locals 2
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x18
-    .end annotation
 
     .line 184
     new-instance v0, Landroid/support/v4/os/LocaleListCompat;
@@ -420,9 +387,6 @@
 
 .method public indexOf(Ljava/util/Locale;)I
     .locals 1
-    .annotation build Landroid/support/annotation/IntRange;
-        from = -0x1L
-    .end annotation
 
     .line 249
     sget-object v0, Landroid/support/v4/os/LocaleListCompat;->IMPL:Landroid/support/v4/os/LocaleListInterface;
@@ -449,9 +413,6 @@
 
 .method public size()I
     .locals 1
-    .annotation build Landroid/support/annotation/IntRange;
-        from = 0x0L
-    .end annotation
 
     .line 236
     sget-object v0, Landroid/support/v4/os/LocaleListCompat;->IMPL:Landroid/support/v4/os/LocaleListInterface;
@@ -465,8 +426,6 @@
 
 .method public toLanguageTags()Ljava/lang/String;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 257
     sget-object v0, Landroid/support/v4/os/LocaleListCompat;->IMPL:Landroid/support/v4/os/LocaleListInterface;
@@ -493,8 +452,6 @@
 
 .method public unwrap()Ljava/lang/Object;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 199
     sget-object v0, Landroid/support/v4/os/LocaleListCompat;->IMPL:Landroid/support/v4/os/LocaleListInterface;

@@ -111,9 +111,9 @@
     .line 115
     iget-object v2, p0, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
 
-    if-nez v2, :cond_3
-
     iget-object p1, p1, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
+
+    if-nez v2, :cond_3
 
     if-nez p1, :cond_2
 
@@ -124,10 +124,8 @@
 
     goto :goto_0
 
-    :cond_3
-    iget-object p1, p1, Landroid/support/v4/view/DisplayCutoutCompat;->mDisplayCutout:Ljava/lang/Object;
-
     .line 116
+    :cond_3
     invoke-virtual {v2, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0

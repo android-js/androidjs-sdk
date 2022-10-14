@@ -35,8 +35,6 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 3
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 4021
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimateOnHWLayerIfNeededListener;->mView:Landroid/view/View;

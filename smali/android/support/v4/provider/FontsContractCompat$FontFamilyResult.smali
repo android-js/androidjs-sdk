@@ -31,15 +31,6 @@
 # direct methods
 .method public constructor <init>(I[Landroid/support/v4/provider/FontsContractCompat$FontInfo;)V
     .locals 0
-    .param p2    # [Landroid/support/v4/provider/FontsContractCompat$FontInfo;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 428
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

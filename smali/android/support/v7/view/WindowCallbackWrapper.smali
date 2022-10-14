@@ -6,14 +6,6 @@
 .implements Landroid/view/Window$Callback;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # instance fields
 .field final mWrapped:Landroid/view/Window$Callback;
 
@@ -243,9 +235,6 @@
 
 .method public onPointerCaptureChanged(Z)V
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x1a
-    .end annotation
 
     .line 184
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -270,10 +259,6 @@
 
 .method public onProvideKeyboardShortcuts(Ljava/util/List;Landroid/view/Menu;I)V
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x18
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -308,9 +293,6 @@
 
 .method public onSearchRequested(Landroid/view/SearchEvent;)Z
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 145
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -359,9 +341,6 @@
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 161
     iget-object v0, p0, Landroid/support/v7/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;

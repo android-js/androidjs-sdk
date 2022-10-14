@@ -23,16 +23,6 @@
 
 .method public static makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
     .locals 2
-    .param p0    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 77
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

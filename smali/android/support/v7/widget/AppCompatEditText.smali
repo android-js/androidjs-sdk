@@ -53,8 +53,6 @@
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatEditText;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
 
     .line 72
-    iget-object p1, p0, Landroid/support/v7/widget/AppCompatEditText;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
-
     invoke-virtual {p1, p2, p3}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     .line 74
@@ -65,13 +63,9 @@
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatEditText;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     .line 75
-    iget-object p1, p0, Landroid/support/v7/widget/AppCompatEditText;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
-
     invoke-virtual {p1, p2, p3}, Landroid/support/v7/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     .line 76
-    iget-object p1, p0, Landroid/support/v7/widget/AppCompatEditText;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
-
     invoke-virtual {p1}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     return-void
@@ -108,14 +102,6 @@
 
 .method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 133
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatEditText;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -138,14 +124,6 @@
 
 .method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 161
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatEditText;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -168,8 +146,6 @@
 
 .method public getText()Landroid/text/Editable;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 85
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -196,8 +172,6 @@
 
 .method public bridge synthetic getText()Ljava/lang/CharSequence;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 55
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatEditText;->getText()Landroid/text/Editable;
@@ -242,10 +216,6 @@
 
 .method public setBackgroundResource(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroid/support/annotation/DrawableRes;
-        .end annotation
-    .end param
 
     .line 95
     invoke-super {p0, p1}, Landroid/widget/EditText;->setBackgroundResource(I)V
@@ -278,15 +248,6 @@
 
 .method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
     .locals 1
-    .param p1    # Landroid/content/res/ColorStateList;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 118
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatEditText;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;
@@ -302,15 +263,6 @@
 
 .method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
-    .param p1    # Landroid/graphics/PorterDuff$Mode;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 146
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatEditText;->mBackgroundTintHelper:Landroid/support/v7/widget/AppCompatBackgroundHelper;

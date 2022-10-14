@@ -36,14 +36,6 @@
 # virtual methods
 .method public destroyItem(Landroid/view/View;ILjava/lang/Object;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -59,14 +51,6 @@
 
 .method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 0
-    .param p1    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 129
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/view/PagerAdapter;->destroyItem(Landroid/view/View;ILjava/lang/Object;)V
@@ -76,10 +60,6 @@
 
 .method public finishUpdate(Landroid/view/View;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -88,10 +68,6 @@
 
 .method public finishUpdate(Landroid/view/ViewGroup;)V
     .locals 0
-    .param p1    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 154
     invoke-virtual {p0, p1}, Landroid/support/v4/view/PagerAdapter;->finishUpdate(Landroid/view/View;)V
@@ -104,10 +80,6 @@
 
 .method public getItemPosition(Ljava/lang/Object;)I
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 p1, -0x1
 
@@ -116,8 +88,6 @@
 
 .method public getPageTitle(I)Ljava/lang/CharSequence;
     .locals 0
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const/4 p1, 0x0
 
@@ -134,13 +104,6 @@
 
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -156,12 +119,6 @@
 
 .method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
     .locals 0
-    .param p1    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 115
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/view/PagerAdapter;->instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
@@ -172,14 +129,6 @@
 .end method
 
 .method public abstract isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 .end method
 
 .method public notifyDataSetChanged()V
@@ -195,8 +144,6 @@
     if-eqz v0, :cond_0
 
     .line 291
-    iget-object v0, p0, Landroid/support/v4/view/PagerAdapter;->mViewPagerObserver:Landroid/database/DataSetObserver;
-
     invoke-virtual {v0}, Landroid/database/DataSetObserver;->onChanged()V
 
     .line 293
@@ -226,10 +173,6 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .param p1    # Landroid/database/DataSetObserver;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 303
     iget-object v0, p0, Landroid/support/v4/view/PagerAdapter;->mObservable:Landroid/database/DataSetObservable;
@@ -241,22 +184,12 @@
 
 .method public restoreState(Landroid/os/Parcelable;Ljava/lang/ClassLoader;)V
     .locals 0
-    .param p1    # Landroid/os/Parcelable;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/ClassLoader;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     return-void
 .end method
 
 .method public saveState()Landroid/os/Parcelable;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -265,14 +198,6 @@
 
 .method public setPrimaryItem(Landroid/view/View;ILjava/lang/Object;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -281,14 +206,6 @@
 
 .method public setPrimaryItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 0
-    .param p1    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 143
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/view/PagerAdapter;->setPrimaryItem(Landroid/view/View;ILjava/lang/Object;)V
@@ -323,10 +240,6 @@
 
 .method public startUpdate(Landroid/view/View;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -335,10 +248,6 @@
 
 .method public startUpdate(Landroid/view/ViewGroup;)V
     .locals 0
-    .param p1    # Landroid/view/ViewGroup;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 99
     invoke-virtual {p0, p1}, Landroid/support/v4/view/PagerAdapter;->startUpdate(Landroid/view/View;)V
@@ -348,10 +257,6 @@
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
-    .param p1    # Landroid/database/DataSetObserver;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 312
     iget-object v0, p0, Landroid/support/v4/view/PagerAdapter;->mObservable:Landroid/database/DataSetObservable;

@@ -25,9 +25,9 @@
 
     const/16 v0, 0xa
 
-    .line 44
     new-array v0, v0, [I
 
+    .line 44
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v4/app/FragmentTransition;->INVERSE_OPS:[I
@@ -1341,41 +1341,30 @@
 
     invoke-static {p0, v0}, Landroid/support/v4/app/FragmentTransition;->canHandleAll(Landroid/support/v4/app/FragmentTransitionImpl;Ljava/util/List;)Z
 
-    move-result p0
+    move-result v1
 
-    if-eqz p0, :cond_7
-
-    .line 457
-    sget-object p0, Landroid/support/v4/app/FragmentTransition;->PLATFORM_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
+    if-eqz v1, :cond_7
 
     return-object p0
 
     .line 459
     :cond_7
-    sget-object p0, Landroid/support/v4/app/FragmentTransition;->SUPPORT_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
+    sget-object v1, Landroid/support/v4/app/FragmentTransition;->SUPPORT_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
 
-    if-eqz p0, :cond_8
+    if-eqz v1, :cond_8
 
-    invoke-static {p0, v0}, Landroid/support/v4/app/FragmentTransition;->canHandleAll(Landroid/support/v4/app/FragmentTransitionImpl;Ljava/util/List;)Z
+    invoke-static {v1, v0}, Landroid/support/v4/app/FragmentTransition;->canHandleAll(Landroid/support/v4/app/FragmentTransitionImpl;Ljava/util/List;)Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_8
+    if-eqz v0, :cond_8
 
-    .line 460
-    sget-object p0, Landroid/support/v4/app/FragmentTransition;->SUPPORT_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
+    return-object v1
 
-    return-object p0
-
-    .line 462
     :cond_8
-    sget-object p0, Landroid/support/v4/app/FragmentTransition;->PLATFORM_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
-
     if-nez p0, :cond_9
 
-    sget-object p0, Landroid/support/v4/app/FragmentTransition;->SUPPORT_IMPL:Landroid/support/v4/app/FragmentTransitionImpl;
-
-    if-nez p0, :cond_9
+    if-nez v1, :cond_9
 
     return-object p1
 
@@ -2776,9 +2765,9 @@
 
     const/4 v1, 0x0
 
-    .line 68
     new-array v2, v1, [Ljava/lang/Class;
 
+    .line 68
     invoke-virtual {v0, v2}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
 
     move-result-object v0

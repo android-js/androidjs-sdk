@@ -215,10 +215,6 @@
 
 .method public onProvideKeyboardShortcuts(Ljava/util/List;Landroid/view/Menu;I)V
     .locals 3
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x18
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -305,9 +301,6 @@
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 2638
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$AppCompatWindowCallback;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;

@@ -97,19 +97,17 @@
 
     iput-object v0, p0, Landroid/support/constraint/solver/state/State;->mParent:Landroid/support/constraint/solver/state/ConstraintReference;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     .line 166
-    iput v0, p0, Landroid/support/constraint/solver/state/State;->numHelpers:I
+    iput v1, p0, Landroid/support/constraint/solver/state/State;->numHelpers:I
 
     .line 96
-    iget-object v0, p0, Landroid/support/constraint/solver/state/State;->mReferences:Ljava/util/HashMap;
+    iget-object v1, p0, Landroid/support/constraint/solver/state/State;->mReferences:Ljava/util/HashMap;
 
-    sget-object v1, Landroid/support/constraint/solver/state/State;->PARENT:Ljava/lang/Integer;
+    sget-object v2, Landroid/support/constraint/solver/state/State;->PARENT:Ljava/lang/Integer;
 
-    iget-object v2, p0, Landroid/support/constraint/solver/state/State;->mParent:Landroid/support/constraint/solver/state/ConstraintReference;
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

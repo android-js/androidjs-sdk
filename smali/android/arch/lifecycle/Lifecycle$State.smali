@@ -38,89 +38,79 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 11
 
     .line 157
     new-instance v0, Landroid/arch/lifecycle/Lifecycle$State;
 
-    const/4 v1, 0x0
+    const-string v1, "DESTROYED"
 
-    const-string v2, "DESTROYED"
+    const/4 v2, 0x0
 
-    invoke-direct {v0, v2, v1}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->DESTROYED:Landroid/arch/lifecycle/Lifecycle$State;
 
     .line 164
-    new-instance v0, Landroid/arch/lifecycle/Lifecycle$State;
-
-    const/4 v2, 0x1
+    new-instance v1, Landroid/arch/lifecycle/Lifecycle$State;
 
     const-string v3, "INITIALIZED"
 
-    invoke-direct {v0, v3, v2}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    const/4 v4, 0x1
 
-    sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->INITIALIZED:Landroid/arch/lifecycle/Lifecycle$State;
+    invoke-direct {v1, v3, v4}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+
+    sput-object v1, Landroid/arch/lifecycle/Lifecycle$State;->INITIALIZED:Landroid/arch/lifecycle/Lifecycle$State;
 
     .line 174
-    new-instance v0, Landroid/arch/lifecycle/Lifecycle$State;
+    new-instance v3, Landroid/arch/lifecycle/Lifecycle$State;
 
-    const/4 v3, 0x2
+    const-string v5, "CREATED"
 
-    const-string v4, "CREATED"
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v4, v3}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->CREATED:Landroid/arch/lifecycle/Lifecycle$State;
+    sput-object v3, Landroid/arch/lifecycle/Lifecycle$State;->CREATED:Landroid/arch/lifecycle/Lifecycle$State;
 
     .line 184
-    new-instance v0, Landroid/arch/lifecycle/Lifecycle$State;
+    new-instance v5, Landroid/arch/lifecycle/Lifecycle$State;
 
-    const/4 v4, 0x3
+    const-string v7, "STARTED"
 
-    const-string v5, "STARTED"
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v5, v4}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->STARTED:Landroid/arch/lifecycle/Lifecycle$State;
+    sput-object v5, Landroid/arch/lifecycle/Lifecycle$State;->STARTED:Landroid/arch/lifecycle/Lifecycle$State;
 
     .line 190
-    new-instance v0, Landroid/arch/lifecycle/Lifecycle$State;
+    new-instance v7, Landroid/arch/lifecycle/Lifecycle$State;
 
-    const/4 v5, 0x4
+    const-string v9, "RESUMED"
 
-    const-string v6, "RESUMED"
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v6, v5}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroid/arch/lifecycle/Lifecycle$State;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->RESUMED:Landroid/arch/lifecycle/Lifecycle$State;
+    sput-object v7, Landroid/arch/lifecycle/Lifecycle$State;->RESUMED:Landroid/arch/lifecycle/Lifecycle$State;
 
-    const/4 v0, 0x5
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Landroid/arch/lifecycle/Lifecycle$State;
+
+    aput-object v0, v9, v2
+
+    aput-object v1, v9, v4
+
+    aput-object v3, v9, v6
+
+    aput-object v5, v9, v8
+
+    aput-object v7, v9, v10
 
     .line 150
-    new-array v0, v0, [Landroid/arch/lifecycle/Lifecycle$State;
-
-    sget-object v6, Landroid/arch/lifecycle/Lifecycle$State;->DESTROYED:Landroid/arch/lifecycle/Lifecycle$State;
-
-    aput-object v6, v0, v1
-
-    sget-object v1, Landroid/arch/lifecycle/Lifecycle$State;->INITIALIZED:Landroid/arch/lifecycle/Lifecycle$State;
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Landroid/arch/lifecycle/Lifecycle$State;->CREATED:Landroid/arch/lifecycle/Lifecycle$State;
-
-    aput-object v1, v0, v3
-
-    sget-object v1, Landroid/arch/lifecycle/Lifecycle$State;->STARTED:Landroid/arch/lifecycle/Lifecycle$State;
-
-    aput-object v1, v0, v4
-
-    sget-object v1, Landroid/arch/lifecycle/Lifecycle$State;->RESUMED:Landroid/arch/lifecycle/Lifecycle$State;
-
-    aput-object v1, v0, v5
-
-    sput-object v0, Landroid/arch/lifecycle/Lifecycle$State;->$VALUES:[Landroid/arch/lifecycle/Lifecycle$State;
+    sput-object v9, Landroid/arch/lifecycle/Lifecycle$State;->$VALUES:[Landroid/arch/lifecycle/Lifecycle$State;
 
     return-void
 .end method
@@ -173,10 +163,6 @@
 # virtual methods
 .method public isAtLeast(Landroid/arch/lifecycle/Lifecycle$State;)Z
     .locals 0
-    .param p1    # Landroid/arch/lifecycle/Lifecycle$State;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 199
     invoke-virtual {p0, p1}, Landroid/arch/lifecycle/Lifecycle$State;->compareTo(Ljava/lang/Enum;)I

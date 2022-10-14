@@ -51,8 +51,6 @@
     iput-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doBeforeTextChanged:Ljava/lang/reflect/Method;
 
     .line 2029
-    iget-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doBeforeTextChanged:Ljava/lang/reflect/Method;
-
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
@@ -74,8 +72,6 @@
     iput-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
 
     .line 2036
-    iget-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
-
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
@@ -101,8 +97,6 @@
     iput-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->ensureImeVisible:Ljava/lang/reflect/Method;
 
     .line 2043
-    iget-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->ensureImeVisible:Ljava/lang/reflect/Method;
-
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
     :try_end_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_2
@@ -123,10 +117,10 @@
 
     const/4 v1, 0x0
 
-    .line 2061
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
+    .line 2061
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -146,10 +140,10 @@
 
     const/4 v1, 0x0
 
-    .line 2052
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
+    .line 2052
     invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -169,12 +163,12 @@
 
     const/4 v1, 0x1
 
-    .line 2070
     :try_start_0
     new-array v1, v1, [Ljava/lang/Object;
 
     const/4 v2, 0x0
 
+    .line 2070
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p2

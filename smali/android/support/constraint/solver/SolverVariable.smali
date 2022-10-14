@@ -122,21 +122,21 @@
 
     const/16 v1, 0x9
 
-    .line 60
     new-array v2, v1, [F
 
+    .line 60
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
 
-    .line 61
     new-array v1, v1, [F
 
+    .line 61
     iput-object v1, p0, Landroid/support/constraint/solver/SolverVariable;->goalStrengthVector:[F
 
     const/16 v1, 0x10
 
-    .line 65
     new-array v1, v1, [Landroid/support/constraint/solver/ArrayRow;
 
+    .line 65
     iput-object v1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     .line 66
@@ -191,21 +191,21 @@
 
     const/16 v2, 0x9
 
-    .line 60
     new-array v3, v2, [F
 
+    .line 60
     iput-object v3, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
 
-    .line 61
     new-array v2, v2, [F
 
+    .line 61
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariable;->goalStrengthVector:[F
 
     const/16 v2, 0x10
 
-    .line 65
     new-array v2, v2, [Landroid/support/constraint/solver/ArrayRow;
 
+    .line 65
     iput-object v2, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     .line 66
@@ -793,7 +793,7 @@
 .end method
 
 .method strengthsToString()Ljava/lang/String;
-    .locals 9
+    .locals 10
 
     .line 143
     new-instance v0, Ljava/lang/StringBuilder;
@@ -814,11 +814,9 @@
 
     const/4 v2, 0x0
 
-    move-object v4, v0
-
-    const/4 v0, 0x0
-
     const/4 v3, 0x0
+
+    const/4 v4, 0x0
 
     const/4 v5, 0x1
 
@@ -828,87 +826,77 @@
 
     array-length v6, v6
 
-    if-ge v0, v6, :cond_4
+    if-ge v3, v6, :cond_4
 
     .line 147
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
+    iget-object v0, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
 
-    aget v4, v4, v0
+    aget v0, v0, v3
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
     .line 148
     iget-object v6, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
 
-    aget v7, v6, v0
+    aget v7, v6, v3
 
     const/4 v8, 0x0
 
-    cmpl-float v7, v7, v8
+    cmpl-float v9, v7, v8
 
-    if-lez v7, :cond_0
+    if-lez v9, :cond_0
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     goto :goto_1
 
-    .line 150
     :cond_0
-    aget v6, v6, v0
+    cmpg-float v9, v7, v8
 
-    cmpg-float v6, v6, v8
+    if-gez v9, :cond_1
 
-    if-gez v6, :cond_1
+    const/4 v4, 0x1
 
-    const/4 v3, 0x1
-
-    .line 153
     :cond_1
     :goto_1
-    iget-object v6, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
+    cmpl-float v7, v7, v8
 
-    aget v6, v6, v0
-
-    cmpl-float v6, v6, v8
-
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
     const/4 v5, 0x0
 
     .line 156
     :cond_2
-    iget-object v6, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
-
     array-length v6, v6
 
     sub-int/2addr v6, v1
 
-    if-ge v0, v6, :cond_3
+    if-ge v3, v6, :cond_3
 
     .line 157
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ", "
+    const-string v0, ", "
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
     goto :goto_2
 
@@ -918,59 +906,59 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "] "
+    const-string v0, "] "
 
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_4
-    if-eqz v3, :cond_5
+    if-eqz v4, :cond_5
 
     .line 163
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " (-)"
+    const-string v0, " (-)"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
     :cond_5
     if-eqz v5, :cond_6
 
     .line 166
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " (*)"
+    const-string v0, " (*)"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
     :cond_6
-    return-object v4
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;

@@ -655,9 +655,11 @@
     if-nez v11, :cond_12
 
     .line 149
-    new-instance v11, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    move-object v11, v3
 
     .line 151
     :cond_12
@@ -1296,60 +1298,60 @@
 
     move-result-object v1
 
-    move-object v4, v12
+    move-object v2, v12
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
     :cond_25
     :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_27
+    if-eqz v4, :cond_27
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;
+    check-cast v4, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;
 
     .line 301
-    invoke-virtual {v5}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->getOrientation()I
+    invoke-virtual {v4}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->getOrientation()I
 
-    move-result v6
+    move-result v5
 
     const/4 v7, 0x1
 
-    if-ne v6, v7, :cond_26
+    if-ne v5, v7, :cond_26
 
     goto :goto_12
 
     :cond_26
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     .line 304
-    invoke-virtual {v5, v6}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
 
     .line 305
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getSystem()Landroid/support/constraint/solver/LinearSystem;
 
     move-result-object v7
 
-    invoke-virtual {v5, v7, v6}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->measureWrap(Landroid/support/constraint/solver/LinearSystem;I)I
+    invoke-virtual {v4, v7, v5}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->measureWrap(Landroid/support/constraint/solver/LinearSystem;I)I
 
     move-result v7
 
-    if-le v7, v2, :cond_25
+    if-le v7, v6, :cond_25
 
-    move-object v4, v5
+    move-object v2, v4
 
-    move v2, v7
+    move v6, v7
 
     goto :goto_12
 
     :cond_27
-    if-eqz v4, :cond_28
+    if-eqz v2, :cond_28
 
     .line 318
     sget-object v1, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -1357,17 +1359,17 @@
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
     .line 319
-    invoke-virtual {v0, v2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setWidth(I)V
+    invoke-virtual {v0, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setWidth(I)V
 
     const/4 v1, 0x1
 
     .line 320
-    invoke-virtual {v4, v1}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
+    invoke-virtual {v2, v1}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
 
     goto :goto_13
 
     :cond_28
-    move-object v4, v12
+    move-object v2, v12
 
     .line 325
     :goto_13
@@ -1375,47 +1377,47 @@
 
     move-result-object v1
 
-    sget-object v2, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v1, v2, :cond_2c
+    if-ne v1, v4, :cond_2c
 
     .line 328
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    move-object v2, v12
+    move-object v3, v12
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
     :cond_29
     :goto_14
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2b
+    if-eqz v4, :cond_2b
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;
+    check-cast v4, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;
 
     .line 329
-    invoke-virtual {v5}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->getOrientation()I
+    invoke-virtual {v4}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->getOrientation()I
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_2a
+    if-nez v5, :cond_2a
 
     goto :goto_14
 
     :cond_2a
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     .line 332
-    invoke-virtual {v5, v6}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
 
     .line 333
     invoke-virtual/range {p0 .. p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->getSystem()Landroid/support/constraint/solver/LinearSystem;
@@ -1424,24 +1426,24 @@
 
     const/4 v8, 0x1
 
-    invoke-virtual {v5, v7, v8}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->measureWrap(Landroid/support/constraint/solver/LinearSystem;I)I
+    invoke-virtual {v4, v7, v8}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->measureWrap(Landroid/support/constraint/solver/LinearSystem;I)I
 
     move-result v7
 
-    if-le v7, v3, :cond_29
+    if-le v7, v6, :cond_29
 
-    move-object v2, v5
+    move-object v3, v4
 
-    move v3, v7
+    move v6, v7
 
     goto :goto_14
 
     :cond_2b
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     const/4 v8, 0x1
 
-    if-eqz v2, :cond_2d
+    if-eqz v3, :cond_2d
 
     .line 346
     sget-object v1, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -1449,31 +1451,41 @@
     invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setVerticalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
     .line 347
-    invoke-virtual {v0, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHeight(I)V
+    invoke-virtual {v0, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHeight(I)V
 
     .line 348
-    invoke-virtual {v2, v8}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
+    invoke-virtual {v3, v8}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->setAuthoritative(Z)V
+
+    move-object v4, v3
 
     goto :goto_15
 
     :cond_2c
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
     const/4 v8, 0x1
 
     :cond_2d
-    move-object v2, v12
+    move-object v4, v12
 
     :goto_15
-    if-nez v4, :cond_2e
+    if-nez v2, :cond_2f
 
-    if-eqz v2, :cond_2f
+    if-eqz v4, :cond_2e
+
+    goto :goto_16
 
     :cond_2e
-    const/4 v6, 0x1
+    const/4 v3, 0x0
+
+    goto :goto_17
 
     :cond_2f
-    return v6
+    :goto_16
+    const/4 v3, 0x1
+
+    :goto_17
+    return v3
 .end method
 
 .method public static validInGroup(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)Z

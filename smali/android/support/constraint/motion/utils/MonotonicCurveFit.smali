@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>([D[[D)V
-    .locals 22
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -40,121 +40,121 @@
 
     add-int/lit8 v6, v3, -0x1
 
+    const/4 v7, 0x2
+
+    new-array v8, v7, [I
+
+    const/4 v9, 0x1
+
+    aput v5, v8, v9
+
+    aput v6, v8, v4
+
     .line 32
-    filled-new-array {v6, v5}, [I
+    sget-object v10, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    move-result-object v7
-
-    const-class v8, D
-
-    invoke-static {v8, v7}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, [[D
-
-    .line 33
-    filled-new-array {v3, v5}, [I
-
-    move-result-object v8
-
-    const-class v9, D
-
-    invoke-static {v9, v8}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v10, v8}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object v8
 
     check-cast v8, [[D
 
-    const/4 v9, 0x0
+    new-array v10, v7, [I
 
-    :goto_0
-    if-ge v9, v5, :cond_2
+    aput v5, v10, v9
+
+    aput v3, v10, v4
+
+    .line 33
+    sget-object v9, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v9, v10}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, [[D
 
     const/4 v10, 0x0
 
-    :goto_1
-    if-ge v10, v6, :cond_1
+    :goto_0
+    if-ge v10, v5, :cond_2
 
-    add-int/lit8 v11, v10, 0x1
+    const/4 v11, 0x0
+
+    :goto_1
+    if-ge v11, v6, :cond_1
+
+    add-int/lit8 v12, v11, 0x1
 
     .line 36
-    aget-wide v12, v1, v11
+    aget-wide v13, v1, v12
 
-    aget-wide v14, v1, v10
+    aget-wide v15, v1, v11
 
-    sub-double/2addr v12, v14
+    sub-double/2addr v13, v15
 
     .line 37
-    aget-object v14, v7, v10
+    aget-object v15, v8, v11
 
-    aget-object v15, v2, v11
+    aget-object v16, v2, v12
 
-    aget-wide v16, v15, v9
+    aget-wide v17, v16, v10
 
-    aget-object v15, v2, v10
+    aget-object v16, v2, v11
 
-    aget-wide v18, v15, v9
+    aget-wide v19, v16, v10
 
-    sub-double v16, v16, v18
+    sub-double v17, v17, v19
 
-    div-double v16, v16, v12
+    div-double v17, v17, v13
 
-    aput-wide v16, v14, v9
+    aput-wide v17, v15, v10
 
-    if-nez v10, :cond_0
+    if-nez v11, :cond_0
 
     .line 39
-    aget-object v12, v8, v10
+    aget-object v11, v9, v11
 
-    aget-object v10, v7, v10
-
-    aget-wide v13, v10, v9
-
-    aput-wide v13, v12, v9
+    aput-wide v17, v11, v10
 
     goto :goto_2
 
     .line 41
     :cond_0
-    aget-object v12, v8, v10
+    aget-object v13, v9, v11
 
-    add-int/lit8 v13, v10, -0x1
+    add-int/lit8 v11, v11, -0x1
 
-    aget-object v13, v7, v13
+    aget-object v11, v8, v11
 
-    aget-wide v14, v13, v9
+    aget-wide v14, v11, v10
 
-    aget-object v10, v7, v10
-
-    aget-wide v16, v10, v9
-
-    add-double v14, v14, v16
+    add-double v14, v14, v17
 
     const-wide/high16 v16, 0x3fe0000000000000L    # 0.5
 
     mul-double v14, v14, v16
 
-    aput-wide v14, v12, v9
+    aput-wide v14, v13, v10
 
     :goto_2
-    move v10, v11
+    move v11, v12
 
     goto :goto_1
 
     .line 44
     :cond_1
-    aget-object v10, v8, v6
+    aget-object v11, v9, v6
 
-    add-int/lit8 v11, v3, -0x2
+    add-int/lit8 v12, v3, -0x2
 
-    aget-object v11, v7, v11
+    aget-object v12, v8, v12
 
-    aget-wide v12, v11, v9
+    aget-wide v13, v12, v10
 
-    aput-wide v12, v10, v9
+    aput-wide v13, v11, v10
 
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
@@ -164,15 +164,15 @@
     :goto_3
     if-ge v3, v6, :cond_6
 
-    const/4 v9, 0x0
+    const/4 v7, 0x0
 
     :goto_4
-    if-ge v9, v5, :cond_5
+    if-ge v7, v5, :cond_5
 
     .line 49
-    aget-object v10, v7, v3
+    aget-object v10, v8, v3
 
-    aget-wide v11, v10, v9
+    aget-wide v11, v10, v7
 
     const-wide/16 v13, 0x0
 
@@ -181,88 +181,78 @@
     if-nez v10, :cond_3
 
     .line 50
-    aget-object v10, v8, v3
+    aget-object v10, v9, v3
 
-    aput-wide v13, v10, v9
+    aput-wide v13, v10, v7
 
     add-int/lit8 v10, v3, 0x1
 
     .line 51
-    aget-object v10, v8, v10
+    aget-object v10, v9, v10
 
-    aput-wide v13, v10, v9
+    aput-wide v13, v10, v7
 
     goto :goto_5
 
     .line 53
     :cond_3
-    aget-object v10, v8, v3
+    aget-object v10, v9, v3
 
-    aget-wide v11, v10, v9
+    aget-wide v13, v10, v7
 
-    aget-object v10, v7, v3
-
-    aget-wide v13, v10, v9
-
-    div-double/2addr v11, v13
+    div-double/2addr v13, v11
 
     add-int/lit8 v10, v3, 0x1
 
     .line 54
-    aget-object v13, v8, v10
+    aget-object v15, v9, v10
 
-    aget-wide v14, v13, v9
+    aget-wide v16, v15, v7
 
-    aget-object v13, v7, v3
-
-    aget-wide v16, v13, v9
-
-    div-double v14, v14, v16
+    div-double v11, v16, v11
 
     .line 55
-    invoke-static {v11, v12, v14, v15}, Ljava/lang/Math;->hypot(DD)D
+    invoke-static {v13, v14, v11, v12}, Ljava/lang/Math;->hypot(DD)D
 
-    move-result-wide v16
+    move-result-wide v15
 
-    const-wide/high16 v18, 0x4022000000000000L    # 9.0
+    const-wide/high16 v17, 0x4022000000000000L    # 9.0
 
-    cmpl-double v13, v16, v18
+    cmpl-double v19, v15, v17
 
-    if-lez v13, :cond_4
+    if-lez v19, :cond_4
 
-    const-wide/high16 v18, 0x4008000000000000L    # 3.0
+    const-wide/high16 v17, 0x4008000000000000L    # 3.0
 
-    div-double v18, v18, v16
+    div-double v17, v17, v15
 
     .line 58
-    aget-object v13, v8, v3
+    aget-object v15, v9, v3
 
-    mul-double v11, v11, v18
+    mul-double v13, v13, v17
 
-    aget-object v16, v7, v3
+    aget-object v16, v8, v3
 
-    aget-wide v20, v16, v9
+    aget-wide v19, v16, v7
 
-    mul-double v11, v11, v20
+    mul-double v13, v13, v19
 
-    aput-wide v11, v13, v9
+    aput-wide v13, v15, v7
 
     .line 59
-    aget-object v10, v8, v10
+    aget-object v10, v9, v10
 
-    mul-double v18, v18, v14
+    mul-double v17, v17, v11
 
-    aget-object v11, v7, v3
+    aget-wide v11, v16, v7
 
-    aget-wide v12, v11, v9
+    mul-double v17, v17, v11
 
-    mul-double v18, v18, v12
-
-    aput-wide v18, v10, v9
+    aput-wide v17, v10, v7
 
     :cond_4
     :goto_5
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_4
 
@@ -279,7 +269,7 @@
     iput-object v2, v0, Landroid/support/constraint/motion/utils/MonotonicCurveFit;->mY:[[D
 
     .line 66
-    iput-object v8, v0, Landroid/support/constraint/motion/utils/MonotonicCurveFit;->mTangent:[[D
+    iput-object v9, v0, Landroid/support/constraint/motion/utils/MonotonicCurveFit;->mTangent:[[D
 
     return-void
 .end method
@@ -494,26 +484,18 @@
     return-wide v2
 
     :cond_2
-    add-int/lit8 v4, v3, 0x1
+    add-int/lit8 v6, v3, 0x1
 
     .line 159
-    aget-wide v5, v1, v4
+    aget-wide v7, v1, v6
 
-    cmpg-double v7, p1, v5
+    cmpg-double v1, p1, v7
 
-    if-gez v7, :cond_3
+    if-gez v1, :cond_3
 
-    .line 160
-    aget-wide v5, v1, v4
+    sub-double v9, v7, v4
 
-    aget-wide v7, v1, v3
-
-    sub-double v9, v5, v7
-
-    .line 161
-    aget-wide v5, v1, v3
-
-    sub-double v1, p1, v5
+    sub-double v1, p1, v4
 
     div-double v11, v1, v9
 
@@ -525,7 +507,7 @@
     aget-wide v13, v2, p3
 
     .line 163
-    aget-object v1, v1, v4
+    aget-object v1, v1, v6
 
     aget-wide v15, v1, p3
 
@@ -537,7 +519,7 @@
     aget-wide v17, v2, p3
 
     .line 165
-    aget-object v1, v1, v4
+    aget-object v1, v1, v6
 
     aget-wide v19, v1, p3
 
@@ -549,7 +531,7 @@
     return-wide v1
 
     :cond_3
-    move v3, v4
+    move v3, v6
 
     goto :goto_0
 
@@ -681,14 +663,9 @@
     if-gez v9, :cond_6
 
     .line 93
-    aget-wide v7, v5, v6
-
     aget-wide v9, v5, v1
 
     sub-double/2addr v7, v9
-
-    .line 94
-    aget-wide v9, v5, v1
 
     sub-double v9, p1, v9
 
@@ -876,14 +853,9 @@
     if-gez v9, :cond_6
 
     .line 131
-    aget-wide v7, v5, v6
-
     aget-wide v9, v5, v1
 
     sub-double/2addr v7, v9
-
-    .line 132
-    aget-wide v9, v5, v1
 
     sub-double v9, p1, v9
 
@@ -964,23 +936,17 @@
 
     if-gez v6, :cond_0
 
-    .line 205
-    aget-wide v4, v1, v3
-
     goto :goto_0
 
     :cond_0
     add-int/lit8 v4, v2, -0x1
 
     .line 206
-    aget-wide v5, v1, v4
-
-    cmpl-double v7, p1, v5
-
-    if-ltz v7, :cond_1
-
-    .line 207
     aget-wide v4, v1, v4
+
+    cmpl-double v1, p1, v4
+
+    if-ltz v1, :cond_1
 
     goto :goto_0
 
@@ -1004,14 +970,9 @@
     if-gtz v9, :cond_2
 
     .line 211
-    aget-wide v7, v1, v6
-
     aget-wide v9, v1, v3
 
     sub-double/2addr v7, v9
-
-    .line 212
-    aget-wide v9, v1, v3
 
     sub-double/2addr v4, v9
 
@@ -1089,23 +1050,17 @@
 
     if-gtz v7, :cond_0
 
-    .line 178
-    aget-wide v5, v1, v4
-
     goto :goto_0
 
     :cond_0
     add-int/lit8 v5, v2, -0x1
 
     .line 179
-    aget-wide v6, v1, v5
-
-    cmpl-double v8, p1, v6
-
-    if-ltz v8, :cond_1
-
-    .line 180
     aget-wide v5, v1, v5
+
+    cmpl-double v1, p1, v5
+
+    if-ltz v1, :cond_1
 
     goto :goto_0
 
@@ -1132,14 +1087,9 @@
     if-gtz v11, :cond_2
 
     .line 185
-    aget-wide v9, v7, v8
-
     aget-wide v11, v7, v1
 
     sub-double/2addr v9, v11
-
-    .line 186
-    aget-wide v11, v7, v1
 
     sub-double/2addr v5, v11
 

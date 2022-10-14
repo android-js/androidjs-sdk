@@ -96,14 +96,6 @@
 
 .method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2782
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -209,9 +201,6 @@
     move-result v0
 
     iput-boolean v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehaviorResolved:Z
-
-    .line 2804
-    iget-boolean v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehaviorResolved:Z
 
     if-eqz v0, :cond_0
 
@@ -379,9 +368,6 @@
 
     iput-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
 
-    .line 3049
-    iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorView:Landroid/view/View;
-
     const/4 v1, 0x0
 
     if-eqz v0, :cond_6
@@ -526,9 +512,13 @@
 
     invoke-direct {v0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :goto_1
     throw v0
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method
 
 .method private shouldDodge(Landroid/view/View;I)Z
@@ -784,8 +774,6 @@
 
 .method public getAnchorId()I
     .locals 1
-    .annotation build Landroid/support/annotation/IdRes;
-    .end annotation
 
     .line 2835
     iget v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mAnchorId:I
@@ -795,8 +783,6 @@
 
 .method public getBehavior()Landroid/support/design/widget/CoordinatorLayout$Behavior;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 2861
     iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;
@@ -932,10 +918,6 @@
 
 .method public setAnchorId(I)V
     .locals 0
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
 
     .line 2849
     invoke-virtual {p0}, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->invalidateAnchor()V
@@ -948,10 +930,6 @@
 
 .method public setBehavior(Landroid/support/design/widget/CoordinatorLayout$Behavior;)V
     .locals 1
-    .param p1    # Landroid/support/design/widget/CoordinatorLayout$Behavior;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 2874
     iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->mBehavior:Landroid/support/design/widget/CoordinatorLayout$Behavior;

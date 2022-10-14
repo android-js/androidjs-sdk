@@ -38,11 +38,6 @@
     .line 1385
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    const/4 p1, 0x0
-
-    .line 1374
-    iput p1, p0, Landroid/support/v7/app/ActionBar$LayoutParams;->gravity:I
-
     const p1, 0x800013
 
     .line 1386
@@ -57,11 +52,6 @@
     .line 1390
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(II)V
 
-    const/4 p1, 0x0
-
-    .line 1374
-    iput p1, p0, Landroid/support/v7/app/ActionBar$LayoutParams;->gravity:I
-
     .line 1391
     iput p3, p0, Landroid/support/v7/app/ActionBar$LayoutParams;->gravity:I
 
@@ -70,10 +60,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 1377
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V

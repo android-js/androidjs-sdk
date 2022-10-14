@@ -23,10 +23,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     const/4 v0, 0x0
 
@@ -42,14 +38,6 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 3
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # I
-        .annotation build Landroid/support/annotation/StyleRes;
-        .end annotation
-    .end param
 
     .line 342
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -153,8 +141,6 @@
 
 .method public getContext()Landroid/content/Context;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 358
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -173,7 +159,9 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 660
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     return-object p0
 .end method
@@ -198,20 +186,20 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCursor:Landroid/database/Cursor;
 
     .line 679
-    iput-object p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
 
     .line 680
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     return-object p0
 .end method
 
 .method public setCustomTitle(Landroid/view/View;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 398
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -223,10 +211,6 @@
 
 .method public setIcon(I)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .param p1    # I
-        .annotation build Landroid/support/annotation/DrawableRes;
-        .end annotation
-    .end param
 
     .line 430
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -238,10 +222,6 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 445
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -253,10 +233,6 @@
 
 .method public setIconAttribute(I)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 3
-    .param p1    # I
-        .annotation build Landroid/support/annotation/AttrRes;
-        .end annotation
-    .end param
 
     .line 459
     new-instance v0, Landroid/util/TypedValue;
@@ -301,10 +277,6 @@
 
 .method public setItems(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ArrayRes;
-        .end annotation
-    .end param
 
     .line 631
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -338,17 +310,15 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mItems:[Ljava/lang/CharSequence;
 
     .line 644
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     return-object p0
 .end method
 
 .method public setMessage(I)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 
     .line 408
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -366,10 +336,6 @@
 
 .method public setMessage(Ljava/lang/CharSequence;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 418
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -381,10 +347,6 @@
 
 .method public setMultiChoiceItems(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ArrayRes;
-        .end annotation
-    .end param
 
     .line 704
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -407,11 +369,15 @@
     iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
 
     .line 706
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
     iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItems:[Z
+
+    .line 707
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
     const/4 p2, 0x1
 
-    .line 707
     iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsMultiChoice:Z
 
     return-object p0
@@ -426,18 +392,26 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCursor:Landroid/database/Cursor;
 
     .line 759
-    iput-object p4, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p4, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
 
     .line 760
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mIsCheckedColumn:Ljava/lang/String;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsCheckedColumn:Ljava/lang/String;
 
     .line 761
-    iput-object p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
-    const/4 p1, 0x1
+    iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
 
     .line 762
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mIsMultiChoice:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsMultiChoice:Z
 
     return-object p0
 .end method
@@ -451,25 +425,27 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mItems:[Ljava/lang/CharSequence;
 
     .line 731
-    iput-object p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;
 
     .line 732
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItems:[Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
-    const/4 p1, 0x1
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItems:[Z
 
     .line 733
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mIsMultiChoice:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsMultiChoice:Z
 
     return-object p0
 .end method
 
 .method public setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 
     .line 509
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -499,7 +475,9 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
     .line 523
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     return-object p0
 .end method
@@ -517,10 +495,6 @@
 
 .method public setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 
     .line 545
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -550,7 +524,9 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mNeutralButtonText:Ljava/lang/CharSequence;
 
     .line 559
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mNeutralButtonListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mNeutralButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     return-object p0
 .end method
@@ -612,10 +588,6 @@
 
 .method public setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 
     .line 473
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -645,7 +617,9 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
     .line 487
-    iput-object p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
     return-object p0
 .end method
@@ -663,11 +637,6 @@
 
 .method public setRecycleOnMeasureEnabled(Z)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 965
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -679,10 +648,6 @@
 
 .method public setSingleChoiceItems(IILandroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ArrayRes;
-        .end annotation
-    .end param
 
     .line 783
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -705,11 +670,15 @@
     iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 785
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
     iput p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
+
+    .line 786
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
     const/4 p2, 0x1
 
-    .line 786
     iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
     return-object p0
@@ -724,18 +693,26 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCursor:Landroid/database/Cursor;
 
     .line 809
-    iput-object p4, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p4, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 810
-    iput p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
 
     .line 811
-    iput-object p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
-    const/4 p1, 0x1
+    iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
 
     .line 812
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
     return-object p0
 .end method
@@ -749,15 +726,21 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mAdapter:Landroid/widget/ListAdapter;
 
     .line 854
-    iput-object p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 855
-    iput p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
-    const/4 p1, 0x1
+    iput p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
 
     .line 856
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
     return-object p0
 .end method
@@ -771,25 +754,27 @@
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mItems:[Ljava/lang/CharSequence;
 
     .line 832
-    iput-object p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
     .line 833
-    iput p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
-    const/4 p1, 0x1
+    iput p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItem:I
 
     .line 834
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 p2, 0x1
+
+    iput-boolean p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsSingleChoice:Z
 
     return-object p0
 .end method
 
 .method public setTitle(I)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 2
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 
     .line 367
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -807,10 +792,6 @@
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 377
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
@@ -831,12 +812,16 @@
     iput-object v1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
     .line 882
+    iget-object v0, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
     iput p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewLayoutResId:I
 
-    const/4 p1, 0x0
-
     .line 883
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingSpecified:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingSpecified:Z
 
     return-object p0
 .end method
@@ -849,25 +834,23 @@
 
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const/4 p1, 0x0
-
     .line 903
-    iput p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewLayoutResId:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 v0, 0x0
+
+    iput v0, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewLayoutResId:I
 
     .line 904
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingSpecified:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput-boolean v0, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingSpecified:Z
 
     return-object p0
 .end method
 
 .method public setView(Landroid/view/View;IIII)Landroid/support/v7/app/AlertDialog$Builder;
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -876,27 +859,39 @@
 
     iput-object p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const/4 p1, 0x0
-
     .line 935
-    iput p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewLayoutResId:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
 
-    const/4 p1, 0x1
+    const/4 v0, 0x0
+
+    iput v0, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewLayoutResId:I
 
     .line 936
-    iput-boolean p1, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingSpecified:Z
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingSpecified:Z
 
     .line 937
-    iput p2, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingLeft:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput p2, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingLeft:I
 
     .line 938
-    iput p3, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingTop:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingTop:I
 
     .line 939
-    iput p4, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingRight:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput p4, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingRight:I
 
     .line 940
-    iput p5, v0, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingBottom:I
+    iget-object p1, p0, Landroid/support/v7/app/AlertDialog$Builder;->P:Landroid/support/v7/app/AlertController$AlertParams;
+
+    iput p5, p1, Landroid/support/v7/app/AlertController$AlertParams;->mViewSpacingBottom:I
 
     return-object p0
 .end method

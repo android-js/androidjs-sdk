@@ -92,11 +92,11 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    invoke-direct {p0, p1, v0, v2, v1}, Landroid/support/v4/widget/ResourceCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;Z)V
+    invoke-direct {p0, p1, v0, v1, v2}, Landroid/support/v4/widget/ResourceCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;Z)V
 
     const/4 v0, 0x0
 
@@ -104,7 +104,7 @@
     iput-boolean v0, p0, Landroid/support/v7/widget/SuggestionsAdapter;->mClosed:Z
 
     .line 75
-    iput v1, p0, Landroid/support/v7/widget/SuggestionsAdapter;->mQueryRefinement:I
+    iput v2, p0, Landroid/support/v7/widget/SuggestionsAdapter;->mQueryRefinement:I
 
     const/4 v0, -0x1
 
@@ -1032,10 +1032,6 @@
     .line 204
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p1
-
-    if-eqz p1, :cond_1
-
     :cond_1
     return-void
 .end method
@@ -1809,7 +1805,6 @@
 
     const/4 p1, 0x1
 
-    .line 766
     new-array v0, p1, [Ljava/lang/String;
 
     const/4 p1, 0x0

@@ -38,89 +38,79 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 11
 
     .line 79
     new-instance v0, Landroid/support/constraint/solver/SolverVariable$Type;
 
-    const/4 v1, 0x0
+    const-string v1, "UNRESTRICTED"
 
-    const-string v2, "UNRESTRICTED"
+    const/4 v2, 0x0
 
-    invoke-direct {v0, v2, v1}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->UNRESTRICTED:Landroid/support/constraint/solver/SolverVariable$Type;
 
     .line 83
-    new-instance v0, Landroid/support/constraint/solver/SolverVariable$Type;
-
-    const/4 v2, 0x1
+    new-instance v1, Landroid/support/constraint/solver/SolverVariable$Type;
 
     const-string v3, "CONSTANT"
 
-    invoke-direct {v0, v3, v2}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
+    const/4 v4, 0x1
 
-    sput-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->CONSTANT:Landroid/support/constraint/solver/SolverVariable$Type;
+    invoke-direct {v1, v3, v4}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
+
+    sput-object v1, Landroid/support/constraint/solver/SolverVariable$Type;->CONSTANT:Landroid/support/constraint/solver/SolverVariable$Type;
 
     .line 87
-    new-instance v0, Landroid/support/constraint/solver/SolverVariable$Type;
+    new-instance v3, Landroid/support/constraint/solver/SolverVariable$Type;
 
-    const/4 v3, 0x2
+    const-string v5, "SLACK"
 
-    const-string v4, "SLACK"
+    const/4 v6, 0x2
 
-    invoke-direct {v0, v4, v3}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v3, v5, v6}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->SLACK:Landroid/support/constraint/solver/SolverVariable$Type;
+    sput-object v3, Landroid/support/constraint/solver/SolverVariable$Type;->SLACK:Landroid/support/constraint/solver/SolverVariable$Type;
 
     .line 91
-    new-instance v0, Landroid/support/constraint/solver/SolverVariable$Type;
+    new-instance v5, Landroid/support/constraint/solver/SolverVariable$Type;
 
-    const/4 v4, 0x3
+    const-string v7, "ERROR"
 
-    const-string v5, "ERROR"
+    const/4 v8, 0x3
 
-    invoke-direct {v0, v5, v4}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v5, v7, v8}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->ERROR:Landroid/support/constraint/solver/SolverVariable$Type;
+    sput-object v5, Landroid/support/constraint/solver/SolverVariable$Type;->ERROR:Landroid/support/constraint/solver/SolverVariable$Type;
 
     .line 95
-    new-instance v0, Landroid/support/constraint/solver/SolverVariable$Type;
+    new-instance v7, Landroid/support/constraint/solver/SolverVariable$Type;
 
-    const/4 v5, 0x4
+    const-string v9, "UNKNOWN"
 
-    const-string v6, "UNKNOWN"
+    const/4 v10, 0x4
 
-    invoke-direct {v0, v6, v5}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v7, v9, v10}, Landroid/support/constraint/solver/SolverVariable$Type;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->UNKNOWN:Landroid/support/constraint/solver/SolverVariable$Type;
+    sput-object v7, Landroid/support/constraint/solver/SolverVariable$Type;->UNKNOWN:Landroid/support/constraint/solver/SolverVariable$Type;
 
-    const/4 v0, 0x5
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Landroid/support/constraint/solver/SolverVariable$Type;
+
+    aput-object v0, v9, v2
+
+    aput-object v1, v9, v4
+
+    aput-object v3, v9, v6
+
+    aput-object v5, v9, v8
+
+    aput-object v7, v9, v10
 
     .line 75
-    new-array v0, v0, [Landroid/support/constraint/solver/SolverVariable$Type;
-
-    sget-object v6, Landroid/support/constraint/solver/SolverVariable$Type;->UNRESTRICTED:Landroid/support/constraint/solver/SolverVariable$Type;
-
-    aput-object v6, v0, v1
-
-    sget-object v1, Landroid/support/constraint/solver/SolverVariable$Type;->CONSTANT:Landroid/support/constraint/solver/SolverVariable$Type;
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Landroid/support/constraint/solver/SolverVariable$Type;->SLACK:Landroid/support/constraint/solver/SolverVariable$Type;
-
-    aput-object v1, v0, v3
-
-    sget-object v1, Landroid/support/constraint/solver/SolverVariable$Type;->ERROR:Landroid/support/constraint/solver/SolverVariable$Type;
-
-    aput-object v1, v0, v4
-
-    sget-object v1, Landroid/support/constraint/solver/SolverVariable$Type;->UNKNOWN:Landroid/support/constraint/solver/SolverVariable$Type;
-
-    aput-object v1, v0, v5
-
-    sput-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->$VALUES:[Landroid/support/constraint/solver/SolverVariable$Type;
+    sput-object v9, Landroid/support/constraint/solver/SolverVariable$Type;->$VALUES:[Landroid/support/constraint/solver/SolverVariable$Type;
 
     return-void
 .end method

@@ -15,12 +15,6 @@
 
 .method public static create(Ljava/lang/String;J)Landroid/database/CursorWindow;
     .locals 2
-    .param p0    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 41
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

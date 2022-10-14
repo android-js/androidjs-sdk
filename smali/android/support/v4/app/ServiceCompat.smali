@@ -31,10 +31,6 @@
 
 .method public static stopForeground(Landroid/app/Service;I)V
     .locals 2
-    .param p0    # Landroid/app/Service;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

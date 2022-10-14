@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/graphics/drawable/DrawableContainer$BlockInvalidateCallback;,
@@ -295,15 +289,6 @@
 
 .method private needsMirroring()Z
     .locals 2
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "WrongConstant"
-        }
-    .end annotation
-
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x17
-    .end annotation
 
     .line 106
     invoke-virtual {p0}, Landroid/support/v7/graphics/drawable/DrawableContainer;->isAutoMirrored()Z
@@ -331,10 +316,6 @@
 
 .method static resolveDensity(Landroid/content/res/Resources;I)I
     .locals 0
-    .param p0    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     if-nez p0, :cond_0
 
@@ -533,13 +514,6 @@
 
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 1
-    .param p1    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
 
     .line 598
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
@@ -551,9 +525,6 @@
 
 .method public canApplyTheme()Z
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
 
     .line 604
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
@@ -592,10 +563,6 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 1
-    .param p1    # Landroid/graphics/Canvas;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 89
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;
@@ -681,8 +648,6 @@
 
 .method public getCurrent()Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 581
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;
@@ -701,10 +666,6 @@
 
 .method public getHotspotBounds(Landroid/graphics/Rect;)V
     .locals 1
-    .param p1    # Landroid/graphics/Rect;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 299
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mHotspotBounds:Landroid/graphics/Rect;
@@ -920,13 +881,6 @@
 
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 1
-    .param p1    # Landroid/graphics/Outline;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
 
     .line 135
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;
@@ -942,10 +896,6 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 3
-    .param p1    # Landroid/graphics/Rect;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 111
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
@@ -1030,10 +980,6 @@
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 372
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
@@ -1167,10 +1113,13 @@
     .line 270
     iput-wide v4, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mEnterAnimationEnd:J
 
-    const/4 v0, 0x1
+    goto :goto_1
 
     :cond_3
-    if-eqz v0, :cond_4
+    move v1, v0
+
+    :goto_1
+    if-eqz v1, :cond_4
 
     .line 274
     invoke-virtual {p0}, Landroid/support/v7/graphics/drawable/DrawableContainer;->invalidateSelf()V
@@ -1181,8 +1130,6 @@
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 619
     iget-boolean v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mMutated:Z
@@ -1326,14 +1273,6 @@
 
 .method public scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
     .locals 1
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Runnable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 382
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;
@@ -1620,6 +1559,8 @@
     if-eqz p1, :cond_0
 
     .line 239
+    iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
+
     iget-boolean v0, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mAutoMirrored:Z
 
     invoke-static {p1, v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
@@ -1639,6 +1580,8 @@
     iput-boolean v1, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mHasColorFilter:Z
 
     .line 173
+    iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
+
     iget-object v0, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mColorFilter:Landroid/graphics/ColorFilter;
 
     if-eq v0, p1, :cond_0
@@ -1677,9 +1620,6 @@
     move-result-object p1
 
     iput-object p1, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;
-
-    .line 1159
-    iget-object p1, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz p1, :cond_0
 
@@ -1730,6 +1670,8 @@
     if-eqz p1, :cond_0
 
     .line 165
+    iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
+
     iget-boolean v0, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mDither:Z
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setDither(Z)V
@@ -1820,6 +1762,8 @@
     iput-boolean v1, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mHasTintList:Z
 
     .line 184
+    iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
+
     iget-object v0, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mTintList:Landroid/content/res/ColorStateList;
 
     if-eq v0, p1, :cond_0
@@ -1840,10 +1784,6 @@
 
 .method public setTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 2
-    .param p1    # Landroid/graphics/PorterDuff$Mode;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 192
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
@@ -1853,6 +1793,8 @@
     iput-boolean v1, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mHasTintMode:Z
 
     .line 193
+    iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mDrawableContainerState:Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
+
     iget-object v0, v0, Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
     if-eq v0, p1, :cond_0
@@ -1902,14 +1844,6 @@
 
 .method public unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
     .locals 1
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Runnable;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 389
     iget-object v0, p0, Landroid/support/v7/graphics/drawable/DrawableContainer;->mCurrDrawable:Landroid/graphics/drawable/Drawable;

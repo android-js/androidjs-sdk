@@ -199,14 +199,14 @@
 
     const/16 v0, 0x12
 
-    .line 150
     new-array v1, v0, [D
 
+    .line 150
     iput-object v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mTempValue:[D
 
-    .line 151
     new-array v0, v0, [D
 
+    .line 151
     iput-object v0, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mTempDelta:[D
 
     return-void
@@ -306,7 +306,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -321,9 +321,11 @@
 
     check-cast v2, Landroid/support/constraint/motion/SplineSet;
 
+    .line 259
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
     const/4 v3, -0x1
 
-    .line 259
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v4
@@ -341,9 +343,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_0
 
-    const/4 v3, 0x0
+    goto/16 :goto_1
+
+    :cond_0
+    const/16 v3, 0xd
 
     goto/16 :goto_1
 
@@ -354,9 +359,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_1
 
-    const/4 v3, 0x7
+    goto/16 :goto_1
+
+    :cond_1
+    const/16 v3, 0xc
 
     goto/16 :goto_1
 
@@ -367,9 +375,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_2
 
-    const/4 v3, 0x1
+    goto/16 :goto_1
+
+    :cond_2
+    const/16 v3, 0xb
 
     goto/16 :goto_1
 
@@ -380,9 +391,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_3
 
-    const/4 v3, 0x2
+    goto/16 :goto_1
+
+    :cond_3
+    const/16 v3, 0xa
 
     goto/16 :goto_1
 
@@ -393,11 +407,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_4
 
-    const/4 v3, 0x6
+    goto/16 :goto_1
 
-    goto :goto_1
+    :cond_4
+    const/16 v3, 0x9
+
+    goto/16 :goto_1
 
     :sswitch_5
     const-string v4, "transformPivotX"
@@ -406,11 +423,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_5
 
-    const/4 v3, 0x5
+    goto/16 :goto_1
 
-    goto :goto_1
+    :cond_5
+    const/16 v3, 0x8
+
+    goto/16 :goto_1
 
     :sswitch_6
     const-string v4, "scaleY"
@@ -419,9 +439,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_6
 
-    const/16 v3, 0xa
+    goto :goto_1
+
+    :cond_6
+    const/4 v3, 0x7
 
     goto :goto_1
 
@@ -432,9 +455,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_7
 
-    const/16 v3, 0x9
+    goto :goto_1
+
+    :cond_7
+    const/4 v3, 0x6
 
     goto :goto_1
 
@@ -445,9 +471,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_8
 
-    const/16 v3, 0x8
+    goto :goto_1
+
+    :cond_8
+    const/4 v3, 0x5
 
     goto :goto_1
 
@@ -458,9 +487,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_9
 
-    const/16 v3, 0xd
+    goto :goto_1
+
+    :cond_9
+    const/4 v3, 0x4
 
     goto :goto_1
 
@@ -471,9 +503,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_a
 
-    const/16 v3, 0xc
+    goto :goto_1
+
+    :cond_a
+    const/4 v3, 0x3
 
     goto :goto_1
 
@@ -484,9 +519,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_b
 
-    const/16 v3, 0xb
+    goto :goto_1
+
+    :cond_b
+    const/4 v3, 0x2
 
     goto :goto_1
 
@@ -497,9 +535,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_c
 
-    const/4 v3, 0x4
+    goto :goto_1
+
+    :cond_c
+    const/4 v3, 0x1
 
     goto :goto_1
 
@@ -510,11 +551,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_d
 
-    const/4 v3, 0x3
+    goto :goto_1
 
-    :cond_0
+    :cond_d
+    const/4 v3, 0x0
+
     :goto_1
     const/high16 v4, 0x3f800000    # 1.0f
 
@@ -531,7 +574,7 @@
 
     const-string v4, "MotionPaths"
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_10
 
     const-string v3, ","
 
@@ -549,7 +592,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_f
 
     .line 306
     iget-object v5, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->attributes:Ljava/util/LinkedHashMap;
@@ -563,7 +606,7 @@
     .line 307
     instance-of v5, v2, Landroid/support/constraint/motion/SplineSet$CustomSet;
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_e
 
     .line 308
     check-cast v2, Landroid/support/constraint/motion/SplineSet$CustomSet;
@@ -572,288 +615,8 @@
 
     goto/16 :goto_0
 
-    .line 300
-    :pswitch_0
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    goto :goto_2
-
-    :cond_1
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
-
-    :goto_2
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 297
-    :pswitch_1
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    goto :goto_3
-
-    :cond_2
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
-
-    :goto_3
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 294
-    :pswitch_2
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    goto :goto_4
-
-    :cond_3
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
-
-    :goto_4
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 291
-    :pswitch_3
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    goto :goto_5
-
-    :cond_4
-    iget v4, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleY:F
-
-    :goto_5
-    invoke-virtual {v2, p2, v4}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 288
-    :pswitch_4
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    goto :goto_6
-
-    :cond_5
-    iget v4, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleX:F
-
-    :goto_6
-    invoke-virtual {v2, p2, v4}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 285
-    :pswitch_5
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mProgress:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    goto :goto_7
-
-    :cond_6
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mProgress:F
-
-    :goto_7
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 282
-    :pswitch_6
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    goto :goto_8
-
-    :cond_7
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
-
-    :goto_8
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 279
-    :pswitch_7
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
-
-    goto :goto_9
-
-    :cond_8
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
-
-    :goto_9
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 276
-    :pswitch_8
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_9
-
-    goto :goto_a
-
-    :cond_9
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotX:F
-
-    :goto_a
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 273
-    :pswitch_9
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_a
-
-    goto :goto_b
-
-    :cond_a
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationY:F
-
-    :goto_b
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 270
-    :pswitch_a
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_b
-
-    goto :goto_c
-
-    :cond_b
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationX:F
-
-    :goto_c
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 267
-    :pswitch_b
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotation:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_c
-
-    goto :goto_d
-
-    :cond_c
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotation:F
-
-    :goto_d
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 264
-    :pswitch_c
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_d
-
-    goto :goto_e
-
-    :cond_d
-    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
-
-    :goto_e
-    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
-    .line 261
-    :pswitch_d
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->alpha:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_e
-
-    goto :goto_f
-
-    :cond_e
-    iget v4, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->alpha:F
-
-    :goto_f
-    invoke-virtual {v2, p2, v4}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
-
-    goto/16 :goto_0
-
     .line 310
-    :cond_f
+    :cond_e
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -889,7 +652,7 @@
     goto/16 :goto_0
 
     .line 317
-    :cond_10
+    :cond_f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -909,7 +672,7 @@
     goto/16 :goto_0
 
     .line 320
-    :cond_11
+    :cond_10
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -928,8 +691,290 @@
 
     goto/16 :goto_0
 
+    .line 261
+    :pswitch_0
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->alpha:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_11
+
+    goto :goto_2
+
+    :cond_11
+    iget v4, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->alpha:F
+
+    :goto_2
+    invoke-virtual {v2, p2, v4}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 282
+    :pswitch_1
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_12
+
+    goto :goto_3
+
     :cond_12
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
+
+    :goto_3
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 264
+    :pswitch_2
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_13
+
+    goto :goto_4
+
+    :cond_13
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
+
+    :goto_4
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 267
+    :pswitch_3
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotation:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_14
+
+    goto :goto_5
+
+    :cond_14
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotation:F
+
+    :goto_5
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 279
+    :pswitch_4
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_15
+
+    goto :goto_6
+
+    :cond_15
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
+
+    :goto_6
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 276
+    :pswitch_5
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotX:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_16
+
+    goto :goto_7
+
+    :cond_16
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotX:F
+
+    :goto_7
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 291
+    :pswitch_6
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleY:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_17
+
+    goto :goto_8
+
+    :cond_17
+    iget v4, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleY:F
+
+    :goto_8
+    invoke-virtual {v2, p2, v4}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 288
+    :pswitch_7
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleX:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_18
+
+    goto :goto_9
+
+    :cond_18
+    iget v4, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleX:F
+
+    :goto_9
+    invoke-virtual {v2, p2, v4}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 285
+    :pswitch_8
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mProgress:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_19
+
+    goto :goto_a
+
+    :cond_19
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mProgress:F
+
+    :goto_a
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 300
+    :pswitch_9
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1a
+
+    goto :goto_b
+
+    :cond_1a
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
+
+    :goto_b
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 297
+    :pswitch_a
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1b
+
+    goto :goto_c
+
+    :cond_1b
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
+
+    :goto_c
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 294
+    :pswitch_b
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1c
+
+    goto :goto_d
+
+    :cond_1c
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
+
+    :goto_d
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 273
+    :pswitch_c
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationY:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1d
+
+    goto :goto_e
+
+    :cond_1d
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationY:F
+
+    :goto_e
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    .line 270
+    :pswitch_d
+    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationX:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1e
+
+    goto :goto_f
+
+    :cond_1e
+    iget v6, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationX:F
+
+    :goto_f
+    invoke-virtual {v2, p2, v6}, Landroid/support/constraint/motion/SplineSet;->setPoint(IF)V
+
+    goto/16 :goto_0
+
+    :cond_1f
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -1714,151 +1759,147 @@
 .end method
 
 .method fillStandard([D[I)V
-    .locals 6
+    .locals 8
 
     const/16 v0, 0x12
 
-    .line 154
-    new-array v0, v0, [F
+    new-array v1, v0, [F
 
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->position:F
+    .line 154
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->position:F
+
+    const/4 v3, 0x0
+
+    aput v2, v1, v3
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->x:F
+
+    const/4 v4, 0x1
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->y:F
+
+    const/4 v4, 0x2
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->width:F
+
+    const/4 v4, 0x3
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->height:F
+
+    const/4 v4, 0x4
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->alpha:F
+
+    const/4 v4, 0x5
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
+
+    const/4 v4, 0x6
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotation:F
+
+    const/4 v4, 0x7
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationX:F
+
+    const/16 v4, 0x8
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationY:F
+
+    const/16 v4, 0x9
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleX:F
+
+    const/16 v4, 0xa
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleY:F
+
+    const/16 v4, 0xb
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotX:F
+
+    const/16 v4, 0xc
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
+
+    const/16 v4, 0xd
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
+
+    const/16 v4, 0xe
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
+
+    const/16 v4, 0xf
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
+
+    const/16 v4, 0x10
+
+    aput v2, v1, v4
+
+    iget v2, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
+
+    const/16 v4, 0x11
+
+    aput v2, v1, v4
 
     const/4 v2, 0x0
 
-    aput v1, v0, v2
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->x:F
-
-    const/4 v3, 0x1
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->y:F
-
-    const/4 v3, 0x2
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->width:F
-
-    const/4 v3, 0x3
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->height:F
-
-    const/4 v3, 0x4
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->alpha:F
-
-    const/4 v3, 0x5
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->elevation:F
-
-    const/4 v3, 0x6
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotation:F
-
-    const/4 v3, 0x7
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationX:F
-
-    const/16 v3, 0x8
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->rotationY:F
-
-    const/16 v3, 0x9
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleX:F
-
-    const/16 v3, 0xa
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->scaleY:F
-
-    const/16 v3, 0xb
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotX:F
-
-    const/16 v3, 0xc
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPivotY:F
-
-    const/16 v3, 0xd
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationX:F
-
-    const/16 v3, 0xe
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationY:F
-
-    const/16 v3, 0xf
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->translationZ:F
-
-    const/16 v3, 0x10
-
-    aput v1, v0, v3
-
-    iget v1, p0, Landroid/support/constraint/motion/MotionConstrainedPoint;->mPathRotate:F
-
-    const/16 v3, 0x11
-
-    aput v1, v0, v3
-
-    const/4 v1, 0x0
-
     .line 157
     :goto_0
-    array-length v3, p2
+    array-length v4, p2
 
-    if-ge v2, v3, :cond_1
+    if-ge v3, v4, :cond_1
 
     .line 158
-    aget v3, p2, v2
+    aget v4, p2, v3
 
-    array-length v4, v0
+    if-ge v4, v0, :cond_0
 
-    if-ge v3, v4, :cond_0
-
-    add-int/lit8 v3, v1, 0x1
+    add-int/lit8 v5, v2, 0x1
 
     .line 159
-    aget v4, p2, v2
+    aget v4, v1, v4
 
-    aget v4, v0, v4
+    float-to-double v6, v4
 
-    float-to-double v4, v4
+    aput-wide v6, p1, v2
 
-    aput-wide v4, p1, v1
-
-    move v1, v3
+    move v2, v5
 
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 

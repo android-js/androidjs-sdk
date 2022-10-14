@@ -31,14 +31,6 @@
 
 .method public static checkCallingOrSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
     .locals 3
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 171
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
@@ -82,18 +74,6 @@
 
 .method public static checkCallingPermission(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 152
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
@@ -131,18 +111,6 @@
 
 .method public static checkPermission(Landroid/content/Context;Ljava/lang/String;IILjava/lang/String;)I
     .locals 1
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 97
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/Context;->checkPermission(Ljava/lang/String;II)I
@@ -217,14 +185,6 @@
 
 .method public static checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
     .locals 3
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 134
     invoke-static {}, Landroid/os/Process;->myPid()I

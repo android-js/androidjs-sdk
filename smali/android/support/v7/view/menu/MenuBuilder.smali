@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/view/menu/MenuBuilder$ItemInvoker;,
@@ -152,9 +146,9 @@
 
     const/4 v0, 0x6
 
-    .line 68
     new-array v0, v0, [I
 
+    .line 68
     fill-array-data v0, :array_0
 
     sput-object v0, Landroid/support/v7/view/menu/MenuBuilder;->sCategoryToOrder:[I
@@ -2336,9 +2330,6 @@
 
 .method public getVisibleItems()Ljava/util/ArrayList;
     .locals 5
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -7,14 +7,6 @@
 .implements Landroid/widget/AbsListView$SelectionBoundsAdjuster;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ListMenuItemView"
 
@@ -248,8 +240,6 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
     .line 316
-    iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
-
     invoke-direct {p0, v0}, Landroid/support/v7/view/menu/ListMenuItemView;->addContentView(Landroid/view/View;)V
 
     return-void
@@ -277,8 +267,6 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
 
     .line 300
-    iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
-
     invoke-direct {p0, v0, v2}, Landroid/support/v7/view/menu/ListMenuItemView;->addContentView(Landroid/view/View;I)V
 
     return-void
@@ -307,8 +295,6 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
     .line 308
-    iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
-
     invoke-direct {p0, v0}, Landroid/support/v7/view/menu/ListMenuItemView;->addContentView(Landroid/view/View;)V
 
     return-void
@@ -503,18 +489,16 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mTitleView:Landroid/widget/TextView;
 
     .line 109
-    iget v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mTextAppearance:I
+    iget v1, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mTextAppearance:I
 
-    const/4 v1, -0x1
+    const/4 v2, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     .line 110
-    iget-object v1, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mTitleView:Landroid/widget/TextView;
-
     iget-object v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mTextAppearanceContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v2, v0}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+    invoke-virtual {v0, v2, v1}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     .line 114
     :cond_0
@@ -538,9 +522,6 @@
     check-cast v0, Landroid/widget/ImageView;
 
     iput-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mSubMenuArrowView:Landroid/widget/ImageView;
-
-    .line 116
-    iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mSubMenuArrowView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_1
 
@@ -840,7 +821,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .locals 4
 
     .line 259
     iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -886,16 +867,13 @@
 
     if-nez p1, :cond_3
 
-    iget-boolean v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mPreserveIconSpacing:Z
+    iget-boolean v3, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mPreserveIconSpacing:Z
 
-    if-nez v2, :cond_3
+    if-nez v3, :cond_3
 
     return-void
 
-    .line 268
     :cond_3
-    iget-object v2, p0, Landroid/support/v7/view/menu/ListMenuItemView;->mIconView:Landroid/widget/ImageView;
-
     if-nez v2, :cond_4
 
     .line 269

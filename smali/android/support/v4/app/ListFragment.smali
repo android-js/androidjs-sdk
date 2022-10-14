@@ -108,9 +108,6 @@
 
     iput-object v1, p0, Landroid/support/v4/app/ListFragment;->mStandardEmptyView:Landroid/widget/TextView;
 
-    .line 339
-    iget-object v1, p0, Landroid/support/v4/app/ListFragment;->mStandardEmptyView:Landroid/widget/TextView;
-
     if-nez v1, :cond_2
 
     const v1, 0x1020004
@@ -189,14 +186,12 @@
     iput-object v0, p0, Landroid/support/v4/app/ListFragment;->mList:Landroid/widget/ListView;
 
     .line 358
-    iget-object v0, p0, Landroid/support/v4/app/ListFragment;->mEmptyView:Landroid/view/View;
+    iget-object v1, p0, Landroid/support/v4/app/ListFragment;->mEmptyView:Landroid/view/View;
 
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_5
 
     .line 359
-    iget-object v1, p0, Landroid/support/v4/app/ListFragment;->mList:Landroid/widget/ListView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
     goto :goto_1
 
@@ -664,14 +659,6 @@
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 149
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V

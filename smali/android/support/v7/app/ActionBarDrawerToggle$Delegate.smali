@@ -25,15 +25,7 @@
 .end method
 
 .method public abstract setActionBarDescription(I)V
-    .param p1    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .param p2    # I
-        .annotation build Landroid/support/annotation/StringRes;
-        .end annotation
-    .end param
 .end method

@@ -30,14 +30,6 @@
 # direct methods
 .method public constructor <init>(Landroid/view/View;Ljava/lang/String;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 373
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,16 +45,6 @@
 
 .method private resolveMethod(Landroid/content/Context;Ljava/lang/String;)V
     .locals 4
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     :goto_0
     if-eqz p1, :cond_2
@@ -108,8 +90,10 @@
 
     return-void
 
-    .line 411
     :catch_0
+    nop
+
+    .line 411
     :cond_0
     instance-of p2, p1, Landroid/content/ContextWrapper;
 
@@ -221,19 +205,19 @@
 
     invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_3
+
+    :goto_2
     throw p2
 
-    return-void
+    :goto_3
+    goto :goto_2
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 4
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 380
     iget-object v0, p0, Landroid/support/v7/app/AppCompatViewInflater$DeclaredOnClickListener;->mResolvedMethod:Ljava/lang/reflect/Method;

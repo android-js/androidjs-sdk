@@ -54,18 +54,16 @@
 
     if-eqz v0, :cond_3
 
-    iget-boolean v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mHasTickMarkTint:Z
+    iget-boolean v1, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mHasTickMarkTint:Z
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-boolean v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mHasTickMarkTintMode:Z
+    iget-boolean v1, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mHasTickMarkTintMode:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     .line 126
     :cond_0
-    iget-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMark:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -77,13 +75,11 @@
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMark:Landroid/graphics/drawable/Drawable;
 
     .line 128
-    iget-boolean v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mHasTickMarkTint:Z
+    iget-boolean v1, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mHasTickMarkTint:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     .line 129
-    iget-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMark:Landroid/graphics/drawable/Drawable;
-
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMarkTintList:Landroid/content/res/ColorStateList;
 
     invoke-static {v0, v1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
@@ -309,8 +305,6 @@
 
 .method getTickMark()Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 97
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMark:Landroid/graphics/drawable/Drawable;
@@ -320,8 +314,6 @@
 
 .method getTickMarkTintList()Landroid/content/res/ColorStateList;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 109
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMarkTintList:Landroid/content/res/ColorStateList;
@@ -331,8 +323,6 @@
 
 .method getTickMarkTintMode()Landroid/graphics/PorterDuff$Mode;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 121
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMarkTintMode:Landroid/graphics/PorterDuff$Mode;
@@ -466,10 +456,6 @@
 
 .method setTickMark(Landroid/graphics/drawable/Drawable;)V
     .locals 2
-    .param p1    # Landroid/graphics/drawable/Drawable;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 77
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMark:Landroid/graphics/drawable/Drawable;
@@ -532,10 +518,6 @@
 
 .method setTickMarkTintList(Landroid/content/res/ColorStateList;)V
     .locals 0
-    .param p1    # Landroid/content/res/ColorStateList;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 101
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMarkTintList:Landroid/content/res/ColorStateList;
@@ -553,10 +535,6 @@
 
 .method setTickMarkTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 0
-    .param p1    # Landroid/graphics/PorterDuff$Mode;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 113
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatSeekBarHelper;->mTickMarkTintMode:Landroid/graphics/PorterDuff$Mode;

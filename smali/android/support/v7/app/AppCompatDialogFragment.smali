@@ -36,11 +36,6 @@
 
 .method public setupDialog(Landroid/app/Dialog;I)V
     .locals 3
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 47
     instance-of v0, p1, Landroid/support/v7/app/AppCompatDialog;

@@ -226,7 +226,6 @@
 
     const/16 p3, 0x9
 
-    .line 181
     new-array p3, p3, [F
 
     .line 182

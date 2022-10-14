@@ -30,10 +30,6 @@
 
 .method public static finishAffinity(Landroid/app/Activity;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 287
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -57,10 +53,6 @@
 
 .method public static finishAfterTransition(Landroid/app/Activity;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 304
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -84,11 +76,6 @@
 
 .method public static getPermissionCompatDelegate()Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 169
     sget-object v0, Landroid/support/v4/app/ActivityCompat;->sDelegate:Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
@@ -98,12 +85,6 @@
 
 .method public static getReferrer(Landroid/app/Activity;)Landroid/net/Uri;
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 329
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -176,10 +157,6 @@
 
 .method public static postponeEnterTransition(Landroid/app/Activity;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 411
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -197,8 +174,6 @@
 
 .method public static requestDragAndDropPermissions(Landroid/app/Activity;Landroid/view/DragEvent;)Landroid/support/v13/view/DragAndDropPermissionsCompat;
     .locals 0
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 565
     invoke-static {p0, p1}, Landroid/support/v13/view/DragAndDropPermissionsCompat;->request(Landroid/app/Activity;Landroid/view/DragEvent;)Landroid/support/v13/view/DragAndDropPermissionsCompat;
@@ -210,19 +185,6 @@
 
 .method public static requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # [Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # I
-        .annotation build Landroid/support/annotation/IntRange;
-            from = 0x0L
-        .end annotation
-    .end param
 
     .line 491
     sget-object v0, Landroid/support/v4/app/ActivityCompat;->sDelegate:Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
@@ -294,17 +256,6 @@
 
 .method public static requireViewById(Landroid/app/Activity;I)Landroid/view/View;
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -352,14 +303,6 @@
 
 .method public static setEnterSharedElementCallback(Landroid/app/Activity;Landroid/support/v4/app/SharedElementCallback;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/app/SharedElementCallback;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 383
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -390,14 +333,6 @@
 
 .method public static setExitSharedElementCallback(Landroid/app/Activity;Landroid/support/v4/app/SharedElementCallback;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/app/SharedElementCallback;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 402
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -428,10 +363,6 @@
 
 .method public static setPermissionCompatDelegate(Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;)V
     .locals 0
-    .param p0    # Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 161
     sput-object p0, Landroid/support/v4/app/ActivityCompat;->sDelegate:Landroid/support/v4/app/ActivityCompat$PermissionCompatDelegate;
@@ -441,14 +372,6 @@
 
 .method public static shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/lang/String;)Z
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 548
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -472,18 +395,6 @@
 
 .method public static startActivityForResult(Landroid/app/Activity;Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 233
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -507,22 +418,6 @@
 
 .method public static startIntentSenderForResult(Landroid/app/Activity;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/content/IntentSender;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p7    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
@@ -551,10 +446,6 @@
 
 .method public static startPostponedEnterTransition(Landroid/app/Activity;)V
     .locals 2
-    .param p0    # Landroid/app/Activity;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 417
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

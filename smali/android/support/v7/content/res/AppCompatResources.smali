@@ -80,18 +80,6 @@
 
 .method private static addColorStateListToCache(Landroid/content/Context;ILandroid/content/res/ColorStateList;)V
     .locals 3
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorRes;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/res/ColorStateList;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 148
     sget-object v0, Landroid/support/v7/content/res/AppCompatResources;->sColorStateCacheLock:Ljava/lang/Object;
@@ -104,25 +92,23 @@
 
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Landroid/util/SparseArray;
+    check-cast v2, Landroid/util/SparseArray;
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     .line 151
-    new-instance v1, Landroid/util/SparseArray;
+    new-instance v2, Landroid/util/SparseArray;
 
-    invoke-direct {v1}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v2}, Landroid/util/SparseArray;-><init>()V
 
     .line 152
-    sget-object v2, Landroid/support/v7/content/res/AppCompatResources;->sColorStateCaches:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v2, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0, v2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 154
     :cond_0
-    new-instance v2, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;
+    new-instance v1, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;
 
     .line 155
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -133,10 +119,10 @@
 
     move-result-object p0
 
-    invoke-direct {v2, p2, p0}, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;-><init>(Landroid/content/res/ColorStateList;Landroid/content/res/Configuration;)V
+    invoke-direct {v1, p2, p0}, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;-><init>(Landroid/content/res/ColorStateList;Landroid/content/res/Configuration;)V
 
     .line 154
-    invoke-virtual {v1, p1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
+    invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
     .line 156
     monitor-exit v0
@@ -155,16 +141,6 @@
 
 .method private static getCachedColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
     .locals 4
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 128
     sget-object v0, Landroid/support/v7/content/res/AppCompatResources;->sColorStateCacheLock:Ljava/lang/Object;
@@ -247,14 +223,6 @@
 
 .method public static getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorRes;
-        .end annotation
-    .end param
 
     .line 65
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -304,16 +272,6 @@
 
 .method public static getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
     .locals 1
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/DrawableRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 102
     invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
@@ -329,38 +287,32 @@
 
 .method private static getTypedValue()Landroid/util/TypedValue;
     .locals 2
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 171
     sget-object v0, Landroid/support/v7/content/res/AppCompatResources;->TL_TYPED_VALUE:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Landroid/util/TypedValue;
+    check-cast v1, Landroid/util/TypedValue;
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     .line 173
-    new-instance v0, Landroid/util/TypedValue;
+    new-instance v1, Landroid/util/TypedValue;
 
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
+    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
 
     .line 174
-    sget-object v1, Landroid/support/v7/content/res/AppCompatResources;->TL_TYPED_VALUE:Ljava/lang/ThreadLocal;
-
-    invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
     :cond_0
-    return-object v0
+    return-object v1
 .end method
 
 .method private static inflateColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
     .locals 2
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 110
     invoke-static {p0, p1}, Landroid/support/v7/content/res/AppCompatResources;->isColorInt(Landroid/content/Context;I)Z
@@ -413,14 +365,6 @@
 
 .method private static isColorInt(Landroid/content/Context;I)Z
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # I
-        .annotation build Landroid/support/annotation/ColorRes;
-        .end annotation
-    .end param
 
     .line 160
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;

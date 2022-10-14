@@ -67,7 +67,6 @@
 
     array-length p2, p2
 
-    :goto_0
     sub-int/2addr p1, p2
 
     return p1
@@ -78,7 +77,7 @@
     const/4 v1, 0x0
 
     .line 782
-    :goto_1
+    :goto_0
     array-length v2, p1
 
     if-ge v1, v2, :cond_2
@@ -90,17 +89,14 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 784
-    aget-byte p1, p1, v1
+    sub-int/2addr v2, v3
 
-    aget-byte p2, p2, v1
-
-    goto :goto_0
+    return v2
 
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
     return v0

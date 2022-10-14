@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 4
+    .locals 3
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,21 +78,21 @@
 
     const/16 v1, 0xa
 
+    new-array v1, v1, [I
+
     .line 40
-    new-array v2, v1, [I
+    iput-object v1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
 
-    iput-object v2, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
+    const/4 v1, 0x2
 
-    const/4 v2, 0x3
+    new-array v1, v1, [I
 
     .line 41
-    filled-new-array {v1, v2}, [I
+    fill-array-data v1, :array_0
 
-    move-result-object v1
+    sget-object v2, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    const-class v3, F
-
-    invoke-static {v3, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -100,9 +100,11 @@
 
     iput-object v1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mValues:[[F
 
-    .line 44
-    new-array v1, v2, [F
+    const/4 v1, 0x3
 
+    new-array v1, v1, [F
+
+    .line 44
     iput-object v1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mCache:[F
 
     .line 49
@@ -114,6 +116,12 @@
     iput v0, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->last_cycle:F
 
     return-void
+
+    :array_0
+    .array-data 4
+        0xa
+        0x3
+    .end array-data
 .end method
 
 .method static makeCustomSpline(Ljava/lang/String;Landroid/util/SparseArray;)Landroid/support/constraint/motion/TimeCycleSplineSet;
@@ -138,12 +146,16 @@
 .end method
 
 .method static makeSpline(Ljava/lang/String;J)Landroid/support/constraint/motion/TimeCycleSplineSet;
-    .locals 1
+    .locals 2
 
     .line 130
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
     move-result v0
+
+    const/4 v1, -0x1
 
     sparse-switch v0, :sswitch_data_0
 
@@ -156,11 +168,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_0
 
-    const/4 p0, 0x0
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_0
+    const/16 v1, 0xb
+
+    goto/16 :goto_0
 
     :sswitch_1
     const-string v0, "transitionPathRotate"
@@ -169,11 +184,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
-    const/4 p0, 0x5
+    goto/16 :goto_0
 
-    goto/16 :goto_1
+    :cond_1
+    const/16 v1, 0xa
+
+    goto/16 :goto_0
 
     :sswitch_2
     const-string v0, "elevation"
@@ -182,11 +200,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_2
 
-    const/4 p0, 0x1
+    goto/16 :goto_0
 
-    goto :goto_1
+    :cond_2
+    const/16 v1, 0x9
+
+    goto/16 :goto_0
 
     :sswitch_3
     const-string v0, "rotation"
@@ -195,11 +216,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_3
 
-    const/4 p0, 0x2
+    goto/16 :goto_0
 
-    goto :goto_1
+    :cond_3
+    const/16 v1, 0x8
+
+    goto/16 :goto_0
 
     :sswitch_4
     const-string v0, "scaleY"
@@ -208,11 +232,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_4
 
-    const/4 p0, 0x7
+    goto :goto_0
 
-    goto :goto_1
+    :cond_4
+    const/4 v1, 0x7
+
+    goto :goto_0
 
     :sswitch_5
     const-string v0, "scaleX"
@@ -221,11 +248,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_5
 
-    const/4 p0, 0x6
+    goto :goto_0
 
-    goto :goto_1
+    :cond_5
+    const/4 v1, 0x6
+
+    goto :goto_0
 
     :sswitch_6
     const-string v0, "progress"
@@ -234,11 +264,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_6
 
-    const/16 p0, 0xb
+    goto :goto_0
 
-    goto :goto_1
+    :cond_6
+    const/4 v1, 0x5
+
+    goto :goto_0
 
     :sswitch_7
     const-string v0, "translationZ"
@@ -247,11 +280,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_7
 
-    const/16 p0, 0xa
+    goto :goto_0
 
-    goto :goto_1
+    :cond_7
+    const/4 v1, 0x4
+
+    goto :goto_0
 
     :sswitch_8
     const-string v0, "translationY"
@@ -260,11 +296,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_8
 
-    const/16 p0, 0x9
+    goto :goto_0
 
-    goto :goto_1
+    :cond_8
+    const/4 v1, 0x3
+
+    goto :goto_0
 
     :sswitch_9
     const-string v0, "translationX"
@@ -273,11 +312,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_9
 
-    const/16 p0, 0x8
+    goto :goto_0
 
-    goto :goto_1
+    :cond_9
+    const/4 v1, 0x2
+
+    goto :goto_0
 
     :sswitch_a
     const-string v0, "rotationY"
@@ -286,11 +328,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_a
 
-    const/4 p0, 0x4
+    goto :goto_0
 
-    goto :goto_1
+    :cond_a
+    const/4 v1, 0x1
+
+    goto :goto_0
 
     :sswitch_b
     const-string v0, "rotationX"
@@ -299,54 +344,51 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_b
 
-    const/4 p0, 0x3
+    goto :goto_0
 
-    goto :goto_1
+    :cond_b
+    const/4 v1, 0x0
 
-    :cond_0
     :goto_0
-    const/4 p0, -0x1
-
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     const/4 p0, 0x0
 
     return-object p0
 
-    .line 165
+    .line 132
     :pswitch_0
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$AlphaSet;
 
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;-><init>()V
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$AlphaSet;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 162
+    .line 147
     :pswitch_1
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationZset;
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;
 
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationZset;-><init>()V
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 159
+    .line 135
     :pswitch_2
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ElevationSet;
 
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;-><init>()V
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$ElevationSet;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 156
+    .line 138
     :pswitch_3
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationXset;
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationSet;
 
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationXset;-><init>()V
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationSet;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 153
     :pswitch_4
@@ -354,7 +396,7 @@
 
     invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$ScaleYset;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 150
     :pswitch_5
@@ -362,56 +404,56 @@
 
     invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$ScaleXset;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 147
+    .line 165
     :pswitch_6
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;
 
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;-><init>()V
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$ProgressSet;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
+
+    .line 162
+    :pswitch_7
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationZset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationZset;-><init>()V
+
+    goto :goto_1
+
+    .line 159
+    :pswitch_8
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationYset;-><init>()V
+
+    goto :goto_1
+
+    .line 156
+    :pswitch_9
+    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationXset;
+
+    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$TranslationXset;-><init>()V
+
+    goto :goto_1
 
     .line 144
-    :pswitch_7
+    :pswitch_a
     new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationYset;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationYset;-><init>()V
 
-    goto :goto_2
+    goto :goto_1
 
     .line 141
-    :pswitch_8
+    :pswitch_b
     new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationXset;
 
     invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationXset;-><init>()V
 
-    goto :goto_2
-
-    .line 138
-    :pswitch_9
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$RotationSet;-><init>()V
-
-    goto :goto_2
-
-    .line 135
-    :pswitch_a
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ElevationSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$ElevationSet;-><init>()V
-
-    goto :goto_2
-
-    .line 132
-    :pswitch_b
-    new-instance p0, Landroid/support/constraint/motion/TimeCycleSplineSet$AlphaSet;
-
-    invoke-direct {p0}, Landroid/support/constraint/motion/TimeCycleSplineSet$AlphaSet;-><init>()V
-
     .line 170
-    :goto_2
+    :goto_1
     invoke-virtual {p0, p1, p2}, Landroid/support/constraint/motion/TimeCycleSplineSet;->setStartTime(J)V
 
     return-object p0
@@ -635,8 +677,6 @@
     iput v5, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->last_cycle:F
 
     .line 78
-    iget v5, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->last_cycle:F
-
     invoke-static {v5}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v5
@@ -684,11 +724,9 @@
     iput v8, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->last_cycle:F
 
     .line 84
-    iget-object v8, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mType:Ljava/lang/String;
+    iget-object v9, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mType:Ljava/lang/String;
 
-    iget v9, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->last_cycle:F
-
-    invoke-virtual {v4, v3, v8, v10, v9}, Landroid/support/constraint/motion/KeyCache;->setFloatValue(Ljava/lang/Object;Ljava/lang/String;IF)V
+    invoke-virtual {v4, v3, v9, v10, v8}, Landroid/support/constraint/motion/KeyCache;->setFloatValue(Ljava/lang/Object;Ljava/lang/String;IF)V
 
     .line 85
     iput-wide v1, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->last_time:J
@@ -720,18 +758,21 @@
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     cmpl-float v1, v7, v3
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
+
+    goto :goto_0
 
     :cond_2
-    const/4 v10, 0x1
+    const/4 v6, 0x0
 
     .line 90
     :cond_3
-    iput-boolean v10, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mContinue:Z
+    :goto_0
+    iput-boolean v6, v0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mContinue:Z
 
     return v2
 .end method
@@ -746,7 +787,7 @@
 .end method
 
 .method public setPoint(IFFIF)V
-    .locals 3
+    .locals 2
 
     .line 179
     iget-object v0, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
@@ -758,25 +799,21 @@
     .line 180
     iget-object p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mValues:[[F
 
-    aget-object v0, p1, v1
-
-    const/4 v2, 0x0
-
-    aput p2, v0, v2
-
-    .line 181
-    aget-object p2, p1, v1
-
-    const/4 v0, 0x1
-
-    aput p3, p2, v0
-
-    .line 182
     aget-object p1, p1, v1
 
-    const/4 p2, 0x2
+    const/4 v0, 0x0
 
-    aput p5, p1, p2
+    aput p2, p1, v0
+
+    const/4 p2, 0x1
+
+    .line 181
+    aput p3, p1, p2
+
+    const/4 p3, 0x2
+
+    .line 182
+    aput p5, p1, p3
 
     .line 183
     iget p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mWaveShape:I
@@ -790,7 +827,7 @@
     .line 184
     iget p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->count:I
 
-    add-int/2addr p1, v0
+    add-int/2addr p1, p2
 
     iput p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->count:I
 
@@ -902,14 +939,18 @@
 
     const/4 v2, 0x3
 
+    const/4 v5, 0x2
+
+    new-array v6, v5, [I
+
+    aput v2, v6, v3
+
+    aput v1, v6, v4
+
     .line 203
-    filled-new-array {v1, v2}, [I
+    sget-object v1, Ljava/lang/Double;->TYPE:Ljava/lang/Class;
 
-    move-result-object v1
-
-    const-class v2, D
-
-    invoke-static {v2, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    invoke-static {v1, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -917,83 +958,73 @@
 
     const/4 v2, 0x0
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     .line 206
     :goto_1
-    iget v6, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->count:I
+    iget v7, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->count:I
 
-    if-ge v2, v6, :cond_5
+    if-ge v2, v7, :cond_5
 
     if-lez v2, :cond_4
 
     .line 207
-    iget-object v6, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
+    iget-object v7, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
 
-    aget v7, v6, v2
+    aget v8, v7, v2
 
-    add-int/lit8 v8, v2, -0x1
+    add-int/lit8 v9, v2, -0x1
 
-    aget v6, v6, v8
+    aget v7, v7, v9
 
-    if-ne v7, v6, :cond_4
+    if-ne v8, v7, :cond_4
 
     goto :goto_2
 
     .line 210
     :cond_4
-    iget-object v6, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
+    iget-object v7, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mTimePoints:[I
 
-    aget v6, v6, v2
+    aget v7, v7, v2
 
-    int-to-double v6, v6
+    int-to-double v7, v7
 
-    const-wide v8, 0x3f847ae147ae147bL    # 0.01
+    const-wide v9, 0x3f847ae147ae147bL    # 0.01
 
-    invoke-static {v6, v7}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v6, v6, v8
+    mul-double v7, v7, v9
 
-    aput-wide v6, v0, v5
+    aput-wide v7, v0, v6
 
     .line 211
-    aget-object v6, v1, v5
+    aget-object v7, v1, v6
 
-    iget-object v7, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mValues:[[F
+    iget-object v8, p0, Landroid/support/constraint/motion/TimeCycleSplineSet;->mValues:[[F
 
-    aget-object v8, v7, v2
+    aget-object v8, v8, v2
 
-    aget v8, v8, v4
+    aget v9, v8, v4
 
-    float-to-double v8, v8
+    float-to-double v9, v9
 
-    aput-wide v8, v6, v4
+    aput-wide v9, v7, v4
 
     .line 212
-    aget-object v6, v1, v5
+    aget v9, v8, v3
 
-    aget-object v8, v7, v2
+    float-to-double v9, v9
 
-    aget v8, v8, v3
+    aput-wide v9, v7, v3
+
+    .line 213
+    aget v8, v8, v5
 
     float-to-double v8, v8
 
-    aput-wide v8, v6, v3
+    aput-wide v8, v7, v5
 
-    .line 213
-    aget-object v6, v1, v5
-
-    aget-object v7, v7, v2
-
-    const/4 v8, 0x2
-
-    aget v7, v7, v8
-
-    float-to-double v9, v7
-
-    aput-wide v9, v6, v8
-
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     :goto_2
     add-int/lit8 v2, v2, 0x1

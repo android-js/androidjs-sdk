@@ -42,25 +42,21 @@
     .line 1014
     invoke-virtual {p0}, Landroid/support/v7/app/AlertController$AlertParams$2;->getCursor()Landroid/database/Cursor;
 
-    move-result-object p1
+    move-result-object p2
 
     .line 1015
-    iget-object p2, p0, Landroid/support/v7/app/AlertController$AlertParams$2;->this$0:Landroid/support/v7/app/AlertController$AlertParams;
+    iget-object p3, p1, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
 
-    iget-object p2, p2, Landroid/support/v7/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
+    invoke-interface {p2, p3}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    invoke-interface {p1, p2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    move-result p3
 
-    move-result p2
-
-    iput p2, p0, Landroid/support/v7/app/AlertController$AlertParams$2;->mLabelIndex:I
+    iput p3, p0, Landroid/support/v7/app/AlertController$AlertParams$2;->mLabelIndex:I
 
     .line 1016
-    iget-object p2, p0, Landroid/support/v7/app/AlertController$AlertParams$2;->this$0:Landroid/support/v7/app/AlertController$AlertParams;
+    iget-object p1, p1, Landroid/support/v7/app/AlertController$AlertParams;->mIsCheckedColumn:Ljava/lang/String;
 
-    iget-object p2, p2, Landroid/support/v7/app/AlertController$AlertParams;->mIsCheckedColumn:Ljava/lang/String;
-
-    invoke-interface {p1, p2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    invoke-interface {p2, p1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
     move-result p1
 

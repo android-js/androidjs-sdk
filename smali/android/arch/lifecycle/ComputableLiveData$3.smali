@@ -37,8 +37,6 @@
 # virtual methods
 .method public run()V
     .locals 4
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
 
     .line 127
     iget-object v0, p0, Landroid/arch/lifecycle/ComputableLiveData$3;->this$0:Landroid/arch/lifecycle/ComputableLiveData;

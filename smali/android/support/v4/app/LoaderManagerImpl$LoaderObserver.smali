@@ -30,9 +30,6 @@
 
 # instance fields
 .field private final mCallback:Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/app/LoaderManager$LoaderCallbacks<",
@@ -44,9 +41,6 @@
 .field private mDeliveredData:Z
 
 .field private final mLoader:Landroid/support/v4/content/Loader;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/content/Loader<",
@@ -59,14 +53,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/content/Loader;Landroid/support/v4/app/LoaderManager$LoaderCallbacks;)V
     .locals 1
-    .param p1    # Landroid/support/v4/content/Loader;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/support/v4/app/LoaderManager$LoaderCallbacks;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,10 +110,6 @@
 
 .method public onChanged(Ljava/lang/Object;)V
     .locals 2
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -192,8 +174,6 @@
 
 .method reset()V
     .locals 2
-    .annotation build Landroid/support/annotation/MainThread;
-    .end annotation
 
     .line 260
     iget-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderObserver;->mDeliveredData:Z

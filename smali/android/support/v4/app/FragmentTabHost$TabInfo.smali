@@ -16,14 +16,8 @@
 
 # instance fields
 .field final args:Landroid/os/Bundle;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-.end field
 
 .field final clss:Ljava/lang/Class;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -35,26 +29,11 @@
 .field fragment:Landroid/support/v4/app/Fragment;
 
 .field final tag:Ljava/lang/String;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/Class;Landroid/os/Bundle;)V
     .locals 0
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Class;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

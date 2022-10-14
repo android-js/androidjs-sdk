@@ -26,14 +26,8 @@
 .field private final mHyphenationFrequency:I
 
 .field private final mPaint:Landroid/text/TextPaint;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 .field private final mTextDir:Landroid/text/TextDirectionHeuristic;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-.end field
 
 .field final mWrapped:Landroid/text/PrecomputedText$Params;
 
@@ -41,13 +35,6 @@
 # direct methods
 .method public constructor <init>(Landroid/text/PrecomputedText$Params;)V
     .locals 1
-    .param p1    # Landroid/text/PrecomputedText$Params;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x1c
-    .end annotation
 
     .line 209
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,14 +75,6 @@
 
 .method constructor <init>(Landroid/text/TextPaint;Landroid/text/TextDirectionHeuristic;II)V
     .locals 2
-    .param p1    # Landroid/text/TextPaint;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/text/TextDirectionHeuristic;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 195
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -159,10 +138,6 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     const/4 v0, 0x1
 
@@ -510,9 +485,6 @@
 
 .method public getBreakStrategy()I
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 249
     iget v0, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mBreakStrategy:I
@@ -522,9 +494,6 @@
 
 .method public getHyphenationFrequency()I
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 261
     iget v0, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mHyphenationFrequency:I
@@ -534,12 +503,6 @@
 
 .method public getTextDirection()Landroid/text/TextDirectionHeuristic;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x12
-    .end annotation
 
     .line 237
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mTextDir:Landroid/text/TextDirectionHeuristic;
@@ -549,8 +512,6 @@
 
 .method public getTextPaint()Landroid/text/TextPaint;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 224
     iget-object v0, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mPaint:Landroid/text/TextPaint;
@@ -592,9 +553,9 @@
 
     if-lt v0, v13, :cond_0
 
-    .line 341
     new-array v0, v2, [Ljava/lang/Object;
 
+    .line 341
     iget-object v2, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v2}, Landroid/text/TextPaint;->getTextSize()F
@@ -721,9 +682,9 @@
 
     if-lt v0, v13, :cond_1
 
-    .line 346
     new-array v0, v2, [Ljava/lang/Object;
 
+    .line 346
     iget-object v2, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v2}, Landroid/text/TextPaint;->getTextSize()F
@@ -850,9 +811,9 @@
 
     if-lt v0, v1, :cond_2
 
-    .line 351
     new-array v0, v3, [Ljava/lang/Object;
 
+    .line 351
     iget-object v1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v1}, Landroid/text/TextPaint;->getTextSize()F
@@ -954,9 +915,9 @@
 
     if-lt v0, v1, :cond_3
 
-    .line 355
     new-array v0, v3, [Ljava/lang/Object;
 
+    .line 355
     iget-object v1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v1}, Landroid/text/TextPaint;->getTextSize()F
@@ -1050,10 +1011,10 @@
 
     return v0
 
-    .line 359
     :cond_3
     new-array v0, v4, [Ljava/lang/Object;
 
+    .line 359
     iget-object v1, p0, Landroid/support/v4/text/PrecomputedTextCompat$Params;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v1}, Landroid/text/TextPaint;->getTextSize()F

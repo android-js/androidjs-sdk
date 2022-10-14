@@ -42,10 +42,13 @@
 
     if-eq p0, v0, :cond_1
 
-    const/4 p0, 0x0
+    goto :goto_1
 
     :cond_1
-    return p0
+    move v1, p0
+
+    :goto_1
+    return v1
 .end method
 
 .method public static getMarginEnd(Landroid/view/ViewGroup$MarginLayoutParams;)I

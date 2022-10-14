@@ -121,8 +121,6 @@
     iput-object v4, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaint:Landroid/graphics/Paint;
 
     .line 2550
-    iget-object v4, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaint:Landroid/graphics/Paint;
-
     invoke-virtual {v4, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 2551
@@ -152,8 +150,6 @@
     iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaintKeyframes:Landroid/graphics/Paint;
 
     .line 2556
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaintKeyframes:Landroid/graphics/Paint;
-
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 2557
@@ -181,8 +177,6 @@
     iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaintGraph:Landroid/graphics/Paint;
 
     .line 2562
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaintGraph:Landroid/graphics/Paint;
-
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 2563
@@ -210,8 +204,6 @@
     iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mTextPaint:Landroid/graphics/Paint;
 
     .line 2568
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mTextPaint:Landroid/graphics/Paint;
-
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 2569
@@ -244,9 +236,9 @@
 
     const/16 p1, 0x8
 
-    .line 2571
     new-array p1, p1, [F
 
+    .line 2571
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mRectangle:[F
 
     .line 2572
@@ -257,8 +249,6 @@
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mFillPaint:Landroid/graphics/Paint;
 
     .line 2573
-    iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mFillPaint:Landroid/graphics/Paint;
-
     invoke-virtual {p1, v3}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     .line 2574
@@ -277,24 +267,22 @@
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mDashPathEffect:Landroid/graphics/DashPathEffect;
 
     .line 2575
-    iget-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaintGraph:Landroid/graphics/Paint;
+    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPaintGraph:Landroid/graphics/Paint;
 
-    iget-object v0, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mDashPathEffect:Landroid/graphics/DashPathEffect;
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setPathEffect(Landroid/graphics/PathEffect;)Landroid/graphics/PathEffect;
 
     const/16 p1, 0x64
 
-    .line 2576
     new-array p1, p1, [F
 
+    .line 2576
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mKeyFramePoints:[F
 
     const/16 p1, 0x32
 
-    .line 2577
     new-array p1, p1, [I
 
+    .line 2577
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPathMode:[I
 
     .line 2579
@@ -375,12 +363,7 @@
 
     const/4 v1, 0x1
 
-    .line 2737
     :cond_0
-    iget-object v3, p0, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPathMode:[I
-
-    aget v3, v3, v0
-
     const/4 v5, 0x2
 
     if-ne v3, v5, :cond_1
@@ -1415,9 +1398,9 @@
     .line 2687
     iget-object v0, v6, Landroid/support/constraint/motion/MotionLayout$DevModeDraw;->mPathMode:[I
 
-    aget v2, v0, v1
+    aget v0, v0, v1
 
-    if-ne v2, v13, :cond_3
+    if-ne v0, v13, :cond_3
 
     sub-float v0, v5, v16
 
@@ -1436,11 +1419,8 @@
 
     goto :goto_3
 
-    .line 2689
     :cond_3
-    aget v2, v0, v1
-
-    if-ne v2, v15, :cond_4
+    if-ne v0, v15, :cond_4
 
     sub-float v0, v5, v16
 
@@ -1451,10 +1431,7 @@
 
     goto :goto_2
 
-    .line 2691
     :cond_4
-    aget v0, v0, v1
-
     if-ne v0, v3, :cond_2
 
     sub-float v2, v5, v16

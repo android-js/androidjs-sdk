@@ -48,11 +48,6 @@
 # virtual methods
 .method public apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
     .locals 2
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     .line 2037
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

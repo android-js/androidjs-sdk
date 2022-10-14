@@ -28,15 +28,6 @@
 # virtual methods
 .method public final callbackFailAsync(ILandroid/os/Handler;)V
     .locals 1
-    .param p2    # Landroid/os/Handler;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     if-nez p2, :cond_0
 
@@ -62,15 +53,6 @@
 
 .method public final callbackSuccessAsync(Landroid/graphics/Typeface;Landroid/os/Handler;)V
     .locals 1
-    .param p2    # Landroid/os/Handler;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     if-nez p2, :cond_0
 
@@ -98,8 +80,4 @@
 .end method
 
 .method public abstract onFontRetrieved(Landroid/graphics/Typeface;)V
-    .param p1    # Landroid/graphics/Typeface;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 .end method

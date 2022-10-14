@@ -74,9 +74,6 @@
 
     if-eqz p2, :cond_0
 
-    .line 350
-    iget-object p1, p0, Landroid/support/v4/app/Fragment$SavedState;->mState:Landroid/os/Bundle;
-
     if-eqz p1, :cond_0
 
     .line 351

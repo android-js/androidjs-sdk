@@ -44,13 +44,11 @@
 
     const/4 v4, 0x0
 
-    move-object v6, p1
-
     move-object v7, v4
 
-    const/4 p1, 0x0
-
     const/4 v5, 0x0
+
+    const/4 v6, 0x0
 
     :goto_0
     if-ge v0, v3, :cond_4
@@ -60,23 +58,23 @@
 
     move-result v8
 
-    if-eq v8, v5, :cond_0
+    if-eq v8, v6, :cond_0
 
     move-object v7, v4
 
-    move v5, v8
+    move v6, v8
 
     :cond_0
-    if-nez v6, :cond_1
+    if-nez p1, :cond_1
 
     .line 158
-    new-instance v6, Landroid/widget/FrameLayout;
+    new-instance p1, Landroid/widget/FrameLayout;
 
-    invoke-direct {v6, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     .line 161
     :cond_1
-    invoke-interface {p0, v0, v7, v6}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    invoke-interface {p0, v0, v7, p1}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v7
 
@@ -93,9 +91,9 @@
     return p3
 
     :cond_2
-    if-le v8, p1, :cond_3
+    if-le v8, v5, :cond_3
 
-    move p1, v8
+    move v5, v8
 
     :cond_3
     add-int/lit8 v0, v0, 0x1
@@ -103,7 +101,7 @@
     goto :goto_0
 
     :cond_4
-    return p1
+    return v5
 .end method
 
 .method protected static shouldPreserveIconSpacing(Landroid/support/v7/view/menu/MenuBuilder;)Z
@@ -240,14 +238,6 @@
 
 .method public initForMenu(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;)V
     .locals 0
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     return-void
 .end method

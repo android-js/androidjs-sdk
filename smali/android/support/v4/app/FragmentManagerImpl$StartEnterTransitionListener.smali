@@ -174,9 +174,6 @@
 
     iput v0, p0, Landroid/support/v4/app/FragmentManagerImpl$StartEnterTransitionListener;->mNumPostponed:I
 
-    .line 3886
-    iget v0, p0, Landroid/support/v4/app/FragmentManagerImpl$StartEnterTransitionListener;->mNumPostponed:I
-
     if-eqz v0, :cond_0
 
     return-void

@@ -83,6 +83,8 @@
     iput-object v0, p1, Landroid/support/v7/widget/Toolbar;->mExpandedActionView:Landroid/view/View;
 
     .line 2415
+    iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
+
     invoke-virtual {p1}, Landroid/support/v7/widget/Toolbar;->addChildrenForExpandedActionView()V
 
     .line 2416

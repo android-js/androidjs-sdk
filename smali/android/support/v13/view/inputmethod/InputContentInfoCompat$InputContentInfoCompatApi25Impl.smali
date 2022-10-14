@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x19
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v13/view/inputmethod/InputContentInfoCompat;
 .end annotation
@@ -23,26 +19,11 @@
 
 # instance fields
 .field final mObject:Landroid/view/inputmethod/InputContentInfo;
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-.end field
 
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
     .locals 1
-    .param p1    # Landroid/net/Uri;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/ClipDescription;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/net/Uri;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,10 +40,6 @@
 
 .method constructor <init>(Ljava/lang/Object;)V
     .locals 0
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,8 +56,6 @@
 # virtual methods
 .method public getContentUri()Landroid/net/Uri;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 121
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -94,8 +69,6 @@
 
 .method public getDescription()Landroid/content/ClipDescription;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 127
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -109,8 +82,6 @@
 
 .method public getInputContentInfo()Ljava/lang/Object;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 139
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -120,8 +91,6 @@
 
 .method public getLinkUri()Landroid/net/Uri;
     .locals 1
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 
     .line 133
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;

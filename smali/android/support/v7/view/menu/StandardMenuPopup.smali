@@ -104,18 +104,16 @@
     .line 121
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object p6
+    move-result-object v0
 
     .line 122
-    new-instance v0, Landroid/support/v7/view/menu/MenuAdapter;
-
-    iget-boolean v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mOverflowOnly:Z
+    new-instance v1, Landroid/support/v7/view/menu/MenuAdapter;
 
     sget v2, Landroid/support/v7/view/menu/StandardMenuPopup;->ITEM_LAYOUT:I
 
-    invoke-direct {v0, p2, p6, v1, v2}, Landroid/support/v7/view/menu/MenuAdapter;-><init>(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/LayoutInflater;ZI)V
+    invoke-direct {v1, p2, v0, p6, v2}, Landroid/support/v7/view/menu/MenuAdapter;-><init>(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/LayoutInflater;ZI)V
 
-    iput-object v0, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAdapter:Landroid/support/v7/view/menu/MenuAdapter;
+    iput-object v1, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAdapter:Landroid/support/v7/view/menu/MenuAdapter;
 
     .line 123
     iput p4, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopupStyleAttr:I
@@ -126,30 +124,30 @@
     .line 126
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p4
+    move-result-object p6
 
     .line 127
-    invoke-virtual {p4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {p6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p5
+    move-result-object v0
 
-    iget p5, p5, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    div-int/lit8 p5, p5, 0x2
+    div-int/lit8 v0, v0, 0x2
 
-    sget p6, Landroid/support/v7/appcompat/R$dimen;->abc_config_prefDialogWidth:I
+    sget v1, Landroid/support/v7/appcompat/R$dimen;->abc_config_prefDialogWidth:I
 
     .line 128
-    invoke-virtual {p4, p6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p6, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result p4
+    move-result p6
 
     .line 127
-    invoke-static {p5, p4}, Ljava/lang/Math;->max(II)I
+    invoke-static {v0, p6}, Ljava/lang/Math;->max(II)I
 
-    move-result p4
+    move-result p6
 
-    iput p4, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopupMaxWidth:I
+    iput p6, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopupMaxWidth:I
 
     .line 130
     iput-object p3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mAnchorView:Landroid/view/View;
@@ -157,15 +155,9 @@
     .line 132
     new-instance p3, Landroid/support/v7/widget/MenuPopupWindow;
 
-    iget-object p4, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mContext:Landroid/content/Context;
+    const/4 p6, 0x0
 
-    iget p5, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopupStyleAttr:I
-
-    iget p6, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopupStyleRes:I
-
-    const/4 v0, 0x0
-
-    invoke-direct {p3, p4, v0, p5, p6}, Landroid/support/v7/widget/MenuPopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p3, p1, p6, p4, p5}, Landroid/support/v7/widget/MenuPopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     iput-object p3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mPopup:Landroid/support/v7/widget/MenuPopupWindow;
 
@@ -248,11 +240,9 @@
     if-eqz v3, :cond_3
 
     .line 167
-    iget-object v3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mTreeObserver:Landroid/view/ViewTreeObserver;
+    iget-object v3, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-    iget-object v4, p0, Landroid/support/v7/view/menu/StandardMenuPopup;->mGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
-
-    invoke-virtual {v3, v4}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    invoke-virtual {v4, v3}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     .line 169
     :cond_3

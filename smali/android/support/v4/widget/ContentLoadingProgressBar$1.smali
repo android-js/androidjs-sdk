@@ -45,14 +45,18 @@
 
     iput-boolean v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mPostedHide:Z
 
+    .line 50
+    iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
+
     const-wide/16 v1, -0x1
 
-    .line 50
     iput-wide v1, v0, Landroid/support/v4/widget/ContentLoadingProgressBar;->mStartTime:J
+
+    .line 51
+    iget-object v0, p0, Landroid/support/v4/widget/ContentLoadingProgressBar$1;->this$0:Landroid/support/v4/widget/ContentLoadingProgressBar;
 
     const/16 v1, 0x8
 
-    .line 51
     invoke-virtual {v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->setVisibility(I)V
 
     return-void

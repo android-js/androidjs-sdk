@@ -29,10 +29,6 @@
 
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 0
-    .param p2    # I
-        .annotation build Landroid/support/annotation/StyleRes;
-        .end annotation
-    .end param
 
     .line 63
     invoke-direct {p0, p1}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V

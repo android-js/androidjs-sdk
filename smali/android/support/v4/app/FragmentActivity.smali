@@ -165,9 +165,13 @@
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
+    goto :goto_2
+
+    :goto_1
     throw p1
 
-    return-void
+    :goto_2
+    goto :goto_1
 .end method
 
 .method static checkForValidRequestCode(I)V
@@ -470,8 +474,6 @@
 
 .method public getViewModelStore()Landroid/arch/lifecycle/ViewModelStore;
     .locals 2
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 299
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentActivity;->getApplication()Landroid/app/Application;
@@ -531,10 +533,6 @@
 
 .method protected onActivityResult(IILandroid/content/Intent;)V
     .locals 3
-    .param p3    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 145
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
@@ -707,10 +705,6 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 6
-    .param p1    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 333
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
@@ -1046,8 +1040,6 @@
 
 .method public onMultiWindowModeChanged(Z)V
     .locals 1
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 261
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
@@ -1132,8 +1124,6 @@
 
 .method public onPictureInPictureModeChanged(Z)V
     .locals 1
-    .annotation build Landroid/support/annotation/CallSuper;
-    .end annotation
 
     .line 276
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
@@ -1169,11 +1159,6 @@
 
 .method protected onPrepareOptionsPanel(Landroid/view/View;Landroid/view/Menu;)Z
     .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -1219,14 +1204,6 @@
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
     .locals 4
-    .param p2    # [Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # [I
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 845
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
@@ -1687,10 +1664,6 @@
 
 .method public startActivityForResult(Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 1
-    .param p3    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 762
     iget-boolean v0, p0, Landroid/support/v4/app/FragmentActivity;->mStartedActivityFromFragment:Z
@@ -1724,10 +1697,6 @@
 
 .method public startActivityFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/Intent;ILandroid/os/Bundle;)V
     .locals 3
-    .param p4    # Landroid/os/Bundle;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     const/4 v0, 0x1
 
@@ -1791,10 +1760,6 @@
 
 .method public startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;III)V
     .locals 1
-    .param p3    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
@@ -1822,10 +1787,6 @@
 
 .method public startIntentSenderForResult(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 1
-    .param p3    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;
@@ -1853,10 +1814,6 @@
 
 .method public startIntentSenderFromFragment(Landroid/support/v4/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V
     .locals 11
-    .param p4    # Landroid/content/Intent;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/IntentSender$SendIntentException;

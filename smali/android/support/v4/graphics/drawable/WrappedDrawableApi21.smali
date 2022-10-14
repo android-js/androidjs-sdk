@@ -4,10 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x15
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v4/graphics/drawable/WrappedDrawableApi21$DrawableWrapperStateLollipop;
@@ -93,8 +89,6 @@
 # virtual methods
 .method public getDirtyBounds()Landroid/graphics/Rect;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 71
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -108,10 +102,6 @@
 
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 1
-    .param p1    # Landroid/graphics/Outline;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 65
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -210,8 +200,6 @@
 
 .method mutateConstantState()Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
     .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 143
     new-instance v0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi21$DrawableWrapperStateLollipop;
@@ -249,10 +237,6 @@
 
 .method public setState([I)Z
     .locals 0
-    .param p1    # [I
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 103
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setState([I)Z

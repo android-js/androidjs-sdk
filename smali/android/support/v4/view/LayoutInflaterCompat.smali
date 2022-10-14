@@ -56,8 +56,6 @@
     sput-object v3, Landroid/support/v4/view/LayoutInflaterCompat;->sLayoutInflaterFactory2Field:Ljava/lang/reflect/Field;
 
     .line 74
-    sget-object v3, Landroid/support/v4/view/LayoutInflaterCompat;->sLayoutInflaterFactory2Field:Ljava/lang/reflect/Field;
-
     invoke-virtual {v3, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
@@ -169,14 +167,6 @@
 
 .method public static setFactory(Landroid/view/LayoutInflater;Landroid/support/v4/view/LayoutInflaterFactory;)V
     .locals 3
-    .param p0    # Landroid/view/LayoutInflater;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/support/v4/view/LayoutInflaterFactory;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -240,14 +230,6 @@
 
 .method public static setFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
     .locals 2
-    .param p0    # Landroid/view/LayoutInflater;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p1    # Landroid/view/LayoutInflater$Factory2;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 139
     invoke-virtual {p0, p1}, Landroid/view/LayoutInflater;->setFactory2(Landroid/view/LayoutInflater$Factory2;)V

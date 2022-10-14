@@ -16,14 +16,6 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/PointF;FLandroid/graphics/PointF;F)V
     .locals 1
-    .param p1    # Landroid/graphics/PointF;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/graphics/PointF;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -139,8 +131,6 @@
 
 .method public getEnd()Landroid/graphics/PointF;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 60
     iget-object v0, p0, Landroid/support/v4/graphics/PathSegment;->mEnd:Landroid/graphics/PointF;
@@ -159,8 +149,6 @@
 
 .method public getStart()Landroid/graphics/PointF;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 47
     iget-object v0, p0, Landroid/support/v4/graphics/PathSegment;->mStart:Landroid/graphics/PointF;

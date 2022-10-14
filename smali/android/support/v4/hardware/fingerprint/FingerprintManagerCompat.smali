@@ -32,12 +32,6 @@
 
 .method public static from(Landroid/content/Context;)Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;
     .locals 1
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 49
     new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat;
@@ -49,16 +43,6 @@
 
 .method private static getFingerprintManagerOrNull(Landroid/content/Context;)Landroid/hardware/fingerprint/FingerprintManager;
     .locals 2
-    .param p0    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 123
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -92,9 +76,6 @@
 
 .method static unwrapCryptoObject(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
     .locals 2
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -163,9 +144,6 @@
 
 .method private static wrapCallback(Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationCallback;)Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 163
     new-instance v0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$1;
@@ -177,9 +155,6 @@
 
 .method private static wrapCryptoObject(Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;)Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;
     .locals 2
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -250,25 +225,6 @@
 # virtual methods
 .method public authenticate(Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;ILandroid/support/v4/os/CancellationSignal;Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationCallback;Landroid/os/Handler;)V
     .locals 7
-    .param p1    # Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p3    # Landroid/support/v4/os/CancellationSignal;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p4    # Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationCallback;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # Landroid/os/Handler;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.USE_FINGERPRINT"
-    .end annotation
 
     .line 104
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -326,9 +282,6 @@
 
 .method public hasEnrolledFingerprints()Z
     .locals 3
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.USE_FINGERPRINT"
-    .end annotation
 
     .line 63
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -363,9 +316,6 @@
 
 .method public isHardwareDetected()Z
     .locals 3
-    .annotation build Landroid/support/annotation/RequiresPermission;
-        value = "android.permission.USE_FINGERPRINT"
-    .end annotation
 
     .line 78
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

@@ -43,6 +43,8 @@
     iput-boolean v1, v0, Landroid/support/v4/widget/CursorAdapter;->mDataValid:Z
 
     .line 498
+    iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
+
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetChanged()V
 
     return-void
@@ -59,6 +61,8 @@
     iput-boolean v1, v0, Landroid/support/v4/widget/CursorAdapter;->mDataValid:Z
 
     .line 504
+    iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$MyDataSetObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
+
     invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->notifyDataSetInvalidated()V
 
     return-void

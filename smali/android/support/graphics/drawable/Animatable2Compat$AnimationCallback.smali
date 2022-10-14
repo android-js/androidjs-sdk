@@ -32,9 +32,6 @@
 # virtual methods
 .method getPlatformCallback()Landroid/graphics/drawable/Animatable2$AnimationCallback;
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x17
-    .end annotation
 
     .line 77
     iget-object v0, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;->mPlatformCallback:Landroid/graphics/drawable/Animatable2$AnimationCallback;

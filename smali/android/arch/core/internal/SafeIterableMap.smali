@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/arch/core/internal/SafeIterableMap$Entry;,
@@ -309,9 +303,6 @@
 
 .method public iterator()Ljava/util/Iterator;
     .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -393,14 +384,6 @@
 
 .method protected put(Ljava/lang/Object;Ljava/lang/Object;)Landroid/arch/core/internal/SafeIterableMap$Entry;
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)",
@@ -430,9 +413,7 @@
     iput-object v0, p0, Landroid/arch/core/internal/SafeIterableMap;->mStart:Landroid/arch/core/internal/SafeIterableMap$Entry;
 
     .line 78
-    iget-object p1, p0, Landroid/arch/core/internal/SafeIterableMap;->mStart:Landroid/arch/core/internal/SafeIterableMap$Entry;
-
-    iput-object p1, p0, Landroid/arch/core/internal/SafeIterableMap;->mEnd:Landroid/arch/core/internal/SafeIterableMap$Entry;
+    iput-object v0, p0, Landroid/arch/core/internal/SafeIterableMap;->mEnd:Landroid/arch/core/internal/SafeIterableMap$Entry;
 
     return-object v0
 
@@ -441,6 +422,8 @@
     iput-object v0, p1, Landroid/arch/core/internal/SafeIterableMap$Entry;->mNext:Landroid/arch/core/internal/SafeIterableMap$Entry;
 
     .line 83
+    iget-object p1, p0, Landroid/arch/core/internal/SafeIterableMap;->mEnd:Landroid/arch/core/internal/SafeIterableMap$Entry;
+
     iput-object p1, v0, Landroid/arch/core/internal/SafeIterableMap$Entry;->mPrevious:Landroid/arch/core/internal/SafeIterableMap$Entry;
 
     .line 84
@@ -451,14 +434,6 @@
 
 .method public putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
@@ -488,10 +463,6 @@
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 3
-    .param p1    # Ljava/lang/Object;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;)TV;"

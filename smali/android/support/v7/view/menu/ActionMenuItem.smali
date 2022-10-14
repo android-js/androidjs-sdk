@@ -6,14 +6,6 @@
 .implements Landroid/support/v4/internal/view/SupportMenuItem;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final CHECKABLE:I = 0x1
 
@@ -142,18 +134,16 @@
 
     if-eqz v0, :cond_2
 
-    iget-boolean v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mHasIconTint:Z
+    iget-boolean v1, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mHasIconTint:Z
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    iget-boolean v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mHasIconTintMode:Z
+    iget-boolean v1, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mHasIconTintMode:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 435
     :cond_0
-    iget-object v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconDrawable:Landroid/graphics/drawable/Drawable;
-
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -161,8 +151,6 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 436
-    iget-object v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconDrawable:Landroid/graphics/drawable/Drawable;
-
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -170,13 +158,11 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 438
-    iget-boolean v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mHasIconTint:Z
+    iget-boolean v1, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mHasIconTint:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     .line 439
-    iget-object v0, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconDrawable:Landroid/graphics/drawable/Drawable;
-
     iget-object v1, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconTintList:Landroid/content/res/ColorStateList;
 
     invoke-static {v0, v1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
@@ -777,10 +763,6 @@
 
 .method public setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
     .locals 0
-    .param p1    # Landroid/content/res/ColorStateList;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 405
     iput-object p1, p0, Landroid/support/v7/view/menu/ActionMenuItem;->mIconTintList:Landroid/content/res/ColorStateList;

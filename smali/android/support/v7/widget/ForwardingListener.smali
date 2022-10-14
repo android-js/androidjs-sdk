@@ -8,12 +8,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/ForwardingListener$TriggerLongPress;,
@@ -51,9 +45,9 @@
 
     const/4 v0, 0x2
 
-    .line 66
     new-array v1, v0, [I
 
+    .line 66
     iput-object v1, p0, Landroid/support/v7/widget/ForwardingListener;->mTmpLocation:[I
 
     .line 69
@@ -92,8 +86,6 @@
     iput p1, p0, Landroid/support/v7/widget/ForwardingListener;->mTapTimeout:I
 
     .line 77
-    iget p1, p0, Landroid/support/v7/widget/ForwardingListener;->mTapTimeout:I
-
     invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
     move-result v1
@@ -148,7 +140,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     .line 261
     invoke-interface {v1}, Landroid/support/v7/view/menu/ShowableListMenu;->isShowing()Z
@@ -157,7 +149,7 @@
 
     if-nez v3, :cond_0
 
-    goto :goto_2
+    goto :goto_1
 
     .line 265
     :cond_0
@@ -167,7 +159,7 @@
 
     check-cast v1, Landroid/support/v7/widget/DropDownListView;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     .line 266
     invoke-virtual {v1}, Landroid/support/v7/widget/DropDownListView;->isShown()Z
@@ -176,7 +168,7 @@
 
     if-nez v3, :cond_1
 
-    goto :goto_2
+    goto :goto_1
 
     .line 271
     :cond_1
@@ -225,16 +217,10 @@
 
     if-eqz p1, :cond_3
 
-    goto :goto_1
+    const/4 v2, 0x1
 
     :cond_3
-    const/4 v1, 0x0
-
     :goto_1
-    return v1
-
-    :cond_4
-    :goto_2
     return v2
 .end method
 

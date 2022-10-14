@@ -15,18 +15,6 @@
 
 .method public static setAlarmClock(Landroid/app/AlarmManager;JLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
     .locals 2
-    .param p0    # Landroid/app/AlarmManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/app/PendingIntent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Landroid/app/PendingIntent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 59
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -56,14 +44,6 @@
 
 .method public static setAndAllowWhileIdle(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
     .locals 2
-    .param p0    # Landroid/app/AlarmManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Landroid/app/PendingIntent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 117
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -87,14 +67,6 @@
 
 .method public static setExact(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
     .locals 2
-    .param p0    # Landroid/app/AlarmManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Landroid/app/PendingIntent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 162
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -118,14 +90,6 @@
 
 .method public static setExactAndAllowWhileIdle(Landroid/app/AlarmManager;IJLandroid/app/PendingIntent;)V
     .locals 2
-    .param p0    # Landroid/app/AlarmManager;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Landroid/app/PendingIntent;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 222
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

@@ -6,14 +6,6 @@
 .implements Landroid/support/v7/view/menu/MenuHelper;
 
 
-# annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
-
 # static fields
 .field private static final TOUCH_EPICENTER_SIZE_DP:I = 0x30
 
@@ -47,14 +39,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;)V
     .locals 7
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 68
     sget v5, Landroid/support/v7/appcompat/R$attr;->popupMenuStyle:I
@@ -78,18 +62,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;)V
     .locals 7
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 73
     sget v5, Landroid/support/v7/appcompat/R$attr;->popupMenuStyle:I
@@ -113,22 +85,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;ZI)V
     .locals 7
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # I
-        .annotation build Landroid/support/annotation/AttrRes;
-        .end annotation
-    .end param
 
     const/4 v6, 0x0
 
@@ -152,26 +108,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/View;ZII)V
     .locals 1
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/support/v7/view/menu/MenuBuilder;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # I
-        .annotation build Landroid/support/annotation/AttrRes;
-        .end annotation
-    .end param
-    .param p6    # I
-        .annotation build Landroid/support/annotation/StyleRes;
-        .end annotation
-    .end param
 
     .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -211,8 +147,6 @@
 
 .method private createPopup()Landroid/support/v7/view/menu/MenuPopup;
     .locals 14
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 224
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuPopupHelper;->mContext:Landroid/content/Context;
@@ -502,8 +436,6 @@
 
 .method public getPopup()Landroid/support/v7/view/menu/MenuPopup;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 156
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuPopupHelper;->mPopup:Landroid/support/v7/view/menu/MenuPopup;
@@ -571,10 +503,6 @@
 
 .method public setAnchorView(Landroid/view/View;)V
     .locals 0
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 105
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuPopupHelper;->mAnchorView:Landroid/view/View;
@@ -611,10 +539,6 @@
 
 .method public setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
     .locals 0
-    .param p1    # Landroid/widget/PopupWindow$OnDismissListener;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 94
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuPopupHelper;->mOnDismissListener:Landroid/widget/PopupWindow$OnDismissListener;
@@ -624,10 +548,6 @@
 
 .method public setPresenterCallback(Landroid/support/v7/view/menu/MenuPresenter$Callback;)V
     .locals 1
-    .param p1    # Landroid/support/v7/view/menu/MenuPresenter$Callback;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 325
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuPopupHelper;->mPresenterCallback:Landroid/support/v7/view/menu/MenuPresenter$Callback;

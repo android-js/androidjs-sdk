@@ -48,9 +48,6 @@
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
     .locals 1
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x10
-    .end annotation
 
     .line 98
     iget-object v0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateAdapter;->mCompat:Landroid/support/v4/view/AccessibilityDelegateCompat;

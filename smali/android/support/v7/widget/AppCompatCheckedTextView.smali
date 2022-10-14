@@ -17,7 +17,6 @@
 
     const/4 v0, 0x1
 
-    .line 40
     new-array v0, v0, [I
 
     const/4 v1, 0x0
@@ -26,6 +25,7 @@
 
     aput v2, v0, v1
 
+    .line 40
     sput-object v0, Landroid/support/v7/widget/AppCompatCheckedTextView;->TINT_ATTRS:[I
 
     return-void
@@ -71,13 +71,9 @@
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
 
     .line 58
-    iget-object p1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
-
     invoke-virtual {p1, p2, p3}, Landroid/support/v7/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     .line 59
-    iget-object p1, p0, Landroid/support/v7/widget/AppCompatCheckedTextView;->mTextHelper:Landroid/support/v7/widget/AppCompatTextHelper;
-
     invoke-virtual {p1}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
     .line 61
@@ -143,10 +139,6 @@
 
 .method public setCheckMarkDrawable(I)V
     .locals 1
-    .param p1    # I
-        .annotation build Landroid/support/annotation/DrawableRes;
-        .end annotation
-    .end param
 
     .line 69
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatCheckedTextView;->getContext()Landroid/content/Context;

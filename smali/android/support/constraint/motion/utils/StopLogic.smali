@@ -264,13 +264,11 @@
 
     add-float/2addr p1, p5
 
-    .line 180
-    iget p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
-
-    mul-float p1, p1, p3
+    mul-float p1, p1, p4
 
     div-float/2addr p1, v3
 
+    .line 180
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1EndPosition:F
 
     .line 181
@@ -313,15 +311,9 @@
 
     add-float/2addr p1, p4
 
-    .line 193
-    iget p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
-
-    mul-float p1, p1, p3
+    mul-float p1, p1, p5
 
     div-float/2addr p1, v3
-
-    .line 194
-    iget p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Duration:F
 
     mul-float p3, p3, p4
 
@@ -483,13 +475,11 @@
 
     add-float/2addr p1, p5
 
-    .line 240
-    iget p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
-
-    mul-float p1, p1, p3
+    mul-float p1, p1, v1
 
     div-float/2addr p1, v3
 
+    .line 240
     iput p1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1EndPosition:F
 
     .line 241
@@ -529,15 +519,9 @@
 
     add-float/2addr p1, p4
 
-    .line 254
-    iget p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage1Duration:F
-
-    mul-float p1, p1, p3
+    mul-float p1, p1, p5
 
     div-float/2addr p1, v3
-
-    .line 255
-    iget p3, p0, Landroid/support/constraint/motion/utils/StopLogic;->mStage3Duration:F
 
     mul-float p3, p3, p4
 
@@ -588,9 +572,6 @@
     .line 138
     :goto_0
     iput-boolean v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mBackwards:Z
-
-    .line 139
-    iget-boolean v1, p0, Landroid/support/constraint/motion/utils/StopLogic;->mBackwards:Z
 
     if-eqz v1, :cond_1
 

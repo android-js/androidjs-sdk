@@ -4,12 +4,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RestrictTo;
-    value = {
-        .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;
@@ -43,10 +37,6 @@
 
 .method constructor <init>(Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;)V
     .locals 0
-    .param p1    # Landroid/support/v7/graphics/drawable/StateListDrawable$StateListState;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 
     .line 412
     invoke-direct {p0}, Landroid/support/v7/graphics/drawable/DrawableContainer;-><init>()V
@@ -374,13 +364,6 @@
 
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 0
-    .param p1    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/RequiresApi;
-        value = 0x15
-    .end annotation
 
     .line 389
     invoke-super {p0, p1}, Landroid/support/v7/graphics/drawable/DrawableContainer;->applyTheme(Landroid/content/res/Resources$Theme;)V
@@ -566,26 +549,6 @@
 
 .method public inflate(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 3
-    .param p1    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p2    # Landroid/content/res/Resources;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p3    # Lorg/xmlpull/v1/XmlPullParser;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p5    # Landroid/content/res/Resources$Theme;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -643,8 +606,6 @@
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
     .locals 1
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
 
     .line 308
     iget-boolean v0, p0, Landroid/support/v7/graphics/drawable/StateListDrawable;->mMutated:Z
@@ -724,10 +685,6 @@
 
 .method protected setConstantState(Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;)V
     .locals 1
-    .param p1    # Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 395
     invoke-super {p0, p1}, Landroid/support/v7/graphics/drawable/DrawableContainer;->setConstantState(Landroid/support/v7/graphics/drawable/DrawableContainer$DrawableContainerState;)V

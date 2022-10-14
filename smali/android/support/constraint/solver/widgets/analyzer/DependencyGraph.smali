@@ -472,7 +472,7 @@
     :try_start_0
     invoke-direct/range {v0 .. v6}, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->applyGroup(Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;IILandroid/support/constraint/solver/widgets/analyzer/DependencyNode;Ljava/util/ArrayList;Landroid/support/constraint/solver/widgets/analyzer/RunGroup;)V
     :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_5
 
@@ -480,12 +480,16 @@
     :goto_6
     return-void
 
-    :catch_0
+    :catchall_0
     move-exception p1
 
+    goto :goto_8
+
+    :goto_7
     throw p1
 
-    return-void
+    :goto_8
+    goto :goto_7
 .end method
 
 .method private basicMeasureWidgets(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;)Z
@@ -2351,29 +2355,6 @@
 
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDebugName()Ljava/lang/String;
 
-    move-result-object v0
-
-    .line 986
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "_VERTICAL -> "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "_HORIZONTAL;\n"
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
     goto/16 :goto_3
 
     .line 976
@@ -2537,29 +2518,6 @@
     iget-object v0, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDebugName()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 967
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "_HORIZONTAL -> "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "_VERTICAL;\n"
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     goto/16 :goto_3
 
@@ -3013,18 +2971,26 @@
     iput-object p2, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 376
-    iput-object p4, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    iput-object p4, p2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalBehavior:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     .line 377
-    iput p3, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalDimension:I
+    iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    iput p3, p2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->horizontalDimension:I
 
     .line 378
-    iput p5, v0, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalDimension:I
+    iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    iput p5, p2, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;->verticalDimension:I
 
     .line 379
     iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->mMeasurer:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;
 
-    invoke-interface {p2, p1, v0}, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;->measure(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;)V
+    iget-object p3, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
+
+    invoke-interface {p2, p1, p3}, Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measurer;->measure(Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;)V
 
     .line 380
     iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->mMeasure:Landroid/support/constraint/solver/widgets/analyzer/BasicMeasure$Measure;
@@ -3058,433 +3024,419 @@
 .end method
 
 .method private nodeDefinition(Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;)Ljava/lang/String;
-    .locals 10
+    .locals 8
 
     .line 823
     instance-of v0, p1, Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;
 
-    const/4 v1, 0x1
+    .line 824
+    iget-object v1, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDebugName()Ljava/lang/String;
 
-    const/4 v2, 0x1
+    move-result-object v1
+
+    .line 826
+    iget-object v2, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHorizontalDimensionBehaviour()Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    move-result-object v2
 
     goto :goto_0
 
+    .line 827
     :cond_0
-    const/4 v2, 0x0
+    invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVerticalDimensionBehaviour()Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    .line 824
+    move-result-object v2
+
+    .line 828
     :goto_0
-    iget-object v3, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v3, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->runGroup:Landroid/support/constraint/solver/widgets/analyzer/RunGroup;
 
-    invoke-virtual {v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDebugName()Ljava/lang/String;
+    if-nez v0, :cond_1
 
-    move-result-object v3
+    .line 831
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_1
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 826
-    iget-object v4, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHorizontalDimensionBehaviour()Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    const-string v5, "_HORIZONTAL"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     goto :goto_1
 
+    .line 833
     :cond_1
-    iget-object v4, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    .line 827
-    invoke-virtual {v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVerticalDimensionBehaviour()Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, "_VERTICAL"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 828
+    .line 835
     :goto_1
-    iget-object v5, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->runGroup:Landroid/support/constraint/solver/widgets/analyzer/RunGroup;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    if-nez v2, :cond_2
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 831
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v4, " [shape=none, label=<"
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "_HORIZONTAL"
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v4
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 836
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "<TABLE BORDER=\"0\" CELLSPACING=\"0\" CELLPADDING=\"2\">"
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 837
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "  <TR>"
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, " BGCOLOR=\"green\""
+
+    const-string v6, "    <TD "
+
+    if-nez v0, :cond_3
+
+    .line 839
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 840
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
+
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
+
+    if-eqz v7, :cond_2
+
+    .line 841
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 843
+    :cond_2
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " PORT=\"LEFT\" BORDER=\"1\">L</TD>"
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
 
     goto :goto_2
 
-    .line 833
-    :cond_2
-    new-instance v6, Ljava/lang/StringBuilder;
+    .line 845
+    :cond_3
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v7, "_VERTICAL"
+    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v6
+    .line 846
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
 
-    .line 835
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
+
+    if-eqz v7, :cond_4
+
+    .line 847
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 849
+    :cond_4
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " PORT=\"TOP\" BORDER=\"1\">T</TD>"
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 851
     :goto_2
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " [shape=none, label=<"
+    const-string v4, "    <TD BORDER=\"1\" "
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
 
-    .line 836
+    .line 855
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
+
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
+
+    if-eqz v7, :cond_5
+
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/ConstraintWidget;->measured:Z
+
+    if-nez v7, :cond_5
+
+    .line 856
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, "<TABLE BORDER=\"0\" CELLSPACING=\"0\" CELLPADDING=\"2\">"
+    const-string v4, " BGCOLOR=\"green\" "
 
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 837
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, "  <TR>"
-
-    invoke-virtual {v7, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
-
-    const-string v7, " BGCOLOR=\"green\""
-
-    const-string v8, "    <TD "
-
-    if-nez v2, :cond_4
-
-    .line 839
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 840
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
-
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
-
-    if-eqz v9, :cond_3
-
-    .line 841
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 843
-    :cond_3
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " PORT=\"LEFT\" BORDER=\"1\">L</TD>"
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
+    move-result-object v4
 
     goto :goto_3
 
-    .line 845
-    :cond_4
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 846
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->start:Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;
-
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
-
-    if-eqz v9, :cond_5
-
-    .line 847
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 849
-    :cond_5
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " PORT=\"TOP\" BORDER=\"1\">T</TD>"
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 851
-    :goto_3
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, "    <TD BORDER=\"1\" "
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 855
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
-
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
-
-    if-eqz v9, :cond_6
-
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/ConstraintWidget;->measured:Z
-
-    if-nez v9, :cond_6
-
-    .line 856
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " BGCOLOR=\"green\" "
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_4
-
     .line 857
-    :cond_6
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
+    :cond_5
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
 
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
 
-    if-eqz v9, :cond_7
+    if-eqz v7, :cond_6
 
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/ConstraintWidget;->measured:Z
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/ConstraintWidget;->measured:Z
 
-    if-eqz v9, :cond_7
+    if-eqz v7, :cond_6
 
     .line 858
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, " BGCOLOR=\"lightgray\" "
+    const-string v4, " BGCOLOR=\"lightgray\" "
 
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v4
+
+    goto :goto_3
+
+    .line 859
+    :cond_6
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
+
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
+
+    if-nez v7, :cond_7
+
+    iget-object v7, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    iget-boolean v7, v7, Landroid/support/constraint/solver/widgets/ConstraintWidget;->measured:Z
+
+    if-eqz v7, :cond_7
+
+    .line 860
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " BGCOLOR=\"yellow\" "
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 862
+    :cond_7
+    :goto_3
+    sget-object v7, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    if-ne v2, v7, :cond_8
+
+    .line 863
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "style=\"dashed\""
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    :cond_8
+    if-eqz v3, :cond_9
+
+    .line 867
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, " ["
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v3, v3, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->groupIndex:I
+
+    add-int/lit8 v3, v3, 0x1
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, "/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v3, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->index:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, "]"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     goto :goto_4
 
-    .line 859
-    :cond_7
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
-
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;->resolved:Z
-
-    if-nez v9, :cond_8
-
-    iget-object v9, p1, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
-    iget-boolean v9, v9, Landroid/support/constraint/solver/widgets/ConstraintWidget;->measured:Z
-
-    if-eqz v9, :cond_8
-
-    .line 860
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, " BGCOLOR=\"yellow\" "
-
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 862
-    :cond_8
-    :goto_4
-    sget-object v9, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-ne v4, v9, :cond_9
-
-    .line 863
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v6, "style=\"dashed\""
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
     :cond_9
-    if-eqz v5, :cond_a
-
-    .line 867
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, " ["
-
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v5, v5, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->groupIndex:I
-
-    add-int/2addr v5, v1
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v1, "/"
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget v1, Landroid/support/constraint/solver/widgets/analyzer/RunGroup;->index:I
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v1, "]"
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_5
-
-    :cond_a
-    const-string v1, ""
+    const-string v2, ""
 
     .line 869
-    :goto_5
-    new-instance v4, Ljava/lang/StringBuilder;
+    :goto_4
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v5, ">"
+    const-string v4, ">"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, " </TD>"
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    if-nez v2, :cond_c
+    if-nez v0, :cond_b
 
     .line 871
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3493,7 +3445,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3504,7 +3456,7 @@
 
     iget-boolean p1, p1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_a
 
     .line 873
     new-instance p1, Ljava/lang/StringBuilder;
@@ -3513,14 +3465,14 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 875
-    :cond_b
+    :cond_a
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3535,23 +3487,23 @@
 
     move-result-object p1
 
-    goto :goto_6
+    goto :goto_5
 
     .line 877
-    :cond_c
+    :cond_b
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
     .line 879
     move-object v0, p1
@@ -3562,7 +3514,7 @@
 
     iget-boolean v0, v0, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
     .line 880
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3571,14 +3523,14 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     .line 883
-    :cond_d
+    :cond_c
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -3600,7 +3552,7 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3611,7 +3563,7 @@
 
     iget-boolean p1, p1, Landroid/support/constraint/solver/widgets/analyzer/DependencyNode;->resolved:Z
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_d
 
     .line 886
     new-instance p1, Ljava/lang/StringBuilder;
@@ -3620,14 +3572,14 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     .line 888
-    :cond_e
+    :cond_d
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3643,7 +3595,7 @@
     move-result-object p1
 
     .line 890
-    :goto_6
+    :goto_5
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -4162,6 +4114,8 @@
     iput-boolean v2, v1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->measured:Z
 
     .line 120
+    iget-object v1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->container:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
+
     iget-object v1, v1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->horizontalRun:Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;
 
     invoke-virtual {v1}, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->reset()V
@@ -4577,7 +4531,10 @@
 
     if-nez v6, :cond_12
 
-    goto :goto_5
+    :goto_5
+    const/4 v0, 0x0
+
+    goto :goto_6
 
     .line 215
     :cond_12
@@ -4611,11 +4568,9 @@
 
     goto :goto_5
 
-    :cond_14
-    const/4 v2, 0x1
-
     .line 225
-    :goto_5
+    :cond_14
+    :goto_6
     iget-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->container:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p1, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
@@ -4625,7 +4580,7 @@
 
     invoke-virtual {p1, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setVerticalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    return v2
+    return v0
 .end method
 
 .method public directMeasureSetup(Z)Z
@@ -4714,6 +4669,8 @@
     iput-boolean v0, p1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->measured:Z
 
     .line 245
+    iget-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->container:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
+
     iget-object p1, p1, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->horizontalRun:Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;
 
     iget-object p1, p1, Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;->dimension:Landroid/support/constraint/solver/widgets/analyzer/DimensionDependency;
@@ -5191,7 +5148,10 @@
 
     if-nez v6, :cond_f
 
-    goto :goto_6
+    :goto_6
+    const/4 v0, 0x0
+
+    goto :goto_7
 
     .line 347
     :cond_f
@@ -5217,11 +5177,9 @@
 
     goto :goto_6
 
-    :cond_11
-    const/4 v2, 0x1
-
     .line 357
-    :goto_6
+    :cond_11
+    :goto_7
     iget-object p1, p0, Landroid/support/constraint/solver/widgets/analyzer/DependencyGraph;->container:Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
     invoke-virtual {p1, v1}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
@@ -5231,7 +5189,7 @@
 
     invoke-virtual {p1, v3}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->setVerticalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    return v2
+    return v0
 .end method
 
 .method public invalidateGraph()V

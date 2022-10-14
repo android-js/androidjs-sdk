@@ -166,28 +166,9 @@
 .end method
 
 .method public abstract createView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-    .param p1    # Landroid/view/View;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
-    .param p3    # Landroid/content/Context;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .param p4    # Landroid/util/AttributeSet;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract findViewById(I)Landroid/view/View;
-    .param p1    # I
-        .annotation build Landroid/support/annotation/IdRes;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -198,16 +179,12 @@
 .end method
 
 .method public abstract getDrawerToggleDelegate()Landroid/support/v7/app/ActionBarDrawerToggle$Delegate;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 .end method
 
 .method public abstract getMenuInflater()Landroid/view/MenuInflater;
 .end method
 
 .method public abstract getSupportActionBar()Landroid/support/v7/app/ActionBar;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 .end method
 
 .method public abstract hasWindowFeature(I)Z
@@ -250,10 +227,6 @@
 .end method
 
 .method public abstract setContentView(I)V
-    .param p1    # I
-        .annotation build Landroid/support/annotation/LayoutRes;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract setContentView(Landroid/view/View;)V
@@ -269,24 +242,10 @@
 .end method
 
 .method public abstract setSupportActionBar(Landroid/support/v7/widget/Toolbar;)V
-    .param p1    # Landroid/support/v7/widget/Toolbar;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract setTitle(Ljava/lang/CharSequence;)V
-    .param p1    # Ljava/lang/CharSequence;
-        .annotation build Landroid/support/annotation/Nullable;
-        .end annotation
-    .end param
 .end method
 
 .method public abstract startSupportActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
-    .param p1    # Landroid/support/v7/view/ActionMode$Callback;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
 .end method

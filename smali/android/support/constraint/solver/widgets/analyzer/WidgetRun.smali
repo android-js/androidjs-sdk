@@ -147,19 +147,17 @@
 
     goto/16 :goto_4
 
-    :cond_1
-    if-nez p1, :cond_2
-
     .line 205
+    :cond_1
     iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    if-nez p1, :cond_2
 
     iget-object p2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalRun:Landroid/support/constraint/solver/widgets/analyzer/VerticalWidgetRun;
 
     goto :goto_0
 
     :cond_2
-    iget-object p2, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
     iget-object p2, p2, Landroid/support/constraint/solver/widgets/ConstraintWidget;->horizontalRun:Landroid/support/constraint/solver/widgets/analyzer/HorizontalWidgetRun;
 
     .line 206
@@ -244,18 +242,16 @@
 
     if-eqz v0, :cond_9
 
-    if-nez p1, :cond_6
-
     .line 183
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    if-nez p1, :cond_6
 
     iget v0, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintPercentWidth:F
 
     goto :goto_3
 
     :cond_6
-    iget-object v0, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
     iget v0, v0, Landroid/support/constraint/solver/widgets/ConstraintWidget;->mMatchConstraintPercentHeight:F
 
     .line 186
@@ -413,9 +409,7 @@
     :cond_0
     if-eq v0, p1, :cond_3
 
-    move p1, v0
-
-    goto :goto_1
+    goto :goto_0
 
     .line 244
     :cond_1
@@ -438,20 +432,15 @@
     .line 248
     invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result p2
-
-    goto :goto_0
+    move-result v0
 
     :cond_2
-    move p2, v0
+    if-eq v0, p1, :cond_3
 
     :goto_0
-    if-eq p2, p1, :cond_3
-
-    move p1, p2
+    move p1, v0
 
     :cond_3
-    :goto_1
     return p1
 .end method
 
@@ -872,11 +861,11 @@
 
     return-void
 
-    :cond_3
-    if-nez p4, :cond_4
-
     .line 154
+    :cond_3
     iget-object p3, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
+
+    if-nez p4, :cond_4
 
     invoke-virtual {p3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getHorizontalBiasPercent()F
 
@@ -884,10 +873,8 @@
 
     goto :goto_0
 
-    :cond_4
-    iget-object p3, p0, Landroid/support/constraint/solver/widgets/analyzer/WidgetRun;->widget:Landroid/support/constraint/solver/widgets/ConstraintWidget;
-
     .line 155
+    :cond_4
     invoke-virtual {p3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getVerticalBiasPercent()F
 
     move-result p3

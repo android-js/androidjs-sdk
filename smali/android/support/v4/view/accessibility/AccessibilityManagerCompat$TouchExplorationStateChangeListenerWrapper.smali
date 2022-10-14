@@ -7,10 +7,6 @@
 
 
 # annotations
-.annotation build Landroid/support/annotation/RequiresApi;
-    value = 0x13
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Landroid/support/v4/view/accessibility/AccessibilityManagerCompat;
 .end annotation
@@ -28,10 +24,6 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;)V
     .locals 0
-    .param p1    # Landroid/support/v4/view/accessibility/AccessibilityManagerCompat$TouchExplorationStateChangeListener;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
 
     .line 201
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
