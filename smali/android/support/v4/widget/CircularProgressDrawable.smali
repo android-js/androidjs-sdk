@@ -89,6 +89,7 @@
 
     sput-object v0, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
+    .line 97
     const/4 v0, 0x1
 
     new-array v0, v0, [I
@@ -99,14 +100,14 @@
 
     aput v2, v0, v1
 
-    .line 97
     sput-object v0, Landroid/support/v4/widget/CircularProgressDrawable;->COLORS:[I
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 138
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -114,41 +115,44 @@
     .line 139
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/content/Context;
+    check-cast v0, Landroid/content/Context;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mResources:Landroid/content/res/Resources;
+    iput-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mResources:Landroid/content/res/Resources;
 
     .line 141
-    new-instance p1, Landroid/support/v4/widget/CircularProgressDrawable$Ring;
+    new-instance v0, Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
-    invoke-direct {p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;-><init>()V
 
-    iput-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
+    iput-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
     .line 142
-    sget-object v0, Landroid/support/v4/widget/CircularProgressDrawable;->COLORS:[I
+    sget-object v1, Landroid/support/v4/widget/CircularProgressDrawable;->COLORS:[I
 
-    invoke-virtual {p1, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColors([I)V
-
-    const/high16 p1, 0x40200000    # 2.5f
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColors([I)V
 
     .line 144
-    invoke-virtual {p0, p1}, Landroid/support/v4/widget/CircularProgressDrawable;->setStrokeWidth(F)V
+    const/high16 v0, 0x40200000    # 2.5f
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/widget/CircularProgressDrawable;->setStrokeWidth(F)V
 
     .line 145
     invoke-direct {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->setupAnimators()V
 
+    .line 146
     return-void
 .end method
 
 .method private applyFinishTranslation(FLandroid/support/v4/widget/CircularProgressDrawable$Ring;)V
     .locals 4
+    .param p1, "interpolatedTime"    # F
+    .param p2, "ring"    # Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
     .line 516
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/widget/CircularProgressDrawable;->updateRingColor(FLandroid/support/v4/widget/CircularProgressDrawable$Ring;)V
@@ -175,6 +179,7 @@
     double-to-float v0, v0
 
     .line 519
+    .local v0, "targetRotation":F
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingStartTrim()F
 
     move-result v1
@@ -199,121 +204,144 @@
     add-float/2addr v1, v2
 
     .line 522
+    .local v1, "startTrim":F
     invoke-virtual {p2, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStartTrim(F)V
 
     .line 523
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingEndTrim()F
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {p2, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V
+    invoke-virtual {p2, v2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V
 
     .line 524
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingRotation()F
 
-    move-result v1
+    move-result v2
 
     .line 525
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingRotation()F
 
-    move-result v2
+    move-result v3
 
-    sub-float/2addr v0, v2
+    sub-float v3, v0, v3
 
-    mul-float v0, v0, p1
+    mul-float v3, v3, p1
 
-    add-float/2addr v1, v0
+    add-float/2addr v2, v3
 
     .line 526
-    invoke-virtual {p2, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setRotation(F)V
+    .local v2, "rotation":F
+    invoke-virtual {p2, v2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setRotation(F)V
 
+    .line 527
     return-void
 .end method
 
 .method private evaluateColorChange(FII)I
-    .locals 6
+    .locals 10
+    .param p1, "fraction"    # F
+    .param p2, "startValue"    # I
+    .param p3, "endValue"    # I
 
+    .line 476
     shr-int/lit8 v0, p2, 0x18
 
     and-int/lit16 v0, v0, 0xff
 
+    .line 477
+    .local v0, "startA":I
     shr-int/lit8 v1, p2, 0x10
 
     and-int/lit16 v1, v1, 0xff
 
+    .line 478
+    .local v1, "startR":I
     shr-int/lit8 v2, p2, 0x8
 
     and-int/lit16 v2, v2, 0xff
 
-    and-int/lit16 p2, p2, 0xff
+    .line 479
+    .local v2, "startG":I
+    and-int/lit16 v3, p2, 0xff
 
-    shr-int/lit8 v3, p3, 0x18
-
-    and-int/lit16 v3, v3, 0xff
-
-    shr-int/lit8 v4, p3, 0x10
+    .line 481
+    .local v3, "startB":I
+    shr-int/lit8 v4, p3, 0x18
 
     and-int/lit16 v4, v4, 0xff
 
-    shr-int/lit8 v5, p3, 0x8
+    .line 482
+    .local v4, "endA":I
+    shr-int/lit8 v5, p3, 0x10
 
     and-int/lit16 v5, v5, 0xff
 
-    and-int/lit16 p3, p3, 0xff
+    .line 483
+    .local v5, "endR":I
+    shr-int/lit8 v6, p3, 0x8
 
-    sub-int/2addr v3, v0
+    and-int/lit16 v6, v6, 0xff
 
-    int-to-float v3, v3
+    .line 484
+    .local v6, "endG":I
+    and-int/lit16 v7, p3, 0xff
 
-    mul-float v3, v3, p1
+    .line 486
+    .local v7, "endB":I
+    sub-int v8, v4, v0
 
-    float-to-int v3, v3
+    int-to-float v8, v8
 
-    add-int/2addr v0, v3
+    mul-float v8, v8, p1
 
-    shl-int/lit8 v0, v0, 0x18
+    float-to-int v8, v8
 
-    sub-int/2addr v4, v1
+    add-int/2addr v8, v0
 
-    int-to-float v3, v4
+    shl-int/lit8 v8, v8, 0x18
 
-    mul-float v3, v3, p1
+    sub-int v9, v5, v1
 
-    float-to-int v3, v3
+    int-to-float v9, v9
 
-    add-int/2addr v1, v3
+    mul-float v9, v9, p1
 
-    shl-int/lit8 v1, v1, 0x10
+    float-to-int v9, v9
 
-    or-int/2addr v0, v1
+    add-int/2addr v9, v1
 
-    sub-int/2addr v5, v2
+    shl-int/lit8 v9, v9, 0x10
 
-    int-to-float v1, v5
+    or-int/2addr v8, v9
 
-    mul-float v1, v1, p1
+    sub-int v9, v6, v2
 
-    float-to-int v1, v1
+    int-to-float v9, v9
 
-    add-int/2addr v2, v1
+    mul-float v9, v9, p1
 
-    shl-int/lit8 v1, v2, 0x8
+    float-to-int v9, v9
 
-    or-int/2addr v0, v1
+    add-int/2addr v9, v2
 
-    sub-int/2addr p3, p2
+    shl-int/lit8 v9, v9, 0x8
 
-    int-to-float p3, p3
+    or-int/2addr v8, v9
 
-    mul-float p1, p1, p3
+    sub-int v9, v7, v3
 
-    float-to-int p1, p1
+    int-to-float v9, v9
 
-    add-int/2addr p2, p1
+    mul-float v9, v9, p1
 
-    or-int p1, v0, p2
+    float-to-int v9, v9
 
-    return p1
+    add-int/2addr v9, v3
+
+    or-int/2addr v8, v9
+
+    return v8
 .end method
 
 .method private getRotation()F
@@ -327,20 +355,27 @@
 
 .method private setRotation(F)V
     .locals 0
+    .param p1, "rotation"    # F
 
     .line 424
     iput p1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotation:F
 
+    .line 425
     return-void
 .end method
 
 .method private setSizeParameters(FFFF)V
-    .locals 2
+    .locals 5
+    .param p1, "centerRadius"    # F
+    .param p2, "strokeWidth"    # F
+    .param p3, "arrowWidth"    # F
+    .param p4, "arrowHeight"    # F
 
     .line 151
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
     .line 152
+    .local v0, "ring":Landroid/support/v4/widget/CircularProgressDrawable$Ring;
     iget-object v1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mResources:Landroid/content/res/Resources;
 
     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
@@ -348,30 +383,33 @@
     move-result-object v1
 
     .line 153
-    iget v1, v1, Landroid/util/DisplayMetrics;->density:F
-
-    mul-float p2, p2, v1
+    .local v1, "metrics":Landroid/util/DisplayMetrics;
+    iget v2, v1, Landroid/util/DisplayMetrics;->density:F
 
     .line 155
-    invoke-virtual {v0, p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStrokeWidth(F)V
+    .local v2, "screenDensity":F
+    mul-float v3, p2, v2
 
-    mul-float p1, p1, v1
+    invoke-virtual {v0, v3}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStrokeWidth(F)V
 
     .line 156
-    invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setCenterRadius(F)V
+    mul-float v3, p1, v2
 
-    const/4 p1, 0x0
+    invoke-virtual {v0, v3}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setCenterRadius(F)V
 
     .line 157
-    invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColorIndex(I)V
+    const/4 v3, 0x0
 
-    mul-float p3, p3, v1
-
-    mul-float p4, p4, v1
+    invoke-virtual {v0, v3}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColorIndex(I)V
 
     .line 158
-    invoke-virtual {v0, p3, p4}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setArrowDimensions(FF)V
+    mul-float v3, p3, v2
 
+    mul-float v4, p4, v2
+
+    invoke-virtual {v0, v3, v4}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setArrowDimensions(FF)V
+
+    .line 159
     return-void
 .end method
 
@@ -381,11 +419,12 @@
     .line 566
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
+    .line 567
+    .local v0, "ring":Landroid/support/v4/widget/CircularProgressDrawable$Ring;
     const/4 v1, 0x2
 
     new-array v1, v1, [F
 
-    .line 567
     fill-array-data v1, :array_0
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
@@ -393,20 +432,21 @@
     move-result-object v1
 
     .line 568
+    .local v1, "animator":Landroid/animation/ValueAnimator;
     new-instance v2, Landroid/support/v4/widget/CircularProgressDrawable$1;
 
     invoke-direct {v2, p0, v0}, Landroid/support/v4/widget/CircularProgressDrawable$1;-><init>(Landroid/support/v4/widget/CircularProgressDrawable;Landroid/support/v4/widget/CircularProgressDrawable$Ring;)V
 
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
+    .line 577
     const/4 v2, -0x1
 
-    .line 577
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
 
+    .line 578
     const/4 v2, 0x1
 
-    .line 578
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
 
     .line 579
@@ -424,6 +464,7 @@
     .line 615
     iput-object v1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mAnimator:Landroid/animation/Animator;
 
+    .line 616
     return-void
 
     :array_0
@@ -437,6 +478,9 @@
 # virtual methods
 .method applyTransformation(FLandroid/support/v4/widget/CircularProgressDrawable$Ring;Z)V
     .locals 7
+    .param p1, "interpolatedTime"    # F
+    .param p2, "ring"    # Landroid/support/v4/widget/CircularProgressDrawable$Ring;
+    .param p3, "lastFrame"    # Z
 
     .line 534
     iget-boolean v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mFinishing:Z
@@ -448,6 +492,7 @@
 
     goto :goto_1
 
+    .line 538
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -461,103 +506,125 @@
     :cond_1
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingRotation()F
 
-    move-result p3
+    move-result v1
 
-    const v1, 0x3c23d70a    # 0.01f
+    .line 542
+    .local v1, "startingRotation":F
+    const v2, 0x3c23d70a    # 0.01f
 
-    const v2, 0x3f4a3d71    # 0.79f
+    const v3, 0x3f4a3d71    # 0.79f
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    const/high16 v4, 0x3f000000    # 0.5f
 
-    cmpg-float v4, p1, v3
+    cmpg-float v5, p1, v4
 
-    if-gez v4, :cond_2
+    if-gez v5, :cond_2
 
-    div-float v0, p1, v3
+    .line 543
+    div-float v0, p1, v4
 
     .line 544
+    .local v0, "scaledTime":F
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingStartTrim()F
-
-    move-result v3
-
-    .line 545
-    sget-object v4, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
-
-    .line 546
-    invoke-interface {v4, v0}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result v0
-
-    mul-float v0, v0, v2
-
-    add-float/2addr v0, v1
-
-    add-float/2addr v0, v3
-
-    goto :goto_0
-
-    :cond_2
-    sub-float v4, p1, v3
-
-    div-float/2addr v4, v3
-
-    .line 549
-    invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingStartTrim()F
-
-    move-result v3
-
-    add-float/2addr v3, v2
-
-    .line 550
-    sget-object v5, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
-
-    .line 551
-    invoke-interface {v5, v4}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result v4
 
-    sub-float/2addr v0, v4
+    .line 545
+    .local v4, "startTrim":F
+    sget-object v5, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
-    mul-float v0, v0, v2
+    .line 546
+    invoke-interface {v5, v0}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result v5
+
+    mul-float v5, v5, v3
+
+    add-float/2addr v5, v2
+
+    add-float/2addr v5, v4
+
+    .line 547
+    .end local v0    # "scaledTime":F
+    .local v5, "endTrim":F
+    goto :goto_0
+
+    .line 548
+    .end local v4    # "startTrim":F
+    .end local v5    # "endTrim":F
+    :cond_2
+    sub-float v5, p1, v4
+
+    div-float/2addr v5, v4
+
+    .line 549
+    .local v5, "scaledTime":F
+    invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingStartTrim()F
+
+    move-result v4
+
+    add-float/2addr v4, v3
+
+    .line 550
+    .local v4, "endTrim":F
+    sget-object v6, Landroid/support/v4/widget/CircularProgressDrawable;->MATERIAL_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+    .line 551
+    invoke-interface {v6, v5}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result v6
+
+    sub-float/2addr v0, v6
+
+    mul-float v0, v0, v3
+
+    add-float/2addr v0, v2
+
+    sub-float v0, v4, v0
+
+    move v5, v4
+
+    move v4, v0
+
+    .line 555
+    .local v4, "startTrim":F
+    .local v5, "endTrim":F
+    :goto_0
+    const v0, 0x3e570a3c    # 0.20999998f
+
+    mul-float v0, v0, p1
 
     add-float/2addr v0, v1
 
-    sub-float v0, v3, v0
-
-    move v6, v3
-
-    move v3, v0
-
-    move v0, v6
-
-    :goto_0
-    const v1, 0x3e570a3c    # 0.20999998f
-
-    mul-float v1, v1, p1
-
-    add-float/2addr p3, v1
-
-    const/high16 v1, 0x43580000    # 216.0f
-
     .line 556
-    iget v2, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
+    .local v0, "rotation":F
+    const/high16 v2, 0x43580000    # 216.0f
 
-    add-float/2addr p1, v2
+    iget v3, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
 
-    mul-float p1, p1, v1
+    add-float/2addr v3, p1
+
+    mul-float v3, v3, v2
 
     .line 558
-    invoke-virtual {p2, v3}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStartTrim(F)V
+    .local v3, "groupRotation":F
+    invoke-virtual {p2, v4}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStartTrim(F)V
 
     .line 559
-    invoke-virtual {p2, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V
+    invoke-virtual {p2, v5}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V
 
     .line 560
-    invoke-virtual {p2, p3}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setRotation(F)V
+    invoke-virtual {p2, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setRotation(F)V
 
     .line 561
-    invoke-direct {p0, p1}, Landroid/support/v4/widget/CircularProgressDrawable;->setRotation(F)V
+    invoke-direct {p0, v3}, Landroid/support/v4/widget/CircularProgressDrawable;->setRotation(F)V
 
+    .line 563
+    .end local v0    # "rotation":F
+    .end local v1    # "startingRotation":F
+    .end local v3    # "groupRotation":F
+    .end local v4    # "startTrim":F
+    .end local v5    # "endTrim":F
     :cond_3
     :goto_1
     return-void
@@ -565,6 +632,7 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 4
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 399
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->getBounds()Landroid/graphics/Rect;
@@ -572,6 +640,7 @@
     move-result-object v0
 
     .line 400
+    .local v0, "bounds":Landroid/graphics/Rect;
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 401
@@ -595,6 +664,7 @@
     .line 403
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
+    .line 404
     return-void
 .end method
 
@@ -718,6 +788,7 @@
 .method public getOpacity()I
     .locals 1
 
+    .line 433
     const/4 v0, -0x3
 
     return v0
@@ -790,6 +861,7 @@
 
 .method public setAlpha(I)V
     .locals 1
+    .param p1, "alpha"    # I
 
     .line 408
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -799,11 +871,14 @@
     .line 409
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 410
     return-void
 .end method
 
 .method public setArrowDimensions(FF)V
     .locals 1
+    .param p1, "width"    # F
+    .param p2, "height"    # F
 
     .line 261
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -813,11 +888,13 @@
     .line 262
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 263
     return-void
 .end method
 
 .method public setArrowEnabled(Z)V
     .locals 1
+    .param p1, "show"    # Z
 
     .line 280
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -827,11 +904,13 @@
     .line 281
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 282
     return-void
 .end method
 
 .method public setArrowScale(F)V
     .locals 1
+    .param p1, "scale"    # F
 
     .line 299
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -841,11 +920,13 @@
     .line 300
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 301
     return-void
 .end method
 
 .method public setBackgroundColor(I)V
     .locals 1
+    .param p1, "color"    # I
 
     .line 371
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -855,11 +936,13 @@
     .line 372
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 373
     return-void
 .end method
 
 .method public setCenterRadius(F)V
     .locals 1
+    .param p1, "centerRadius"    # F
 
     .line 212
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -869,11 +952,13 @@
     .line 213
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 214
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
+    .param p1, "colorFilter"    # Landroid/graphics/ColorFilter;
 
     .line 419
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -883,11 +968,13 @@
     .line 420
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 421
     return-void
 .end method
 
 .method public varargs setColorSchemeColors([I)V
-    .locals 1
+    .locals 2
+    .param p1, "colors"    # [I
 
     .line 392
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -895,20 +982,22 @@
     invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColors([I)V
 
     .line 393
-    iget-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
+    iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColorIndex(I)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColorIndex(I)V
 
     .line 394
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 395
     return-void
 .end method
 
 .method public setProgressRotation(F)V
     .locals 1
+    .param p1, "rotation"    # F
 
     .line 350
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -918,11 +1007,14 @@
     .line 351
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 352
     return-void
 .end method
 
 .method public setStartEndTrim(FF)V
     .locals 1
+    .param p1, "start"    # F
+    .param p2, "end"    # F
 
     .line 330
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -930,18 +1022,20 @@
     invoke-virtual {v0, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setStartTrim(F)V
 
     .line 331
-    iget-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
+    iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
-    invoke-virtual {p1, p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V
+    invoke-virtual {v0, p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setEndTrim(F)V
 
     .line 332
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 333
     return-void
 .end method
 
 .method public setStrokeCap(Landroid/graphics/Paint$Cap;)V
     .locals 1
+    .param p1, "strokeCap"    # Landroid/graphics/Paint$Cap;
 
     .line 222
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -951,11 +1045,13 @@
     .line 223
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 224
     return-void
 .end method
 
 .method public setStrokeWidth(F)V
     .locals 1
+    .param p1, "strokeWidth"    # F
 
     .line 192
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mRing:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
@@ -965,43 +1061,47 @@
     .line 193
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 194
     return-void
 .end method
 
 .method public setStyle(I)V
-    .locals 3
+    .locals 4
+    .param p1, "size"    # I
 
+    .line 168
     if-nez p1, :cond_0
 
-    const/high16 p1, 0x41300000    # 11.0f
-
-    const/high16 v0, 0x40400000    # 3.0f
-
-    const/high16 v1, 0x41400000    # 12.0f
-
-    const/high16 v2, 0x40c00000    # 6.0f
-
     .line 169
-    invoke-direct {p0, p1, v0, v1, v2}, Landroid/support/v4/widget/CircularProgressDrawable;->setSizeParameters(FFFF)V
+    const/high16 v0, 0x41300000    # 11.0f
+
+    const/high16 v1, 0x40400000    # 3.0f
+
+    const/high16 v2, 0x41400000    # 12.0f
+
+    const/high16 v3, 0x40c00000    # 6.0f
+
+    invoke-direct {p0, v0, v1, v2, v3}, Landroid/support/v4/widget/CircularProgressDrawable;->setSizeParameters(FFFF)V
 
     goto :goto_0
 
-    :cond_0
-    const/high16 p1, 0x40f00000    # 7.5f
-
-    const/high16 v0, 0x40200000    # 2.5f
-
-    const/high16 v1, 0x41200000    # 10.0f
-
-    const/high16 v2, 0x40a00000    # 5.0f
-
     .line 172
-    invoke-direct {p0, p1, v0, v1, v2}, Landroid/support/v4/widget/CircularProgressDrawable;->setSizeParameters(FFFF)V
+    :cond_0
+    const/high16 v0, 0x40f00000    # 7.5f
+
+    const/high16 v1, 0x40200000    # 2.5f
+
+    const/high16 v2, 0x41200000    # 10.0f
+
+    const/high16 v3, 0x40a00000    # 5.0f
+
+    invoke-direct {p0, v0, v1, v2, v3}, Landroid/support/v4/widget/CircularProgressDrawable;->setSizeParameters(FFFF)V
 
     .line 174
     :goto_0
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 175
     return-void
 .end method
 
@@ -1035,9 +1135,9 @@
 
     if-eqz v0, :cond_0
 
+    .line 450
     const/4 v0, 0x1
 
-    .line 450
     iput-boolean v0, p0, Landroid/support/v4/widget/CircularProgressDrawable;->mFinishing:Z
 
     .line 451
@@ -1079,6 +1179,7 @@
 
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
+    .line 459
     :goto_0
     return-void
 .end method
@@ -1091,9 +1192,9 @@
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
+    .line 467
     const/4 v0, 0x0
 
-    .line 467
     invoke-direct {p0, v0}, Landroid/support/v4/widget/CircularProgressDrawable;->setRotation(F)V
 
     .line 468
@@ -1116,40 +1217,45 @@
     .line 471
     invoke-virtual {p0}, Landroid/support/v4/widget/CircularProgressDrawable;->invalidateSelf()V
 
+    .line 472
     return-void
 .end method
 
 .method updateRingColor(FLandroid/support/v4/widget/CircularProgressDrawable$Ring;)V
-    .locals 2
+    .locals 3
+    .param p1, "interpolatedTime"    # F
+    .param p2, "ring"    # Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
+    .line 499
     const/high16 v0, 0x3f400000    # 0.75f
 
     cmpl-float v1, p1, v0
 
     if-lez v1, :cond_0
 
-    sub-float/2addr p1, v0
+    .line 500
+    sub-float v0, p1, v0
 
-    const/high16 v0, 0x3e800000    # 0.25f
+    const/high16 v1, 0x3e800000    # 0.25f
 
-    div-float/2addr p1, v0
+    div-float/2addr v0, v1
 
     .line 501
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingColor()I
 
-    move-result v0
+    move-result v1
 
     .line 502
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getNextColor()I
 
-    move-result v1
+    move-result v2
 
     .line 500
-    invoke-direct {p0, p1, v0, v1}, Landroid/support/v4/widget/CircularProgressDrawable;->evaluateColorChange(FII)I
+    invoke-direct {p0, v0, v1, v2}, Landroid/support/v4/widget/CircularProgressDrawable;->evaluateColorChange(FII)I
 
-    move-result p1
+    move-result v0
 
-    invoke-virtual {p2, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColor(I)V
+    invoke-virtual {p2, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColor(I)V
 
     goto :goto_0
 
@@ -1157,10 +1263,11 @@
     :cond_0
     invoke-virtual {p2}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->getStartingColor()I
 
-    move-result p1
+    move-result v0
 
-    invoke-virtual {p2, p1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColor(I)V
+    invoke-virtual {p2, v0}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setColor(I)V
 
+    .line 506
     :goto_0
     return-void
 .end method

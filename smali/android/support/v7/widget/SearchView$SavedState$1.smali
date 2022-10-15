@@ -40,6 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v7/widget/SearchView$SavedState;
     .locals 2
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 1332
     new-instance v0, Landroid/support/v7/widget/SearchView$SavedState;
@@ -53,6 +54,8 @@
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/v7/widget/SearchView$SavedState;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
+    .param p2, "loader"    # Ljava/lang/ClassLoader;
 
     .line 1327
     new-instance v0, Landroid/support/v7/widget/SearchView$SavedState;
@@ -85,12 +88,13 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v7/widget/SearchView$SavedState;
-    .locals 0
+    .locals 1
+    .param p1, "size"    # I
 
     .line 1337
-    new-array p1, p1, [Landroid/support/v7/widget/SearchView$SavedState;
+    new-array v0, p1, [Landroid/support/v7/widget/SearchView$SavedState;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

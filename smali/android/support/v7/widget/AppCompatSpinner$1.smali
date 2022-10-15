@@ -23,6 +23,8 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/AppCompatSpinner;Landroid/view/View;Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/AppCompatSpinner;
+    .param p2, "src"    # Landroid/view/View;
 
     .line 246
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatSpinner$1;->this$0:Landroid/support/v7/widget/AppCompatSpinner;
@@ -66,6 +68,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->show()V
 
+    .line 257
     :cond_0
     const/4 v0, 0x1
 

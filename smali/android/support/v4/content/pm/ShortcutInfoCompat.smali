@@ -45,6 +45,7 @@
 # virtual methods
 .method addToIntent(Landroid/content/Intent;)Landroid/content/Intent;
     .locals 3
+    .param p1, "outIntent"    # Landroid/content/Intent;
 
     .line 77
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -77,9 +78,11 @@
 
     if-eqz v0, :cond_2
 
+    .line 80
     const/4 v0, 0x0
 
     .line 81
+    .local v0, "badge":Landroid/graphics/drawable/Drawable;
     iget-boolean v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIsAlwaysBadged:Z
 
     if-eqz v1, :cond_1
@@ -92,6 +95,7 @@
     move-result-object v1
 
     .line 83
+    .local v1, "pm":Landroid/content/pm/PackageManager;
     iget-object v2, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
 
     if-eqz v2, :cond_0
@@ -100,31 +104,37 @@
     :try_start_0
     invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->getActivityIcon(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v2
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    move-object v0, v2
+
+    .line 88
     goto :goto_0
 
+    .line 86
     :catch_0
-    nop
+    move-exception v2
 
+    .line 90
     :cond_0
     :goto_0
     if-nez v0, :cond_1
 
     .line 91
-    iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v2}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v1}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     .line 94
+    .end local v1    # "pm":Landroid/content/pm/PackageManager;
     :cond_1
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
@@ -132,6 +142,8 @@
 
     invoke-virtual {v1, p1, v0, v2}, Landroid/support/v4/graphics/drawable/IconCompat;->addToShortcutIntent(Landroid/content/Intent;Landroid/graphics/drawable/Drawable;Landroid/content/Context;)V
 
+    .line 96
+    .end local v0    # "badge":Landroid/graphics/drawable/Drawable;
     :cond_2
     return-object p1
 .end method
@@ -240,6 +252,7 @@
     move-result-object v0
 
     .line 61
+    .local v0, "builder":Landroid/content/pm/ShortcutInfo$Builder;
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
     if-eqz v1, :cond_0
@@ -294,7 +307,7 @@
     :cond_3
     invoke-virtual {v0}, Landroid/content/pm/ShortcutInfo$Builder;->build()Landroid/content/pm/ShortcutInfo;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

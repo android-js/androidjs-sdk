@@ -39,7 +39,10 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/app/WindowDecorActionBar;Landroid/content/Context;Landroid/support/v7/view/ActionMode$Callback;)V
-    .locals 0
+    .locals 2
+    .param p1, "this$0"    # Landroid/support/v7/app/WindowDecorActionBar;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "callback"    # Landroid/support/v7/view/ActionMode$Callback;
 
     .line 993
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -53,22 +56,23 @@
     iput-object p3, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
     .line 996
-    new-instance p1, Landroid/support/v7/view/menu/MenuBuilder;
+    new-instance v0, Landroid/support/v7/view/menu/MenuBuilder;
 
-    invoke-direct {p1, p2}, Landroid/support/v7/view/menu/MenuBuilder;-><init>(Landroid/content/Context;)V
-
-    const/4 p2, 0x1
+    invoke-direct {v0, p2}, Landroid/support/v7/view/menu/MenuBuilder;-><init>(Landroid/content/Context;)V
 
     .line 997
-    invoke-virtual {p1, p2}, Landroid/support/v7/view/menu/MenuBuilder;->setDefaultShowAsAction(I)Landroid/support/v7/view/menu/MenuBuilder;
+    const/4 v1, 0x1
 
-    move-result-object p1
+    invoke-virtual {v0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->setDefaultShowAsAction(I)Landroid/support/v7/view/menu/MenuBuilder;
 
-    iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     .line 998
-    invoke-virtual {p1, p0}, Landroid/support/v7/view/menu/MenuBuilder;->setCallback(Landroid/support/v7/view/menu/MenuBuilder$Callback;)V
+    invoke-virtual {v0, p0}, Landroid/support/v7/view/menu/MenuBuilder;->setCallback(Landroid/support/v7/view/menu/MenuBuilder$Callback;)V
 
+    .line 999
     return-void
 .end method
 
@@ -121,6 +125,7 @@
 
     if-eq v0, p0, :cond_0
 
+    .line 1015
     return-void
 
     .line 1022
@@ -161,10 +166,10 @@
 
     invoke-interface {v0, p0}, Landroid/support/v7/view/ActionMode$Callback;->onDestroyActionMode(Landroid/support/v7/view/ActionMode;)V
 
+    .line 1030
     :goto_0
     const/4 v0, 0x0
 
-    .line 1030
     iput-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
     .line 1031
@@ -208,6 +213,7 @@
 
     iput-object v0, v1, Landroid/support/v7/app/WindowDecorActionBar;->mActionMode:Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;
 
+    .line 1040
     return-void
 .end method
 
@@ -296,6 +302,7 @@
 
     if-eq v0, p0, :cond_0
 
+    .line 1048
     return-void
 
     .line 1051
@@ -319,8 +326,13 @@
 
     invoke-virtual {v0}, Landroid/support/v7/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
 
+    .line 1056
+    nop
+
+    .line 1057
     return-void
 
+    .line 1055
     :catchall_0
     move-exception v0
 
@@ -348,45 +360,55 @@
 
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
     .locals 0
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
+    .line 1130
     return-void
 .end method
 
 .method public onCloseSubMenu(Landroid/support/v7/view/menu/SubMenuBuilder;)V
     .locals 0
+    .param p1, "menu"    # Landroid/support/v7/view/menu/SubMenuBuilder;
 
+    .line 1146
     return-void
 .end method
 
 .method public onMenuItemSelected(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .locals 0
+    .locals 1
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
+    .param p2, "item"    # Landroid/view/MenuItem;
 
     .line 1122
-    iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
+    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 1123
-    invoke-interface {p1, p0, p2}, Landroid/support/v7/view/ActionMode$Callback;->onActionItemClicked(Landroid/support/v7/view/ActionMode;Landroid/view/MenuItem;)Z
+    invoke-interface {v0, p0, p2}, Landroid/support/v7/view/ActionMode$Callback;->onActionItemClicked(Landroid/support/v7/view/ActionMode;Landroid/view/MenuItem;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 
+    .line 1125
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public onMenuModeChange(Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 0
+    .locals 1
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
 
     .line 1150
-    iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
+    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
+    .line 1151
     return-void
 
     .line 1153
@@ -394,26 +416,29 @@
     invoke-virtual {p0}, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->invalidate()V
 
     .line 1154
-    iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
+    iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
 
-    iget-object p1, p1, Landroid/support/v7/app/WindowDecorActionBar;->mContextView:Landroid/support/v7/widget/ActionBarContextView;
+    iget-object v0, v0, Landroid/support/v7/app/WindowDecorActionBar;->mContextView:Landroid/support/v7/widget/ActionBarContextView;
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/ActionBarContextView;->showOverflowMenu()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/ActionBarContextView;->showOverflowMenu()Z
 
+    .line 1155
     return-void
 .end method
 
 .method public onSubMenuSelected(Landroid/support/v7/view/menu/SubMenuBuilder;)Z
     .locals 3
+    .param p1, "subMenu"    # Landroid/support/v7/view/menu/SubMenuBuilder;
 
     .line 1133
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroid/support/v7/view/ActionMode$Callback;
 
     if-nez v0, :cond_0
 
-    const/4 p1, 0x0
+    .line 1134
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 
     .line 1137
     :cond_0
@@ -425,6 +450,7 @@
 
     if-nez v0, :cond_1
 
+    .line 1138
     return v1
 
     .line 1141
@@ -441,11 +467,13 @@
 
     invoke-virtual {v0}, Landroid/support/v7/view/menu/MenuPopupHelper;->show()V
 
+    .line 1142
     return v1
 .end method
 
 .method public setCustomView(Landroid/view/View;)V
     .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
     .line 1070
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -461,11 +489,13 @@
 
     iput-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->mCustomView:Ljava/lang/ref/WeakReference;
 
+    .line 1072
     return-void
 .end method
 
 .method public setSubtitle(I)V
     .locals 1
+    .param p1, "resId"    # I
 
     .line 1091
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -478,15 +508,17 @@
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->setSubtitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->setSubtitle(Ljava/lang/CharSequence;)V
 
+    .line 1092
     return-void
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)V
     .locals 1
+    .param p1, "subtitle"    # Ljava/lang/CharSequence;
 
     .line 1076
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -495,11 +527,13 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/ActionBarContextView;->setSubtitle(Ljava/lang/CharSequence;)V
 
+    .line 1077
     return-void
 .end method
 
 .method public setTitle(I)V
     .locals 1
+    .param p1, "resId"    # I
 
     .line 1086
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -512,15 +546,17 @@
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->setTitle(Ljava/lang/CharSequence;)V
 
+    .line 1087
     return-void
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
+    .param p1, "title"    # Ljava/lang/CharSequence;
 
     .line 1081
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -529,11 +565,13 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/ActionBarContextView;->setTitle(Ljava/lang/CharSequence;)V
 
+    .line 1082
     return-void
 .end method
 
 .method public setTitleOptionalHint(Z)V
     .locals 1
+    .param p1, "titleOptional"    # Z
 
     .line 1106
     invoke-super {p0, p1}, Landroid/support/v7/view/ActionMode;->setTitleOptionalHint(Z)V
@@ -545,5 +583,6 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/ActionBarContextView;->setTitleOptional(Z)V
 
+    .line 1108
     return-void
 .end method

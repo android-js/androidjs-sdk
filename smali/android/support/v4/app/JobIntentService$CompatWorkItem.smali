@@ -28,6 +28,9 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/JobIntentService;Landroid/content/Intent;I)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/JobIntentService;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "startId"    # I
 
     .line 363
     iput-object p1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkItem;->this$0:Landroid/support/v4/app/JobIntentService;
@@ -40,6 +43,7 @@
     .line 365
     iput p3, p0, Landroid/support/v4/app/JobIntentService$CompatWorkItem;->mStartId:I
 
+    .line 366
     return-void
 .end method
 
@@ -55,6 +59,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/JobIntentService;->stopSelf(I)V
 
+    .line 377
     return-void
 .end method
 

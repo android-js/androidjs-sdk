@@ -27,6 +27,8 @@
 # virtual methods
 .method public contains(II)Z
     .locals 2
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
     .line 46
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
@@ -39,25 +41,25 @@
 
     if-ge p1, v0, :cond_0
 
-    iget p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
+    iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
 
-    if-lt p2, p1, :cond_0
+    if-lt p2, v0, :cond_0
 
-    iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
+    iget v1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
 
-    add-int/2addr p1, v0
+    add-int/2addr v0, v1
 
-    if-ge p2, p1, :cond_0
+    if-ge p2, v0, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return p1
+    return v0
 .end method
 
 .method public getCenterX()I
@@ -91,7 +93,9 @@
 .end method
 
 .method grow(II)V
-    .locals 1
+    .locals 2
+    .param p1, "w"    # I
+    .param p2, "h"    # I
 
     .line 34
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
@@ -110,26 +114,28 @@
     .line 36
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->width:I
 
-    mul-int/lit8 p1, p1, 0x2
+    mul-int/lit8 v1, p1, 0x2
 
-    add-int/2addr v0, p1
+    add-int/2addr v0, v1
 
     iput v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->width:I
 
     .line 37
-    iget p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
+    iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
 
-    mul-int/lit8 p2, p2, 0x2
+    mul-int/lit8 v1, p2, 0x2
 
-    add-int/2addr p1, p2
+    add-int/2addr v0, v1
 
-    iput p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
+    iput v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
 
+    .line 38
     return-void
 .end method
 
 .method intersects(Landroid/support/constraint/solver/widgets/Rectangle;)Z
     .locals 3
+    .param p1, "bounds"    # Landroid/support/constraint/solver/widgets/Rectangle;
 
     .line 41
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
@@ -150,25 +156,29 @@
 
     if-lt v0, v1, :cond_0
 
-    iget p1, p1, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
+    iget v2, p1, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
 
-    add-int/2addr v1, p1
+    add-int/2addr v1, v2
 
     if-ge v0, v1, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return p1
+    return v0
 .end method
 
 .method public setBounds(IIII)V
     .locals 0
+    .param p1, "x"    # I
+    .param p2, "y"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .line 28
     iput p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
@@ -182,5 +192,6 @@
     .line 31
     iput p4, p0, Landroid/support/constraint/solver/widgets/Rectangle;->height:I
 
+    .line 32
     return-void
 .end method

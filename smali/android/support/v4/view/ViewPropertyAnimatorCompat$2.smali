@@ -28,6 +28,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/ViewPropertyAnimatorCompat;Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 778
     iput-object p1, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->this$0:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
@@ -44,14 +45,16 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .locals 2
+    .param p1, "valueAnimator"    # Landroid/animation/ValueAnimator;
 
     .line 781
-    iget-object p1, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->val$listener:Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;
+    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->val$listener:Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;
 
-    iget-object v0, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->val$view:Landroid/view/View;
+    iget-object v1, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->val$view:Landroid/view/View;
 
-    invoke-interface {p1, v0}, Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;->onAnimationUpdate(Landroid/view/View;)V
+    invoke-interface {v0, v1}, Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;->onAnimationUpdate(Landroid/view/View;)V
 
+    .line 782
     return-void
 .end method

@@ -22,7 +22,9 @@
 .end method
 
 .method public static requireViewById(Landroid/view/Window;I)Landroid/view/View;
-    .locals 2
+    .locals 3
+    .param p0, "window"    # Landroid/view/Window;
+    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -43,27 +45,30 @@
     .line 86
     invoke-virtual {p0, p1}, Landroid/view/Window;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 89
     :cond_0
     invoke-virtual {p0, p1}, Landroid/view/Window;->findViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-eqz p0, :cond_1
+    .line 90
+    .local v0, "view":Landroid/view/View;, "TT;"
+    if-eqz v0, :cond_1
 
-    return-object p0
+    .line 93
+    return-object v0
 
     .line 91
     :cond_1
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "ID does not reference a View inside this Window"
+    const-string v2, "ID does not reference a View inside this Window"
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p0
+    throw v1
 .end method

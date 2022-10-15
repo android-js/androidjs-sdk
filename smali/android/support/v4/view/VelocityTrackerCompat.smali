@@ -19,27 +19,31 @@
 .end method
 
 .method public static getXVelocity(Landroid/view/VelocityTracker;I)F
-    .locals 0
+    .locals 1
+    .param p0, "tracker"    # Landroid/view/VelocityTracker;
+    .param p1, "pointerId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 37
     invoke-virtual {p0, p1}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static getYVelocity(Landroid/view/VelocityTracker;I)F
-    .locals 0
+    .locals 1
+    .param p0, "tracker"    # Landroid/view/VelocityTracker;
+    .param p1, "pointerId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 49
     invoke-virtual {p0, p1}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method

@@ -28,8 +28,10 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/content/ModernAsyncTask;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/content/ModernAsyncTask;
 
     .line 133
+    .local p0, "this":Landroid/support/v4/content/ModernAsyncTask$2;, "Landroid/support/v4/content/ModernAsyncTask$2;"
     iput-object p1, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
     invoke-direct {p0}, Landroid/support/v4/content/ModernAsyncTask$WorkerRunnable;-><init>()V
@@ -54,6 +56,7 @@
     .end annotation
 
     .line 136
+    .local p0, "this":Landroid/support/v4/content/ModernAsyncTask$2;, "Landroid/support/v4/content/ModernAsyncTask$2;"
     iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
     iget-object v0, v0, Landroid/support/v4/content/ModernAsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -62,22 +65,26 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    const/16 v0, 0xa
-
-    const/4 v2, 0x0
+    .line 137
+    const/4 v0, 0x0
 
     .line 139
+    .local v0, "result":Ljava/lang/Object;, "TResult;"
+    const/16 v2, 0xa
+
     :try_start_0
-    invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
+    invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 141
-    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
+    iget-object v2, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
     iget-object v3, p0, Landroid/support/v4/content/ModernAsyncTask$2;->mParams:[Ljava/lang/Object;
 
-    invoke-virtual {v0, v3}, Landroid/support/v4/content/ModernAsyncTask;->doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Landroid/support/v4/content/ModernAsyncTask;->doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
+
+    move-object v0, v2
 
     .line 142
     invoke-static {}, Landroid/os/Binder;->flushPendingCommands()V
@@ -85,16 +92,22 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 147
-    iget-object v0, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
+    iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
-    invoke-virtual {v0, v2}, Landroid/support/v4/content/ModernAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Landroid/support/v4/content/ModernAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object v2
+    .line 148
+    nop
 
+    .line 149
+    return-object v0
+
+    .line 143
     :catchall_0
-    move-exception v0
+    move-exception v2
 
     .line 144
+    .local v2, "tr":Ljava/lang/Throwable;
     :try_start_1
     iget-object v3, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
@@ -103,17 +116,22 @@
     invoke-virtual {v3, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     .line 145
-    throw v0
+    nop
+
+    .end local v0    # "result":Ljava/lang/Object;, "TResult;"
+    throw v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    :catchall_1
-    move-exception v0
-
     .line 147
-    iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
+    .end local v2    # "tr":Ljava/lang/Throwable;
+    .restart local v0    # "result":Ljava/lang/Object;, "TResult;"
+    :catchall_1
+    move-exception v1
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/content/ModernAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v2, p0, Landroid/support/v4/content/ModernAsyncTask$2;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
-    throw v0
+    invoke-virtual {v2, v0}, Landroid/support/v4/content/ModernAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
+
+    throw v1
 .end method

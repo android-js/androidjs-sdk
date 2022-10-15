@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/CascadingMenuPopup;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/view/menu/CascadingMenuPopup;
 
     .line 120
     iput-object p1, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$2;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
@@ -37,12 +38,15 @@
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
+    .param p1, "v"    # Landroid/view/View;
 
+    .line 123
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
     .line 127
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$2;->this$0:Landroid/support/v7/view/menu/CascadingMenuPopup;
@@ -87,5 +91,6 @@
     :cond_1
     invoke-virtual {p1, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
+    .line 134
     return-void
 .end method

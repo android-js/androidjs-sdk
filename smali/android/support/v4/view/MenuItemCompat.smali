@@ -51,33 +51,36 @@
 .end method
 
 .method public static collapseActionView(Landroid/view/MenuItem;)Z
-    .locals 0
+    .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 268
     invoke-interface {p0}, Landroid/view/MenuItem;->collapseActionView()Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static expandActionView(Landroid/view/MenuItem;)Z
-    .locals 0
+    .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 249
     invoke-interface {p0}, Landroid/view/MenuItem;->expandActionView()Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static getActionProvider(Landroid/view/MenuItem;)Landroid/support/v4/view/ActionProvider;
-    .locals 1
+    .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 224
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -85,42 +88,47 @@
     if-eqz v0, :cond_0
 
     .line 225
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getSupportActionProvider()Landroid/support/v4/view/ActionProvider;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getSupportActionProvider()Landroid/support/v4/view/ActionProvider;
 
-    return-object p0
+    move-result-object v0
 
-    :cond_0
-    const-string p0, "MenuItemCompat"
-
-    const-string v0, "getActionProvider: item does not implement SupportMenuItem; returning null"
+    return-object v0
 
     .line 229
-    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_0
+    const-string v0, "MenuItemCompat"
 
-    const/4 p0, 0x0
+    const-string v1, "getActionProvider: item does not implement SupportMenuItem; returning null"
 
-    return-object p0
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 230
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method public static getActionView(Landroid/view/MenuItem;)Landroid/view/View;
-    .locals 0
+    .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 188
     invoke-interface {p0}, Landroid/view/MenuItem;->getActionView()Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getAlphabeticModifiers(Landroid/view/MenuItem;)I
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 481
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -128,13 +136,15 @@
     if-eqz v0, :cond_0
 
     .line 482
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getAlphabeticModifiers()I
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getAlphabeticModifiers()I
 
-    return p0
+    move-result v0
+
+    return v0
 
     .line 484
     :cond_0
@@ -147,18 +157,20 @@
     .line 485
     invoke-interface {p0}, Landroid/view/MenuItem;->getAlphabeticModifiers()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 487
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    return v0
 .end method
 
 .method public static getContentDescription(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 335
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -166,13 +178,15 @@
     if-eqz v0, :cond_0
 
     .line 336
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getContentDescription()Ljava/lang/CharSequence;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getContentDescription()Ljava/lang/CharSequence;
 
-    return-object p0
+    move-result-object v0
+
+    return-object v0
 
     .line 338
     :cond_0
@@ -185,18 +199,20 @@
     .line 339
     invoke-interface {p0}, Landroid/view/MenuItem;->getContentDescription()Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 341
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getIconTintList(Landroid/view/MenuItem;)Landroid/content/res/ColorStateList;
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 515
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -204,13 +220,15 @@
     if-eqz v0, :cond_0
 
     .line 516
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getIconTintList()Landroid/content/res/ColorStateList;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getIconTintList()Landroid/content/res/ColorStateList;
 
-    return-object p0
+    move-result-object v0
+
+    return-object v0
 
     .line 518
     :cond_0
@@ -223,18 +241,20 @@
     .line 519
     invoke-interface {p0}, Landroid/view/MenuItem;->getIconTintList()Landroid/content/res/ColorStateList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 521
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getIconTintMode(Landroid/view/MenuItem;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 548
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -242,13 +262,15 @@
     if-eqz v0, :cond_0
 
     .line 549
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getIconTintMode()Landroid/graphics/PorterDuff$Mode;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getIconTintMode()Landroid/graphics/PorterDuff$Mode;
 
-    return-object p0
+    move-result-object v0
+
+    return-object v0
 
     .line 551
     :cond_0
@@ -261,18 +283,20 @@
     .line 552
     invoke-interface {p0}, Landroid/view/MenuItem;->getIconTintMode()Landroid/graphics/PorterDuff$Mode;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 554
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getNumericModifiers(Landroid/view/MenuItem;)I
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 436
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -280,13 +304,15 @@
     if-eqz v0, :cond_0
 
     .line 437
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getNumericModifiers()I
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getNumericModifiers()I
 
-    return p0
+    move-result v0
+
+    return v0
 
     .line 439
     :cond_0
@@ -299,18 +325,20 @@
     .line 440
     invoke-interface {p0}, Landroid/view/MenuItem;->getNumericModifiers()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 442
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    return v0
 .end method
 
 .method public static getTooltipText(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
 
     .line 364
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -318,13 +346,15 @@
     if-eqz v0, :cond_0
 
     .line 365
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/internal/view/SupportMenuItem;->getTooltipText()Ljava/lang/CharSequence;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/internal/view/SupportMenuItem;->getTooltipText()Ljava/lang/CharSequence;
 
-    return-object p0
+    move-result-object v0
+
+    return-object v0
 
     .line 367
     :cond_0
@@ -337,31 +367,35 @@
     .line 368
     invoke-interface {p0}, Landroid/view/MenuItem;->getTooltipText()Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 370
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static isActionViewExpanded(Landroid/view/MenuItem;)Z
-    .locals 0
+    .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 284
     invoke-interface {p0}, Landroid/view/MenuItem;->isActionViewExpanded()Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 .end method
 
 .method public static setActionProvider(Landroid/view/MenuItem;Landroid/support/v4/view/ActionProvider;)Landroid/view/MenuItem;
-    .locals 1
+    .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "provider"    # Landroid/support/v4/view/ActionProvider;
 
     .line 207
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -369,53 +403,63 @@
     if-eqz v0, :cond_0
 
     .line 208
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setSupportActionProvider(Landroid/support/v4/view/ActionProvider;)Landroid/support/v4/internal/view/SupportMenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    move-result-object p0
+    invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setSupportActionProvider(Landroid/support/v4/view/ActionProvider;)Landroid/support/v4/internal/view/SupportMenuItem;
 
-    return-object p0
+    move-result-object v0
 
-    :cond_0
-    const-string p1, "MenuItemCompat"
-
-    const-string v0, "setActionProvider: item does not implement SupportMenuItem; ignoring"
+    return-object v0
 
     .line 211
-    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_0
+    const-string v0, "MenuItemCompat"
 
+    const-string v1, "setActionProvider: item does not implement SupportMenuItem; ignoring"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 212
     return-object p0
 .end method
 
 .method public static setActionView(Landroid/view/MenuItem;I)Landroid/view/MenuItem;
-    .locals 0
+    .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "resId"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 175
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setActionView(I)Landroid/view/MenuItem;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static setActionView(Landroid/view/MenuItem;Landroid/view/View;)Landroid/view/MenuItem;
-    .locals 0
+    .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "view"    # Landroid/view/View;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 153
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setActionView(Landroid/view/View;)Landroid/view/MenuItem;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static setAlphabeticShortcut(Landroid/view/MenuItem;CI)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "alphaChar"    # C
+    .param p2, "alphaModifiers"    # I
 
     .line 463
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -423,9 +467,11 @@
     if-eqz v0, :cond_0
 
     .line 464
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
 
     goto :goto_0
 
@@ -440,6 +486,7 @@
     .line 466
     invoke-interface {p0, p1, p2}, Landroid/view/MenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
 
+    .line 468
     :cond_1
     :goto_0
     return-void
@@ -447,6 +494,8 @@
 
 .method public static setContentDescription(Landroid/view/MenuItem;Ljava/lang/CharSequence;)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "contentDescription"    # Ljava/lang/CharSequence;
 
     .line 322
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -454,9 +503,11 @@
     if-eqz v0, :cond_0
 
     .line 323
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
 
     goto :goto_0
 
@@ -471,6 +522,7 @@
     .line 325
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
+    .line 327
     :cond_1
     :goto_0
     return-void
@@ -478,6 +530,8 @@
 
 .method public static setIconTintList(Landroid/view/MenuItem;Landroid/content/res/ColorStateList;)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 503
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -485,9 +539,11 @@
     if-eqz v0, :cond_0
 
     .line 504
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
 
     goto :goto_0
 
@@ -502,6 +558,7 @@
     .line 506
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
 
+    .line 508
     :cond_1
     :goto_0
     return-void
@@ -509,6 +566,8 @@
 
 .method public static setIconTintMode(Landroid/view/MenuItem;Landroid/graphics/PorterDuff$Mode;)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 534
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -516,9 +575,11 @@
     if-eqz v0, :cond_0
 
     .line 535
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
 
     goto :goto_0
 
@@ -533,6 +594,7 @@
     .line 537
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
 
+    .line 539
     :cond_1
     :goto_0
     return-void
@@ -540,6 +602,9 @@
 
 .method public static setNumericShortcut(Landroid/view/MenuItem;CI)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "numericChar"    # C
+    .param p2, "numericModifiers"    # I
 
     .line 418
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -547,9 +612,11 @@
     if-eqz v0, :cond_0
 
     .line 419
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
 
     goto :goto_0
 
@@ -564,6 +631,7 @@
     .line 421
     invoke-interface {p0, p1, p2}, Landroid/view/MenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
 
+    .line 423
     :cond_1
     :goto_0
     return-void
@@ -571,6 +639,8 @@
 
 .method public static setOnActionExpandListener(Landroid/view/MenuItem;Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;)Landroid/view/MenuItem;
     .locals 1
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "listener"    # Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -581,13 +651,18 @@
 
     invoke-interface {p0, v0}, Landroid/view/MenuItem;->setOnActionExpandListener(Landroid/view/MenuItem$OnActionExpandListener;)Landroid/view/MenuItem;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static setShortcut(Landroid/view/MenuItem;CCII)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "numericChar"    # C
+    .param p2, "alphaChar"    # C
+    .param p3, "numericModifiers"    # I
+    .param p4, "alphaModifiers"    # I
 
     .line 397
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -595,9 +670,11 @@
     if-eqz v0, :cond_0
 
     .line 398
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1, p2, p3, p4}, Landroid/support/v4/internal/view/SupportMenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1, p2, p3, p4}, Landroid/support/v4/internal/view/SupportMenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
 
     goto :goto_0
 
@@ -612,6 +689,7 @@
     .line 401
     invoke-interface {p0, p1, p2, p3, p4}, Landroid/view/MenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
 
+    .line 403
     :cond_1
     :goto_0
     return-void
@@ -619,17 +697,22 @@
 
 .method public static setShowAsAction(Landroid/view/MenuItem;I)V
     .locals 0
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "actionEnum"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 135
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
+    .line 136
     return-void
 .end method
 
 .method public static setTooltipText(Landroid/view/MenuItem;Ljava/lang/CharSequence;)V
     .locals 2
+    .param p0, "item"    # Landroid/view/MenuItem;
+    .param p1, "tooltipText"    # Ljava/lang/CharSequence;
 
     .line 351
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -637,9 +720,11 @@
     if-eqz v0, :cond_0
 
     .line 352
-    check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
+    check-cast v0, Landroid/support/v4/internal/view/SupportMenuItem;
+
+    invoke-interface {v0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
 
     goto :goto_0
 
@@ -654,6 +739,7 @@
     .line 354
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
+    .line 356
     :cond_1
     :goto_0
     return-void

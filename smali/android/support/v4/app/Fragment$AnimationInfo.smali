@@ -61,9 +61,9 @@
     .line 2869
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2892
     const/4 v0, 0x0
 
-    .line 2892
     iput-object v0, p0, Landroid/support/v4/app/Fragment$AnimationInfo;->mEnterTransition:Ljava/lang/Object;
 
     .line 2893

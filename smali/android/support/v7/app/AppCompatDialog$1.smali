@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDialog;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDialog;
 
     .line 45
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDialog$1;->this$0:Landroid/support/v7/app/AppCompatDialog;
@@ -37,13 +38,14 @@
 # virtual methods
 .method public superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
     .line 48
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDialog$1;->this$0:Landroid/support/v7/app/AppCompatDialog;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/app/AppCompatDialog;->superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method

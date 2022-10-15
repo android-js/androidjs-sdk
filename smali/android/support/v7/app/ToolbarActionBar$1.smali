@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/ToolbarActionBar;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/app/ToolbarActionBar;
 
     .line 53
     iput-object p1, p0, Landroid/support/v7/app/ToolbarActionBar$1;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -43,5 +44,6 @@
 
     invoke-virtual {v0}, Landroid/support/v7/app/ToolbarActionBar;->populateOptionsMenu()V
 
+    .line 57
     return-void
 .end method

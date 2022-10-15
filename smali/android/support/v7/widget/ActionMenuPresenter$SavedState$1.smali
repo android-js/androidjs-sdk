@@ -40,6 +40,7 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/v7/widget/ActionMenuPresenter$SavedState;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 628
     new-instance v0, Landroid/support/v7/widget/ActionMenuPresenter$SavedState;
@@ -61,12 +62,13 @@
 .end method
 
 .method public newArray(I)[Landroid/support/v7/widget/ActionMenuPresenter$SavedState;
-    .locals 0
+    .locals 1
+    .param p1, "size"    # I
 
     .line 633
-    new-array p1, p1, [Landroid/support/v7/widget/ActionMenuPresenter$SavedState;
+    new-array v0, p1, [Landroid/support/v7/widget/ActionMenuPresenter$SavedState;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;

@@ -59,9 +59,9 @@
 
     iput-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
+    .line 296
     const/4 v0, 0x0
 
-    .line 296
     iput-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mCreatingLoader:Z
 
     return-void
@@ -69,6 +69,7 @@
 
 .method static getInstance(Landroid/arch/lifecycle/ViewModelStore;)Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
     .locals 2
+    .param p0, "viewModelStore"    # Landroid/arch/lifecycle/ViewModelStore;
 
     .line 292
     new-instance v0, Landroid/arch/lifecycle/ViewModelProvider;
@@ -77,21 +78,25 @@
 
     invoke-direct {v0, p0, v1}, Landroid/arch/lifecycle/ViewModelProvider;-><init>(Landroid/arch/lifecycle/ViewModelStore;Landroid/arch/lifecycle/ViewModelProvider$Factory;)V
 
-    const-class p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
+    const-class v1, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
 
-    invoke-virtual {v0, p0}, Landroid/arch/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroid/arch/lifecycle/ViewModel;
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/ViewModelProvider;->get(Ljava/lang/Class;)Landroid/arch/lifecycle/ViewModel;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
+    check-cast v0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;
 
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
 .method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 4
+    .param p1, "prefix"    # Ljava/lang/String;
+    .param p2, "fd"    # Ljava/io/FileDescriptor;
+    .param p3, "writer"    # Ljava/io/PrintWriter;
+    .param p4, "args"    # [Ljava/lang/String;
 
     .line 354
     iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
@@ -116,17 +121,23 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
     const-string v1, "    "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 357
+    .local v0, "innerPrefix":Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 357
+    .local v1, "i":I
     :goto_0
     iget-object v2, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
@@ -146,6 +157,7 @@
     check-cast v2, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
 
     .line 359
+    .local v2, "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     const-string v3, "  #"
@@ -160,9 +172,9 @@
 
     invoke-virtual {p3, v3}, Ljava/io/PrintWriter;->print(I)V
 
+    .line 360
     const-string v3, ": "
 
-    .line 360
     invoke-virtual {p3, v3}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     invoke-virtual {v2}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->toString()Ljava/lang/String;
@@ -174,10 +186,15 @@
     .line 361
     invoke-virtual {v2, v0, p2, p3, p4}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
+    .line 357
+    .end local v2    # "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 364
+    .end local v0    # "innerPrefix":Ljava/lang/String;
+    .end local v1    # "i":I
     :cond_0
     return-void
 .end method
@@ -185,16 +202,18 @@
 .method finishCreatingLoader()V
     .locals 1
 
+    .line 307
     const/4 v0, 0x0
 
-    .line 307
     iput-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mCreatingLoader:Z
 
+    .line 308
     return-void
 .end method
 
 .method getLoader(I)Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     .locals 1
+    .param p1, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<D:",
@@ -210,11 +229,11 @@
 
     invoke-virtual {v0, p1}, Landroid/support/v4/util/SparseArrayCompat;->get(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
+    check-cast v0, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
 
-    return-object p1
+    return-object v0
 .end method
 
 .method hasRunningLoaders()Z
@@ -227,39 +246,48 @@
 
     move-result v0
 
+    .line 325
+    .local v0, "size":I
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
+    .local v1, "index":I
     :goto_0
-    if-ge v2, v0, :cond_1
+    if-ge v1, v0, :cond_1
 
     .line 326
-    iget-object v3, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
+    iget-object v2, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
-    invoke-virtual {v3, v2}, Landroid/support/v4/util/SparseArrayCompat;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Landroid/support/v4/util/SparseArrayCompat;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
+    check-cast v2, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
 
     .line 327
-    invoke-virtual {v3}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->isCallbackWaitingForData()Z
+    .local v2, "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
+    invoke-virtual {v2}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->isCallbackWaitingForData()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    const/4 v0, 0x1
+    .line 328
+    const/4 v3, 0x1
 
-    return v0
+    return v3
 
+    .line 325
+    .end local v2    # "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 331
+    .end local v1    # "index":I
     :cond_1
+    const/4 v1, 0x0
+
     return v1
 .end method
 
@@ -282,8 +310,11 @@
 
     move-result v0
 
+    .line 336
+    .local v0, "size":I
     const/4 v1, 0x0
 
+    .local v1, "index":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -297,12 +328,17 @@
     check-cast v2, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
 
     .line 338
+    .local v2, "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     invoke-virtual {v2}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->markForRedelivery()V
 
+    .line 336
+    .end local v2    # "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 340
+    .end local v1    # "index":I
     :cond_0
     return-void
 .end method
@@ -320,8 +356,11 @@
 
     move-result v0
 
+    .line 346
+    .local v0, "size":I
     const/4 v1, 0x0
 
+    .local v1, "index":I
     :goto_0
     if-ge v1, v0, :cond_0
 
@@ -334,53 +373,64 @@
 
     check-cast v2, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
 
+    .line 348
+    .local v2, "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     const/4 v3, 0x1
 
-    .line 348
     invoke-virtual {v2, v3}, Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;->destroy(Z)Landroid/support/v4/content/Loader;
 
+    .line 346
+    .end local v2    # "info":Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 350
+    .end local v1    # "index":I
     :cond_0
-    iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
+    iget-object v1, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
-    invoke-virtual {v0}, Landroid/support/v4/util/SparseArrayCompat;->clear()V
+    invoke-virtual {v1}, Landroid/support/v4/util/SparseArrayCompat;->clear()V
 
+    .line 351
     return-void
 .end method
 
 .method putLoader(ILandroid/support/v4/app/LoaderManagerImpl$LoaderInfo;)V
     .locals 1
+    .param p1, "id"    # I
+    .param p2, "info"    # Landroid/support/v4/app/LoaderManagerImpl$LoaderInfo;
 
     .line 311
     iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
     invoke-virtual {v0, p1, p2}, Landroid/support/v4/util/SparseArrayCompat;->put(ILjava/lang/Object;)V
 
+    .line 312
     return-void
 .end method
 
 .method removeLoader(I)V
     .locals 1
+    .param p1, "id"    # I
 
     .line 320
     iget-object v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mLoaders:Landroid/support/v4/util/SparseArrayCompat;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/util/SparseArrayCompat;->remove(I)V
 
+    .line 321
     return-void
 .end method
 
 .method startCreatingLoader()V
     .locals 1
 
+    .line 299
     const/4 v0, 0x1
 
-    .line 299
     iput-boolean v0, p0, Landroid/support/v4/app/LoaderManagerImpl$LoaderViewModel;->mCreatingLoader:Z
 
+    .line 300
     return-void
 .end method

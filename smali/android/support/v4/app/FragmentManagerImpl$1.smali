@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/FragmentManagerImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/FragmentManagerImpl;
 
     .line 730
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$1;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
@@ -43,5 +44,6 @@
 
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->execPendingActions()Z
 
+    .line 734
     return-void
 .end method

@@ -39,53 +39,57 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .locals 2
+    .locals 4
+    .param p1, "lhs"    # Landroid/view/View;
+    .param p2, "rhs"    # Landroid/view/View;
 
     .line 3160
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/support/v4/view/ViewPager$LayoutParams;
+    check-cast v0, Landroid/support/v4/view/ViewPager$LayoutParams;
 
     .line 3161
+    .local v0, "llp":Landroid/support/v4/view/ViewPager$LayoutParams;
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object p2
+    move-result-object v1
 
-    check-cast p2, Landroid/support/v4/view/ViewPager$LayoutParams;
+    check-cast v1, Landroid/support/v4/view/ViewPager$LayoutParams;
 
     .line 3162
-    iget-boolean v0, p1, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
+    .local v1, "rlp":Landroid/support/v4/view/ViewPager$LayoutParams;
+    iget-boolean v2, v0, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
 
-    iget-boolean v1, p2, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
+    iget-boolean v3, v1, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
 
-    if-eq v0, v1, :cond_1
+    if-eq v2, v3, :cond_1
 
     .line 3163
-    iget-boolean p1, p1, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
+    iget-boolean v2, v0, Landroid/support/v4/view/ViewPager$LayoutParams;->isDecor:Z
 
-    if-eqz p1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 p1, 0x1
+    const/4 v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, -0x1
+    const/4 v2, -0x1
 
     :goto_0
-    return p1
+    return v2
 
     .line 3165
     :cond_1
-    iget p1, p1, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
+    iget v2, v0, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
 
-    iget p2, p2, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
+    iget v3, v1, Landroid/support/v4/view/ViewPager$LayoutParams;->position:I
 
-    sub-int/2addr p1, p2
+    sub-int/2addr v2, v3
 
-    return p1
+    return v2
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

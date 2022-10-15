@@ -15,6 +15,8 @@
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
     .locals 2
+    .param p0, "view"    # Landroid/view/View;
+    .param p1, "tooltipText"    # Ljava/lang/CharSequence;
 
     .line 41
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -32,6 +34,7 @@
     :cond_0
     invoke-static {p0, p1}, Landroid/support/v7/widget/TooltipCompatHandler;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
+    .line 46
     :goto_0
     return-void
 .end method

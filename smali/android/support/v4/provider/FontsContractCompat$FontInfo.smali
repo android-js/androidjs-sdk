@@ -28,7 +28,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;IIZI)V
-    .locals 0
+    .locals 1
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "ttcIndex"    # I
+    .param p3, "weight"    # I
+    .param p4, "italic"    # Z
+    .param p5, "resultCode"    # I
 
     .line 347
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +41,11 @@
     .line 348
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/net/Uri;
+    check-cast v0, Landroid/net/Uri;
 
-    iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->mUri:Landroid/net/Uri;
+    iput-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->mUri:Landroid/net/Uri;
 
     .line 349
     iput p2, p0, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->mTtcIndex:I
@@ -54,6 +59,7 @@
     .line 352
     iput p5, p0, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->mResultCode:I
 
+    .line 353
     return-void
 .end method
 

@@ -13,6 +13,7 @@
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "iconId"    # I
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,6 +21,7 @@
     .line 32
     iput p1, p0, Lcom/android/js/react_native/AndroidJSPackage;->iconId:I
 
+    .line 33
     return-void
 .end method
 
@@ -27,6 +29,7 @@
 # virtual methods
 .method public createNativeModules(Lcom/facebook/react/bridge/ReactApplicationContext;)Ljava/util/List;
     .locals 3
+    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -44,6 +47,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 43
+    .local v0, "modules":Ljava/util/List;, "Ljava/util/List<Lcom/facebook/react/bridge/NativeModule;>;"
     new-instance v1, Lcom/android/js/react_native/api/App;
 
     invoke-direct {v1, p1}, Lcom/android/js/react_native/api/App;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
@@ -122,11 +126,13 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 55
     return-object v0
 .end method
 
 .method public createViewManagers(Lcom/facebook/react/bridge/ReactApplicationContext;)Ljava/util/List;
-    .locals 0
+    .locals 1
+    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -141,7 +147,7 @@
     .line 37
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method

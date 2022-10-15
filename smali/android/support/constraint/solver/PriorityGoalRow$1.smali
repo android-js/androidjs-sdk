@@ -33,6 +33,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/solver/PriorityGoalRow;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/solver/PriorityGoalRow;
 
     .line 214
     iput-object p1, p0, Landroid/support/constraint/solver/PriorityGoalRow$1;->this$0:Landroid/support/constraint/solver/PriorityGoalRow;
@@ -45,16 +46,18 @@
 
 # virtual methods
 .method public compare(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;)I
-    .locals 0
+    .locals 2
+    .param p1, "variable1"    # Landroid/support/constraint/solver/SolverVariable;
+    .param p2, "variable2"    # Landroid/support/constraint/solver/SolverVariable;
 
     .line 217
-    iget p1, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
+    iget v0, p1, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    iget p2, p2, Landroid/support/constraint/solver/SolverVariable;->id:I
+    iget v1, p2, Landroid/support/constraint/solver/SolverVariable;->id:I
 
-    sub-int/2addr p1, p2
+    sub-int/2addr v0, v1
 
-    return p1
+    return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

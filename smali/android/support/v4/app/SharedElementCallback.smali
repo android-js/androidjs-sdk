@@ -32,11 +32,13 @@
     .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 310
     return-void
 .end method
 
 .method private static createDrawableBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-    .locals 9
+    .locals 13
+    .param p0, "drawable"    # Landroid/graphics/drawable/Drawable;
 
     .line 214
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
@@ -44,16 +46,20 @@
     move-result v0
 
     .line 215
+    .local v0, "width":I
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
+    .line 216
+    .local v1, "height":I
     if-lez v0, :cond_2
 
     if-gtz v1, :cond_0
 
     goto :goto_0
 
+    .line 219
     :cond_0
     const/high16 v2, 0x49800000    # 1048576.0f
 
@@ -65,12 +71,12 @@
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    .line 219
     invoke-static {v3, v2}, Ljava/lang/Math;->min(FF)F
 
     move-result v2
 
     .line 220
+    .local v2, "scale":F
     instance-of v4, p0, Landroid/graphics/drawable/BitmapDrawable;
 
     if-eqz v4, :cond_1
@@ -80,80 +86,108 @@
     if-nez v3, :cond_1
 
     .line 222
-    check-cast p0, Landroid/graphics/drawable/BitmapDrawable;
+    move-object v3, p0
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    check-cast v3, Landroid/graphics/drawable/BitmapDrawable;
 
-    move-result-object p0
+    invoke-virtual {v3}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
-    return-object p0
+    move-result-object v3
 
+    return-object v3
+
+    .line 224
     :cond_1
-    int-to-float v0, v0
+    int-to-float v3, v0
 
-    mul-float v0, v0, v2
+    mul-float v3, v3, v2
 
-    float-to-int v0, v0
+    float-to-int v3, v3
 
-    int-to-float v1, v1
+    .line 225
+    .local v3, "bitmapWidth":I
+    int-to-float v4, v1
 
-    mul-float v1, v1, v2
+    mul-float v4, v4, v2
 
-    float-to-int v1, v1
+    float-to-int v4, v4
 
     .line 226
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    .local v4, "bitmapHeight":I
+    sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {v3, v4, v5}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v5
 
     .line 227
-    new-instance v3, Landroid/graphics/Canvas;
+    .local v5, "bitmap":Landroid/graphics/Bitmap;
+    new-instance v6, Landroid/graphics/Canvas;
 
-    invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v6, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 228
+    .local v6, "canvas":Landroid/graphics/Canvas;
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
-    move-result-object v4
+    move-result-object v7
 
     .line 229
-    iget v5, v4, Landroid/graphics/Rect;->left:I
+    .local v7, "existingBounds":Landroid/graphics/Rect;
+    iget v8, v7, Landroid/graphics/Rect;->left:I
 
     .line 230
-    iget v6, v4, Landroid/graphics/Rect;->top:I
+    .local v8, "left":I
+    iget v9, v7, Landroid/graphics/Rect;->top:I
 
     .line 231
-    iget v7, v4, Landroid/graphics/Rect;->right:I
+    .local v9, "top":I
+    iget v10, v7, Landroid/graphics/Rect;->right:I
 
     .line 232
-    iget v4, v4, Landroid/graphics/Rect;->bottom:I
-
-    const/4 v8, 0x0
+    .local v10, "right":I
+    iget v11, v7, Landroid/graphics/Rect;->bottom:I
 
     .line 233
-    invoke-virtual {p0, v8, v8, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    .local v11, "bottom":I
+    const/4 v12, 0x0
+
+    invoke-virtual {p0, v12, v12, v3, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 234
-    invoke-virtual {p0, v3}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, v6}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 235
-    invoke-virtual {p0, v5, v6, v7, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p0, v8, v9, v10, v11}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    return-object v2
+    .line 236
+    return-object v5
 
+    .line 217
+    .end local v2    # "scale":F
+    .end local v3    # "bitmapWidth":I
+    .end local v4    # "bitmapHeight":I
+    .end local v5    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v6    # "canvas":Landroid/graphics/Canvas;
+    .end local v7    # "existingBounds":Landroid/graphics/Rect;
+    .end local v8    # "left":I
+    .end local v9    # "top":I
+    .end local v10    # "right":I
+    .end local v11    # "bottom":I
     :cond_2
     :goto_0
-    const/4 p0, 0x0
+    const/4 v2, 0x0
 
-    return-object p0
+    return-object v2
 .end method
 
 
 # virtual methods
 .method public onCaptureSharedElementSnapshot(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/os/Parcelable;
-    .locals 5
+    .locals 8
+    .param p1, "sharedElement"    # Landroid/view/View;
+    .param p2, "viewToGlobalMatrix"    # Landroid/graphics/Matrix;
+    .param p3, "screenBounds"    # Landroid/graphics/RectF;
 
     .line 168
     instance-of v0, p1, Landroid/widget/ImageView;
@@ -166,15 +200,19 @@
     check-cast v0, Landroid/widget/ImageView;
 
     .line 170
+    .local v0, "imageView":Landroid/widget/ImageView;
     invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     .line 171
+    .local v1, "d":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v0}, Landroid/widget/ImageView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
+    .line 172
+    .local v2, "bg":Landroid/graphics/drawable/Drawable;
     if-eqz v1, :cond_1
 
     if-nez v2, :cond_1
@@ -182,64 +220,81 @@
     .line 173
     invoke-static {v1}, Landroid/support/v4/app/SharedElementCallback;->createDrawableBitmap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
 
-    move-result-object v1
+    move-result-object v3
 
-    if-eqz v1, :cond_1
+    .line 174
+    .local v3, "bitmap":Landroid/graphics/Bitmap;
+    if-eqz v3, :cond_1
 
     .line 175
-    new-instance p1, Landroid/os/Bundle;
+    new-instance v4, Landroid/os/Bundle;
 
-    invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
-
-    const-string p2, "sharedElement:snapshot:bitmap"
+    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
 
     .line 176
-    invoke-virtual {p1, p2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    .local v4, "bundle":Landroid/os/Bundle;
+    const-string v5, "sharedElement:snapshot:bitmap"
+
+    invoke-virtual {v4, v5, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 177
+    nop
 
     .line 178
     invoke-virtual {v0}, Landroid/widget/ImageView;->getScaleType()Landroid/widget/ImageView$ScaleType;
 
-    move-result-object p2
+    move-result-object v5
 
-    invoke-virtual {p2}, Landroid/widget/ImageView$ScaleType;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/widget/ImageView$ScaleType;->toString()Ljava/lang/String;
 
-    move-result-object p2
-
-    const-string p3, "sharedElement:snapshot:imageScaleType"
+    move-result-object v5
 
     .line 177
-    invoke-virtual {p1, p3, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v6, "sharedElement:snapshot:imageScaleType"
+
+    invoke-virtual {v4, v6, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 179
     invoke-virtual {v0}, Landroid/widget/ImageView;->getScaleType()Landroid/widget/ImageView$ScaleType;
 
-    move-result-object p2
+    move-result-object v5
 
-    sget-object p3, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+    sget-object v6, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    if-ne p2, p3, :cond_0
+    if-ne v5, v6, :cond_0
 
     .line 180
     invoke-virtual {v0}, Landroid/widget/ImageView;->getImageMatrix()Landroid/graphics/Matrix;
 
-    move-result-object p2
+    move-result-object v5
 
-    const/16 p3, 0x9
+    .line 181
+    .local v5, "matrix":Landroid/graphics/Matrix;
+    const/16 v6, 0x9
 
-    new-array p3, p3, [F
+    new-array v6, v6, [F
 
     .line 182
-    invoke-virtual {p2, p3}, Landroid/graphics/Matrix;->getValues([F)V
-
-    const-string p2, "sharedElement:snapshot:imageMatrix"
+    .local v6, "values":[F
+    invoke-virtual {v5, v6}, Landroid/graphics/Matrix;->getValues([F)V
 
     .line 183
-    invoke-virtual {p1, p2, p3}, Landroid/os/Bundle;->putFloatArray(Ljava/lang/String;[F)V
+    const-string v7, "sharedElement:snapshot:imageMatrix"
 
+    invoke-virtual {v4, v7, v6}, Landroid/os/Bundle;->putFloatArray(Ljava/lang/String;[F)V
+
+    .line 185
+    .end local v5    # "matrix":Landroid/graphics/Matrix;
+    .end local v6    # "values":[F
     :cond_0
-    return-object p1
+    return-object v4
 
     .line 189
+    .end local v0    # "imageView":Landroid/widget/ImageView;
+    .end local v1    # "d":Landroid/graphics/drawable/Drawable;
+    .end local v2    # "bg":Landroid/graphics/drawable/Drawable;
+    .end local v3    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v4    # "bundle":Landroid/os/Bundle;
     :cond_1
     invoke-virtual {p3}, Landroid/graphics/RectF;->width()F
 
@@ -250,6 +305,7 @@
     move-result v0
 
     .line 190
+    .local v0, "bitmapWidth":I
     invoke-virtual {p3}, Landroid/graphics/RectF;->height()F
 
     move-result v1
@@ -258,197 +314,247 @@
 
     move-result v1
 
+    .line 191
+    .local v1, "bitmapHeight":I
     const/4 v2, 0x0
 
+    .line 192
+    .local v2, "bitmap":Landroid/graphics/Bitmap;
     if-lez v0, :cond_3
 
     if-lez v1, :cond_3
 
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    const/high16 v3, 0x49800000    # 1048576.0f
-
-    mul-int v4, v0, v1
-
-    int-to-float v4, v4
-
-    div-float/2addr v3, v4
-
     .line 193
-    invoke-static {v2, v3}, Ljava/lang/Math;->min(FF)F
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    move-result v2
+    const/high16 v4, 0x49800000    # 1048576.0f
 
-    int-to-float v0, v0
+    mul-int v5, v0, v1
 
-    mul-float v0, v0, v2
+    int-to-float v5, v5
 
-    float-to-int v0, v0
+    div-float/2addr v4, v5
 
-    int-to-float v1, v1
+    invoke-static {v3, v4}, Ljava/lang/Math;->min(FF)F
 
-    mul-float v1, v1, v2
+    move-result v3
 
-    float-to-int v1, v1
+    .line 194
+    .local v3, "scale":F
+    int-to-float v4, v0
+
+    mul-float v4, v4, v3
+
+    float-to-int v0, v4
+
+    .line 195
+    int-to-float v4, v1
+
+    mul-float v4, v4, v3
+
+    float-to-int v1, v4
 
     .line 196
-    iget-object v3, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
+    iget-object v4, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
 
-    if-nez v3, :cond_2
+    if-nez v4, :cond_2
 
     .line 197
-    new-instance v3, Landroid/graphics/Matrix;
+    new-instance v4, Landroid/graphics/Matrix;
 
-    invoke-direct {v3}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v4}, Landroid/graphics/Matrix;-><init>()V
 
-    iput-object v3, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
+    iput-object v4, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
 
     .line 199
     :cond_2
-    iget-object v3, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
+    iget-object v4, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v3, p2}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+    invoke-virtual {v4, p2}, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
 
     .line 200
-    iget-object p2, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
+    iget-object v4, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
 
-    iget v3, p3, Landroid/graphics/RectF;->left:F
+    iget v5, p3, Landroid/graphics/RectF;->left:F
 
-    neg-float v3, v3
+    neg-float v5, v5
 
-    iget p3, p3, Landroid/graphics/RectF;->top:F
+    iget v6, p3, Landroid/graphics/RectF;->top:F
 
-    neg-float p3, p3
+    neg-float v6, v6
 
-    invoke-virtual {p2, v3, p3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+    invoke-virtual {v4, v5, v6}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
     .line 201
-    iget-object p2, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
+    iget-object v4, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p2, v2, v2}, Landroid/graphics/Matrix;->postScale(FF)Z
+    invoke-virtual {v4, v3, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
 
     .line 202
-    sget-object p2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    invoke-static {v0, v1, p2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {v0, v1, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
     .line 203
-    new-instance p2, Landroid/graphics/Canvas;
+    new-instance v4, Landroid/graphics/Canvas;
 
-    invoke-direct {p2, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v4, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
     .line 204
-    iget-object p3, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
+    .local v4, "canvas":Landroid/graphics/Canvas;
+    iget-object v5, p0, Landroid/support/v4/app/SharedElementCallback;->mTempMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p2, p3}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
+    invoke-virtual {v4, v5}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
 
     .line 205
-    invoke-virtual {p1, p2}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {p1, v4}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
+    .line 207
+    .end local v3    # "scale":F
+    .end local v4    # "canvas":Landroid/graphics/Canvas;
     :cond_3
     return-object v2
 .end method
 
 .method public onCreateSnapshotView(Landroid/content/Context;Landroid/os/Parcelable;)Landroid/view/View;
-    .locals 2
+    .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "snapshot"    # Landroid/os/Parcelable;
+
+    .line 257
+    const/4 v0, 0x0
 
     .line 258
-    instance-of v0, p2, Landroid/os/Bundle;
+    .local v0, "view":Landroid/widget/ImageView;
+    instance-of v1, p2, Landroid/os/Bundle;
 
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     .line 259
-    check-cast p2, Landroid/os/Bundle;
+    move-object v1, p2
 
-    const-string v0, "sharedElement:snapshot:bitmap"
+    check-cast v1, Landroid/os/Bundle;
 
     .line 260
-    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    .local v1, "bundle":Landroid/os/Bundle;
+    const-string v2, "sharedElement:snapshot:bitmap"
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    check-cast v0, Landroid/graphics/Bitmap;
+    move-result-object v2
 
-    if-nez v0, :cond_0
+    check-cast v2, Landroid/graphics/Bitmap;
 
-    return-object v1
+    .line 261
+    .local v2, "bitmap":Landroid/graphics/Bitmap;
+    if-nez v2, :cond_0
+
+    .line 262
+    const/4 v3, 0x0
+
+    return-object v3
 
     .line 264
     :cond_0
-    new-instance v1, Landroid/widget/ImageView;
+    new-instance v3, Landroid/widget/ImageView;
 
-    invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    .line 265
+    .local v3, "imageView":Landroid/widget/ImageView;
+    move-object v0, v3
 
     .line 266
-    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    const-string p1, "sharedElement:snapshot:imageScaleType"
-
-    .line 268
-    invoke-virtual {p2, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1}, Landroid/widget/ImageView$ScaleType;->valueOf(Ljava/lang/String;)Landroid/widget/ImageView$ScaleType;
-
-    move-result-object p1
+    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     .line 267
-    invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    nop
+
+    .line 268
+    const-string v4, "sharedElement:snapshot:imageScaleType"
+
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/widget/ImageView$ScaleType;->valueOf(Ljava/lang/String;)Landroid/widget/ImageView$ScaleType;
+
+    move-result-object v4
+
+    .line 267
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 269
-    invoke-virtual {v1}, Landroid/widget/ImageView;->getScaleType()Landroid/widget/ImageView$ScaleType;
+    invoke-virtual {v3}, Landroid/widget/ImageView;->getScaleType()Landroid/widget/ImageView$ScaleType;
 
-    move-result-object p1
+    move-result-object v4
 
-    sget-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
+    sget-object v5, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    if-ne p1, v0, :cond_2
-
-    const-string p1, "sharedElement:snapshot:imageMatrix"
+    if-ne v4, v5, :cond_2
 
     .line 270
-    invoke-virtual {p2, p1}, Landroid/os/Bundle;->getFloatArray(Ljava/lang/String;)[F
+    const-string v4, "sharedElement:snapshot:imageMatrix"
 
-    move-result-object p1
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getFloatArray(Ljava/lang/String;)[F
+
+    move-result-object v4
 
     .line 271
-    new-instance p2, Landroid/graphics/Matrix;
+    .local v4, "values":[F
+    new-instance v5, Landroid/graphics/Matrix;
 
-    invoke-direct {p2}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
 
     .line 272
-    invoke-virtual {p2, p1}, Landroid/graphics/Matrix;->setValues([F)V
+    .local v5, "matrix":Landroid/graphics/Matrix;
+    invoke-virtual {v5, v4}, Landroid/graphics/Matrix;->setValues([F)V
 
     .line 273
-    invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
+    invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
 
     goto :goto_0
 
     .line 275
+    .end local v1    # "bundle":Landroid/os/Bundle;
+    .end local v2    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "imageView":Landroid/widget/ImageView;
+    .end local v4    # "values":[F
+    .end local v5    # "matrix":Landroid/graphics/Matrix;
     :cond_1
-    instance-of v0, p2, Landroid/graphics/Bitmap;
+    instance-of v1, p2, Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     .line 276
-    check-cast p2, Landroid/graphics/Bitmap;
+    move-object v1, p2
+
+    check-cast v1, Landroid/graphics/Bitmap;
 
     .line 277
-    new-instance v1, Landroid/widget/ImageView;
+    .local v1, "bitmap":Landroid/graphics/Bitmap;
+    new-instance v2, Landroid/widget/ImageView;
 
-    invoke-direct {v1, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v2, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    move-object v0, v2
 
     .line 278
-    invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
+    goto :goto_1
+
+    .line 275
+    .end local v1    # "bitmap":Landroid/graphics/Bitmap;
     :cond_2
     :goto_0
-    return-object v1
+    nop
+
+    .line 280
+    :goto_1
+    return-object v0
 .end method
 
 .method public onMapSharedElements(Ljava/util/List;Ljava/util/Map;)V
@@ -466,6 +572,9 @@
         }
     .end annotation
 
+    .line 144
+    .local p1, "names":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .local p2, "sharedElements":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Landroid/view/View;>;"
     return-void
 .end method
 
@@ -480,6 +589,8 @@
         }
     .end annotation
 
+    .line 133
+    .local p1, "rejectedSharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     return-void
 .end method
 
@@ -500,6 +611,10 @@
         }
     .end annotation
 
+    .line 109
+    .local p1, "sharedElementNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .local p2, "sharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
+    .local p3, "sharedElementSnapshots":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     return-void
 .end method
 
@@ -520,11 +635,16 @@
         }
     .end annotation
 
+    .line 78
+    .local p1, "sharedElementNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .local p2, "sharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
+    .local p3, "sharedElementSnapshots":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     return-void
 .end method
 
 .method public onSharedElementsArrived(Ljava/util/List;Ljava/util/List;Landroid/support/v4/app/SharedElementCallback$OnSharedElementsReadyListener;)V
     .locals 0
+    .param p3, "listener"    # Landroid/support/v4/app/SharedElementCallback$OnSharedElementsReadyListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -540,7 +660,10 @@
     .end annotation
 
     .line 301
+    .local p1, "sharedElementNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
+    .local p2, "sharedElements":Ljava/util/List;, "Ljava/util/List<Landroid/view/View;>;"
     invoke-interface {p3}, Landroid/support/v4/app/SharedElementCallback$OnSharedElementsReadyListener;->onSharedElementsReady()V
 
+    .line 302
     return-void
 .end method

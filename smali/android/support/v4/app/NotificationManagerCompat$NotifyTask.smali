@@ -30,6 +30,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
     .locals 0
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "id"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "notif"    # Landroid/app/Notification;
 
     .line 596
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,6 +50,7 @@
     .line 600
     iput-object p4, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->notif:Landroid/app/Notification;
 
+    .line 601
     return-void
 .end method
 
@@ -53,6 +58,7 @@
 # virtual methods
 .method public send(Landroid/support/v4/app/INotificationSideChannel;)V
     .locals 4
+    .param p1, "service"    # Landroid/support/v4/app/INotificationSideChannel;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -70,11 +76,12 @@
 
     invoke-interface {p1, v0, v1, v2, v3}, Landroid/support/v4/app/INotificationSideChannel;->notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
 
+    .line 606
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     .line 610
     new-instance v0, Ljava/lang/StringBuilder;
@@ -83,42 +90,49 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
+    .line 611
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "packageName:"
 
-    .line 611
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->packageName:Ljava/lang/String;
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->packageName:Ljava/lang/String;
 
-    const-string v1, ", id:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 612
+    const-string v1, ", id:"
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->id:I
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v2, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->id:I
 
-    const-string v1, ", tag:"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     .line 613
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->tag:Ljava/lang/String;
+    const-string v1, ", tag:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "]"
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/support/v4/app/NotificationManagerCompat$NotifyTask;->tag:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 614
+    const-string v1, "]"
+
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 615
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    return-object v0
+    return-object v1
 .end method

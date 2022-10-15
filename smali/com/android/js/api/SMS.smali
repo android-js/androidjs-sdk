@@ -11,7 +11,8 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
-    .locals 0
+    .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,10 +23,11 @@
     .line 14
     invoke-static {}, Landroid/telephony/SmsManager;->getDefault()Landroid/telephony/SmsManager;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/android/js/api/SMS;->smsManager:Landroid/telephony/SmsManager;
+    iput-object v0, p0, Lcom/android/js/api/SMS;->smsManager:Landroid/telephony/SmsManager;
 
+    .line 15
     return-void
 .end method
 
@@ -33,6 +35,8 @@
 # virtual methods
 .method public sendSMS(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
+    .param p1, "number"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
 
     .line 19
     :try_start_0
@@ -43,6 +47,7 @@
     move-result-object v4
 
     .line 20
+    .local v4, "messageParts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     iget-object v1, p0, Lcom/android/js/api/SMS;->smsManager:Landroid/telephony/SmsManager;
 
     const/4 v3, 0x0
@@ -55,44 +60,54 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/telephony/SmsManager;->sendMultipartTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    const-string p1, "{\"error\": false, \"msg\": \"Message Sent\"}"
+    .line 21
+    const-string v0, "{\"error\": false, \"msg\": \"Message Sent\"}"
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p1
+    return-object v0
 
+    .line 22
+    .end local v4    # "messageParts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :catch_0
-    move-exception p1
+    move-exception v0
 
     .line 23
-    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 24
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "{\"error\": true, \"msg\": \""
+    const-string v2, "{\"error\": true, \"msg\": \""
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object p1
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
-    invoke-virtual {p1}, Ljava/lang/String;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object p1
+    invoke-virtual {v2}, Ljava/lang/String;->toString()Ljava/lang/String;
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    const-string p1, "\"}"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, "\"}"
 
-    move-result-object p1
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object p1
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
 .end method

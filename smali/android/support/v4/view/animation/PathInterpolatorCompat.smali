@@ -10,11 +10,14 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
     return-void
 .end method
 
 .method public static create(FF)Landroid/view/animation/Interpolator;
     .locals 2
+    .param p0, "controlX"    # F
+    .param p1, "controlY"    # F
 
     .line 63
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -41,6 +44,10 @@
 
 .method public static create(FFFF)Landroid/view/animation/Interpolator;
     .locals 2
+    .param p0, "controlX1"    # F
+    .param p1, "controlY1"    # F
+    .param p2, "controlX2"    # F
+    .param p3, "controlY2"    # F
 
     .line 81
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -67,6 +74,7 @@
 
 .method public static create(Landroid/graphics/Path;)Landroid/view/animation/Interpolator;
     .locals 2
+    .param p0, "path"    # Landroid/graphics/Path;
 
     .line 48
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I

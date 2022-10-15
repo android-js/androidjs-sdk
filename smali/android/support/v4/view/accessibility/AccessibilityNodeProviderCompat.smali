@@ -60,18 +60,20 @@
 
     goto :goto_0
 
+    .line 110
     :cond_1
     const/4 v0, 0x0
 
-    .line 110
     iput-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->mProvider:Ljava/lang/Object;
 
+    .line 112
     :goto_0
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "provider"    # Ljava/lang/Object;
 
     .line 120
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,21 +81,26 @@
     .line 121
     iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->mProvider:Ljava/lang/Object;
 
+    .line 122
     return-void
 .end method
 
 
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 0
+    .locals 1
+    .param p1, "virtualViewId"    # I
 
-    const/4 p1, 0x0
+    .line 155
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-    .locals 0
+    .locals 1
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "virtualViewId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -105,17 +112,20 @@
         }
     .end annotation
 
-    const/4 p1, 0x0
+    .line 192
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public findFocus(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 0
+    .locals 1
+    .param p1, "focus"    # I
 
-    const/4 p1, 0x0
+    .line 208
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getProvider()Ljava/lang/Object;
@@ -128,9 +138,13 @@
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
-    .locals 0
+    .locals 1
+    .param p1, "virtualViewId"    # I
+    .param p2, "action"    # I
+    .param p3, "arguments"    # Landroid/os/Bundle;
 
-    const/4 p1, 0x0
+    .line 172
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

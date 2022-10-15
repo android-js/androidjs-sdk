@@ -18,33 +18,42 @@
 
 # direct methods
 .method constructor <init>(FF)V
-    .locals 0
+    .locals 1
+    .param p1, "controlX"    # F
+    .param p2, "controlY"    # F
 
     .line 56
     invoke-static {p1, p2}, Landroid/support/v4/view/animation/PathInterpolatorApi14;->createQuad(FF)Landroid/graphics/Path;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Landroid/support/v4/view/animation/PathInterpolatorApi14;-><init>(Landroid/graphics/Path;)V
+    invoke-direct {p0, v0}, Landroid/support/v4/view/animation/PathInterpolatorApi14;-><init>(Landroid/graphics/Path;)V
 
+    .line 57
     return-void
 .end method
 
 .method constructor <init>(FFFF)V
-    .locals 0
+    .locals 1
+    .param p1, "controlX1"    # F
+    .param p2, "controlY1"    # F
+    .param p3, "controlX2"    # F
+    .param p4, "controlY2"    # F
 
     .line 61
     invoke-static {p1, p2, p3, p4}, Landroid/support/v4/view/animation/PathInterpolatorApi14;->createCubic(FFFF)Landroid/graphics/Path;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Landroid/support/v4/view/animation/PathInterpolatorApi14;-><init>(Landroid/graphics/Path;)V
+    invoke-direct {p0, v0}, Landroid/support/v4/view/animation/PathInterpolatorApi14;-><init>(Landroid/graphics/Path;)V
 
+    .line 62
     return-void
 .end method
 
 .method constructor <init>(Landroid/graphics/Path;)V
-    .locals 8
+    .locals 10
+    .param p1, "path"    # Landroid/graphics/Path;
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,143 +66,171 @@
     invoke-direct {v0, p1, v1}, Landroid/graphics/PathMeasure;-><init>(Landroid/graphics/Path;Z)V
 
     .line 39
+    .local v0, "pathMeasure":Landroid/graphics/PathMeasure;
     invoke-virtual {v0}, Landroid/graphics/PathMeasure;->getLength()F
 
-    move-result p1
+    move-result v2
 
-    const v2, 0x3b03126f    # 0.002f
+    .line 40
+    .local v2, "pathLength":F
+    const v3, 0x3b03126f    # 0.002f
 
-    div-float v2, p1, v2
+    div-float v3, v2, v3
 
-    float-to-int v2, v2
+    float-to-int v3, v3
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    add-int/2addr v2, v3
+    add-int/2addr v3, v4
 
     .line 42
-    new-array v4, v2, [F
+    .local v3, "numPoints":I
+    new-array v5, v3, [F
 
-    iput-object v4, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mX:[F
+    iput-object v5, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mX:[F
 
     .line 43
-    new-array v4, v2, [F
+    new-array v5, v3, [F
 
-    iput-object v4, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
+    iput-object v5, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
 
-    const/4 v4, 0x2
+    .line 45
+    const/4 v5, 0x2
 
-    new-array v4, v4, [F
+    new-array v5, v5, [F
 
-    const/4 v5, 0x0
+    .line 46
+    .local v5, "position":[F
+    const/4 v6, 0x0
 
+    .local v6, "i":I
     :goto_0
-    if-ge v5, v2, :cond_0
+    if-ge v6, v3, :cond_0
 
-    int-to-float v6, v5
+    .line 47
+    int-to-float v7, v6
 
-    mul-float v6, v6, p1
+    mul-float v7, v7, v2
 
-    add-int/lit8 v7, v2, -0x1
+    add-int/lit8 v8, v3, -0x1
 
-    int-to-float v7, v7
+    int-to-float v8, v8
 
-    div-float/2addr v6, v7
-
-    const/4 v7, 0x0
+    div-float/2addr v7, v8
 
     .line 48
-    invoke-virtual {v0, v6, v4, v7}, Landroid/graphics/PathMeasure;->getPosTan(F[F[F)Z
+    .local v7, "distance":F
+    const/4 v8, 0x0
+
+    invoke-virtual {v0, v7, v5, v8}, Landroid/graphics/PathMeasure;->getPosTan(F[F[F)Z
 
     .line 50
-    iget-object v6, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mX:[F
+    iget-object v8, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mX:[F
 
-    aget v7, v4, v1
+    aget v9, v5, v1
 
-    aput v7, v6, v5
+    aput v9, v8, v6
 
     .line 51
-    iget-object v6, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
+    iget-object v8, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
 
-    aget v7, v4, v3
+    aget v9, v5, v4
 
-    aput v7, v6, v5
+    aput v9, v8, v6
 
-    add-int/lit8 v5, v5, 0x1
+    .line 46
+    .end local v7    # "distance":F
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
+    .line 53
+    .end local v6    # "i":I
     :cond_0
     return-void
 .end method
 
 .method private static createCubic(FFFF)Landroid/graphics/Path;
     .locals 8
+    .param p0, "controlX1"    # F
+    .param p1, "controlY1"    # F
+    .param p2, "controlX2"    # F
+    .param p3, "controlY2"    # F
 
     .line 107
-    new-instance v7, Landroid/graphics/Path;
+    new-instance v0, Landroid/graphics/Path;
 
-    invoke-direct {v7}, Landroid/graphics/Path;-><init>()V
-
-    const/4 v0, 0x0
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
     .line 108
-    invoke-virtual {v7, v0, v0}, Landroid/graphics/Path;->moveTo(FF)V
+    .local v0, "path":Landroid/graphics/Path;
+    const/4 v1, 0x0
 
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    const/high16 v6, 0x3f800000    # 1.0f
-
-    move-object v0, v7
-
-    move v1, p0
-
-    move v2, p1
-
-    move v3, p2
-
-    move v4, p3
+    invoke-virtual {v0, v1, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
     .line 109
-    invoke-virtual/range {v0 .. v6}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
+    const/high16 v6, 0x3f800000    # 1.0f
 
-    return-object v7
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    move-object v1, v0
+
+    move v2, p0
+
+    move v3, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
+
+    .line 110
+    return-object v0
 .end method
 
 .method private static createQuad(FF)Landroid/graphics/Path;
     .locals 2
+    .param p0, "controlX"    # F
+    .param p1, "controlY"    # F
 
     .line 99
     new-instance v0, Landroid/graphics/Path;
 
     invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
+    .line 100
+    .local v0, "path":Landroid/graphics/Path;
     const/4 v1, 0x0
 
-    .line 100
     invoke-virtual {v0, v1, v1}, Landroid/graphics/Path;->moveTo(FF)V
 
+    .line 101
     const/high16 v1, 0x3f800000    # 1.0f
 
-    .line 101
     invoke-virtual {v0, p0, p1, v1, v1}, Landroid/graphics/Path;->quadTo(FFFF)V
 
+    .line 102
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 6
+    .locals 8
+    .param p1, "t"    # F
 
+    .line 66
     const/4 v0, 0x0
 
     cmpg-float v1, p1, v0
 
     if-gtz v1, :cond_0
 
+    .line 67
     return v0
 
+    .line 68
     :cond_0
     const/high16 v1, 0x3f800000    # 1.0f
 
@@ -201,12 +238,15 @@
 
     if-ltz v2, :cond_1
 
+    .line 69
     return v1
 
+    .line 73
     :cond_1
     const/4 v1, 0x0
 
     .line 74
+    .local v1, "startIndex":I
     iget-object v2, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mX:[F
 
     array-length v2, v2
@@ -215,17 +255,20 @@
 
     sub-int/2addr v2, v3
 
+    .line 75
+    .local v2, "endIndex":I
     :goto_0
     sub-int v4, v2, v1
 
     if-le v4, v3, :cond_3
 
+    .line 76
     add-int v4, v1, v2
 
-    .line 76
     div-int/lit8 v4, v4, 0x2
 
     .line 77
+    .local v4, "midIndex":I
     iget-object v5, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mX:[F
 
     aget v5, v5, v4
@@ -234,13 +277,18 @@
 
     if-gez v5, :cond_2
 
+    .line 78
     move v2, v4
 
-    goto :goto_0
+    goto :goto_1
 
+    .line 80
     :cond_2
     move v1, v4
 
+    .line 82
+    .end local v4    # "midIndex":I
+    :goto_1
     goto :goto_0
 
     .line 84
@@ -253,35 +301,44 @@
 
     sub-float/2addr v4, v3
 
+    .line 85
+    .local v4, "xRange":F
     cmpl-float v0, v4, v0
 
     if-nez v0, :cond_4
 
     .line 86
-    iget-object p1, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
-
-    aget p1, p1, v1
-
-    return p1
-
-    :cond_4
-    sub-float/2addr p1, v3
-
-    div-float/2addr p1, v4
-
-    .line 92
     iget-object v0, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
 
-    aget v1, v0, v1
+    aget v0, v0, v1
+
+    return v0
+
+    .line 89
+    :cond_4
+    sub-float v0, p1, v3
+
+    .line 90
+    .local v0, "tInRange":F
+    div-float v3, v0, v4
+
+    .line 92
+    .local v3, "fraction":F
+    iget-object v5, p0, Landroid/support/v4/view/animation/PathInterpolatorApi14;->mY:[F
+
+    aget v6, v5, v1
 
     .line 93
-    aget v0, v0, v2
+    .local v6, "startY":F
+    aget v5, v5, v2
 
-    sub-float/2addr v0, v1
+    .line 95
+    .local v5, "endY":F
+    sub-float v7, v5, v6
 
-    mul-float p1, p1, v0
+    mul-float v7, v7, v3
 
-    add-float/2addr v1, p1
+    add-float/2addr v7, v6
 
-    return v1
+    return v7
 .end method

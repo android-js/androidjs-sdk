@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SearchView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/SearchView;
 
     .line 975
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
@@ -37,6 +38,7 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
 
     .line 978
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
@@ -46,9 +48,9 @@
     if-ne p1, v0, :cond_0
 
     .line 979
-    iget-object p1, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onSearchClicked()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onSearchClicked()V
 
     goto :goto_0
 
@@ -61,9 +63,9 @@
     if-ne p1, v0, :cond_1
 
     .line 981
-    iget-object p1, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onCloseClicked()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onCloseClicked()V
 
     goto :goto_0
 
@@ -76,9 +78,9 @@
     if-ne p1, v0, :cond_2
 
     .line 983
-    iget-object p1, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onSubmitQuery()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onSubmitQuery()V
 
     goto :goto_0
 
@@ -91,9 +93,9 @@
     if-ne p1, v0, :cond_3
 
     .line 985
-    iget-object p1, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->onVoiceClicked()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->onVoiceClicked()V
 
     goto :goto_0
 
@@ -106,10 +108,11 @@
     if-ne p1, v0, :cond_4
 
     .line 987
-    iget-object p1, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
+    iget-object v0, p0, Landroid/support/v7/widget/SearchView$5;->this$0:Landroid/support/v7/widget/SearchView;
 
-    invoke-virtual {p1}, Landroid/support/v7/widget/SearchView;->forceSuggestionQuery()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/SearchView;->forceSuggestionQuery()V
 
+    .line 989
     :cond_4
     :goto_0
     return-void

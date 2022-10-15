@@ -25,9 +25,9 @@
 
     iput-object v0, p0, Landroid/arch/core/executor/DefaultTaskExecutor;->mLock:Ljava/lang/Object;
 
+    .line 33
     const/4 v0, 0x2
 
-    .line 33
     invoke-static {v0}, Ljava/util/concurrent/Executors;->newFixedThreadPool(I)Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
@@ -41,12 +41,14 @@
 # virtual methods
 .method public executeOnDiskIO(Ljava/lang/Runnable;)V
     .locals 1
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 40
     iget-object v0, p0, Landroid/arch/core/executor/DefaultTaskExecutor;->mDiskIO:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
+    .line 41
     return-void
 .end method
 
@@ -81,6 +83,7 @@
 
 .method public postToMainThread(Ljava/lang/Runnable;)V
     .locals 3
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 45
     iget-object v0, p0, Landroid/arch/core/executor/DefaultTaskExecutor;->mMainHandler:Landroid/os/Handler;
@@ -116,13 +119,13 @@
     goto :goto_0
 
     :catchall_0
-    move-exception p1
+    move-exception v1
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw p1
+    throw v1
 
     .line 53
     :cond_1
@@ -131,5 +134,6 @@
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 54
     return-void
 .end method

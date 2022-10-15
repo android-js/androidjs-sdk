@@ -26,6 +26,8 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;Landroid/app/job/JobWorkItem;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;
+    .param p2, "jobWork"    # Landroid/app/job/JobWorkItem;
 
     .line 255
     iput-object p1, p0, Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;->this$0:Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;
@@ -35,6 +37,7 @@
     .line 256
     iput-object p2, p0, Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl$WrapperWorkItem;->mJobWork:Landroid/app/job/JobWorkItem;
 
+    .line 257
     return-void
 .end method
 
@@ -71,8 +74,10 @@
     :cond_0
     monitor-exit v0
 
+    .line 271
     return-void
 
+    .line 270
     :catchall_0
     move-exception v1
 

@@ -54,6 +54,7 @@
 
 .method private constructor <init>(Z)V
     .locals 0
+    .param p1, "lookForRtl"    # Z
 
     .line 231
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,6 +62,7 @@
     .line 232
     iput-boolean p1, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
 
+    .line 233
     return-void
 .end method
 
@@ -68,71 +70,103 @@
 # virtual methods
 .method public checkRtl(Ljava/lang/CharSequence;II)I
     .locals 4
+    .param p1, "cs"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
 
-    add-int/2addr p3, p2
-
+    .line 206
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    .line 207
+    .local v0, "haveUnlookedFor":Z
+    move v1, p2
 
+    .local v1, "i":I
+    add-int v2, p2, p3
+
+    .local v2, "e":I
     :goto_0
-    if-ge p2, p3, :cond_3
+    if-ge v1, v2, :cond_2
 
     .line 208
-    invoke-interface {p1, p2}, Ljava/lang/CharSequence;->charAt(I)C
+    invoke-interface {p1, v1}, Ljava/lang/CharSequence;->charAt(I)C
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v2}, Ljava/lang/Character;->getDirectionality(C)B
+    invoke-static {v3}, Ljava/lang/Character;->getDirectionality(C)B
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v2}, Landroid/support/v4/text/TextDirectionHeuristicsCompat;->isRtlText(I)I
+    invoke-static {v3}, Landroid/support/v4/text/TextDirectionHeuristicsCompat;->isRtlText(I)I
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_1
-
-    if-eq v2, v3, :cond_0
+    packed-switch v3, :pswitch_data_0
 
     goto :goto_1
 
     .line 216
-    :cond_0
-    iget-boolean v1, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
+    :pswitch_0
+    iget-boolean v3, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
 
-    if-nez v1, :cond_2
+    if-nez v3, :cond_0
+
+    .line 217
+    const/4 v3, 0x1
 
     return v3
 
+    .line 219
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 220
+    goto :goto_1
+
     .line 210
+    :pswitch_1
+    iget-boolean v3, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
+
+    if-eqz v3, :cond_1
+
+    .line 211
+    const/4 v3, 0x0
+
+    return v3
+
+    .line 213
     :cond_1
-    iget-boolean v1, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
+    const/4 v0, 0x1
 
-    if-eqz v1, :cond_2
+    .line 214
+    nop
 
-    return v0
-
-    :cond_2
-    const/4 v1, 0x1
-
+    .line 207
     :goto_1
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_3
-    if-eqz v1, :cond_4
+    .line 225
+    .end local v1    # "i":I
+    .end local v2    # "e":I
+    :cond_2
+    if-eqz v0, :cond_3
 
     .line 226
-    iget-boolean p1, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
+    iget-boolean v1, p0, Landroid/support/v4/text/TextDirectionHeuristicsCompat$AnyStrong;->mLookForRtl:Z
 
-    return p1
+    return v1
 
-    :cond_4
-    const/4 p1, 0x2
+    .line 228
+    :cond_3
+    const/4 v1, 0x2
 
-    return p1
+    return v1
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

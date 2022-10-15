@@ -11,7 +11,8 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
-    .locals 1
+    .locals 2
+    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
 
     .line 14
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
@@ -24,12 +25,13 @@
 
     invoke-virtual {p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getCurrentActivity()Landroid/app/Activity;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p1}, Lcom/android/js/api/Hotspot;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, v1}, Lcom/android/js/api/Hotspot;-><init>(Landroid/app/Activity;)V
 
     iput-object v0, p0, Lcom/android/js/react_native/api/Hotspot;->hotspot:Lcom/android/js/api/Hotspot;
 
+    .line 17
     return-void
 .end method
 
@@ -53,11 +55,13 @@
 
     invoke-virtual {v0}, Lcom/android/js/api/Hotspot;->disableHotspot()V
 
+    .line 27
     return-void
 .end method
 
 .method public enableHotspot(Ljava/lang/String;)V
     .locals 1
+    .param p1, "ssid"    # Ljava/lang/String;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -74,12 +78,14 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Hotspot;->enableHotspot(Ljava/lang/String;)V
 
+    .line 22
     return-void
 .end method
 
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .line 36
     const-string v0, "HotSpot"
 
     return-object v0

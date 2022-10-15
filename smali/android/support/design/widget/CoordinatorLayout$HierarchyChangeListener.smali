@@ -30,6 +30,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3126
     return-void
 .end method
 
@@ -37,6 +38,8 @@
 # virtual methods
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
     .locals 1
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "child"    # Landroid/view/View;
 
     .line 3130
     iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$HierarchyChangeListener;->this$0:Landroid/support/design/widget/CoordinatorLayout;
@@ -52,12 +55,15 @@
 
     invoke-interface {v0, p1, p2}, Landroid/view/ViewGroup$OnHierarchyChangeListener;->onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
 
+    .line 3133
     :cond_0
     return-void
 .end method
 
 .method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
     .locals 2
+    .param p1, "parent"    # Landroid/view/View;
+    .param p2, "child"    # Landroid/view/View;
 
     .line 3137
     iget-object v0, p0, Landroid/support/design/widget/CoordinatorLayout$HierarchyChangeListener;->this$0:Landroid/support/design/widget/CoordinatorLayout;
@@ -80,6 +86,7 @@
 
     invoke-interface {v0, p1, p2}, Landroid/view/ViewGroup$OnHierarchyChangeListener;->onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
 
+    .line 3142
     :cond_0
     return-void
 .end method

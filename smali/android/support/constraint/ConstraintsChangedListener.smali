@@ -17,12 +17,18 @@
 # virtual methods
 .method public postLayoutChange(II)V
     .locals 0
+    .param p1, "stateId"    # I
+    .param p2, "constraintId"    # I
 
+    .line 42
     return-void
 .end method
 
 .method public preLayoutChange(II)V
     .locals 0
+    .param p1, "stateId"    # I
+    .param p2, "constraintId"    # I
 
+    .line 33
     return-void
 .end method

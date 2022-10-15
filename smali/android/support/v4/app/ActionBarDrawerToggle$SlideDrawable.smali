@@ -31,22 +31,23 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/ActionBarDrawerToggle;Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .locals 2
+    .param p2, "wrapped"    # Landroid/graphics/drawable/Drawable;
 
     .line 550
     iput-object p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->this$0:Landroid/support/v4/app/ActionBarDrawerToggle;
 
+    .line 551
     const/4 p1, 0x0
 
-    .line 551
     invoke-direct {p0, p2, p1}, Landroid/graphics/drawable/InsetDrawable;-><init>(Landroid/graphics/drawable/Drawable;I)V
 
     .line 544
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v0, 0x12
+    const/16 v1, 0x12
 
-    if-le p2, v0, :cond_0
+    if-le v0, v1, :cond_0
 
     const/4 p1, 0x1
 
@@ -60,6 +61,7 @@
 
     iput-object p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mTmpRect:Landroid/graphics/Rect;
 
+    .line 552
     return-void
 .end method
 
@@ -67,6 +69,7 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 5
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 582
     iget-object v0, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mTmpRect:Landroid/graphics/Rect;
@@ -106,12 +109,15 @@
     :cond_0
     const/4 v0, 0x0
 
+    .line 588
+    .local v0, "isLayoutRTL":Z
     :goto_0
     if-eqz v0, :cond_1
 
     const/4 v1, -0x1
 
     .line 589
+    .local v1, "flipRtl":I
     :cond_1
     iget-object v2, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mTmpRect:Landroid/graphics/Rect;
 
@@ -120,42 +126,45 @@
     move-result v2
 
     .line 590
+    .local v2, "width":I
     iget v3, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mOffset:F
 
     neg-float v3, v3
 
-    int-to-float v2, v2
+    int-to-float v4, v2
 
-    mul-float v3, v3, v2
+    mul-float v3, v3, v4
 
     iget v4, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mPosition:F
 
     mul-float v3, v3, v4
 
-    int-to-float v1, v1
+    int-to-float v4, v1
 
-    mul-float v3, v3, v1
+    mul-float v3, v3, v4
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    invoke-virtual {p1, v3, v1}, Landroid/graphics/Canvas;->translate(FF)V
-
-    if-eqz v0, :cond_2
+    invoke-virtual {p1, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 593
-    iget-boolean v0, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mHasMirroring:Z
+    if-eqz v0, :cond_2
 
-    if-nez v0, :cond_2
+    iget-boolean v3, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mHasMirroring:Z
+
+    if-nez v3, :cond_2
 
     .line 594
-    invoke-virtual {p1, v2, v1}, Landroid/graphics/Canvas;->translate(FF)V
+    int-to-float v3, v2
 
-    const/high16 v0, -0x40800000    # -1.0f
-
-    const/high16 v1, 0x3f800000    # 1.0f
+    invoke-virtual {p1, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
 
     .line 595
-    invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
+    const/high16 v3, -0x40800000    # -1.0f
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    invoke-virtual {p1, v3, v4}, Landroid/graphics/Canvas;->scale(FF)V
 
     .line 598
     :cond_2
@@ -164,6 +173,7 @@
     .line 599
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
+    .line 600
     return-void
 .end method
 
@@ -178,6 +188,7 @@
 
 .method public setOffset(F)V
     .locals 0
+    .param p1, "offset"    # F
 
     .line 576
     iput p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mOffset:F
@@ -185,11 +196,13 @@
     .line 577
     invoke-virtual {p0}, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->invalidateSelf()V
 
+    .line 578
     return-void
 .end method
 
 .method public setPosition(F)V
     .locals 0
+    .param p1, "position"    # F
 
     .line 560
     iput p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mPosition:F
@@ -197,5 +210,6 @@
     .line 561
     invoke-virtual {p0}, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->invalidateSelf()V
 
+    .line 562
     return-void
 .end method

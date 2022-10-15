@@ -67,16 +67,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .line 202
     const/4 v0, 0x1
 
-    .line 202
     invoke-direct {p0, v0}, Landroid/support/v4/app/FrameMetricsAggregator;-><init>(I)V
 
+    .line 203
     return-void
 .end method
 
 .method public constructor <init>(I)V
     .locals 2
+    .param p1, "metricTypeFlags"    # I
 
     .line 215
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -99,12 +101,13 @@
 
     .line 219
     :cond_0
-    new-instance p1, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
+    new-instance v0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
-    invoke-direct {p1}, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;-><init>()V
 
-    iput-object p1, p0, Landroid/support/v4/app/FrameMetricsAggregator;->mInstance:Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
+    iput-object v0, p0, Landroid/support/v4/app/FrameMetricsAggregator;->mInstance:Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
+    .line 221
     :goto_0
     return-void
 .end method
@@ -113,12 +116,14 @@
 # virtual methods
 .method public add(Landroid/app/Activity;)V
     .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 229
     iget-object v0, p0, Landroid/support/v4/app/FrameMetricsAggregator;->mInstance:Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;->add(Landroid/app/Activity;)V
 
+    .line 230
     return-void
 .end method
 
@@ -137,15 +142,16 @@
 
 .method public remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
     .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 246
     iget-object v0, p0, Landroid/support/v4/app/FrameMetricsAggregator;->mInstance:Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;->remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public reset()[Landroid/util/SparseIntArray;

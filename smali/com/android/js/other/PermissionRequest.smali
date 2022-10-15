@@ -14,55 +14,62 @@
 .end method
 
 .method public static checkAndAskForPermissions(Landroid/app/Activity;Landroid/content/Context;)V
-    .locals 1
+    .locals 2
+    .param p0, "activity"    # Landroid/app/Activity;
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 15
     invoke-static {p0, p1}, Lcom/android/js/other/PermissionRequest;->checkAndAskForPermissionsHelper(Landroid/app/Activity;Landroid/content/Context;)[Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 16
-    array-length v0, p1
+    .local v0, "permissions":[Ljava/lang/String;
+    array-length v1, v0
 
-    if-lez v0, :cond_0
-
-    const/4 v0, 0x1
+    if-lez v1, :cond_0
 
     .line 17
-    invoke-static {p0, p1, v0}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
+    const/4 v1, 0x1
 
+    invoke-static {p0, v0, v1}, Landroid/support/v4/app/ActivityCompat;->requestPermissions(Landroid/app/Activity;[Ljava/lang/String;I)V
+
+    .line 18
     :cond_0
     return-void
 .end method
 
 .method private static checkAndAskForPermissionsHelper(Landroid/app/Activity;Landroid/content/Context;)[Ljava/lang/String;
     .locals 22
-
-    move-object/from16 v0, p1
+    .param p0, "activity"    # Landroid/app/Activity;
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 22
+    move-object/from16 v0, p1
+
     invoke-static/range {p0 .. p0}, Lcom/android/js/other/PermissionRequest;->retrievePermissions(Landroid/content/Context;)[Ljava/lang/String;
 
     move-result-object v1
 
     .line 24
+    .local v1, "totalPermissions":[Ljava/lang/String;
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     .line 25
+    .local v2, "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     array-length v3, v1
 
     const/4 v5, 0x0
 
     :goto_0
-    if-ge v5, v3, :cond_10
+    if-ge v5, v3, :cond_11
 
     aget-object v6, v1, v5
 
     .line 27
-    invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
-
+    .local v6, "permission":Ljava/lang/String;
     invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
 
     move-result v8
@@ -87,6 +94,8 @@
 
     move-object/from16 v17, v1
 
+    .end local v1    # "totalPermissions":[Ljava/lang/String;
+    .local v17, "totalPermissions":[Ljava/lang/String;
     const-string v1, "android.permission.SEND_SMS"
 
     move/from16 v18, v3
@@ -99,6 +108,8 @@
 
     move-object/from16 v20, v2
 
+    .end local v2    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v20, "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v2, "android.permission.MODIFY_AUDIO_SETTINGS"
 
     const-string v0, "android.permission.ACCESS_FINE_LOCATION"
@@ -109,554 +120,693 @@
 
     sparse-switch v8, :sswitch_data_0
 
-    :goto_1
     move-object/from16 v8, v21
 
-    :goto_2
-    const/16 v16, -0x1
-
-    goto/16 :goto_4
+    goto/16 :goto_1
 
     :sswitch_0
     invoke-virtual {v6, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_0
+    if-eqz v8, :cond_0
 
-    goto :goto_1
-
-    :cond_0
-    const/16 v6, 0xe
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0xe
-
-    goto/16 :goto_4
-
-    :sswitch_1
-    invoke-virtual {v6, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    const/16 v6, 0xd
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0xd
-
-    goto/16 :goto_4
-
-    :sswitch_2
-    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    const/16 v6, 0xc
+    const/16 v8, 0xc
 
     move-object/from16 v8, v21
 
     const/16 v16, 0xc
 
-    goto/16 :goto_4
+    goto/16 :goto_2
 
-    :sswitch_3
-    invoke-virtual {v6, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_1
+    invoke-virtual {v6, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_3
+    if-eqz v8, :cond_0
 
-    goto :goto_1
-
-    :cond_3
-    const/16 v6, 0xb
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0xb
-
-    goto/16 :goto_4
-
-    :sswitch_4
-    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_4
-
-    goto :goto_1
-
-    :cond_4
-    const/16 v6, 0xa
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0xa
-
-    goto/16 :goto_4
-
-    :sswitch_5
-    invoke-virtual {v6, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_5
-
-    goto :goto_1
-
-    :cond_5
-    const/16 v6, 0x9
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0x9
-
-    goto/16 :goto_4
-
-    :sswitch_6
-    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_6
-
-    goto :goto_1
-
-    :cond_6
-    const/16 v6, 0x8
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0x8
-
-    goto/16 :goto_4
-
-    :sswitch_7
-    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_7
-
-    goto :goto_1
-
-    :cond_7
-    const/4 v6, 0x7
-
-    move-object/from16 v8, v21
-
-    const/16 v16, 0x7
-
-    goto/16 :goto_4
-
-    :sswitch_8
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_8
-
-    goto/16 :goto_1
-
-    :cond_8
-    const/4 v6, 0x6
+    const/4 v8, 0x6
 
     move-object/from16 v8, v21
 
     const/16 v16, 0x6
 
-    goto :goto_4
+    goto/16 :goto_2
 
-    :sswitch_9
-    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_2
+    invoke-virtual {v6, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_9
+    if-eqz v8, :cond_0
 
-    goto/16 :goto_1
-
-    :cond_9
-    const/4 v6, 0x5
+    const/16 v8, 0x9
 
     move-object/from16 v8, v21
 
-    const/16 v16, 0x5
+    const/16 v16, 0x9
 
-    goto :goto_4
+    goto/16 :goto_2
 
-    :sswitch_a
-    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_3
+    invoke-virtual {v6, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_a
+    if-eqz v8, :cond_0
 
-    goto/16 :goto_1
-
-    :cond_a
-    const/4 v6, 0x4
+    const/4 v8, 0x4
 
     move-object/from16 v8, v21
 
     const/16 v16, 0x4
 
-    goto :goto_4
+    goto/16 :goto_2
 
-    :sswitch_b
-    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_4
+    invoke-virtual {v6, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_b
-
-    goto/16 :goto_1
-
-    :cond_b
-    const/4 v6, 0x3
+    if-eqz v8, :cond_0
 
     move-object/from16 v8, v21
 
-    const/16 v16, 0x3
+    const/16 v16, 0x0
 
-    goto :goto_4
+    goto/16 :goto_2
 
-    :sswitch_c
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :sswitch_5
+    invoke-virtual {v6, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v8
 
-    if-nez v6, :cond_c
+    if-eqz v8, :cond_0
 
-    goto/16 :goto_1
+    const/4 v8, 0x1
 
-    :cond_c
-    const/4 v6, 0x2
+    move-object/from16 v8, v21
+
+    const/16 v16, 0x1
+
+    goto/16 :goto_2
+
+    :sswitch_6
+    invoke-virtual {v6, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/16 v8, 0xa
+
+    move-object/from16 v8, v21
+
+    const/16 v16, 0xa
+
+    goto/16 :goto_2
+
+    :sswitch_7
+    invoke-virtual {v6, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/16 v8, 0xd
+
+    move-object/from16 v8, v21
+
+    const/16 v16, 0xd
+
+    goto :goto_2
+
+    :sswitch_8
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/16 v8, 0x8
+
+    move-object/from16 v8, v21
+
+    const/16 v16, 0x8
+
+    goto :goto_2
+
+    :sswitch_9
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/16 v8, 0xe
+
+    move-object/from16 v8, v21
+
+    const/16 v16, 0xe
+
+    goto :goto_2
+
+    :sswitch_a
+    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/4 v8, 0x2
 
     move-object/from16 v8, v21
 
     const/16 v16, 0x2
 
-    goto :goto_4
+    goto :goto_2
+
+    :sswitch_b
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/4 v8, 0x5
+
+    move-object/from16 v8, v21
+
+    const/16 v16, 0x5
+
+    goto :goto_2
+
+    :sswitch_c
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/4 v8, 0x7
+
+    move-object/from16 v8, v21
+
+    const/16 v16, 0x7
+
+    goto :goto_2
+
+    :cond_0
+    move-object/from16 v8, v21
+
+    goto :goto_1
 
     :sswitch_d
     move-object/from16 v8, v21
 
     invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v21
 
-    if-nez v6, :cond_d
+    if-eqz v21, :cond_1
 
-    goto :goto_3
+    const/16 v16, 0x3
 
-    :cond_d
-    const/4 v6, 0x1
-
-    const/16 v16, 0x1
-
-    goto :goto_4
+    goto :goto_2
 
     :sswitch_e
     move-object/from16 v8, v21
 
     invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v21
 
-    if-nez v6, :cond_e
+    if-eqz v21, :cond_1
 
-    :goto_3
-    goto/16 :goto_2
+    const/16 v16, 0xb
 
-    :cond_e
-    const/16 v16, 0x0
+    goto :goto_2
 
-    :goto_4
+    :cond_1
+    :goto_1
+    const/16 v16, -0x1
+
+    :goto_2
     packed-switch v16, :pswitch_data_0
 
-    move-object/from16 v6, p1
+    move-object/from16 v8, p1
 
-    move-object/from16 v8, v20
+    move-object/from16 v0, v20
 
-    goto/16 :goto_5
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v0, "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    goto/16 :goto_3
 
+    .line 100
+    .end local v0    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :pswitch_0
-    move-object/from16 v6, p1
+    move-object/from16 v8, p1
+
+    invoke-static {v8, v1}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 101
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local v9, "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-virtual {v9, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 100
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :cond_2
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 95
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_1
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v4}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 96
+    invoke-virtual {v9, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 95
+    :cond_3
+    move-object v0, v9
+
+    goto/16 :goto_3
 
     .line 90
-    invoke-static {v6, v10}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_2
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v10}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    move-object/from16 v8, v20
-
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_4
 
     .line 91
-    invoke-virtual {v8, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_5
+    move-object v0, v9
 
-    :pswitch_1
-    move-object/from16 v6, p1
+    goto/16 :goto_3
 
-    move-object/from16 v8, v20
+    .line 90
+    :cond_4
+    move-object v0, v9
 
-    .line 60
-    invoke-static {v6, v11}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    goto/16 :goto_3
+
+    .line 85
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_3
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v0}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    .line 86
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 85
+    :cond_5
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 80
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_4
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v15}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_6
 
-    .line 61
-    invoke-virtual {v8, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 81
+    invoke-virtual {v9, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_5
+    move-object v0, v9
 
-    :pswitch_2
-    move-object/from16 v6, p1
+    goto/16 :goto_3
 
-    move-object/from16 v8, v20
+    .line 80
+    :cond_6
+    move-object v0, v9
+
+    goto/16 :goto_3
 
     .line 75
-    invoke-static {v6, v12}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_5
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v12}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_7
 
     .line 76
-    invoke-virtual {v8, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_5
+    move-object v0, v9
 
-    :pswitch_3
-    move-object/from16 v6, p1
+    goto/16 :goto_3
 
-    move-object/from16 v8, v20
+    .line 75
+    :cond_7
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 70
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_6
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v7}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    .line 71
+    invoke-virtual {v9, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 70
+    :cond_8
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 65
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_7
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v2}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    .line 66
+    invoke-virtual {v9, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 65
+    :cond_9
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 60
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_8
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v11}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    .line 61
+    invoke-virtual {v9, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 60
+    :cond_a
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 55
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_9
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v5}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    .line 56
+    invoke-virtual {v9, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto/16 :goto_3
+
+    .line 55
+    :cond_b
+    move-object v0, v9
+
+    goto/16 :goto_3
 
     .line 50
-    invoke-static {v6, v13}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_a
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v13}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_c
 
     .line 51
-    invoke-virtual {v8, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_5
+    move-object v0, v9
 
-    :pswitch_4
-    move-object/from16 v6, p1
+    goto :goto_3
 
-    move-object/from16 v8, v20
+    .line 50
+    :cond_c
+    move-object v0, v9
 
-    const-string v0, "Manigest"
+    goto :goto_3
 
-    .line 29
-    invoke-static {v6, v0}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    .line 45
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_b
+    move-object v0, v8
+
+    move-object/from16 v9, v20
+
+    move-object/from16 v8, p1
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v0}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    .line 46
+    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move-object v0, v9
+
+    goto :goto_3
+
+    .line 45
+    :cond_d
+    move-object v0, v9
+
+    goto :goto_3
+
+    .line 40
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_c
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v3}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
-    .line 30
-    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    .line 41
+    invoke-virtual {v9, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_5
+    move-object v0, v9
 
-    :pswitch_5
-    move-object/from16 v6, p1
+    goto :goto_3
 
-    move-object/from16 v8, v20
+    .line 40
+    :cond_e
+    move-object v0, v9
+
+    goto :goto_3
 
     .line 35
-    invoke-static {v6, v14}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_d
+    move-object/from16 v8, p1
+
+    move-object/from16 v9, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    invoke-static {v8, v14}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
     if-eqz v0, :cond_f
 
     .line 36
-    invoke-virtual {v8, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_5
+    move-object v0, v9
 
-    :pswitch_6
-    move-object/from16 v6, p1
+    goto :goto_3
 
-    move-object/from16 v8, v20
-
-    .line 80
-    invoke-static {v6, v15}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 81
-    invoke-virtual {v8, v15}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_5
-
-    :pswitch_7
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 95
-    invoke-static {v6, v4}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 96
-    invoke-virtual {v8, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_5
-
-    :pswitch_8
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 70
-    invoke-static {v6, v7}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 71
-    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    :pswitch_9
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 100
-    invoke-static {v6, v1}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 101
-    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    :pswitch_a
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 40
-    invoke-static {v6, v3}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 41
-    invoke-virtual {v8, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    :pswitch_b
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 55
-    invoke-static {v6, v5}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 56
-    invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    :pswitch_c
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 65
-    invoke-static {v6, v2}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    .line 66
-    invoke-virtual {v8, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    :pswitch_d
-    move-object/from16 v6, p1
-
-    move-object v0, v8
-
-    move-object/from16 v8, v20
-
-    .line 45
-    invoke-static {v6, v0}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v1
-
-    if-eqz v1, :cond_f
-
-    .line 46
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    :pswitch_e
-    move-object/from16 v6, p1
-
-    move-object/from16 v8, v20
-
-    .line 85
-    invoke-static {v6, v0}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v1
-
-    if-eqz v1, :cond_f
-
-    .line 86
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
+    .line 35
     :cond_f
-    :goto_5
+    move-object v0, v9
+
+    goto :goto_3
+
+    .line 29
+    .end local v9    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :pswitch_e
+    move-object/from16 v8, p1
+
+    move-object/from16 v0, v20
+
+    .end local v20    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v0    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    const-string v1, "Manigest"
+
+    invoke-static {v8, v1}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-eqz v1, :cond_10
+
+    .line 30
+    invoke-virtual {v0, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 25
+    .end local v6    # "permission":Ljava/lang/String;
+    :cond_10
+    :goto_3
     add-int/lit8 v5, v19, 0x1
 
-    move-object v0, v6
+    move-object v2, v0
 
-    move-object v2, v8
+    move-object v0, v8
 
     move-object/from16 v1, v17
 
@@ -664,50 +814,65 @@
 
     goto/16 :goto_0
 
-    :cond_10
-    move-object v8, v2
-
     .line 106
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+    .end local v0    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v17    # "totalPermissions":[Ljava/lang/String;
+    .restart local v1    # "totalPermissions":[Ljava/lang/String;
+    .restart local v2    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    :cond_11
+    move-object v8, v0
 
-    move-result v0
+    move-object/from16 v17, v1
 
-    new-array v0, v0, [Ljava/lang/String;
+    move-object v0, v2
 
-    const/4 v4, 0x0
-
-    .line 107
-    :goto_6
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+    .end local v1    # "totalPermissions":[Ljava/lang/String;
+    .end local v2    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v0    # "permissionsToBeGranted":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v17    # "totalPermissions":[Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v4, v1, :cond_11
+    new-array v1, v1, [Ljava/lang/String;
+
+    .line 107
+    .local v1, "permissions":[Ljava/lang/String;
+    const/4 v2, 0x0
+
+    .local v2, "i":I
+    :goto_4
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_12
 
     .line 108
-    invoke-virtual {v8, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Ljava/lang/String;
+    check-cast v3, Ljava/lang/String;
 
-    aput-object v1, v0, v4
+    aput-object v3, v1, v2
 
     .line 109
-    sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v3, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    aget-object v2, v0, v4
+    aget-object v4, v1, v2
 
-    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
-    add-int/lit8 v4, v4, 0x1
+    .line 107
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_6
+    goto :goto_4
 
-    :cond_11
-    return-object v0
-
-    nop
+    .line 112
+    .end local v2    # "i":I
+    :cond_12
+    return-object v1
 
     :sswitch_data_0
     .sparse-switch
@@ -749,7 +914,11 @@
 .end method
 
 .method private static retrievePermissions(Landroid/content/Context;)[Ljava/lang/String;
-    .locals 2
+    .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+
+    .line 117
+    nop
 
     .line 118
     :try_start_0
@@ -760,29 +929,32 @@
     .line 119
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    const/16 v1, 0x1000
+    const/16 v2, 0x1000
 
-    invoke-virtual {v0, p0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v0, v1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget-object p0, p0, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
+    iget-object v0, v0, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p0
+    .line 117
+    return-object v0
 
+    .line 121
     :catch_0
-    move-exception p0
+    move-exception v0
 
     .line 122
-    new-instance v0, Ljava/lang/RuntimeException;
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string v1, "This should have never happened."
+    const-string v2, "This should have never happened."
 
-    invoke-direct {v0, v1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v1, v2, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw v0
+    throw v1
 .end method

@@ -27,32 +27,40 @@
 
 # virtual methods
 .method public setPathRotate(Landroid/view/View;FDD)V
-    .locals 0
+    .locals 3
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "t"    # F
+    .param p3, "dx"    # D
+    .param p5, "dy"    # D
 
     .line 213
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/SplineSet$PathRotate;->get(F)F
 
-    move-result p2
+    move-result v0
 
     invoke-static {p5, p6, p3, p4}, Ljava/lang/Math;->atan2(DD)D
 
-    move-result-wide p3
+    move-result-wide v1
 
-    invoke-static {p3, p4}, Ljava/lang/Math;->toDegrees(D)D
+    invoke-static {v1, v2}, Ljava/lang/Math;->toDegrees(D)D
 
-    move-result-wide p3
+    move-result-wide v1
 
-    double-to-float p3, p3
+    double-to-float v1, v1
 
-    add-float/2addr p2, p3
+    add-float/2addr v0, v1
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setRotation(F)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setRotation(F)V
 
+    .line 214
     return-void
 .end method
 
 .method public setProperty(Landroid/view/View;F)V
     .locals 0
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "t"    # F
 
+    .line 210
     return-void
 .end method

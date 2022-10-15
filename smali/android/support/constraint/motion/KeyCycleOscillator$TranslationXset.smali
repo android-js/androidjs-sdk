@@ -27,14 +27,17 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;F)V
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "t"    # F
 
     .line 262
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyCycleOscillator$TranslationXset;->get(F)F
 
-    move-result p2
+    move-result v0
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 263
     return-void
 .end method

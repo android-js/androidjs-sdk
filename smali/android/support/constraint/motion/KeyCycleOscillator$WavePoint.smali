@@ -27,6 +27,10 @@
 # direct methods
 .method public constructor <init>(IFFF)V
     .locals 0
+    .param p1, "position"    # I
+    .param p2, "period"    # F
+    .param p3, "offset"    # F
+    .param p4, "value"    # F
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,5 +47,6 @@
     .line 64
     iput p2, p0, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPeriod:F
 
+    .line 65
     return-void
 .end method

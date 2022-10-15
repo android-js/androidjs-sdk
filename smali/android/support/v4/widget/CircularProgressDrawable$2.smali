@@ -26,6 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/CircularProgressDrawable;Landroid/support/v4/widget/CircularProgressDrawable$Ring;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/widget/CircularProgressDrawable;
 
     .line 580
     iput-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->this$0:Landroid/support/v4/widget/CircularProgressDrawable;
@@ -41,18 +42,23 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .line 595
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animator"    # Landroid/animation/Animator;
 
+    .line 590
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 4
+    .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 599
     iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->this$0:Landroid/support/v4/widget/CircularProgressDrawable;
@@ -92,44 +98,47 @@
     .line 606
     invoke-virtual {p1}, Landroid/animation/Animator;->cancel()V
 
+    .line 607
     const-wide/16 v2, 0x534
 
-    .line 607
     invoke-virtual {p1, v2, v3}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
 
     .line 608
     invoke-virtual {p1}, Landroid/animation/Animator;->start()V
 
     .line 609
-    iget-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->val$ring:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
+    iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->val$ring:Landroid/support/v4/widget/CircularProgressDrawable$Ring;
 
-    invoke-virtual {p1, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setShowArrow(Z)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/CircularProgressDrawable$Ring;->setShowArrow(Z)V
 
     goto :goto_0
 
     .line 611
     :cond_0
-    iget-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->this$0:Landroid/support/v4/widget/CircularProgressDrawable;
+    iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->this$0:Landroid/support/v4/widget/CircularProgressDrawable;
 
-    iget v0, p1, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
+    iget v1, v0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
 
-    add-float/2addr v0, v2
+    add-float/2addr v1, v2
 
-    iput v0, p1, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
+    iput v1, v0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
 
+    .line 613
     :goto_0
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .locals 2
+    .param p1, "animator"    # Landroid/animation/Animator;
 
     .line 584
-    iget-object p1, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->this$0:Landroid/support/v4/widget/CircularProgressDrawable;
+    iget-object v0, p0, Landroid/support/v4/widget/CircularProgressDrawable$2;->this$0:Landroid/support/v4/widget/CircularProgressDrawable;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput v0, p1, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
+    iput v1, v0, Landroid/support/v4/widget/CircularProgressDrawable;->mRotationCount:F
 
+    .line 585
     return-void
 .end method

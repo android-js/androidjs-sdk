@@ -247,6 +247,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
 
+    .line 258
     return-void
 .end method
 
@@ -261,6 +262,8 @@
 
 .method static synthetic access$000(Landroid/support/constraint/motion/KeyCycle;Landroid/content/res/TypedArray;)V
     .locals 0
+    .param p0, "x0"    # Landroid/support/constraint/motion/KeyCycle;
+    .param p1, "x1"    # Landroid/content/res/TypedArray;
 
     .line 214
     invoke-static {p0, p1}, Landroid/support/constraint/motion/KeyCycle$Loader;->read(Landroid/support/constraint/motion/KeyCycle;Landroid/content/res/TypedArray;)V
@@ -269,15 +272,20 @@
 .end method
 
 .method private static read(Landroid/support/constraint/motion/KeyCycle;Landroid/content/res/TypedArray;)V
-    .locals 5
+    .locals 6
+    .param p0, "c"    # Landroid/support/constraint/motion/KeyCycle;
+    .param p1, "a"    # Landroid/content/res/TypedArray;
 
     .line 261
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v0
 
+    .line 262
+    .local v0, "N":I
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_4
 
@@ -287,6 +295,7 @@
     move-result v2
 
     .line 264
+    .local v2, "attr":I
     sget-object v3, Landroid/support/constraint/motion/KeyCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v3, v2}, Landroid/util/SparseIntArray;->get(I)I
@@ -304,31 +313,39 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
     const-string v4, "   "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     sget-object v4, Landroid/support/constraint/motion/KeyCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v4, v2}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v2
+    move-result v4
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "KeyCycle"
+    const-string v4, "KeyCycle"
 
-    invoke-static {v3, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
@@ -340,10 +357,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1802(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1802(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 342
     goto/16 :goto_1
 
     .line 336
@@ -361,9 +379,9 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1702(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1702(Landroid/support/constraint/motion/KeyCycle;F)F
 
     goto/16 :goto_1
 
@@ -375,10 +393,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1602(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1602(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 334
     goto/16 :goto_1
 
     .line 330
@@ -389,10 +408,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1502(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1502(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 331
     goto/16 :goto_1
 
     .line 327
@@ -403,10 +423,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1402(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1402(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 328
     goto/16 :goto_1
 
     .line 324
@@ -417,10 +438,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1302(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1302(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 325
     goto/16 :goto_1
 
     .line 321
@@ -431,10 +453,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1202(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1202(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 322
     goto/16 :goto_1
 
     .line 318
@@ -445,10 +468,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1102(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1102(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 319
     goto/16 :goto_1
 
     .line 315
@@ -459,10 +483,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$1002(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$1002(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 316
     goto/16 :goto_1
 
     .line 312
@@ -473,10 +498,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$902(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$902(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 313
     goto/16 :goto_1
 
     .line 309
@@ -487,10 +513,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$802(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$802(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 310
     goto/16 :goto_1
 
     .line 306
@@ -501,10 +528,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$702(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$702(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 307
     goto/16 :goto_1
 
     .line 303
@@ -515,10 +543,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$602(Landroid/support/constraint/motion/KeyCycle;I)I
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$602(Landroid/support/constraint/motion/KeyCycle;I)I
 
+    .line 304
     goto/16 :goto_1
 
     .line 295
@@ -528,22 +557,23 @@
     move-result-object v3
 
     .line 296
-    iget v3, v3, Landroid/util/TypedValue;->type:I
+    .local v3, "type":Landroid/util/TypedValue;
+    iget v4, v3, Landroid/util/TypedValue;->type:I
 
-    const/4 v4, 0x5
+    const/4 v5, 0x5
 
-    if-ne v3, v4, :cond_0
+    if-ne v4, v5, :cond_0
 
     .line 297
     invoke-static {p0}, Landroid/support/constraint/motion/KeyCycle;->access$500(Landroid/support/constraint/motion/KeyCycle;)F
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p1, v2, v4}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v4
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$502(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v4}, Landroid/support/constraint/motion/KeyCycle;->access$502(Landroid/support/constraint/motion/KeyCycle;F)F
 
     goto/16 :goto_1
 
@@ -551,17 +581,19 @@
     :cond_0
     invoke-static {p0}, Landroid/support/constraint/motion/KeyCycle;->access$500(Landroid/support/constraint/motion/KeyCycle;)F
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p1, v2, v4}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v4
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$502(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v4}, Landroid/support/constraint/motion/KeyCycle;->access$502(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 301
     goto :goto_1
 
     .line 292
+    .end local v3    # "type":Landroid/util/TypedValue;
     :pswitch_e
     invoke-static {p0}, Landroid/support/constraint/motion/KeyCycle;->access$400(Landroid/support/constraint/motion/KeyCycle;)F
 
@@ -569,10 +601,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$402(Landroid/support/constraint/motion/KeyCycle;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$402(Landroid/support/constraint/motion/KeyCycle;F)F
 
+    .line 293
     goto :goto_1
 
     .line 289
@@ -583,10 +616,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$302(Landroid/support/constraint/motion/KeyCycle;I)I
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$302(Landroid/support/constraint/motion/KeyCycle;I)I
 
+    .line 290
     goto :goto_1
 
     .line 286
@@ -597,20 +631,22 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$202(Landroid/support/constraint/motion/KeyCycle;I)I
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$202(Landroid/support/constraint/motion/KeyCycle;I)I
 
+    .line 287
     goto :goto_1
 
     .line 283
     :pswitch_11
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyCycle;->access$102(Landroid/support/constraint/motion/KeyCycle;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyCycle;->access$102(Landroid/support/constraint/motion/KeyCycle;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 284
     goto :goto_1
 
     .line 280
@@ -619,10 +655,11 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Landroid/support/constraint/motion/KeyCycle;->mFramePosition:I
+    iput v3, p0, Landroid/support/constraint/motion/KeyCycle;->mFramePosition:I
 
+    .line 281
     goto :goto_1
 
     .line 266
@@ -650,9 +687,9 @@
     .line 269
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    iput-object v2, p0, Landroid/support/constraint/motion/KeyCycle;->mTargetString:Ljava/lang/String;
+    iput-object v3, p0, Landroid/support/constraint/motion/KeyCycle;->mTargetString:Ljava/lang/String;
 
     goto :goto_1
 
@@ -671,9 +708,9 @@
     .line 273
     invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    iput-object v2, p0, Landroid/support/constraint/motion/KeyCycle;->mTargetString:Ljava/lang/String;
+    iput-object v3, p0, Landroid/support/constraint/motion/KeyCycle;->mTargetString:Ljava/lang/String;
 
     goto :goto_1
 
@@ -683,20 +720,25 @@
 
     invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Landroid/support/constraint/motion/KeyCycle;->mTargetId:I
+    iput v3, p0, Landroid/support/constraint/motion/KeyCycle;->mTargetId:I
 
+    .line 278
+    nop
+
+    .line 262
+    .end local v2    # "attr":I
     :cond_3
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_0
 
+    .line 348
+    .end local v1    # "i":I
     :cond_4
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

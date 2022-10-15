@@ -21,6 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/ActivityChooserView;
 
     .line 281
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$5;->this$0:Landroid/support/v7/widget/ActivityChooserView;
@@ -43,5 +44,6 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView;->updateAppearance()V
 
+    .line 286
     return-void
 .end method

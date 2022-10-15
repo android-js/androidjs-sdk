@@ -38,6 +38,10 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;Landroid/webkit/WebView;ILjava/lang/String;)V
     .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
+    .param p2, "myWebView"    # Landroid/webkit/WebView;
+    .param p3, "iconId"    # I
+    .param p4, "className"    # Ljava/lang/String;
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -91,46 +95,50 @@
     iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->app:Lcom/android/js/api/App;
 
     .line 48
-    new-instance p2, Lcom/android/js/api/Contact;
+    new-instance v0, Lcom/android/js/api/Contact;
 
-    invoke-direct {p2, p1}, Lcom/android/js/api/Contact;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, p1}, Lcom/android/js/api/Contact;-><init>(Landroid/app/Activity;)V
 
-    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
+    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->contact:Lcom/android/js/api/Contact;
 
     .line 49
-    new-instance p2, Lcom/android/js/api/DeepLink;
+    new-instance v0, Lcom/android/js/api/DeepLink;
 
-    invoke-direct {p2, p1}, Lcom/android/js/api/DeepLink;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, p1}, Lcom/android/js/api/DeepLink;-><init>(Landroid/app/Activity;)V
 
-    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->deepLink:Lcom/android/js/api/DeepLink;
+    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->deepLink:Lcom/android/js/api/DeepLink;
 
     .line 50
-    new-instance p2, Lcom/android/js/api/SMS;
+    new-instance v0, Lcom/android/js/api/SMS;
 
-    invoke-direct {p2, p1}, Lcom/android/js/api/SMS;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, p1}, Lcom/android/js/api/SMS;-><init>(Landroid/app/Activity;)V
 
-    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->sms:Lcom/android/js/api/SMS;
+    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->sms:Lcom/android/js/api/SMS;
 
     .line 51
-    new-instance p2, Lcom/android/js/api/Location;
+    new-instance v0, Lcom/android/js/api/Location;
 
-    invoke-direct {p2, p1}, Lcom/android/js/api/Location;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, p1}, Lcom/android/js/api/Location;-><init>(Landroid/app/Activity;)V
 
-    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->location:Lcom/android/js/api/Location;
+    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->location:Lcom/android/js/api/Location;
 
     .line 52
-    new-instance p2, Lcom/android/js/api/MobileData;
+    new-instance v0, Lcom/android/js/api/MobileData;
 
-    invoke-direct {p2, p1}, Lcom/android/js/api/MobileData;-><init>(Landroid/app/Activity;)V
+    invoke-direct {v0, p1}, Lcom/android/js/api/MobileData;-><init>(Landroid/app/Activity;)V
 
-    iput-object p2, p0, Lcom/android/js/common/JavaWebviewBridge;->mobileData:Lcom/android/js/api/MobileData;
+    iput-object v0, p0, Lcom/android/js/common/JavaWebviewBridge;->mobileData:Lcom/android/js/api/MobileData;
 
     .line 53
     iput p3, p0, Lcom/android/js/common/JavaWebviewBridge;->iconId:I
 
+    .line 54
+    iput-object p4, p0, Lcom/android/js/common/JavaWebviewBridge;->className:Ljava/lang/String;
+
     .line 55
     iput-object p4, p0, Lcom/android/js/common/JavaWebviewBridge;->className:Ljava/lang/String;
 
+    .line 56
     return-void
 .end method
 
@@ -138,6 +146,9 @@
 # virtual methods
 .method public addContact(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "number"    # Ljava/lang/String;
+    .param p3, "email"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -146,13 +157,15 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/js/api/Contact;->addContact(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public connectWifi(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "ssid"    # Ljava/lang/String;
+    .param p2, "password"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -161,6 +174,7 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Wifi;->connectWifi(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 126
     return-void
 .end method
 
@@ -177,14 +191,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 143
     goto :goto_0
 
+    .line 141
     :catch_0
     move-exception v0
 
     .line 142
+    .local v0, "e":Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
+    .line 144
+    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method
@@ -199,6 +218,7 @@
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->disableWifi()V
 
+    .line 101
     return-void
 .end method
 
@@ -212,11 +232,13 @@
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->disconnectWifi()V
 
+    .line 106
     return-void
 .end method
 
 .method public enableHotspot(Ljava/lang/String;)V
     .locals 1
+    .param p1, "ssid"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -228,14 +250,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 134
     goto :goto_0
 
+    .line 132
     :catch_0
-    move-exception p1
+    move-exception v0
 
     .line 133
-    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
+    .line 135
+    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
     return-void
 .end method
@@ -250,6 +277,7 @@
 
     invoke-virtual {v0}, Lcom/android/js/api/Wifi;->enableWifi()V
 
+    .line 96
     return-void
 .end method
 
@@ -282,6 +310,7 @@
 
 .method public getContactByName(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -296,9 +325,9 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Contact;->getContactByName(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getContactsCount()I
@@ -354,6 +383,7 @@
 
 .method public getPath(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -362,9 +392,9 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/App;->getPath(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getWifiScanResults()Ljava/lang/String;
@@ -415,6 +445,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
+    .line 61
     const-string v0, "Hello World"
 
     return-object v0
@@ -422,6 +453,8 @@
 
 .method public initBigNotification(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 1
+    .param p1, "title"    # Ljava/lang/String;
+    .param p2, "msg"    # [Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -430,11 +463,14 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Notification;->initBigNotification(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 81
     return-void
 .end method
 
 .method public initNotification(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "title"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -443,6 +479,7 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Notification;->initNotification(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 71
     return-void
 .end method
 
@@ -493,6 +530,7 @@
 
 .method public makeCall(Ljava/lang/String;)V
     .locals 1
+    .param p1, "number"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -501,11 +539,14 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Call;->makeCall(Ljava/lang/String;)V
 
+    .line 91
     return-void
 .end method
 
 .method public sendSMS(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "number"    # Ljava/lang/String;
+    .param p2, "message"    # Ljava/lang/String;
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -514,13 +555,14 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/SMS;->sendSMS(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public setDefaultFontSize(I)V
     .locals 1
+    .param p1, "fontSize"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -529,11 +571,13 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/App;->setDefaultFontSize(I)V
 
+    .line 191
     return-void
 .end method
 
 .method public showNotification(I)V
     .locals 1
+    .param p1, "id"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -542,11 +586,14 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Notification;->showNotification(I)V
 
+    .line 76
     return-void
 .end method
 
 .method public showToast(Ljava/lang/String;I)V
     .locals 1
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "duration"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -555,5 +602,6 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Toast;->showToast(Ljava/lang/String;I)V
 
+    .line 86
     return-void
 .end method

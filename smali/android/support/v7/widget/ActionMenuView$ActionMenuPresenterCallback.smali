@@ -24,6 +24,7 @@
     .line 793
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 794
     return-void
 .end method
 
@@ -31,14 +32,19 @@
 # virtual methods
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
     .locals 0
+    .param p1, "menu"    # Landroid/support/v7/view/menu/MenuBuilder;
+    .param p2, "allMenusAreClosing"    # Z
 
+    .line 798
     return-void
 .end method
 
 .method public onOpenSubMenu(Landroid/support/v7/view/menu/MenuBuilder;)Z
-    .locals 0
+    .locals 1
+    .param p1, "subMenu"    # Landroid/support/v7/view/menu/MenuBuilder;
 
-    const/4 p1, 0x0
+    .line 802
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

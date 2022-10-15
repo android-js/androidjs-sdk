@@ -36,48 +36,49 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/constraint/motion/MotionLayout;)V
-    .locals 0
+    .locals 1
+    .param p1, "this$0"    # Landroid/support/constraint/motion/MotionLayout;
 
     .line 1342
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->this$0:Landroid/support/constraint/motion/MotionLayout;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/high16 p1, 0x7fc00000    # Float.NaN
-
     .line 1343
-    iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
+    const/high16 v0, 0x7fc00000    # Float.NaN
+
+    iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
 
     .line 1344
-    iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mVelocity:F
-
-    const/4 p1, -0x1
+    iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mVelocity:F
 
     .line 1345
-    iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->startState:I
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->startState:I
 
     .line 1346
-    iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
-
-    const-string p1, "motion.progress"
+    iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
 
     .line 1347
-    iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyProgress:Ljava/lang/String;
+    const-string v0, "motion.progress"
 
-    const-string p1, "motion.velocity"
+    iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyProgress:Ljava/lang/String;
 
     .line 1348
-    iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyVelocity:Ljava/lang/String;
+    const-string v0, "motion.velocity"
 
-    const-string p1, "motion.StartState"
+    iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyVelocity:Ljava/lang/String;
 
     .line 1349
-    iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyStartState:Ljava/lang/String;
+    const-string v0, "motion.StartState"
 
-    const-string p1, "motion.EndState"
+    iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyStartState:Ljava/lang/String;
 
     .line 1350
-    iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyEndState:Ljava/lang/String;
+    const-string v0, "motion.EndState"
+
+    iput-object v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->KeyEndState:Ljava/lang/String;
 
     return-void
 .end method
@@ -98,6 +99,7 @@
 
     if-eq v2, v1, :cond_3
 
+    .line 1354
     :cond_0
     if-ne v0, v1, :cond_1
 
@@ -156,6 +158,7 @@
 
     if-eqz v0, :cond_4
 
+    .line 1365
     return-void
 
     .line 1367
@@ -166,6 +169,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/constraint/motion/MotionLayout;->setProgress(F)V
 
+    .line 1368
     return-void
 
     .line 1370
@@ -178,9 +182,9 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/support/constraint/motion/MotionLayout;->setProgress(FF)V
 
+    .line 1371
     const/high16 v0, 0x7fc00000    # Float.NaN
 
-    .line 1371
     iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
 
     .line 1372
@@ -192,6 +196,7 @@
     .line 1374
     iput v1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
 
+    .line 1375
     return-void
 .end method
 
@@ -204,6 +209,7 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 1379
+    .local v0, "bundle":Landroid/os/Bundle;
     iget v1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
 
     const-string v2, "motion.progress"
@@ -231,6 +237,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
+    .line 1383
     return-object v0
 .end method
 
@@ -273,83 +280,94 @@
 
     iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
 
+    .line 1414
     return-void
 .end method
 
 .method public setEndState(I)V
     .locals 0
+    .param p1, "endState"    # I
 
     .line 1398
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
 
+    .line 1399
     return-void
 .end method
 
 .method public setProgress(F)V
     .locals 0
+    .param p1, "progress"    # F
 
     .line 1394
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
 
+    .line 1395
     return-void
 .end method
 
 .method public setStartState(I)V
     .locals 0
+    .param p1, "startState"    # I
 
     .line 1406
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->startState:I
 
+    .line 1407
     return-void
 .end method
 
 .method public setTransitionState(Landroid/os/Bundle;)V
     .locals 1
-
-    const-string v0, "motion.progress"
+    .param p1, "bundle"    # Landroid/os/Bundle;
 
     .line 1387
+    const-string v0, "motion.progress"
+
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;)F
 
     move-result v0
 
     iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mProgress:F
 
+    .line 1388
     const-string v0, "motion.velocity"
 
-    .line 1388
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;)F
 
     move-result v0
 
     iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mVelocity:F
 
+    .line 1389
     const-string v0, "motion.StartState"
 
-    .line 1389
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
     iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->startState:I
 
+    .line 1390
     const-string v0, "motion.EndState"
 
-    .line 1390
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
+    iput v0, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->endState:I
 
+    .line 1391
     return-void
 .end method
 
 .method public setVelocity(F)V
     .locals 0
+    .param p1, "mVelocity"    # F
 
     .line 1402
     iput p1, p0, Landroid/support/constraint/motion/MotionLayout$StateCache;->mVelocity:F
 
+    .line 1403
     return-void
 .end method

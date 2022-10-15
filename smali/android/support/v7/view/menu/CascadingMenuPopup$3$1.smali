@@ -30,6 +30,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/CascadingMenuPopup$3;Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;Landroid/view/MenuItem;Landroid/support/v7/view/menu/MenuBuilder;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/support/v7/view/menu/CascadingMenuPopup$3;
 
     .line 173
     iput-object p1, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->this$1:Landroid/support/v7/view/menu/CascadingMenuPopup$3;
@@ -107,6 +108,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v7/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;I)Z
 
+    .line 190
     :cond_1
     return-void
 .end method

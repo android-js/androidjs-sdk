@@ -24,15 +24,18 @@
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 466
     return-void
 .end method
 
 .method public static enableDebugLogging(Z)V
     .locals 0
+    .param p0, "enabled"    # Z
 
     .line 446
     sput-boolean p0, Landroid/support/v4/app/FragmentManagerImpl;->DEBUG:Z
 
+    .line 447
     return-void
 .end method
 

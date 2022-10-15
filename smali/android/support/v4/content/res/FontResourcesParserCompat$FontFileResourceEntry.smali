@@ -31,6 +31,12 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IZLjava/lang/String;II)V
     .locals 0
+    .param p1, "fileName"    # Ljava/lang/String;
+    .param p2, "weight"    # I
+    .param p3, "italic"    # Z
+    .param p4, "variationSettings"    # Ljava/lang/String;
+    .param p5, "ttcIndex"    # I
+    .param p6, "resourceId"    # I
 
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,6 +59,7 @@
     .line 119
     iput p6, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mResourceId:I
 
+    .line 120
     return-void
 .end method
 

@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/motion/TouchResponse;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/motion/TouchResponse;
 
     .line 410
     iput-object p1, p0, Landroid/support/constraint/motion/TouchResponse$1;->this$0:Landroid/support/constraint/motion/TouchResponse;
@@ -36,9 +37,12 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "motionEvent"    # Landroid/view/MotionEvent;
 
-    const/4 p1, 0x0
+    .line 413
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method

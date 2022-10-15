@@ -21,6 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/utils/ImageFilterButton;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/utils/ImageFilterButton;
 
     .line 336
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
@@ -33,36 +34,45 @@
 
 # virtual methods
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
-    .locals 6
+    .locals 8
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "outline"    # Landroid/graphics/Outline;
 
     .line 339
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
+    iget-object v0, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
-    invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterButton;->getWidth()I
+    invoke-virtual {v0}, Landroid/support/constraint/utils/ImageFilterButton;->getWidth()I
 
-    move-result v3
+    move-result v0
 
     .line 340
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
+    .local v0, "w":I
+    iget-object v1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
-    invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterButton;->getHeight()I
+    invoke-virtual {v1}, Landroid/support/constraint/utils/ImageFilterButton;->getHeight()I
 
-    move-result v4
+    move-result v7
 
     .line 341
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
+    .local v7, "h":I
+    iget-object v1, p0, Landroid/support/constraint/utils/ImageFilterButton$2;->this$0:Landroid/support/constraint/utils/ImageFilterButton;
 
-    invoke-static {p1}, Landroid/support/constraint/utils/ImageFilterButton;->access$100(Landroid/support/constraint/utils/ImageFilterButton;)F
+    invoke-static {v1}, Landroid/support/constraint/utils/ImageFilterButton;->access$100(Landroid/support/constraint/utils/ImageFilterButton;)F
 
-    move-result v5
-
-    const/4 v1, 0x0
+    move-result v6
 
     const/4 v2, 0x0
 
-    move-object v0, p2
+    const/4 v3, 0x0
 
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
+    move-object v1, p2
 
+    move v4, v0
+
+    move v5, v7
+
+    invoke-virtual/range {v1 .. v6}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
+
+    .line 342
     return-void
 .end method

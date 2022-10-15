@@ -30,56 +30,70 @@
 .end method
 
 .method public static get(I[D[[D)Landroid/support/constraint/motion/utils/CurveFit;
-    .locals 3
+    .locals 4
+    .param p0, "type"    # I
+    .param p1, "time"    # [D
+    .param p2, "y"    # [[D
 
     .line 30
     array-length v0, p1
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    if-ne v0, v1, :cond_0
 
-    if-ne v0, v2, :cond_0
-
+    .line 31
     const/4 p0, 0x2
 
+    .line 33
     :cond_0
-    if-eqz p0, :cond_2
-
-    if-eq p0, v1, :cond_1
+    packed-switch p0, :pswitch_data_0
 
     .line 39
-    new-instance p0, Landroid/support/constraint/motion/utils/LinearCurveFit;
+    :pswitch_0
+    new-instance v0, Landroid/support/constraint/motion/utils/LinearCurveFit;
 
-    invoke-direct {p0, p1, p2}, Landroid/support/constraint/motion/utils/LinearCurveFit;-><init>([D[[D)V
+    invoke-direct {v0, p1, p2}, Landroid/support/constraint/motion/utils/LinearCurveFit;-><init>([D[[D)V
 
-    return-object p0
+    return-object v0
 
     .line 37
-    :cond_1
-    new-instance p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;
+    :pswitch_1
+    new-instance v0, Landroid/support/constraint/motion/utils/CurveFit$Constant;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    aget-wide v1, p1, v0
+    aget-wide v2, p1, v1
 
-    aget-object p1, p2, v0
+    aget-object v1, p2, v1
 
-    invoke-direct {p0, v1, v2, p1}, Landroid/support/constraint/motion/utils/CurveFit$Constant;-><init>(D[D)V
+    invoke-direct {v0, v2, v3, v1}, Landroid/support/constraint/motion/utils/CurveFit$Constant;-><init>(D[D)V
 
-    return-object p0
+    return-object v0
 
     .line 35
-    :cond_2
-    new-instance p0, Landroid/support/constraint/motion/utils/MonotonicCurveFit;
+    :pswitch_2
+    new-instance v0, Landroid/support/constraint/motion/utils/MonotonicCurveFit;
 
-    invoke-direct {p0, p1, p2}, Landroid/support/constraint/motion/utils/MonotonicCurveFit;-><init>([D[[D)V
+    invoke-direct {v0, p1, p2}, Landroid/support/constraint/motion/utils/MonotonicCurveFit;-><init>([D[[D)V
 
-    return-object p0
+    return-object v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method public static getArc([I[D[[D)Landroid/support/constraint/motion/utils/CurveFit;
     .locals 1
+    .param p0, "arcModes"    # [I
+    .param p1, "time"    # [D
+    .param p2, "y"    # [[D
 
     .line 44
     new-instance v0, Landroid/support/constraint/motion/utils/ArcCurveFit;

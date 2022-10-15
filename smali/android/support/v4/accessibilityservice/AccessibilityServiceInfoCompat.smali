@@ -39,63 +39,67 @@
 
 .method public static capabilityToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "capability"    # I
 
-    const/4 v0, 0x1
+    .line 307
+    sparse-switch p0, :sswitch_data_0
 
-    if-eq p0, v0, :cond_3
+    .line 317
+    const-string v0, "UNKNOWN"
 
-    const/4 v0, 0x2
+    return-object v0
 
-    if-eq p0, v0, :cond_2
+    .line 315
+    :sswitch_0
+    const-string v0, "CAPABILITY_CAN_FILTER_KEY_EVENTS"
 
-    const/4 v0, 0x4
+    return-object v0
 
-    if-eq p0, v0, :cond_1
+    .line 313
+    :sswitch_1
+    const-string v0, "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
 
-    const/16 v0, 0x8
+    return-object v0
 
-    if-eq p0, v0, :cond_0
+    .line 311
+    :sswitch_2
+    const-string v0, "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION"
 
-    const-string p0, "UNKNOWN"
+    return-object v0
 
-    return-object p0
+    .line 309
+    :sswitch_3
+    const-string v0, "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT"
 
-    :cond_0
-    const-string p0, "CAPABILITY_CAN_FILTER_KEY_EVENTS"
+    return-object v0
 
-    return-object p0
-
-    :cond_1
-    const-string p0, "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
-
-    return-object p0
-
-    :cond_2
-    const-string p0, "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION"
-
-    return-object p0
-
-    :cond_3
-    const-string p0, "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT"
-
-    return-object p0
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_3
+        0x2 -> :sswitch_2
+        0x4 -> :sswitch_1
+        0x8 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public static feedbackTypeToString(I)Ljava/lang/String;
     .locals 4
+    .param p0, "feedbackType"    # I
 
     .line 215
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 216
+    .local v0, "builder":Ljava/lang/StringBuilder;
     const-string v1, "["
 
-    .line 216
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 217
     :goto_0
-    if-lez p0, :cond_6
+    if-lez p0, :cond_1
 
     .line 218
     invoke-static {p0}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
@@ -106,6 +110,8 @@
 
     shl-int v1, v2, v1
 
+    .line 219
+    .local v1, "feedbackTypeFlag":I
     xor-int/lit8 v3, v1, -0x1
 
     and-int/2addr p0, v3
@@ -117,150 +123,153 @@
 
     if-le v3, v2, :cond_0
 
-    const-string v3, ", "
-
     .line 221
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ", "
 
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 223
     :cond_0
-    if-eq v1, v2, :cond_5
+    sparse-switch v1, :sswitch_data_0
 
-    const/4 v2, 0x2
-
-    if-eq v1, v2, :cond_4
-
-    const/4 v2, 0x4
-
-    if-eq v1, v2, :cond_3
-
-    const/16 v2, 0x8
-
-    if-eq v1, v2, :cond_2
-
-    const/16 v2, 0x10
-
-    if-eq v1, v2, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const-string v1, "FEEDBACK_GENERIC"
+    goto :goto_1
 
     .line 231
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_0
+    const-string v2, "FEEDBACK_GENERIC"
 
-    goto :goto_0
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2
-    const-string v1, "FEEDBACK_VISUAL"
+    .line 232
+    goto :goto_1
 
     .line 237
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_1
+    const-string v2, "FEEDBACK_VISUAL"
 
-    goto :goto_0
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_3
-    const-string v1, "FEEDBACK_AUDIBLE"
+    goto :goto_1
 
     .line 225
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_2
+    const-string v2, "FEEDBACK_AUDIBLE"
 
-    goto :goto_0
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4
-    const-string v1, "FEEDBACK_HAPTIC"
+    .line 226
+    goto :goto_1
 
     .line 228
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_3
+    const-string v2, "FEEDBACK_HAPTIC"
 
-    goto :goto_0
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_5
-    const-string v1, "FEEDBACK_SPOKEN"
+    .line 229
+    goto :goto_1
 
     .line 234
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :sswitch_4
+    const-string v2, "FEEDBACK_SPOKEN"
 
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 235
+    nop
+
+    .line 240
+    .end local v1    # "feedbackTypeFlag":I
+    :goto_1
     goto :goto_0
 
-    :cond_6
-    const-string p0, "]"
-
     .line 241
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_1
+    const-string v1, "]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 242
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    return-object p0
+    return-object v1
+
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_4
+        0x2 -> :sswitch_3
+        0x4 -> :sswitch_2
+        0x8 -> :sswitch_1
+        0x10 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public static flagToString(I)Ljava/lang/String;
     .locals 1
+    .param p0, "flag"    # I
 
-    const/4 v0, 0x1
+    .line 255
+    sparse-switch p0, :sswitch_data_0
 
-    if-eq p0, v0, :cond_5
+    .line 269
+    const/4 v0, 0x0
 
-    const/4 v0, 0x2
+    return-object v0
 
-    if-eq p0, v0, :cond_4
+    .line 267
+    :sswitch_0
+    const-string v0, "FLAG_REQUEST_FILTER_KEY_EVENTS"
 
-    const/4 v0, 0x4
+    return-object v0
 
-    if-eq p0, v0, :cond_3
+    .line 265
+    :sswitch_1
+    const-string v0, "FLAG_REPORT_VIEW_IDS"
 
-    const/16 v0, 0x8
+    return-object v0
 
-    if-eq p0, v0, :cond_2
+    .line 263
+    :sswitch_2
+    const-string v0, "FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
 
-    const/16 v0, 0x10
+    return-object v0
 
-    if-eq p0, v0, :cond_1
+    .line 261
+    :sswitch_3
+    const-string v0, "FLAG_REQUEST_TOUCH_EXPLORATION_MODE"
 
-    const/16 v0, 0x20
+    return-object v0
 
-    if-eq p0, v0, :cond_0
+    .line 259
+    :sswitch_4
+    const-string v0, "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS"
 
-    const/4 p0, 0x0
+    return-object v0
 
-    return-object p0
+    .line 257
+    :sswitch_5
+    const-string v0, "DEFAULT"
 
-    :cond_0
-    const-string p0, "FLAG_REQUEST_FILTER_KEY_EVENTS"
+    return-object v0
 
-    return-object p0
+    nop
 
-    :cond_1
-    const-string p0, "FLAG_REPORT_VIEW_IDS"
-
-    return-object p0
-
-    :cond_2
-    const-string p0, "FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
-
-    return-object p0
-
-    :cond_3
-    const-string p0, "FLAG_REQUEST_TOUCH_EXPLORATION_MODE"
-
-    return-object p0
-
-    :cond_4
-    const-string p0, "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS"
-
-    return-object p0
-
-    :cond_5
-    const-string p0, "DEFAULT"
-
-    return-object p0
+    :sswitch_data_0
+    .sparse-switch
+        0x1 -> :sswitch_5
+        0x2 -> :sswitch_4
+        0x4 -> :sswitch_3
+        0x8 -> :sswitch_2
+        0x10 -> :sswitch_1
+        0x20 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public static getCapabilities(Landroid/accessibilityservice/AccessibilityServiceInfo;)I
     .locals 2
+    .param p0, "info"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
 
     .line 286
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -272,30 +281,34 @@
     .line 287
     invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getCapabilities()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
     .line 290
     :cond_0
     invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getCanRetrieveWindowContent()Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_1
+    if-eqz v0, :cond_1
 
-    const/4 p0, 0x1
+    .line 291
+    const/4 v0, 0x1
 
-    return p0
+    return v0
 
+    .line 293
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    return v0
 .end method
 
 .method public static loadDescription(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
     .locals 2
+    .param p0, "info"    # Landroid/accessibilityservice/AccessibilityServiceInfo;
+    .param p1, "packageManager"    # Landroid/content/pm/PackageManager;
 
     .line 197
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -307,15 +320,15 @@
     .line 198
     invoke-virtual {p0, p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->loadDescription(Landroid/content/pm/PackageManager;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 201
     :cond_0
     invoke-virtual {p0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getDescription()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method

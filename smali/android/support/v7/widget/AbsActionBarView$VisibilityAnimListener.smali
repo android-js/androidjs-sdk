@@ -27,17 +27,18 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/support/v7/widget/AbsActionBarView;)V
-    .locals 0
+    .locals 1
+    .param p1, "this$0"    # Landroid/support/v7/widget/AbsActionBarView;
 
     .line 273
     iput-object p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 p1, 0x0
-
     .line 274
-    iput-boolean p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
 
     return-void
 .end method
@@ -45,62 +46,70 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/view/View;)V
-    .locals 0
-
-    const/4 p1, 0x1
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
     .line 300
-    iput-boolean p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
+    const/4 v0, 0x1
 
+    iput-boolean v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
+
+    .line 301
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 1
+    .locals 2
+    .param p1, "view"    # Landroid/view/View;
 
     .line 292
-    iget-boolean p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
+    iget-boolean v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     return-void
 
     .line 294
     :cond_0
-    iget-object p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
+    iget-object v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-object v0, p1, Landroid/support/v7/widget/AbsActionBarView;->mVisibilityAnim:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    iput-object v1, v0, Landroid/support/v7/widget/AbsActionBarView;->mVisibilityAnim:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 295
-    iget-object p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
+    iget-object v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
 
-    iget v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mFinalVisibility:I
+    iget v1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mFinalVisibility:I
 
-    invoke-static {p1, v0}, Landroid/support/v7/widget/AbsActionBarView;->access$101(Landroid/support/v7/widget/AbsActionBarView;I)V
+    invoke-static {v0, v1}, Landroid/support/v7/widget/AbsActionBarView;->access$101(Landroid/support/v7/widget/AbsActionBarView;I)V
 
+    .line 296
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 1
+    .locals 2
+    .param p1, "view"    # Landroid/view/View;
 
     .line 286
-    iget-object p1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
+    iget-object v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Landroid/support/v7/widget/AbsActionBarView;->access$001(Landroid/support/v7/widget/AbsActionBarView;I)V
+    invoke-static {v0, v1}, Landroid/support/v7/widget/AbsActionBarView;->access$001(Landroid/support/v7/widget/AbsActionBarView;I)V
 
     .line 287
-    iput-boolean v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
+    iput-boolean v1, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mCanceled:Z
 
+    .line 288
     return-void
 .end method
 
 .method public withFinalVisibility(Landroid/support/v4/view/ViewPropertyAnimatorCompat;I)Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;
     .locals 1
+    .param p1, "animation"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    .param p2, "visibility"    # I
 
     .line 279
     iget-object v0, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->this$0:Landroid/support/v7/widget/AbsActionBarView;
@@ -110,5 +119,6 @@
     .line 280
     iput p2, p0, Landroid/support/v7/widget/AbsActionBarView$VisibilityAnimListener;->mFinalVisibility:I
 
+    .line 281
     return-object p0
 .end method

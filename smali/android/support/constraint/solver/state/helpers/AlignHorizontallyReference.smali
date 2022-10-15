@@ -18,24 +18,26 @@
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/state/State;)V
     .locals 1
+    .param p1, "state"    # Landroid/support/constraint/solver/state/State;
 
     .line 33
     sget-object v0, Landroid/support/constraint/solver/state/State$Helper;->ALIGN_VERTICALLY:Landroid/support/constraint/solver/state/State$Helper;
 
     invoke-direct {p0, p1, v0}, Landroid/support/constraint/solver/state/HelperReference;-><init>(Landroid/support/constraint/solver/state/State;Landroid/support/constraint/solver/state/State$Helper;)V
 
-    const/high16 p1, 0x3f000000    # 0.5f
-
     .line 25
-    iput p1, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mBias:F
+    const/high16 v0, 0x3f000000    # 0.5f
 
+    iput v0, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mBias:F
+
+    .line 34
     return-void
 .end method
 
 
 # virtual methods
 .method public apply()V
-    .locals 4
+    .locals 5
 
     .line 37
     iget-object v0, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mReferences:Ljava/util/ArrayList;
@@ -44,7 +46,6 @@
 
     move-result-object v0
 
-    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -57,100 +58,110 @@
     move-result-object v1
 
     .line 38
+    .local v1, "key":Ljava/lang/Object;
     iget-object v2, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mState:Landroid/support/constraint/solver/state/State;
 
     invoke-virtual {v2, v1}, Landroid/support/constraint/solver/state/State;->constraints(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
-    move-result-object v1
+    move-result-object v2
 
     .line 39
-    invoke-virtual {v1}, Landroid/support/constraint/solver/state/ConstraintReference;->clearHorizontal()Landroid/support/constraint/solver/state/ConstraintReference;
+    .local v2, "reference":Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2}, Landroid/support/constraint/solver/state/ConstraintReference;->clearHorizontal()Landroid/support/constraint/solver/state/ConstraintReference;
 
     .line 40
-    iget-object v2, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mStartToStart:Ljava/lang/Object;
+    iget-object v3, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mStartToStart:Ljava/lang/Object;
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_0
 
     .line 41
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->startToStart(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->startToStart(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
     goto :goto_1
 
     .line 42
-    :cond_1
-    iget-object v2, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mStartToEnd:Ljava/lang/Object;
+    :cond_0
+    iget-object v3, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mStartToEnd:Ljava/lang/Object;
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_1
 
     .line 43
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->startToEnd(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->startToEnd(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
     goto :goto_1
 
     .line 45
-    :cond_2
-    sget-object v2, Landroid/support/constraint/solver/state/State;->PARENT:Ljava/lang/Integer;
+    :cond_1
+    sget-object v3, Landroid/support/constraint/solver/state/State;->PARENT:Ljava/lang/Integer;
 
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->startToStart(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->startToStart(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
     .line 47
     :goto_1
-    iget-object v2, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mEndToStart:Ljava/lang/Object;
+    iget-object v3, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mEndToStart:Ljava/lang/Object;
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_2
 
     .line 48
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->endToStart(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->endToStart(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
     goto :goto_2
 
     .line 49
-    :cond_3
-    iget-object v2, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mEndToEnd:Ljava/lang/Object;
+    :cond_2
+    iget-object v3, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mEndToEnd:Ljava/lang/Object;
 
-    if-eqz v2, :cond_4
+    if-eqz v3, :cond_3
 
     .line 50
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->endToEnd(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->endToEnd(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
     goto :goto_2
 
     .line 52
-    :cond_4
-    sget-object v2, Landroid/support/constraint/solver/state/State;->PARENT:Ljava/lang/Integer;
+    :cond_3
+    sget-object v3, Landroid/support/constraint/solver/state/State;->PARENT:Ljava/lang/Integer;
 
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->endToEnd(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->endToEnd(Ljava/lang/Object;)Landroid/support/constraint/solver/state/ConstraintReference;
 
     .line 54
     :goto_2
-    iget v2, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mBias:F
+    iget v3, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mBias:F
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    const/high16 v4, 0x3f000000    # 0.5f
 
-    cmpl-float v3, v2, v3
+    cmpl-float v4, v3, v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_4
 
     .line 55
-    invoke-virtual {v1, v2}, Landroid/support/constraint/solver/state/ConstraintReference;->horizontalBias(F)Landroid/support/constraint/solver/state/ConstraintReference;
+    invoke-virtual {v2, v3}, Landroid/support/constraint/solver/state/ConstraintReference;->horizontalBias(F)Landroid/support/constraint/solver/state/ConstraintReference;
 
+    .line 57
+    .end local v1    # "key":Ljava/lang/Object;
+    .end local v2    # "reference":Landroid/support/constraint/solver/state/ConstraintReference;
+    :cond_4
     goto :goto_0
 
+    .line 58
     :cond_5
     return-void
 .end method
 
 .method public bias(F)V
     .locals 0
+    .param p1, "bias"    # F
 
     .line 66
     iput p1, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mBias:F
 
+    .line 67
     return-void
 .end method
 
 .method public endToEnd(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "target"    # Ljava/lang/Object;
 
     .line 63
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mEndToEnd:Ljava/lang/Object;
@@ -160,6 +171,7 @@
 
 .method public endToStart(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "target"    # Ljava/lang/Object;
 
     .line 62
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mEndToStart:Ljava/lang/Object;
@@ -169,6 +181,7 @@
 
 .method public startToEnd(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "target"    # Ljava/lang/Object;
 
     .line 61
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mStartToEnd:Ljava/lang/Object;
@@ -178,6 +191,7 @@
 
 .method public startToStart(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "target"    # Ljava/lang/Object;
 
     .line 60
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/AlignHorizontallyReference;->mStartToStart:Ljava/lang/Object;

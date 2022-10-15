@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/Fragment;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/Fragment;
 
     .line 2429
     iput-object p1, p0, Landroid/support/v4/app/Fragment$3;->this$0:Landroid/support/v4/app/Fragment;

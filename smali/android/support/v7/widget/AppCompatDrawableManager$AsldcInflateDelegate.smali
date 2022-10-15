@@ -30,7 +30,14 @@
 
 # virtual methods
 .method public createFromXmlInner(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p3, "attrs"    # Landroid/util/AttributeSet;
+    .param p4, "theme"    # Landroid/content/res/Resources$Theme;
+
+    .line 806
+    nop
 
     .line 807
     :try_start_0
@@ -40,23 +47,26 @@
 
     invoke-static {p1, v0, p2, p3, p4}, Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;->createFromXmlInner(Landroid/content/Context;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)Landroid/support/v7/graphics/drawable/AnimatedStateListDrawableCompat;
 
-    move-result-object p1
+    move-result-object v0
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object p1
+    return-object v0
 
+    .line 808
     :catch_0
-    move-exception p1
-
-    const-string p2, "AsldcInflateDelegate"
-
-    const-string p3, "Exception while inflating <animated-selector>"
+    move-exception v0
 
     .line 809
-    invoke-static {p2, p3, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    .local v0, "e":Ljava/lang/Exception;
+    const-string v1, "AsldcInflateDelegate"
 
-    const/4 p1, 0x0
+    const-string v2, "Exception while inflating <animated-selector>"
 
-    return-object p1
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 810
+    const/4 v1, 0x0
+
+    return-object v1
 .end method

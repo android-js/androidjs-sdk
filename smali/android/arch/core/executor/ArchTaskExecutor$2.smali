@@ -31,6 +31,7 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
+    .param p1, "command"    # Ljava/lang/Runnable;
 
     .line 53
     invoke-static {}, Landroid/arch/core/executor/ArchTaskExecutor;->getInstance()Landroid/arch/core/executor/ArchTaskExecutor;
@@ -39,5 +40,6 @@
 
     invoke-virtual {v0, p1}, Landroid/arch/core/executor/ArchTaskExecutor;->executeOnDiskIO(Ljava/lang/Runnable;)V
 
+    .line 54
     return-void
 .end method

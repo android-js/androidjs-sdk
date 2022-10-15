@@ -39,7 +39,8 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 2
+    .locals 3
+    .param p1, "view"    # Landroid/view/View;
 
     .line 1033
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,74 +51,88 @@
     move-result-object v0
 
     .line 1035
+    .local v0, "params":Landroid/view/ViewGroup$LayoutParams;
     instance-of v1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     if-eqz v1, :cond_0
 
     .line 1036
-    check-cast v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    move-object v1, v0
 
-    iput-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    check-cast v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;
+
+    iput-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     .line 1037
     iput-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
+    .line 1041
     return-void
 
     .line 1039
     :cond_0
-    new-instance p1, Ljava/lang/RuntimeException;
+    new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string v0, "Only children of ConstraintLayout.LayoutParams supported"
+    const-string v2, "Only children of ConstraintLayout.LayoutParams supported"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method private sideToString(I)Ljava/lang/String;
-    .locals 0
+    .locals 1
+    .param p1, "side"    # I
 
+    .line 1014
     packed-switch p1, :pswitch_data_0
 
-    const-string p1, "undefined"
+    .line 1030
+    const-string v0, "undefined"
 
-    return-object p1
+    return-object v0
 
+    .line 1028
     :pswitch_0
-    const-string p1, "end"
+    const-string v0, "end"
 
-    return-object p1
+    return-object v0
 
+    .line 1026
     :pswitch_1
-    const-string p1, "start"
+    const-string v0, "start"
 
-    return-object p1
+    return-object v0
 
+    .line 1024
     :pswitch_2
-    const-string p1, "baseline"
+    const-string v0, "baseline"
 
-    return-object p1
+    return-object v0
 
+    .line 1022
     :pswitch_3
-    const-string p1, "bottom"
+    const-string v0, "bottom"
 
-    return-object p1
+    return-object v0
 
+    .line 1020
     :pswitch_4
-    const-string p1, "top"
+    const-string v0, "top"
 
-    return-object p1
+    return-object v0
 
+    .line 1018
     :pswitch_5
-    const-string p1, "right"
+    const-string v0, "right"
 
-    return-object p1
+    return-object v0
 
+    .line 1016
     :pswitch_6
-    const-string p1, "left"
+    const-string v0, "left"
 
-    return-object p1
+    return-object v0
 
     nop
 
@@ -136,8 +151,11 @@
 
 # virtual methods
 .method public addToHorizontalChain(II)Landroid/support/constraint/ConstraintProperties;
-    .locals 5
+    .locals 6
+    .param p1, "leftId"    # I
+    .param p2, "rightId"    # I
 
+    .line 739
     const/4 v0, 0x2
 
     const/4 v1, 0x1
@@ -154,9 +172,9 @@
     :goto_0
     const/4 v3, 0x0
 
-    .line 739
     invoke-virtual {p0, v1, p1, v2, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 740
     if-nez p2, :cond_1
 
     const/4 v2, 0x2
@@ -166,10 +184,10 @@
     :cond_1
     const/4 v2, 0x1
 
-    .line 740
     :goto_1
     invoke-virtual {p0, v0, p2, v2, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 741
     if-eqz p1, :cond_2
 
     .line 742
@@ -187,63 +205,76 @@
 
     invoke-virtual {v2, p1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 743
-    new-instance v2, Landroid/support/constraint/ConstraintProperties;
+    .local v2, "leftView":Landroid/view/View;
+    new-instance v4, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {v2, p1}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 744
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v4, "leftProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {v5}, Landroid/view/View;->getId()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {v2, v0, p1, v1, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v4, v0, v5, v1, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 746
+    .end local v2    # "leftView":Landroid/view/View;
+    .end local v4    # "leftProp":Landroid/support/constraint/ConstraintProperties;
     :cond_2
     if-eqz p2, :cond_3
 
     .line 747
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p1
-
-    check-cast p1, Landroid/view/ViewGroup;
-
-    move-object v2, p1
+    move-result-object v2
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-object v4, v2
 
-    move-result-object p1
+    check-cast v4, Landroid/view/ViewGroup;
+
+    invoke-virtual {v2, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
 
     .line 748
-    new-instance p2, Landroid/support/constraint/ConstraintProperties;
+    .local v2, "rightView":Landroid/view/View;
+    new-instance v4, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {p2, p1}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 749
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v4, "rightProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {v5}, Landroid/view/View;->getId()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {p2, v1, p1, v0, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v4, v1, v5, v0, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 751
+    .end local v2    # "rightView":Landroid/view/View;
+    .end local v4    # "rightProp":Landroid/support/constraint/ConstraintProperties;
     :cond_3
     return-object p0
 .end method
 
 .method public addToHorizontalChainRTL(II)Landroid/support/constraint/ConstraintProperties;
-    .locals 5
+    .locals 6
+    .param p1, "leftId"    # I
+    .param p2, "rightId"    # I
 
+    .line 762
     const/4 v0, 0x7
 
     const/4 v1, 0x6
@@ -260,9 +291,9 @@
     :goto_0
     const/4 v3, 0x0
 
-    .line 762
     invoke-virtual {p0, v1, p1, v2, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 763
     if-nez p2, :cond_1
 
     const/4 v2, 0x7
@@ -272,10 +303,10 @@
     :cond_1
     const/4 v2, 0x6
 
-    .line 763
     :goto_1
     invoke-virtual {p0, v0, p2, v2, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 764
     if-eqz p1, :cond_2
 
     .line 765
@@ -293,63 +324,76 @@
 
     invoke-virtual {v2, p1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 766
-    new-instance v2, Landroid/support/constraint/ConstraintProperties;
+    .local v2, "leftView":Landroid/view/View;
+    new-instance v4, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {v2, p1}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 767
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v4, "leftProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {v5}, Landroid/view/View;->getId()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {v2, v0, p1, v1, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v4, v0, v5, v1, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 769
+    .end local v2    # "leftView":Landroid/view/View;
+    .end local v4    # "leftProp":Landroid/support/constraint/ConstraintProperties;
     :cond_2
     if-eqz p2, :cond_3
 
     .line 770
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p1
-
-    check-cast p1, Landroid/view/ViewGroup;
-
-    move-object v2, p1
+    move-result-object v2
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-object v4, v2
 
-    move-result-object p1
+    check-cast v4, Landroid/view/ViewGroup;
+
+    invoke-virtual {v2, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
 
     .line 771
-    new-instance p2, Landroid/support/constraint/ConstraintProperties;
+    .local v2, "rightView":Landroid/view/View;
+    new-instance v4, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {p2, p1}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 772
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v4, "rightProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {v5}, Landroid/view/View;->getId()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {p2, v1, p1, v0, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v4, v1, v5, v0, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 774
+    .end local v2    # "rightView":Landroid/view/View;
+    .end local v4    # "rightProp":Landroid/support/constraint/ConstraintProperties;
     :cond_3
     return-object p0
 .end method
 
 .method public addToVerticalChain(II)Landroid/support/constraint/ConstraintProperties;
-    .locals 5
+    .locals 6
+    .param p1, "topId"    # I
+    .param p2, "bottomId"    # I
 
+    .line 785
     const/4 v0, 0x4
 
     const/4 v1, 0x3
@@ -366,9 +410,9 @@
     :goto_0
     const/4 v3, 0x0
 
-    .line 785
     invoke-virtual {p0, v1, p1, v2, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 786
     if-nez p2, :cond_1
 
     const/4 v2, 0x4
@@ -378,10 +422,10 @@
     :cond_1
     const/4 v2, 0x3
 
-    .line 786
     :goto_1
     invoke-virtual {p0, v0, p2, v2, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 787
     if-eqz p1, :cond_2
 
     .line 788
@@ -399,86 +443,109 @@
 
     invoke-virtual {v2, p1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 789
-    new-instance v2, Landroid/support/constraint/ConstraintProperties;
+    .local v2, "topView":Landroid/view/View;
+    new-instance v4, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {v2, p1}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 790
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v4, "topProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {v5}, Landroid/view/View;->getId()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {v2, v0, p1, v1, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v4, v0, v5, v1, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 792
+    .end local v2    # "topView":Landroid/view/View;
+    .end local v4    # "topProp":Landroid/support/constraint/ConstraintProperties;
     :cond_2
     if-eqz p2, :cond_3
 
     .line 793
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p1
-
-    check-cast p1, Landroid/view/ViewGroup;
-
-    move-object v2, p1
+    move-result-object v2
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-object v4, v2
 
-    move-result-object p1
+    check-cast v4, Landroid/view/ViewGroup;
+
+    invoke-virtual {v2, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
 
     .line 794
-    new-instance p2, Landroid/support/constraint/ConstraintProperties;
+    .local v2, "bottomView":Landroid/view/View;
+    new-instance v4, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {p2, p1}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 795
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v4, "bottomProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-virtual {v5}, Landroid/view/View;->getId()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {p2, v1, p1, v0, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v4, v1, v5, v0, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
+    .line 797
+    .end local v2    # "bottomView":Landroid/view/View;
+    .end local v4    # "bottomProp":Landroid/support/constraint/ConstraintProperties;
     :cond_3
     return-object p0
 .end method
 
 .method public alpha(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "alpha"    # F
 
     .line 421
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 422
     return-object p0
 .end method
 
 .method public apply()V
     .locals 0
 
+    .line 1044
     return-void
 .end method
 
 .method public center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
     .locals 2
+    .param p1, "firstID"    # I
+    .param p2, "firstSide"    # I
+    .param p3, "firstMargin"    # I
+    .param p4, "secondId"    # I
+    .param p5, "secondSide"    # I
+    .param p6, "secondMargin"    # I
+    .param p7, "bias"    # F
 
+    .line 115
     const-string v0, "margin must be > 0"
 
     if-ltz p3, :cond_6
 
+    .line 118
     if-ltz p6, :cond_5
 
+    .line 121
     const/4 v0, 0x0
 
     cmpg-float v0, p7, v0
@@ -491,6 +558,7 @@
 
     if-gtz v0, :cond_4
 
+    .line 125
     const/4 v0, 0x2
 
     const/4 v1, 0x1
@@ -501,6 +569,7 @@
 
     goto :goto_1
 
+    .line 130
     :cond_0
     const/4 v0, 0x7
 
@@ -512,21 +581,21 @@
 
     goto :goto_0
 
+    .line 136
     :cond_1
     const/4 v0, 0x3
 
-    .line 136
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
-    const/4 p1, 0x4
-
     .line 137
-    invoke-virtual {p0, p1, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 138
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalBias:F
+    iput p7, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalBias:F
 
     goto :goto_2
 
@@ -539,9 +608,9 @@
     invoke-virtual {p0, v0, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 134
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
+    iput p7, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
     goto :goto_2
 
@@ -554,45 +623,49 @@
     invoke-virtual {p0, v0, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 129
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
+    iput p7, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
+    .line 141
     :goto_2
     return-object p0
 
     .line 122
     :cond_4
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "bias must be between 0 and 1 inclusive"
+    const-string v1, "bias must be between 0 and 1 inclusive"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 119
     :cond_5
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 
     .line 116
     :cond_6
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v1
 .end method
 
 .method public centerHorizontally(I)Landroid/support/constraint/ConstraintProperties;
     .locals 8
+    .param p1, "toView"    # I
 
+    .line 208
     if-nez p1, :cond_0
 
+    .line 209
     const/4 v1, 0x0
 
     const/4 v2, 0x1
@@ -609,11 +682,11 @@
 
     move-object v0, p0
 
-    .line 209
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
+    .line 211
     :cond_0
     const/4 v2, 0x2
 
@@ -631,39 +704,50 @@
 
     move v4, p1
 
-    .line 211
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
+    .line 213
     :goto_0
     return-object p0
 .end method
 
 .method public centerHorizontally(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
     .locals 1
-
-    const/4 v0, 0x1
+    .param p1, "leftId"    # I
+    .param p2, "leftSide"    # I
+    .param p3, "leftMargin"    # I
+    .param p4, "rightId"    # I
+    .param p5, "rightSide"    # I
+    .param p6, "rightMargin"    # I
+    .param p7, "bias"    # F
 
     .line 157
+    const/4 v0, 0x1
+
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
-    const/4 p1, 0x2
-
     .line 158
-    invoke-virtual {p0, p1, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    const/4 v0, 0x2
+
+    invoke-virtual {p0, v0, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 159
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
+    iput p7, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
+    .line 160
     return-object p0
 .end method
 
 .method public centerHorizontallyRtl(I)Landroid/support/constraint/ConstraintProperties;
     .locals 8
+    .param p1, "toView"    # I
 
+    .line 223
     if-nez p1, :cond_0
 
+    .line 224
     const/4 v1, 0x0
 
     const/4 v2, 0x6
@@ -680,11 +764,11 @@
 
     move-object v0, p0
 
-    .line 224
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
+    .line 226
     :cond_0
     const/4 v2, 0x7
 
@@ -702,39 +786,50 @@
 
     move v4, p1
 
-    .line 226
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
+    .line 228
     :goto_0
     return-object p0
 .end method
 
 .method public centerHorizontallyRtl(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
     .locals 1
-
-    const/4 v0, 0x6
+    .param p1, "startId"    # I
+    .param p2, "startSide"    # I
+    .param p3, "startMargin"    # I
+    .param p4, "endId"    # I
+    .param p5, "endSide"    # I
+    .param p6, "endMargin"    # I
+    .param p7, "bias"    # F
 
     .line 176
+    const/4 v0, 0x6
+
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
-    const/4 p1, 0x7
-
     .line 177
-    invoke-virtual {p0, p1, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    const/4 v0, 0x7
+
+    invoke-virtual {p0, v0, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 178
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
+    iput p7, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
+    .line 179
     return-object p0
 .end method
 
 .method public centerVertically(I)Landroid/support/constraint/ConstraintProperties;
     .locals 8
+    .param p1, "toView"    # I
 
+    .line 238
     if-nez p1, :cond_0
 
+    .line 239
     const/4 v1, 0x0
 
     const/4 v2, 0x3
@@ -751,11 +846,11 @@
 
     move-object v0, p0
 
-    .line 239
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
+    .line 241
     :cond_0
     const/4 v2, 0x4
 
@@ -773,37 +868,50 @@
 
     move v4, p1
 
-    .line 241
     invoke-virtual/range {v0 .. v7}, Landroid/support/constraint/ConstraintProperties;->center(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
 
+    .line 243
     :goto_0
     return-object p0
 .end method
 
 .method public centerVertically(IIIIIIF)Landroid/support/constraint/ConstraintProperties;
     .locals 1
-
-    const/4 v0, 0x3
+    .param p1, "topId"    # I
+    .param p2, "topSide"    # I
+    .param p3, "topMargin"    # I
+    .param p4, "bottomId"    # I
+    .param p5, "bottomSide"    # I
+    .param p6, "bottomMargin"    # I
+    .param p7, "bias"    # F
 
     .line 195
+    const/4 v0, 0x3
+
     invoke-virtual {p0, v0, p1, p2, p3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
-    const/4 p1, 0x4
-
     .line 196
-    invoke-virtual {p0, p1, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0, p4, p5, p6}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 197
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p7, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalBias:F
+    iput p7, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalBias:F
 
+    .line 198
     return-object p0
 .end method
 
 .method public connect(IIII)Landroid/support/constraint/ConstraintProperties;
     .locals 10
+    .param p1, "startSide"    # I
+    .param p2, "endID"    # I
+    .param p3, "endSide"    # I
+    .param p4, "margin"    # I
 
+    .line 906
     const/16 v0, 0x11
 
     const/4 v1, 0x2
@@ -827,504 +935,574 @@
     packed-switch p1, :pswitch_data_0
 
     .line 1007
-    new-instance p2, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 1008
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " to "
+    move-result-object v1
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " to "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v2
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " unknown"
+    move-result-object v1
 
-    invoke-virtual {p4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " unknown"
 
-    invoke-virtual {p4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {p2, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p2
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 991
     :pswitch_0
     if-ne p3, v2, :cond_0
 
     .line 992
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
+    iput p2, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
 
     .line 993
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
+    iput v9, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
 
     goto :goto_0
 
+    .line 994
     :cond_0
     if-ne p3, v3, :cond_1
 
     .line 995
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
+    iput p2, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
 
     .line 996
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
+    iput v9, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
 
     .line 1000
     :goto_0
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt p1, v0, :cond_c
+    if-lt v1, v0, :cond_c
 
     .line 1002
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    invoke-virtual {p1, p4}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
+    invoke-virtual {v0, p4}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
     goto/16 :goto_6
 
     .line 998
     :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 977
     :pswitch_1
     if-ne p3, v3, :cond_2
 
     .line 978
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
+    iput p2, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
 
     .line 979
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
+    iput v9, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
 
     goto :goto_1
 
+    .line 980
     :cond_2
     if-ne p3, v2, :cond_3
 
     .line 981
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
+    iput p2, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
 
     .line 982
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
+    iput v9, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
 
     .line 986
     :goto_1
-    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt p1, v0, :cond_c
+    if-lt v1, v0, :cond_c
 
     .line 987
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    invoke-virtual {p1, p4}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
+    invoke-virtual {v0, p4}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
     goto/16 :goto_6
 
     .line 984
     :cond_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 966
     :pswitch_2
-    const/4 p1, 0x5
+    const/4 v0, 0x5
 
-    if-ne p3, p1, :cond_4
+    if-ne p3, v0, :cond_4
 
     .line 967
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     .line 968
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
     .line 969
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
 
     .line 970
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
 
     .line 971
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
 
     goto/16 :goto_6
 
     .line 973
     :cond_4
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 950
     :pswitch_3
     if-ne p3, v4, :cond_5
 
     .line 951
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
     .line 952
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
 
     .line 953
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     goto :goto_2
 
+    .line 955
     :cond_5
     if-ne p3, v5, :cond_6
 
     .line 956
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
 
     .line 957
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
     .line 958
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     .line 963
     :goto_2
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
+    iput p4, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
 
+    .line 964
     goto/16 :goto_6
 
     .line 961
     :cond_6
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 935
     :pswitch_4
     if-ne p3, v5, :cond_7
 
     .line 936
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
 
     .line 937
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
 
     .line 938
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     goto :goto_3
 
+    .line 939
     :cond_7
     if-ne p3, v4, :cond_8
 
     .line 940
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
 
     .line 941
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
 
     .line 942
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
     .line 947
     :goto_3
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
+    iput p4, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
+    .line 948
     goto :goto_6
 
     .line 945
     :cond_8
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 921
     :pswitch_5
     if-ne p3, v6, :cond_9
 
     .line 922
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
 
     .line 923
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
     goto :goto_4
 
+    .line 925
     :cond_9
     if-ne p3, v1, :cond_a
 
     .line 926
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
     .line 927
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
 
     .line 932
     :goto_4
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
+    iput p4, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
+    .line 933
     goto :goto_6
 
     .line 930
     :cond_a
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
 
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 908
     :pswitch_6
     if-ne p3, v6, :cond_b
 
     .line 909
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
     .line 910
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
 
     goto :goto_5
 
+    .line 911
     :cond_b
     if-ne p3, v1, :cond_d
 
     .line 912
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
 
     .line 913
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v9, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iput v9, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
     .line 918
     :goto_5
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p4, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
+    iput p4, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
+    .line 919
+    nop
+
+    .line 1010
     :cond_c
     :goto_6
     return-object p0
 
     .line 916
     :cond_d
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p4, "Left to "
+    const-string v2, "Left to "
 
-    invoke-virtual {p2, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-direct {p0, p3}, Landroid/support/constraint/ConstraintProperties;->sideToString(I)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v2
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v1
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 
     nop
 
@@ -1342,105 +1520,124 @@
 
 .method public constrainDefaultHeight(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "height"    # I
 
     .line 653
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintDefaultHeight:I
 
+    .line 654
     return-object p0
 .end method
 
 .method public constrainDefaultWidth(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "width"    # I
 
     .line 665
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintDefaultWidth:I
 
+    .line 666
     return-object p0
 .end method
 
 .method public constrainHeight(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "height"    # I
 
     .line 582
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->height:I
 
+    .line 583
     return-object p0
 .end method
 
 .method public constrainMaxHeight(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "height"    # I
 
     .line 605
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMaxHeight:I
 
+    .line 606
     return-object p0
 .end method
 
 .method public constrainMaxWidth(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "width"    # I
 
     .line 617
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMaxWidth:I
 
+    .line 618
     return-object p0
 .end method
 
 .method public constrainMinHeight(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "height"    # I
 
     .line 629
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMinHeight:I
 
+    .line 630
     return-object p0
 .end method
 
 .method public constrainMinWidth(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "width"    # I
 
     .line 641
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->matchConstraintMinWidth:I
 
+    .line 642
     return-object p0
 .end method
 
 .method public constrainWidth(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "width"    # I
 
     .line 593
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->width:I
 
+    .line 594
     return-object p0
 .end method
 
 .method public dimensionRatio(Ljava/lang/String;)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "ratio"    # Ljava/lang/String;
 
     .line 399
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput-object p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->dimensionRatio:Ljava/lang/String;
 
+    .line 400
     return-object p0
 .end method
 
 .method public elevation(F)Landroid/support/constraint/ConstraintProperties;
     .locals 2
+    .param p1, "elevation"    # F
 
     .line 432
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1454,84 +1651,95 @@
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setElevation(F)V
 
+    .line 435
     :cond_0
     return-object p0
 .end method
 
 .method public goneMargin(II)Landroid/support/constraint/ConstraintProperties;
-    .locals 0
+    .locals 2
+    .param p1, "anchor"    # I
+    .param p2, "value"    # I
 
+    .line 342
     packed-switch p1, :pswitch_data_0
 
     .line 364
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "unknown constraint"
+    const-string v1, "unknown constraint"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 361
     :pswitch_0
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneEndMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
+    .line 362
     goto :goto_0
 
     .line 358
     :pswitch_1
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneStartMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
+    .line 359
     goto :goto_0
 
     .line 356
     :pswitch_2
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "baseline does not support margins"
+    const-string v1, "baseline does not support margins"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 353
     :pswitch_3
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneBottomMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
+    .line 354
     goto :goto_0
 
     .line 350
     :pswitch_4
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneTopMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
+    .line 351
     goto :goto_0
 
     .line 347
     :pswitch_5
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneRightMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
+    .line 348
     goto :goto_0
 
     .line 344
     :pswitch_6
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneLeftMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneLeftMargin:I
 
+    .line 345
+    nop
+
+    .line 366
     :goto_0
     return-object p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1547,111 +1755,127 @@
 
 .method public horizontalBias(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "bias"    # F
 
     .line 376
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalBias:F
 
+    .line 377
     return-object p0
 .end method
 
 .method public horizontalChainStyle(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "chainStyle"    # I
 
     .line 708
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalChainStyle:I
 
+    .line 709
     return-object p0
 .end method
 
 .method public horizontalWeight(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "weight"    # F
 
     .line 677
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->horizontalWeight:F
 
+    .line 678
     return-object p0
 .end method
 
 .method public margin(II)Landroid/support/constraint/ConstraintProperties;
-    .locals 0
+    .locals 2
+    .param p1, "anchor"    # I
+    .param p2, "value"    # I
 
+    .line 307
     packed-switch p1, :pswitch_data_0
 
     .line 329
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "unknown constraint"
+    const-string v1, "unknown constraint"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 326
     :pswitch_0
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
+    invoke-virtual {v0, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
+    .line 327
     goto :goto_0
 
     .line 323
     :pswitch_1
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
+    invoke-virtual {v0, p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
+    .line 324
     goto :goto_0
 
     .line 321
     :pswitch_2
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "baseline does not support margins"
+    const-string v1, "baseline does not support margins"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 318
     :pswitch_3
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
 
+    .line 319
     goto :goto_0
 
     .line 315
     :pswitch_4
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
+    .line 316
     goto :goto_0
 
     .line 312
     :pswitch_5
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
+    .line 313
     goto :goto_0
 
     .line 309
     :pswitch_6
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput p2, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
+    iput p2, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
+    .line 310
+    nop
+
+    .line 331
     :goto_0
     return-object p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1666,169 +1890,179 @@
 .end method
 
 .method public removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
-    .locals 1
+    .locals 2
+    .param p1, "anchor"    # I
 
+    .line 253
     const/4 v0, -0x1
 
     packed-switch p1, :pswitch_data_0
 
     .line 294
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v0, "unknown constraint"
+    const-string v1, "unknown constraint"
 
-    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw p1
+    throw v0
 
     .line 288
     :pswitch_0
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
 
     .line 289
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
 
     .line 290
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    invoke-virtual {p1, v0}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
+    invoke-virtual {v1, v0}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
     .line 291
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneEndMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneEndMargin:I
 
+    .line 292
     goto :goto_0
 
     .line 282
     :pswitch_1
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
 
     .line 283
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
 
     .line 284
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    invoke-virtual {p1, v0}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
+    invoke-virtual {v1, v0}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginStart(I)V
 
     .line 285
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneStartMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneStartMargin:I
 
+    .line 286
     goto :goto_0
 
     .line 279
     :pswitch_2
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->baselineToBaseline:I
 
+    .line 280
     goto :goto_0
 
     .line 273
     :pswitch_3
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
 
     .line 274
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
     .line 275
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomMargin:I
 
     .line 276
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneBottomMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneBottomMargin:I
 
+    .line 277
     goto :goto_0
 
     .line 267
     :pswitch_4
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
 
     .line 268
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
 
     .line 269
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
     .line 270
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneTopMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneTopMargin:I
 
+    .line 271
     goto :goto_0
 
     .line 261
     :pswitch_5
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
     .line 262
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
 
     .line 263
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
     .line 264
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneRightMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneRightMargin:I
 
+    .line 265
     goto :goto_0
 
     .line 255
     :pswitch_6
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
 
     .line 256
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
     .line 257
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
     .line 258
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iput v0, p1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneLeftMargin:I
+    iput v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->goneLeftMargin:I
 
+    .line 259
+    nop
+
+    .line 296
     :goto_0
     return-object p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1843,7 +2077,7 @@
 .end method
 
 .method public removeFromHorizontalChain()Landroid/support/constraint/ConstraintProperties;
-    .locals 10
+    .locals 14
 
     .line 843
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -1851,11 +2085,13 @@
     iget v0, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToRight:I
 
     .line 844
+    .local v0, "leftId":I
     iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iget v1, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToLeft:I
 
     .line 846
+    .local v1, "rightId":I
     iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     const/4 v3, 0x0
@@ -1870,125 +2106,139 @@
 
     .line 868
     :cond_0
-    iget v1, v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
+    iget v2, v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToEnd:I
 
     .line 869
-    iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    .local v2, "startId":I
+    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    iget v2, v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
+    iget v5, v5, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToStart:I
 
-    const/4 v5, 0x7
+    .line 870
+    .local v5, "endId":I
+    const/4 v6, 0x7
 
-    const/4 v6, 0x6
+    const/4 v7, 0x6
 
-    if-ne v1, v4, :cond_1
+    if-ne v2, v4, :cond_1
 
-    if-eq v2, v4, :cond_5
+    if-eq v5, v4, :cond_5
 
     .line 871
     :cond_1
-    iget-object v7, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    iget-object v8, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {v7}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v8}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v7
-
-    check-cast v7, Landroid/view/ViewGroup;
-
-    move-object v8, v7
+    move-result-object v8
 
     check-cast v8, Landroid/view/ViewGroup;
 
-    invoke-virtual {v7, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v7
-
-    .line 872
-    new-instance v8, Landroid/support/constraint/ConstraintProperties;
-
-    invoke-direct {v8, v7}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
-
-    .line 873
-    iget-object v7, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
-
-    invoke-virtual {v7}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/view/ViewGroup;
-
-    move-object v9, v7
+    move-object v9, v8
 
     check-cast v9, Landroid/view/ViewGroup;
 
-    invoke-virtual {v7, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v8, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object v7
+    move-result-object v8
 
-    .line 874
+    .line 872
+    .local v8, "startView":Landroid/view/View;
     new-instance v9, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {v9, v7}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v9, v8}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+
+    .line 873
+    .local v9, "startProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v10, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+
+    invoke-virtual {v10}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/view/ViewGroup;
+
+    move-object v11, v10
+
+    check-cast v11, Landroid/view/ViewGroup;
+
+    invoke-virtual {v10, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v10
+
+    .line 874
+    .local v10, "endView":Landroid/view/View;
+    new-instance v11, Landroid/support/constraint/ConstraintProperties;
+
+    invoke-direct {v11, v10}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 876
-    iget-object v7, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
-
-    if-eq v1, v4, :cond_2
+    .local v11, "endProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v12, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     if-eq v2, v4, :cond_2
 
+    if-eq v5, v4, :cond_2
+
     .line 878
-    invoke-virtual {v8, v5, v2, v6, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v9, v6, v5, v7, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 879
-    invoke-virtual {v9, v6, v0, v5, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v11, v7, v0, v6, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
+    .line 880
     :cond_2
     if-ne v0, v4, :cond_3
 
-    if-eq v2, v4, :cond_5
+    if-eq v5, v4, :cond_5
 
     .line 881
     :cond_3
-    iget v0, v7, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iget v12, v12, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v13, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    if-eq v0, v4, :cond_4
+    if-eq v12, v4, :cond_4
 
     .line 883
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iget v4, v13, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    invoke-virtual {v8, v5, v0, v5, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v9, v6, v4, v6, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
     .line 884
     :cond_4
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iget v12, v13, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v13, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    if-eq v0, v4, :cond_5
+    if-eq v12, v4, :cond_5
 
     .line 886
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iget v4, v13, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    invoke-virtual {v9, v6, v0, v6, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v11, v7, v4, v7, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 890
+    .end local v8    # "startView":Landroid/view/View;
+    .end local v9    # "startProp":Landroid/support/constraint/ConstraintProperties;
+    .end local v10    # "endView":Landroid/view/View;
+    .end local v11    # "endProp":Landroid/support/constraint/ConstraintProperties;
     :cond_5
     :goto_0
-    invoke-virtual {p0, v6}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {p0, v7}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
     .line 891
-    invoke-virtual {p0, v5}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {p0, v6}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_3
 
     .line 847
+    .end local v2    # "startId":I
+    .end local v5    # "endId":I
     :cond_6
     :goto_1
     iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
@@ -2008,51 +2258,56 @@
     move-result-object v2
 
     .line 848
+    .local v2, "leftView":Landroid/view/View;
     new-instance v5, Landroid/support/constraint/ConstraintProperties;
 
     invoke-direct {v5, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 849
-    iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v5, "leftProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v6, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {v2}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v6}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v2
-
-    check-cast v2, Landroid/view/ViewGroup;
-
-    move-object v6, v2
+    move-result-object v6
 
     check-cast v6, Landroid/view/ViewGroup;
 
-    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-object v7, v6
 
-    move-result-object v2
+    check-cast v7, Landroid/view/ViewGroup;
+
+    invoke-virtual {v6, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
 
     .line 850
-    new-instance v6, Landroid/support/constraint/ConstraintProperties;
+    .local v6, "rightView":Landroid/view/View;
+    new-instance v7, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {v6, v2}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v7, v6}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 851
-    iget-object v2, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    .local v7, "rightProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v8, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    const/4 v7, 0x1
+    const/4 v9, 0x1
 
-    const/4 v8, 0x2
+    const/4 v10, 0x2
 
     if-eq v0, v4, :cond_7
 
     if-eq v1, v4, :cond_7
 
     .line 853
-    invoke-virtual {v5, v8, v1, v7, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v5, v10, v1, v9, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 854
-    invoke-virtual {v6, v7, v0, v8, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v7, v9, v0, v10, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_2
 
+    .line 855
     :cond_7
     if-ne v0, v4, :cond_8
 
@@ -2060,46 +2315,54 @@
 
     .line 856
     :cond_8
-    iget v0, v2, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iget v8, v8, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v11, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    if-eq v0, v4, :cond_9
+    if-eq v8, v4, :cond_9
 
     .line 858
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
+    iget v4, v11, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightToRight:I
 
-    invoke-virtual {v5, v8, v0, v8, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v5, v10, v4, v10, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_2
 
     .line 859
     :cond_9
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iget v8, v11, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v11, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    if-eq v0, v4, :cond_a
+    if-eq v8, v4, :cond_a
 
     .line 861
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
+    iget v4, v11, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftToLeft:I
 
-    invoke-virtual {v6, v7, v0, v7, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v7, v9, v4, v9, v3}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 864
     :cond_a
     :goto_2
-    invoke-virtual {p0, v7}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {p0, v9}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
     .line 865
-    invoke-virtual {p0, v8}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {p0, v10}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
+    .line 866
+    .end local v2    # "leftView":Landroid/view/View;
+    .end local v5    # "leftProp":Landroid/support/constraint/ConstraintProperties;
+    .end local v6    # "rightView":Landroid/view/View;
+    .end local v7    # "rightProp":Landroid/support/constraint/ConstraintProperties;
+    nop
+
+    .line 893
     :goto_3
     return-object p0
 .end method
 
 .method public removeFromVerticalChain()Landroid/support/constraint/ConstraintProperties;
-    .locals 9
+    .locals 12
 
     .line 808
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -2107,10 +2370,13 @@
     iget v0, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToBottom:I
 
     .line 809
+    .local v0, "topId":I
     iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iget v1, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToTop:I
 
+    .line 810
+    .local v1, "bottomId":I
     const/4 v2, 0x4
 
     const/4 v3, 0x3
@@ -2140,49 +2406,54 @@
     move-result-object v5
 
     .line 812
+    .local v5, "topView":Landroid/view/View;
     new-instance v6, Landroid/support/constraint/ConstraintProperties;
 
     invoke-direct {v6, v5}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 813
-    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    .local v6, "topProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v7, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {v5}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v7}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v5
-
-    check-cast v5, Landroid/view/ViewGroup;
-
-    move-object v7, v5
+    move-result-object v7
 
     check-cast v7, Landroid/view/ViewGroup;
 
-    invoke-virtual {v5, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-object v8, v7
 
-    move-result-object v5
+    check-cast v8, Landroid/view/ViewGroup;
+
+    invoke-virtual {v7, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
 
     .line 814
-    new-instance v7, Landroid/support/constraint/ConstraintProperties;
+    .local v7, "bottomView":Landroid/view/View;
+    new-instance v8, Landroid/support/constraint/ConstraintProperties;
 
-    invoke-direct {v7, v5}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
+    invoke-direct {v8, v7}, Landroid/support/constraint/ConstraintProperties;-><init>(Landroid/view/View;)V
 
     .line 815
-    iget-object v5, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    .local v8, "bottomProp":Landroid/support/constraint/ConstraintProperties;
+    iget-object v9, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    const/4 v8, 0x0
+    const/4 v10, 0x0
 
     if-eq v0, v4, :cond_1
 
     if-eq v1, v4, :cond_1
 
     .line 817
-    invoke-virtual {v6, v2, v1, v3, v8}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v6, v2, v1, v3, v10}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 818
-    invoke-virtual {v7, v3, v0, v2, v8}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v8, v3, v0, v2, v10}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
+    .line 819
     :cond_1
     if-ne v0, v4, :cond_2
 
@@ -2190,33 +2461,37 @@
 
     .line 820
     :cond_2
-    iget v0, v5, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
+    iget v9, v9, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
-    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v11, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    if-eq v0, v4, :cond_3
+    if-eq v9, v4, :cond_3
 
     .line 822
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
+    iget v4, v11, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
-    invoke-virtual {v6, v2, v0, v2, v8}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v6, v2, v4, v2, v10}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     goto :goto_0
 
     .line 823
     :cond_3
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
+    iget v9, v11, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
 
-    iget-object v1, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
+    iget-object v11, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
-    if-eq v0, v4, :cond_4
+    if-eq v9, v4, :cond_4
 
     .line 825
-    iget v0, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
+    iget v4, v11, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topToTop:I
 
-    invoke-virtual {v7, v3, v0, v3, v8}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
+    invoke-virtual {v8, v3, v4, v3, v10}, Landroid/support/constraint/ConstraintProperties;->connect(IIII)Landroid/support/constraint/ConstraintProperties;
 
     .line 830
+    .end local v5    # "topView":Landroid/view/View;
+    .end local v6    # "topProp":Landroid/support/constraint/ConstraintProperties;
+    .end local v7    # "bottomView":Landroid/view/View;
+    .end local v8    # "bottomProp":Landroid/support/constraint/ConstraintProperties;
     :cond_4
     :goto_0
     invoke-virtual {p0, v3}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
@@ -2224,61 +2499,74 @@
     .line 831
     invoke-virtual {p0, v2}, Landroid/support/constraint/ConstraintProperties;->removeConstraints(I)Landroid/support/constraint/ConstraintProperties;
 
+    .line 832
     return-object p0
 .end method
 
 .method public rotation(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "rotation"    # F
 
     .line 445
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setRotation(F)V
 
+    .line 446
     return-object p0
 .end method
 
 .method public rotationX(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "rotationX"    # F
 
     .line 456
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setRotationX(F)V
 
+    .line 457
     return-object p0
 .end method
 
 .method public rotationY(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "rotationY"    # F
 
     .line 467
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setRotationY(F)V
 
+    .line 468
     return-object p0
 .end method
 
 .method public scaleX(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "scaleX"    # F
 
     .line 478
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setScaleY(F)V
 
+    .line 479
     return-object p0
 .end method
 
 .method public scaleY(F)Landroid/support/constraint/ConstraintProperties;
     .locals 0
+    .param p1, "scaleY"    # F
 
+    .line 489
     return-object p0
 .end method
 
 .method public transformPivot(FF)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "transformPivotX"    # F
+    .param p2, "transformPivotY"    # F
 
     .line 522
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
@@ -2286,37 +2574,44 @@
     invoke-virtual {v0, p1}, Landroid/view/View;->setPivotX(F)V
 
     .line 523
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setPivotY(F)V
+    invoke-virtual {v0, p2}, Landroid/view/View;->setPivotY(F)V
 
+    .line 524
     return-object p0
 .end method
 
 .method public transformPivotX(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "transformPivotX"    # F
 
     .line 499
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setPivotX(F)V
 
+    .line 500
     return-object p0
 .end method
 
 .method public transformPivotY(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "transformPivotY"    # F
 
     .line 510
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setPivotY(F)V
 
+    .line 511
     return-object p0
 .end method
 
 .method public translation(FF)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "translationX"    # F
+    .param p2, "translationY"    # F
 
     .line 557
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
@@ -2324,37 +2619,43 @@
     invoke-virtual {v0, p1}, Landroid/view/View;->setTranslationX(F)V
 
     .line 558
-    iget-object p1, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
+    iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v0, p2}, Landroid/view/View;->setTranslationY(F)V
 
+    .line 559
     return-object p0
 .end method
 
 .method public translationX(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "translationX"    # F
 
     .line 534
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 535
     return-object p0
 .end method
 
 .method public translationY(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "translationY"    # F
 
     .line 545
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setTranslationY(F)V
 
+    .line 546
     return-object p0
 .end method
 
 .method public translationZ(F)Landroid/support/constraint/ConstraintProperties;
     .locals 2
+    .param p1, "translationZ"    # F
 
     .line 569
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -2368,50 +2669,59 @@
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setTranslationZ(F)V
 
+    .line 572
     :cond_0
     return-object p0
 .end method
 
 .method public verticalBias(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "bias"    # F
 
     .line 387
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalBias:F
 
+    .line 388
     return-object p0
 .end method
 
 .method public verticalChainStyle(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "chainStyle"    # I
 
     .line 727
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalChainStyle:I
 
+    .line 728
     return-object p0
 .end method
 
 .method public verticalWeight(F)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "weight"    # F
 
     .line 689
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mParams:Landroid/support/constraint/ConstraintLayout$LayoutParams;
 
     iput p1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->verticalWeight:F
 
+    .line 690
     return-object p0
 .end method
 
 .method public visibility(I)Landroid/support/constraint/ConstraintProperties;
     .locals 1
+    .param p1, "visibility"    # I
 
     .line 410
     iget-object v0, p0, Landroid/support/constraint/ConstraintProperties;->mView:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
 
+    .line 411
     return-object p0
 .end method

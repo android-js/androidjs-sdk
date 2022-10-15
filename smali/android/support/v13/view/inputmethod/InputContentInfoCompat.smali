@@ -20,6 +20,9 @@
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
     .locals 2
+    .param p1, "contentUri"    # Landroid/net/Uri;
+    .param p2, "description"    # Landroid/content/ClipDescription;
+    .param p3, "linkUri"    # Landroid/net/Uri;
 
     .line 169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,12 +51,14 @@
 
     iput-object v0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat;->mImpl:Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
+    .line 175
     :goto_0
     return-void
 .end method
 
 .method private constructor <init>(Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;)V
     .locals 0
+    .param p1, "impl"    # Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
     .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,16 +66,20 @@
     .line 178
     iput-object p1, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat;->mImpl:Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;
 
+    .line 179
     return-void
 .end method
 
 .method public static wrap(Ljava/lang/Object;)Landroid/support/v13/view/inputmethod/InputContentInfoCompat;
     .locals 3
+    .param p0, "inputContentInfo"    # Ljava/lang/Object;
 
+    .line 219
     const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
+    .line 220
     return-object v0
 
     .line 222
@@ -81,6 +90,7 @@
 
     if-ge v1, v2, :cond_1
 
+    .line 223
     return-object v0
 
     .line 225
@@ -145,6 +155,7 @@
 
     invoke-interface {v0}, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;->releasePermission()V
 
+    .line 257
     return-void
 .end method
 
@@ -156,6 +167,7 @@
 
     invoke-interface {v0}, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatImpl;->requestPermission()V
 
+    .line 248
     return-void
 .end method
 

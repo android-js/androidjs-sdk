@@ -40,11 +40,13 @@
 
     invoke-direct {p0, v0}, Landroid/support/v4/text/BidiFormatter$Builder;->initialize(Z)V
 
+    .line 141
     return-void
 .end method
 
 .method public constructor <init>(Ljava/util/Locale;)V
-    .locals 0
+    .locals 1
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .line 157
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,15 +54,17 @@
     .line 158
     invoke-static {p1}, Landroid/support/v4/text/BidiFormatter;->isRtlLocale(Ljava/util/Locale;)Z
 
-    move-result p1
+    move-result v0
 
-    invoke-direct {p0, p1}, Landroid/support/v4/text/BidiFormatter$Builder;->initialize(Z)V
+    invoke-direct {p0, v0}, Landroid/support/v4/text/BidiFormatter$Builder;->initialize(Z)V
 
+    .line 159
     return-void
 .end method
 
 .method public constructor <init>(Z)V
     .locals 0
+    .param p1, "rtlContext"    # Z
 
     .line 148
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,42 +72,46 @@
     .line 149
     invoke-direct {p0, p1}, Landroid/support/v4/text/BidiFormatter$Builder;->initialize(Z)V
 
+    .line 150
     return-void
 .end method
 
 .method private static getDefaultInstanceFromContext(Z)Landroid/support/v4/text/BidiFormatter;
-    .locals 0
-
-    if-eqz p0, :cond_0
+    .locals 1
+    .param p0, "isRtlContext"    # Z
 
     .line 198
-    sget-object p0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_RTL_INSTANCE:Landroid/support/v4/text/BidiFormatter;
+    if-eqz p0, :cond_0
+
+    sget-object v0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_RTL_INSTANCE:Landroid/support/v4/text/BidiFormatter;
 
     goto :goto_0
 
     :cond_0
-    sget-object p0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_LTR_INSTANCE:Landroid/support/v4/text/BidiFormatter;
+    sget-object v0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_LTR_INSTANCE:Landroid/support/v4/text/BidiFormatter;
 
     :goto_0
-    return-object p0
+    return-object v0
 .end method
 
 .method private initialize(Z)V
-    .locals 0
+    .locals 1
+    .param p1, "isRtlContext"    # Z
 
     .line 167
     iput-boolean p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mIsRtlContext:Z
 
     .line 168
-    sget-object p1, Landroid/support/v4/text/BidiFormatter;->DEFAULT_TEXT_DIRECTION_HEURISTIC:Landroid/support/v4/text/TextDirectionHeuristicCompat;
+    sget-object v0, Landroid/support/v4/text/BidiFormatter;->DEFAULT_TEXT_DIRECTION_HEURISTIC:Landroid/support/v4/text/TextDirectionHeuristicCompat;
 
-    iput-object p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mTextDirectionHeuristicCompat:Landroid/support/v4/text/TextDirectionHeuristicCompat;
-
-    const/4 p1, 0x2
+    iput-object v0, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mTextDirectionHeuristicCompat:Landroid/support/v4/text/TextDirectionHeuristicCompat;
 
     .line 169
-    iput p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
+    const/4 v0, 0x2
 
+    iput v0, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
+
+    .line 170
     return-void
 .end method
 
@@ -151,35 +159,40 @@
 
 .method public setTextDirectionHeuristic(Landroid/support/v4/text/TextDirectionHeuristicCompat;)Landroid/support/v4/text/BidiFormatter$Builder;
     .locals 0
+    .param p1, "heuristic"    # Landroid/support/v4/text/TextDirectionHeuristicCompat;
 
     .line 193
     iput-object p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mTextDirectionHeuristicCompat:Landroid/support/v4/text/TextDirectionHeuristicCompat;
 
+    .line 194
     return-object p0
 .end method
 
 .method public stereoReset(Z)Landroid/support/v4/text/BidiFormatter$Builder;
-    .locals 0
+    .locals 1
+    .param p1, "stereoReset"    # Z
 
+    .line 177
     if-eqz p1, :cond_0
 
     .line 178
-    iget p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
+    iget v0, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
 
-    or-int/lit8 p1, p1, 0x2
+    or-int/lit8 v0, v0, 0x2
 
-    iput p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
+    iput v0, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
 
     goto :goto_0
 
     .line 180
     :cond_0
-    iget p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
+    iget v0, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
 
-    and-int/lit8 p1, p1, -0x3
+    and-int/lit8 v0, v0, -0x3
 
-    iput p1, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
+    iput v0, p0, Landroid/support/v4/text/BidiFormatter$Builder;->mFlags:I
 
+    .line 182
     :goto_0
     return-object p0
 .end method

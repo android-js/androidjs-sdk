@@ -32,6 +32,7 @@
 
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 478
     return-void
 .end method
 
@@ -40,18 +41,21 @@
 .method public deliverSelfNotifications()Z
     .locals 1
 
+    .line 482
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public onChange(Z)V
-    .locals 0
+    .locals 1
+    .param p1, "selfChange"    # Z
 
     .line 487
-    iget-object p1, p0, Landroid/support/v4/widget/CursorAdapter$ChangeObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
+    iget-object v0, p0, Landroid/support/v4/widget/CursorAdapter$ChangeObserver;->this$0:Landroid/support/v4/widget/CursorAdapter;
 
-    invoke-virtual {p1}, Landroid/support/v4/widget/CursorAdapter;->onContentChanged()V
+    invoke-virtual {v0}, Landroid/support/v4/widget/CursorAdapter;->onContentChanged()V
 
+    .line 488
     return-void
 .end method

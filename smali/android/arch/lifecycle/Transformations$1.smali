@@ -56,15 +56,17 @@
     .end annotation
 
     .line 70
+    .local p1, "x":Ljava/lang/Object;, "TX;"
     iget-object v0, p0, Landroid/arch/lifecycle/Transformations$1;->val$result:Landroid/arch/lifecycle/MediatorLiveData;
 
     iget-object v1, p0, Landroid/arch/lifecycle/Transformations$1;->val$func:Landroid/arch/core/util/Function;
 
     invoke-interface {v1, p1}, Landroid/arch/core/util/Function;->apply(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {v0, p1}, Landroid/arch/lifecycle/MediatorLiveData;->setValue(Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/MediatorLiveData;->setValue(Ljava/lang/Object;)V
 
+    .line 71
     return-void
 .end method

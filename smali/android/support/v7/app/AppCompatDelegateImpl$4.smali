@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDelegateImpl;
 
     .line 660
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$4;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -37,6 +38,7 @@
 # virtual methods
 .method public onFitSystemWindows(Landroid/graphics/Rect;)V
     .locals 2
+    .param p1, "insets"    # Landroid/graphics/Rect;
 
     .line 663
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImpl$4;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -49,5 +51,6 @@
 
     iput v0, p1, Landroid/graphics/Rect;->top:I
 
+    .line 664
     return-void
 .end method

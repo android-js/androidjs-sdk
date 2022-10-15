@@ -38,11 +38,13 @@
     .line 166
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 167
     return-void
 .end method
 
 .method constructor <init>([Landroid/support/v4/graphics/PathParser$PathDataNode;)V
     .locals 0
+    .param p1, "nodeArray"    # [Landroid/support/v4/graphics/PathParser$PathDataNode;
 
     .line 177
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,6 +52,7 @@
     .line 178
     iput-object p1, p0, Landroid/support/graphics/drawable/AnimatorInflaterCompat$PathDataEvaluator;->mNodeArray:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
+    .line 179
     return-void
 .end method
 
@@ -72,6 +75,9 @@
 
 .method public evaluate(F[Landroid/support/v4/graphics/PathParser$PathDataNode;[Landroid/support/v4/graphics/PathParser$PathDataNode;)[Landroid/support/v4/graphics/PathParser$PathDataNode;
     .locals 4
+    .param p1, "fraction"    # F
+    .param p2, "startPathData"    # [Landroid/support/v4/graphics/PathParser$PathDataNode;
+    .param p3, "endPathData"    # [Landroid/support/v4/graphics/PathParser$PathDataNode;
 
     .line 185
     invoke-static {p2, p3}, Landroid/support/v4/graphics/PathParser;->canMorph([Landroid/support/v4/graphics/PathParser$PathDataNode;[Landroid/support/v4/graphics/PathParser$PathDataNode;)Z
@@ -99,10 +105,11 @@
 
     iput-object v0, p0, Landroid/support/graphics/drawable/AnimatorInflaterCompat$PathDataEvaluator;->mNodeArray:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
+    .line 194
     :cond_1
     const/4 v0, 0x0
 
-    .line 194
+    .local v0, "i":I
     :goto_0
     array-length v1, p2
 
@@ -119,28 +126,30 @@
 
     invoke-virtual {v1, v2, v3, p1}, Landroid/support/v4/graphics/PathParser$PathDataNode;->interpolatePathDataNode(Landroid/support/v4/graphics/PathParser$PathDataNode;Landroid/support/v4/graphics/PathParser$PathDataNode;F)V
 
+    .line 194
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 199
+    .end local v0    # "i":I
     :cond_2
-    iget-object p1, p0, Landroid/support/graphics/drawable/AnimatorInflaterCompat$PathDataEvaluator;->mNodeArray:[Landroid/support/v4/graphics/PathParser$PathDataNode;
+    iget-object v0, p0, Landroid/support/graphics/drawable/AnimatorInflaterCompat$PathDataEvaluator;->mNodeArray:[Landroid/support/v4/graphics/PathParser$PathDataNode;
 
-    return-object p1
+    return-object v0
 
     .line 186
     :cond_3
-    new-instance p1, Ljava/lang/IllegalArgumentException;
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string p2, "Can\'t interpolate between two incompatible pathData"
+    const-string v1, "Can\'t interpolate between two incompatible pathData"
 
-    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     goto :goto_2
 
     :goto_1
-    throw p1
+    throw v0
 
     :goto_2
     goto :goto_1

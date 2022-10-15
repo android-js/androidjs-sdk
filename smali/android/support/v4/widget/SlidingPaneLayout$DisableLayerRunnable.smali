@@ -26,6 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/SlidingPaneLayout;Landroid/view/View;)V
     .locals 0
+    .param p2, "childView"    # Landroid/view/View;
 
     .line 1602
     iput-object p1, p0, Landroid/support/v4/widget/SlidingPaneLayout$DisableLayerRunnable;->this$0:Landroid/support/v4/widget/SlidingPaneLayout;
@@ -35,6 +36,7 @@
     .line 1603
     iput-object p2, p0, Landroid/support/v4/widget/SlidingPaneLayout$DisableLayerRunnable;->mChildView:Landroid/view/View;
 
+    .line 1604
     return-void
 .end method
 
@@ -78,5 +80,6 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 1613
     return-void
 .end method

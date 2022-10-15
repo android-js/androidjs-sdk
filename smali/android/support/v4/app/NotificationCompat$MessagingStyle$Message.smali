@@ -49,6 +49,9 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;JLandroid/support/v4/app/Person;)V
     .locals 1
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "timestamp"    # J
+    .param p4, "person"    # Landroid/support/v4/app/Person;
 
     .line 2614
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,11 +72,15 @@
     .line 2617
     iput-object p4, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mPerson:Landroid/support/v4/app/Person;
 
+    .line 2618
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;JLjava/lang/CharSequence;)V
     .locals 1
+    .param p1, "text"    # Ljava/lang/CharSequence;
+    .param p2, "timestamp"    # J
+    .param p4, "sender"    # Ljava/lang/CharSequence;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -84,14 +91,15 @@
 
     invoke-virtual {v0, p4}, Landroid/support/v4/app/Person$Builder;->setName(Ljava/lang/CharSequence;)Landroid/support/v4/app/Person$Builder;
 
-    move-result-object p4
+    move-result-object v0
 
-    invoke-virtual {p4}, Landroid/support/v4/app/Person$Builder;->build()Landroid/support/v4/app/Person;
+    invoke-virtual {v0}, Landroid/support/v4/app/Person$Builder;->build()Landroid/support/v4/app/Person;
 
-    move-result-object p4
+    move-result-object v0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;-><init>(Ljava/lang/CharSequence;JLandroid/support/v4/app/Person;)V
+    invoke-direct {p0, p1, p2, p3, v0}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;-><init>(Ljava/lang/CharSequence;JLandroid/support/v4/app/Person;)V
 
+    .line 2636
     return-void
 .end method
 
@@ -108,6 +116,7 @@
     .end annotation
 
     .line 2757
+    .local p0, "messages":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;>;"
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v0
@@ -115,12 +124,16 @@
     new-array v0, v0, [Landroid/os/Bundle;
 
     .line 2758
+    .local v0, "bundles":[Landroid/os/Bundle;
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v1
 
+    .line 2759
+    .local v1, "N":I
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_0
 
@@ -137,17 +150,22 @@
 
     aput-object v3, v0, v2
 
+    .line 2759
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 2762
+    .end local v2    # "i":I
     :cond_0
     return-object v0
 .end method
 
 .method static getMessageFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
-    .locals 10
+    .locals 11
+    .param p0, "bundle"    # Landroid/os/Bundle;
 
+    .line 2782
     const-string v0, "uri"
 
     const-string v1, "extras"
@@ -166,7 +184,6 @@
 
     const/4 v8, 0x0
 
-    .line 2782
     :try_start_0
     invoke-virtual {p0, v7}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -182,13 +199,17 @@
 
     goto/16 :goto_1
 
-    .line 2787
+    .line 2786
     :cond_0
+    const/4 v9, 0x0
+
+    .line 2787
+    .local v9, "person":Landroid/support/v4/app/Person;
     invoke-virtual {p0, v5}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_1
+    if-eqz v10, :cond_1
 
     .line 2789
     invoke-virtual {p0, v5}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
@@ -198,6 +219,8 @@
     invoke-static {v3}, Landroid/support/v4/app/Person;->fromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/Person;
 
     move-result-object v3
+
+    move-object v9, v3
 
     goto :goto_0
 
@@ -211,9 +234,12 @@
 
     sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v9, 0x1c
+    const/16 v10, 0x1c
 
-    if-lt v5, v9, :cond_2
+    if-lt v5, v10, :cond_2
+
+    .line 2793
+    nop
 
     .line 2794
     invoke-virtual {p0, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -226,6 +252,8 @@
     invoke-static {v3}, Landroid/support/v4/app/Person;->fromAndroidPerson(Landroid/app/Person;)Landroid/support/v4/app/Person;
 
     move-result-object v3
+
+    move-object v9, v3
 
     goto :goto_0
 
@@ -256,40 +284,39 @@
 
     move-result-object v3
 
-    goto :goto_0
-
-    :cond_3
-    move-object v3, v8
+    move-object v9, v3
 
     .line 2802
+    :cond_3
     :goto_0
-    new-instance v4, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
+    new-instance v3, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
 
     .line 2803
     invoke-virtual {p0, v7}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object v5
+    move-result-object v4
 
     .line 2804
     invoke-virtual {p0, v6}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
-    move-result-wide v6
+    move-result-wide v5
 
-    invoke-direct {v4, v5, v6, v7, v3}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;-><init>(Ljava/lang/CharSequence;JLandroid/support/v4/app/Person;)V
+    invoke-direct {v3, v4, v5, v6, v9}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;-><init>(Ljava/lang/CharSequence;JLandroid/support/v4/app/Person;)V
 
     .line 2807
+    .local v3, "message":Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
     .line 2808
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
     .line 2809
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -304,7 +331,7 @@
     check-cast v0, Landroid/net/Uri;
 
     .line 2809
-    invoke-virtual {v4, v2, v0}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->setData(Ljava/lang/String;Landroid/net/Uri;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
+    invoke-virtual {v3, v2, v0}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->setData(Ljava/lang/String;Landroid/net/Uri;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
 
     .line 2812
     :cond_4
@@ -315,29 +342,41 @@
     if-eqz v0, :cond_5
 
     .line 2813
-    invoke-virtual {v4}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->getExtras()Landroid/os/Bundle;
+    invoke-virtual {v3}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {v0, p0}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 2815
     :cond_5
-    return-object v4
+    return-object v3
 
-    :catch_0
+    .line 2783
+    .end local v3    # "message":Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
+    .end local v9    # "person":Landroid/support/v4/app/Person;
     :cond_6
     :goto_1
+    return-object v8
+
+    .line 2816
+    :catch_0
+    move-exception v0
+
+    .line 2817
+    .local v0, "e":Ljava/lang/ClassCastException;
     return-object v8
 .end method
 
 .method static getMessagesFromBundleArray([Landroid/os/Parcelable;)Ljava/util/List;
-    .locals 4
+    .locals 3
+    .param p0, "bundles"    # [Landroid/os/Parcelable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -356,9 +395,11 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
+    .line 2768
+    .local v0, "messages":Ljava/util/List;, "Ljava/util/List<Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;>;"
     const/4 v1, 0x0
 
-    .line 2768
+    .local v1, "i":I
     :goto_0
     array-length v2, p0
 
@@ -367,27 +408,35 @@
     .line 2769
     aget-object v2, p0, v1
 
-    instance-of v3, v2, Landroid/os/Bundle;
+    instance-of v2, v2, Landroid/os/Bundle;
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 2770
+    aget-object v2, p0, v1
+
     check-cast v2, Landroid/os/Bundle;
 
     invoke-static {v2}, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->getMessageFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
 
     move-result-object v2
 
+    .line 2771
+    .local v2, "message":Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
     if-eqz v2, :cond_0
 
     .line 2772
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 2768
+    .end local v2    # "message":Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 2776
+    .end local v1    # "i":I
     :cond_1
     return-object v0
 .end method
@@ -401,13 +450,14 @@
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
     .line 2727
+    .local v0, "bundle":Landroid/os/Bundle;
     iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mText:Ljava/lang/CharSequence;
 
     if-eqz v1, :cond_0
 
+    .line 2728
     const-string v2, "text"
 
-    .line 2728
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
     .line 2730
@@ -471,9 +521,9 @@
 
     if-eqz v1, :cond_3
 
+    .line 2744
     const-string v2, "type"
 
-    .line 2744
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 2746
@@ -482,9 +532,9 @@
 
     if-eqz v1, :cond_4
 
+    .line 2747
     const-string v2, "uri"
 
-    .line 2747
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
     .line 2749
@@ -493,11 +543,12 @@
 
     if-eqz v1, :cond_5
 
+    .line 2750
     const-string v2, "extras"
 
-    .line 2750
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
+    .line 2752
     :cond_5
     return-object v0
 .end method
@@ -583,6 +634,8 @@
 
 .method public setData(Ljava/lang/String;Landroid/net/Uri;)Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;
     .locals 0
+    .param p1, "dataMimeType"    # Ljava/lang/String;
+    .param p2, "dataUri"    # Landroid/net/Uri;
 
     .line 2668
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mDataMimeType:Ljava/lang/String;
@@ -590,5 +643,6 @@
     .line 2669
     iput-object p2, p0, Landroid/support/v4/app/NotificationCompat$MessagingStyle$Message;->mDataUri:Landroid/net/Uri;
 
+    .line 2670
     return-object p0
 .end method

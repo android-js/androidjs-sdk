@@ -23,6 +23,8 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/FragmentManager$FragmentLifecycleCallbacks;Z)V
     .locals 0
+    .param p1, "callback"    # Landroid/support/v4/app/FragmentManager$FragmentLifecycleCallbacks;
+    .param p2, "recursive"    # Z
 
     .line 676
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,5 +35,6 @@
     .line 678
     iput-boolean p2, p0, Landroid/support/v4/app/FragmentManagerImpl$FragmentLifecycleCallbacksHolder;->mRecursive:Z
 
+    .line 679
     return-void
 .end method

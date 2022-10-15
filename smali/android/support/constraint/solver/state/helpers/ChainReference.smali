@@ -11,21 +11,24 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/state/State;Landroid/support/constraint/solver/state/State$Helper;)V
-    .locals 0
+    .locals 1
+    .param p1, "state"    # Landroid/support/constraint/solver/state/State;
+    .param p2, "type"    # Landroid/support/constraint/solver/state/State$Helper;
 
     .line 28
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/solver/state/HelperReference;-><init>(Landroid/support/constraint/solver/state/State;Landroid/support/constraint/solver/state/State$Helper;)V
 
-    const/high16 p1, 0x3f000000    # 0.5f
-
     .line 24
-    iput p1, p0, Landroid/support/constraint/solver/state/helpers/ChainReference;->mBias:F
+    const/high16 v0, 0x3f000000    # 0.5f
+
+    iput v0, p0, Landroid/support/constraint/solver/state/helpers/ChainReference;->mBias:F
 
     .line 25
-    sget-object p1, Landroid/support/constraint/solver/state/State$Chain;->SPREAD:Landroid/support/constraint/solver/state/State$Chain;
+    sget-object v0, Landroid/support/constraint/solver/state/State$Chain;->SPREAD:Landroid/support/constraint/solver/state/State$Chain;
 
-    iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/ChainReference;->mStyle:Landroid/support/constraint/solver/state/State$Chain;
+    iput-object v0, p0, Landroid/support/constraint/solver/state/helpers/ChainReference;->mStyle:Landroid/support/constraint/solver/state/State$Chain;
 
+    .line 29
     return-void
 .end method
 
@@ -33,6 +36,7 @@
 # virtual methods
 .method public bias(F)V
     .locals 0
+    .param p1, "bias"    # F
 
     .line 36
     iput p1, p0, Landroid/support/constraint/solver/state/helpers/ChainReference;->mBias:F
@@ -60,9 +64,11 @@
 
 .method public style(Landroid/support/constraint/solver/state/State$Chain;)V
     .locals 0
+    .param p1, "style"    # Landroid/support/constraint/solver/state/State$Chain;
 
     .line 33
     iput-object p1, p0, Landroid/support/constraint/solver/state/helpers/ChainReference;->mStyle:Landroid/support/constraint/solver/state/State$Chain;
 
+    .line 34
     return-void
 .end method

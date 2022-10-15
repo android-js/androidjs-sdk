@@ -26,6 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/motion/MotionLayout;Landroid/view/View;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/motion/MotionLayout;
 
     .line 2477
     iput-object p1, p0, Landroid/support/constraint/motion/MotionLayout$1;->this$0:Landroid/support/constraint/motion/MotionLayout;
@@ -49,5 +50,6 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setNestedScrollingEnabled(Z)V
 
+    .line 2481
     return-void
 .end method

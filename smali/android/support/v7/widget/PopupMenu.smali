@@ -31,17 +31,23 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 1
-
-    const/4 v0, 0x0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "anchor"    # Landroid/view/View;
 
     .line 68
+    const/4 v0, 0x0
+
     invoke-direct {p0, p1, p2, v0}, Landroid/support/v7/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;I)V
 
+    .line 69
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;I)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "anchor"    # Landroid/view/View;
+    .param p3, "gravity"    # I
 
     .line 83
     sget v4, Landroid/support/v7/appcompat/R$attr;->popupMenuStyle:I
@@ -58,11 +64,17 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/support/v7/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;III)V
 
+    .line 84
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;III)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "anchor"    # Landroid/view/View;
+    .param p3, "gravity"    # I
+    .param p4, "popupStyleAttr"    # I
+    .param p5, "popupStyleRes"    # I
 
     .line 104
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -110,12 +122,13 @@
     invoke-virtual {v7, p3}, Landroid/support/v7/view/menu/MenuPopupHelper;->setGravity(I)V
 
     .line 125
-    new-instance p1, Landroid/support/v7/widget/PopupMenu$2;
+    new-instance v0, Landroid/support/v7/widget/PopupMenu$2;
 
-    invoke-direct {p1, p0}, Landroid/support/v7/widget/PopupMenu$2;-><init>(Landroid/support/v7/widget/PopupMenu;)V
+    invoke-direct {v0, p0}, Landroid/support/v7/widget/PopupMenu$2;-><init>(Landroid/support/v7/widget/PopupMenu;)V
 
-    invoke-virtual {v7, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
+    invoke-virtual {v7, v0}, Landroid/support/v7/view/menu/MenuPopupHelper;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
 
+    .line 133
     return-void
 .end method
 
@@ -129,6 +142,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/view/menu/MenuPopupHelper;->dismiss()V
 
+    .line 248
     return-void
 .end method
 
@@ -203,6 +217,7 @@
 
     if-nez v0, :cond_0
 
+    .line 307
     const/4 v0, 0x0
 
     return-object v0
@@ -220,6 +235,7 @@
 
 .method public inflate(I)V
     .locals 2
+    .param p1, "menuRes"    # I
 
     .line 229
     invoke-virtual {p0}, Landroid/support/v7/widget/PopupMenu;->getMenuInflater()Landroid/view/MenuInflater;
@@ -230,35 +246,42 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
+    .line 230
     return-void
 .end method
 
 .method public setGravity(I)V
     .locals 1
+    .param p1, "gravity"    # I
 
     .line 145
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/view/menu/MenuPopupHelper;->setGravity(I)V
 
+    .line 146
     return-void
 .end method
 
 .method public setOnDismissListener(Landroid/support/v7/widget/PopupMenu$OnDismissListener;)V
     .locals 0
+    .param p1, "listener"    # Landroid/support/v7/widget/PopupMenu$OnDismissListener;
 
     .line 266
     iput-object p1, p0, Landroid/support/v7/widget/PopupMenu;->mOnDismissListener:Landroid/support/v7/widget/PopupMenu$OnDismissListener;
 
+    .line 267
     return-void
 .end method
 
 .method public setOnMenuItemClickListener(Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;)V
     .locals 0
+    .param p1, "listener"    # Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;
 
     .line 257
     iput-object p1, p0, Landroid/support/v7/widget/PopupMenu;->mMenuItemClickListener:Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;
 
+    .line 258
     return-void
 .end method
 
@@ -270,5 +293,6 @@
 
     invoke-virtual {v0}, Landroid/support/v7/view/menu/MenuPopupHelper;->show()V
 
+    .line 239
     return-void
 .end method

@@ -14,21 +14,25 @@
 .end method
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroid/support/v4/graphics/drawable/IconCompat;
-    .locals 0
+    .locals 1
+    .param p0, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
     .line 12
     invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompatParcelizer;->read(Landroidx/versionedparcelable/VersionedParcel;)Landroid/support/v4/graphics/drawable/IconCompat;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static write(Landroid/support/v4/graphics/drawable/IconCompat;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 0
+    .param p0, "obj"    # Landroid/support/v4/graphics/drawable/IconCompat;
+    .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
     .line 16
     invoke-static {p0, p1}, Landroidx/core/graphics/drawable/IconCompatParcelizer;->write(Landroid/support/v4/graphics/drawable/IconCompat;Landroidx/versionedparcelable/VersionedParcel;)V
 
+    .line 17
     return-void
 .end method

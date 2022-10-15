@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/motion/TouchResponse;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/motion/TouchResponse;
 
     .line 416
     iput-object p1, p0, Landroid/support/constraint/motion/TouchResponse$2;->this$0:Landroid/support/constraint/motion/TouchResponse;
@@ -37,6 +38,12 @@
 # virtual methods
 .method public onScrollChange(Landroid/support/v4/widget/NestedScrollView;IIII)V
     .locals 0
+    .param p1, "v"    # Landroid/support/v4/widget/NestedScrollView;
+    .param p2, "scrollX"    # I
+    .param p3, "scrollY"    # I
+    .param p4, "oldScrollX"    # I
+    .param p5, "oldScrollY"    # I
 
+    .line 421
     return-void
 .end method

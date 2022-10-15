@@ -23,6 +23,7 @@
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
     .locals 1
+    .param p1, "activity"    # Landroid/app/Activity;
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,17 +31,18 @@
     .line 21
     iput-object p1, p0, Lcom/android/js/api/Location;->activity:Landroid/app/Activity;
 
+    .line 22
     const-string v0, "location"
 
-    .line 22
     invoke-virtual {p1, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v0
 
-    check-cast p1, Landroid/location/LocationManager;
+    check-cast v0, Landroid/location/LocationManager;
 
-    iput-object p1, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
+    iput-object v0, p0, Lcom/android/js/api/Location;->locationManager:Landroid/location/LocationManager;
 
+    .line 23
     return-void
 .end method
 
@@ -68,9 +70,9 @@
 .method public getLocation()Ljava/lang/String;
     .locals 8
 
+    .line 30
     const-string v0, "\"}"
 
-    .line 30
     invoke-direct {p0}, Lcom/android/js/api/Location;->isGPSEnable()Ljava/lang/Boolean;
 
     move-result-object v1
@@ -79,7 +81,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     .line 32
     :try_start_0
@@ -120,18 +122,19 @@
 
     const-string v2, "{\"error\": true, \"err\": \"Please try again..\"}"
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
+    .line 43
     :try_start_1
     const-string v3, "gps"
 
-    .line 43
     invoke-virtual {v1, v3}, Landroid/location/LocationManager;->getLastKnownLocation(Ljava/lang/String;)Landroid/location/Location;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
+    .line 44
     if-eqz v1, :cond_1
 
     .line 45
@@ -143,6 +146,8 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     iget-object v2, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
     invoke-virtual {v2}, Landroid/location/Location;->getLatitude()D
@@ -151,9 +156,13 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     const-string v2, "\", \"longitude\": \""
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
@@ -163,7 +172,11 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
+    move-result-object v1
+
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -173,13 +186,20 @@
 
     return-object v0
 
+    .line 47
     :cond_1
     return-object v2
 
+    .line 50
+    :cond_2
+    return-object v2
+
+    .line 52
     :catch_0
     move-exception v1
 
     .line 53
+    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     .line 54
@@ -191,21 +211,29 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v2
+
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    :cond_2
+    .line 57
+    .end local v1    # "e":Ljava/lang/Exception;
+    :cond_3
     const-string v0, "{\"error\": true, \"msg\": \"GPS is disabled\"}"
 
     return-object v0
@@ -213,27 +241,37 @@
 
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 0
+    .param p1, "location"    # Landroid/location/Location;
 
     .line 63
     iput-object p1, p0, Lcom/android/js/api/Location;->location:Landroid/location/Location;
 
+    .line 64
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
+    .param p1, "s"    # Ljava/lang/String;
 
+    .line 79
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
+    .param p1, "s"    # Ljava/lang/String;
 
+    .line 74
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
+    .param p1, "s"    # Ljava/lang/String;
+    .param p2, "i"    # I
+    .param p3, "bundle"    # Landroid/os/Bundle;
 
+    .line 69
     return-void
 .end method

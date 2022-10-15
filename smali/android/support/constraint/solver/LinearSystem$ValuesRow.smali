@@ -20,7 +20,9 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/LinearSystem;Landroid/support/constraint/solver/Cache;)V
-    .locals 0
+    .locals 1
+    .param p1, "this$0"    # Landroid/support/constraint/solver/LinearSystem;
+    .param p2, "cache"    # Landroid/support/constraint/solver/Cache;
 
     .line 89
     iput-object p1, p0, Landroid/support/constraint/solver/LinearSystem$ValuesRow;->this$0:Landroid/support/constraint/solver/LinearSystem;
@@ -28,11 +30,12 @@
     invoke-direct {p0}, Landroid/support/constraint/solver/ArrayRow;-><init>()V
 
     .line 90
-    new-instance p1, Landroid/support/constraint/solver/SolverVariableValues;
+    new-instance v0, Landroid/support/constraint/solver/SolverVariableValues;
 
-    invoke-direct {p1, p0, p2}, Landroid/support/constraint/solver/SolverVariableValues;-><init>(Landroid/support/constraint/solver/ArrayRow;Landroid/support/constraint/solver/Cache;)V
+    invoke-direct {v0, p0, p2}, Landroid/support/constraint/solver/SolverVariableValues;-><init>(Landroid/support/constraint/solver/ArrayRow;Landroid/support/constraint/solver/Cache;)V
 
-    iput-object p1, p0, Landroid/support/constraint/solver/LinearSystem$ValuesRow;->variables:Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;
+    iput-object v0, p0, Landroid/support/constraint/solver/LinearSystem$ValuesRow;->variables:Landroid/support/constraint/solver/ArrayRow$ArrayRowVariables;
 
+    .line 91
     return-void
 .end method

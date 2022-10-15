@@ -21,6 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/utils/ImageFilterView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/utils/ImageFilterView;
 
     .line 488
     iput-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$1;->this$0:Landroid/support/constraint/utils/ImageFilterView;
@@ -33,49 +34,61 @@
 
 # virtual methods
 .method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
-    .locals 6
+    .locals 9
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "outline"    # Landroid/graphics/Outline;
 
     .line 491
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$1;->this$0:Landroid/support/constraint/utils/ImageFilterView;
-
-    invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterView;->getWidth()I
-
-    move-result v3
-
-    .line 492
-    iget-object p1, p0, Landroid/support/constraint/utils/ImageFilterView$1;->this$0:Landroid/support/constraint/utils/ImageFilterView;
-
-    invoke-virtual {p1}, Landroid/support/constraint/utils/ImageFilterView;->getHeight()I
-
-    move-result v4
-
-    .line 493
-    invoke-static {v3, v4}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    int-to-float p1, p1
-
     iget-object v0, p0, Landroid/support/constraint/utils/ImageFilterView$1;->this$0:Landroid/support/constraint/utils/ImageFilterView;
 
-    invoke-static {v0}, Landroid/support/constraint/utils/ImageFilterView;->access$000(Landroid/support/constraint/utils/ImageFilterView;)F
+    invoke-virtual {v0}, Landroid/support/constraint/utils/ImageFilterView;->getWidth()I
 
     move-result v0
 
-    mul-float p1, p1, v0
+    .line 492
+    .local v0, "w":I
+    iget-object v1, p0, Landroid/support/constraint/utils/ImageFilterView$1;->this$0:Landroid/support/constraint/utils/ImageFilterView;
 
-    const/high16 v0, 0x40000000    # 2.0f
+    invoke-virtual {v1}, Landroid/support/constraint/utils/ImageFilterView;->getHeight()I
 
-    div-float v5, p1, v0
+    move-result v7
 
-    const/4 v1, 0x0
+    .line 493
+    .local v7, "h":I
+    invoke-static {v0, v7}, Ljava/lang/Math;->min(II)I
 
-    const/4 v2, 0x0
+    move-result v1
 
-    move-object v0, p2
+    int-to-float v1, v1
+
+    iget-object v2, p0, Landroid/support/constraint/utils/ImageFilterView$1;->this$0:Landroid/support/constraint/utils/ImageFilterView;
+
+    invoke-static {v2}, Landroid/support/constraint/utils/ImageFilterView;->access$000(Landroid/support/constraint/utils/ImageFilterView;)F
+
+    move-result v2
+
+    mul-float v1, v1, v2
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    div-float v8, v1, v2
 
     .line 494
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
+    .local v8, "r":F
+    const/4 v2, 0x0
 
+    const/4 v3, 0x0
+
+    move-object v1, p2
+
+    move v4, v0
+
+    move v5, v7
+
+    move v6, v8
+
+    invoke-virtual/range {v1 .. v6}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
+
+    .line 495
     return-void
 .end method

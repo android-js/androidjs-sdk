@@ -24,6 +24,7 @@
     .line 299
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 300
     return-void
 .end method
 
@@ -59,6 +60,11 @@
 
 .method public static makeClipRevealAnimation(Landroid/view/View;IIII)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "startX"    # I
+    .param p2, "startY"    # I
+    .param p3, "width"    # I
+    .param p4, "height"    # I
 
     .line 122
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -72,23 +78,26 @@
 
     invoke-static {p0, p1, p2, p3, p4}, Landroid/app/ActivityOptions;->makeClipRevealAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
+    invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
 
     .line 126
     :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
+    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static makeCustomAnimation(Landroid/content/Context;II)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enterResId"    # I
+    .param p2, "exitResId"    # I
 
     .line 68
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -102,23 +111,28 @@
 
     invoke-static {p0, p1, p2}, Landroid/app/ActivityOptions;->makeCustomAnimation(Landroid/content/Context;II)Landroid/app/ActivityOptions;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
+    invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
 
     .line 72
     :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
+    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "startX"    # I
+    .param p2, "startY"    # I
+    .param p3, "startWidth"    # I
+    .param p4, "startHeight"    # I
 
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -132,23 +146,26 @@
 
     invoke-static {p0, p1, p2, p3, p4}, Landroid/app/ActivityOptions;->makeScaleUpAnimation(Landroid/view/View;IIII)Landroid/app/ActivityOptions;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
+    invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
 
     .line 102
     :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
+    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0, "activity"    # Landroid/app/Activity;
+    .param p1, "sharedElement"    # Landroid/view/View;
+    .param p2, "sharedElementName"    # Ljava/lang/String;
 
     .line 179
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -162,23 +179,24 @@
 
     invoke-static {p0, p1, p2}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/app/ActivityOptions;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
+    invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
 
     .line 183
     :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
+    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static varargs makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/support/v4/util/Pair;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 4
+    .param p0, "activity"    # Landroid/app/Activity;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,24 +211,29 @@
     .end annotation
 
     .line 207
+    .local p1, "sharedElements":[Landroid/support/v4/util/Pair;, "[Landroid/support/v4/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
     if-lt v0, v1, :cond_1
 
+    .line 208
     const/4 v0, 0x0
 
+    .line 209
+    .local v0, "pairs":[Landroid/util/Pair;, "[Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
     if-eqz p1, :cond_0
 
     .line 210
-    array-length v0, p1
+    array-length v1, p1
 
-    new-array v0, v0, [Landroid/util/Pair;
-
-    const/4 v1, 0x0
+    new-array v0, v1, [Landroid/util/Pair;
 
     .line 211
+    const/4 v1, 0x0
+
+    .local v1, "i":I
     :goto_0
     array-length v2, p1
 
@@ -231,30 +254,33 @@
 
     aput-object v2, v0, v1
 
+    .line 211
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 216
+    .end local v1    # "i":I
     :cond_0
-    new-instance p1, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
+    new-instance v1, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;
 
     .line 217
     invoke-static {p0, v0}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;[Landroid/util/Pair;)Landroid/app/ActivityOptions;
 
-    move-result-object p0
+    move-result-object v2
 
-    invoke-direct {p1, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
+    invoke-direct {v1, v2}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
-    return-object p1
+    return-object v1
 
     .line 219
+    .end local v0    # "pairs":[Landroid/util/Pair;, "[Landroid/util/Pair<Landroid/view/View;Ljava/lang/String;>;"
     :cond_1
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
+    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static makeTaskLaunchBehind()Landroid/support/v4/app/ActivityOptionsCompat;
@@ -289,6 +315,10 @@
 
 .method public static makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;II)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 2
+    .param p0, "source"    # Landroid/view/View;
+    .param p1, "thumbnail"    # Landroid/graphics/Bitmap;
+    .param p2, "startX"    # I
+    .param p3, "startY"    # I
 
     .line 151
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -302,19 +332,19 @@
 
     invoke-static {p0, p1, p2, p3}, Landroid/app/ActivityOptions;->makeThumbnailScaleUpAnimation(Landroid/view/View;Landroid/graphics/Bitmap;II)Landroid/app/ActivityOptions;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-direct {v0, p0}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
+    invoke-direct {v0, v1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatImpl;-><init>(Landroid/app/ActivityOptions;)V
 
     return-object v0
 
     .line 155
     :cond_0
-    new-instance p0, Landroid/support/v4/app/ActivityOptionsCompat;
+    new-instance v0, Landroid/support/v4/app/ActivityOptionsCompat;
 
-    invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
+    invoke-direct {v0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
 
-    return-object p0
+    return-object v0
 .end method
 
 
@@ -322,6 +352,7 @@
 .method public getLaunchBounds()Landroid/graphics/Rect;
     .locals 1
 
+    .line 324
     const/4 v0, 0x0
 
     return-object v0
@@ -329,19 +360,24 @@
 
 .method public requestUsageTimeReport(Landroid/app/PendingIntent;)V
     .locals 0
+    .param p1, "receiver"    # Landroid/app/PendingIntent;
 
+    .line 374
     return-void
 .end method
 
 .method public setLaunchBounds(Landroid/graphics/Rect;)Landroid/support/v4/app/ActivityOptionsCompat;
     .locals 0
+    .param p1, "screenSpacePixelRect"    # Landroid/graphics/Rect;
 
+    .line 314
     return-object p0
 .end method
 
 .method public toBundle()Landroid/os/Bundle;
     .locals 1
 
+    .line 336
     const/4 v0, 0x0
 
     return-object v0
@@ -349,6 +385,8 @@
 
 .method public update(Landroid/support/v4/app/ActivityOptionsCompat;)V
     .locals 0
+    .param p1, "otherOptions"    # Landroid/support/v4/app/ActivityOptionsCompat;
 
+    .line 346
     return-void
 .end method

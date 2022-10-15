@@ -31,6 +31,8 @@
 # direct methods
 .method public constructor <init>(I[Landroid/support/v4/provider/FontsContractCompat$FontInfo;)V
     .locals 0
+    .param p1, "statusCode"    # I
+    .param p2, "fonts"    # [Landroid/support/v4/provider/FontsContractCompat$FontInfo;
 
     .line 428
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +43,7 @@
     .line 430
     iput-object p2, p0, Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult;->mFonts:[Landroid/support/v4/provider/FontsContractCompat$FontInfo;
 
+    .line 431
     return-void
 .end method
 

@@ -20,18 +20,21 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/content/Loader;)V
-    .locals 0
+    .locals 1
+    .param p1, "this$0"    # Landroid/support/v4/content/Loader;
 
     .line 58
+    .local p0, "this":Landroid/support/v4/content/Loader$ForceLoadContentObserver;, "Landroid/support/v4/content/Loader<TD;>.ForceLoadContentObserver;"
     iput-object p1, p0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;->this$0:Landroid/support/v4/content/Loader;
 
     .line 59
-    new-instance p1, Landroid/os/Handler;
+    new-instance v0, Landroid/os/Handler;
 
-    invoke-direct {p1}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 60
     return-void
 .end method
 
@@ -40,18 +43,23 @@
 .method public deliverSelfNotifications()Z
     .locals 1
 
+    .line 64
+    .local p0, "this":Landroid/support/v4/content/Loader$ForceLoadContentObserver;, "Landroid/support/v4/content/Loader<TD;>.ForceLoadContentObserver;"
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public onChange(Z)V
-    .locals 0
+    .locals 1
+    .param p1, "selfChange"    # Z
 
     .line 69
-    iget-object p1, p0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;->this$0:Landroid/support/v4/content/Loader;
+    .local p0, "this":Landroid/support/v4/content/Loader$ForceLoadContentObserver;, "Landroid/support/v4/content/Loader<TD;>.ForceLoadContentObserver;"
+    iget-object v0, p0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;->this$0:Landroid/support/v4/content/Loader;
 
-    invoke-virtual {p1}, Landroid/support/v4/content/Loader;->onContentChanged()V
+    invoke-virtual {v0}, Landroid/support/v4/content/Loader;->onContentChanged()V
 
+    .line 70
     return-void
 .end method

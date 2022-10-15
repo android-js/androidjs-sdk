@@ -15,6 +15,7 @@
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroid/support/v4/graphics/drawable/IconCompat;
     .locals 3
+    .param p0, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
     .line 11
     new-instance v0, Landroid/support/v4/graphics/drawable/IconCompat;
@@ -22,6 +23,7 @@
     invoke-direct {v0}, Landroid/support/v4/graphics/drawable/IconCompat;-><init>()V
 
     .line 12
+    .local v0, "obj":Landroid/support/v4/graphics/drawable/IconCompat;
     iget v1, v0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
 
     const/4 v2, 0x1
@@ -96,22 +98,25 @@
 
     invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readString(Ljava/lang/String;I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v1
 
-    iput-object p0, v0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintModeStr:Ljava/lang/String;
+    iput-object v1, v0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintModeStr:Ljava/lang/String;
 
     .line 19
     invoke-virtual {v0}, Landroid/support/v4/graphics/drawable/IconCompat;->onPostParceling()V
 
+    .line 20
     return-object v0
 .end method
 
 .method public static write(Landroid/support/v4/graphics/drawable/IconCompat;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 2
-
-    const/4 v0, 0x1
+    .param p0, "obj"    # Landroid/support/v4/graphics/drawable/IconCompat;
+    .param p1, "parcel"    # Landroidx/versionedparcelable/VersionedParcel;
 
     .line 24
+    const/4 v0, 0x1
+
     invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
 
     .line 25
@@ -162,11 +167,12 @@
     invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     .line 32
-    iget-object p0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintModeStr:Ljava/lang/String;
+    iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mTintModeStr:Ljava/lang/String;
 
-    const/4 v0, 0x7
+    const/4 v1, 0x7
 
-    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeString(Ljava/lang/String;I)V
+    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeString(Ljava/lang/String;I)V
 
+    .line 33
     return-void
 .end method

@@ -69,6 +69,7 @@
 
     sput-object v3, Landroid/support/constraint/solver/state/State$Chain;->PACKED:Landroid/support/constraint/solver/state/State$Chain;
 
+    .line 89
     const/4 v5, 0x3
 
     new-array v5, v5, [Landroid/support/constraint/solver/state/State$Chain;
@@ -79,7 +80,6 @@
 
     aput-object v3, v5, v6
 
-    .line 89
     sput-object v5, Landroid/support/constraint/solver/state/State$Chain;->$VALUES:[Landroid/support/constraint/solver/state/State$Chain;
 
     return-void
@@ -101,17 +101,18 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/state/State$Chain;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
     .line 89
     const-class v0, Landroid/support/constraint/solver/state/State$Chain;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/support/constraint/solver/state/State$Chain;
+    check-cast v0, Landroid/support/constraint/solver/state/State$Chain;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/state/State$Chain;

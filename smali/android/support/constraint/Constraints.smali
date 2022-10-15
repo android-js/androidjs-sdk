@@ -21,21 +21,25 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 41
     invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V
 
-    const/16 p1, 0x8
-
     .line 42
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
+    const/16 v0, 0x8
 
+    invoke-super {p0, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    .line 43
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .line 46
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -43,16 +47,20 @@
     .line 47
     invoke-direct {p0, p2}, Landroid/support/constraint/Constraints;->init(Landroid/util/AttributeSet;)V
 
-    const/16 p1, 0x8
-
     .line 48
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
+    const/16 v0, 0x8
 
+    invoke-super {p0, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    .line 49
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyleAttr"    # I
 
     .line 52
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -60,24 +68,27 @@
     .line 53
     invoke-direct {p0, p2}, Landroid/support/constraint/Constraints;->init(Landroid/util/AttributeSet;)V
 
-    const/16 p1, 0x8
-
     .line 54
-    invoke-super {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
+    const/16 v0, 0x8
 
+    invoke-super {p0, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    .line 55
     return-void
 .end method
 
 .method private init(Landroid/util/AttributeSet;)V
-    .locals 1
-
-    const-string p1, "Constraints"
-
-    const-string v0, " ################# init"
+    .locals 2
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 140
-    invoke-static {p1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "Constraints"
 
+    const-string v1, " ################# init"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 141
     return-void
 .end method
 
@@ -109,6 +120,7 @@
 
 .method public generateLayoutParams(Landroid/util/AttributeSet;)Landroid/support/constraint/Constraints$LayoutParams;
     .locals 2
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 62
     new-instance v0, Landroid/support/constraint/Constraints$LayoutParams;
@@ -135,6 +147,7 @@
 
 .method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
+    .param p1, "p"    # Landroid/view/ViewGroup$LayoutParams;
 
     .line 148
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -173,6 +186,12 @@
 
 .method protected onLayout(ZIIII)V
     .locals 0
+    .param p1, "changed"    # Z
+    .param p2, "l"    # I
+    .param p3, "t"    # I
+    .param p4, "r"    # I
+    .param p5, "b"    # I
 
+    .line 163
     return-void
 .end method

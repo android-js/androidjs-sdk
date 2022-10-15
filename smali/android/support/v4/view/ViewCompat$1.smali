@@ -36,26 +36,29 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 1
+    .locals 2
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "insets"    # Landroid/view/WindowInsets;
 
     .line 2212
     invoke-static {p2}, Landroid/support/v4/view/WindowInsetsCompat;->wrap(Ljava/lang/Object;)Landroid/support/v4/view/WindowInsetsCompat;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 2213
-    iget-object v0, p0, Landroid/support/v4/view/ViewCompat$1;->val$listener:Landroid/support/v4/view/OnApplyWindowInsetsListener;
+    .local v0, "compatInsets":Landroid/support/v4/view/WindowInsetsCompat;
+    iget-object v1, p0, Landroid/support/v4/view/ViewCompat$1;->val$listener:Landroid/support/v4/view/OnApplyWindowInsetsListener;
 
-    invoke-interface {v0, p1, p2}, Landroid/support/v4/view/OnApplyWindowInsetsListener;->onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
+    invoke-interface {v1, p1, v0}, Landroid/support/v4/view/OnApplyWindowInsetsListener;->onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 2214
-    invoke-static {p1}, Landroid/support/v4/view/WindowInsetsCompat;->unwrap(Landroid/support/v4/view/WindowInsetsCompat;)Ljava/lang/Object;
+    invoke-static {v0}, Landroid/support/v4/view/WindowInsetsCompat;->unwrap(Landroid/support/v4/view/WindowInsetsCompat;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object v1
 
-    check-cast p1, Landroid/view/WindowInsets;
+    check-cast v1, Landroid/view/WindowInsets;
 
-    return-object p1
+    return-object v1
 .end method

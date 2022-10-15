@@ -49,6 +49,7 @@
 
 .method constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 1
+    .param p1, "dr"    # Landroid/graphics/drawable/Drawable;
 
     .line 62
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -63,11 +64,14 @@
     .line 65
     invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setWrappedDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 66
     return-void
 .end method
 
 .method constructor <init>(Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
     .locals 0
+    .param p1, "state"    # Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
+    .param p2, "res"    # Landroid/content/res/Resources;
 
     .line 52
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -78,11 +82,13 @@
     .line 54
     invoke-direct {p0, p2}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->updateLocalState(Landroid/content/res/Resources;)V
 
+    .line 55
     return-void
 .end method
 
 .method private updateLocalState(Landroid/content/res/Resources;)V
     .locals 1
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 74
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mState:Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
@@ -100,16 +106,18 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setWrappedDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setWrappedDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 77
     :cond_0
     return-void
 .end method
 
 .method private updateTint([I)Z
-    .locals 4
+    .locals 5
+    .param p1, "state"    # [I
 
     .line 293
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->isCompatTintEnabled()Z
@@ -120,6 +128,7 @@
 
     if-nez v0, :cond_0
 
+    .line 295
     return v1
 
     .line 298
@@ -129,13 +138,16 @@
     iget-object v0, v0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;->mTint:Landroid/content/res/ColorStateList;
 
     .line 299
+    .local v0, "tintList":Landroid/content/res/ColorStateList;
     iget-object v2, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mState:Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
 
     iget-object v2, v2, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eqz v0, :cond_2
+    .line 301
+    .local v2, "tintMode":Landroid/graphics/PorterDuff$Mode;
+    if-eqz v0, :cond_3
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
     .line 302
     invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
@@ -144,46 +156,59 @@
 
     invoke-virtual {v0, p1, v3}, Landroid/content/res/ColorStateList;->getColorForState([II)I
 
-    move-result p1
+    move-result v3
 
     .line 303
-    iget-boolean v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mColorFilterSet:Z
+    .local v3, "color":I
+    iget-boolean v4, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mColorFilterSet:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v4, :cond_2
 
-    iget v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentColor:I
+    iget v4, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentColor:I
 
-    if-ne p1, v0, :cond_1
+    if-ne v3, v4, :cond_2
 
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentMode:Landroid/graphics/PorterDuff$Mode;
+    iget-object v4, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eq v2, v0, :cond_3
+    if-eq v2, v4, :cond_1
+
+    goto :goto_0
+
+    .line 310
+    .end local v3    # "color":I
+    :cond_1
+    goto :goto_1
 
     .line 304
-    :cond_1
-    invoke-virtual {p0, p1, v2}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    .restart local v3    # "color":I
+    :cond_2
+    :goto_0
+    invoke-virtual {p0, v3, v2}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     .line 305
-    iput p1, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentColor:I
+    iput v3, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentColor:I
 
     .line 306
     iput-object v2, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mCurrentMode:Landroid/graphics/PorterDuff$Mode;
 
-    const/4 p1, 0x1
-
     .line 307
-    iput-boolean p1, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mColorFilterSet:Z
+    const/4 v1, 0x1
 
-    return p1
+    iput-boolean v1, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mColorFilterSet:Z
+
+    .line 308
+    return v1
 
     .line 311
-    :cond_2
+    .end local v3    # "color":I
+    :cond_3
     iput-boolean v1, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mColorFilterSet:Z
 
     .line 312
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->clearColorFilter()V
 
-    :cond_3
+    .line 314
+    :goto_1
     return v1
 .end method
 
@@ -191,12 +216,14 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 1
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 86
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
+    .line 87
     return-void
 .end method
 
@@ -265,6 +292,7 @@
 
     return-object v0
 
+    .line 214
     :cond_0
     const/4 v0, 0x0
 
@@ -351,15 +379,16 @@
 
 .method public getPadding(Landroid/graphics/Rect;)Z
     .locals 1
+    .param p1, "padding"    # Landroid/graphics/Rect;
 
     .line 192
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public getState()[I
@@ -399,10 +428,12 @@
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
 
     .line 251
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->invalidateSelf()V
 
+    .line 252
     return-void
 .end method
 
@@ -422,13 +453,14 @@
 .method protected isCompatTintEnabled()Z
     .locals 1
 
+    .line 353
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .locals 2
 
     .line 130
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->isCompatTintEnabled()Z
@@ -448,35 +480,36 @@
     :cond_0
     const/4 v0, 0x0
 
+    .line 133
+    .local v0, "tintList":Landroid/content/res/ColorStateList;
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 133
     invoke-virtual {v0}, Landroid/content/res/ColorStateList;->isStateful()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     :cond_1
-    iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
     :cond_2
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_1
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_1
-    return v0
+    return v1
 .end method
 
 .method public jumpToCurrentState()V
@@ -487,6 +520,7 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
 
+    .line 82
     return-void
 .end method
 
@@ -542,12 +576,13 @@
     :goto_0
     iput-object v1, v0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
+    .line 228
     :cond_2
     const/4 v0, 0x1
 
-    .line 228
     iput-boolean v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mMutated:Z
 
+    .line 230
     :cond_3
     return-object p0
 .end method
@@ -569,6 +604,7 @@
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
     .locals 1
+    .param p1, "bounds"    # Landroid/graphics/Rect;
 
     .line 91
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -578,100 +614,119 @@
     .line 92
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
+    .line 94
     :cond_0
     return-void
 .end method
 
 .method protected onLevelChange(I)Z
     .locals 1
+    .param p1, "level"    # I
 
     .line 272
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
     .locals 0
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "what"    # Ljava/lang/Runnable;
+    .param p3, "when"    # J
 
     .line 259
     invoke-virtual {p0, p2, p3, p4}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->scheduleSelf(Ljava/lang/Runnable;J)V
 
+    .line 260
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 1
+    .param p1, "alpha"    # I
 
     .line 120
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
+    .line 121
     return-void
 .end method
 
 .method public setAutoMirrored(Z)V
     .locals 1
+    .param p1, "mirrored"    # Z
 
     .line 198
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAutoMirrored(Z)V
 
+    .line 199
     return-void
 .end method
 
 .method public setChangingConfigurations(I)V
     .locals 1
+    .param p1, "configs"    # I
 
     .line 98
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setChangingConfigurations(I)V
 
+    .line 99
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
+    .param p1, "cf"    # Landroid/graphics/ColorFilter;
 
     .line 125
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
+    .line 126
     return-void
 .end method
 
 .method public setDither(Z)V
     .locals 1
+    .param p1, "dither"    # Z
 
     .line 110
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setDither(Z)V
 
+    .line 111
     return-void
 .end method
 
 .method public setFilterBitmap(Z)V
     .locals 1
+    .param p1, "filter"    # Z
 
     .line 115
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setFilterBitmap(Z)V
 
+    .line 116
     return-void
 .end method
 
 .method public setState([I)Z
-    .locals 1
+    .locals 2
+    .param p1, "stateSet"    # [I
 
     .line 138
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -681,44 +736,51 @@
     move-result v0
 
     .line 139
+    .local v0, "handled":Z
     invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->updateTint([I)Z
 
-    move-result p1
+    move-result v1
 
-    if-nez p1, :cond_1
+    if-nez v1, :cond_1
 
     if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v1, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 p1, 0x1
+    const/4 v1, 0x1
 
     :goto_1
-    return p1
+    move v0, v1
+
+    .line 140
+    return v0
 .end method
 
 .method public setTint(I)V
-    .locals 0
+    .locals 1
+    .param p1, "tint"    # I
 
     .line 277
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0, v0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->setTintList(Landroid/content/res/ColorStateList;)V
 
+    .line 278
     return-void
 .end method
 
 .method public setTintList(Landroid/content/res/ColorStateList;)V
     .locals 1
+    .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 282
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mState:Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
@@ -728,15 +790,17 @@
     .line 283
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->getState()[I
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->updateTint([I)Z
+    invoke-direct {p0, v0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->updateTint([I)Z
 
+    .line 284
     return-void
 .end method
 
 .method public setTintMode(Landroid/graphics/PorterDuff$Mode;)V
     .locals 1
+    .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 288
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mState:Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;
@@ -746,15 +810,18 @@
     .line 289
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->getState()[I
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->updateTint([I)Z
+    invoke-direct {p0, v0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->updateTint([I)Z
 
+    .line 290
     return-void
 .end method
 
 .method public setVisible(ZZ)Z
     .locals 1
+    .param p1, "visible"    # Z
+    .param p2, "restart"    # Z
 
     .line 157
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
@@ -767,42 +834,44 @@
 
     invoke-virtual {v0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
     :goto_1
-    return p1
+    return v0
 .end method
 
 .method public final setWrappedDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 2
+    .param p1, "dr"    # Landroid/graphics/drawable/Drawable;
 
     .line 330
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
+    .line 331
     const/4 v1, 0x0
 
-    .line 331
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
     .line 334
     :cond_0
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->mDrawable:Landroid/graphics/drawable/Drawable;
 
+    .line 336
     if-eqz p1, :cond_1
 
     .line 337
@@ -846,22 +915,26 @@
     .line 344
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
-    move-result-object p1
+    move-result-object v1
 
-    iput-object p1, v0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
+    iput-object v1, v0, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     .line 348
     :cond_1
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->invalidateSelf()V
 
+    .line 349
     return-void
 .end method
 
 .method public unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
     .locals 0
+    .param p1, "who"    # Landroid/graphics/drawable/Drawable;
+    .param p2, "what"    # Ljava/lang/Runnable;
 
     .line 267
     invoke-virtual {p0, p2}, Landroid/support/v4/graphics/drawable/WrappedDrawableApi14;->unscheduleSelf(Ljava/lang/Runnable;)V
 
+    .line 268
     return-void
 .end method

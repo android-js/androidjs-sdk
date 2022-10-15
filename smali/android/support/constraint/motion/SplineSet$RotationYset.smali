@@ -27,14 +27,17 @@
 
 # virtual methods
 .method public setProperty(Landroid/view/View;F)V
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "t"    # F
 
     .line 192
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/SplineSet$RotationYset;->get(F)F
 
-    move-result p2
+    move-result v0
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setRotationY(F)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setRotationY(F)V
 
+    .line 193
     return-void
 .end method

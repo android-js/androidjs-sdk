@@ -23,6 +23,8 @@
 # direct methods
 .method constructor <init>(D[D)V
     .locals 0
+    .param p1, "time"    # D
+    .param p3, "value"    # [D
 
     .line 63
     invoke-direct {p0}, Landroid/support/constraint/motion/utils/CurveFit;-><init>()V
@@ -33,95 +35,116 @@
     .line 65
     iput-object p3, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
 
+    .line 66
     return-void
 .end method
 
 
 # virtual methods
 .method public getPos(DI)D
-    .locals 0
+    .locals 3
+    .param p1, "t"    # D
+    .param p3, "j"    # I
 
     .line 82
-    iget-object p1, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
+    iget-object v0, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
 
-    aget-wide p2, p1, p3
+    aget-wide v1, v0, p3
 
-    return-wide p2
+    return-wide v1
 .end method
 
 .method public getPos(D[D)V
-    .locals 1
+    .locals 3
+    .param p1, "t"    # D
+    .param p3, "v"    # [D
 
     .line 70
-    iget-object p1, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
+    iget-object v0, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
 
-    array-length p2, p1
+    array-length v1, v0
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    invoke-static {p1, v0, p3, v0, p2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v0, v2, p3, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 71
     return-void
 .end method
 
 .method public getPos(D[F)V
-    .locals 2
-
-    const/4 p1, 0x0
+    .locals 4
+    .param p1, "t"    # D
+    .param p3, "v"    # [F
 
     .line 75
+    const/4 v0, 0x0
+
+    .local v0, "i":I
     :goto_0
-    iget-object p2, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
+    iget-object v1, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
 
-    array-length v0, p2
+    array-length v2, v1
 
-    if-ge p1, v0, :cond_0
+    if-ge v0, v2, :cond_0
 
     .line 76
-    aget-wide v0, p2, p1
+    aget-wide v2, v1, v0
 
-    double-to-float p2, v0
+    double-to-float v1, v2
 
-    aput p2, p3, p1
+    aput v1, p3, v0
 
-    add-int/lit8 p1, p1, 0x1
+    .line 75
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 78
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public getSlope(DI)D
-    .locals 0
+    .locals 2
+    .param p1, "t"    # D
+    .param p3, "j"    # I
 
-    const-wide/16 p1, 0x0
+    .line 94
+    const-wide/16 v0, 0x0
 
-    return-wide p1
+    return-wide v0
 .end method
 
 .method public getSlope(D[D)V
-    .locals 2
-
-    const/4 p1, 0x0
+    .locals 3
+    .param p1, "t"    # D
+    .param p3, "v"    # [D
 
     .line 87
+    const/4 v0, 0x0
+
+    .local v0, "i":I
     :goto_0
-    iget-object p2, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
+    iget-object v1, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mValue:[D
 
-    array-length p2, p2
+    array-length v1, v1
 
-    if-ge p1, p2, :cond_0
-
-    const-wide/16 v0, 0x0
+    if-ge v0, v1, :cond_0
 
     .line 88
-    aput-wide v0, p3, p1
+    const-wide/16 v1, 0x0
 
-    add-int/lit8 p1, p1, 0x1
+    aput-wide v1, p3, v0
+
+    .line 87
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 90
+    .end local v0    # "i":I
     :cond_0
     return-void
 .end method
@@ -129,11 +152,11 @@
 .method public getTimePoints()[D
     .locals 4
 
+    .line 99
     const/4 v0, 0x1
 
     new-array v0, v0, [D
 
-    .line 99
     iget-wide v1, p0, Landroid/support/constraint/motion/utils/CurveFit$Constant;->mTime:D
 
     const/4 v3, 0x0

@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImpl;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/app/AppCompatDelegateImpl;
 
     .line 715
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImpl$5;->this$0:Landroid/support/v7/app/AppCompatDelegateImpl;
@@ -38,6 +39,7 @@
 .method public onAttachedFromWindow()V
     .locals 0
 
+    .line 717
     return-void
 .end method
 
@@ -49,5 +51,6 @@
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegateImpl;->dismissPopups()V
 
+    .line 722
     return-void
 .end method

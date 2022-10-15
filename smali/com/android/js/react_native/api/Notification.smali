@@ -13,7 +13,9 @@
 
 # direct methods
 .method public constructor <init>(Lcom/facebook/react/bridge/ReactApplicationContext;I)V
-    .locals 2
+    .locals 4
+    .param p1, "reactContext"    # Lcom/facebook/react/bridge/ReactApplicationContext;
+    .param p2, "iconId"    # I
 
     .line 13
     invoke-direct {p0, p1}, Lcom/facebook/react/bridge/ReactContextBaseJavaModule;-><init>(Lcom/facebook/react/bridge/ReactApplicationContext;)V
@@ -25,20 +27,21 @@
     iput p2, p0, Lcom/android/js/react_native/api/Notification;->iconId:I
 
     .line 16
-    new-instance p2, Lcom/android/js/api/Notification;
+    new-instance v0, Lcom/android/js/api/Notification;
 
     invoke-virtual {p1}, Lcom/facebook/react/bridge/ReactApplicationContext;->getCurrentActivity()Landroid/app/Activity;
 
-    move-result-object p1
+    move-result-object v1
 
-    iget v0, p0, Lcom/android/js/react_native/api/Notification;->iconId:I
+    iget v2, p0, Lcom/android/js/react_native/api/Notification;->iconId:I
 
-    const-string v1, "com.android.js.react_native.MainActivity"
+    const-string v3, "com.android.js.react_native.MainActivity"
 
-    invoke-direct {p2, p1, v0, v1}, Lcom/android/js/api/Notification;-><init>(Landroid/app/Activity;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/js/api/Notification;-><init>(Landroid/app/Activity;ILjava/lang/String;)V
 
-    iput-object p2, p0, Lcom/android/js/react_native/api/Notification;->notification:Lcom/android/js/api/Notification;
+    iput-object v0, p0, Lcom/android/js/react_native/api/Notification;->notification:Lcom/android/js/api/Notification;
 
+    .line 17
     return-void
 .end method
 
@@ -47,6 +50,7 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .line 36
     const-string v0, "Notification"
 
     return-object v0
@@ -54,6 +58,8 @@
 
 .method public initBigNotification(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 1
+    .param p1, "title"    # Ljava/lang/String;
+    .param p2, "msg"    # [Ljava/lang/String;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -62,11 +68,14 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Notification;->initBigNotification(Ljava/lang/String;[Ljava/lang/String;)V
 
+    .line 32
     return-void
 .end method
 
 .method public initNotification(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "title"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -75,11 +84,13 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/android/js/api/Notification;->initNotification(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 22
     return-void
 .end method
 
 .method public showNotification(I)V
     .locals 1
+    .param p1, "id"    # I
     .annotation runtime Lcom/facebook/react/bridge/ReactMethod;
     .end annotation
 
@@ -88,5 +99,6 @@
 
     invoke-virtual {v0, p1}, Lcom/android/js/api/Notification;->showNotification(I)V
 
+    .line 27
     return-void
 .end method

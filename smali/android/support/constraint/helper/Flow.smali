@@ -44,35 +44,45 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 125
     invoke-direct {p0, p1}, Landroid/support/constraint/VirtualLayout;-><init>(Landroid/content/Context;)V
 
+    .line 126
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .line 129
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/VirtualLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    .line 130
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "defStyleAttr"    # I
 
     .line 133
     invoke-direct {p0, p1, p2, p3}, Landroid/support/constraint/VirtualLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
+    .line 134
     return-void
 .end method
 
 
 # virtual methods
 .method protected init(Landroid/util/AttributeSet;)V
-    .locals 6
+    .locals 7
+    .param p1, "attrs"    # Landroid/util/AttributeSet;
 
     .line 200
     invoke-super {p0, p1}, Landroid/support/constraint/VirtualLayout;->init(Landroid/util/AttributeSet;)V
@@ -84,6 +94,7 @@
 
     iput-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
+    .line 202
     if-eqz p1, :cond_1b
 
     .line 203
@@ -95,38 +106,43 @@
 
     invoke-virtual {v0, p1, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 204
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
+    .local v0, "a":Landroid/content/res/TypedArray;
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->getIndexCount()I
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
-
+    .line 205
+    .local v1, "N":I
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
-    if-ge v2, v0, :cond_1a
+    if-ge v2, v1, :cond_1a
 
     .line 206
-    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
+    invoke-virtual {v0, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v3
 
     .line 207
+    .local v3, "attr":I
     sget v4, Landroid/support/constraint/R$styleable;->ConstraintLayout_Layout_android_orientation:I
+
+    const/4 v5, 0x0
 
     if-ne v3, v4, :cond_0
 
     .line 208
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setOrientation(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setOrientation(I)V
 
     goto/16 :goto_1
 
@@ -139,11 +155,11 @@
     .line 210
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPadding(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPadding(I)V
 
     goto/16 :goto_1
 
@@ -151,23 +167,23 @@
     :cond_1
     sget v4, Landroid/support/constraint/R$styleable;->ConstraintLayout_Layout_android_paddingStart:I
 
-    const/16 v5, 0x11
+    const/16 v6, 0x11
 
     if-ne v3, v4, :cond_2
 
     .line 212
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v4, v5, :cond_19
+    if-lt v4, v6, :cond_19
 
     .line 213
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingStart(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingStart(I)V
 
     goto/16 :goto_1
 
@@ -180,16 +196,16 @@
     .line 216
     sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v4, v5, :cond_19
+    if-lt v4, v6, :cond_19
 
     .line 217
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingEnd(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingEnd(I)V
 
     goto/16 :goto_1
 
@@ -202,11 +218,11 @@
     .line 220
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingLeft(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingLeft(I)V
 
     goto/16 :goto_1
 
@@ -219,11 +235,11 @@
     .line 222
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingTop(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingTop(I)V
 
     goto/16 :goto_1
 
@@ -236,11 +252,11 @@
     .line 224
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingRight(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingRight(I)V
 
     goto/16 :goto_1
 
@@ -253,11 +269,11 @@
     .line 226
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingBottom(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setPaddingBottom(I)V
 
     goto/16 :goto_1
 
@@ -270,11 +286,11 @@
     .line 228
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setWrapMode(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setWrapMode(I)V
 
     goto/16 :goto_1
 
@@ -287,11 +303,11 @@
     .line 230
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalStyle(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalStyle(I)V
 
     goto/16 :goto_1
 
@@ -304,11 +320,11 @@
     .line 232
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalStyle(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalStyle(I)V
 
     goto/16 :goto_1
 
@@ -321,11 +337,11 @@
     .line 234
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setFirstHorizontalStyle(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setFirstHorizontalStyle(I)V
 
     goto/16 :goto_1
 
@@ -338,11 +354,11 @@
     .line 236
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setLastHorizontalStyle(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setLastHorizontalStyle(I)V
 
     goto/16 :goto_1
 
@@ -355,11 +371,11 @@
     .line 238
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setFirstVerticalStyle(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setFirstVerticalStyle(I)V
 
     goto/16 :goto_1
 
@@ -372,11 +388,11 @@
     .line 240
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setLastVerticalStyle(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setLastVerticalStyle(I)V
 
     goto/16 :goto_1
 
@@ -384,18 +400,18 @@
     :cond_e
     sget v4, Landroid/support/constraint/R$styleable;->ConstraintLayout_Layout_flow_horizontalBias:I
 
-    const/high16 v5, 0x3f000000    # 0.5f
+    const/high16 v6, 0x3f000000    # 0.5f
 
     if-ne v3, v4, :cond_f
 
     .line 242
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalBias(F)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalBias(F)V
 
     goto/16 :goto_1
 
@@ -408,11 +424,11 @@
     .line 244
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setFirstHorizontalBias(F)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setFirstHorizontalBias(F)V
 
     goto/16 :goto_1
 
@@ -425,11 +441,11 @@
     .line 246
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setLastHorizontalBias(F)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setLastHorizontalBias(F)V
 
     goto/16 :goto_1
 
@@ -442,11 +458,11 @@
     .line 248
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setFirstVerticalBias(F)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setFirstVerticalBias(F)V
 
     goto :goto_1
 
@@ -459,11 +475,11 @@
     .line 250
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setLastVerticalBias(F)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setLastVerticalBias(F)V
 
     goto :goto_1
 
@@ -476,11 +492,11 @@
     .line 252
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalBias(F)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalBias(F)V
 
     goto :goto_1
 
@@ -488,18 +504,18 @@
     :cond_14
     sget v4, Landroid/support/constraint/R$styleable;->ConstraintLayout_Layout_flow_horizontalAlign:I
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
     if-ne v3, v4, :cond_15
 
     .line 254
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalAlign(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalAlign(I)V
 
     goto :goto_1
 
@@ -512,11 +528,11 @@
     .line 256
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v6}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalAlign(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalAlign(I)V
 
     goto :goto_1
 
@@ -529,11 +545,11 @@
     .line 258
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalGap(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setHorizontalGap(I)V
 
     goto :goto_1
 
@@ -546,11 +562,11 @@
     .line 260
     iget-object v4, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalGap(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setVerticalGap(I)V
 
     goto :goto_1
 
@@ -565,12 +581,14 @@
 
     const/4 v5, -0x1
 
-    invoke-virtual {p1, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v3, v5}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v5
 
-    invoke-virtual {v4, v3}, Landroid/support/constraint/solver/widgets/Flow;->setMaxElementsWrap(I)V
+    invoke-virtual {v4, v5}, Landroid/support/constraint/solver/widgets/Flow;->setMaxElementsWrap(I)V
 
+    .line 205
+    .end local v3    # "attr":I
     :cond_19
     :goto_1
     add-int/lit8 v2, v2, 0x1
@@ -578,23 +596,30 @@
     goto/16 :goto_0
 
     .line 265
+    .end local v2    # "i":I
     :cond_1a
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 268
+    .end local v0    # "a":Landroid/content/res/TypedArray;
+    .end local v1    # "N":I
     :cond_1b
-    iget-object p1, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
+    iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    iput-object p1, p0, Landroid/support/constraint/helper/Flow;->mHelperWidget:Landroid/support/constraint/solver/widgets/Helper;
+    iput-object v0, p0, Landroid/support/constraint/helper/Flow;->mHelperWidget:Landroid/support/constraint/solver/widgets/Helper;
 
     .line 269
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->validateParams()V
 
+    .line 270
     return-void
 .end method
 
 .method public loadParameters(Landroid/support/constraint/ConstraintSet$Constraint;Landroid/support/constraint/solver/widgets/HelperWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
-    .locals 0
+    .locals 3
+    .param p1, "constraint"    # Landroid/support/constraint/ConstraintSet$Constraint;
+    .param p2, "child"    # Landroid/support/constraint/solver/widgets/HelperWidget;
+    .param p3, "layoutParams"    # Landroid/support/constraint/ConstraintLayout$LayoutParams;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -608,45 +633,57 @@
     .end annotation
 
     .line 184
+    .local p4, "mapIdToWidget":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/support/constraint/solver/widgets/ConstraintWidget;>;"
     invoke-super {p0, p1, p2, p3, p4}, Landroid/support/constraint/VirtualLayout;->loadParameters(Landroid/support/constraint/ConstraintSet$Constraint;Landroid/support/constraint/solver/widgets/HelperWidget;Landroid/support/constraint/ConstraintLayout$LayoutParams;Landroid/util/SparseArray;)V
 
     .line 185
-    instance-of p1, p2, Landroid/support/constraint/solver/widgets/Flow;
+    instance-of v0, p2, Landroid/support/constraint/solver/widgets/Flow;
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 186
-    check-cast p2, Landroid/support/constraint/solver/widgets/Flow;
+    move-object v0, p2
+
+    check-cast v0, Landroid/support/constraint/solver/widgets/Flow;
 
     .line 187
-    iget p1, p3, Landroid/support/constraint/ConstraintLayout$LayoutParams;->orientation:I
+    .local v0, "flow":Landroid/support/constraint/solver/widgets/Flow;
+    iget v1, p3, Landroid/support/constraint/ConstraintLayout$LayoutParams;->orientation:I
 
-    const/4 p4, -0x1
+    const/4 v2, -0x1
 
-    if-eq p1, p4, :cond_0
+    if-eq v1, v2, :cond_0
 
     .line 188
-    iget p1, p3, Landroid/support/constraint/ConstraintLayout$LayoutParams;->orientation:I
+    iget v1, p3, Landroid/support/constraint/ConstraintLayout$LayoutParams;->orientation:I
 
-    invoke-virtual {p2, p1}, Landroid/support/constraint/solver/widgets/Flow;->setOrientation(I)V
+    invoke-virtual {v0, v1}, Landroid/support/constraint/solver/widgets/Flow;->setOrientation(I)V
 
+    .line 191
+    .end local v0    # "flow":Landroid/support/constraint/solver/widgets/Flow;
     :cond_0
     return-void
 .end method
 
 .method protected onMeasure(II)V
     .locals 1
+    .param p1, "widthMeasureSpec"    # I
+    .param p2, "heightMeasureSpec"    # I
 
     .line 150
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
     invoke-virtual {p0, v0, p1, p2}, Landroid/support/constraint/helper/Flow;->onMeasure(Landroid/support/constraint/solver/widgets/VirtualLayout;II)V
 
+    .line 151
     return-void
 .end method
 
 .method public onMeasure(Landroid/support/constraint/solver/widgets/VirtualLayout;II)V
-    .locals 2
+    .locals 6
+    .param p1, "layout"    # Landroid/support/constraint/solver/widgets/VirtualLayout;
+    .param p2, "widthMeasureSpec"    # I
+    .param p3, "heightMeasureSpec"    # I
 
     .line 162
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -654,61 +691,71 @@
     move-result v0
 
     .line 163
+    .local v0, "widthMode":I
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
-
-    move-result p2
-
-    .line 164
-    invoke-static {p3}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v1
 
+    .line 164
+    .local v1, "widthSize":I
+    invoke-static {p3}, Landroid/view/View$MeasureSpec;->getMode(I)I
+
+    move-result v2
+
     .line 165
+    .local v2, "heightMode":I
     invoke-static {p3}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result p3
+    move-result v3
 
+    .line 166
+    .local v3, "heightSize":I
     if-eqz p1, :cond_0
 
     .line 167
-    invoke-virtual {p1, v0, p2, v1, p3}, Landroid/support/constraint/solver/widgets/VirtualLayout;->measure(IIII)V
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/support/constraint/solver/widgets/VirtualLayout;->measure(IIII)V
 
     .line 168
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/VirtualLayout;->getMeasuredWidth()I
 
-    move-result p2
+    move-result v4
 
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/VirtualLayout;->getMeasuredHeight()I
 
-    move-result p1
+    move-result v5
 
-    invoke-virtual {p0, p2, p1}, Landroid/support/constraint/helper/Flow;->setMeasuredDimension(II)V
+    invoke-virtual {p0, v4, v5}, Landroid/support/constraint/helper/Flow;->setMeasuredDimension(II)V
 
     goto :goto_0
 
-    :cond_0
-    const/4 p1, 0x0
-
     .line 170
-    invoke-virtual {p0, p1, p1}, Landroid/support/constraint/helper/Flow;->setMeasuredDimension(II)V
+    :cond_0
+    const/4 v4, 0x0
 
+    invoke-virtual {p0, v4, v4}, Landroid/support/constraint/helper/Flow;->setMeasuredDimension(II)V
+
+    .line 172
     :goto_0
     return-void
 .end method
 
 .method public resolveRtl(Landroid/support/constraint/solver/widgets/ConstraintWidget;Z)V
-    .locals 0
+    .locals 1
+    .param p1, "widget"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    .param p2, "isRtl"    # Z
 
     .line 144
-    iget-object p1, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
+    iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
 
-    invoke-virtual {p1, p2}, Landroid/support/constraint/solver/widgets/Flow;->applyRtl(Z)V
+    invoke-virtual {v0, p2}, Landroid/support/constraint/solver/widgets/Flow;->applyRtl(Z)V
 
+    .line 145
     return-void
 .end method
 
 .method public setFirstHorizontalBias(F)V
     .locals 1
+    .param p1, "bias"    # F
 
     .line 420
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -718,11 +765,13 @@
     .line 421
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 422
     return-void
 .end method
 
 .method public setFirstHorizontalStyle(I)V
     .locals 1
+    .param p1, "style"    # I
 
     .line 400
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -732,11 +781,13 @@
     .line 401
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 402
     return-void
 .end method
 
 .method public setFirstVerticalBias(F)V
     .locals 1
+    .param p1, "bias"    # F
 
     .line 430
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -746,11 +797,13 @@
     .line 431
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 432
     return-void
 .end method
 
 .method public setFirstVerticalStyle(I)V
     .locals 1
+    .param p1, "style"    # I
 
     .line 410
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -760,11 +813,13 @@
     .line 411
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 412
     return-void
 .end method
 
 .method public setHorizontalAlign(I)V
     .locals 1
+    .param p1, "align"    # I
 
     .line 445
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -774,11 +829,13 @@
     .line 446
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 447
     return-void
 .end method
 
 .method public setHorizontalBias(F)V
     .locals 1
+    .param p1, "bias"    # F
 
     .line 380
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -788,11 +845,13 @@
     .line 381
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 382
     return-void
 .end method
 
 .method public setHorizontalGap(I)V
     .locals 1
+    .param p1, "gap"    # I
 
     .line 471
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -802,11 +861,13 @@
     .line 472
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 473
     return-void
 .end method
 
 .method public setHorizontalStyle(I)V
     .locals 1
+    .param p1, "style"    # I
 
     .line 356
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -816,11 +877,13 @@
     .line 357
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 358
     return-void
 .end method
 
 .method public setMaxElementsWrap(I)V
     .locals 1
+    .param p1, "max"    # I
 
     .line 491
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -830,11 +893,13 @@
     .line 492
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 493
     return-void
 .end method
 
 .method public setOrientation(I)V
     .locals 1
+    .param p1, "orientation"    # I
 
     .line 278
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -844,11 +909,13 @@
     .line 279
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 280
     return-void
 .end method
 
 .method public setPadding(I)V
     .locals 1
+    .param p1, "padding"    # I
 
     .line 288
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -858,11 +925,13 @@
     .line 289
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 290
     return-void
 .end method
 
 .method public setPaddingBottom(I)V
     .locals 1
+    .param p1, "paddingBottom"    # I
 
     .line 328
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -872,11 +941,13 @@
     .line 329
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 330
     return-void
 .end method
 
 .method public setPaddingLeft(I)V
     .locals 1
+    .param p1, "paddingLeft"    # I
 
     .line 298
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -886,11 +957,13 @@
     .line 299
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 300
     return-void
 .end method
 
 .method public setPaddingRight(I)V
     .locals 1
+    .param p1, "paddingRight"    # I
 
     .line 318
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -900,11 +973,13 @@
     .line 319
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 320
     return-void
 .end method
 
 .method public setPaddingTop(I)V
     .locals 1
+    .param p1, "paddingTop"    # I
 
     .line 308
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -914,11 +989,13 @@
     .line 309
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 310
     return-void
 .end method
 
 .method public setVerticalAlign(I)V
     .locals 1
+    .param p1, "align"    # I
 
     .line 461
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -928,11 +1005,13 @@
     .line 462
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 463
     return-void
 .end method
 
 .method public setVerticalBias(F)V
     .locals 1
+    .param p1, "bias"    # F
 
     .line 390
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -942,11 +1021,13 @@
     .line 391
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 392
     return-void
 .end method
 
 .method public setVerticalGap(I)V
     .locals 1
+    .param p1, "gap"    # I
 
     .line 481
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -956,11 +1037,13 @@
     .line 482
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 483
     return-void
 .end method
 
 .method public setVerticalStyle(I)V
     .locals 1
+    .param p1, "style"    # I
 
     .line 370
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -970,11 +1053,13 @@
     .line 371
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 372
     return-void
 .end method
 
 .method public setWrapMode(I)V
     .locals 1
+    .param p1, "mode"    # I
 
     .line 342
     iget-object v0, p0, Landroid/support/constraint/helper/Flow;->mFlow:Landroid/support/constraint/solver/widgets/Flow;
@@ -984,5 +1069,6 @@
     .line 343
     invoke-virtual {p0}, Landroid/support/constraint/helper/Flow;->requestLayout()V
 
+    .line 344
     return-void
 .end method

@@ -21,6 +21,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/ActivityChooserView;
 
     .line 134
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$1;->this$0:Landroid/support/v7/widget/ActivityChooserView;
@@ -45,6 +46,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->notifyDataSetChanged()V
 
+    .line 140
     return-void
 .end method
 
@@ -61,5 +63,6 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/ActivityChooserView$ActivityChooserViewAdapter;->notifyDataSetInvalidated()V
 
+    .line 145
     return-void
 .end method

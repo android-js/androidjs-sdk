@@ -34,7 +34,9 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 5
+    .locals 9
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
     .line 145
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,120 +48,136 @@
 
     iput-object v0, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mVariants:Ljava/util/ArrayList;
 
+    .line 142
     const/4 v0, -0x1
 
-    .line 142
     iput v0, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
     .line 146
     invoke-static {p2}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
-    move-result-object p2
+    move-result-object v0
 
     .line 147
-    sget-object v0, Landroid/support/constraint/R$styleable;->State:[I
+    .local v0, "attrs":Landroid/util/AttributeSet;
+    sget-object v1, Landroid/support/constraint/R$styleable;->State:[I
 
-    invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, v0, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object p2
+    move-result-object v1
 
     .line 148
-    invoke-virtual {p2}, Landroid/content/res/TypedArray;->getIndexCount()I
+    .local v1, "a":Landroid/content/res/TypedArray;
+    invoke-virtual {v1}, Landroid/content/res/TypedArray;->getIndexCount()I
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x0
+    .line 149
+    .local v2, "N":I
+    const/4 v3, 0x0
 
+    .local v3, "i":I
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v3, v2, :cond_2
 
     .line 150
-    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
+    invoke-virtual {v1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
 
-    move-result v2
+    move-result v4
 
     .line 151
-    sget v3, Landroid/support/constraint/R$styleable;->State_android_id:I
+    .local v4, "attr":I
+    sget v5, Landroid/support/constraint/R$styleable;->State_android_id:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v4, v5, :cond_0
 
     .line 152
-    iget v3, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mId:I
+    iget v5, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mId:I
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v1, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mId:I
+    iput v5, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mId:I
 
     goto :goto_1
 
     .line 153
     :cond_0
-    sget v3, Landroid/support/constraint/R$styleable;->State_constraints:I
+    sget v5, Landroid/support/constraint/R$styleable;->State_constraints:I
 
-    if-ne v2, v3, :cond_1
+    if-ne v4, v5, :cond_1
 
     .line 154
-    iget v3, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
+    iget v5, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v1, v4, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
+    iput v5, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
     .line 155
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v5
 
-    iget v3, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
+    iget v6, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
     .line 156
+    .local v5, "type":Ljava/lang/String;
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v6
 
-    iget v4, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
+    iget v7, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getResourceName(I)Ljava/lang/String;
 
-    const-string v3, "layout"
+    move-result-object v6
 
     .line 158
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .local v6, "name":Ljava/lang/String;
+    const-string v7, "layout"
 
-    move-result v2
+    invoke-virtual {v7, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v2, :cond_1
+    move-result v7
+
+    if-eqz v7, :cond_1
 
     .line 159
-    new-instance v2, Landroid/support/constraint/ConstraintSet;
+    new-instance v7, Landroid/support/constraint/ConstraintSet;
 
-    invoke-direct {v2}, Landroid/support/constraint/ConstraintSet;-><init>()V
+    invoke-direct {v7}, Landroid/support/constraint/ConstraintSet;-><init>()V
 
-    iput-object v2, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintSet:Landroid/support/constraint/ConstraintSet;
+    iput-object v7, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintSet:Landroid/support/constraint/ConstraintSet;
 
     .line 160
-    iget v3, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
+    iget v8, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mConstraintID:I
 
-    invoke-virtual {v2, p1, v3}, Landroid/support/constraint/ConstraintSet;->clone(Landroid/content/Context;I)V
+    invoke-virtual {v7, p1, v8}, Landroid/support/constraint/ConstraintSet;->clone(Landroid/content/Context;I)V
 
+    .line 149
+    .end local v4    # "attr":I
+    .end local v5    # "type":Ljava/lang/String;
+    .end local v6    # "name":Ljava/lang/String;
     :cond_1
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     .line 167
+    .end local v3    # "i":I
     :cond_2
-    invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 168
     return-void
 .end method
 
@@ -167,21 +185,26 @@
 # virtual methods
 .method add(Landroid/support/constraint/ConstraintLayoutStates$Variant;)V
     .locals 1
+    .param p1, "size"    # Landroid/support/constraint/ConstraintLayoutStates$Variant;
 
     .line 171
     iget-object v0, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mVariants:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 172
     return-void
 .end method
 
 .method public findMatch(FF)I
     .locals 2
-
-    const/4 v0, 0x0
+    .param p1, "width"    # F
+    .param p2, "height"    # F
 
     .line 175
+    const/4 v0, 0x0
+
+    .local v0, "i":I
     :goto_0
     iget-object v1, p0, Landroid/support/constraint/ConstraintLayoutStates$State;->mVariants:Ljava/util/ArrayList;
 
@@ -206,15 +229,19 @@
 
     if-eqz v1, :cond_0
 
+    .line 177
     return v0
 
+    .line 175
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 180
+    .end local v0    # "i":I
     :cond_1
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    return p1
+    return v0
 .end method

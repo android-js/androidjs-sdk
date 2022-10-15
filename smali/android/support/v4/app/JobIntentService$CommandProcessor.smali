@@ -31,6 +31,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/JobIntentService;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v4/app/JobIntentService;
 
     .line 383
     iput-object p1, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
@@ -56,36 +57,41 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 2
+    .locals 3
+    .param p1, "params"    # [Ljava/lang/Void;
 
     .line 390
     :goto_0
-    iget-object p1, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
 
-    invoke-virtual {p1}, Landroid/support/v4/app/JobIntentService;->dequeueWork()Landroid/support/v4/app/JobIntentService$GenericWorkItem;
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->dequeueWork()Landroid/support/v4/app/JobIntentService$GenericWorkItem;
 
-    move-result-object p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    move-object v1, v0
+
+    .local v1, "work":Landroid/support/v4/app/JobIntentService$GenericWorkItem;
+    if-eqz v0, :cond_0
 
     .line 392
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
 
-    invoke-interface {p1}, Landroid/support/v4/app/JobIntentService$GenericWorkItem;->getIntent()Landroid/content/Intent;
+    invoke-interface {v1}, Landroid/support/v4/app/JobIntentService$GenericWorkItem;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/JobIntentService;->onHandleWork(Landroid/content/Intent;)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/app/JobIntentService;->onHandleWork(Landroid/content/Intent;)V
 
     .line 394
-    invoke-interface {p1}, Landroid/support/v4/app/JobIntentService$GenericWorkItem;->complete()V
+    invoke-interface {v1}, Landroid/support/v4/app/JobIntentService$GenericWorkItem;->complete()V
 
     goto :goto_0
 
+    .line 399
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
@@ -100,13 +106,15 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Void;)V
-    .locals 0
+    .locals 1
+    .param p1, "aVoid"    # Ljava/lang/Void;
 
     .line 404
-    iget-object p1, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
 
-    invoke-virtual {p1}, Landroid/support/v4/app/JobIntentService;->processorFinished()V
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->processorFinished()V
 
+    .line 405
     return-void
 .end method
 
@@ -122,12 +130,14 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 0
+    .locals 1
+    .param p1, "aVoid"    # Ljava/lang/Void;
 
     .line 409
-    iget-object p1, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
 
-    invoke-virtual {p1}, Landroid/support/v4/app/JobIntentService;->processorFinished()V
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->processorFinished()V
 
+    .line 410
     return-void
 .end method

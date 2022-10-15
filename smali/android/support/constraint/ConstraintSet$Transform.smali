@@ -176,6 +176,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
 
+    .line 1082
     return-void
 .end method
 
@@ -185,14 +186,14 @@
     .line 1026
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1027
     const/4 v0, 0x0
 
-    .line 1027
     iput-boolean v0, p0, Landroid/support/constraint/ConstraintSet$Transform;->mApply:Z
 
+    .line 1028
     const/4 v1, 0x0
 
-    .line 1028
     iput v1, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotation:F
 
     .line 1029
@@ -201,17 +202,17 @@
     .line 1030
     iput v1, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationY:F
 
+    .line 1031
     const/high16 v2, 0x3f800000    # 1.0f
 
-    .line 1031
     iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleX:F
 
     .line 1032
     iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleY:F
 
+    .line 1033
     const/high16 v2, 0x7fc00000    # Float.NaN
 
-    .line 1033
     iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotX:F
 
     .line 1034
@@ -239,6 +240,7 @@
 # virtual methods
 .method public copyFrom(Landroid/support/constraint/ConstraintSet$Transform;)V
     .locals 1
+    .param p1, "src"    # Landroid/support/constraint/ConstraintSet$Transform;
 
     .line 1042
     iget-boolean v0, p1, Landroid/support/constraint/ConstraintSet$Transform;->mApply:Z
@@ -301,212 +303,233 @@
     iput-boolean v0, p0, Landroid/support/constraint/ConstraintSet$Transform;->applyElevation:Z
 
     .line 1054
-    iget p1, p1, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
+    iget v0, p1, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
 
-    iput p1, p0, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
+    iput v0, p0, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
 
+    .line 1055
     return-void
 .end method
 
 .method fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .line 1085
     sget-object v0, Landroid/support/constraint/R$styleable;->Transform:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object p1
-
-    const/4 p2, 0x1
+    move-result-object v0
 
     .line 1086
-    iput-boolean p2, p0, Landroid/support/constraint/ConstraintSet$Transform;->mApply:Z
+    .local v0, "a":Landroid/content/res/TypedArray;
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Landroid/support/constraint/ConstraintSet$Transform;->mApply:Z
 
     .line 1087
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_1
-
-    .line 1089
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v2
 
+    .line 1088
+    .local v2, "N":I
+    const/4 v3, 0x0
+
+    .local v3, "i":I
+    :goto_0
+    if-ge v3, v2, :cond_1
+
+    .line 1089
+    invoke-virtual {v0, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
+
+    move-result v4
+
     .line 1091
-    sget-object v3, Landroid/support/constraint/ConstraintSet$Transform;->mapToConstant:Landroid/util/SparseIntArray;
+    .local v4, "attr":I
+    sget-object v5, Landroid/support/constraint/ConstraintSet$Transform;->mapToConstant:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v3, v2}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {v5, v4}, Landroid/util/SparseIntArray;->get(I)I
 
-    move-result v3
+    move-result v5
 
-    const/16 v4, 0x15
+    const/16 v6, 0x15
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     goto/16 :goto_1
 
     .line 1125
     :pswitch_0
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v4, :cond_0
+    if-lt v5, v6, :cond_0
 
     .line 1126
-    iput-boolean p2, p0, Landroid/support/constraint/ConstraintSet$Transform;->applyElevation:Z
+    iput-boolean v1, p0, Landroid/support/constraint/ConstraintSet$Transform;->applyElevation:Z
 
     .line 1127
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->elevation:F
 
     goto :goto_1
 
     .line 1120
     :pswitch_1
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v5, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-lt v3, v4, :cond_0
+    if-lt v5, v6, :cond_0
 
     .line 1121
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationZ:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationZ:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationZ:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationZ:F
 
     goto :goto_1
 
     .line 1117
     :pswitch_2
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationY:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationY:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationY:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationY:F
 
+    .line 1118
     goto :goto_1
 
     .line 1114
     :pswitch_3
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationX:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationX:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationX:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->translationX:F
 
+    .line 1115
     goto :goto_1
 
     .line 1111
     :pswitch_4
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotY:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotY:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotY:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotY:F
 
+    .line 1112
     goto :goto_1
 
     .line 1108
     :pswitch_5
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotX:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotX:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotX:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->transformPivotX:F
 
+    .line 1109
     goto :goto_1
 
     .line 1105
     :pswitch_6
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleY:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleY:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleY:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleY:F
 
+    .line 1106
     goto :goto_1
 
     .line 1102
     :pswitch_7
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleX:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleX:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleX:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->scaleX:F
 
+    .line 1103
     goto :goto_1
 
     .line 1099
     :pswitch_8
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationY:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationY:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationY:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationY:F
 
+    .line 1100
     goto :goto_1
 
     .line 1096
     :pswitch_9
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationX:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationX:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationX:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotationX:F
 
+    .line 1097
     goto :goto_1
 
     .line 1093
     :pswitch_a
-    iget v3, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotation:F
+    iget v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotation:F
 
-    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {v0, v4, v5}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v2
+    move-result v5
 
-    iput v2, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotation:F
+    iput v5, p0, Landroid/support/constraint/ConstraintSet$Transform;->rotation:F
 
+    .line 1094
+    nop
+
+    .line 1088
+    .end local v4    # "attr":I
     :cond_0
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_0
 
     .line 1132
+    .end local v3    # "i":I
     :cond_1
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
+    .line 1133
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -121,6 +121,7 @@
 
     sput-object v11, Landroid/support/constraint/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
+    .line 51
     const/4 v13, 0x7
 
     new-array v13, v13, [Landroid/support/constraint/ConstraintAttribute$AttributeType;
@@ -139,7 +140,6 @@
 
     aput-object v11, v13, v14
 
-    .line 51
     sput-object v13, Landroid/support/constraint/ConstraintAttribute$AttributeType;->$VALUES:[Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     return-void
@@ -161,17 +161,18 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/ConstraintAttribute$AttributeType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
     .line 51
     const-class v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
+    check-cast v0, Landroid/support/constraint/ConstraintAttribute$AttributeType;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Landroid/support/constraint/ConstraintAttribute$AttributeType;

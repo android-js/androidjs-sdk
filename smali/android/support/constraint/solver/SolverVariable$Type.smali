@@ -95,6 +95,7 @@
 
     sput-object v7, Landroid/support/constraint/solver/SolverVariable$Type;->UNKNOWN:Landroid/support/constraint/solver/SolverVariable$Type;
 
+    .line 75
     const/4 v9, 0x5
 
     new-array v9, v9, [Landroid/support/constraint/solver/SolverVariable$Type;
@@ -109,7 +110,6 @@
 
     aput-object v7, v9, v10
 
-    .line 75
     sput-object v9, Landroid/support/constraint/solver/SolverVariable$Type;->$VALUES:[Landroid/support/constraint/solver/SolverVariable$Type;
 
     return-void
@@ -131,17 +131,18 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/SolverVariable$Type;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
     .line 75
     const-class v0, Landroid/support/constraint/solver/SolverVariable$Type;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/support/constraint/solver/SolverVariable$Type;
+    check-cast v0, Landroid/support/constraint/solver/SolverVariable$Type;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/SolverVariable$Type;

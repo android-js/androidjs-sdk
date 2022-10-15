@@ -19,16 +19,16 @@
     .line 13
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;-><init>()V
 
+    .line 14
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    .line 14
     iput-object v0, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
+    .line 15
     const/4 v0, 0x0
 
-    .line 15
     iput v0, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
     return-void
@@ -38,7 +38,9 @@
 # virtual methods
 .method public add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
     .locals 3
+    .param p1, "widget"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
+    .line 28
     if-eq p1, p0, :cond_2
 
     if-nez p1, :cond_0
@@ -78,18 +80,24 @@
 
     aput-object p1, v0, v1
 
+    .line 35
     add-int/lit8 v1, v1, 0x1
 
-    .line 35
     iput v1, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
+    .line 36
+    return-void
+
+    .line 29
     :cond_2
     :goto_0
     return-void
 .end method
 
 .method public addDependents(Ljava/util/ArrayList;ILandroid/support/constraint/solver/widgets/analyzer/WidgetGroup;)V
-    .locals 3
+    .locals 2
+    .param p2, "orientation"    # I
+    .param p3, "group"    # Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,30 +109,37 @@
         }
     .end annotation
 
+    .line 58
+    .local p1, "dependencyLists":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;>;"
     const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    .line 58
+    .local v0, "i":I
     :goto_0
-    iget v2, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
+    iget v1, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
-    if-ge v1, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
     .line 59
-    iget-object v2, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v1, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aget-object v2, v2, v1
+    aget-object v1, v1, v0
 
     .line 60
-    invoke-virtual {p3, v2}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)Z
+    .local v1, "widget":Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    invoke-virtual {p3, v1}, Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;->add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)Z
 
-    add-int/lit8 v1, v1, 0x1
+    .line 58
+    .end local v1    # "widget":Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 62
+    .end local v0    # "i":I
     :cond_0
+    const/4 v0, 0x0
+
+    .restart local v0    # "i":I
     :goto_1
     iget v1, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
@@ -136,18 +151,24 @@
     aget-object v1, v1, v0
 
     .line 64
+    .restart local v1    # "widget":Landroid/support/constraint/solver/widgets/ConstraintWidget;
     invoke-static {v1, p2, p1, p3}, Landroid/support/constraint/solver/widgets/analyzer/Grouping;->findDependents(Landroid/support/constraint/solver/widgets/ConstraintWidget;ILjava/util/ArrayList;Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;)Landroid/support/constraint/solver/widgets/analyzer/WidgetGroup;
 
+    .line 62
+    .end local v1    # "widget":Landroid/support/constraint/solver/widgets/ConstraintWidget;
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 66
+    .end local v0    # "i":I
     :cond_1
     return-void
 .end method
 
 .method public copy(Landroid/support/constraint/solver/widgets/ConstraintWidget;Ljava/util/HashMap;)V
-    .locals 3
+    .locals 4
+    .param p1, "src"    # Landroid/support/constraint/solver/widgets/ConstraintWidget;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,49 +181,63 @@
     .end annotation
 
     .line 40
+    .local p2, "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Landroid/support/constraint/solver/widgets/ConstraintWidget;Landroid/support/constraint/solver/widgets/ConstraintWidget;>;"
     invoke-super {p0, p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->copy(Landroid/support/constraint/solver/widgets/ConstraintWidget;Ljava/util/HashMap;)V
 
     .line 41
-    check-cast p1, Landroid/support/constraint/solver/widgets/HelperWidget;
+    move-object v0, p1
 
-    const/4 v0, 0x0
+    check-cast v0, Landroid/support/constraint/solver/widgets/HelperWidget;
 
     .line 42
-    iput v0, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
+    .local v0, "srcHelper":Landroid/support/constraint/solver/widgets/HelperWidget;
+    const/4 v1, 0x0
+
+    iput v1, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
     .line 43
-    iget v1, p1, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
+    iget v1, v0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
+    .line 44
+    .local v1, "count":I
+    const/4 v2, 0x0
+
+    .local v2, "i":I
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v2, v1, :cond_0
 
     .line 45
-    iget-object v2, p1, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    iget-object v3, v0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgets:[Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    aget-object v2, v2, v0
+    aget-object v3, v3, v2
 
-    invoke-virtual {p2, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Landroid/support/constraint/solver/widgets/ConstraintWidget;
+    check-cast v3, Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
-    invoke-virtual {p0, v2}, Landroid/support/constraint/solver/widgets/HelperWidget;->add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
+    invoke-virtual {p0, v3}, Landroid/support/constraint/solver/widgets/HelperWidget;->add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
 
-    add-int/lit8 v0, v0, 0x1
+    .line 44
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 47
+    .end local v2    # "i":I
     :cond_0
     return-void
 .end method
 
 .method public findGroupInDependents(I)I
     .locals 4
-
-    const/4 v0, 0x0
+    .param p1, "orientation"    # I
 
     .line 69
+    const/4 v0, 0x0
+
+    .local v0, "i":I
     :goto_0
     iget v1, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
@@ -215,38 +250,43 @@
 
     aget-object v1, v1, v0
 
+    .line 71
+    .local v1, "widget":Landroid/support/constraint/solver/widgets/ConstraintWidget;
     if-nez p1, :cond_0
 
-    .line 71
     iget v3, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->horizontalGroup:I
 
     if-eq v3, v2, :cond_0
 
     .line 72
-    iget p1, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->horizontalGroup:I
+    iget v2, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->horizontalGroup:I
 
-    return p1
+    return v2
 
+    .line 74
     :cond_0
     const/4 v3, 0x1
 
     if-ne p1, v3, :cond_1
 
-    .line 74
     iget v3, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalGroup:I
 
     if-eq v3, v2, :cond_1
 
     .line 75
-    iget p1, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalGroup:I
+    iget v2, v1, Landroid/support/constraint/solver/widgets/ConstraintWidget;->verticalGroup:I
 
-    return p1
+    return v2
 
+    .line 69
+    .end local v1    # "widget":Landroid/support/constraint/solver/widgets/ConstraintWidget;
     :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 78
+    .end local v0    # "i":I
     :cond_2
     return v2
 .end method
@@ -254,9 +294,9 @@
 .method public removeAllIds()V
     .locals 2
 
+    .line 53
     const/4 v0, 0x0
 
-    .line 53
     iput v0, p0, Landroid/support/constraint/solver/widgets/HelperWidget;->mWidgetsCount:I
 
     .line 54
@@ -266,11 +306,14 @@
 
     invoke-static {v0, v1}, Ljava/util/Arrays;->fill([Ljava/lang/Object;Ljava/lang/Object;)V
 
+    .line 55
     return-void
 .end method
 
 .method public updateConstraints(Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;)V
     .locals 0
+    .param p1, "container"    # Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
+    .line 20
     return-void
 .end method

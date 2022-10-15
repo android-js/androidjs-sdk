@@ -32,9 +32,9 @@
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 42
     const-wide/16 v0, -0x1
 
-    .line 42
     iput-wide v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mDuration:J
 
     .line 120
@@ -51,6 +51,7 @@
 
     iput-object v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mAnimators:Ljava/util/ArrayList;
 
+    .line 50
     return-void
 .end method
 
@@ -64,6 +65,7 @@
 
     if-nez v0, :cond_0
 
+    .line 91
     return-void
 
     .line 93
@@ -88,32 +90,38 @@
     check-cast v1, Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 94
+    .local v1, "animator":Landroid/support/v4/view/ViewPropertyAnimatorCompat;
     invoke-virtual {v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->cancel()V
 
+    .line 95
+    .end local v1    # "animator":Landroid/support/v4/view/ViewPropertyAnimatorCompat;
     goto :goto_0
 
+    .line 96
     :cond_1
     const/4 v0, 0x0
 
-    .line 96
     iput-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
 
+    .line 97
     return-void
 .end method
 
 .method onAnimationsEnded()V
     .locals 1
 
+    .line 86
     const/4 v0, 0x0
 
-    .line 86
     iput-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
 
+    .line 87
     return-void
 .end method
 
 .method public play(Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;
     .locals 1
+    .param p1, "animator"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 53
     iget-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
@@ -125,12 +133,15 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 56
     :cond_0
     return-object p0
 .end method
 
 .method public playSequentially(Landroid/support/v4/view/ViewPropertyAnimatorCompat;Landroid/support/v4/view/ViewPropertyAnimatorCompat;)Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;
     .locals 2
+    .param p1, "anim1"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+    .param p2, "anim2"    # Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 61
     iget-object v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mAnimators:Ljava/util/ArrayList;
@@ -145,15 +156,17 @@
     invoke-virtual {p2, v0, v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setStartDelay(J)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 63
-    iget-object p1, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mAnimators:Ljava/util/ArrayList;
+    iget-object v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mAnimators:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 64
     return-object p0
 .end method
 
 .method public setDuration(J)Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;
     .locals 1
+    .param p1, "duration"    # J
 
     .line 100
     iget-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
@@ -163,12 +176,14 @@
     .line 101
     iput-wide p1, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mDuration:J
 
+    .line 103
     :cond_0
     return-object p0
 .end method
 
 .method public setInterpolator(Landroid/view/animation/Interpolator;)Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;
     .locals 1
+    .param p1, "interpolator"    # Landroid/view/animation/Interpolator;
 
     .line 107
     iget-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
@@ -178,12 +193,14 @@
     .line 108
     iput-object p1, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mInterpolator:Landroid/view/animation/Interpolator;
 
+    .line 110
     :cond_0
     return-object p0
 .end method
 
 .method public setListener(Landroid/support/v4/view/ViewPropertyAnimatorListener;)Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;
     .locals 1
+    .param p1, "listener"    # Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
     .line 114
     iget-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
@@ -193,6 +210,7 @@
     .line 115
     iput-object p1, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mListener:Landroid/support/v4/view/ViewPropertyAnimatorListener;
 
+    .line 117
     :cond_0
     return-object p0
 .end method
@@ -229,6 +247,7 @@
     check-cast v1, Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 70
+    .local v1, "animator":Landroid/support/v4/view/ViewPropertyAnimatorCompat;
     iget-wide v2, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mDuration:J
 
     const-wide/16 v4, 0x0
@@ -264,13 +283,16 @@
     :cond_3
     invoke-virtual {v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->start()V
 
+    .line 80
+    .end local v1    # "animator":Landroid/support/v4/view/ViewPropertyAnimatorCompat;
     goto :goto_0
 
+    .line 82
     :cond_4
     const/4 v0, 0x1
 
-    .line 82
     iput-boolean v0, p0, Landroid/support/v7/view/ViewPropertyAnimatorCompatSet;->mIsStarted:Z
 
+    .line 83
     return-void
 .end method

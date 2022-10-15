@@ -54,12 +54,16 @@
 
 .method public onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
     .locals 0
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .line 69
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/graphics/drawable/Drawable;)V
     .locals 0
+    .param p1, "drawable"    # Landroid/graphics/drawable/Drawable;
 
+    .line 63
     return-void
 .end method

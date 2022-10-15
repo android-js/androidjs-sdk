@@ -10,11 +10,14 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
     return-void
 .end method
 
 .method public static createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
     .locals 2
+    .param p0, "listPopupWindow"    # Landroid/widget/ListPopupWindow;
+    .param p1, "src"    # Landroid/view/View;
 
     .line 97
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -26,27 +29,32 @@
     .line 98
     invoke-virtual {p0, p1}, Landroid/widget/ListPopupWindow;->createDragToOpenListener(Landroid/view/View;)Landroid/view/View$OnTouchListener;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 100
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static createDragToOpenListener(Ljava/lang/Object;Landroid/view/View;)Landroid/view/View$OnTouchListener;
-    .locals 0
+    .locals 1
+    .param p0, "listPopupWindow"    # Ljava/lang/Object;
+    .param p1, "src"    # Landroid/view/View;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 65
-    check-cast p0, Landroid/widget/ListPopupWindow;
+    move-object v0, p0
 
-    invoke-static {p0, p1}, Landroid/support/v4/widget/ListPopupWindowCompat;->createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
+    check-cast v0, Landroid/widget/ListPopupWindow;
 
-    move-result-object p0
+    invoke-static {v0, p1}, Landroid/support/v4/widget/ListPopupWindowCompat;->createDragToOpenListener(Landroid/widget/ListPopupWindow;Landroid/view/View;)Landroid/view/View$OnTouchListener;
 
-    return-object p0
+    move-result-object v0
+
+    return-object v0
 .end method

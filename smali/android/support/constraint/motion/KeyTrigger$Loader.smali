@@ -137,6 +137,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
 
+    .line 275
     return-void
 .end method
 
@@ -150,31 +151,38 @@
 .end method
 
 .method public static read(Landroid/support/constraint/motion/KeyTrigger;Landroid/content/res/TypedArray;Landroid/content/Context;)V
-    .locals 4
+    .locals 5
+    .param p0, "c"    # Landroid/support/constraint/motion/KeyTrigger;
+    .param p1, "a"    # Landroid/content/res/TypedArray;
+    .param p2, "context"    # Landroid/content/Context;
 
     .line 278
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
 
-    move-result p2
+    move-result v0
 
-    const/4 v0, 0x0
+    .line 279
+    .local v0, "N":I
+    const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
-    if-ge v0, p2, :cond_3
+    if-ge v1, v0, :cond_3
 
     .line 280
-    invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->getIndex(I)I
-
-    move-result v1
-
-    .line 281
-    sget-object v2, Landroid/support/constraint/motion/KeyTrigger$Loader;->mAttrMap:Landroid/util/SparseIntArray;
-
-    invoke-virtual {v2, v1}, Landroid/util/SparseIntArray;->get(I)I
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    .line 281
+    .local v2, "attr":I
+    sget-object v3, Landroid/support/constraint/motion/KeyTrigger$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v3, v2}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v3
+
+    packed-switch v3, :pswitch_data_0
 
     :pswitch_0
     goto/16 :goto_1
@@ -183,13 +191,13 @@
     :pswitch_1
     invoke-static {p0}, Landroid/support/constraint/motion/KeyTrigger;->access$700(Landroid/support/constraint/motion/KeyTrigger;)I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v2
+    move-result v3
 
-    invoke-static {p0, v2}, Landroid/support/constraint/motion/KeyTrigger;->access$702(Landroid/support/constraint/motion/KeyTrigger;I)I
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$702(Landroid/support/constraint/motion/KeyTrigger;I)I
 
     goto/16 :goto_1
 
@@ -197,219 +205,240 @@
     :pswitch_2
     invoke-static {p0}, Landroid/support/constraint/motion/KeyTrigger;->access$600(Landroid/support/constraint/motion/KeyTrigger;)Z
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v1
+    move-result v3
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$602(Landroid/support/constraint/motion/KeyTrigger;Z)Z
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$602(Landroid/support/constraint/motion/KeyTrigger;Z)Z
 
+    .line 320
     goto/16 :goto_2
 
     .line 316
     :pswitch_3
     invoke-static {p0}, Landroid/support/constraint/motion/KeyTrigger;->access$500(Landroid/support/constraint/motion/KeyTrigger;)I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v1
+    move-result v3
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$502(Landroid/support/constraint/motion/KeyTrigger;I)I
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$502(Landroid/support/constraint/motion/KeyTrigger;I)I
 
+    .line 317
     goto/16 :goto_2
 
     .line 283
     :pswitch_4
-    iget v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mFramePosition:I
+    iget v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFramePosition:I
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getInteger(II)I
 
-    move-result v1
+    move-result v3
 
-    iput v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFramePosition:I
+    iput v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFramePosition:I
 
     .line 284
-    iget v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mFramePosition:I
+    iget v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mFramePosition:I
 
-    int-to-float v1, v1
+    int-to-float v3, v3
 
-    const/high16 v2, 0x3f000000    # 0.5f
+    const/high16 v4, 0x3f000000    # 0.5f
 
-    add-float/2addr v1, v2
+    add-float/2addr v3, v4
 
-    const/high16 v2, 0x42c80000    # 100.0f
+    const/high16 v4, 0x42c80000    # 100.0f
 
-    div-float/2addr v1, v2
+    div-float/2addr v3, v4
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$002(Landroid/support/constraint/motion/KeyTrigger;F)F
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$002(Landroid/support/constraint/motion/KeyTrigger;F)F
 
+    .line 285
     goto/16 :goto_2
 
     .line 287
     :pswitch_5
-    sget-boolean v2, Landroid/support/constraint/motion/MotionLayout;->IS_IN_EDIT_MODE:Z
+    sget-boolean v3, Landroid/support/constraint/motion/MotionLayout;->IS_IN_EDIT_MODE:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     .line 288
-    iget v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
+    iget v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
+    iput v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
 
     .line 289
-    iget v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
+    iget v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v3, v4, :cond_2
 
     .line 290
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    iput-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetString:Ljava/lang/String;
+    iput-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetString:Ljava/lang/String;
 
     goto/16 :goto_2
 
     .line 293
     :cond_0
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget v2, v2, Landroid/util/TypedValue;->type:I
+    iget v3, v3, Landroid/util/TypedValue;->type:I
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    if-ne v2, v3, :cond_1
+    if-ne v3, v4, :cond_1
 
     .line 294
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    iput-object v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetString:Ljava/lang/String;
+    iput-object v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetString:Ljava/lang/String;
 
     goto :goto_2
 
     .line 296
     :cond_1
-    iget v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
+    iget v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v1
+    move-result v3
 
-    iput v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
+    iput v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTargetId:I
 
+    .line 299
     goto :goto_2
 
     .line 313
     :pswitch_6
     invoke-static {p0}, Landroid/support/constraint/motion/KeyTrigger;->access$400(Landroid/support/constraint/motion/KeyTrigger;)I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v1
+    move-result v3
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$402(Landroid/support/constraint/motion/KeyTrigger;I)I
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$402(Landroid/support/constraint/motion/KeyTrigger;I)I
 
+    .line 314
     goto :goto_2
 
     .line 310
     :pswitch_7
-    iget v2, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerSlack:F
+    iget v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerSlack:F
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p1, v2, v3}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result v1
+    move-result v3
 
-    iput v1, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerSlack:F
+    iput v3, p0, Landroid/support/constraint/motion/KeyTrigger;->mTriggerSlack:F
 
+    .line 311
     goto :goto_2
 
     .line 307
     :pswitch_8
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$302(Landroid/support/constraint/motion/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$302(Landroid/support/constraint/motion/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 308
     goto :goto_2
 
     .line 304
     :pswitch_9
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$202(Landroid/support/constraint/motion/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$202(Landroid/support/constraint/motion/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 305
     goto :goto_2
 
     .line 301
     :pswitch_a
-    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-static {p0, v1}, Landroid/support/constraint/motion/KeyTrigger;->access$102(Landroid/support/constraint/motion/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, v3}, Landroid/support/constraint/motion/KeyTrigger;->access$102(Landroid/support/constraint/motion/KeyTrigger;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 302
     goto :goto_2
 
     .line 324
     :goto_1
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "unused attribute 0x"
+    const-string v4, "unused attribute 0x"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    const-string v3, "   "
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v3, Landroid/support/constraint/motion/KeyTrigger$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+    move-result-object v3
 
-    invoke-virtual {v3, v1}, Landroid/util/SparseIntArray;->get(I)I
+    const-string v4, "   "
 
-    move-result v1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    sget-object v4, Landroid/support/constraint/motion/KeyTrigger$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
-    move-result-object v1
+    invoke-virtual {v4, v2}, Landroid/util/SparseIntArray;->get(I)I
 
-    const-string v2, "KeyTrigger"
+    move-result v4
 
-    invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "KeyTrigger"
+
+    invoke-static {v4, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 279
+    .end local v2    # "attr":I
     :cond_2
     :goto_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_0
 
+    .line 328
+    .end local v1    # "i":I
     :cond_3
     return-void
 

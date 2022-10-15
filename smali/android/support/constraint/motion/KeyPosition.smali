@@ -62,9 +62,9 @@
     .line 39
     invoke-direct {p0}, Landroid/support/constraint/motion/KeyPositionBase;-><init>()V
 
+    .line 43
     const/4 v0, 0x0
 
-    .line 43
     iput-object v0, p0, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
 
     .line 44
@@ -72,14 +72,14 @@
 
     iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPathMotionArc:I
 
+    .line 45
     const/4 v0, 0x0
 
-    .line 45
     iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mDrawPath:I
 
+    .line 46
     const/high16 v1, 0x7fc00000    # Float.NaN
 
-    .line 46
     iput v1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
 
     .line 47
@@ -106,191 +106,235 @@
     .line 58
     iput v1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
 
+    .line 62
     const/4 v0, 0x2
 
-    .line 62
     iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mType:I
 
+    .line 63
     return-void
 .end method
 
 .method private calcCartesianPosition(FFFF)V
-    .locals 5
+    .locals 8
+    .param p1, "start_x"    # F
+    .param p2, "start_y"    # F
+    .param p3, "end_x"    # F
+    .param p4, "end_y"    # F
 
-    sub-float/2addr p3, p1
+    .line 112
+    sub-float v0, p3, p1
 
-    sub-float/2addr p4, p2
+    .line 113
+    .local v0, "pathVectorX":F
+    sub-float v1, p4, p2
 
     .line 114
-    iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
-
-    invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
-
-    .line 115
-    :goto_0
-    iget v2, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentY:F
+    .local v1, "pathVectorY":F
+    iget v2, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
     invoke-static {v2}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_0
 
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_1
-    iget v2, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentY:F
+    :cond_0
+    iget v2, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    .line 116
-    :goto_1
-    iget v3, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
-
-    invoke-static {v3}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    const/4 v3, 0x0
-
-    goto :goto_2
-
-    :cond_2
-    iget v3, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
-
-    .line 117
-    :goto_2
-    iget v4, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentX:F
+    .line 115
+    .local v2, "dxdx":F
+    :goto_0
+    iget v4, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentY:F
 
     invoke-static {v4}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_1
+
+    const/4 v4, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    iget v4, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentY:F
+
+    .line 116
+    .local v4, "dydx":F
+    :goto_1
+    iget v5, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+
+    invoke-static {v5}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    const/4 v5, 0x0
+
+    goto :goto_2
+
+    :cond_2
+    iget v5, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+
+    .line 117
+    .local v5, "dydy":F
+    :goto_2
+    iget v6, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentX:F
+
+    invoke-static {v6}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
 
     goto :goto_3
 
     :cond_3
-    iget v1, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentX:F
-
-    :goto_3
-    mul-float v0, v0, p3
-
-    add-float/2addr p1, v0
-
-    mul-float v1, v1, p4
-
-    add-float/2addr p1, v1
-
-    float-to-int p1, p1
-
-    int-to-float p1, p1
+    iget v3, p0, Landroid/support/constraint/motion/KeyPosition;->mAltPercentX:F
 
     .line 118
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
+    .local v3, "dxdy":F
+    :goto_3
+    mul-float v6, v0, v2
 
-    mul-float p3, p3, v2
+    add-float/2addr v6, p1
 
-    add-float/2addr p2, p3
+    mul-float v7, v1, v3
 
-    mul-float p4, p4, v3
+    add-float/2addr v6, v7
 
-    add-float/2addr p2, p4
+    float-to-int v6, v6
 
-    float-to-int p1, p2
+    int-to-float v6, v6
 
-    int-to-float p1, p1
+    iput v6, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
     .line 119
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+    mul-float v6, v0, v4
 
+    add-float/2addr v6, p2
+
+    mul-float v7, v1, v5
+
+    add-float/2addr v6, v7
+
+    float-to-int v6, v6
+
+    int-to-float v6, v6
+
+    iput v6, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+
+    .line 120
     return-void
 .end method
 
 .method private calcPathPosition(FFFF)V
-    .locals 3
+    .locals 8
+    .param p1, "start_x"    # F
+    .param p2, "start_y"    # F
+    .param p3, "end_x"    # F
+    .param p4, "end_y"    # F
 
-    sub-float/2addr p3, p1
+    .line 102
+    sub-float v0, p3, p1
 
-    sub-float/2addr p4, p2
+    .line 103
+    .local v0, "pathVectorX":F
+    sub-float v1, p4, p2
 
-    neg-float v0, p4
+    .line 104
+    .local v1, "pathVectorY":F
+    neg-float v2, v1
+
+    .line 105
+    .local v2, "perpendicularX":F
+    move v3, v0
 
     .line 106
-    iget v1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
+    .local v3, "perpendicularY":F
+    iget v4, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    mul-float v2, p3, v1
+    mul-float v5, v0, v4
 
-    add-float/2addr p1, v2
+    add-float/2addr v5, p1
 
-    iget v2, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+    iget v6, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
-    mul-float v0, v0, v2
+    mul-float v7, v2, v6
 
-    add-float/2addr p1, v0
+    add-float/2addr v5, v7
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
-
-    mul-float p4, p4, v1
-
-    add-float/2addr p2, p4
-
-    mul-float p3, p3, v2
-
-    add-float/2addr p2, p3
+    iput v5, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
     .line 107
-    iput p2, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+    mul-float v4, v4, v1
 
+    add-float/2addr v4, p2
+
+    mul-float v6, v6, v3
+
+    add-float/2addr v4, v6
+
+    iput v4, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+
+    .line 108
     return-void
 .end method
 
 .method private calcScreenPosition(II)V
-    .locals 3
+    .locals 5
+    .param p1, "layoutWidth"    # I
+    .param p2, "layoutHeight"    # I
 
+    .line 94
     const/4 v0, 0x0
 
-    sub-int/2addr p1, v0
-
-    int-to-float p1, p1
+    .line 95
+    .local v0, "viewWidth":I
+    const/4 v1, 0x0
 
     .line 96
-    iget v1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
+    .local v1, "viewHeight":I
+    sub-int v2, p1, v0
 
-    mul-float p1, p1, v1
+    int-to-float v2, v2
 
-    int-to-float v2, v0
+    iget v3, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    add-float/2addr p1, v2
+    mul-float v2, v2, v3
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
+    div-int/lit8 v4, v0, 0x2
 
-    sub-int/2addr p2, v0
+    int-to-float v4, v4
 
-    int-to-float p1, p2
+    add-float/2addr v2, v4
 
-    mul-float p1, p1, v1
-
-    add-float/2addr p1, v2
+    iput v2, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
     .line 97
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+    sub-int v2, p2, v1
 
+    int-to-float v2, v2
+
+    mul-float v2, v2, v3
+
+    div-int/lit8 v3, v1, 0x2
+
+    int-to-float v3, v3
+
+    add-float/2addr v2, v3
+
+    iput v2, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+
+    .line 98
     return-void
 .end method
 
@@ -308,39 +352,52 @@
         }
     .end annotation
 
+    .line 73
+    .local p1, "splines":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/support/constraint/motion/SplineSet;>;"
     return-void
 .end method
 
 .method calcPosition(IIFFFF)V
-    .locals 2
+    .locals 1
+    .param p1, "layoutWidth"    # I
+    .param p2, "layoutHeight"    # I
+    .param p3, "start_x"    # F
+    .param p4, "start_y"    # F
+    .param p5, "end_x"    # F
+    .param p6, "end_y"    # F
 
     .line 77
     iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPositionType:I
 
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_1
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_0
+    packed-switch v0, :pswitch_data_0
 
     .line 87
     invoke-direct {p0, p3, p4, p5, p6}, Landroid/support/constraint/motion/KeyPosition;->calcCartesianPosition(FFFF)V
 
+    .line 88
     return-void
 
     .line 79
-    :cond_0
+    :pswitch_0
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/motion/KeyPosition;->calcScreenPosition(II)V
 
+    .line 80
     return-void
 
     .line 83
-    :cond_1
+    :pswitch_1
     invoke-direct {p0, p3, p4, p5, p6}, Landroid/support/constraint/motion/KeyPosition;->calcPathPosition(FFFF)V
 
+    .line 84
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method getPositionX()F
@@ -363,6 +420,12 @@
 
 .method public intersects(IILandroid/graphics/RectF;Landroid/graphics/RectF;FF)Z
     .locals 7
+    .param p1, "layoutWidth"    # I
+    .param p2, "layoutHeight"    # I
+    .param p3, "start"    # Landroid/graphics/RectF;
+    .param p4, "end"    # Landroid/graphics/RectF;
+    .param p5, "x"    # F
+    .param p6, "y"    # F
 
     .line 237
     invoke-virtual {p3}, Landroid/graphics/RectF;->centerX()F
@@ -390,73 +453,81 @@
     invoke-virtual/range {v0 .. v6}, Landroid/support/constraint/motion/KeyPosition;->calcPosition(IIFFFF)V
 
     .line 238
-    iget p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
+    iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionX:F
 
-    sub-float/2addr p5, p1
+    sub-float v0, p5, v0
 
-    invoke-static {p5}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
-    move-result p1
+    move-result v0
 
-    const/high16 p2, 0x41a00000    # 20.0f
+    const/high16 v1, 0x41a00000    # 20.0f
 
-    cmpg-float p1, p1, p2
+    cmpg-float v0, v0, v1
 
-    if-gez p1, :cond_0
+    if-gez v0, :cond_0
 
-    iget p1, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
+    iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mCalculatedPositionY:F
 
-    sub-float/2addr p6, p1
+    sub-float v0, p6, v0
 
     .line 239
-    invoke-static {p6}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
-    move-result p1
+    move-result v0
 
-    cmpg-float p1, p1, p2
+    cmpg-float v0, v0, v1
 
-    if-gez p1, :cond_0
+    if-gez v0, :cond_0
 
-    const/4 p1, 0x1
+    .line 240
+    const/4 v0, 0x1
 
-    return p1
+    return v0
 
+    .line 242
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public load(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
     .line 67
     sget-object v0, Landroid/support/constraint/R$styleable;->KeyPosition:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object p1
+    move-result-object v0
 
     .line 68
-    invoke-static {p0, p1}, Landroid/support/constraint/motion/KeyPosition$Loader;->access$000(Landroid/support/constraint/motion/KeyPosition;Landroid/content/res/TypedArray;)V
+    .local v0, "a":Landroid/content/res/TypedArray;
+    invoke-static {p0, v0}, Landroid/support/constraint/motion/KeyPosition$Loader;->access$000(Landroid/support/constraint/motion/KeyPosition;Landroid/content/res/TypedArray;)V
 
+    .line 69
     return-void
 .end method
 
 .method public positionAttributes(Landroid/view/View;Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
     .locals 7
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "start"    # Landroid/graphics/RectF;
+    .param p3, "end"    # Landroid/graphics/RectF;
+    .param p4, "x"    # F
+    .param p5, "y"    # F
+    .param p6, "attribute"    # [Ljava/lang/String;
+    .param p7, "value"    # [F
 
     .line 137
     iget v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPositionType:I
 
-    const/4 v1, 0x1
+    packed-switch v0, :pswitch_data_0
 
-    if-eq v0, v1, :cond_1
-
-    const/4 v1, 0x2
-
-    if-eq v0, v1, :cond_0
-
+    .line 147
     move-object v0, p0
 
     move-object v1, p2
@@ -471,18 +542,20 @@
 
     move-object v6, p7
 
-    .line 147
     invoke-virtual/range {v0 .. v6}, Landroid/support/constraint/motion/KeyPosition;->positionCartAttributes(Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
 
+    .line 148
     return-void
 
     .line 143
-    :cond_0
+    :pswitch_0
     invoke-virtual/range {p0 .. p7}, Landroid/support/constraint/motion/KeyPosition;->positionScreenAttributes(Landroid/view/View;Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
 
+    .line 144
     return-void
 
-    :cond_1
+    .line 140
+    :pswitch_1
     move-object v0, p0
 
     move-object v1, p2
@@ -497,14 +570,28 @@
 
     move-object v6, p7
 
-    .line 140
     invoke-virtual/range {v0 .. v6}, Landroid/support/constraint/motion/KeyPosition;->positionPathAttributes(Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
 
+    .line 141
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method positionCartAttributes(Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
-    .locals 6
+    .locals 10
+    .param p1, "start"    # Landroid/graphics/RectF;
+    .param p2, "end"    # Landroid/graphics/RectF;
+    .param p3, "x"    # F
+    .param p4, "y"    # F
+    .param p5, "attribute"    # [Ljava/lang/String;
+    .param p6, "value"    # [F
 
     .line 213
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerX()F
@@ -512,360 +599,435 @@
     move-result v0
 
     .line 214
+    .local v0, "startCenterX":F
     invoke-virtual {p1}, Landroid/graphics/RectF;->centerY()F
-
-    move-result p1
-
-    .line 215
-    invoke-virtual {p2}, Landroid/graphics/RectF;->centerX()F
 
     move-result v1
 
+    .line 215
+    .local v1, "startCenterY":F
+    invoke-virtual {p2}, Landroid/graphics/RectF;->centerX()F
+
+    move-result v2
+
     .line 216
+    .local v2, "endCenterX":F
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerY()F
 
-    move-result p2
+    move-result v3
 
-    sub-float/2addr v1, v0
+    .line 217
+    .local v3, "endCenterY":F
+    sub-float v4, v2, v0
 
-    sub-float/2addr p2, p1
-
-    const/4 v2, 0x0
+    .line 218
+    .local v4, "pathVectorX":F
+    sub-float v5, v3, v1
 
     .line 219
-    aget-object v3, p5, v2
+    .local v5, "pathVectorY":F
+    const/4 v6, 0x0
 
-    const-string v4, "percentX"
+    aget-object v7, p5, v6
 
-    const/4 v5, 0x1
+    const-string v8, "percentX"
 
-    if-eqz v3, :cond_1
+    const/4 v9, 0x1
+
+    if-eqz v7, :cond_1
 
     .line 220
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object v7, p5, v6
 
-    move-result p5
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz p5, :cond_0
+    move-result v7
 
-    sub-float/2addr p3, v0
-
-    div-float/2addr p3, v1
+    if-eqz v7, :cond_0
 
     .line 221
-    aput p3, p6, v2
+    sub-float v7, p3, v0
 
-    sub-float/2addr p4, p1
+    div-float/2addr v7, v4
 
-    div-float/2addr p4, p2
+    aput v7, p6, v6
 
     .line 222
-    aput p4, p6, v5
+    sub-float v6, p4, v1
+
+    div-float/2addr v6, v5
+
+    aput v6, p6, v9
 
     goto :goto_0
 
-    :cond_0
-    sub-float/2addr p3, v0
-
-    div-float/2addr p3, v1
-
     .line 224
-    aput p3, p6, v5
+    :cond_0
+    sub-float v7, p3, v0
 
-    sub-float/2addr p4, p1
+    div-float/2addr v7, v4
 
-    div-float/2addr p4, p2
+    aput v7, p6, v9
 
     .line 225
-    aput p4, p6, v2
+    sub-float v7, p4, v1
+
+    div-float/2addr v7, v5
+
+    aput v7, p6, v6
 
     goto :goto_0
 
     .line 228
     :cond_1
-    aput-object v4, p5, v2
-
-    sub-float/2addr p3, v0
-
-    div-float/2addr p3, v1
+    aput-object v8, p5, v6
 
     .line 229
-    aput p3, p6, v2
+    sub-float v7, p3, v0
 
-    const-string p3, "percentY"
+    div-float/2addr v7, v4
+
+    aput v7, p6, v6
 
     .line 230
-    aput-object p3, p5, v5
+    const-string v6, "percentY"
 
-    sub-float/2addr p4, p1
-
-    div-float/2addr p4, p2
+    aput-object v6, p5, v9
 
     .line 231
-    aput p4, p6, v5
+    sub-float v6, p4, v1
 
+    div-float/2addr v6, v5
+
+    aput v6, p6, v9
+
+    .line 233
     :goto_0
     return-void
 .end method
 
 .method positionPathAttributes(Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
-    .locals 12
+    .locals 15
+    .param p1, "start"    # Landroid/graphics/RectF;
+    .param p2, "end"    # Landroid/graphics/RectF;
+    .param p3, "x"    # F
+    .param p4, "y"    # F
+    .param p5, "attribute"    # [Ljava/lang/String;
+    .param p6, "value"    # [F
 
     .line 154
-    invoke-virtual {p1}, Landroid/graphics/RectF;->centerX()F
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/RectF;->centerX()F
 
     move-result v0
 
     .line 155
-    invoke-virtual {p1}, Landroid/graphics/RectF;->centerY()F
+    .local v0, "startCenterX":F
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/RectF;->centerY()F
 
     move-result v1
 
     .line 156
-    invoke-virtual {p2}, Landroid/graphics/RectF;->centerX()F
+    .local v1, "startCenterY":F
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/RectF;->centerX()F
 
     move-result v2
 
     .line 157
-    invoke-virtual {p2}, Landroid/graphics/RectF;->centerY()F
+    .local v2, "endCenterX":F
+    invoke-virtual/range {p2 .. p2}, Landroid/graphics/RectF;->centerY()F
 
     move-result v3
 
-    sub-float/2addr v2, v0
+    .line 158
+    .local v3, "endCenterY":F
+    sub-float v4, v2, v0
 
-    sub-float/2addr v3, v1
-
-    float-to-double v4, v2
-
-    float-to-double v6, v3
+    .line 159
+    .local v4, "pathVectorX":F
+    sub-float v5, v3, v1
 
     .line 160
-    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->hypot(DD)D
+    .local v5, "pathVectorY":F
+    float-to-double v6, v4
 
-    move-result-wide v4
+    float-to-double v8, v5
 
-    double-to-float v4, v4
+    invoke-static {v6, v7, v8, v9}, Ljava/lang/Math;->hypot(DD)D
 
-    float-to-double v5, v4
+    move-result-wide v6
 
-    const/4 v7, 0x1
+    double-to-float v6, v6
 
-    const/4 v8, 0x0
+    .line 161
+    .local v6, "distance":F
+    float-to-double v7, v6
 
-    const-wide v9, 0x3f1a36e2eb1c432dL    # 1.0E-4
+    const/4 v9, 0x1
 
-    cmpg-double v11, v5, v9
+    const/4 v10, 0x0
 
-    if-gez v11, :cond_0
+    const-wide v11, 0x3f1a36e2eb1c432dL    # 1.0E-4
+
+    cmpg-double v13, v7, v11
+
+    if-gez v13, :cond_0
 
     .line 162
-    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v7, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    const-string v1, "distance ~ 0"
+    const-string v8, "distance ~ 0"
 
-    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-
-    const/4 v0, 0x0
+    invoke-virtual {v7, v8}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 163
-    aput v0, p6, v8
+    const/4 v7, 0x0
+
+    aput v7, p6, v10
 
     .line 164
-    aput v0, p6, v7
+    aput v7, p6, v9
 
+    .line 165
     return-void
 
+    .line 168
     :cond_0
-    div-float/2addr v2, v4
+    div-float v7, v4, v6
 
-    div-float/2addr v3, v4
+    .line 169
+    .local v7, "dx":F
+    div-float v8, v5, v6
 
-    sub-float v1, p4, v1
+    .line 170
+    .local v8, "dy":F
+    sub-float v11, p4, v1
 
-    mul-float v5, v2, v1
+    mul-float v11, v11, v7
 
-    sub-float v0, p3, v0
+    sub-float v12, p3, v0
 
-    mul-float v6, v0, v3
+    mul-float v12, v12, v8
 
-    sub-float/2addr v5, v6
+    sub-float/2addr v11, v12
 
-    div-float/2addr v5, v4
+    div-float/2addr v11, v6
 
-    mul-float v2, v2, v0
+    .line 171
+    .local v11, "perpendicular":F
+    sub-float v12, p3, v0
 
-    mul-float v3, v3, v1
+    mul-float v12, v12, v7
 
-    add-float/2addr v2, v3
+    sub-float v13, p4, v1
 
-    div-float/2addr v2, v4
+    mul-float v13, v13, v8
+
+    add-float/2addr v12, v13
+
+    div-float/2addr v12, v6
 
     .line 172
-    aget-object v0, p5, v8
+    .local v12, "dist":F
+    aget-object v13, p5, v10
 
-    const-string v1, "percentX"
+    const-string v14, "percentX"
 
-    if-eqz v0, :cond_1
+    if-eqz v13, :cond_1
 
     .line 173
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object v13, p5, v10
 
-    move-result v0
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_2
+    move-result v13
+
+    if-eqz v13, :cond_2
 
     .line 174
-    aput v2, p6, v8
+    aput v12, p6, v10
 
     .line 175
-    aput v5, p6, v7
+    aput v11, p6, v9
 
     goto :goto_0
 
     .line 178
     :cond_1
-    aput-object v1, p5, v8
-
-    const-string v0, "percentY"
+    aput-object v14, p5, v10
 
     .line 179
-    aput-object v0, p5, v7
+    const-string v13, "percentY"
+
+    aput-object v13, p5, v9
 
     .line 180
-    aput v2, p6, v8
+    aput v12, p6, v10
 
     .line 181
-    aput v5, p6, v7
+    aput v11, p6, v9
 
+    .line 183
     :cond_2
     :goto_0
     return-void
 .end method
 
 .method positionScreenAttributes(Landroid/view/View;Landroid/graphics/RectF;Landroid/graphics/RectF;FF[Ljava/lang/String;[F)V
-    .locals 3
+    .locals 13
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "start"    # Landroid/graphics/RectF;
+    .param p3, "end"    # Landroid/graphics/RectF;
+    .param p4, "x"    # F
+    .param p5, "y"    # F
+    .param p6, "attribute"    # [Ljava/lang/String;
+    .param p7, "value"    # [F
 
     .line 186
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerX()F
 
+    move-result v0
+
     .line 187
+    .local v0, "startCenterX":F
     invoke-virtual {p2}, Landroid/graphics/RectF;->centerY()F
 
+    move-result v1
+
     .line 188
-    invoke-virtual {p3}, Landroid/graphics/RectF;->centerX()F
+    .local v1, "startCenterY":F
+    invoke-virtual/range {p3 .. p3}, Landroid/graphics/RectF;->centerX()F
+
+    move-result v2
 
     .line 189
-    invoke-virtual {p3}, Landroid/graphics/RectF;->centerY()F
+    .local v2, "endCenterX":F
+    invoke-virtual/range {p3 .. p3}, Landroid/graphics/RectF;->centerY()F
+
+    move-result v3
+
+    .line 190
+    .local v3, "endCenterY":F
+    sub-float v4, v2, v0
+
+    .line 191
+    .local v4, "pathVectorX":F
+    sub-float v5, v3, v1
 
     .line 192
+    .local v5, "pathVectorY":F
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p1
+    move-result-object v6
 
-    check-cast p1, Landroid/view/ViewGroup;
+    check-cast v6, Landroid/view/ViewGroup;
 
     .line 193
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
+    .local v6, "viewGroup":Landroid/view/ViewGroup;
+    invoke-virtual {v6}, Landroid/view/ViewGroup;->getWidth()I
 
-    move-result p2
+    move-result v7
 
     .line 194
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getHeight()I
+    .local v7, "width":I
+    invoke-virtual {v6}, Landroid/view/ViewGroup;->getHeight()I
 
-    move-result p1
-
-    const/4 p3, 0x0
+    move-result v8
 
     .line 196
-    aget-object v0, p6, p3
+    .local v8, "height":I
+    const/4 v9, 0x0
 
-    const-string v1, "percentX"
+    aget-object v10, p6, v9
 
-    const/4 v2, 0x1
+    const-string v11, "percentX"
 
-    if-eqz v0, :cond_1
+    const/4 v12, 0x1
+
+    if-eqz v10, :cond_1
 
     .line 197
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    aget-object v10, p6, v9
 
-    move-result p6
+    invoke-virtual {v11, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz p6, :cond_0
+    move-result v10
 
-    int-to-float p2, p2
-
-    div-float/2addr p4, p2
+    if-eqz v10, :cond_0
 
     .line 198
-    aput p4, p7, p3
+    int-to-float v10, v7
 
-    int-to-float p1, p1
+    div-float v10, p4, v10
 
-    div-float/2addr p5, p1
+    aput v10, p7, v9
 
     .line 199
-    aput p5, p7, v2
+    int-to-float v9, v8
+
+    div-float v9, p5, v9
+
+    aput v9, p7, v12
 
     goto :goto_0
 
-    :cond_0
-    int-to-float p2, p2
-
-    div-float/2addr p4, p2
-
     .line 201
-    aput p4, p7, v2
+    :cond_0
+    int-to-float v10, v7
 
-    int-to-float p1, p1
+    div-float v10, p4, v10
 
-    div-float/2addr p5, p1
+    aput v10, p7, v12
 
     .line 202
-    aput p5, p7, p3
+    int-to-float v10, v8
+
+    div-float v10, p5, v10
+
+    aput v10, p7, v9
 
     goto :goto_0
 
     .line 205
     :cond_1
-    aput-object v1, p6, p3
-
-    int-to-float p2, p2
-
-    div-float/2addr p4, p2
+    aput-object v11, p6, v9
 
     .line 206
-    aput p4, p7, p3
+    int-to-float v10, v7
 
-    const-string p2, "percentY"
+    div-float v10, p4, v10
+
+    aput v10, p7, v9
 
     .line 207
-    aput-object p2, p6, v2
+    const-string v9, "percentY"
 
-    int-to-float p1, p1
-
-    div-float/2addr p5, p1
+    aput-object v9, p6, v12
 
     .line 208
-    aput p5, p7, v2
+    int-to-float v9, v8
 
+    div-float v9, p5, v9
+
+    aput v9, p7, v12
+
+    .line 210
     :goto_0
     return-void
 .end method
 
 .method public setValue(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .locals 1
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/Object;
 
     .line 346
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
     move-result v0
-
-    const/4 v1, -0x1
 
     sparse-switch v0, :sswitch_data_0
 
+    :cond_0
     goto :goto_0
 
     :sswitch_0
@@ -873,187 +1035,180 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_0
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    const/4 v0, 0x6
 
-    :cond_0
-    const/4 v1, 0x6
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_1
     const-string v0, "percentX"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_1
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    const/4 v0, 0x5
 
-    :cond_1
-    const/4 v1, 0x5
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_2
     const-string v0, "sizePercent"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_2
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    const/4 v0, 0x4
 
-    :cond_2
-    const/4 v1, 0x4
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_3
     const-string v0, "drawPath"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_3
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    const/4 v0, 0x1
 
-    :cond_3
-    const/4 v1, 0x3
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_4
     const-string v0, "percentHeight"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_4
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    const/4 v0, 0x3
 
-    :cond_4
-    const/4 v1, 0x2
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_5
     const-string v0, "percentWidth"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_5
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    const/4 v0, 0x2
 
-    :cond_5
-    const/4 v1, 0x1
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_6
     const-string v0, "transitionEasing"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result v0
 
-    if-nez p1, :cond_6
+    if-eqz v0, :cond_0
 
-    goto :goto_0
-
-    :cond_6
-    const/4 v1, 0x0
-
-    :goto_0
-    packed-switch v1, :pswitch_data_0
+    const/4 v0, 0x0
 
     goto :goto_1
+
+    :goto_0
+    const/4 v0, -0x1
+
+    :goto_1
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_2
 
     .line 366
     :pswitch_0
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentY:F
 
-    goto :goto_1
+    goto :goto_2
 
     .line 363
     :pswitch_1
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentX:F
 
-    goto :goto_1
+    .line 364
+    goto :goto_2
 
     .line 360
     :pswitch_2
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
 
-    goto :goto_1
-
-    .line 351
-    :pswitch_3
-    invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toInt(Ljava/lang/Object;)I
-
-    move-result p1
-
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mDrawPath:I
-
-    goto :goto_1
+    .line 361
+    goto :goto_2
 
     .line 357
+    :pswitch_3
+    invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
+
+    move-result v0
+
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
+
+    .line 358
+    goto :goto_2
+
+    .line 354
     :pswitch_4
     invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentHeight:F
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
 
-    goto :goto_1
+    .line 355
+    goto :goto_2
 
-    .line 354
+    .line 351
     :pswitch_5
-    invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toFloat(Ljava/lang/Object;)F
+    invoke-virtual {p0, p2}, Landroid/support/constraint/motion/KeyPosition;->toInt(Ljava/lang/Object;)I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/constraint/motion/KeyPosition;->mPercentWidth:F
+    iput v0, p0, Landroid/support/constraint/motion/KeyPosition;->mDrawPath:I
 
-    goto :goto_1
+    .line 352
+    goto :goto_2
 
     .line 348
     :pswitch_6
     invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
+    iput-object v0, p0, Landroid/support/constraint/motion/KeyPosition;->mTransitionEasing:Ljava/lang/String;
 
-    :goto_1
+    .line 349
+    nop
+
+    .line 370
+    :goto_2
     return-void
 
     nop

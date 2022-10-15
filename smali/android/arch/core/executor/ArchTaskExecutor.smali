@@ -54,6 +54,7 @@
     .line 59
     iput-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroid/arch/core/executor/TaskExecutor;
 
+    .line 60
     return-void
 .end method
 
@@ -109,10 +110,10 @@
 
     return-object v0
 
+    .line 76
     :catchall_0
     move-exception v1
 
-    .line 76
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -134,12 +135,14 @@
 # virtual methods
 .method public executeOnDiskIO(Ljava/lang/Runnable;)V
     .locals 1
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 96
     iget-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroid/arch/core/executor/TaskExecutor;
 
     invoke-virtual {v0, p1}, Landroid/arch/core/executor/TaskExecutor;->executeOnDiskIO(Ljava/lang/Runnable;)V
 
+    .line 97
     return-void
 .end method
 
@@ -158,25 +161,34 @@
 
 .method public postToMainThread(Ljava/lang/Runnable;)V
     .locals 1
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 101
     iget-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroid/arch/core/executor/TaskExecutor;
 
     invoke-virtual {v0, p1}, Landroid/arch/core/executor/TaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
+    .line 102
     return-void
 .end method
 
 .method public setDelegate(Landroid/arch/core/executor/TaskExecutor;)V
-    .locals 0
-
-    if-nez p1, :cond_0
+    .locals 1
+    .param p1, "taskExecutor"    # Landroid/arch/core/executor/TaskExecutor;
 
     .line 91
-    iget-object p1, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDefaultTaskExecutor:Landroid/arch/core/executor/TaskExecutor;
+    if-nez p1, :cond_0
+
+    iget-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDefaultTaskExecutor:Landroid/arch/core/executor/TaskExecutor;
+
+    goto :goto_0
 
     :cond_0
-    iput-object p1, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroid/arch/core/executor/TaskExecutor;
+    move-object v0, p1
 
+    :goto_0
+    iput-object v0, p0, Landroid/arch/core/executor/ArchTaskExecutor;->mDelegate:Landroid/arch/core/executor/TaskExecutor;
+
+    .line 92
     return-void
 .end method

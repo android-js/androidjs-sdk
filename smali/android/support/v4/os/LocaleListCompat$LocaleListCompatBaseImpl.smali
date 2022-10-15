@@ -45,39 +45,44 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .locals 2
+    .param p1, "other"    # Ljava/lang/Object;
 
     .line 75
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
-    check-cast p1, Landroid/support/v4/os/LocaleListCompat;
+    move-object v1, p1
 
-    invoke-virtual {p1}, Landroid/support/v4/os/LocaleListCompat;->unwrap()Ljava/lang/Object;
+    check-cast v1, Landroid/support/v4/os/LocaleListCompat;
 
-    move-result-object p1
+    invoke-virtual {v1}, Landroid/support/v4/os/LocaleListCompat;->unwrap()Ljava/lang/Object;
 
-    invoke-virtual {v0, p1}, Landroid/support/v4/os/LocaleListHelper;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result p1
+    invoke-virtual {v0, v1}, Landroid/support/v4/os/LocaleListHelper;->equals(Ljava/lang/Object;)Z
 
-    return p1
+    move-result v0
+
+    return v0
 .end method
 
 .method public get(I)Ljava/util/Locale;
     .locals 1
+    .param p1, "index"    # I
 
     .line 53
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/os/LocaleListHelper;->get(I)Ljava/util/Locale;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
     .locals 1
+    .param p1, "supportedLocales"    # [Ljava/lang/String;
 
     .line 96
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -87,14 +92,15 @@
     .line 97
     invoke-virtual {v0, p1}, Landroid/support/v4/os/LocaleListHelper;->getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
 
-    move-result-object p1
+    move-result-object v0
 
-    return-object p1
+    return-object v0
 
+    .line 99
     :cond_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return-object p1
+    return-object v0
 .end method
 
 .method public getLocaleList()Ljava/lang/Object;
@@ -121,15 +127,16 @@
 
 .method public indexOf(Ljava/util/Locale;)I
     .locals 1
+    .param p1, "locale"    # Ljava/util/Locale;
 
     .line 70
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/os/LocaleListHelper;->indexOf(Ljava/util/Locale;)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public isEmpty()Z
@@ -147,6 +154,7 @@
 
 .method public varargs setLocaleList([Ljava/util/Locale;)V
     .locals 1
+    .param p1, "list"    # [Ljava/util/Locale;
 
     .line 43
     new-instance v0, Landroid/support/v4/os/LocaleListHelper;
@@ -155,6 +163,7 @@
 
     iput-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
+    .line 44
     return-void
 .end method
 

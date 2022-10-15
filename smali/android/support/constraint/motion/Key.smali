@@ -34,7 +34,7 @@
 
 .field static final TRANSLATION_Z:Ljava/lang/String; = "translationZ"
 
-.field public static UNSET:I = -0x1
+.field public static UNSET:I = 0x0
 
 .field static final WAVE_OFFSET:Ljava/lang/String; = "waveOffset"
 
@@ -66,7 +66,12 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .locals 1
+
+    .line 33
+    const/4 v0, -0x1
+
+    sput v0, Landroid/support/constraint/motion/Key;->UNSET:I
 
     return-void
 .end method
@@ -85,9 +90,9 @@
     .line 35
     iput v0, p0, Landroid/support/constraint/motion/Key;->mTargetId:I
 
+    .line 36
     const/4 v0, 0x0
 
-    .line 36
     iput-object v0, p0, Landroid/support/constraint/motion/Key;->mTargetString:Ljava/lang/String;
 
     return-void
@@ -123,6 +128,7 @@
 
 .method matches(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "constraintTag"    # Ljava/lang/String;
 
     .line 61
     iget-object v0, p0, Landroid/support/constraint/motion/Key;->mTargetString:Ljava/lang/String;
@@ -137,15 +143,16 @@
     :cond_0
     invoke-virtual {p1, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 
+    .line 61
     :cond_1
     :goto_0
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    return p1
+    return v0
 .end method
 
 .method public setInterpolation(Ljava/util/HashMap;)V
@@ -160,6 +167,8 @@
         }
     .end annotation
 
+    .line 116
+    .local p1, "interpolation":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     return-void
 .end method
 
@@ -168,87 +177,96 @@
 
 .method toBoolean(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "value"    # Ljava/lang/Object;
 
     .line 107
     instance-of v0, p1, Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
 
-    check-cast p1, Ljava/lang/Boolean;
+    move-object v0, p1
 
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+    check-cast v0, Ljava/lang/Boolean;
 
-    move-result p1
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    move-result p1
+    move-result v0
 
     :goto_0
-    return p1
+    return v0
 .end method
 
 .method toFloat(Ljava/lang/Object;)F
     .locals 1
+    .param p1, "value"    # Ljava/lang/Object;
 
     .line 87
     instance-of v0, p1, Ljava/lang/Float;
 
     if-eqz v0, :cond_0
 
-    check-cast p1, Ljava/lang/Float;
+    move-object v0, p1
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+    check-cast v0, Ljava/lang/Float;
 
-    move-result p1
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
-    move-result p1
+    move-result v0
 
     :goto_0
-    return p1
+    return v0
 .end method
 
 .method toInt(Ljava/lang/Object;)I
     .locals 1
+    .param p1, "value"    # Ljava/lang/Object;
 
     .line 97
     instance-of v0, p1, Ljava/lang/Integer;
 
     if-eqz v0, :cond_0
 
-    check-cast p1, Ljava/lang/Integer;
+    move-object v0, p1
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    check-cast v0, Ljava/lang/Integer;
 
-    move-result p1
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result p1
+    move-result v0
 
     :goto_0
-    return p1
+    return v0
 .end method

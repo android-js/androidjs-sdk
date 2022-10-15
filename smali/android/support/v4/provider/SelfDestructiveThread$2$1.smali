@@ -26,6 +26,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/SelfDestructiveThread$2;Ljava/lang/Object;)V
     .locals 0
+    .param p1, "this$1"    # Landroid/support/v4/provider/SelfDestructiveThread$2;
 
     .line 147
     iput-object p1, p0, Landroid/support/v4/provider/SelfDestructiveThread$2$1;->this$1:Landroid/support/v4/provider/SelfDestructiveThread$2;
@@ -51,5 +52,6 @@
 
     invoke-interface {v0, v1}, Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;->onReply(Ljava/lang/Object;)V
 
+    .line 151
     return-void
 .end method

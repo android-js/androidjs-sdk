@@ -28,7 +28,14 @@
 # virtual methods
 .method public setPathRotate(Landroid/view/View;Landroid/support/constraint/motion/KeyCache;FJDD)Z
     .locals 6
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "cache"    # Landroid/support/constraint/motion/KeyCache;
+    .param p3, "t"    # F
+    .param p4, "time"    # J
+    .param p6, "dx"    # D
+    .param p8, "dy"    # D
 
+    .line 268
     move-object v0, p0
 
     move v1, p3
@@ -39,36 +46,39 @@
 
     move-object v5, p2
 
-    .line 268
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->get(FJLandroid/view/View;Landroid/support/constraint/motion/KeyCache;)F
 
-    move-result p2
+    move-result v0
 
     invoke-static {p8, p9, p6, p7}, Ljava/lang/Math;->atan2(DD)D
 
-    move-result-wide p3
+    move-result-wide v1
 
-    invoke-static {p3, p4}, Ljava/lang/Math;->toDegrees(D)D
+    invoke-static {v1, v2}, Ljava/lang/Math;->toDegrees(D)D
 
-    move-result-wide p3
+    move-result-wide v1
 
-    double-to-float p3, p3
+    double-to-float v1, v1
 
-    add-float/2addr p2, p3
+    add-float/2addr v0, v1
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setRotation(F)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setRotation(F)V
 
     .line 269
-    iget-boolean p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->mContinue:Z
+    iget-boolean v0, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->mContinue:Z
 
-    return p1
+    return v0
 .end method
 
 .method public setProperty(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
-    .locals 0
+    .locals 1
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "t"    # F
+    .param p3, "time"    # J
+    .param p5, "cache"    # Landroid/support/constraint/motion/KeyCache;
 
     .line 264
-    iget-boolean p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->mContinue:Z
+    iget-boolean v0, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$PathRotate;->mContinue:Z
 
-    return p1
+    return v0
 .end method

@@ -33,6 +33,10 @@
 # direct methods
 .method public constructor <init>(DDDD)V
     .locals 0
+    .param p1, "a"    # D
+    .param p3, "b"    # D
+    .param p5, "c"    # D
+    .param p7, "d"    # D
 
     .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,6 +53,7 @@
     .line 185
     iput-wide p7, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mD:D
 
+    .line 186
     return-void
 .end method
 
@@ -56,6 +61,7 @@
 # virtual methods
 .method public eval(D)D
     .locals 4
+    .param p1, "u"    # D
 
     .line 192
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mD:D
@@ -74,15 +80,16 @@
 
     mul-double v0, v0, p1
 
-    iget-wide p1, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mA:D
+    iget-wide v2, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mA:D
 
-    add-double/2addr v0, p1
+    add-double/2addr v0, v2
 
     return-wide v0
 .end method
 
 .method public vel(D)D
     .locals 6
+    .param p1, "v"    # D
 
     .line 201
     iget-wide v0, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mD:D
@@ -103,9 +110,9 @@
 
     mul-double v0, v0, p1
 
-    iget-wide p1, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mB:D
+    iget-wide v2, p0, Landroid/support/constraint/motion/utils/HyperSpline$Cubic;->mB:D
 
-    add-double/2addr v0, p1
+    add-double/2addr v0, v2
 
     return-wide v0
 .end method

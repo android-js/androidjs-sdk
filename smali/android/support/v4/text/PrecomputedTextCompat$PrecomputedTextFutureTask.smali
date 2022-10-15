@@ -31,6 +31,8 @@
 # direct methods
 .method constructor <init>(Landroid/support/v4/text/PrecomputedTextCompat$Params;Ljava/lang/CharSequence;)V
     .locals 1
+    .param p1, "params"    # Landroid/support/v4/text/PrecomputedTextCompat$Params;
+    .param p2, "text"    # Ljava/lang/CharSequence;
 
     .line 582
     new-instance v0, Landroid/support/v4/text/PrecomputedTextCompat$PrecomputedTextFutureTask$PrecomputedTextCallback;
@@ -39,5 +41,6 @@
 
     invoke-direct {p0, v0}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
 
+    .line 583
     return-void
 .end method

@@ -69,6 +69,7 @@
 
     sput-object v3, Landroid/support/v4/content/ModernAsyncTask$Status;->FINISHED:Landroid/support/v4/content/ModernAsyncTask$Status;
 
+    .line 99
     const/4 v5, 0x3
 
     new-array v5, v5, [Landroid/support/v4/content/ModernAsyncTask$Status;
@@ -79,7 +80,6 @@
 
     aput-object v3, v5, v6
 
-    .line 99
     sput-object v5, Landroid/support/v4/content/ModernAsyncTask$Status;->$VALUES:[Landroid/support/v4/content/ModernAsyncTask$Status;
 
     return-void
@@ -101,17 +101,18 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/v4/content/ModernAsyncTask$Status;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
     .line 99
     const-class v0, Landroid/support/v4/content/ModernAsyncTask$Status;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/support/v4/content/ModernAsyncTask$Status;
+    check-cast v0, Landroid/support/v4/content/ModernAsyncTask$Status;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Landroid/support/v4/content/ModernAsyncTask$Status;

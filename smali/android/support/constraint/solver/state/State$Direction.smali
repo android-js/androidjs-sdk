@@ -108,6 +108,7 @@
 
     sput-object v9, Landroid/support/constraint/solver/state/State$Direction;->BOTTOM:Landroid/support/constraint/solver/state/State$Direction;
 
+    .line 70
     const/4 v11, 0x6
 
     new-array v11, v11, [Landroid/support/constraint/solver/state/State$Direction;
@@ -124,7 +125,6 @@
 
     aput-object v9, v11, v12
 
-    .line 70
     sput-object v11, Landroid/support/constraint/solver/state/State$Direction;->$VALUES:[Landroid/support/constraint/solver/state/State$Direction;
 
     return-void
@@ -146,17 +146,18 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/state/State$Direction;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
     .line 70
     const-class v0, Landroid/support/constraint/solver/state/State$Direction;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/support/constraint/solver/state/State$Direction;
+    check-cast v0, Landroid/support/constraint/solver/state/State$Direction;
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/state/State$Direction;

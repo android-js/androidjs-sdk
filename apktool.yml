@@ -1,8 +1,9 @@
 !!brut.androlib.meta.MetaInfo
-apkFileName: app-release-unsigned.apk
+apkFileName: app-debug.apk
 compressionType: false
 doNotCompress:
 - resources.arsc
+- png
 - META-INF/android.arch.core_runtime.version
 - META-INF/android.arch.lifecycle_livedata-core.version
 - META-INF/android.arch.lifecycle_livedata.version
@@ -29,7 +30,6 @@ doNotCompress:
 - META-INF/androidx.vectordrawable_vectordrawable.version
 - META-INF/androidx.versionedparcelable_versionedparcelable.version
 - META-INF/androidx.viewpager_viewpager.version
-- png
 isFrameworkApk: false
 packageInfo:
   forcedPackageId: '127'

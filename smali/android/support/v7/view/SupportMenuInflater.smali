@@ -58,13 +58,13 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .line 82
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Class;
 
     const/4 v1, 0x0
 
-    .line 82
     const-class v2, Landroid/content/Context;
 
     aput-object v2, v0, v1
@@ -79,6 +79,7 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
     .line 100
     invoke-direct {p0, p1}, Landroid/view/MenuInflater;-><init>(Landroid/content/Context;)V
@@ -86,6 +87,7 @@
     .line 101
     iput-object p1, p0, Landroid/support/v7/view/SupportMenuInflater;->mContext:Landroid/content/Context;
 
+    .line 102
     const/4 v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
@@ -94,23 +96,25 @@
 
     aput-object p1, v0, v1
 
-    .line 102
     iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionViewConstructorArguments:[Ljava/lang/Object;
 
     .line 103
     iput-object v0, p0, Landroid/support/v7/view/SupportMenuInflater;->mActionProviderConstructorArguments:[Ljava/lang/Object;
 
+    .line 104
     return-void
 .end method
 
 .method private findRealOwner(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "owner"    # Ljava/lang/Object;
 
     .line 230
     instance-of v0, p1, Landroid/app/Activity;
 
     if-eqz v0, :cond_0
 
+    .line 231
     return-object p1
 
     .line 233
@@ -120,22 +124,30 @@
     if-eqz v0, :cond_1
 
     .line 234
-    check-cast p1, Landroid/content/ContextWrapper;
+    move-object v0, p1
 
-    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+    check-cast v0, Landroid/content/ContextWrapper;
 
-    move-result-object p1
+    invoke-virtual {v0}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
 
-    invoke-direct {p0, p1}, Landroid/support/v7/view/SupportMenuInflater;->findRealOwner(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object p1
+    invoke-direct {p0, v0}, Landroid/support/v7/view/SupportMenuInflater;->findRealOwner(Ljava/lang/Object;)Ljava/lang/Object;
 
+    move-result-object v0
+
+    return-object v0
+
+    .line 236
     :cond_1
     return-object p1
 .end method
 
 .method private parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
-    .locals 12
+    .locals 10
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
+    .param p3, "menu"    # Landroid/view/Menu;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -149,124 +161,136 @@
     invoke-direct {v0, p0, p3}, Landroid/support/v7/view/SupportMenuInflater$MenuState;-><init>(Landroid/support/v7/view/SupportMenuInflater;Landroid/view/Menu;)V
 
     .line 146
+    .local v0, "menuState":Landroid/support/v7/view/SupportMenuInflater$MenuState;
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result p3
+    move-result v1
 
+    .line 148
+    .local v1, "eventType":I
+    const/4 v2, 0x0
+
+    .line 149
+    .local v2, "lookingForEndOfUnknownTag":Z
+    const/4 v3, 0x0
+
+    .line 153
+    .local v3, "unknownTagName":Ljava/lang/String;
     :cond_0
-    const/4 v1, 0x2
+    const/4 v4, 0x2
 
-    const-string v2, "menu"
+    const-string v5, "menu"
 
-    const/4 v3, 0x1
-
-    if-ne p3, v1, :cond_2
+    if-ne v1, v4, :cond_2
 
     .line 154
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v4
 
     .line 155
-    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .local v4, "tagName":Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_1
+    if-eqz v6, :cond_1
 
     .line 157
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result p3
+    move-result v1
 
+    .line 158
     goto :goto_0
 
     .line 161
     :cond_1
-    new-instance p1, Ljava/lang/RuntimeException;
+    new-instance v5, Ljava/lang/RuntimeException;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "Expecting menu, got "
+    const-string v7, "Expecting menu, got "
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p2
+    move-result-object v6
 
-    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    throw p1
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v5
 
     .line 163
+    .end local v4    # "tagName":Ljava/lang/String;
     :cond_2
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result p3
+    move-result v1
 
-    if-ne p3, v3, :cond_0
+    .line 164
+    const/4 v4, 0x1
 
+    if-ne v1, v4, :cond_0
+
+    .line 166
     :goto_0
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
-
-    move-object v8, v4
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
+    .line 167
+    .local v4, "reachedEndOfMenu":Z
     :goto_1
-    if-nez v6, :cond_f
+    if-nez v4, :cond_c
 
-    if-eq p3, v3, :cond_e
+    .line 168
+    const-string v6, "item"
 
-    const-string v9, "item"
+    const-string v7, "group"
 
-    const-string v10, "group"
-
-    if-eq p3, v1, :cond_8
-
-    const/4 v11, 0x3
-
-    if-eq p3, v11, :cond_3
+    packed-switch v1, :pswitch_data_0
 
     goto/16 :goto_2
 
     .line 192
-    :cond_3
+    :pswitch_0
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object p3
-
-    if-eqz v7, :cond_4
+    move-result-object v8
 
     .line 193
-    invoke-virtual {p3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .local v8, "tagName":Ljava/lang/String;
+    if-eqz v2, :cond_3
 
-    move-result v11
+    invoke-virtual {v8, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v11, :cond_4
+    move-result v9
 
-    move-object v8, v4
+    if-eqz v9, :cond_3
 
-    const/4 v7, 0x0
+    .line 194
+    const/4 v2, 0x0
 
-    goto :goto_2
+    .line 195
+    const/4 v3, 0x0
+
+    goto/16 :goto_2
 
     .line 196
-    :cond_4
-    invoke-virtual {p3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_3
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v7
 
-    if-eqz v10, :cond_5
+    if-eqz v7, :cond_4
 
     .line 197
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->resetGroup()V
@@ -274,33 +298,33 @@
     goto :goto_2
 
     .line 198
-    :cond_5
-    invoke-virtual {p3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_4
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v6
 
-    if-eqz v9, :cond_7
+    if-eqz v6, :cond_6
 
     .line 201
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->hasAddedItem()Z
 
-    move-result p3
+    move-result v6
 
-    if-nez p3, :cond_d
+    if-nez v6, :cond_b
 
     .line 202
-    iget-object p3, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
+    iget-object v6, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
 
-    if-eqz p3, :cond_6
+    if-eqz v6, :cond_5
 
-    iget-object p3, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
+    iget-object v6, v0, Landroid/support/v7/view/SupportMenuInflater$MenuState;->itemActionProvider:Landroid/support/v4/view/ActionProvider;
 
     .line 203
-    invoke-virtual {p3}, Landroid/support/v4/view/ActionProvider;->hasSubMenu()Z
+    invoke-virtual {v6}, Landroid/support/v4/view/ActionProvider;->hasSubMenu()Z
 
-    move-result p3
+    move-result v6
 
-    if-eqz p3, :cond_6
+    if-eqz v6, :cond_5
 
     .line 204
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->addSubMenuItem()Landroid/view/SubMenu;
@@ -308,40 +332,45 @@
     goto :goto_2
 
     .line 206
-    :cond_6
+    :cond_5
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->addItem()V
 
     goto :goto_2
 
     .line 209
-    :cond_7
-    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_6
+    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p3
+    move-result v6
 
-    if-eqz p3, :cond_d
+    if-eqz v6, :cond_b
 
-    const/4 v6, 0x1
+    .line 210
+    const/4 v4, 0x1
 
     goto :goto_2
 
-    :cond_8
-    if-eqz v7, :cond_9
+    .line 170
+    .end local v8    # "tagName":Ljava/lang/String;
+    :pswitch_1
+    if-eqz v2, :cond_7
 
+    .line 171
     goto :goto_2
 
     .line 174
-    :cond_9
+    :cond_7
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v8
 
     .line 175
-    invoke-virtual {p3, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .restart local v8    # "tagName":Ljava/lang/String;
+    invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v7
 
-    if-eqz v10, :cond_a
+    if-eqz v7, :cond_8
 
     .line 176
     invoke-virtual {v0, p2}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->readGroup(Landroid/util/AttributeSet;)V
@@ -349,12 +378,12 @@
     goto :goto_2
 
     .line 177
-    :cond_a
-    invoke-virtual {p3, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_8
+    invoke-virtual {v8, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v6
 
-    if-eqz v9, :cond_b
+    if-eqz v6, :cond_9
 
     .line 178
     invoke-virtual {v0, p2}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->readItem(Landroid/util/AttributeSet;)V
@@ -362,49 +391,66 @@
     goto :goto_2
 
     .line 179
-    :cond_b
-    invoke-virtual {p3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_9
+    invoke-virtual {v8, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v6
 
-    if-eqz v9, :cond_c
+    if-eqz v6, :cond_a
 
     .line 181
     invoke-virtual {v0}, Landroid/support/v7/view/SupportMenuInflater$MenuState;->addSubMenuItem()Landroid/view/SubMenu;
 
-    move-result-object p3
+    move-result-object v6
 
     .line 184
-    invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/view/SupportMenuInflater;->parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
+    .local v6, "subMenu":Landroid/view/SubMenu;
+    invoke-direct {p0, p1, p2, v6}, Landroid/support/v7/view/SupportMenuInflater;->parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
 
+    .line 185
+    .end local v6    # "subMenu":Landroid/view/SubMenu;
     goto :goto_2
 
-    :cond_c
-    move-object v8, p3
+    .line 186
+    :cond_a
+    const/4 v2, 0x1
 
-    const/4 v7, 0x1
+    .line 187
+    move-object v3, v8
+
+    .line 189
+    goto :goto_2
+
+    .line 215
+    .end local v8    # "tagName":Ljava/lang/String;
+    :pswitch_2
+    new-instance v5, Ljava/lang/RuntimeException;
+
+    const-string v6, "Unexpected end of document"
+
+    invoke-direct {v5, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v5
 
     .line 218
-    :cond_d
+    :cond_b
     :goto_2
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result p3
+    move-result v1
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    .line 215
-    :cond_e
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    const-string p2, "Unexpected end of document"
-
-    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :cond_f
+    .line 220
+    :cond_c
     return-void
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 
@@ -434,11 +480,13 @@
 .end method
 
 .method public inflate(ILandroid/view/Menu;)V
-    .locals 3
-
-    const-string v0, "Error inflating menu XML"
+    .locals 4
+    .param p1, "menuRes"    # I
+    .param p2, "menu"    # Landroid/view/Menu;
 
     .line 118
+    const-string v0, "Error inflating menu XML"
+
     instance-of v1, p2, Landroid/support/v4/internal/view/SupportMenu;
 
     if-nez v1, :cond_0
@@ -446,12 +494,15 @@
     .line 119
     invoke-super {p0, p1, p2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
+    .line 120
     return-void
 
+    .line 123
     :cond_0
     const/4 v1, 0x0
 
     .line 125
+    .local v1, "parser":Landroid/content/res/XmlResourceParser;
     :try_start_0
     iget-object v2, p0, Landroid/support/v7/view/SupportMenuInflater;->mContext:Landroid/content/Context;
 
@@ -461,62 +512,86 @@
 
     invoke-virtual {v2, p1}, Landroid/content/res/Resources;->getLayout(I)Landroid/content/res/XmlResourceParser;
 
-    move-result-object v1
+    move-result-object v2
+
+    move-object v1, v2
 
     .line 126
     invoke-static {v1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
-    move-result-object p1
+    move-result-object v2
 
     .line 128
-    invoke-direct {p0, v1, p1, p2}, Landroid/support/v7/view/SupportMenuInflater;->parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
+    .local v2, "attrs":Landroid/util/AttributeSet;
+    invoke-direct {p0, v1, v2, p2}, Landroid/support/v7/view/SupportMenuInflater;->parseMenu(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
     :try_end_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 134
+    .end local v2    # "attrs":Landroid/util/AttributeSet;
     if-eqz v1, :cond_1
 
-    .line 134
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
+    .line 136
     :cond_1
     return-void
 
+    .line 134
     :catchall_0
-    move-exception p1
+    move-exception v0
 
     goto :goto_0
 
+    .line 131
     :catch_0
-    move-exception p1
+    move-exception v2
 
     .line 132
+    .local v2, "e":Ljava/io/IOException;
     :try_start_1
-    new-instance p2, Landroid/view/InflateException;
+    new-instance v3, Landroid/view/InflateException;
 
-    invoke-direct {p2, v0, p1}, Landroid/view/InflateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v3, v0, v2}, Landroid/view/InflateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw p2
+    .end local v1    # "parser":Landroid/content/res/XmlResourceParser;
+    .end local p1    # "menuRes":I
+    .end local p2    # "menu":Landroid/view/Menu;
+    throw v3
 
+    .line 129
+    .end local v2    # "e":Ljava/io/IOException;
+    .restart local v1    # "parser":Landroid/content/res/XmlResourceParser;
+    .restart local p1    # "menuRes":I
+    .restart local p2    # "menu":Landroid/view/Menu;
     :catch_1
-    move-exception p1
+    move-exception v2
 
     .line 130
-    new-instance p2, Landroid/view/InflateException;
+    .local v2, "e":Lorg/xmlpull/v1/XmlPullParserException;
+    new-instance v3, Landroid/view/InflateException;
 
-    invoke-direct {p2, v0, p1}, Landroid/view/InflateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v3, v0, v2}, Landroid/view/InflateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    throw p2
+    .end local v1    # "parser":Landroid/content/res/XmlResourceParser;
+    .end local p1    # "menuRes":I
+    .end local p2    # "menu":Landroid/view/Menu;
+    throw v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 134
+    .end local v2    # "e":Lorg/xmlpull/v1/XmlPullParserException;
+    .restart local v1    # "parser":Landroid/content/res/XmlResourceParser;
+    .restart local p1    # "menuRes":I
+    .restart local p2    # "menu":Landroid/view/Menu;
     :goto_0
     if-eqz v1, :cond_2
 
-    .line 134
     invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
     :cond_2
-    throw p1
+    throw v0
 .end method

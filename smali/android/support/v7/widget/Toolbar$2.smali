@@ -24,6 +24,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/Toolbar;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/Toolbar;
 
     .line 218
     iput-object p1, p0, Landroid/support/v7/widget/Toolbar$2;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -43,5 +44,6 @@
 
     invoke-virtual {v0}, Landroid/support/v7/widget/Toolbar;->showOverflowMenu()Z
 
+    .line 221
     return-void
 .end method

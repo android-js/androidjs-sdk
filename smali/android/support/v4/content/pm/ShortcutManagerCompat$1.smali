@@ -34,6 +34,8 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
     .line 112
     :try_start_0
@@ -53,6 +55,14 @@
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 115
+    goto :goto_0
+
+    .line 113
     :catch_0
+    move-exception v0
+
+    .line 116
+    :goto_0
     return-void
 .end method

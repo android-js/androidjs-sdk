@@ -10,11 +10,13 @@
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 32
     return-void
 .end method
 
 .method public static getDensityDpi(Landroid/content/res/Resources;)I
     .locals 2
+    .param p0, "resources"    # Landroid/content/res/Resources;
 
     .line 41
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -26,19 +28,19 @@
     .line 42
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/content/res/Configuration;->densityDpi:I
+    iget v0, v0, Landroid/content/res/Configuration;->densityDpi:I
 
-    return p0
+    return v0
 
     .line 44
     :cond_0
     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p0
+    move-result-object v0
 
-    iget p0, p0, Landroid/util/DisplayMetrics;->densityDpi:I
+    iget v0, v0, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    return p0
+    return v0
 .end method

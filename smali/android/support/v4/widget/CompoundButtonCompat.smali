@@ -23,6 +23,7 @@
 
 .method public static getButtonDrawable(Landroid/widget/CompoundButton;)Landroid/graphics/drawable/Drawable;
     .locals 4
+    .param p0, "button"    # Landroid/widget/CompoundButton;
 
     .line 123
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -34,9 +35,9 @@
     .line 124
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getButtonDrawable()Landroid/graphics/drawable/Drawable;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 127
     :cond_0
@@ -46,9 +47,9 @@
 
     if-nez v0, :cond_1
 
+    .line 129
     const/4 v0, 0x1
 
-    .line 129
     :try_start_0
     const-class v2, Landroid/widget/CompoundButton;
 
@@ -65,17 +66,21 @@
     :try_end_0
     .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 133
     goto :goto_0
 
+    .line 131
     :catch_0
     move-exception v2
 
+    .line 132
+    .local v2, "e":Ljava/lang/NoSuchFieldException;
     const-string v3, "Failed to retrieve mButtonDrawable field"
 
-    .line 132
     invoke-static {v1, v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 134
+    .end local v2    # "e":Ljava/lang/NoSuchFieldException;
     :goto_0
     sput-boolean v0, Landroid/support/v4/widget/CompoundButtonCompat;->sButtonDrawableFieldFetched:Z
 
@@ -91,31 +96,36 @@
     :try_start_1
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v0
 
-    check-cast p0, Landroid/graphics/drawable/Drawable;
+    check-cast v0, Landroid/graphics/drawable/Drawable;
     :try_end_1
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-object p0
+    return-object v0
 
+    .line 140
     :catch_1
-    move-exception p0
-
-    const-string v0, "Failed to get button drawable via reflection"
+    move-exception v0
 
     .line 141
-    invoke-static {v1, v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    .local v0, "e":Ljava/lang/IllegalAccessException;
+    const-string v3, "Failed to get button drawable via reflection"
+
+    invoke-static {v1, v3, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 142
     sput-object v2, Landroid/support/v4/widget/CompoundButtonCompat;->sButtonDrawableField:Ljava/lang/reflect/Field;
 
+    .line 145
+    .end local v0    # "e":Ljava/lang/IllegalAccessException;
     :cond_2
     return-object v2
 .end method
 
 .method public static getButtonTintList(Landroid/widget/CompoundButton;)Landroid/content/res/ColorStateList;
     .locals 2
+    .param p0, "button"    # Landroid/widget/CompoundButton;
 
     .line 71
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -127,9 +137,9 @@
     .line 72
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getButtonTintList()Landroid/content/res/ColorStateList;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 74
     :cond_0
@@ -138,22 +148,26 @@
     if-eqz v0, :cond_1
 
     .line 75
-    check-cast p0, Landroid/support/v4/widget/TintableCompoundButton;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/widget/TintableCompoundButton;->getSupportButtonTintList()Landroid/content/res/ColorStateList;
+    check-cast v0, Landroid/support/v4/widget/TintableCompoundButton;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/widget/TintableCompoundButton;->getSupportButtonTintList()Landroid/content/res/ColorStateList;
 
-    return-object p0
+    move-result-object v0
 
+    return-object v0
+
+    .line 77
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getButtonTintMode(Landroid/widget/CompoundButton;)Landroid/graphics/PorterDuff$Mode;
     .locals 2
+    .param p0, "button"    # Landroid/widget/CompoundButton;
 
     .line 107
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -165,9 +179,9 @@
     .line 108
     invoke-virtual {p0}, Landroid/widget/CompoundButton;->getButtonTintMode()Landroid/graphics/PorterDuff$Mode;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 110
     :cond_0
@@ -176,22 +190,27 @@
     if-eqz v0, :cond_1
 
     .line 111
-    check-cast p0, Landroid/support/v4/widget/TintableCompoundButton;
+    move-object v0, p0
 
-    invoke-interface {p0}, Landroid/support/v4/widget/TintableCompoundButton;->getSupportButtonTintMode()Landroid/graphics/PorterDuff$Mode;
+    check-cast v0, Landroid/support/v4/widget/TintableCompoundButton;
 
-    move-result-object p0
+    invoke-interface {v0}, Landroid/support/v4/widget/TintableCompoundButton;->getSupportButtonTintMode()Landroid/graphics/PorterDuff$Mode;
 
-    return-object p0
+    move-result-object v0
 
+    return-object v0
+
+    .line 113
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static setButtonTintList(Landroid/widget/CompoundButton;Landroid/content/res/ColorStateList;)V
     .locals 2
+    .param p0, "button"    # Landroid/widget/CompoundButton;
+    .param p1, "tint"    # Landroid/content/res/ColorStateList;
 
     .line 57
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -212,10 +231,13 @@
     if-eqz v0, :cond_1
 
     .line 60
-    check-cast p0, Landroid/support/v4/widget/TintableCompoundButton;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/widget/TintableCompoundButton;->setSupportButtonTintList(Landroid/content/res/ColorStateList;)V
+    check-cast v0, Landroid/support/v4/widget/TintableCompoundButton;
 
+    invoke-interface {v0, p1}, Landroid/support/v4/widget/TintableCompoundButton;->setSupportButtonTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 62
     :cond_1
     :goto_0
     return-void
@@ -223,6 +245,8 @@
 
 .method public static setButtonTintMode(Landroid/widget/CompoundButton;Landroid/graphics/PorterDuff$Mode;)V
     .locals 2
+    .param p0, "button"    # Landroid/widget/CompoundButton;
+    .param p1, "tintMode"    # Landroid/graphics/PorterDuff$Mode;
 
     .line 93
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -243,10 +267,13 @@
     if-eqz v0, :cond_1
 
     .line 96
-    check-cast p0, Landroid/support/v4/widget/TintableCompoundButton;
+    move-object v0, p0
 
-    invoke-interface {p0, p1}, Landroid/support/v4/widget/TintableCompoundButton;->setSupportButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
+    check-cast v0, Landroid/support/v4/widget/TintableCompoundButton;
 
+    invoke-interface {v0, p1}, Landroid/support/v4/widget/TintableCompoundButton;->setSupportButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    .line 98
     :cond_1
     :goto_0
     return-void

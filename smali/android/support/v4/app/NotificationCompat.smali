@@ -189,11 +189,14 @@
     .line 5315
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 5316
     return-void
 .end method
 
 .method public static getAction(Landroid/app/Notification;I)Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 3
+    .locals 6
+    .param p0, "notification"    # Landroid/app/Notification;
+    .param p1, "actionIndex"    # I
 
     .line 5071
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -203,23 +206,21 @@
     if-lt v0, v1, :cond_0
 
     .line 5072
-    iget-object p0, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
+    iget-object v0, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
-    aget-object p0, p0, p1
+    aget-object v0, v0, p1
 
-    invoke-static {p0}, Landroid/support/v4/app/NotificationCompat;->getActionCompatFromAction(Landroid/app/Notification$Action;)Landroid/support/v4/app/NotificationCompat$Action;
+    invoke-static {v0}, Landroid/support/v4/app/NotificationCompat;->getActionCompatFromAction(Landroid/app/Notification$Action;)Landroid/support/v4/app/NotificationCompat$Action;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 5073
     :cond_0
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
-
-    const/4 v2, 0x0
 
     if-lt v0, v1, :cond_2
 
@@ -228,41 +229,51 @@
 
     aget-object v0, v0, p1
 
+    .line 5075
+    .local v0, "action":Landroid/app/Notification$Action;
+    const/4 v1, 0x0
+
     .line 5076
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    .local v1, "actionExtras":Landroid/os/Bundle;
+    iget-object v2, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    const-string v1, "android.support.actionExtras"
+    const-string v3, "android.support.actionExtras"
 
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getSparseParcelableArray(Ljava/lang/String;)Landroid/util/SparseArray;
 
-    move-result-object p0
+    move-result-object v2
 
-    if-eqz p0, :cond_1
+    .line 5078
+    .local v2, "actionExtrasMap":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Bundle;>;"
+    if-eqz v2, :cond_1
 
     .line 5079
-    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object p0
+    move-result-object v3
 
-    move-object v2, p0
+    move-object v1, v3
 
-    check-cast v2, Landroid/os/Bundle;
+    check-cast v1, Landroid/os/Bundle;
 
     .line 5081
     :cond_1
-    iget p0, v0, Landroid/app/Notification$Action;->icon:I
+    iget v3, v0, Landroid/app/Notification$Action;->icon:I
 
-    iget-object p1, v0, Landroid/app/Notification$Action;->title:Ljava/lang/CharSequence;
+    iget-object v4, v0, Landroid/app/Notification$Action;->title:Ljava/lang/CharSequence;
 
-    iget-object v0, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
+    iget-object v5, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    invoke-static {p0, p1, v0, v2}, Landroid/support/v4/app/NotificationCompatJellybean;->readAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
+    invoke-static {v3, v4, v5, v1}, Landroid/support/v4/app/NotificationCompatJellybean;->readAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
 
-    move-result-object p0
+    move-result-object v3
 
-    return-object p0
+    return-object v3
 
     .line 5083
+    .end local v0    # "action":Landroid/app/Notification$Action;
+    .end local v1    # "actionExtras":Landroid/os/Bundle;
+    .end local v2    # "actionExtrasMap":Landroid/util/SparseArray;, "Landroid/util/SparseArray<Landroid/os/Bundle;>;"
     :cond_2
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -273,50 +284,60 @@
     .line 5084
     invoke-static {p0, p1}, Landroid/support/v4/app/NotificationCompatJellybean;->getAction(Landroid/app/Notification;I)Landroid/support/v4/app/NotificationCompat$Action;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 5086
     :cond_3
-    return-object v2
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method static getActionCompatFromAction(Landroid/app/Notification$Action;)Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 14
+    .locals 17
+    .param p0, "action"    # Landroid/app/Notification$Action;
 
     .line 5093
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
 
-    const/4 v1, 0x0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    .line 5094
+    .local v1, "srcArray":[Landroid/app/RemoteInput;
+    if-nez v1, :cond_0
 
-    const/4 v0, 0x0
+    .line 5095
+    const/4 v2, 0x0
 
-    move-object v9, v0
-
+    .local v2, "remoteInputs":[Landroid/support/v4/app/RemoteInput;
     goto :goto_1
 
     .line 5097
+    .end local v2    # "remoteInputs":[Landroid/support/v4/app/RemoteInput;
     :cond_0
-    array-length v2, v0
+    array-length v2, v1
 
     new-array v2, v2, [Landroid/support/v4/app/RemoteInput;
 
+    .line 5098
+    .restart local v2    # "remoteInputs":[Landroid/support/v4/app/RemoteInput;
     const/4 v3, 0x0
 
-    .line 5098
+    .local v3, "i":I
     :goto_0
-    array-length v4, v0
+    array-length v4, v1
 
     if-ge v3, v4, :cond_1
 
     .line 5099
-    aget-object v4, v0, v3
+    aget-object v4, v1, v3
 
     .line 5100
+    .local v4, "src":Landroid/app/RemoteInput;
     new-instance v12, Landroid/support/v4/app/RemoteInput;
 
     invoke-virtual {v4}, Landroid/app/RemoteInput;->getResultKey()Ljava/lang/String;
@@ -348,134 +369,157 @@
 
     aput-object v12, v2, v3
 
+    .line 5098
+    .end local v4    # "src":Landroid/app/RemoteInput;
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_1
-    move-object v9, v2
-
     .line 5106
+    .end local v3    # "i":I
+    :cond_1
     :goto_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v2, 0x18
+    const/16 v4, 0x18
 
-    const-string v3, "android.support.allowGeneratedReplies"
+    const/4 v5, 0x0
 
-    const/4 v4, 0x1
+    const-string v6, "android.support.allowGeneratedReplies"
 
-    if-lt v0, v2, :cond_4
+    const/4 v7, 0x1
+
+    if-lt v3, v4, :cond_4
 
     .line 5107
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_3
+    if-nez v3, :cond_3
 
     .line 5109
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getAllowGeneratedReplies()Z
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getAllowGeneratedReplies()Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     goto :goto_2
 
     :cond_2
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     goto :goto_3
 
     :cond_3
     :goto_2
-    const/4 v0, 0x1
+    const/4 v3, 0x1
 
-    goto :goto_3
-
-    .line 5111
-    :cond_4
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
+    .local v3, "allowGeneratedReplies":Z
     :goto_3
-    move v11, v0
-
-    .line 5116
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    const-string v2, "android.support.action.showsUserInterface"
-
-    invoke-virtual {v0, v2, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v13
-
-    .line 5119
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x1c
-
-    if-lt v0, v2, :cond_5
-
-    .line 5120
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getSemanticAction()I
-
-    move-result v0
-
     goto :goto_4
 
-    .line 5122
-    :cond_5
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
+    .line 5111
+    .end local v3    # "allowGeneratedReplies":Z
+    :cond_4
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string v2, "android.support.action.semanticAction"
+    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    move-result v3
 
-    move-result v0
-
+    .line 5115
+    .restart local v3    # "allowGeneratedReplies":Z
     :goto_4
-    move v12, v0
+    nop
+
+    .line 5116
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v4
+
+    const-string v6, "android.support.action.showsUserInterface"
+
+    invoke-virtual {v4, v6, v7}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v14
+
+    .line 5119
+    .local v14, "showsUserInterface":Z
+    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v6, 0x1c
+
+    if-lt v4, v6, :cond_5
+
+    .line 5120
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getSemanticAction()I
+
+    move-result v4
+
+    move v15, v4
+
+    .local v4, "semanticAction":I
+    goto :goto_5
+
+    .line 5122
+    .end local v4    # "semanticAction":I
+    :cond_5
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v4
+
+    const-string v6, "android.support.action.semanticAction"
+
+    invoke-virtual {v4, v6, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    move v15, v4
 
     .line 5126
-    new-instance v0, Landroid/support/v4/app/NotificationCompat$Action;
+    .local v15, "semanticAction":I
+    :goto_5
+    new-instance v16, Landroid/support/v4/app/NotificationCompat$Action;
 
-    iget v5, p0, Landroid/app/Notification$Action;->icon:I
+    iget v5, v0, Landroid/app/Notification$Action;->icon:I
 
-    iget-object v6, p0, Landroid/app/Notification$Action;->title:Ljava/lang/CharSequence;
+    iget-object v6, v0, Landroid/app/Notification$Action;->title:Ljava/lang/CharSequence;
 
-    iget-object v7, p0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
+    iget-object v7, v0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
     .line 5127
-    invoke-virtual {p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
+    invoke-virtual/range {p0 .. p0}, Landroid/app/Notification$Action;->getExtras()Landroid/os/Bundle;
 
     move-result-object v8
 
     const/4 v10, 0x0
 
-    move-object v4, v0
+    move-object/from16 v4, v16
+
+    move-object v9, v2
+
+    move v11, v3
+
+    move v12, v15
+
+    move v13, v14
 
     invoke-direct/range {v4 .. v13}, Landroid/support/v4/app/NotificationCompat$Action;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;ZIZ)V
 
-    return-object v0
+    return-object v16
 .end method
 
 .method public static getActionCount(Landroid/app/Notification;)I
     .locals 3
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5055
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -491,9 +535,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
+    iget-object v0, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
-    array-length v1, p0
+    array-length v1, v0
 
     :cond_0
     return v1
@@ -509,16 +553,18 @@
     .line 5058
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompatJellybean;->getActionCount(Landroid/app/Notification;)I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 5060
     :cond_2
     return v1
 .end method
 
 .method public static getBadgeIconType(Landroid/app/Notification;)I
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5279
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -530,18 +576,20 @@
     .line 5280
     invoke-virtual {p0}, Landroid/app/Notification;->getBadgeIconType()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 5282
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    return v0
 .end method
 
 .method public static getCategory(Landroid/app/Notification;)Ljava/lang/String;
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5163
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -551,18 +599,20 @@
     if-lt v0, v1, :cond_0
 
     .line 5164
-    iget-object p0, p0, Landroid/app/Notification;->category:Ljava/lang/String;
+    iget-object v0, p0, Landroid/app/Notification;->category:Ljava/lang/String;
 
-    return-object p0
+    return-object v0
 
+    .line 5166
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getChannelId(Landroid/app/Notification;)Ljava/lang/String;
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5254
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -574,33 +624,36 @@
     .line 5255
     invoke-virtual {p0}, Landroid/app/Notification;->getChannelId()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 5257
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getContentTitle(Landroid/app/Notification;)Ljava/lang/CharSequence;
-    .locals 1
+    .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5154
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    const-string v0, "android.title"
+    const-string v1, "android.title"
 
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5041
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -610,9 +663,9 @@
     if-lt v0, v1, :cond_0
 
     .line 5042
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    return-object p0
+    return-object v0
 
     .line 5043
     :cond_0
@@ -625,18 +678,20 @@
     .line 5044
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompatJellybean;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 5046
     :cond_1
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getGroup(Landroid/app/Notification;)Ljava/lang/String;
     .locals 3
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5194
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -648,9 +703,9 @@
     .line 5195
     invoke-virtual {p0}, Landroid/app/Notification;->getGroup()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 5196
     :cond_0
@@ -663,13 +718,13 @@
     if-lt v0, v1, :cond_1
 
     .line 5197
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 5198
     :cond_1
@@ -682,22 +737,24 @@
     .line 5199
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompatJellybean;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 5202
     :cond_2
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getGroupAlertBehavior(Landroid/app/Notification;)I
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5305
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -709,18 +766,20 @@
     .line 5306
     invoke-virtual {p0}, Landroid/app/Notification;->getGroupAlertBehavior()I
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 5308
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return p0
+    return v0
 .end method
 
 .method public static getInvisibleActions(Landroid/app/Notification;)Ljava/util/List;
-    .locals 3
+    .locals 5
+    .param p0, "notification"    # Landroid/app/Notification;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -738,64 +797,78 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     .line 5136
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    .local v0, "result":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/support/v4/app/NotificationCompat$Action;>;"
+    iget-object v1, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    const-string v1, "android.car.EXTENSIONS"
+    const-string v2, "android.car.EXTENSIONS"
 
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v1
 
-    if-nez p0, :cond_0
+    .line 5137
+    .local v1, "carExtenderBundle":Landroid/os/Bundle;
+    if-nez v1, :cond_0
 
+    .line 5138
     return-object v0
 
-    :cond_0
-    const-string v1, "invisible_actions"
-
     .line 5141
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    :cond_0
+    const-string v2, "invisible_actions"
 
-    move-result-object p0
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
-    if-eqz p0, :cond_1
+    move-result-object v2
 
-    const/4 v1, 0x0
+    .line 5142
+    .local v2, "listBundle":Landroid/os/Bundle;
+    if-eqz v2, :cond_1
 
     .line 5143
+    const/4 v3, 0x0
+
+    .local v3, "i":I
     :goto_0
-    invoke-virtual {p0}, Landroid/os/Bundle;->size()I
+    invoke-virtual {v2}, Landroid/os/Bundle;->size()I
 
-    move-result v2
+    move-result v4
 
-    if-ge v1, v2, :cond_1
-
-    .line 5145
-    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object v2
+    if-ge v3, v4, :cond_1
 
     .line 5144
-    invoke-static {v2}, Landroid/support/v4/app/NotificationCompatJellybean;->getActionFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
+    nop
 
-    move-result-object v2
+    .line 5145
+    invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object v4
 
-    add-int/lit8 v1, v1, 0x1
+    invoke-virtual {v2, v4}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+
+    move-result-object v4
+
+    .line 5144
+    invoke-static {v4}, Landroid/support/v4/app/NotificationCompatJellybean;->getActionFromBundle(Landroid/os/Bundle;)Landroid/support/v4/app/NotificationCompat$Action;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 5143
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 5148
+    .end local v3    # "i":I
     :cond_1
     return-object v0
 .end method
 
 .method public static getLocalOnly(Landroid/app/Notification;)Z
     .locals 4
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5177
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -807,11 +880,11 @@
     if-lt v0, v2, :cond_1
 
     .line 5178
-    iget p0, p0, Landroid/app/Notification;->flags:I
+    iget v0, p0, Landroid/app/Notification;->flags:I
 
-    and-int/lit16 p0, p0, 0x100
+    and-int/lit16 v0, v0, 0x100
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 
@@ -829,13 +902,13 @@
     if-lt v0, v2, :cond_2
 
     .line 5180
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    invoke-virtual {p0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
     .line 5181
     :cond_2
@@ -848,20 +921,23 @@
     .line 5182
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompatJellybean;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 5185
     :cond_3
     return v1
 .end method
 
 .method static getNotificationArrayFromBundle(Landroid/os/Bundle;Ljava/lang/String;)[Landroid/app/Notification;
     .locals 4
+    .param p0, "bundle"    # Landroid/os/Bundle;
+    .param p1, "key"    # Ljava/lang/String;
 
     .line 5022
     invoke-virtual {p0, p1}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
@@ -869,6 +945,7 @@
     move-result-object v0
 
     .line 5023
+    .local v0, "array":[Landroid/os/Parcelable;
     instance-of v1, v0, [Landroid/app/Notification;
 
     if-nez v1, :cond_2
@@ -883,9 +960,11 @@
 
     new-array v1, v1, [Landroid/app/Notification;
 
+    .line 5027
+    .local v1, "typedArray":[Landroid/app/Notification;
     const/4 v2, 0x0
 
-    .line 5027
+    .local v2, "i":I
     :goto_0
     array-length v3, v0
 
@@ -898,28 +977,35 @@
 
     aput-object v3, v1, v2
 
+    .line 5027
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 5030
+    .end local v2    # "i":I
     :cond_1
     invoke-virtual {p0, p1, v1}, Landroid/os/Bundle;->putParcelableArray(Ljava/lang/String;[Landroid/os/Parcelable;)V
 
+    .line 5031
     return-object v1
 
     .line 5024
+    .end local v1    # "typedArray":[Landroid/app/Notification;
     :cond_2
     :goto_1
-    check-cast v0, [Landroid/app/Notification;
+    move-object v1, v0
 
-    check-cast v0, [Landroid/app/Notification;
+    check-cast v1, [Landroid/app/Notification;
 
-    return-object v0
+    check-cast v1, [Landroid/app/Notification;
+
+    return-object v1
 .end method
 
 .method public static getShortcutId(Landroid/app/Notification;)Ljava/lang/String;
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5291
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -931,18 +1017,20 @@
     .line 5292
     invoke-virtual {p0}, Landroid/app/Notification;->getShortcutId()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 5294
     :cond_0
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getSortKey(Landroid/app/Notification;)Ljava/lang/String;
     .locals 3
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5238
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -954,9 +1042,9 @@
     .line 5239
     invoke-virtual {p0}, Landroid/app/Notification;->getSortKey()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 5240
     :cond_0
@@ -969,13 +1057,13 @@
     if-lt v0, v1, :cond_1
 
     .line 5241
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
     .line 5242
     :cond_1
@@ -988,22 +1076,24 @@
     .line 5243
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompatJellybean;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    return-object p0
+    return-object v0
 
+    .line 5246
     :cond_2
-    const/4 p0, 0x0
+    const/4 v0, 0x0
 
-    return-object p0
+    return-object v0
 .end method
 
 .method public static getTimeoutAfter(Landroid/app/Notification;)J
     .locals 2
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5266
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1019,6 +1109,7 @@
 
     return-wide v0
 
+    .line 5269
     :cond_0
     const-wide/16 v0, 0x0
 
@@ -1027,6 +1118,7 @@
 
 .method public static isGroupSummary(Landroid/app/Notification;)Z
     .locals 4
+    .param p0, "notification"    # Landroid/app/Notification;
 
     .line 5213
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -1038,11 +1130,11 @@
     if-lt v0, v2, :cond_1
 
     .line 5214
-    iget p0, p0, Landroid/app/Notification;->flags:I
+    iget v0, p0, Landroid/app/Notification;->flags:I
 
-    and-int/lit16 p0, p0, 0x200
+    and-int/lit16 v0, v0, 0x200
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 v1, 0x1
 
@@ -1060,13 +1152,13 @@
     if-lt v0, v2, :cond_2
 
     .line 5216
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object v0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
 
-    invoke-virtual {p0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
     .line 5217
     :cond_2
@@ -1079,14 +1171,15 @@
     .line 5218
     invoke-static {p0}, Landroid/support/v4/app/NotificationCompatJellybean;->getExtras(Landroid/app/Notification;)Landroid/os/Bundle;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result p0
+    move-result v0
 
-    return p0
+    return v0
 
+    .line 5221
     :cond_3
     return v1
 .end method

@@ -21,6 +21,7 @@
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable$ConstantState;)V
     .locals 0
+    .param p1, "state"    # Landroid/graphics/drawable/Drawable$ConstantState;
 
     .line 966
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -28,6 +29,7 @@
     .line 967
     iput-object p1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
+    .line 968
     return-void
 .end method
 
@@ -68,6 +70,7 @@
     invoke-direct {v0}, Landroid/support/graphics/drawable/VectorDrawableCompat;-><init>()V
 
     .line 973
+    .local v0, "drawableCompat":Landroid/support/graphics/drawable/VectorDrawableCompat;
     iget-object v1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
@@ -78,11 +81,13 @@
 
     iput-object v1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
+    .line 974
     return-object v0
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
     .locals 2
+    .param p1, "res"    # Landroid/content/res/Resources;
 
     .line 979
     new-instance v0, Landroid/support/graphics/drawable/VectorDrawableCompat;
@@ -90,21 +95,25 @@
     invoke-direct {v0}, Landroid/support/graphics/drawable/VectorDrawableCompat;-><init>()V
 
     .line 980
+    .local v0, "drawableCompat":Landroid/support/graphics/drawable/VectorDrawableCompat;
     iget-object v1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v1
 
-    check-cast p1, Landroid/graphics/drawable/VectorDrawable;
+    check-cast v1, Landroid/graphics/drawable/VectorDrawable;
 
-    iput-object p1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
+    .line 981
     return-object v0
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
     .locals 2
+    .param p1, "res"    # Landroid/content/res/Resources;
+    .param p2, "theme"    # Landroid/content/res/Resources$Theme;
 
     .line 986
     new-instance v0, Landroid/support/graphics/drawable/VectorDrawableCompat;
@@ -112,16 +121,18 @@
     invoke-direct {v0}, Landroid/support/graphics/drawable/VectorDrawableCompat;-><init>()V
 
     .line 987
+    .local v0, "drawableCompat":Landroid/support/graphics/drawable/VectorDrawableCompat;
     iget-object v1, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     .line 988
     invoke-virtual {v1, p1, p2}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v1
 
-    check-cast p1, Landroid/graphics/drawable/VectorDrawable;
+    check-cast v1, Landroid/graphics/drawable/VectorDrawable;
 
-    iput-object p1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object v1, v0, Landroid/support/graphics/drawable/VectorDrawableCompat;->mDelegateDrawable:Landroid/graphics/drawable/Drawable;
 
+    .line 989
     return-object v0
 .end method

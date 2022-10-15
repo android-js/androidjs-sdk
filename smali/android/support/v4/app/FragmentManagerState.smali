@@ -50,23 +50,25 @@
     .line 621
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 618
     const/4 v0, -0x1
 
-    .line 618
     iput v0, p0, Landroid/support/v4/app/FragmentManagerState;->mPrimaryNavActiveIndex:I
 
+    .line 622
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
     .line 624
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 618
     const/4 v0, -0x1
 
-    .line 618
     iput v0, p0, Landroid/support/v4/app/FragmentManagerState;->mPrimaryNavActiveIndex:I
 
     .line 625
@@ -108,10 +110,11 @@
     .line 629
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result p1
+    move-result v0
 
-    iput p1, p0, Landroid/support/v4/app/FragmentManagerState;->mNextFragmentIndex:I
+    iput v0, p0, Landroid/support/v4/app/FragmentManagerState;->mNextFragmentIndex:I
 
+    .line 630
     return-void
 .end method
 
@@ -120,6 +123,7 @@
 .method public describeContents()I
     .locals 1
 
+    .line 634
     const/4 v0, 0x0
 
     return v0
@@ -127,6 +131,8 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
     .line 639
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerState;->mActive:[Landroid/support/v4/app/FragmentState;
@@ -144,14 +150,15 @@
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeTypedArray([Landroid/os/Parcelable;I)V
 
     .line 642
-    iget p2, p0, Landroid/support/v4/app/FragmentManagerState;->mPrimaryNavActiveIndex:I
+    iget v0, p0, Landroid/support/v4/app/FragmentManagerState;->mPrimaryNavActiveIndex:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 643
-    iget p2, p0, Landroid/support/v4/app/FragmentManagerState;->mNextFragmentIndex:I
+    iget v0, p0, Landroid/support/v4/app/FragmentManagerState;->mNextFragmentIndex:I
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 644
     return-void
 .end method

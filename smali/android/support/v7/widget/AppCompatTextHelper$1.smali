@@ -23,6 +23,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/AppCompatTextHelper;Ljava/lang/ref/WeakReference;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/v7/widget/AppCompatTextHelper;
 
     .line 252
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatTextHelper$1;->this$0:Landroid/support/v7/widget/AppCompatTextHelper;
@@ -38,12 +39,15 @@
 # virtual methods
 .method public onFontRetrievalFailed(I)V
     .locals 0
+    .param p1, "reason"    # I
 
+    .line 261
     return-void
 .end method
 
 .method public onFontRetrieved(Landroid/graphics/Typeface;)V
     .locals 2
+    .param p1, "typeface"    # Landroid/graphics/Typeface;
 
     .line 255
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelper$1;->this$0:Landroid/support/v7/widget/AppCompatTextHelper;
@@ -52,5 +56,6 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/support/v7/widget/AppCompatTextHelper;->onAsyncTypefaceReceived(Ljava/lang/ref/WeakReference;Landroid/graphics/Typeface;)V
 
+    .line 256
     return-void
 .end method

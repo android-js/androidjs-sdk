@@ -33,6 +33,7 @@
 # direct methods
 .method constructor <init>(Landroid/support/constraint/motion/KeyCycleOscillator;)V
     .locals 0
+    .param p1, "this$0"    # Landroid/support/constraint/motion/KeyCycleOscillator;
 
     .line 177
     iput-object p1, p0, Landroid/support/constraint/motion/KeyCycleOscillator$1;->this$0:Landroid/support/constraint/motion/KeyCycleOscillator;
@@ -45,18 +46,20 @@
 
 # virtual methods
 .method public compare(Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;)I
-    .locals 0
+    .locals 2
+    .param p1, "lhs"    # Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;
+    .param p2, "rhs"    # Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;
 
     .line 180
-    iget p1, p1, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
+    iget v0, p1, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
 
-    iget p2, p2, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
+    iget v1, p2, Landroid/support/constraint/motion/KeyCycleOscillator$WavePoint;->mPosition:I
 
-    invoke-static {p1, p2}, Ljava/lang/Integer;->compare(II)I
+    invoke-static {v0, v1}, Ljava/lang/Integer;->compare(II)I
 
-    move-result p1
+    move-result v0
 
-    return p1
+    return v0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I

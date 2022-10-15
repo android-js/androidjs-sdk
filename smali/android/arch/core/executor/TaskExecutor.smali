@@ -20,6 +20,7 @@
 
 .method public executeOnMainThread(Ljava/lang/Runnable;)V
     .locals 1
+    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 54
     invoke-virtual {p0}, Landroid/arch/core/executor/TaskExecutor;->isMainThread()Z
@@ -37,6 +38,7 @@
     :cond_0
     invoke-virtual {p0, p1}, Landroid/arch/core/executor/TaskExecutor;->postToMainThread(Ljava/lang/Runnable;)V
 
+    .line 59
     :goto_0
     return-void
 .end method

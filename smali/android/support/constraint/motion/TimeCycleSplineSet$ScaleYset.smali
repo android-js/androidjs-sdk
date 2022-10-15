@@ -28,7 +28,12 @@
 # virtual methods
 .method public setProperty(Landroid/view/View;FJLandroid/support/constraint/motion/KeyCache;)Z
     .locals 6
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "t"    # F
+    .param p3, "time"    # J
+    .param p5, "cache"    # Landroid/support/constraint/motion/KeyCache;
 
+    .line 284
     move-object v0, p0
 
     move v1, p2
@@ -39,15 +44,14 @@
 
     move-object v5, p5
 
-    .line 284
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/motion/TimeCycleSplineSet$ScaleYset;->get(FJLandroid/view/View;Landroid/support/constraint/motion/KeyCache;)F
 
-    move-result p2
+    move-result v0
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setScaleY(F)V
 
     .line 285
-    iget-boolean p1, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ScaleYset;->mContinue:Z
+    iget-boolean v0, p0, Landroid/support/constraint/motion/TimeCycleSplineSet$ScaleYset;->mContinue:Z
 
-    return p1
+    return v0
 .end method
